@@ -1,0 +1,345 @@
+// Amana Marketplace — Database Schema
+// African cross-border marketplace with escrow
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ==================== USERS ====================
+
+enum UserRole {
+  BUYER
+  SELLER
+  ADMIN
+}
+
+enum VerificationStatus {
+  UNVERIFIED
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  passwordHash  String
+  firstName     String
+  lastName      String
+  role          UserRole  @default(BUYER)
+  phone         String?
+  country       String
+  city          String?
+  image         String?
+  isActive      Boolean   @default(true)
+  emailVerified Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  sellerProfile SellerProfile?
+  addresses     Address[]
+  products      Product[]
+  buyerOrders   Order[]        @relation("BuyerOrders")
+  sellerOrders  Order[]        @relation("SellerOrders")
+  reviews       Review[]
+  notifications Notification[]
+
+  @@index([email])
+  @@index([role])
+}
+
+model SellerProfile {
+  id                  String             @id @default(cuid())
+  userId              String             @unique
+  user                User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  storeName           String
+  storeSlug           String             @unique
+  storeDescription    String?
+  logoUrl             String?
+  bannerUrl           String?
+
+  verification        VerificationStatus @default(UNVERIFIED)
+  isVerified          Boolean            @default(false)
+  businessRegNum      String?
+  businessDocUrl      String?
+  idDocUrl            String?
+  verifiedAt          DateTime?
+  trustScore          Int                @default(0)
+
+  bankName            String?
+  bankAccountNum      String?
+  bankCountry         String?
+  mobileMoneyNum      String?
+  mobileMoneyProvider String?
+
+  totalSales          Int                @default(0)
+  totalRevenue        Float              @default(0)
+  avgRating           Float              @default(0)
+  responseTime        Int                @default(0)
+  onTimeDelivery      Float              @default(100)
+
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+
+  @@index([storeSlug])
+  @@index([verification])
+}
+
+model Address {
+  id        String  @id @default(cuid())
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  label     String  @default("Home")
+  fullName  String
+  phone     String
+  street    String
+  city      String
+  state     String?
+  zip       String?
+  country   String
+  isDefault Boolean @default(false)
+  orders    Order[]
+
+  @@index([userId])
+}
+
+// ==================== PRODUCTS ====================
+
+model Category {
+  id          String     @id @default(cuid())
+  name        String
+  slug        String     @unique
+  description String?
+  icon        String?
+  image       String?
+  parentId    String?
+  parent      Category?  @relation("SubCategories", fields: [parentId], references: [id])
+  children    Category[] @relation("SubCategories")
+  products    Product[]
+
+  @@index([slug])
+}
+
+model Product {
+  id             String   @id @default(cuid())
+  sellerId       String
+  seller         User     @relation(fields: [sellerId], references: [id], onDelete: Cascade)
+  categoryId     String
+  category       Category @relation(fields: [categoryId], references: [id])
+
+  name           String
+  slug           String   @unique
+  description    String
+  price          Float
+  comparePrice   Float?
+  currency       String   @default("USD")
+
+  stock          Int      @default(0)
+  sku            String?
+  moq            Int      @default(1)
+
+  weight         Float?
+  originCountry  String
+  shipsTo        String[]
+
+  hsCode         String?
+  afcftaEligible Boolean  @default(false)
+
+  images         String[]
+  tags           String[] @default([])
+
+  isActive       Boolean  @default(true)
+  isApproved     Boolean  @default(false)
+  isFeatured     Boolean  @default(false)
+
+  totalSold      Int      @default(0)
+  avgRating      Float    @default(0)
+  reviewCount    Int      @default(0)
+  viewCount      Int      @default(0)
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  orderItems OrderItem[]
+  reviews    Review[]
+
+  @@index([sellerId])
+  @@index([categoryId])
+  @@index([slug])
+  @@index([isActive, isApproved])
+  @@index([originCountry])
+}
+
+// ==================== ORDERS & ESCROW ====================
+
+enum OrderStatus {
+  PENDING
+  PAID
+  ESCROW_HELD
+  SHIPPED
+  IN_TRANSIT
+  DELIVERED
+  BUYER_VERIFYING
+  COMPLETED
+  DISPUTED
+  REFUNDED
+  CANCELLED
+}
+
+enum EscrowStatus {
+  PENDING
+  NOT_FUNDED
+  FUNDED
+  RELEASE_PENDING
+  RELEASED
+  REFUNDED
+  FROZEN
+  DISPUTED
+}
+
+model Order {
+  id                  String       @id @default(cuid())
+  orderNumber         String       @unique
+
+  buyerId             String
+  buyer               User         @relation("BuyerOrders", fields: [buyerId], references: [id])
+  sellerId            String
+  seller              User         @relation("SellerOrders", fields: [sellerId], references: [id])
+  shippingAddressId   String?
+  shippingAddress     Address?     @relation(fields: [shippingAddressId], references: [id])
+
+  status              OrderStatus  @default(PENDING)
+
+  subtotal            Float?
+  shippingCost        Float        @default(0)
+  taxAmount           Float        @default(0)
+  afcftaSavings       Float        @default(0)
+  totalAmount         Float
+  currency            String       @default("USD")
+
+  buyerCurrency       String?
+  buyerAmount         Float?
+  exchangeRate        Float?
+
+  escrowStatus        EscrowStatus @default(PENDING)
+  escrowTransactionId String?
+  escrowFundedAt      DateTime?
+  escrowReleasedAt    DateTime?
+
+  paymentMethod       String?
+  paymentRef          String?
+
+  shippingMethod      String?
+  trackingNumber      String?
+  shippedAt           DateTime?
+  deliveredAt         DateTime?
+
+  verifyDeadline      DateTime?
+  buyerApprovedAt     DateTime?
+
+  originCountry       String?
+  destinationCountry  String?
+  isCrossBorder       Boolean      @default(false)
+
+  createdAt           DateTime     @default(now())
+  updatedAt           DateTime     @updatedAt
+
+  items   OrderItem[]
+  events  OrderEvent[]
+  dispute Dispute?
+
+  @@index([buyerId])
+  @@index([sellerId])
+  @@index([status])
+  @@index([orderNumber])
+  @@index([escrowStatus])
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  quantity  Int
+  price     Float
+
+  @@index([orderId])
+}
+
+model OrderEvent {
+  id          String   @id @default(cuid())
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  type        String
+  description String?
+  createdAt   DateTime @default(now())
+
+  @@index([orderId])
+}
+
+// ==================== DISPUTES ====================
+
+enum DisputeStatus {
+  OPEN
+  SELLER_RESPONDED
+  UNDER_REVIEW
+  RESOLVED_BUYER
+  RESOLVED_SELLER
+  ESCALATED
+}
+
+model Dispute {
+  id          String        @id @default(cuid())
+  orderId     String        @unique
+  order       Order         @relation(fields: [orderId], references: [id])
+  reason      String
+  description String
+  evidence    String[]
+  status      DisputeStatus @default(OPEN)
+  resolution  String?
+  resolvedAt  DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+// ==================== REVIEWS ====================
+
+model Review {
+  id         String   @id @default(cuid())
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  rating     Int
+  title      String?
+  comment    String
+  images     String[]
+  isVerified Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  @@unique([productId, userId])
+  @@index([productId])
+}
+
+// ==================== NOTIFICATIONS ====================
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String
+  title     String
+  message   String
+  link      String?
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([userId, isRead])
+}
