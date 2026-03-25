@@ -1,11 +1,27 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import crypto from "crypto";
+
+function verifyVesicashSignature(payload: string, signature: string): boolean {
+  const secret = process.env.VESICASH_PRIVATE_KEY || "";
+  if (!secret || !signature) return false;
+  const computed = crypto.createHmac("sha512", secret).update(payload).digest("hex");
+  return crypto.timingSafeEqual(Buffer.from(computed), Buffer.from(signature));
+}
 
 // POST /api/webhooks/escrow - Vesicash webhook handler
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const rawBody = await request.text();
+    const signature = request.headers.get("x-vesicash-signature") || request.headers.get("x-webhook-signature") || "";
 
+    // Verify webhook signature in production
+    if (process.env.NODE_ENV === "production" && !verifyVesicashSignature(rawBody, signature)) {
+      console.error("[Vesicash Webhook] Invalid signature");
+      return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
+    }
+
+    const body = JSON.parse(rawBody);
     const { event, data } = body;
 
     console.log(`[Vesicash Webhook] Event: ${event}`, data);

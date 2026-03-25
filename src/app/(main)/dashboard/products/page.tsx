@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Plus, Search, Edit, Trash2, Eye, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -22,9 +23,11 @@ interface ProductData {
 }
 
 export default function ProductsPage() {
+  const router = useRouter();
   const [products, setProducts] = useState<ProductData[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [deletingSlug, setDeletingSlug] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("/api/products?mine=true")
@@ -133,11 +136,30 @@ export default function ProductsPage() {
                         <Eye className="w-4 h-4" />
                       </button>
                     </Link>
-                    <button className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-600">
-                      <Edit className="w-4 h-4" />
-                    </button>
-                    <button className="p-1.5 rounded-lg hover:bg-red-50 text-gray-400 hover:text-red-500">
-                      <Trash2 className="w-4 h-4" />
+                    <Link href={`/dashboard/products/edit/${product.slug}`}>
+                      <button className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-600">
+                        <Edit className="w-4 h-4" />
+                      </button>
+                    </Link>
+                    <button
+                      className="p-1.5 rounded-lg hover:bg-red-50 text-gray-400 hover:text-red-500"
+                      disabled={deletingSlug === product.slug}
+                      onClick={async () => {
+                        if (!confirm(`Delete "${product.name}"? Products with active orders will be deactivated instead.`)) return;
+                        setDeletingSlug(product.slug);
+                        try {
+                          const res = await fetch(`/api/products/${product.slug}`, { method: "DELETE" });
+                          if (res.ok) {
+                            setProducts(prev => prev.filter(p => p.slug !== product.slug));
+                          } else {
+                            const data = await res.json();
+                            alert(data.error || "Failed to delete");
+                          }
+                        } catch { alert("Failed to delete"); }
+                        finally { setDeletingSlug(null); }
+                      }}
+                    >
+                      {deletingSlug === product.slug ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
                     </button>
                   </div>
                 </td>

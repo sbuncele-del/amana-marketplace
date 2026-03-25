@@ -6,20 +6,42 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import {
   Shield, ChevronRight, Lock, Truck, CreditCard, Smartphone,
-  Building2, ArrowRight, CheckCircle, Globe,
+  Building2, ArrowRight, CheckCircle, Globe, Loader2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { formatCurrency, getCountryFlag } from "@/lib/utils";
 
-const sampleProduct = {
-  name: "Tanzanite Rough Stone — 12ct AAA Grade",
-  slug: "tanzanite-rough-stone-12ct",
-  price: 480,
-  currency: "USD",
-  originCountry: "Tanzania",
-  seller: { storeName: "Arusha Gems Ltd", country: "Tanzania", trustScore: 92, isVerified: true },
+interface ProductData {
+  name: string;
+  slug: string;
+  price: number;
+  currency: string;
+  images: string[];
+  originCountry: string;
+  stock: number;
+  moq: number;
+  seller: {
+    name: string;
+    country: string;
+    sellerProfile?: {
+      storeName: string;
+      trustScore: number;
+      isVerified: boolean;
+    };
+  };
+}
+
+const PLATFORM_COMMISSION_RATE = 0.05; // 5% platform commission
+const ESCROW_FEE_RATE = 0.015; // 1.5% Vesicash escrow fee
+
+const shippingRates: Record<string, { domestic: number; crossBorder: number; label: string }> = {
+  dhl_express: { domestic: 15, crossBorder: 35, label: "DHL Express (3-5 days)" },
+  dhl_ecommerce: { domestic: 10, crossBorder: 25, label: "DHL eCommerce (7-14 days)" },
+  aramex: { domestic: 12, crossBorder: 30, label: "Aramex (5-10 days)" },
+  sendy: { domestic: 8, crossBorder: 0, label: "Sendy (1-3 days, local only)" },
+  self_ship: { domestic: 0, crossBorder: 0, label: "Seller Ships Directly" },
 };
 
 const paymentMethods = [
@@ -41,8 +63,11 @@ export default function CheckoutPage() {
 
   const [step, setStep] = useState<CheckoutStep>("shipping");
   const [paymentMethod, setPaymentMethod] = useState("card");
+  const [shippingMethod, setShippingMethod] = useState("dhl_ecommerce");
   const [placing, setPlacing] = useState(false);
-  const [product] = useState(sampleProduct);
+  const [product, setProduct] = useState<ProductData | null>(null);
+  const [loadingProduct, setLoadingProduct] = useState(true);
+  const [orderError, setOrderError] = useState("");
 
   const [shippingData, setShippingData] = useState({
     fullName: session?.user?.name || "",
@@ -54,16 +79,58 @@ export default function CheckoutPage() {
     zip: "",
   });
 
+  // Fetch real product data
   useEffect(() => {
     if (!session) {
       router.push(`/login?callbackUrl=/checkout/${slug}?qty=${quantity}`);
+      return;
     }
+
+    async function fetchProduct() {
+      try {
+        const res = await fetch(`/api/products/${slug}`);
+        if (res.ok) {
+          const data = await res.json();
+          setProduct(data.product);
+        } else {
+          router.push(`/product/${slug}`);
+        }
+      } catch {
+        router.push("/browse");
+      } finally {
+        setLoadingProduct(false);
+      }
+    }
+    fetchProduct();
   }, [session, router, slug, quantity]);
 
+  // Fill name from session
+  useEffect(() => {
+    if (session?.user?.name && !shippingData.fullName) {
+      setShippingData(prev => ({ ...prev, fullName: session.user?.name || "" }));
+    }
+  }, [session, shippingData.fullName]);
+
+  if (loadingProduct || !product) {
+    return (
+      <div className="pt-24 pb-16 bg-[#FAF8F5] min-h-screen flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-[#D4A843]" />
+      </div>
+    );
+  }
+
+  const isCrossBorder = product.originCountry.toLowerCase() !== shippingData.country.toLowerCase() && shippingData.country !== "";
+  const selectedShipping = shippingRates[shippingMethod] || shippingRates.dhl_ecommerce;
+  const shippingCost = shippingMethod === "self_ship" ? 0 : (isCrossBorder ? selectedShipping.crossBorder : selectedShipping.domestic);
+  // If local-only carrier selected for cross border, fall back
+  const shippingAvailable = !(isCrossBorder && selectedShipping.crossBorder === 0 && shippingMethod !== "self_ship");
+
   const subtotal = product.price * quantity;
-  const escrowFee = subtotal * 0.015; // 1.5% Vesicash fee
-  const shippingEstimate = 25; // Estimated DHL
-  const total = subtotal + escrowFee + shippingEstimate;
+  const platformFee = Math.round(subtotal * PLATFORM_COMMISSION_RATE * 100) / 100;
+  const escrowFee = Math.round(subtotal * ESCROW_FEE_RATE * 100) / 100;
+  const total = subtotal + escrowFee + shippingCost;
+  // Platform fee is deducted from seller payout, not charged to buyer
+  const sellerPayout = subtotal - platformFee;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setShippingData({ ...shippingData, [e.target.name]: e.target.value });
@@ -71,6 +138,7 @@ export default function CheckoutPage() {
 
   const handlePlaceOrder = async () => {
     setPlacing(true);
+    setOrderError("");
     try {
       const res = await fetch("/api/orders", {
         method: "POST",
@@ -79,18 +147,26 @@ export default function CheckoutPage() {
           productSlug: slug,
           quantity,
           paymentMethod,
+          shippingMethod,
           shippingAddress: shippingData,
         }),
       });
 
+      const data = await res.json();
+
       if (res.ok) {
-        const data = await res.json();
-        router.push(`/order/${data.order.orderNumber}?success=true`);
+        // If payment link returned, redirect to Flutterwave hosted payment page
+        if (data.paymentLink) {
+          window.location.href = data.paymentLink;
+        } else {
+          // Fallback: go to order confirmation
+          router.push(`/orders/${data.order.orderNumber}`);
+        }
       } else {
-        alert("Failed to place order. Please try again.");
+        setOrderError(data.error || "Failed to place order. Please try again.");
       }
     } catch {
-      alert("Something went wrong.");
+      setOrderError("Something went wrong. Please try again.");
     } finally {
       setPlacing(false);
     }
@@ -111,6 +187,13 @@ export default function CheckoutPage() {
           <ChevronRight className="w-3 h-3" />
           <span className="text-gray-600">Checkout</span>
         </nav>
+
+        {/* Error banner */}
+        {orderError && (
+          <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3 mb-6">
+            {orderError}
+          </div>
+        )}
 
         {/* Step Progress */}
         <div className="flex items-center justify-center mb-12">
@@ -149,34 +232,72 @@ export default function CheckoutPage() {
           {/* Left: Form */}
           <div className="lg:col-span-2">
             {step === "shipping" && (
-              <div className="bg-white rounded-xl border border-gray-100 p-6">
-                <h2 className="text-lg font-bold mb-6 flex items-center gap-2">
-                  <Truck className="w-5 h-5 text-[#D4A843]" />
-                  Shipping Address
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="sm:col-span-2">
-                    <Input label="Full Name" name="fullName" value={shippingData.fullName} onChange={handleChange} required />
+              <div className="space-y-6">
+                <div className="bg-white rounded-xl border border-gray-100 p-6">
+                  <h2 className="text-lg font-bold mb-6 flex items-center gap-2">
+                    <Truck className="w-5 h-5 text-[#D4A843]" />
+                    Shipping Address
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="sm:col-span-2">
+                      <Input label="Full Name" name="fullName" value={shippingData.fullName} onChange={handleChange} required />
+                    </div>
+                    <Input label="Phone Number" name="phone" type="tel" value={shippingData.phone} onChange={handleChange} placeholder="+234..." required />
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1.5">Country</label>
+                      <select name="country" value={shippingData.country} onChange={handleChange} required
+                        className="w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm focus:border-[#D4A843] focus:ring-2 focus:ring-[#D4A843]/20 outline-none">
+                        <option value="">Select country</option>
+                        {["Nigeria","Kenya","South Africa","Ghana","Tanzania","Ethiopia","Rwanda","Uganda","Morocco","Egypt","Senegal","Côte d'Ivoire","Cameroon"].map(c => (
+                          <option key={c} value={c}>{c}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="sm:col-span-2">
+                      <Input label="Street Address" name="street" value={shippingData.street} onChange={handleChange} placeholder="123 Main Street" required />
+                    </div>
+                    <Input label="City" name="city" value={shippingData.city} onChange={handleChange} required />
+                    <Input label="State / Province" name="state" value={shippingData.state} onChange={handleChange} />
+                    <Input label="ZIP / Postal Code" name="zip" value={shippingData.zip} onChange={handleChange} />
                   </div>
-                  <Input label="Phone Number" name="phone" type="tel" value={shippingData.phone} onChange={handleChange} placeholder="+234..." required />
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1.5">Country</label>
-                    <select name="country" value={shippingData.country} onChange={handleChange} required
-                      className="w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm focus:border-[#D4A843] focus:ring-2 focus:ring-[#D4A843]/20 outline-none">
-                      <option value="">Select country</option>
-                      {["Nigeria","Kenya","South Africa","Ghana","Tanzania","Ethiopia","Rwanda","Uganda","Morocco","Egypt","Senegal","Côte d'Ivoire","Cameroon"].map(c => (
-                        <option key={c} value={c}>{c}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="sm:col-span-2">
-                    <Input label="Street Address" name="street" value={shippingData.street} onChange={handleChange} placeholder="123 Main Street" required />
-                  </div>
-                  <Input label="City" name="city" value={shippingData.city} onChange={handleChange} required />
-                  <Input label="State / Province" name="state" value={shippingData.state} onChange={handleChange} />
-                  <Input label="ZIP / Postal Code" name="zip" value={shippingData.zip} onChange={handleChange} />
                 </div>
-                <div className="mt-6 flex justify-end">
+
+                {/* Shipping Method Selection */}
+                <div className="bg-white rounded-xl border border-gray-100 p-6">
+                  <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
+                    <Truck className="w-5 h-5 text-[#D4A843]" />
+                    Shipping Method
+                  </h2>
+                  <div className="space-y-3">
+                    {Object.entries(shippingRates).map(([id, rate]) => {
+                      const cost = id === "self_ship" ? 0 : (isCrossBorder ? rate.crossBorder : rate.domestic);
+                      const disabled = isCrossBorder && rate.crossBorder === 0 && id !== "self_ship";
+                      return (
+                        <button
+                          key={id}
+                          onClick={() => !disabled && setShippingMethod(id)}
+                          disabled={disabled}
+                          className={`w-full flex items-center justify-between p-4 rounded-xl border-2 transition-all ${
+                            disabled ? "opacity-40 cursor-not-allowed border-gray-100" :
+                            shippingMethod === id
+                              ? "border-[#D4A843] bg-[#D4A843]/5"
+                              : "border-gray-100 hover:border-gray-200"
+                          }`}
+                        >
+                          <div className="text-left">
+                            <div className="font-semibold text-sm">{rate.label}</div>
+                            {disabled && <div className="text-xs text-red-400">Not available for cross-border</div>}
+                          </div>
+                          <div className="text-sm font-bold">
+                            {cost === 0 ? "Free" : formatCurrency(cost, product.currency)}
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <div className="flex justify-end">
                   <Button onClick={() => setStep("payment")} size="lg">
                     Continue to Payment <ArrowRight className="w-4 h-4" />
                   </Button>
@@ -253,12 +374,18 @@ export default function CheckoutPage() {
 
                 {/* Product summary */}
                 <div className="flex items-center gap-4 bg-gray-50 rounded-xl p-4 mb-6">
-                  <div className="w-16 h-16 rounded-lg bg-gray-100 flex items-center justify-center text-2xl">💎</div>
+                  <div className="w-16 h-16 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden">
+                    {product.images?.[0] ? (
+                      <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <span className="text-2xl">📦</span>
+                    )}
+                  </div>
                   <div className="flex-1">
                     <h3 className="font-semibold">{product.name}</h3>
                     <p className="text-sm text-gray-400">
                       {getCountryFlag(product.originCountry)} {product.originCountry} ·
-                      Qty: {quantity} · by {product.seller.storeName}
+                      Qty: {quantity} · by {product.seller.sellerProfile?.storeName || product.seller.name}
                     </p>
                   </div>
                   <div className="text-lg font-bold">{formatCurrency(subtotal, product.currency)}</div>
@@ -325,7 +452,7 @@ export default function CheckoutPage() {
                   <span className="text-gray-500 flex items-center gap-1">
                     Shipping <Truck className="w-3 h-3 text-[#D4A843]" />
                   </span>
-                  <span>{formatCurrency(shippingEstimate, product.currency)}</span>
+                  <span>{shippingCost === 0 ? "Free" : formatCurrency(shippingCost, product.currency)}</span>
                 </div>
                 <div className="border-t border-gray-100 pt-3 flex justify-between font-bold text-lg">
                   <span>Total</span>
@@ -333,14 +460,22 @@ export default function CheckoutPage() {
                 </div>
               </div>
 
+              {/* Commission notice (transparency) */}
+              <div className="mt-4 bg-blue-50 rounded-lg p-3">
+                <p className="text-xs text-blue-600">
+                  <strong>Seller receives:</strong> {formatCurrency(sellerPayout, product.currency)} ({(100 - PLATFORM_COMMISSION_RATE * 100)}% of subtotal after 5% platform fee)
+                </p>
+              </div>
+
               {/* Trade corridor */}
-              <div className="mt-6 bg-gray-50 rounded-lg p-3">
+              <div className="mt-4 bg-gray-50 rounded-lg p-3">
                 <div className="flex items-center gap-2 text-xs text-gray-500">
                   <Globe className="w-3 h-3" />
                   <span>
                     {getCountryFlag(product.originCountry)} {product.originCountry} →
                     {shippingData.country ? ` ${getCountryFlag(shippingData.country)} ${shippingData.country}` : " Your country"}
                   </span>
+                  {isCrossBorder && <Badge variant="gold" className="text-[10px] py-0">Cross-border</Badge>}
                 </div>
               </div>
 
@@ -349,7 +484,7 @@ export default function CheckoutPage() {
                 {[
                   { icon: <Shield className="w-3 h-3 text-[#2E7D32]" />, text: "Vesicash Escrow Protected" },
                   { icon: <Lock className="w-3 h-3 text-[#D4A843]" />, text: "256-bit SSL Encrypted" },
-                  { icon: <Truck className="w-3 h-3 text-[#2E7D32]" />, text: "Insured DHL Shipping" },
+                  { icon: <Truck className="w-3 h-3 text-[#2E7D32]" />, text: "Insured Shipping" },
                 ].map((badge, i) => (
                   <div key={i} className="flex items-center gap-2 text-xs text-gray-400">
                     {badge.icon}
@@ -361,13 +496,13 @@ export default function CheckoutPage() {
               {/* Seller badge */}
               <div className="mt-6 flex items-center gap-3 border-t border-gray-100 pt-4">
                 <div className="w-8 h-8 rounded-full bg-[#D4A843]/10 flex items-center justify-center text-sm font-bold text-[#D4A843]">
-                  A
+                  {(product.seller.sellerProfile?.storeName || product.seller.name)?.[0] || "S"}
                 </div>
                 <div>
-                  <div className="text-xs font-semibold">{product.seller.storeName}</div>
+                  <div className="text-xs font-semibold">{product.seller.sellerProfile?.storeName || product.seller.name}</div>
                   <div className="flex items-center gap-1 text-xs text-gray-400">
-                    {product.seller.isVerified && <Badge variant="green" className="text-[10px] py-0">Verified</Badge>}
-                    <span>Trust: {product.seller.trustScore}%</span>
+                    {product.seller.sellerProfile?.isVerified && <Badge variant="green" className="text-[10px] py-0">Verified</Badge>}
+                    {product.seller.sellerProfile?.trustScore && <span>Trust: {product.seller.sellerProfile.trustScore}%</span>}
                   </div>
                 </div>
               </div>

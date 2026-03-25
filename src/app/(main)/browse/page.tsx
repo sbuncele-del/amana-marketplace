@@ -55,69 +55,19 @@ const sortOptions = [
   { label: "Most Popular", value: "popular" },
 ];
 
-// Sample products for demo (before DB is seeded)
-const sampleProducts: Product[] = [
-  {
-    id: "1", name: "Tanzanite Rough Stone — 12ct", slug: "tanzanite-rough-stone-12ct", price: 480,
-    currency: "USD", images: ["https://images.unsplash.com/photo-1551122089-4e3e72477432?w=800&q=80"], originCountry: "Tanzania", stock: 5,
-    seller: { name: "Arusha Gems Ltd", country: "Tanzania", sellerProfile: { storeName: "Arusha Gems", storeSlug: "arusha-gems", trustScore: 92, isVerified: true } },
-    category: { name: "Gemstones", slug: "gemstones" },
-  },
-  {
-    id: "2", name: "Ankara Wax Print Fabric — 6 Yards", slug: "ankara-wax-print-fabric-6-yards", price: 35,
-    currency: "USD", images: ["https://images.unsplash.com/photo-1590735213920-68192a487bc2?w=800&q=80"], originCountry: "Nigeria", stock: 120,
-    seller: { name: "Lagos Textiles Co", country: "Nigeria", sellerProfile: { storeName: "Lagos Textiles", storeSlug: "lagos-textiles", trustScore: 88, isVerified: true } },
-    category: { name: "Textiles", slug: "textiles" },
-  },
-  {
-    id: "3", name: "Ethiopian Yirgacheffe Coffee — 5kg", slug: "ethiopian-yirgacheffe-coffee-5kg", price: 85,
-    currency: "USD", images: ["https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&q=80"], originCountry: "Ethiopia", stock: 50,
-    seller: { name: "Addis Coffee Export", country: "Ethiopia", sellerProfile: { storeName: "Addis Coffee", storeSlug: "addis-coffee", trustScore: 95, isVerified: true } },
-    category: { name: "Agriculture", slug: "agriculture" },
-  },
-  {
-    id: "4", name: "Kenyan Macadamia Nuts — 10kg Bag", slug: "kenyan-macadamia-nuts-10kg", price: 120,
-    currency: "USD", images: ["https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80"], originCountry: "Kenya", stock: 30,
-    seller: { name: "Nyeri Farms", country: "Kenya", sellerProfile: { storeName: "Nyeri Farms", storeSlug: "nyeri-farms", trustScore: 90, isVerified: true } },
-    category: { name: "Agriculture", slug: "agriculture" },
-  },
-  {
-    id: "5", name: "Handmade Maasai Beaded Necklace", slug: "handmade-maasai-beaded-necklace", price: 45,
-    currency: "USD", images: ["https://images.unsplash.com/photo-1583292650898-7d22cd27ca6f?w=800&q=80"], originCountry: "Kenya", stock: 25,
-    seller: { name: "Maasai Artisans Co-op", country: "Kenya", sellerProfile: { storeName: "Maasai Artisans", storeSlug: "maasai-artisans", trustScore: 87, isVerified: false } },
-    category: { name: "Art & Craft", slug: "art-craft" },
-  },
-  {
-    id: "6", name: "Moroccan Argan Oil — Pure 100ml", slug: "moroccan-argan-oil-pure", price: 28,
-    currency: "USD", images: ["https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=800&q=80"], originCountry: "Morocco", stock: 200,
-    seller: { name: "Marrakech Essentials", country: "Morocco", sellerProfile: { storeName: "Marrakech Essentials", storeSlug: "marrakech-essentials", trustScore: 91, isVerified: true } },
-    category: { name: "Beauty", slug: "beauty" },
-  },
-  {
-    id: "7", name: "Ghanaian Kente Cloth — Handwoven", slug: "ghanaian-kente-cloth-handwoven", price: 180,
-    currency: "USD", images: ["https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=80"], originCountry: "Ghana", stock: 8,
-    seller: { name: "Kumasi Weavers", country: "Ghana", sellerProfile: { storeName: "Kumasi Weavers", storeSlug: "kumasi-weavers", trustScore: 94, isVerified: true } },
-    category: { name: "Textiles", slug: "textiles" },
-  },
-  {
-    id: "8", name: "South African Rooibos Tea — 500g", slug: "south-african-rooibos-tea", price: 22,
-    currency: "USD", images: ["https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80"], originCountry: "South Africa", stock: 150,
-    seller: { name: "Cape Naturals", country: "South Africa", sellerProfile: { storeName: "Cape Naturals", storeSlug: "cape-naturals", trustScore: 89, isVerified: true } },
-    category: { name: "Food & Spice", slug: "food-spice" },
-  },
-];
+// Sample products removed - all data from API
 
 function BrowseContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [products, setProducts] = useState<Product[]>(sampleProducts);
-  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
   const [view, setView] = useState<"grid" | "list">("grid");
   const [search, setSearch] = useState(searchParams.get("search") || "");
   const [activeCategory, setActiveCategory] = useState(searchParams.get("category") || "");
   const [sort, setSort] = useState(searchParams.get("sort") || "newest");
   const [showFilters, setShowFilters] = useState(false);
-  const [total, setTotal] = useState(sampleProducts.length);
+  const [total, setTotal] = useState(0);
 
   const fetchProducts = useCallback(async () => {
     setLoading(true);
@@ -130,33 +80,12 @@ function BrowseContent() {
       const res = await fetch(`/api/products?${params.toString()}`);
       if (res.ok) {
         const data = await res.json();
-        if (data.products && data.products.length > 0) {
-          setProducts(data.products);
-          setTotal(data.pagination.total);
-        } else {
-          // Use filtered sample products as fallback
-          let filtered = sampleProducts;
-          if (search) {
-            filtered = filtered.filter(p => p.name.toLowerCase().includes(search.toLowerCase()));
-          }
-          if (activeCategory) {
-            filtered = filtered.filter(p => p.category?.slug === activeCategory);
-          }
-          setProducts(filtered);
-          setTotal(filtered.length);
-        }
+        setProducts(data.products || []);
+        setTotal(data.pagination?.total || 0);
       }
     } catch {
-      // Fallback to sample products
-      let filtered = sampleProducts;
-      if (search) {
-        filtered = filtered.filter(p => p.name.toLowerCase().includes(search.toLowerCase()));
-      }
-      if (activeCategory) {
-        filtered = filtered.filter(p => p.category?.slug === activeCategory);
-      }
-      setProducts(filtered);
-      setTotal(filtered.length);
+      setProducts([]);
+      setTotal(0);
     } finally {
       setLoading(false);
     }

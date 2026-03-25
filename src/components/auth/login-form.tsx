@@ -132,7 +132,7 @@ export function LoginForm() {
                 <input type="checkbox" className="rounded border-gray-300 text-[#D4A843] focus:ring-[#D4A843]" />
                 <span className="text-sm text-gray-600">Remember me</span>
               </label>
-              <Link href="#" className="text-sm text-[#D4A843] hover:underline">
+              <Link href="/forgot-password" className="text-sm text-[#D4A843] hover:underline">
                 Forgot password?
               </Link>
             </div>

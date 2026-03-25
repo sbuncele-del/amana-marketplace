@@ -159,6 +159,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Resolve category: if categoryId is a slug, look up the real ID
+    let resolvedCategoryId = categoryId;
+    const categoryById = await prisma.category.findUnique({ where: { id: categoryId } });
+    if (!categoryById) {
+      const categoryBySlug = await prisma.category.findFirst({ where: { slug: categoryId } });
+      if (categoryBySlug) {
+        resolvedCategoryId = categoryBySlug.id;
+      } else {
+        return NextResponse.json({ error: "Category not found" }, { status: 400 });
+      }
+    }
+
     // Generate unique slug
     const baseSlug = name
       .toLowerCase()
@@ -182,7 +194,9 @@ export async function POST(request: NextRequest) {
         moq: moq || 1,
         stock: stock || 0,
         sellerId: session.user.id,
-        categoryId,
+        categoryId: resolvedCategoryId,
+        isApproved: true, // Auto-approve for now — admin can revoke later
+        isActive: true,
       },
     });
 

@@ -72,14 +72,55 @@ const sampleProduct = {
   ],
 };
 
+interface ProductDetail {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  price: number;
+  currency: string;
+  images: string[];
+  originCountry: string;
+  shipsTo: string[];
+  stock: number;
+  moq: number;
+  weight: number | null;
+  hsCode: string | null;
+  tags: string[];
+  viewCount: number;
+  seller: {
+    id: string;
+    name: string;
+    country: string;
+    image: string | null;
+    sellerProfile: {
+      storeName: string;
+      storeSlug: string;
+      storeDescription: string | null;
+      trustScore: number;
+      isVerified: boolean;
+      totalSales: number;
+    } | null;
+  };
+  category: { name: string; slug: string } | null;
+  reviews: {
+    id: string;
+    rating: number;
+    comment: string;
+    user: { name: string; country: string; image: string | null };
+    createdAt: string;
+  }[];
+}
+
 export default function ProductPage() {
   const params = useParams();
   const slug = params.slug as string;
-  const [product, setProduct] = useState(sampleProduct);
+  const [product, setProduct] = useState<ProductDetail | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(0);
   const [activeTab, setActiveTab] = useState<"description" | "reviews" | "shipping">("description");
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     async function fetchProduct() {
@@ -89,10 +130,14 @@ export default function ProductPage() {
           const data = await res.json();
           if (data.product) {
             setProduct(data.product);
+          } else {
+            setNotFound(true);
           }
+        } else {
+          setNotFound(true);
         }
       } catch {
-        // Use sample product
+        setNotFound(true);
       } finally {
         setLoading(false);
       }
@@ -115,8 +160,19 @@ export default function ProductPage() {
     );
   }
 
-  const avgRating = product.reviews.length > 0
-    ? product.reviews.reduce((sum: number, r: { rating: number }) => sum + r.rating, 0) / product.reviews.length
+  if (notFound || !product) {
+    return (
+      <div className="pt-24 pb-16 max-w-7xl mx-auto px-4 text-center">
+        <div className="text-6xl mb-4">📦</div>
+        <h1 className="text-2xl font-bold mb-2">Product Not Found</h1>
+        <p className="text-gray-500 mb-6">This product may have been removed or doesn&apos;t exist.</p>
+        <Link href="/browse"><Button>Browse Products</Button></Link>
+      </div>
+    );
+  }
+
+  const avgRating = (product.reviews?.length ?? 0) > 0
+    ? product.reviews.reduce((sum, r) => sum + r.rating, 0) / product.reviews.length
     : 0;
 
   return (
@@ -303,16 +359,22 @@ export default function ProductPage() {
 
             {activeTab === "reviews" && (
               <div className="space-y-6">
-                {product.reviews.map((review) => (
+                {(product.reviews || []).length === 0 ? (
+                  <div className="text-center py-12 text-gray-400">
+                    <div className="text-4xl mb-3">⭐</div>
+                    <p className="font-medium">No reviews yet</p>
+                    <p className="text-sm">Be the first to review this product after purchase.</p>
+                  </div>
+                ) : product.reviews.map((review) => (
                   <div key={review.id} className="bg-white rounded-xl border border-gray-100 p-6">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-[#D4A843]/10 flex items-center justify-center font-bold text-[#D4A843]">
-                          {review.buyer.name.charAt(0)}
+                          {review.user.name.charAt(0)}
                         </div>
                         <div>
-                          <div className="font-semibold text-sm">{review.buyer.name}</div>
-                          <div className="text-xs text-gray-400">{getCountryFlag(review.buyer.country)} {review.buyer.country}</div>
+                          <div className="font-semibold text-sm">{review.user.name}</div>
+                          <div className="text-xs text-gray-400">{getCountryFlag(review.user.country)} {review.user.country}</div>
                         </div>
                       </div>
                       <div className="flex items-center gap-1">

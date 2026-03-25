@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
+import { releaseEscrow, createDispute as vesicashDispute } from "@/lib/vesicash";
+import { sendShippingNotificationEmail, sendEscrowReleasedEmail } from "@/lib/email";
 
 // GET /api/orders/[id] - Get order detail
 export async function GET(
@@ -90,6 +92,7 @@ export async function PATCH(
           data: {
             status: "SHIPPED",
             trackingNumber: trackingNumber || null,
+            shippedAt: new Date(),
             events: {
               create: {
                 type: "SHIPPED",
@@ -98,18 +101,38 @@ export async function PATCH(
             },
           },
         });
+
+        // Send shipping notification to buyer
+        try {
+          const buyer = await prisma.user.findUnique({ where: { id: order.buyerId }, select: { email: true, name: true } });
+          const seller = await prisma.user.findUnique({ where: { id: order.sellerId }, select: { sellerProfile: { select: { storeName: true } } } });
+          if (buyer?.email) {
+            await sendShippingNotificationEmail(
+              buyer.email,
+              buyer.name || "Customer",
+              { orderNumber: order.orderNumber, trackingNumber: trackingNumber || null, storeName: seller?.sellerProfile?.storeName || "Seller" }
+            );
+          }
+        } catch (emailErr) {
+          console.error("Shipping notification email failed:", emailErr);
+        }
         break;
       }
 
       case "delivered": {
+        const verifyDeadline = new Date();
+        verifyDeadline.setHours(verifyDeadline.getHours() + 72); // 72-hour inspection window
+
         await prisma.order.update({
           where: { id: order.id },
           data: {
             status: "DELIVERED",
+            deliveredAt: new Date(),
+            verifyDeadline,
             events: {
               create: {
                 type: "DELIVERED",
-                description: "Order delivered — buyer verification window started (72hrs)",
+                description: `Order delivered — buyer has until ${verifyDeadline.toISOString().split("T")[0]} to verify (72hr window)`,
               },
             },
           },
@@ -121,19 +144,72 @@ export async function PATCH(
         if (order.buyerId !== session.user.id) {
           return NextResponse.json({ error: "Only buyer can approve" }, { status: 403 });
         }
-        await prisma.order.update({
-          where: { id: order.id },
-          data: {
-            status: "COMPLETED",
-            escrowStatus: "RELEASED",
-            events: {
-              create: {
-                type: "BUYER_APPROVED",
-                description: "Buyer approved — escrow funds released to seller",
+
+        // Release escrow funds to seller via Vesicash
+        if (order.escrowTransactionId) {
+          try {
+            await releaseEscrow(order.escrowTransactionId);
+          } catch (escrowError) {
+            console.error("Escrow release failed:", escrowError);
+            // Still mark as completed — admin can reconcile
+          }
+        }
+
+        // Update seller stats
+        await prisma.$transaction([
+          prisma.order.update({
+            where: { id: order.id },
+            data: {
+              status: "COMPLETED",
+              escrowStatus: "RELEASED",
+              escrowReleasedAt: new Date(),
+              buyerApprovedAt: new Date(),
+              events: {
+                create: {
+                  type: "BUYER_APPROVED",
+                  description: `Buyer approved. Escrow released: ${order.currency} ${(order.sellerPayout || order.totalAmount * 0.95).toFixed(2)} to seller (after 5% platform fee).`,
+                },
               },
             },
-          },
+          }),
+          // Update seller profile revenue
+          prisma.sellerProfile.updateMany({
+            where: { userId: order.sellerId },
+            data: {
+              totalSales: { increment: 1 },
+              totalRevenue: { increment: order.sellerPayout || order.totalAmount * 0.95 },
+            },
+          }),
+        ]);
+
+        // Update product sold counts separately (need order items)
+        const orderWithItems = await prisma.order.findUnique({
+          where: { id: order.id },
+          include: { items: true },
         });
+        if (orderWithItems) {
+          for (const item of orderWithItems.items) {
+            await prisma.product.update({
+              where: { id: item.productId },
+              data: { totalSold: { increment: item.quantity } },
+            });
+          }
+        }
+
+        // Send escrow released email to seller
+        try {
+          const seller = await prisma.user.findUnique({ where: { id: order.sellerId }, select: { email: true, name: true } });
+          if (seller?.email) {
+            await sendEscrowReleasedEmail(
+              seller.email,
+              seller.name || "Seller",
+              { orderNumber: order.orderNumber, sellerPayout: order.sellerPayout || order.totalAmount * 0.95, currency: order.currency }
+            );
+          }
+        } catch (emailErr) {
+          console.error("Escrow released email failed:", emailErr);
+        }
+
         break;
       }
 
@@ -141,6 +217,16 @@ export async function PATCH(
         if (order.buyerId !== session.user.id) {
           return NextResponse.json({ error: "Only buyer can open dispute" }, { status: 403 });
         }
+
+        // Open dispute on Vesicash escrow
+        if (order.escrowTransactionId) {
+          try {
+            await vesicashDispute(order.escrowTransactionId, "Buyer initiated dispute via Amana Marketplace");
+          } catch (escrowError) {
+            console.error("Vesicash dispute creation failed:", escrowError);
+          }
+        }
+
         await prisma.order.update({
           where: { id: order.id },
           data: {
@@ -149,7 +235,7 @@ export async function PATCH(
             events: {
               create: {
                 type: "DISPUTE_OPENED",
-                description: "Buyer opened a dispute",
+                description: "Buyer opened a dispute — escrow funds frozen pending resolution",
               },
             },
           },

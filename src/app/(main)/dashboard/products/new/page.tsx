@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Package, ArrowLeft, Upload, X, Plus } from "lucide-react";
+import { Package, ArrowLeft, Upload, X, Plus, Image as ImageIcon, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -33,6 +33,10 @@ export default function NewProductPage() {
   const [tags, setTags] = useState<string[]>([]);
   const [tagInput, setTagInput] = useState("");
   const [shipsTo, setShipsTo] = useState<string[]>([]);
+  const [imageFiles, setImageFiles] = useState<string[]>([]); // base64 data URIs
+  const [imagePreviews, setImagePreviews] = useState<string[]>([]);
+  const [uploadingImages, setUploadingImages] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -64,12 +68,61 @@ export default function NewProductPage() {
     );
   };
 
+  const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+    if (files.length + imageFiles.length > 8) {
+      setError("Maximum 8 images allowed");
+      return;
+    }
+
+    files.forEach(file => {
+      if (file.size > 5 * 1024 * 1024) {
+        setError("Each image must be under 5MB");
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64 = reader.result as string;
+        setImageFiles(prev => [...prev, base64]);
+        setImagePreviews(prev => [...prev, base64]);
+      };
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const removeImage = (index: number) => {
+    setImageFiles(prev => prev.filter((_, i) => i !== index));
+    setImagePreviews(prev => prev.filter((_, i) => i !== index));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setLoading(true);
 
     try {
+      // Step 1: Upload images to Cloudinary if any
+      let imageUrls: string[] = [];
+      if (imageFiles.length > 0) {
+        setUploadingImages(true);
+        try {
+          const uploadRes = await fetch("/api/upload", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ images: imageFiles }),
+          });
+          if (uploadRes.ok) {
+            const uploadData = await uploadRes.json();
+            imageUrls = uploadData.urls || [];
+          }
+        } catch {
+          // Continue without images if upload fails
+          console.error("Image upload failed, continuing without images");
+        }
+        setUploadingImages(false);
+      }
+
+      // Step 2: Create product
       const res = await fetch("/api/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -81,7 +134,7 @@ export default function NewProductPage() {
           weight: formData.weight ? parseFloat(formData.weight) : null,
           tags,
           shipsTo,
-          images: [],
+          images: imageUrls,
         }),
       });
 
@@ -95,6 +148,7 @@ export default function NewProductPage() {
       setError("Something went wrong");
     } finally {
       setLoading(false);
+      setUploadingImages(false);
     }
   };
 
@@ -227,15 +281,76 @@ export default function NewProductPage() {
           </div>
         </div>
 
-        {/* Image Upload Placeholder */}
+        {/* Image Upload */}
         <div className="bg-white rounded-xl border border-gray-100 p-6">
-          <h2 className="font-bold mb-4">Product Images</h2>
-          <div className="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center">
-            <Upload className="w-8 h-8 text-gray-300 mx-auto mb-2" />
-            <p className="text-sm text-gray-500 mb-1">Drag & drop images here, or click to browse</p>
-            <p className="text-xs text-gray-400">PNG, JPG up to 5MB. Max 8 images.</p>
-            <Button type="button" variant="outline" size="sm" className="mt-3">Browse Files</Button>
-          </div>
+          <h2 className="font-bold mb-4 flex items-center gap-2">
+            <ImageIcon className="w-5 h-5 text-[#D4A843]" /> Product Images
+          </h2>
+
+          {/* Image previews */}
+          {imagePreviews.length > 0 && (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+              {imagePreviews.map((preview, index) => (
+                <div key={index} className="relative group aspect-square rounded-lg overflow-hidden border border-gray-200">
+                  <img src={preview} alt={`Preview ${index + 1}`} className="w-full h-full object-cover" />
+                  <button
+                    type="button"
+                    onClick={() => removeImage(index)}
+                    className="absolute top-1 right-1 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                  {index === 0 && (
+                    <span className="absolute bottom-1 left-1 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded">Main</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Upload area */}
+          {imagePreviews.length < 8 && (
+            <div
+              className="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center cursor-pointer hover:border-[#D4A843]/50 transition-colors"
+              onClick={() => fileInputRef.current?.click()}
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={(e) => {
+                e.preventDefault();
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                  const input = fileInputRef.current;
+                  if (input) {
+                    const dt = new DataTransfer();
+                    Array.from(files).forEach(f => dt.items.add(f));
+                    input.files = dt.files;
+                    input.dispatchEvent(new Event("change", { bubbles: true }));
+                  }
+                }
+              }}
+            >
+              {uploadingImages ? (
+                <>
+                  <Loader2 className="w-8 h-8 text-[#D4A843] mx-auto mb-2 animate-spin" />
+                  <p className="text-sm text-gray-500">Uploading images...</p>
+                </>
+              ) : (
+                <>
+                  <Upload className="w-8 h-8 text-gray-300 mx-auto mb-2" />
+                  <p className="text-sm text-gray-500 mb-1">Drag & drop images here, or click to browse</p>
+                  <p className="text-xs text-gray-400">PNG, JPG up to 5MB. Max 8 images. ({8 - imagePreviews.length} remaining)</p>
+                </>
+              )}
+            </div>
+          )}
+
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            multiple
+            className="hidden"
+            onChange={handleImageSelect}
+          />
         </div>
 
         {/* Submit */}

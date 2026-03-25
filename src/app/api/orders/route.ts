@@ -2,6 +2,27 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
 import { generateOrderNumber } from "@/lib/utils";
+import { initializePayment } from "@/lib/flutterwave";
+import { createEscrowTransaction } from "@/lib/vesicash";
+import { sendOrderConfirmationEmail, sendNewOrderToSellerEmail } from "@/lib/email";
+
+const PLATFORM_COMMISSION_RATE = 0.05; // 5% Amana commission
+const ESCROW_FEE_RATE = 0.015; // 1.5% Vesicash fee
+
+// Shipping cost calculation
+const shippingRates: Record<string, { domestic: number; crossBorder: number }> = {
+  dhl_express: { domestic: 15, crossBorder: 35 },
+  dhl_ecommerce: { domestic: 10, crossBorder: 25 },
+  aramex: { domestic: 12, crossBorder: 30 },
+  sendy: { domestic: 8, crossBorder: 0 },
+  self_ship: { domestic: 0, crossBorder: 0 },
+};
+
+function calculateShipping(method: string, isCrossBorder: boolean): number {
+  const rate = shippingRates[method] || shippingRates.dhl_ecommerce;
+  if (method === "self_ship") return 0;
+  return isCrossBorder ? rate.crossBorder : rate.domestic;
+}
 
 // GET /api/orders - List user orders
 export async function GET() {
@@ -45,7 +66,7 @@ export async function GET() {
   }
 }
 
-// POST /api/orders - Create order (buyer)
+// POST /api/orders - Create order + initiate payment
 export async function POST(request: NextRequest) {
   try {
     const session = await auth();
@@ -54,16 +75,20 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { productSlug, quantity, paymentMethod, shippingAddress } = body;
+    const { productSlug, quantity, paymentMethod, shippingMethod, shippingAddress } = body;
 
     if (!productSlug || !quantity || !paymentMethod) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    // Fetch product
+    // Fetch product with seller info
     const product = await prisma.product.findUnique({
       where: { slug: productSlug },
-      include: { seller: true },
+      include: {
+        seller: {
+          select: { id: true, email: true, name: true },
+        },
+      },
     });
 
     if (!product || !product.isActive) {
@@ -78,10 +103,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Cannot buy your own product" }, { status: 400 });
     }
 
+    // Calculate all fees
     const subtotal = product.price * quantity;
-    const escrowFee = subtotal * 0.015;
-    const shippingCost = 25; // Estimated
-    const totalAmount = subtotal + escrowFee + shippingCost;
+    const platformFee = Math.round(subtotal * PLATFORM_COMMISSION_RATE * 100) / 100;
+    const escrowFee = Math.round(subtotal * ESCROW_FEE_RATE * 100) / 100;
+    const isCrossBorder = product.originCountry !== (shippingAddress?.country || "");
+    const shippingCost = calculateShipping(shippingMethod || "dhl_ecommerce", isCrossBorder);
+    const totalAmount = subtotal + escrowFee + shippingCost; // Buyer pays subtotal + escrow fee + shipping
+    const sellerPayout = subtotal - platformFee; // Seller gets subtotal minus platform commission
 
     // Create or find shipping address
     let address = null;
@@ -100,21 +129,26 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    const isCrossBorder = product.originCountry !== (shippingAddress?.country || "");
+    const orderNumber = generateOrderNumber();
 
-    // Create order
+    // Create order with commission tracking
     const order = await prisma.order.create({
       data: {
-        orderNumber: generateOrderNumber(),
+        orderNumber,
         buyerId: session.user.id,
         sellerId: product.sellerId,
         subtotal,
         shippingCost,
+        escrowFee,
+        platformFee,
+        commissionRate: PLATFORM_COMMISSION_RATE,
+        sellerPayout,
         totalAmount,
         currency: product.currency,
         status: "PENDING",
         escrowStatus: "PENDING",
         paymentMethod,
+        shippingMethod: shippingMethod || "dhl_ecommerce",
         originCountry: product.originCountry,
         destinationCountry: shippingAddress?.country || "",
         isCrossBorder,
@@ -129,7 +163,7 @@ export async function POST(request: NextRequest) {
         events: {
           create: {
             type: "ORDER_CREATED",
-            description: `Order created for ${quantity}x ${product.name}`,
+            description: `Order created for ${quantity}x ${product.name} | Platform fee: ${PLATFORM_COMMISSION_RATE * 100}% ($${platformFee}) | Seller payout: $${sellerPayout}`,
           },
         },
       },
@@ -144,9 +178,156 @@ export async function POST(request: NextRequest) {
       data: { stock: { decrement: quantity } },
     });
 
-    return NextResponse.json({ order }, { status: 201 });
+    // --- PAYMENT INTEGRATION ---
+    // Step 1: Create Vesicash escrow transaction
+    let escrowTransactionId: string | null = null;
+    try {
+      const escrowTx = await createEscrowTransaction({
+        orderId: order.orderNumber,
+        amount: sellerPayout, // Escrow holds the seller payout amount
+        currency: product.currency,
+        buyerEmail: session.user.email || "",
+        sellerEmail: product.seller.email,
+        title: `Amana Order ${order.orderNumber}`,
+        description: `${quantity}x ${product.name} — escrow protected purchase`,
+        inspectionPeriodDays: 3,
+      });
+
+      escrowTransactionId = escrowTx.transaction_id;
+
+      await prisma.order.update({
+        where: { id: order.id },
+        data: {
+          escrowTransactionId,
+          escrowStatus: "NOT_FUNDED",
+          events: {
+            create: {
+              type: "ESCROW_CREATED",
+              description: `Vesicash escrow created (ID: ${escrowTransactionId})`,
+            },
+          },
+        },
+      });
+    } catch (escrowError) {
+      console.error("Vesicash escrow creation failed:", escrowError);
+      // Continue with order — escrow will be funded after payment
+      await prisma.order.update({
+        where: { id: order.id },
+        data: {
+          events: {
+            create: {
+              type: "ESCROW_PENDING",
+              description: "Escrow creation deferred — will be set up after payment confirmation",
+            },
+          },
+        },
+      });
+    }
+
+    // Step 2: Initialize Flutterwave payment
+    let paymentLink: string | null = null;
+    try {
+      const txRef = `${order.orderNumber}_${Date.now()}`;
+
+      const paymentData = await initializePayment({
+        orderId: txRef,
+        amount: totalAmount,
+        currency: product.currency,
+        customerEmail: session.user.email || "",
+        customerName: session.user.name || "",
+        paymentMethod: paymentMethod === "mpesa" ? "mobilemoney" :
+                       paymentMethod === "momo" ? "mobilemoney" :
+                       paymentMethod === "bank" ? "bank_transfer" : "card",
+        redirectUrl: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/orders/${order.orderNumber}?payment=complete`,
+      });
+
+      paymentLink = paymentData?.link || null;
+
+      if (paymentLink) {
+        await prisma.order.update({
+          where: { id: order.id },
+          data: {
+            paymentRef: txRef,
+            paymentLink,
+            events: {
+              create: {
+                type: "PAYMENT_INITIATED",
+                description: `Flutterwave payment initiated — ${formatPaymentMethod(paymentMethod)}`,
+              },
+            },
+          },
+        });
+      }
+    } catch (paymentError) {
+      console.error("Flutterwave payment initiation failed:", paymentError);
+      // Order still created — user can retry payment
+      await prisma.order.update({
+        where: { id: order.id },
+        data: {
+          events: {
+            create: {
+              type: "PAYMENT_PENDING",
+              description: "Payment initiation deferred — retry from order page",
+            },
+          },
+        },
+      });
+    }
+
+    // --- SEND EMAILS ---
+    try {
+      await sendOrderConfirmationEmail(
+        session.user.email || "",
+        session.user.name || "Customer",
+        {
+          orderNumber: order.orderNumber,
+          totalAmount,
+          currency: product.currency,
+          platformFee,
+          escrowFee,
+          shippingCost,
+          productName: product.name,
+          quantity,
+          paymentLink,
+        }
+      );
+    } catch (emailErr) {
+      console.error("Buyer order email failed:", emailErr);
+    }
+
+    try {
+      await sendNewOrderToSellerEmail(
+        product.seller.email,
+        product.seller.name,
+        {
+          orderNumber: order.orderNumber,
+          productName: product.name,
+          quantity,
+          sellerPayout,
+          currency: product.currency,
+        }
+      );
+    } catch (emailErr) {
+      console.error("Seller order email failed:", emailErr);
+    }
+
+    return NextResponse.json({
+      order,
+      paymentLink,
+      escrowTransactionId,
+    }, { status: 201 });
   } catch (error) {
     console.error("Create order error:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
+}
+
+function formatPaymentMethod(method: string): string {
+  const labels: Record<string, string> = {
+    card: "Card Payment",
+    mpesa: "M-Pesa",
+    momo: "MTN Mobile Money",
+    bank: "Bank Transfer",
+  };
+  return labels[method] || method;
 }
