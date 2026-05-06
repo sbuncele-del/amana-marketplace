@@ -32,6 +32,22 @@ export default function ProductPageClient() {
   const [addedToCart, setAddedToCart] = useState(false);
   const [crossSells, setCrossSells] = useState<ProductCardData[]>([]);
 
+  // Judge.me reviews
+  type JudgemeReview = {
+    id: number;
+    rating: number;
+    title: string;
+    body: string;
+    reviewer: { name: string; email: string };
+    created_at: string;
+    pictures: { urls: { small: string; huge: string } }[];
+  };
+  const [reviews, setReviews] = useState<JudgemeReview[]>([]);
+  const [reviewsRating, setReviewsRating] = useState<number | null>(null);
+  const [reviewsCount, setReviewsCount] = useState(0);
+  const [reviewsLoading, setReviewsLoading] = useState(false);
+  const [reviewsFetched, setReviewsFetched] = useState(false);
+
   // Social proof — deterministic per product so it doesn't flicker on re-render
   const seedRef = useRef<number | null>(null);
   if (seedRef.current === null && handle) {
@@ -41,6 +57,22 @@ export default function ProductPageClient() {
   const seed = seedRef.current ?? 0;
   const viewersNow = 8 + (seed % 19);          // 8–26
   const soldThisWeek = 12 + (seed % 34);        // 12–45
+
+  // Fetch reviews from Judge.me when tab is opened
+  useEffect(() => {
+    if (activeTab !== "reviews" || reviewsFetched || !handle) return;
+    setReviewsLoading(true);
+    fetch(`/api/reviews/${handle}`)
+      .then(r => r.json())
+      .then(data => {
+        setReviews(data.reviews ?? []);
+        setReviewsRating(data.rating ?? null);
+        setReviewsCount(data.count ?? 0);
+        setReviewsFetched(true);
+      })
+      .catch(() => setReviewsFetched(true))
+      .finally(() => setReviewsLoading(false));
+  }, [activeTab, handle, reviewsFetched]);
 
   useEffect(() => {
     async function fetchProduct() {
@@ -132,10 +164,10 @@ export default function ProductPageClient() {
   const stockCount = selectedVariant?.quantityAvailable ?? null;
 
   // Reviews — use real metafields only, no fake fallback
-  const avgRating = product.ratingValue
+  const avgRating = reviewsRating ?? (product.ratingValue
     ? parseFloat(JSON.parse(product.ratingValue).value ?? product.ratingValue)
-    : null;
-  const reviewCount = product.ratingCount ? parseInt(product.ratingCount) : 0;
+    : null);
+  const reviewCount = reviewsCount > 0 ? reviewsCount : (product.ratingCount ? parseInt(product.ratingCount) : 0);
 
   const countryTag = product.tags.find(t => t.toLowerCase().startsWith("country:"));
   const originCountry = product.originCountry ?? countryTag?.split(":")[1] ?? "";
@@ -412,12 +444,79 @@ export default function ProductPageClient() {
             )}
 
             {activeTab === "reviews" && (
-              <div className="text-center py-12">
-                <div className="text-5xl mb-4">⭐</div>
-                <h3 className="text-lg font-bold mb-2">No reviews yet</h3>
-                <p className="text-gray-500 text-sm max-w-md mx-auto">
-                  Be the first to review this product. Reviews from verified buyers will appear here after purchase.
-                </p>
+              <div>
+                {reviewsLoading ? (
+                  <div className="space-y-4 animate-pulse">
+                    {[1,2,3].map(i => (
+                      <div key={i} className="flex gap-4">
+                        <div className="w-10 h-10 rounded-full bg-gray-100 flex-shrink-0" />
+                        <div className="flex-1 space-y-2">
+                          <div className="h-4 bg-gray-100 rounded w-1/4" />
+                          <div className="h-3 bg-gray-100 rounded w-full" />
+                          <div className="h-3 bg-gray-100 rounded w-3/4" />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : reviews.length === 0 ? (
+                  <div className="text-center py-12">
+                    <div className="text-5xl mb-4">⭐</div>
+                    <h3 className="text-lg font-bold mb-2">No reviews yet</h3>
+                    <p className="text-gray-500 text-sm max-w-md mx-auto">
+                      Be the first to review this product. Reviews from verified buyers will appear here after purchase.
+                    </p>
+                  </div>
+                ) : (
+                  <div>
+                    {/* Rating summary */}
+                    {avgRating !== null && (
+                      <div className="flex items-center gap-4 mb-8 pb-6 border-b border-gray-100">
+                        <div className="text-5xl font-extrabold text-[#1A1A2E]">{avgRating.toFixed(1)}</div>
+                        <div>
+                          <div className="flex gap-px mb-1">
+                            {Array.from({ length: 5 }).map((_, i) => (
+                              <Star key={i} className={`w-5 h-5 ${i < Math.round(avgRating) ? "fill-[#F59E0B] text-[#F59E0B]" : "fill-gray-200 text-gray-200"}`} />
+                            ))}
+                          </div>
+                          <p className="text-sm text-gray-400">{reviewCount.toLocaleString()} verified {reviewCount === 1 ? "review" : "reviews"}</p>
+                        </div>
+                      </div>
+                    )}
+                    {/* Review list */}
+                    <div className="space-y-6">
+                      {reviews.map((review) => (
+                        <div key={review.id} className="border-b border-gray-100 pb-6 last:border-b-0">
+                          <div className="flex items-center justify-between mb-2">
+                            <div className="flex items-center gap-3">
+                              <div className="w-9 h-9 rounded-full bg-[#D4A843]/10 flex items-center justify-center text-sm font-bold text-[#D4A843]">
+                                {review.reviewer.name.charAt(0).toUpperCase()}
+                              </div>
+                              <div>
+                                <p className="text-sm font-semibold">{review.reviewer.name}</p>
+                                <p className="text-xs text-gray-400">{new Date(review.created_at).toLocaleDateString("en-ZA", { year: "numeric", month: "short", day: "numeric" })}</p>
+                              </div>
+                            </div>
+                            <div className="flex gap-px">
+                              {Array.from({ length: 5 }).map((_, j) => (
+                                <Star key={j} className={`w-3.5 h-3.5 ${j < review.rating ? "fill-[#F59E0B] text-[#F59E0B]" : "fill-gray-200 text-gray-200"}`} />
+                              ))}
+                            </div>
+                          </div>
+                          {review.title && <p className="text-sm font-medium mb-1">{review.title}</p>}
+                          <p className="text-sm text-gray-600">{review.body}</p>
+                          {review.pictures?.length > 0 && (
+                            <div className="flex gap-2 mt-3">
+                              {review.pictures.slice(0, 4).map((pic, pi) => (
+                                <img key={pi} src={pic.urls.small} alt="Review" className="w-16 h-16 object-cover rounded-lg border border-gray-100" />
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-xs text-gray-400 mt-6 text-center">Reviews powered by Judge.me · Verified buyer reviews</p>
+                  </div>
+                )}
               </div>
             )}
 
