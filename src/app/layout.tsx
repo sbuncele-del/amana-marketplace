@@ -5,6 +5,7 @@ import "./globals.css";
 import { Providers } from "@/components/providers";
 import { CookieConsent } from "@/components/cookie-consent";
 import { EmailCapturePopup } from "@/components/email-capture-popup";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,7 +23,7 @@ const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://primesources.online"
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Prime Sources — Africa's #1 Online Marketplace | Buy & Sell Across Africa",
+    default: "Prime Sources — Africa's Growing Online Marketplace | Buy & Sell Across Africa",
     template: "%s | Prime Sources Marketplace",
   },
   description:
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     locale: "en_ZA",
     url: siteUrl,
     siteName: "Prime Sources Marketplace",
-    title: "Prime Sources — Africa's #1 Online Marketplace",
+    title: "Prime Sources — Africa's Growing Online Marketplace",
     description:
       "Shop electronics, fashion, home goods, beauty & more from verified African sellers. Secure payments, fast shipping across Africa.",
     images: [
@@ -70,7 +71,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prime Sources — Africa's #1 Online Marketplace",
+    title: "Prime Sources — Africa's Growing Online Marketplace",
     description:
       "Shop electronics, fashion, home goods & more. Secure payments, fast shipping across Africa.",
     images: ["/og-image.png"],
@@ -123,6 +124,45 @@ export default function RootLayout({
           <EmailCapturePopup />
         </Providers>
         <CookieConsent />
+        <Analytics />
+        {/* WhatsApp chat widget */}
+        <Script id="whatsapp-widget" strategy="lazyOnload">
+          {`
+            var url = 'https://wati-integration-prod-service.clare.ai/v2/watiWidget.js?161000';
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = url;
+            var options = {
+              enabled: true,
+              chatButtonSetting: {
+                backgroundColor: '#25D366',
+                ctaText: 'Chat with us',
+                borderRadius: '25',
+                marginLeft: '0',
+                marginRight: '20',
+                marginBottom: '20',
+                ctaIconWATI: false,
+                position: 'right'
+              },
+              brandSetting: {
+                brandName: 'Prime Sources',
+                brandSubTitle: 'Typically replies within minutes',
+                brandImg: '/favicon.ico',
+                welcomeText: 'Hi! Need help with your order or product info? Chat with us 👋',
+                messageText: '',
+                backgroundColor: '#1A1A2E',
+                ctaText: 'Start Chat',
+                borderRadius: '25',
+                autoShow: false,
+                phoneNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
+              }
+            };
+            s.onload = function() { CreateWhatsappChatWidget(options); };
+            var x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+          `}
+        </Script>
       </body>
     </html>
   );

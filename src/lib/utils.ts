@@ -6,12 +6,18 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatCurrency(amount: number, currency = "ZAR"): string {
-  // Use South African locale for ZAR, US locale for others
-  const locale = currency === "ZAR" ? "en-ZA" : "en-US";
-  return new Intl.NumberFormat(locale, {
+  if (currency === "ZAR") {
+    // Always produce R1,410.60 format (en-US thousands separator, period decimal)
+    const formatted = new Intl.NumberFormat("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(amount);
+    return `R${formatted}`;
+  }
+  return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency,
-    minimumFractionDigits: 0,
+    minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(amount);
 }
