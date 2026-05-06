@@ -499,14 +499,12 @@ export function toProductCardData(p: ShopifyProduct) {
     ? p.productType.toLowerCase().replace(/[\s&]+/g, "-")
     : p.tags[0] ?? "general";
 
-  // Reviews: use real metafield values if available, else deterministic fallback
+  // Reviews: use real metafield values only — no fabricated fallback
   let seed = 0; for (const c of p.handle) seed += c.charCodeAt(0);
   const avgRating = p.ratingValue
     ? parseFloat(JSON.parse(p.ratingValue).value ?? p.ratingValue)
-    : parseFloat((4.2 + (seed % 8) * 0.1).toFixed(1)); // 4.2–4.9
-  const reviewCount = p.ratingCount
-    ? parseInt(p.ratingCount)
-    : 47 + (seed % 280); // 47–326
+    : 0;
+  const reviewCount = p.ratingCount ? parseInt(p.ratingCount) : 0;
 
   return {
     id: p.id,
