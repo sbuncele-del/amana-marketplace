@@ -9,6 +9,7 @@ import {
   Menu, X, Search, Heart, ShoppingCart, ChevronDown, ChevronRight,
   Package, HelpCircle, Store, LogIn, UserPlus, LayoutDashboard, Flame, Tag, Sparkles, Award, BadgePercent,
 } from "lucide-react";
+import { useCart } from "@/contexts/cart-context";
 
 /* ────────── data ────────── */
 
@@ -32,13 +33,14 @@ const dealTabs = [
   { label: "Fire Sale", href: "/browse?sale=true", icon: Flame, color: "text-orange-500" },
   { label: "Best Sellers", href: "/browse?sort=popular", icon: Award, color: "text-emerald-600" },
   { label: "Clearance", href: "/browse?clearance=true", icon: BadgePercent, color: "text-purple-600" },
-  { label: "Sell on Amana", href: "/register?role=seller", icon: Store, color: "text-[#2E7D32]" },
+  { label: "Sell on Prime Sources", href: "/register?role=seller", icon: Store, color: "text-[#2E7D32]" },
 ];
 
 /* ────────── component ────────── */
 
 export function Navbar() {
   const { data: session } = useSession();
+  const { itemCount } = useCart();
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [deptOpen, setDeptOpen] = useState(false);
@@ -62,9 +64,9 @@ export function Navbar() {
           {/* Left ─ Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <div className="w-7 h-7 rounded-md bg-gradient-to-br from-[#D4A843] to-[#C4982F] flex items-center justify-center text-white font-black text-xs">
-              A
+              PS
             </div>
-            <span className="text-white font-bold tracking-tight">amana</span>
+            <span className="text-white font-bold tracking-tight">Prime Sources</span>
           </Link>
 
           {/* Centre ─ Help / Sell */}
@@ -73,7 +75,7 @@ export function Navbar() {
               <HelpCircle className="w-3.5 h-3.5" /> Help Centre
             </Link>
             <Link href="/register?role=seller" className="hover:text-white flex items-center gap-1.5 transition-colors">
-              <Store className="w-3.5 h-3.5" /> Sell on Amana
+              <Store className="w-3.5 h-3.5" /> Sell on Prime Sources
             </Link>
           </div>
 
@@ -108,7 +110,11 @@ export function Navbar() {
             </Link>
             <Link href="/cart" className="relative flex items-center gap-1 p-2 text-white/60 hover:text-[#D4A843] transition-colors">
               <ShoppingCart className="w-[18px] h-[18px]" />
-              <span className="absolute -top-0.5 -right-0.5 text-[10px] font-bold bg-[#D4A843] text-white rounded-full w-4 h-4 flex items-center justify-center leading-none">0</span>
+              {itemCount > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 text-[10px] font-bold bg-[#D4A843] text-white rounded-full w-4 h-4 flex items-center justify-center leading-none">
+                  {itemCount > 99 ? "99+" : itemCount}
+                </span>
+              )}
             </Link>
 
             {/* Mobile hamburger */}

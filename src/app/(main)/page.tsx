@@ -18,28 +18,28 @@ import {
 
 const heroBanners = [
   {
-    title: "Tanzanite Direct from the Mine",
-    subtitle: "AAA Grade • Escrow Protected • Certificate Included",
-    cta: "Shop Gemstones",
-    href: "/browse?category=gemstones",
+    title: "Beauty & Hair — Now Live",
+    subtitle: "Top trending products • Fast SA delivery • Secure checkout",
+    cta: "Shop Now",
+    href: "/browse",
+    bg: "from-[#7B2D8B] to-[#1A1A2E]",
+    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&q=80",
+  },
+  {
+    title: "Africa\'s Marketplace, Coming to You",
+    subtitle: "Gemstones • Fashion • Agriculture • Art • More categories launching soon",
+    cta: "Browse All",
+    href: "/browse",
     bg: "from-[#0F3460] to-[#1A1A2E]",
-    image: "https://images.unsplash.com/photo-1551122089-4e3e72477432?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1200&q=80",
   },
   {
-    title: "Ethiopian Coffee, Farm to Cup",
-    subtitle: "Grade 1 Yirgacheffe • Ships in 48hrs • From $18",
-    cta: "Shop Coffee & Spice",
-    href: "/browse?category=food-spice",
-    bg: "from-[#2E1A00] to-[#1A1A2E]",
-    image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=1200&q=80",
-  },
-  {
-    title: "Handcrafted Leather from Nairobi",
-    subtitle: "Full Grain • Made to Last • Free Shipping over $80",
-    cta: "Shop Leather",
-    href: "/browse?category=leather",
-    bg: "from-[#3E1A00] to-[#1A1A2E]",
-    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200&q=80",
+    title: "Sell Your Products on Prime Sources",
+    subtitle: "Reach buyers across South Africa and Africa • Easy setup • Fast payouts",
+    cta: "Start Selling",
+    href: "/register?role=seller",
+    bg: "from-[#1A6B3C] to-[#1A1A2E]",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80",
   },
 ];
 
@@ -59,36 +59,36 @@ const departments = [
 
 const promoBanners = [
   {
-    title: "Gemstone Deal",
-    subtitle: "Up to 30% off",
+    title: "Hair Tools",
+    subtitle: "Straighteners & brushes",
     tag: "HOT",
-    href: "/browse?category=gemstones",
-    image: "https://images.unsplash.com/photo-1615655406736-b37c4fabf923?w=600&q=80",
-    color: "bg-gradient-to-br from-blue-900 to-indigo-900",
+    href: "/browse",
+    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80",
+    color: "bg-gradient-to-br from-pink-900 to-rose-900",
   },
   {
-    title: "African Fashion",
-    subtitle: "Ankara & Adire",
+    title: "Hair Removal",
+    subtitle: "Crystal & electric",
     tag: "TRENDING",
-    href: "/browse?category=fashion",
-    image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80",
-    color: "bg-gradient-to-br from-rose-900 to-red-900",
+    href: "/browse",
+    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80",
+    color: "bg-gradient-to-br from-purple-900 to-violet-900",
   },
   {
-    title: "Natural Beauty",
-    subtitle: "Shea butter & more",
+    title: "Skin Care",
+    subtitle: "Glow & gua sha",
     tag: "BEST SELLER",
-    href: "/browse?category=beauty",
-    image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80",
+    href: "/browse",
+    image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&q=80",
     color: "bg-gradient-to-br from-emerald-900 to-green-900",
   },
   {
-    title: "Art & Craft",
-    subtitle: "Handmade",
-    tag: "UNIQUE FINDS",
-    href: "/browse?category=art-craft",
-    image: "https://images.unsplash.com/photo-1590736704728-f4730bb30770?w=600&q=80",
-    color: "bg-gradient-to-br from-purple-900 to-violet-900",
+    title: "Fragrance",
+    subtitle: "Spray bottles & more",
+    tag: "NEW IN",
+    href: "/browse",
+    image: "https://images.unsplash.com/photo-1541643600914-78b084683702?w=600&q=80",
+    color: "bg-gradient-to-br from-amber-900 to-yellow-900",
   },
 ];
 
@@ -169,9 +169,20 @@ export default function HomePage() {
   const [bannerIdx, setBannerIdx] = useState(0);
 
   useEffect(() => {
-    fetch("/api/homepage")
-      .then((r) => r.json())
-      .then(setData)
+    // Fetch featured and new-arrival products from Shopify
+    Promise.all([
+      fetch("/api/shopify/products?sort=popular&limit=12").then(r => r.json()),
+      fetch("/api/shopify/products?sort=newest&limit=12").then(r => r.json()),
+    ])
+      .then(([popular, newest]) => {
+        setData({
+          featured: popular.products ?? [],
+          bestSellers: popular.products ?? [],
+          newArrivals: newest.products ?? [],
+          deals: newest.products ?? [],
+          categories: [],
+        });
+      })
       .catch(console.error);
   }, []);
 
@@ -185,13 +196,56 @@ export default function HomePage() {
   return (
     <div className="bg-[#F0F0F0] min-h-screen">
 
+      {/* ════════════════════ JSON-LD STRUCTURED DATA ════════════════════ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Prime Sources Marketplace",
+            "url": process.env.NEXT_PUBLIC_APP_URL || "https://primesources.online",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": `${process.env.NEXT_PUBLIC_APP_URL || "https://primesources.online"}/browse?search={search_term_string}`
+              },
+              "query-input": "required name=search_term_string"
+            }
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Prime Sources",
+            "url": process.env.NEXT_PUBLIC_APP_URL || "https://primesources.online",
+            "logo": `${process.env.NEXT_PUBLIC_APP_URL || "https://primesources.online"}/logo.png`,
+            "sameAs": [
+              "https://twitter.com/primesources",
+              "https://facebook.com/primesources",
+              "https://instagram.com/primesources"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer service",
+              "url": `${process.env.NEXT_PUBLIC_APP_URL || "https://primesources.online"}/contact`
+            }
+          }),
+        }}
+      />
+
       {/* ════════════════════ TRUST BAR ════════════════════ */}
       <div className="bg-[#1A1A2E] text-white/60 text-[11px] py-1.5">
         <div className="max-w-[1400px] mx-auto px-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-1">
-          <span className="flex items-center gap-1"><Shield className="w-3 h-3 text-emerald-400" /> Escrow on every order</span>
-          <span className="flex items-center gap-1"><CreditCard className="w-3 h-3 text-[#D4A843]" /> M-Pesa · Cards · Bank</span>
-          <span className="flex items-center gap-1"><Truck className="w-3 h-3 text-emerald-400" /> Ships to 34 countries</span>
-          <span className="flex items-center gap-1"><Globe className="w-3 h-3 text-[#D4A843]" /> AfCFTA duty benefits</span>
+          <span className="flex items-center gap-1"><Shield className="w-3 h-3 text-emerald-400" /> Secure payments</span>
+          <span className="flex items-center gap-1"><CreditCard className="w-3 h-3 text-[#D4A843]" /> PayFast · PayPal · Card · EFT</span>
+          <span className="flex items-center gap-1"><Truck className="w-3 h-3 text-emerald-400" /> Fast delivery to South Africa</span>
+          <span className="flex items-center gap-1"><Globe className="w-3 h-3 text-[#D4A843]" /> 10,000+ products</span>
         </div>
       </div>
 
@@ -387,9 +441,9 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { icon: <Tag className="w-4 h-4" />, label: "Browse & Choose", sub: "1000s of products" },
-              { icon: <Shield className="w-4 h-4" />, label: "Pay into Escrow", sub: "Your money is safe" },
-              { icon: <Truck className="w-4 h-4" />, label: "Seller Ships", sub: "Track your order" },
-              { icon: <Star className="w-4 h-4" />, label: "Approve & Rate", sub: "Release payment" },
+              { icon: <Shield className="w-4 h-4" />, label: "Pay Securely", sub: "PayFast, PayPal, Card" },
+              { icon: <Truck className="w-4 h-4" />, label: "We Ship to You", sub: "Track your order" },
+              { icon: <Star className="w-4 h-4" />, label: "Love It or Return", sub: "Buyer protection" },
             ].map((s, i) => (
               <div key={i} className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-lg bg-[#D4A843]/15 flex items-center justify-center text-[#D4A843] flex-shrink-0">
@@ -456,6 +510,27 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ════════════════════ SHOP HEALTH, BEAUTY & HAIR ════════════════════ */}
+      <section className="max-w-[1400px] mx-auto px-4 pb-4">
+        <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <div className="bg-pink-600 px-4 py-2.5 flex items-center justify-between">
+            <h2 className="text-white font-extrabold text-base flex items-center gap-2">
+              ✨ Health, Beauty & Hair
+            </h2>
+            <Link href="/browse" className="text-white/80 text-sm font-medium hover:text-white flex items-center gap-1">
+              View All <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+          <div className="p-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+              {data?.bestSellers
+                ? data.bestSellers.map((p) => <ProductCard key={p.id} product={p} />)
+                : Array.from({ length: 6 }).map((_, i) => <ProductCardSkeleton key={i} />)}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ════════════════════ SELLER CTA ════════════════════ */}
       <section className="max-w-[1400px] mx-auto px-4 pb-6">
         <div className="bg-gradient-to-r from-[#1A1A2E] to-[#0F3460] rounded-lg overflow-hidden">
@@ -465,8 +540,8 @@ export default function HomePage() {
                 <Store className="w-6 h-6 text-[#D4A843]" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-white">Sell on Amana</h3>
-                <p className="text-white/50 text-sm">Reach buyers in 34 African countries. Escrow-protected payments.</p>
+                <h3 className="text-lg font-bold text-white">Sell on Prime Sources</h3>
+                <p className="text-white/50 text-sm">Reach buyers across South Africa. Fast payouts, easy setup.</p>
               </div>
             </div>
             <Link href="/register?role=seller">

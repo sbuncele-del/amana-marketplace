@@ -54,7 +54,7 @@ const helpLinks = [
 ];
 
 const companyLinks = [
-  { label: "About Amana", href: "/about" },
+  { label: "About Prime Sources", href: "/about" },
   { label: "Trust & Safety", href: "/trust-safety" },
   { label: "Careers", href: "/careers" },
   { label: "Press & Media", href: "/press" },
@@ -72,11 +72,11 @@ const policyLinks = [
 ];
 
 const socialLinks = [
-  { icon: Facebook, href: "https://facebook.com/amanamarket", label: "Facebook" },
-  { icon: Twitter, href: "https://twitter.com/amanamarket", label: "X (Twitter)" },
-  { icon: Instagram, href: "https://instagram.com/amanamarket", label: "Instagram" },
-  { icon: Youtube, href: "https://youtube.com/@amanamarket", label: "YouTube" },
-  { icon: Linkedin, href: "https://linkedin.com/company/amanamarket", label: "LinkedIn" },
+  { icon: Facebook, href: "https://facebook.com/primesources.online", label: "Facebook" },
+  { icon: Twitter, href: "https://twitter.com/primesources_", label: "X (Twitter)" },
+  { icon: Instagram, href: "https://instagram.com/primesources.online", label: "Instagram" },
+  { icon: Youtube, href: "https://youtube.com/@primesources", label: "YouTube" },
+  { icon: Linkedin, href: "https://linkedin.com/company/primesources", label: "LinkedIn" },
 ];
 
 function FooterColumn({
@@ -141,17 +141,17 @@ export function Footer() {
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#D4A843] to-[#2E7D32] flex items-center justify-center text-white font-black text-sm">
-                A
+                PS
               </div>
-              <span className="text-lg font-bold">amana</span>
+              <span className="text-lg font-bold">Prime Sources</span>
             </div>
             <p className="text-xs text-white/40 leading-relaxed mb-4">
-              Africa&apos;s trusted cross-border marketplace. Trade across 54
-              countries with built-in escrow protection.
+              South Africa&apos;s trusted online marketplace. Quality products,
+              fast delivery, secure payments.
             </p>
             <div className="flex items-center gap-2 text-xs text-[#D4A843] mb-6">
               <Shield className="w-3.5 h-3.5" />
-              <span className="font-semibold">Every Transaction Protected</span>
+              <span className="font-semibold">Secure & Trusted Shopping</span>
             </div>
 
             {/* App Download Badges */}
@@ -224,15 +224,15 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-xs text-white/30">
             <div className="flex items-center gap-1.5">
               <Mail className="w-3.5 h-3.5" />
-              <span>support@amana.market</span>
+              <span>support@primesources.online</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Phone className="w-3.5 h-3.5" />
-              <span>+254 700 AMANA</span>
+              <span>+27 (0) 800 PRIME</span>
             </div>
             <div className="flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5" />
-              <span>Nairobi, Kenya · Lagos, Nigeria · Accra, Ghana</span>
+              <span>South Africa</span>
             </div>
           </div>
         </div>
@@ -247,15 +247,13 @@ export function Footer() {
             <span className="text-white/15">•</span>
             <span className="text-white/30">Mastercard</span>
             <span className="text-white/15">•</span>
-            <span className="text-white/30">M-Pesa</span>
+            <span className="text-white/30">PayFast</span>
             <span className="text-white/15">•</span>
-            <span className="text-white/30">MTN MoMo</span>
+            <span className="text-white/30">EFT</span>
             <span className="text-white/15">•</span>
-            <span className="text-white/30">Airtel Money</span>
+            <span className="text-white/30">Instant EFT</span>
             <span className="text-white/15">•</span>
-            <span className="text-white/30">Bank Transfer</span>
-            <span className="text-white/15">•</span>
-            <span className="text-white/30">Flutterwave</span>
+            <span className="text-white/30">PayPal</span>
           </div>
         </div>
       </div>
@@ -264,8 +262,8 @@ export function Footer() {
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-[11px] text-white/25">
-            &copy; {new Date().getFullYear()} Amana Marketplace Ltd. All rights
-            reserved. Built for Africa, by Africa.
+            &copy; {new Date().getFullYear()} Prime Sources (Pty) Ltd. All rights
+            reserved. South Africa&apos;s Online Marketplace.
           </p>
           <div className="flex items-center gap-5 text-[11px] text-white/25">
             <Link href="/privacy" className="hover:text-white/50 transition-colors">

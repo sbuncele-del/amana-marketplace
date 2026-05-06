@@ -1,99 +1,29 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { getProducts, toProductCardData } from "@/lib/shopify";
 
-// GET /api/homepage — products for homepage sections
+// GET /api/homepage — products for homepage sections (from Shopify)
 export async function GET() {
   try {
-    const productSelect = {
-      id: true,
-      name: true,
-      slug: true,
-      price: true,
-      comparePrice: true,
-      currency: true,
-      images: true,
-      originCountry: true,
-      stock: true,
-      avgRating: true,
-      reviewCount: true,
-      totalSold: true,
-      viewCount: true,
-      isFeatured: true,
-      isActive: true,
-      createdAt: true,
-      seller: {
-        select: {
-          name: true,
-          country: true,
-          sellerProfile: {
-            select: {
-              storeName: true,
-              storeSlug: true,
-              trustScore: true,
-              isVerified: true,
-            },
-          },
-        },
-      },
-      category: {
-        select: { name: true, slug: true },
-      },
-    };
-
-    const [featured, bestSellers, newArrivals, deals, categories] = await Promise.all([
-      // Featured products (handpicked by admin / isFeatured flag)
-      prisma.product.findMany({
-        where: { isActive: true, isApproved: true, isFeatured: true },
-        select: productSelect,
-        orderBy: { viewCount: "desc" },
-        take: 12,
-      }),
-      // Best sellers by totalSold
-      prisma.product.findMany({
-        where: { isActive: true, isApproved: true },
-        select: productSelect,
-        orderBy: { totalSold: "desc" },
-        take: 12,
-      }),
-      // Newest arrivals
-      prisma.product.findMany({
-        where: { isActive: true, isApproved: true },
-        select: productSelect,
-        orderBy: { createdAt: "desc" },
-        take: 12,
-      }),
-      // Deals (products with comparePrice set)
-      prisma.product.findMany({
-        where: { isActive: true, isApproved: true, comparePrice: { not: null } },
-        select: productSelect,
-        orderBy: { totalSold: "desc" },
-        take: 12,
-      }),
-      // Categories with product counts
-      prisma.category.findMany({
-        select: {
-          id: true,
-          name: true,
-          slug: true,
-          icon: true,
-          _count: { select: { products: true } },
-        },
-        orderBy: { name: "asc" },
-      }),
+    const [newest, bestSellers] = await Promise.all([
+      getProducts({ first: 12, sortKey: "CREATED_AT", reverse: true }),
+      getProducts({ first: 12, sortKey: "BEST_SELLING", reverse: false }),
     ]);
 
+    const newArrivalsData = newest.products.map(toProductCardData);
+    const bestSellersData = bestSellers.products.map(toProductCardData);
+
     return NextResponse.json({
-      featured,
-      bestSellers,
-      newArrivals,
-      deals,
-      categories: categories.map((c) => ({
-        ...c,
-        productCount: c._count.products,
-      })),
+      featured: bestSellersData.slice(0, 6),
+      bestSellers: bestSellersData,
+      newArrivals: newArrivalsData,
+      deals: newArrivalsData,
+      categories: [],
+    }, {
+      headers: { "Cache-Control": "s-maxage=300, stale-while-revalidate=60" },
     });
   } catch (error) {
     console.error("Homepage API error:", error);
-    return NextResponse.json({ error: "Failed to load homepage" }, { status: 500 });
+    return NextResponse.json({ featured: [], bestSellers: [], newArrivals: [], deals: [], categories: [] }, { status: 200 });
   }
 }
+

@@ -56,7 +56,20 @@ VESICASH_PUBLIC_KEY=your_vesicash_public_key
 # Flutterwave
 FLUTTERWAVE_PUBLIC_KEY=your_flutterwave_public_key
 FLUTTERWAVE_SECRET_KEY=your_flutterwave_secret_key
-FLUTTERWAVE_WEBHOOK_HASH=your_webhook_hash
+FLW_SECRET_HASH=your_webhook_hash
+
+# Resend (email) — get key at https://resend.com
+RESEND_API_KEY=re_your_resend_api_key
+FROM_EMAIL=Amana Marketplace <noreply@your-domain.com>
+
+# Shopify (headless storefront)
+# 1. Create a Shopify store at https://shopify.com
+# 2. Go to Settings → Apps → Develop apps → Create a Headless app
+# 3. Under Storefront API, enable: products, collections, cart
+# 4. Copy the Storefront access token (public) and Admin token (private)
+SHOPIFY_STORE_DOMAIN=your-store.myshopify.com
+SHOPIFY_STOREFRONT_ACCESS_TOKEN=your_storefront_access_token
+SHOPIFY_ADMIN_ACCESS_TOKEN=shpat_your_admin_token
 
 # App
 NEXT_PUBLIC_APP_URL=https://your-domain.com

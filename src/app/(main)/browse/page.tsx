@@ -73,15 +73,16 @@ function BrowseContent() {
     setLoading(true);
     try {
       const params = new URLSearchParams();
+      // Only filter by search text — category pills are visual only until
+      // the catalog grows enough to need real collection filtering
       if (search) params.set("search", search);
-      if (activeCategory) params.set("category", activeCategory);
       if (sort) params.set("sort", sort);
 
-      const res = await fetch(`/api/products?${params.toString()}`);
+      const res = await fetch(`/api/shopify/products?${params.toString()}`);
       if (res.ok) {
         const data = await res.json();
         setProducts(data.products || []);
-        setTotal(data.pagination?.total || 0);
+        setTotal(data.total || 0);
       }
     } catch {
       setProducts([]);
@@ -89,7 +90,7 @@ function BrowseContent() {
     } finally {
       setLoading(false);
     }
-  }, [search, activeCategory, sort]);
+  }, [search, sort]);
 
   useEffect(() => {
     fetchProducts();
