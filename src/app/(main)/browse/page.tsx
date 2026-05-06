@@ -64,7 +64,7 @@ function BrowseContent() {
   const [loading, setLoading] = useState(true);
   const [view, setView] = useState<"grid" | "list">("grid");
   const [search, setSearch] = useState(searchParams.get("search") || "");
-  const [activeCategory, setActiveCategory] = useState(searchParams.get("category") || "");
+  const [activeCategory, setActiveCategory] = useState(searchParams.get("category") || searchParams.get("collection") || "");
   const [sort, setSort] = useState(searchParams.get("sort") || "newest");
   const [showFilters, setShowFilters] = useState(false);
   const [total, setTotal] = useState(0);
@@ -73,10 +73,9 @@ function BrowseContent() {
     setLoading(true);
     try {
       const params = new URLSearchParams();
-      // Only filter by search text — category pills are visual only until
-      // the catalog grows enough to need real collection filtering
       if (search) params.set("search", search);
       if (sort) params.set("sort", sort);
+      if (activeCategory) params.set("collection", activeCategory);
 
       const res = await fetch(`/api/shopify/products?${params.toString()}`);
       if (res.ok) {
@@ -90,7 +89,7 @@ function BrowseContent() {
     } finally {
       setLoading(false);
     }
-  }, [search, sort]);
+  }, [search, sort, activeCategory]);
 
   useEffect(() => {
     fetchProducts();
