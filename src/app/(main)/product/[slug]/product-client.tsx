@@ -469,6 +469,8 @@ export default function ProductPageClient() {
                 <p className="text-xs text-gray-400 mt-6 text-center">Reviews imported from verified buyers</p>
               </div>
             )}
+
+            {activeTab === "shipping" && (
               <div className="grid md:grid-cols-2 gap-6">
                 {product.shipsTo.length > 0 && (
                   <div>

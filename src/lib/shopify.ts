@@ -508,11 +508,6 @@ export function toProductCardData(p: ShopifyProduct) {
     ? parseInt(p.ratingCount)
     : 47 + (seed % 280); // 47–326
 
-  // Map productType to category slug
-  const categorySlug = p.productType
-    ? p.productType.toLowerCase().replace(/[\s&]+/g, "-")
-    : p.tags[0] ?? "general";
-
   return {
     id: p.id,
     name: p.title,
