@@ -8,7 +8,7 @@ import { ProductCard, ProductCardCompact, ProductCardSkeleton, ProductCardCompac
 import type { ProductCardData } from "@/components/product-card";
 import {
   Shield, ArrowRight, ChevronLeft, ChevronRight, Globe, Truck, CreditCard,
-  Star, Flame, TrendingUp, Sparkles, Store, Tag, ChevronRight as ChevRight,
+  Star, Flame, TrendingUp, Sparkles, Store, Tag,
   Zap, Clock, Award,
 } from "lucide-react";
 
@@ -42,6 +42,8 @@ const heroBanners = [
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80",
   },
 ];
+
+
 
 const departments = [
   { name: "Gemstones", slug: "gemstones", icon: "💎" },
@@ -249,38 +251,11 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ════════════════════ HERO: SIDEBAR + BANNER ════════════════════ */}
+      {/* ════════════════════ HERO BANNER ════════════════════ */}
       <div className="max-w-[1400px] mx-auto px-4 pt-4 pb-3">
-        <div className="flex gap-4">
-
-          {/* ── Left: Department sidebar (desktop) ── */}
-          <aside className="hidden lg:block w-[230px] flex-shrink-0 bg-white border border-gray-200 rounded-lg overflow-hidden self-start">
-            <div className="bg-[#D4A843] text-white text-sm font-bold px-4 py-2.5">
-              Shop by Department
-            </div>
-            {departments.map((dept) => (
-              <Link
-                key={dept.slug}
-                href={`/browse?category=${dept.slug}`}
-                className="flex items-center justify-between px-3 py-2 text-[13px] text-gray-700 hover:bg-[#D4A843]/5 hover:text-[#D4A843] transition-colors border-b border-gray-50 last:border-b-0 group"
-              >
-                <span className="flex items-center gap-2.5">
-                  <span className="w-5 text-center text-sm">{dept.icon}</span>
-                  {dept.name}
-                </span>
-                <ChevRight className="w-3 h-3 text-gray-300 group-hover:text-[#D4A843]" />
-              </Link>
-            ))}
-            <Link
-              href="/browse"
-              className="block text-center text-[13px] font-semibold text-[#D4A843] hover:underline py-2.5 border-t border-gray-100"
-            >
-              All Categories →
-            </Link>
-          </aside>
-
-          {/* ── Right: Hero carousel ── */}
-          <div className="flex-1 min-w-0">
+        <div>
+          {/* ── Hero carousel ── */}
+          <div className="w-full">
             <div className={`relative bg-gradient-to-r ${banner.bg} rounded-lg overflow-hidden`}>
               <div className="grid md:grid-cols-2 gap-0 items-center">
                 {/* Text */}
