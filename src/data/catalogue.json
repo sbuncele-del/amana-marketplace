@@ -1,0 +1,88 @@
+[
+  {
+    "id": "8l-air-fryer-with-digital-led-display",
+    "slug": "8l-air-fryer-with-digital-led-display",
+    "name": "8L Air Fryer With Digital LED Display",
+    "price": 1499,
+    "currency": "ZAR",
+    "images": [
+      "/products/8l-air-fryer-with-digital-led-display-0.jpg",
+      "/products/8l-air-fryer-with-digital-led-display-1.jpg"
+    ],
+    "colours": [
+      "Black",
+      "White"
+    ],
+    "sku": "YAD-YG544.",
+    "description": "An 8-litre air fryer with digital controls for everyday cooking. Choose your preferred colour and ask Amana to confirm the exact model, stock and delivery before payment.",
+    "category": {
+      "name": "Air Fryers",
+      "slug": "air-fryers"
+    },
+    "originCountry": "South Africa",
+    "seller": {
+      "name": "Amana Marketplace",
+      "country": "South Africa",
+      "sellerProfile": {
+        "storeName": "Amana Marketplace",
+        "storeSlug": "amana",
+        "trustScore": 0,
+        "isVerified": false
+      }
+    },
+    "stock": 0,
+    "avgRating": 0,
+    "reviewCount": 0,
+    "totalSold": 0,
+    "fulfilmentStatus": "Stock confirmation required",
+    "deliveryNote": "Estimated 3\u20137 business days after supplier payment. Final delivery cost confirmed before payment.",
+    "specifications": [
+      "Supplier-listed capacity: 8 litres",
+      "Digital controls",
+      "Black and white options \u2014 availability to be confirmed"
+    ]
+  },
+  {
+    "id": "8l-digital-touch-panel-air-fryer",
+    "slug": "8l-digital-touch-panel-air-fryer",
+    "name": "8L Digital Touch Panel Air Fryer",
+    "price": 1649,
+    "currency": "ZAR",
+    "images": [
+      "/products/8l-digital-touch-panel-air-fryer-0.jpg",
+      "/products/8l-digital-touch-panel-air-fryer-1.jpg"
+    ],
+    "colours": [
+      "Black",
+      "White"
+    ],
+    "sku": "NEA-299",
+    "description": "An 8-litre air fryer with digital controls for everyday cooking. Choose your preferred colour and ask Amana to confirm the exact model, stock and delivery before payment.",
+    "category": {
+      "name": "Air Fryers",
+      "slug": "air-fryers"
+    },
+    "originCountry": "South Africa",
+    "seller": {
+      "name": "Amana Marketplace",
+      "country": "South Africa",
+      "sellerProfile": {
+        "storeName": "Amana Marketplace",
+        "storeSlug": "amana",
+        "trustScore": 0,
+        "isVerified": false
+      }
+    },
+    "stock": 0,
+    "avgRating": 0,
+    "reviewCount": 0,
+    "totalSold": 0,
+    "fulfilmentStatus": "Stock confirmation required",
+    "deliveryNote": "Estimated 3\u20137 business days after supplier payment. Final delivery cost confirmed before payment.",
+    "specifications": [
+      "Supplier-listed capacity: 8 litres",
+      "Digital controls",
+      "Black and white options \u2014 availability to be confirmed"
+    ]
+  }
+]

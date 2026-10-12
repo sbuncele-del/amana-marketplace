@@ -54,7 +54,7 @@ const helpLinks = [
 ];
 
 const companyLinks = [
-  { label: "About Prime Sources", href: "/about" },
+  { label: "About Amana Marketplace", href: "/about" },
   { label: "Trust & Safety", href: "/trust-safety" },
   { label: "Careers", href: "/careers" },
   { label: "Press & Media", href: "/press" },
@@ -143,7 +143,7 @@ export function Footer() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#D4A843] to-[#2E7D32] flex items-center justify-center text-white font-black text-sm">
                 PS
               </div>
-              <span className="text-lg font-bold">Prime Sources</span>
+              <span className="text-lg font-bold">Amana Marketplace</span>
             </div>
             <p className="text-xs text-white/40 leading-relaxed mb-4">
               South Africa&apos;s trusted online marketplace. Quality products,
@@ -262,7 +262,7 @@ export function Footer() {
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-[11px] text-white/25">
-            &copy; {new Date().getFullYear()} Prime Sources (Pty) Ltd. All rights
+            &copy; {new Date().getFullYear()} Amana Marketplace (Pty) Ltd. All rights
             reserved. South Africa&apos;s Online Marketplace.
           </p>
           <div className="flex items-center gap-5 text-[11px] text-white/25">

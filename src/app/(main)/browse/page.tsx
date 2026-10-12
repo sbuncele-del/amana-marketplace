@@ -34,19 +34,7 @@ interface Product {
   } | null;
 }
 
-const categories = [
-  { name: "All", slug: "" },
-  { name: "Gemstones", slug: "gemstones" },
-  { name: "Fashion", slug: "fashion" },
-  { name: "Agriculture", slug: "agriculture" },
-  { name: "Art & Craft", slug: "art-craft" },
-  { name: "Electronics", slug: "electronics" },
-  { name: "Beauty", slug: "beauty" },
-  { name: "Food & Spice", slug: "food-spice" },
-  { name: "Textiles", slug: "textiles" },
-  { name: "Minerals", slug: "minerals" },
-  { name: "Leather", slug: "leather" },
-];
+const categories = [{name: "All", slug: ""}, {name: "Air Fryers", slug: "air-fryers"}, {name: "Home & Living", slug: "home-living"}];
 
 const sortOptions = [
   { label: "Newest First", value: "newest" },
@@ -77,7 +65,7 @@ function BrowseContent() {
       if (sort) params.set("sort", sort);
       if (activeCategory) params.set("collection", activeCategory);
 
-      const res = await fetch(`/api/shopify/products?${params.toString()}`);
+      const res = await fetch(`/api/catalogue?${params.toString()}`);
       if (res.ok) {
         const data = await res.json();
         setProducts(data.products || []);
@@ -118,7 +106,7 @@ function BrowseContent() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-extrabold mb-2">Browse Products</h1>
-          <p className="text-gray-500">Discover goods from verified sellers across Africa</p>
+          <p className="text-gray-500">Explore our first collection for South African homes</p>
         </div>
 
         {/* Search bar */}

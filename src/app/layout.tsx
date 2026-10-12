@@ -23,8 +23,8 @@ const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://primesources.online"
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Prime Sources — Africa's Growing Online Marketplace | Buy & Sell Across Africa",
-    template: "%s | Prime Sources Marketplace",
+    default: "Amana Marketplace — Africa's Growing Online Marketplace | Buy & Sell Across Africa",
+    template: "%s | Amana Marketplace Marketplace",
   },
   description:
     "Shop electronics, fashion, home goods, beauty & more from verified African sellers. Fast shipping, secure payments via PayFast, EFT & card. Best prices guaranteed on primesources.online.",
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     "affordable shopping South Africa",
     "trending products South Africa",
   ],
-  authors: [{ name: "Prime Sources", url: siteUrl }],
-  creator: "Prime Sources",
-  publisher: "Prime Sources",
+  authors: [{ name: "Amana Marketplace", url: siteUrl }],
+  creator: "Amana Marketplace",
+  publisher: "Amana Marketplace",
   robots: {
     index: true,
     follow: true,
@@ -56,8 +56,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_ZA",
     url: siteUrl,
-    siteName: "Prime Sources Marketplace",
-    title: "Prime Sources — Africa's Growing Online Marketplace",
+    siteName: "Amana Marketplace Marketplace",
+    title: "Amana Marketplace — Africa's Growing Online Marketplace",
     description:
       "Shop electronics, fashion, home goods, beauty & more from verified African sellers. Secure payments, fast shipping across Africa.",
     images: [
@@ -65,13 +65,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Prime Sources Marketplace — Shop Across Africa",
+        alt: "Amana Marketplace Marketplace — Shop Across Africa",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prime Sources — Africa's Growing Online Marketplace",
+    title: "Amana Marketplace — Africa's Growing Online Marketplace",
     description:
       "Shop electronics, fashion, home goods & more. Secure payments, fast shipping across Africa.",
     images: ["/og-image.png"],
@@ -146,7 +146,7 @@ export default function RootLayout({
                 position: 'right'
               },
               brandSetting: {
-                brandName: 'Prime Sources',
+                brandName: 'Amana Marketplace',
                 brandSubTitle: 'Typically replies within minutes',
                 brandImg: '/favicon.ico',
                 welcomeText: 'Hi! Need help with your order or product info? Chat with us 👋',
