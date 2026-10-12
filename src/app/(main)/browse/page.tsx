@@ -14,6 +14,8 @@ interface Product {
   name: string;
   slug: string;
   price: number;
+  priceOnRequest: boolean;
+  supplierAvailable: boolean;
   currency: string;
   images: string[];
   originCountry: string;
@@ -34,7 +36,7 @@ interface Product {
   } | null;
 }
 
-const categories = [{name: "All", slug: ""}, {name: "Air Fryers", slug: "air-fryers"}, {name: "Home & Living", slug: "home-living"}];
+const categories = [{name: "All", slug: ""}, {name: "Kitchen & Dining", slug: "kitchen-dining"}, {name: "Air Fryers", slug: "air-fryers"}];
 
 const sortOptions = [
   { label: "Newest First", value: "newest" },
@@ -56,44 +58,59 @@ function BrowseContent() {
   const [sort, setSort] = useState(searchParams.get("sort") || "newest");
   const [showFilters, setShowFilters] = useState(false);
   const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [availableOnly,setAvailableOnly] = useState(false);
+  const [error,setError] = useState("");
 
-  const fetchProducts = useCallback(async () => {
+  const fetchProducts = useCallback(async (signal?: AbortSignal) => {
     setLoading(true);
+    setError("");
     try {
       const params = new URLSearchParams();
+      params.set("page", String(page));
+      params.set("limit", "24");
+      if (availableOnly) params.set("available", "true");
       if (search) params.set("search", search);
       if (sort) params.set("sort", sort);
       if (activeCategory) params.set("collection", activeCategory);
 
-      const res = await fetch(`/api/catalogue?${params.toString()}`);
+      const res = await fetch(`/api/catalogue?${params.toString()}`, {signal});
       if (res.ok) {
         const data = await res.json();
+        if(signal?.aborted) return;
         setProducts(data.products || []);
         setTotal(data.total || 0);
-      }
+        setTotalPages(data.totalPages || 0);
+      } else { throw new Error("Catalogue unavailable"); }
     } catch {
+      if(signal?.aborted) return;
+      setError("We could not load the collection. Please try again.");
       setProducts([]);
       setTotal(0);
     } finally {
-      setLoading(false);
+      if(!signal?.aborted) setLoading(false);
     }
-  }, [search, sort, activeCategory]);
+  }, [search, sort, activeCategory, page, availableOnly]);
 
   useEffect(() => {
-    fetchProducts();
+    const controller=new AbortController();
+    fetchProducts(controller.signal);
+    return ()=>controller.abort();
   }, [fetchProducts]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
+    setPage(1);
     const params = new URLSearchParams();
     if (search) params.set("search", search);
     if (activeCategory) params.set("category", activeCategory);
     router.push(`/browse?${params.toString()}`);
-    fetchProducts();
   };
 
   const handleCategoryClick = (slug: string) => {
     setActiveCategory(slug);
+    setPage(1);
     const params = new URLSearchParams();
     if (search) params.set("search", search);
     if (slug) params.set("category", slug);
@@ -106,7 +123,7 @@ function BrowseContent() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-extrabold mb-2">Browse Products</h1>
-          <p className="text-gray-500">Explore our first collection for South African homes</p>
+          <p className="text-gray-500">Kitchen & Dining for South African homes</p>
         </div>
 
         {/* Search bar */}
@@ -116,7 +133,7 @@ function BrowseContent() {
             <input
               type="text"
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => {setSearch(e.target.value);setPage(1);}}
               placeholder="Search products, categories, sellers..."
               className="flex-1 py-3 px-3 text-sm focus:outline-none"
             />
@@ -141,6 +158,8 @@ function BrowseContent() {
           ))}
         </div>
 
+        <label className="mb-5 flex items-center gap-2 text-sm"><input type="checkbox" checked={availableOnly} onChange={e=>{setAvailableOnly(e.target.checked);setPage(1);}} />In-stock items only</label>
+        {error && <p role="alert" className="mb-4 text-red-700">{error}</p>}
         {/* Toolbar */}
         <div className="flex items-center justify-between mb-6">
           <p className="text-sm text-gray-500">{total} products found</p>
@@ -155,7 +174,7 @@ function BrowseContent() {
             <div className="relative">
               <select
                 value={sort}
-                onChange={(e) => setSort(e.target.value)}
+                onChange={(e) => {setSort(e.target.value);setPage(1);}}
                 className="appearance-none bg-white border border-gray-200 rounded-lg px-3 py-2 pr-8 text-sm focus:outline-none focus:border-[#D4A843]"
               >
                 {sortOptions.map((opt) => (
@@ -247,15 +266,16 @@ function BrowseContent() {
                   </h3>
                   <div className="flex items-center justify-between">
                     <span className="text-lg font-bold text-[#1A1A2E]">
-                      {formatCurrency(product.price, product.currency)}
+                      {product.priceOnRequest ? "Price on request" : formatCurrency(product.price, product.currency)}
                     </span>
-                    {product.seller.sellerProfile && (
+                    {product.seller.sellerProfile?.isVerified && (
                       <div className="flex items-center gap-1 text-xs text-gray-400">
                         <Star className="w-3 h-3 fill-[#D4A843] text-[#D4A843]" />
                         <span>{product.seller.sellerProfile.trustScore}</span>
                       </div>
                     )}
                   </div>
+                  <p className={`mt-2 text-xs ${product.supplierAvailable ? "text-amber-700" : "text-gray-500"}`}>{product.supplierAvailable ? "In stock with supplier" : "Currently unavailable from supplier"}</p>
                   <p className="text-xs text-gray-400 mt-2">
                     by {product.seller.sellerProfile?.storeName || product.seller.name}
                   </p>
@@ -292,7 +312,7 @@ function BrowseContent() {
                     <h3 className="font-semibold group-hover:text-[#D4A843] transition-colors">{product.name}</h3>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-xl font-bold">{formatCurrency(product.price, product.currency)}</span>
+                    <span className="text-xl font-bold">{product.priceOnRequest ? "Price on request" : formatCurrency(product.price, product.currency)}</span>
                     <span className="text-sm text-gray-400">by {product.seller.sellerProfile?.storeName || product.seller.name}</span>
                   </div>
                 </div>
@@ -300,6 +320,7 @@ function BrowseContent() {
             ))}
           </div>
         )}
+        {totalPages > 1 && <nav aria-label="Catalogue pages" className="mt-8 flex items-center justify-center gap-5"><Button variant="outline" disabled={page<=1||loading} onClick={()=>setPage(p=>p-1)}>Previous</Button><span>Page {page} of {totalPages}</span><Button variant="outline" disabled={page>=totalPages||loading} onClick={()=>setPage(p=>p+1)}>Next</Button></nav>}
       </div>
     </div>
   );
