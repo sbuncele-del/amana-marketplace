@@ -33,7 +33,7 @@ const dealTabs = [
   { label: "Fire Sale", href: "/browse?sale=true", icon: Flame, color: "text-orange-500" },
   { label: "Best Sellers", href: "/browse?sort=popular", icon: Award, color: "text-emerald-600" },
   { label: "Clearance", href: "/browse?clearance=true", icon: BadgePercent, color: "text-purple-600" },
-  { label: "Sell on Prime Sources", href: "/register?role=seller", icon: Store, color: "text-[#2E7D32]" },
+  { label: "Sell on Amana Marketplace", href: "/register?role=seller", icon: Store, color: "text-[#2E7D32]" },
 ];
 
 /* ────────── component ────────── */
@@ -66,7 +66,7 @@ export function Navbar() {
             <div className="w-7 h-7 rounded-md bg-gradient-to-br from-[#D4A843] to-[#C4982F] flex items-center justify-center text-white font-black text-xs">
               PS
             </div>
-            <span className="text-white font-bold tracking-tight">Prime Sources</span>
+            <span className="text-white font-bold tracking-tight">Amana Marketplace</span>
           </Link>
 
           {/* Centre ─ Help / Sell */}
@@ -75,7 +75,7 @@ export function Navbar() {
               <HelpCircle className="w-3.5 h-3.5" /> Help Centre
             </Link>
             <Link href="/register?role=seller" className="hover:text-white flex items-center gap-1.5 transition-colors">
-              <Store className="w-3.5 h-3.5" /> Sell on Prime Sources
+              <Store className="w-3.5 h-3.5" /> Sell on Amana Marketplace
             </Link>
           </div>
 

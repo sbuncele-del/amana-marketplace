@@ -136,13 +136,13 @@ export function ProductCard({ product }: { product: ProductCardData }) {
 
         {/* Shipping indicator */}
         <div className="flex items-center gap-1 text-[10px] text-emerald-600 font-medium mb-2">
-          <Truck className="w-3 h-3" /> Fast delivery available
+          <Truck className="w-3 h-3" /> Delivery confirmed before payment
         </div>
 
         {/* Add to cart button — appears on hover */}
         <div className="mt-auto pt-2 border-t border-gray-100">
           <div className="w-full bg-[#D4A843] hover:bg-[#C4982F] text-white text-xs font-bold py-2 rounded-md flex items-center justify-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            <ShoppingCart className="w-3.5 h-3.5" /> Add to Cart
+            <ShoppingCart className="w-3.5 h-3.5" /> View product
           </div>
           <div className="flex items-center justify-between text-[10px] text-gray-400 mt-2 group-hover:hidden">
             <span className="truncate max-w-[70%]">{storeName}</span>

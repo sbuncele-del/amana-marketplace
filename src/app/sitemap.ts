@@ -1,3 +1,4 @@
+import { getCatalogueProducts } from "@/lib/catalogue";
 import type { MetadataRoute } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://primesources.online";
@@ -17,50 +18,6 @@ const staticPages: MetadataRoute.Sitemap = [
   { url: `${siteUrl}/register`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
 ];
 
-async function getShopifyProducts(): Promise<MetadataRoute.Sitemap> {
-  try {
-    const res = await fetch(
-      `https://${process.env.SHOPIFY_STORE_DOMAIN}/api/2026-04/graphql.json`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Shopify-Storefront-Access-Token":
-            process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN || "",
-        },
-        body: JSON.stringify({
-          query: `{
-            products(first: 250) {
-              edges {
-                node {
-                  handle
-                  updatedAt
-                }
-              }
-            }
-          }`,
-        }),
-        next: { revalidate: 3600 },
-      }
-    );
-    if (!res.ok) return [];
-    const data = await res.json();
-    return (
-      data?.data?.products?.edges?.map(
-        ({ node }: { node: { handle: string; updatedAt: string } }) => ({
-          url: `${siteUrl}/product/${node.handle}`,
-          lastModified: new Date(node.updatedAt),
-          changeFrequency: "daily" as const,
-          priority: 0.8,
-        })
-      ) ?? []
-    );
-  } catch {
-    return [];
-  }
-}
-
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const productPages = await getShopifyProducts();
-  return [...staticPages, ...productPages];
+export default function sitemap(): MetadataRoute.Sitemap {
+ return [...staticPages, ...getCatalogueProducts().map(product => ({url: `${siteUrl}/product/${product.slug}`, changeFrequency: "weekly" as const, priority: 0.8}))];
 }
