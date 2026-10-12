@@ -62,6 +62,14 @@ function BrowseContent() {
   const [totalPages, setTotalPages] = useState(0);
   const [availableOnly,setAvailableOnly] = useState(false);
   const [error,setError] = useState("");
+  const queryKey=searchParams.toString();
+  useEffect(()=>{
+    const params=new URLSearchParams(queryKey);
+    setActiveCategory(params.get("category") || params.get("collection") || "");
+    setSearch(params.get("search") || "");
+    setSort(params.get("sort") || "newest");
+    setPage(1);
+  },[queryKey]);
 
   const fetchProducts = useCallback(async (signal?: AbortSignal) => {
     setLoading(true);
