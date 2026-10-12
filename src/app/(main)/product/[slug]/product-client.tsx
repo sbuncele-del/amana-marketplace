@@ -34,7 +34,7 @@ export default function ProductPageClient({product}: {product: CatalogueProduct}
         <p className="mt-3 text-sm text-gray-600">Your order enquiry goes to Amana. We provide the delivered total and payment instructions. No payment is taken on this page.</p>
         {error && <p role="alert" className="mt-3 text-red-600">{error}</p>}
         <div className="mt-6 space-y-3 rounded-xl bg-gray-50 p-5"><p className="flex gap-2 text-sm"><CheckCircle size={18}/>Local supplier fulfilment in South Africa</p><p className="flex gap-2 text-sm"><Truck size={18}/>{product.deliveryNote}</p></div>
-        <p className="mt-3 text-sm font-semibold">{selectedVariant.supplierAvailable ? "In stock with supplier" : "Currently unavailable"}</p><h2 className="mt-7 font-bold">Product details</h2><p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-gray-600">{product.details}</p><ul className="mt-3 list-disc space-y-2 pl-5 text-gray-600">{product.specifications.map(s=><li key={s}>{s}</li>)}</ul>
+        <p className="mt-3 text-sm font-semibold">{selectedVariant.supplierAvailable ? "In stock" : "Currently unavailable"}</p><h2 className="mt-7 font-bold">Product details</h2><p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-gray-600">{product.details}</p><ul className="mt-3 list-disc space-y-2 pl-5 text-gray-600">{product.specifications.map(s=><li key={s}>{s}</li>)}</ul>
       </div>
     </div>
   </main>;

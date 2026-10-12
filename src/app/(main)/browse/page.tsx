@@ -283,7 +283,7 @@ function BrowseContent() {
                       </div>
                     )}
                   </div>
-                  <p className={`mt-2 text-xs ${product.supplierAvailable ? "text-amber-700" : "text-gray-500"}`}>{product.supplierAvailable ? "In stock with supplier" : "Currently unavailable from supplier"}</p>
+                  <p className={`mt-2 text-xs ${product.supplierAvailable ? "text-amber-700" : "text-gray-500"}`}>{product.supplierAvailable ? "In stock" : "Currently unavailable"}</p>
                   <p className="text-xs text-gray-400 mt-2">
                     by {product.seller.sellerProfile?.storeName || product.seller.name}
                   </p>
