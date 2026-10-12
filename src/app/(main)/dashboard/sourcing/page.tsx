@@ -5,7 +5,7 @@ import catalogue from "@/data/sourcing/perfect-dealz-air-fryers.json";
 export default async function SourcingPage() {
   const session = await auth();
   if (!session?.user?.id) redirect("/login");
-  if (session.user.role !== "ADMIN" && session.user.role !== "SELLER") redirect("/");
+  if (session.user.role !== "ADMIN") redirect("/");
   // Commercial supplier costs remain on this authenticated server-rendered page.
   const money = (amount: number) => new Intl.NumberFormat("en-ZA", { style: "currency", currency: "ZAR" }).format(amount);
   return (
