@@ -1,4 +1,4 @@
-import { getCatalogueProducts } from "@/lib/catalogue";
+import {getCatalogueSnapshot} from "@/lib/catalogue";
 import type { MetadataRoute } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://primesources.online";
@@ -18,6 +18,6 @@ const staticPages: MetadataRoute.Sitemap = [
   { url: `${siteUrl}/register`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
- return [...staticPages, ...getCatalogueProducts().map(product => ({url: `${siteUrl}/product/${product.slug}`, changeFrequency: "weekly" as const, priority: 0.8}))];
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+ return [...staticPages, ...getCatalogueSnapshot().map(product => ({url: `${siteUrl}/product/${product.slug}`, changeFrequency: "weekly" as const, priority: 0.8}))];
 }

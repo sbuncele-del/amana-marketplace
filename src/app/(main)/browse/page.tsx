@@ -36,7 +36,7 @@ interface Product {
   } | null;
 }
 
-const categories = [{name: "All", slug: ""}, {name: "Kitchen & Dining", slug: "kitchen-dining"}, {name: "Air Fryers", slug: "air-fryers"}];
+const categories = [{name: "All", slug: ""}, {name: "Kitchen & Dining", slug: "kitchen-dining"}, {name: "Air Fryers", slug: "air-fryers"}, {name: "Health & Beauty", slug: "health-beauty"}];
 
 const sortOptions = [
   { label: "Newest First", value: "newest" },

@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { ArrowRight, Truck, CheckCircle } from 'lucide-react';
 import {getCatalogueProducts} from '@/lib/catalogue';
 import {formatCurrency} from '@/lib/utils';
-export default function HomePage(){
- const all=getCatalogueProducts();
+export default async function HomePage(){
+ const all=await getCatalogueProducts('','kitchen-dining');
  const featuredHandles=["8l-air-fryer-with-digital-led-display","8l-digital-touch-panel-air-fryer"];
  const products=[...all.filter(p=>featuredHandles.includes(p.slug)),...all.filter(p=>!featuredHandles.includes(p.slug))].slice(0,8);
  return <main className="bg-[#F5F5F2] pb-16"><section className="mx-auto max-w-7xl px-4 pt-7"><div className="grid overflow-hidden rounded-2xl bg-[#1A1A2E] text-white md:grid-cols-2"><div className="p-8 sm:p-12"><p className="text-xs font-bold tracking-[0.2em] text-[#D4A843]">AMANA · HOME & KITCHEN</p><h1 className="mt-5 text-4xl font-extrabold leading-tight sm:text-5xl">Make room for<br/>better everyday living.</h1><p className="mt-5 max-w-md text-white/70">Explore kitchen tools, cookware, tableware and appliances, fulfilled through a South African supplier. Choose your favourites and request your order.</p><Link href="/browse?collection=kitchen-dining" className="mt-7 inline-flex items-center gap-2 rounded-lg bg-[#D4A843] px-6 py-3 font-bold text-[#1A1A2E]">Shop Kitchen & Dining <ArrowRight size={18}/></Link></div><div className="relative min-h-80"><Image src={products[0].images[0]} alt="Supplier image of an 8L digital air fryer in a kitchen" fill priority sizes="(max-width:768px) 100vw,50vw" className="object-cover"/></div></div></section>
