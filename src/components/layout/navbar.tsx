@@ -21,6 +21,7 @@ const departments = [
   { name: "Agriculture", slug: "agriculture", icon: "🌾" },
   { name: "Art & Craft", slug: "art-craft", icon: "🎨" },
   { name: "Health & Beauty", slug: "health-beauty", icon: "✨" },
+  { name: "Personal Safety & Security", slug: "security", icon: "🛡️" },
   { name: "Food & Spice", slug: "food-spice", icon: "🌶️" },
   { name: "Textiles", slug: "textiles", icon: "🧵" },
   { name: "Minerals", slug: "minerals", icon: "⛏️" },

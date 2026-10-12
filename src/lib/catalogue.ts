@@ -10,7 +10,9 @@ import packed5 from '@/data/catalogue-packed-5.json';
 import packed6 from '@/data/catalogue-packed-6.json';
 import packed7 from '@/data/catalogue-packed-7.json';
 import {gunzipSync} from 'node:zlib';
-const catalogue=JSON.parse(gunzipSync(Buffer.from([packed0,packed1,packed2,packed3,packed4,packed5,packed6,packed7].join(''),'base64')).toString('utf8')) as typeof snapshot;
+import safety from '@/data/personal-safety.json';
+const baseCatalogue=JSON.parse(gunzipSync(Buffer.from([packed0,packed1,packed2,packed3,packed4,packed5,packed6,packed7].join(''),'base64')).toString('utf8')) as typeof snapshot;
+const catalogue=[...new Map([...baseCatalogue,...safety].map(p=>[p.slug,p])).values()] as typeof snapshot;
 export function getCatalogueSnapshot(){return catalogue;}
 export type CatalogueProduct = (typeof catalogue)[number];
 type SupplierProduct = {handle:string;variants:{id:number;title:string;price:string;available:boolean}[]};

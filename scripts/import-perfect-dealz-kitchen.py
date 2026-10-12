@@ -14,7 +14,7 @@ packed=[root/f'src/data/catalogue-packed-{i}.json' for i in range(8)]
 source=json.loads(gzip.decompress(base64.b64decode(''.join(json.loads(p.read_text()) for p in packed)))) if packed[0].exists() else json.loads((root/'src/data/catalogue.json').read_text())
 existing={p['slug']:p for p in source}
 collection=sys.argv[1] if len(sys.argv)>1 else 'kitchen-dining'
-category_name='Health & Beauty' if collection=='health-beauty' else 'Kitchen & Dining'
+category_name={'health-beauty':'Health & Beauty','security':'Personal Safety & Security'}.get(collection,'Kitchen & Dining')
 all_products=[];page=1
 while True:
  url=f'https://perfectdealz.co.za/collections/{collection}/products.json?limit=250&page={page}'
@@ -26,6 +26,7 @@ while True:
  time.sleep(.25)
 seen=set();out=[];costs=[]
 for p in all_products:
+ if collection=='security' and re.search(r'stun.?gun|taser|pepper.?spray|firearm|pistol|rifle|baton|knuckle',p['title'],re.I):continue
  if p['handle'] in seen:continue
  seen.add(p['handle'])
  variants=p.get('variants',[])
@@ -43,15 +44,19 @@ for p in all_products:
  tags=p.get('tags',[])
  if isinstance(tags,str):tags=[x.strip() for x in tags.split(',')]
  item={'id':p['handle'],'slug':p['handle'],'name':p['title'],'price':min(v['price'] for v in raw),'priceOnRequest':False,'currency':'ZAR','images':images,'colours':[v['title'] for v in raw],'variants':raw,'sku':variants[0].get('sku') or '', 'description':description[:550] if description else 'Kitchen and dining product supplied locally. Ask Amana to confirm specifications, availability and the delivered price before payment.','details':description,'category':{'name':category_name,'slug':collection},'collections':[collection]+(['home-living'] if collection=='kitchen-dining' else [])+(['air-fryers'] if re.search(r'air[ -]?fryer',p['title'],re.I) else []),'originCountry':'South Africa','seller':{'name':'Amana Marketplace','country':'South Africa','sellerProfile':{'storeName':'Amana Marketplace','storeSlug':'amana','trustScore':0,'isVerified':False}},'stock':0,'supplierAvailable':any(v['supplierAvailable'] for v in raw),'avgRating':0,'reviewCount':0,'totalSold':0,'fulfilmentStatus':'Supplier-listed availability; reconfirm before payment','deliveryNote':'Estimated 3–7 business days after supplier payment. Delivery cost confirmed before payment.','specifications':[],'sourceCheckedAt':datetime.now(timezone.utc).isoformat(),'sourceUrl':'https://perfectdealz.co.za/products/'+p['handle']}
+ if previous:item['collections']=list(dict.fromkeys(previous['collections']+item['collections']))
  out.append(item)
  costs.append({'slug':p['handle'],'variants':[{'id':str(v['id']),'title':v['title'],'sku':v.get('sku'),'cost':float(v['price']),'grams':v.get('grams'),'available':bool(v.get('available'))} for v in variants]})
-# Preserve previously listed products if the collection no longer contains them.
-for slug,p in existing.items():
- if slug not in seen:
-  out.append(p)
-encoded=base64.b64encode(gzip.compress(json.dumps(out,ensure_ascii=False).encode(),mtime=0)).decode()
-chunk=math.ceil(len(encoded)/8)
-for i,p in enumerate(packed):p.write_text(json.dumps(encoded[i*chunk:(i+1)*chunk])+'\n')
+if collection=='security':
+ (root/'src/data/personal-safety.json').write_text(json.dumps(out,ensure_ascii=False,separators=(',',':'))+'\n')
+else:
+ # Preserve products belonging to other collections.
+ for slug,p in existing.items():
+  if slug not in seen:out.append(p)
+ encoded=base64.b64encode(gzip.compress(json.dumps(out,ensure_ascii=False).encode(),mtime=0)).decode()
+ chunk=math.ceil(len(encoded)/8)
+ for i,p in enumerate(packed):p.write_text(json.dumps(encoded[i*chunk:(i+1)*chunk])+'\n')
 (root/f'src/data/sourcing/perfect-dealz-{collection}-costs.json').write_text(json.dumps({'checkedAt':datetime.now(timezone.utc).isoformat(),'collectionUrl':'https://perfectdealz.co.za/collections/'+collection,'products':costs},ensure_ascii=False,indent=2)+'\n')
+# Legacy cart snapshot is unused by the live cart.
 (root/'src/data/cart-catalogue.json').write_text(json.dumps([{k:p[k] for k in ['id','slug','name','price','priceOnRequest','images','colours','variants','supplierAvailable']} for p in out],ensure_ascii=False)+'\n')
 print(json.dumps({'supplierProducts':len(seen),'catalogueProducts':len(out),'supplierAvailable':sum(p['supplierAvailable'] for p in out),'quoteOnly':sum(p['priceOnRequest'] for p in out)}),flush=True)
