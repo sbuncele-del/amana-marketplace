@@ -1,5 +1,7 @@
 import 'server-only';
 import {unstable_cache} from 'next/cache';
+import {isRetailProduct} from './catalogue-eligibility';
+import additional from '@/data/additional-catalogue';
 import type snapshot from '@/data/catalogue.json';
 import packed0 from '@/data/catalogue-packed-0.json';
 import packed1 from '@/data/catalogue-packed-1.json';
@@ -17,7 +19,7 @@ import kidsPacked2 from '@/data/kids-packed-2.json';
 import kidsPacked3 from '@/data/kids-packed-3.json';
 const baseCatalogue=JSON.parse(gunzipSync(Buffer.from([packed0,packed1,packed2,packed3,packed4,packed5,packed6,packed7].join(''),'base64')).toString('utf8')) as typeof snapshot;
 const kids=JSON.parse(gunzipSync(Buffer.from([kidsPacked0,kidsPacked1,kidsPacked2,kidsPacked3].join(''),'base64')).toString('utf8')) as typeof snapshot;
-const catalogue=[...new Map([...baseCatalogue,...safety,...kids].map(p=>[p.slug,p])).values()] as typeof snapshot;
+const catalogue=[...new Map([...baseCatalogue,...safety,...kids,...additional].filter(p=>isRetailProduct(p.name)).map(p=>[p.slug,p])).values()] as typeof snapshot;
 export function getCatalogueSnapshot(){return catalogue;}
 export type CatalogueProduct = (typeof catalogue)[number];
 type SupplierProduct = {handle:string;variants:{id:number;title:string;price:string;available:boolean}[]};
@@ -41,11 +43,13 @@ function update(product:CatalogueProduct,supplier?:SupplierProduct):CataloguePro
 }
 async function collectionSourceRaw(collection:string) {
  const result:SupplierProduct[]=[];
- for(let page=1;page<=30;page++) {
-  const data=await readSource(`/collections/${collection}/products.json?limit=250&page=${page}`,true);
-  if(!Array.isArray(data.products))throw new Error('Invalid catalogue source');
-  result.push(...data.products.map((p:SupplierProduct)=>({handle:p.handle,variants:p.variants.map(v=>({id:v.id,title:v.title,price:v.price,available:v.available}))})));
-  if(data.products.length<250)return result;
+ for(let first=1;first<=97;first+=4) {
+  const pages=await Promise.all(Array.from({length:4},(_,i)=>readSource(`/collections/${collection}/products.json?limit=250&page=${first+i}`,true)));
+  for(const data of pages) {
+   if(!Array.isArray(data.products))throw new Error('Invalid catalogue source');
+   result.push(...data.products.map((p:SupplierProduct)=>({handle:p.handle,variants:p.variants.map(v=>({id:v.id,title:v.title,price:v.price,available:v.available}))})));
+   if(data.products.length<250)return result;
+  }
  }
  throw new Error('Catalogue pagination limit exceeded');
 }

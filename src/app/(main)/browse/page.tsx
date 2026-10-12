@@ -36,7 +36,9 @@ interface Product {
   } | null;
 }
 
-const categories = [{name: "All", slug: ""}, {name: "Kitchen & Dining", slug: "kitchen-dining"}, {name: "Air Fryers", slug: "air-fryers"}, {name: "Health & Beauty", slug: "health-beauty"}, {name: "Personal Safety & Security", slug: "security"}, {name: "Kids, Toys & Baby", slug: "toys-kids-baby"}];
+import departments from '@/data/departments.json';
+
+const categories = [{name:'All',slug:''},...departments];
 
 const sortOptions = [
   { label: "Newest First", value: "newest" },

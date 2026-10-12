@@ -11,25 +11,11 @@ import {
 } from "lucide-react";
 import { useCart } from "@/contexts/cart-context";
 
+import departments from '@/data/departments.json';
+
 /* ────────── data ────────── */
 
-const departments = [
-  { name: "Kitchen & Dining", slug: "kitchen-dining", icon: "🍽️" },
-  { name: "Air Fryers", slug: "air-fryers", icon: "♨️" },
-  { name: "Gemstones", slug: "gemstones", icon: "💎" },
-  { name: "Fashion", slug: "fashion", icon: "👗" },
-  { name: "Agriculture", slug: "agriculture", icon: "🌾" },
-  { name: "Art & Craft", slug: "art-craft", icon: "🎨" },
-  { name: "Health & Beauty", slug: "health-beauty", icon: "✨" },
-  { name: "Personal Safety & Security", slug: "security", icon: "🛡️" },
-  { name: "Kids, Toys & Baby", slug: "toys-kids-baby", icon: "🧸" },
-  { name: "Food & Spice", slug: "food-spice", icon: "🌶️" },
-  { name: "Textiles", slug: "textiles", icon: "🧵" },
-  { name: "Minerals", slug: "minerals", icon: "⛏️" },
-  { name: "Leather", slug: "leather", icon: "👜" },
-  { name: "Electronics", slug: "electronics", icon: "📱" },
-  { name: "Home & Living", slug: "home-living", icon: "🏠" },
-];
+
 
 const dealTabs = [
   { label: "Deals", href: "/browse?sort=deals", icon: Tag, color: "text-red-600" },
@@ -145,7 +131,7 @@ export function Navbar() {
 
             {/* Dropdown */}
             {deptOpen && (
-              <div className="absolute top-full left-0 w-[260px] bg-white border border-gray-200 shadow-2xl z-50 rounded-b-lg overflow-hidden">
+              <div className="absolute top-full left-0 w-[260px] bg-white border border-gray-200 shadow-2xl z-50 rounded-b-lg max-h-[70vh] overflow-y-auto">
                 {departments.map((dept) => (
                   <Link
                     key={dept.slug}
