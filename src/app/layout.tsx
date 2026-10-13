@@ -4,7 +4,6 @@ import Script from "next/script";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { CookieConsent } from "@/components/cookie-consent";
-import { EmailCapturePopup } from "@/components/email-capture-popup";
 import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
@@ -23,11 +22,11 @@ const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://primesources.online"
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Amana Marketplace — Africa's Growing Online Marketplace | Buy & Sell Across Africa",
-    template: "%s | Amana Marketplace Marketplace",
+    default: "Amana Marketplace — Online Shopping South Africa",
+    template: "%s | Amana Marketplace",
   },
   description:
-    "Shop electronics, fashion, home goods, beauty & more from verified African sellers. Fast shipping, secure payments via PayFast, EFT & card. Best prices guaranteed on primesources.online.",
+    "Shop home, kitchen, electronics, beauty, kids and more at Amana Marketplace. Browse rand prices and request your order with South African delivery.",
   keywords: [
     "online marketplace South Africa",
     "buy online South Africa",
@@ -56,29 +55,26 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_ZA",
     url: siteUrl,
-    siteName: "Amana Marketplace Marketplace",
-    title: "Amana Marketplace — Africa's Growing Online Marketplace",
+    siteName: "Amana Marketplace",
+    title: "Amana Marketplace — Online Shopping South Africa",
     description:
-      "Shop electronics, fashion, home goods, beauty & more from verified African sellers. Secure payments, fast shipping across Africa.",
+      "Everyday finds for your home and family, with South African delivery.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Amana Marketplace Marketplace — Shop Across Africa",
+        alt: "Amana Marketplace — Shop South Africa",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amana Marketplace — Africa's Growing Online Marketplace",
+    title: "Amana Marketplace — Online Shopping South Africa",
     description:
-      "Shop electronics, fashion, home goods & more. Secure payments, fast shipping across Africa.",
+      "Shop home, kitchen, electronics, beauty, kids and more in South Africa.",
     images: ["/og-image.png"],
     creator: "@primesources",
-  },
-  alternates: {
-    canonical: siteUrl,
   },
   icons: {
     icon: [
@@ -88,7 +84,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   verification: {
-    google: "", // Add your Google Search Console verification code here
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined
   },
 };
 
@@ -99,7 +95,7 @@ export default function RootLayout({
 }>) {
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
   return (
-    <html lang="en">
+    <html lang="en-ZA">
       <head>
         {gaId && (
           <>
@@ -121,48 +117,11 @@ export default function RootLayout({
       <body className={`${inter.variable} ${playfair.variable} antialiased font-sans`}>
         <Providers>
           {children}
-          <EmailCapturePopup />
+
         </Providers>
         <CookieConsent />
         <Analytics />
-        {/* WhatsApp chat widget */}
-        <Script id="whatsapp-widget" strategy="lazyOnload">
-          {`
-            var url = 'https://wati-integration-prod-service.clare.ai/v2/watiWidget.js?161000';
-            var s = document.createElement('script');
-            s.type = 'text/javascript';
-            s.async = true;
-            s.src = url;
-            var options = {
-              enabled: true,
-              chatButtonSetting: {
-                backgroundColor: '#25D366',
-                ctaText: 'Chat with us',
-                borderRadius: '25',
-                marginLeft: '0',
-                marginRight: '20',
-                marginBottom: '20',
-                ctaIconWATI: false,
-                position: 'right'
-              },
-              brandSetting: {
-                brandName: 'Amana Marketplace',
-                brandSubTitle: 'Typically replies within minutes',
-                brandImg: '/favicon.ico',
-                welcomeText: 'Hi! Need help with your order or product info? Chat with us 👋',
-                messageText: '',
-                backgroundColor: '#1A1A2E',
-                ctaText: 'Start Chat',
-                borderRadius: '25',
-                autoShow: false,
-                phoneNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
-              }
-            };
-            s.onload = function() { CreateWhatsappChatWidget(options); };
-            var x = document.getElementsByTagName('script')[0];
-            x.parentNode.insertBefore(s, x);
-          `}
-        </Script>
+
       </body>
     </html>
   );

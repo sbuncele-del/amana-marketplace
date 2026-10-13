@@ -1,13 +1,7 @@
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import { getCatalogueProduct } from '@/lib/catalogue';
+import type {Metadata} from 'next';
+import {notFound} from 'next/navigation';
+import {getCatalogueProduct} from '@/lib/catalogue';
 import ProductPageClient from './product-client';
-export async function generateMetadata({ params }: { params: Promise<{slug:string}> }): Promise<Metadata> {
-  const {slug} = await params; const product = await getCatalogueProduct(slug);
-  return {title: product ? `${product.name} | Amana Marketplace` : 'Product not found', description: product?.description};
-}
-export default async function ProductPage({params}: {params: Promise<{slug:string}>}) {
-  const {slug} = await params; const product = await getCatalogueProduct(slug);
-  if (!product) notFound();
-  return <ProductPageClient product={product} />;
-}
+const siteUrl=process.env.NEXT_PUBLIC_APP_URL||'https://primesources.online';
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const {slug}=await params;const p=await getCatalogueProduct(slug);return {title:p?.name||'Product not found',description:p?.description,alternates:{canonical:`/product/${slug}`},openGraph:p?{title:p.name,description:p.description,url:`/product/${slug}`,images:p.images.map(url=>({url,alt:p.name}))}:undefined};}
+export default async function ProductPage({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const p=await getCatalogueProduct(slug);if(!p)notFound();const url=`${siteUrl}/product/${p.slug}`;const schema={'@context':'https://schema.org','@type':'Product',name:p.name,description:p.description,image:p.images,...(p.sku?{sku:p.sku}:{}),offers:p.variants.map(v=>({'@type':'Offer',url,price:v.price,priceCurrency:'ZAR',availability:v.supplierAvailable?'https://schema.org/InStock':'https://schema.org/OutOfStock',itemCondition:'https://schema.org/NewCondition',seller:{'@type':'Organization',name:'Amana Marketplace'}}))};return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g,'\\u003c')}}/><ProductPageClient product={p}/></>;}

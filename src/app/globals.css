@@ -28,3 +28,10 @@ body {
 ::-webkit-scrollbar-thumb { background: #D4A843; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #B8922E; }
 
+
+button, a, input, select { -webkit-tap-highlight-color: transparent; }
+button:not(:disabled), select { cursor: pointer; }
+:focus-visible { outline: 2px solid #9b721a; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}

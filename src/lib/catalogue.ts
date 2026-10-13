@@ -62,11 +62,19 @@ export async function getCatalogueProduct(slug:string,fresh=false) {
 export async function getCatalogueProducts(search='',category='',sort='newest',availableOnly=false) {
  const term=search.trim().toLowerCase();
  const selected=catalogue.filter(p=>(!category||p.collections.includes(category))&&(!term||`${p.name} ${p.description} ${p.category.name}`.toLowerCase().includes(term)));
- const collections=[...new Set(selected.map(p=>p.category.slug))];
+ const collections=category?[category]:[...new Set(selected.map(p=>p.category.slug))];
  const sources=await Promise.all(collections.map(async c=>{try{return await collectionSource(c);}catch{return [] as SupplierProduct[];}}));
  const live=new Map(sources.flat().map(p=>[p.handle,p]));
  let products=selected.map(p=>update(p,live.get(p.slug)));
  // A retained launch item may sit outside the collection; check its product feed.
  products=await Promise.all(products.map(p=>!live.has(p.slug)&&p.slug.includes('air-fryer')?getCatalogueProduct(p.slug).then(v=>v??p):p));
  return products.filter(p=>!availableOnly||p.supplierAvailable).sort((a,b)=>sort==='price-low'?a.price-b.price:sort==='price-high'?b.price-a.price:0);
+}
+
+// Normal browsing validates only the visible page instead of refreshing every department.
+export async function getCataloguePage(search='',category='',page=1,limit=24) {
+ const term=search.trim().toLowerCase();
+ const selected=catalogue.filter(p=>(!category||p.collections.includes(category))&&(!term||`${p.name} ${p.description} ${p.category.name}`.toLowerCase().includes(term)));
+ const products=await Promise.all(selected.slice((page-1)*limit,page*limit).map(p=>getCatalogueProduct(p.slug).then(current=>current??update(p))));
+ return {products,total:selected.length,page,totalPages:Math.ceil(selected.length/limit),hasNextPage:page*limit<selected.length};
 }

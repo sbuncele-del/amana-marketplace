@@ -12,7 +12,7 @@ export function CartProvider({children}:{children:ReactNode}) {
  const [lines,setLines]=useState<Line[]>([]); const [ready,setReady]=useState(false);
  useEffect(()=>{let active=true;void (async()=>{try{const current=await validated(JSON.parse(localStorage.getItem(KEY)||'[]'));if(active)setLines(current);}catch{}finally{if(active)setReady(true);}})();return()=>{active=false;};},[]);
  useEffect(()=>{if(ready)try{localStorage.setItem(KEY,JSON.stringify(lines.map(({id,quantity})=>({id,quantity}))));}catch{}},[lines,ready]);
- async function addToCart(id:string,quantity=1){const candidate=await validated([{id,quantity}]);if(!candidate.length)throw new Error('Invalid product');const found=lines.find(l=>l.id===id);const next=found?lines.map(l=>l.id===id?{...l,quantity:Math.min(10,l.quantity+quantity)}:l):[...lines,candidate[0]];localStorage.setItem(KEY,JSON.stringify(next.map(({id,quantity})=>({id,quantity}))));setLines(next);return {checkoutUrl:'/cart'};}
+ async function addToCart(id:string,quantity=1){const candidate=await validated([{id,quantity}]);if(!candidate.length)throw new Error('Invalid product');const found=lines.find(l=>l.id===id);const next=found?lines.map(l=>l.id===id?{...l,quantity:Math.min(10,l.quantity+quantity)}:l):[...lines,candidate[0]];const checked=await validated(next);localStorage.setItem(KEY,JSON.stringify(checked.map(({id,quantity})=>({id,quantity}))));setLines(checked);return {checkoutUrl:'/cart'};}
  async function updateLine(id:string,quantity:number){setLines(await validated(lines.map(l=>l.id===id?{...l,quantity}:l)));}
  async function removeLine(id:string){setLines(old=>old.filter(l=>l.id!==id));}
  const total=lines.reduce((s,l)=>s+Number(l.merchandise.price.amount)*l.quantity,0);
