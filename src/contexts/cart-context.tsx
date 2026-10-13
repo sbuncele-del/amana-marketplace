@@ -1,6 +1,6 @@
 'use client';
 import { createContext,useContext,useState,useEffect,ReactNode } from 'react';
-import catalogue from '@/data/catalogue.json';
+import catalogue from '@/data/cart-catalogue.json';
 type Line = {id:string;quantity:number;merchandise:{id:string;title:string;price:{amount:string;currencyCode:string};product:{title:string;handle:string;images:{url:string}[]}}};
 const CartContext=createContext<null | {cartId:string|null;checkoutUrl:string|null;lines:Line[];totalAmount:{amount:string;currencyCode:string}|null;itemCount:number;loading:boolean;addToCart:(id:string,quantity?:number)=>Promise<{checkoutUrl:string}>;updateLine:(id:string,quantity:number)=>Promise<void>;removeLine:(id:string)=>Promise<void>;goToCheckout:()=>void;clearCart:()=>void}>(null);
 const KEY='amana_local_cart_v1';
@@ -8,9 +8,10 @@ function validated(lines: unknown): Line[] {
  if(!Array.isArray(lines))return [];
  return lines.flatMap(line=>{
   if(!line || typeof line.id!=='string') return [];
-  const [handle,colour]=line.id.split(':'); const p=catalogue.find(p=>p.id===handle);
-  if(!p || !p.colours.includes(colour) || !Number.isInteger(line.quantity) || line.quantity<1 || line.quantity>10)return [];
-  return [{id:line.id,quantity:line.quantity,merchandise:{id:line.id,title:colour,price:{amount:p.price.toFixed(2),currencyCode:'ZAR'},product:{title:p.name,handle:p.slug,images:p.images.map(url=>({url}))}}}];
+  const [handle,variantId]=line.id.split(':'); const p=catalogue.find(p=>p.id===handle);
+  const variant=p?.variants.find(v=>v.id===variantId || v.title===variantId);
+  if(!p || !variant || !variant.supplierAvailable || !Number.isInteger(line.quantity) || line.quantity<1 || line.quantity>10)return [];
+  return [{id:`${handle}:${variant.id}`,quantity:line.quantity,merchandise:{id:`${handle}:${variant.id}`,title:variant.title,price:{amount:variant.price.toFixed(2),currencyCode:'ZAR'},product:{title:p.name,handle:p.slug,images:p.images.map(url=>({url}))}}}];
  });
 }
 export function CartProvider({children}:{children:ReactNode}) {

@@ -14,6 +14,8 @@ import { useCart } from "@/contexts/cart-context";
 /* ────────── data ────────── */
 
 const departments = [
+  { name: "Kitchen & Dining", slug: "kitchen-dining", icon: "🍽️" },
+  { name: "Air Fryers", slug: "air-fryers", icon: "♨️" },
   { name: "Gemstones", slug: "gemstones", icon: "💎" },
   { name: "Fashion", slug: "fashion", icon: "👗" },
   { name: "Agriculture", slug: "agriculture", icon: "🌾" },
@@ -64,7 +66,7 @@ export function Navbar() {
           {/* Left ─ Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <div className="w-7 h-7 rounded-md bg-gradient-to-br from-[#D4A843] to-[#C4982F] flex items-center justify-center text-white font-black text-xs">
-              PS
+              AM
             </div>
             <span className="text-white font-bold tracking-tight">Amana Marketplace</span>
           </Link>
