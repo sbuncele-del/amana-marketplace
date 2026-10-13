@@ -21,8 +21,9 @@ const baseCatalogue=JSON.parse(gunzipSync(Buffer.from([packed0,packed1,packed2,p
 const kids=JSON.parse(gunzipSync(Buffer.from([kidsPacked0,kidsPacked1,kidsPacked2,kidsPacked3].join(''),'base64')).toString('utf8')) as typeof snapshot;
 const catalogue=[...new Map([...baseCatalogue,...safety,...kids,...additional].filter(p=>isRetailProduct(p.name)).map(p=>[p.slug,p])).values()] as typeof snapshot;
 export function getCatalogueSnapshot(){return catalogue;}
-export type CatalogueProduct = (typeof catalogue)[number];
-type SupplierProduct = {handle:string;variants:{id:number;title:string;price:string;available:boolean}[]};
+type SnapshotProduct=(typeof catalogue)[number];
+export type CatalogueProduct=Omit<SnapshotProduct,'variants'>&{variants:(SnapshotProduct['variants'][number]&{image?:string})[]};
+type SupplierProduct = {handle:string;variants:{id:number;title:string;price:string;available:boolean;image?:string;featured_image?:{src?:string}}[]};
 const source='https://perfectdealz.co.za';
 function retail(cost:number,slug:string) {
  const target=slug==='8l-air-fryer-with-digital-led-display'?cost+380:slug==='8l-digital-touch-panel-air-fryer'?cost+400:Math.max(cost*1.35,cost+50);
@@ -37,7 +38,9 @@ function update(product:CatalogueProduct,supplier?:SupplierProduct):CataloguePro
  const variants=product.variants.map(v=>{
   const current=supplier?.variants.find(s=>String(s.id)===v.id || s.title===v.title || (s.title==='Default Title' && v.title==='Standard'));
   const cost=Number(current?.price);
-  return {...v,price:current&&Number.isFinite(cost)&&cost>0?retail(cost,product.slug):v.price,supplierAvailable:!!current?.available&&Number.isFinite(cost)&&cost>0};
+  const launchImage=['8l-air-fryer-with-digital-led-display','8l-digital-touch-panel-air-fryer'].includes(product.slug)?product.images[v.title==='Black'?1:v.title==='White'?0:0]:undefined;
+  const namedImage=product.images.find(image=>new RegExp('(?:^|[\\/_-])'+v.title.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(?:[\\/_-]|\\.)','i').test(image));
+  return {...v,image:launchImage||current?.image||v.image||namedImage,price:current&&Number.isFinite(cost)&&cost>0?retail(cost,product.slug):v.price,supplierAvailable:!!current?.available&&Number.isFinite(cost)&&cost>0};
  });
  return {...product,variants,price:Math.min(...variants.map(v=>v.price)),supplierAvailable:variants.some(v=>v.supplierAvailable)};
 }
@@ -56,7 +59,7 @@ async function collectionSourceRaw(collection:string) {
 const collectionSource=unstable_cache(collectionSourceRaw,['perfect-dealz-live-v1'],{revalidate:300});
 export async function getCatalogueProduct(slug:string,fresh=false) {
  const product=catalogue.find(p=>p.slug===slug);if(!product)return null;
- try {const data=await readSource(`/products/${encodeURIComponent(slug)}.js`,fresh);return update(product,{handle:slug,variants:data.variants.map((v:SupplierProduct['variants'][number])=>({...v,price:String(Number(v.price)/100)}))});}
+ try {const data=await readSource(`/products/${encodeURIComponent(slug)}.js`,fresh);return update(product,{handle:slug,variants:data.variants.map((v:SupplierProduct['variants'][number])=>({...v,price:String(Number(v.price)/100),image:v.featured_image?.src}))});}
  catch {return update(product);}
 }
 export async function getCatalogueProducts(search='',category='',sort='newest',availableOnly=false) {
