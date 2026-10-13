@@ -1,0 +1,4 @@
+import {Pool} from 'pg';
+import {experienceSchema} from '../src/lib/experience/schema';
+async function main(){if(!process.env.DATABASE_URL){console.log('Experience migration: no database in this environment; skipped.');return;}const pool=new Pool({connectionString:process.env.DATABASE_URL,max:1,connectionTimeoutMillis:10000});try{const client=await pool.connect();try{await client.query('BEGIN');await client.query('SELECT pg_advisory_xact_lock(792046321)');await client.query(experienceSchema);await client.query('COMMIT');console.log('Experience schema ready (additive migration).');}catch(e){await client.query('ROLLBACK');throw e;}finally{client.release();}}finally{await pool.end();}}
+main().catch((e:{code?:string})=>{console.error('Experience migration failed:',e.code||'DATABASE_ERROR');process.exitCode=1;});

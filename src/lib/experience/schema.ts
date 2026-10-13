@@ -1,0 +1,45 @@
+// Additive schema for the existing PostgreSQL database. Existing commerce tables are untouched.
+export const experienceSchema = `
+CREATE TABLE IF NOT EXISTS experience_teams (
+ id text PRIMARY KEY, name text NOT NULL, country text NOT NULL DEFAULT 'ZA',
+ parent_id text REFERENCES experience_teams(id), capacity integer NOT NULL DEFAULT 40 CHECK(capacity BETWEEN 1 AND 500),
+ created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE TABLE IF NOT EXISTS experience_members (
+ user_id text NOT NULL REFERENCES "User"(id), team_id text NOT NULL REFERENCES experience_teams(id),
+ role text NOT NULL CHECK(role IN ('AGENT','LEAD','MANAGER')), active boolean NOT NULL DEFAULT true,
+ PRIMARY KEY(user_id,team_id)
+);
+CREATE TABLE IF NOT EXISTS experience_records (
+ id text PRIMARY KEY, kind text NOT NULL CHECK(kind IN ('ORDER','CASE','TASK')), reference text NOT NULL UNIQUE,
+ order_id text REFERENCES experience_records(id), team_id text REFERENCES experience_teams(id),
+ owner_id text REFERENCES "User"(id), status text NOT NULL, due_at timestamptz,
+ data jsonb NOT NULL DEFAULT '{}', version integer NOT NULL DEFAULT 1,
+ created_at timestamptz NOT NULL DEFAULT now(), updated_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS experience_records_queue ON experience_records(kind,team_id,status,due_at);
+CREATE INDEX IF NOT EXISTS experience_records_team_work ON experience_records(team_id,status,due_at);
+CREATE INDEX IF NOT EXISTS experience_records_owner_work ON experience_records(owner_id,team_id,status);
+CREATE INDEX IF NOT EXISTS experience_records_order ON experience_records(order_id);
+CREATE INDEX IF NOT EXISTS experience_records_created ON experience_records(created_at DESC);
+CREATE UNIQUE INDEX IF NOT EXISTS experience_delivery_followup ON experience_records(order_id) WHERE kind='TASK' AND data->>'taskType'='DELIVERY_CHECK_IN';
+CREATE TABLE IF NOT EXISTS experience_events (
+ id text PRIMARY KEY, record_id text NOT NULL REFERENCES experience_records(id), actor_id text,
+ type text NOT NULL, note text NOT NULL, data jsonb NOT NULL DEFAULT '{}', created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS experience_events_record ON experience_events(record_id,created_at DESC);
+CREATE TABLE IF NOT EXISTS experience_access_events (
+ id text PRIMARY KEY, actor_id text NOT NULL, type text NOT NULL, team_id text NOT NULL,
+ subject_id text, data jsonb NOT NULL DEFAULT '{}', created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS experience_access_events_time ON experience_access_events(created_at DESC);
+CREATE INDEX IF NOT EXISTS experience_members_team ON experience_members(team_id,active,user_id);
+CREATE TABLE IF NOT EXISTS experience_request_keys (
+ key text PRIMARY KEY, request_hash text NOT NULL, record_id text NOT NULL REFERENCES experience_records(id), created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE TABLE IF NOT EXISTS experience_rate_limits (
+ key text PRIMARY KEY, hits integer NOT NULL DEFAULT 1, expires_at timestamptz NOT NULL
+);
+CREATE INDEX IF NOT EXISTS experience_rate_limit_expiry ON experience_rate_limits(expires_at);
+INSERT INTO experience_teams(id,name,country,capacity) VALUES('za-customer-care','South Africa · Customer Care','ZA',40) ON CONFLICT(id) DO NOTHING;
+`;

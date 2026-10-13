@@ -59,13 +59,13 @@ export function LoginForm() {
             Welcome Back to<br />Africa&apos;s Trusted Marketplace
           </h2>
           <p className="text-white/50 mb-8 max-w-md">
-            Continue trading across 34 African countries with full escrow protection on every transaction.
+            Sign in to shop in South Africa or, if your account has access, care for customers through our operations centre.
           </p>
           <div className="space-y-4">
             {[
-              "Every trade escrow-protected",
-              "15+ African payment methods",
-              "Real-time shipment tracking",
+              "Clear choices and delivered totals",
+              "Accountable people and promises",
+              "Personal care after delivery",
             ].map((item) => (
               <div key={item} className="flex items-center gap-3">
                 <Shield className="w-4 h-4 text-[#D4A843]" />

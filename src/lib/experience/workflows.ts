@@ -1,0 +1,18 @@
+import {z} from 'zod';
+import type {OpsRecord} from './culture';
+export const enquirySchema=z.object({name:z.string().trim().min(2).max(100),phone:z.string().trim().regex(/^\+?[0-9 ()-]{8,22}$/).refine(v=>v.replace(/\D/g,'').length>=8&&v.replace(/\D/g,'').length<=15),email:z.union([z.literal(''),z.string().email()]).optional(),city:z.string().trim().min(2).max(100),postcode:z.string().trim().regex(/^\d{4}$/),contactPreference:z.enum(['CALL','WHATSAPP']),followUpConsent:z.boolean(),contactWindow:z.string().trim().max(100).optional(),lines:z.array(z.object({id:z.string().max(250),quantity:z.number().int().min(1).max(10)})).min(1).max(50),requestKey:z.string().uuid()});
+export const actionSchema=z.discriminatedUnion('action',[
+ z.object({action:z.literal('transition'),id:z.string(),version:z.number().int(),status:z.string().max(40),note:z.string().trim().min(3).max(2000),trackingNumber:z.string().trim().max(100).optional(),paymentReference:z.string().trim().max(100).optional(),shippingCents:z.number().int().min(0).max(10000000).optional(),promiseAt:z.string().datetime().optional()}),
+ z.object({action:z.literal('assign'),id:z.string(),version:z.number().int(),teamId:z.string().max(100),ownerId:z.string().max(100).nullable()}),
+ z.object({action:z.literal('note'),id:z.string(),version:z.number().int(),note:z.string().trim().min(3).max(3000)}),
+ z.object({action:z.literal('case'),orderId:z.string(),title:z.string().trim().min(3).max(160),category:z.enum(['DELIVERY','PRODUCT','PAYMENT','RETURN','CARE','OTHER']),priority:z.enum(['NORMAL','HIGH','URGENT']),note:z.string().trim().min(3).max(3000)}),
+ z.object({action:z.literal('followup'),id:z.string(),version:z.number().int(),outcome:z.enum(['REACHED','NO_ANSWER','RESCHEDULED','DECLINED']),note:z.string().trim().min(3).max(3000),deliveryScore:z.number().int().min(1).max(5).optional(),productScore:z.number().int().min(1).max(5).optional(),careScore:z.number().int().min(1).max(5).optional(),issue:z.string().trim().max(2000).optional(),nextAt:z.string().datetime().optional()}),
+ z.object({action:z.literal('resolve'),id:z.string(),version:z.number().int(),note:z.string().trim().min(10).max(3000),customerConfirmed:z.boolean()}),
+ z.object({action:z.literal('team'),name:z.string().trim().min(3).max(100),parentId:z.string().nullable(),capacity:z.number().int().min(1).max(500)}),
+ z.object({action:z.literal('member'),email:z.string().email(),teamId:z.string(),role:z.enum(['AGENT','LEAD','MANAGER']),active:z.boolean()}),
+]);
+const orderTransitions:Record<string,string[]>={ENQUIRY:['QUOTED','CANCELLED'],QUOTED:['CONFIRMED','CANCELLED'],CONFIRMED:['PAID','CANCELLED'],PAID:['FULFILMENT'],FULFILMENT:['SHIPPED'],SHIPPED:['DELIVERED'],DELIVERED:[],CANCELLED:[]};
+const caseTransitions:Record<string,string[]>={OPEN:['IN_PROGRESS','WAITING_CUSTOMER','WAITING_PARTNER'],IN_PROGRESS:['WAITING_CUSTOMER','WAITING_PARTNER'],WAITING_CUSTOMER:['IN_PROGRESS'],WAITING_PARTNER:['IN_PROGRESS'],RESOLVED:['OPEN']};
+export function allowedTransitions(record:Pick<OpsRecord,'kind'|'status'>){return (record.kind==='ORDER'?orderTransitions:caseTransitions)[record.status]||[];}
+export function checkTransition(record:Pick<OpsRecord,'kind'|'status'>,status:string){return allowedTransitions(record).includes(status);}
+export function followupDecision(outcome:string,attempts:number,nextAt?:string){if(outcome==='RESCHEDULED'&&!nextAt)throw new Error('Choose a callback time.');if(['REACHED','DECLINED'].includes(outcome))return {status:outcome==='REACHED'?'DONE':'DECLINED',dueAt:null};return {status:'OPEN',dueAt:nextAt?new Date(nextAt):new Date(Date.now()+86400000),escalate:attempts>=3};}

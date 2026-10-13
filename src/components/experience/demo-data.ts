@@ -1,0 +1,13 @@
+import type {OpsRecord,OpsTeam} from '@/lib/experience/culture';
+const now=Date.now();
+const record=(id:string,kind:OpsRecord['kind'],status:string,data:Record<string,unknown>,due=0,orderId:string|null=null):OpsRecord=>({id,kind,status,data,reference:`EXAMPLE-${id.toUpperCase()}`,orderId,teamId:'za-customer-care',ownerId:'preview-owner',dueAt:due?new Date(now+due*3600000).toISOString():null,version:1,createdAt:new Date(now-36*3600000).toISOString(),updatedAt:new Date(now-3600000).toISOString()});
+export const demoTeams:OpsTeam[]=[{id:'za-customer-care',name:'South Africa · Customer Care',country:'ZA',parentId:null,capacity:40,members:6},{id:'za-fulfilment',name:'South Africa · Fulfilment',country:'ZA',parentId:null,capacity:40,members:8}];
+export const demoRecords:OpsRecord[]=[
+ record('order-01','ORDER','SHIPPED',{customerName:'Example customer 01',phone:'',city:'Pretoria',postcode:'0001',country:'ZA',currency:'ZAR',items:[{name:'8L Digital Air Fryer',option:'Black',quantity:1,unitPriceCents:164900}],subtotalCents:164900,shippingCents:9500,followUpConsent:true,contactPreference:'CALL',trackingNumber:'EXAMPLE-TRACKING',customerPromiseNote:'Confirm the updated delivery time.'},-1),
+ record('order-02','ORDER','DELIVERED',{customerName:'Example customer 02',phone:'',city:'Cape Town',postcode:'8001',subtotalCents:78900,shippingCents:7500,followUpConsent:true,contactPreference:'CALL',items:[{name:'Kids Mini Shopping Cart',option:'Standard',quantity:1,unitPriceCents:78900}]}),
+ record('order-03','ORDER','ENQUIRY',{customerName:'Example customer 03',phone:'',city:'Durban',postcode:'4001',subtotalCents:24900,shippingCents:null,followUpConsent:true,contactPreference:'CALL',items:[{name:'Everyday home essentials',option:'Standard',quantity:1,unitPriceCents:24900}]},1),
+ record('care-01','CASE','IN_PROGRESS',{customerName:'Example customer 01',title:'Customer needs a clear delivery update',category:'DELIVERY',priority:'HIGH',description:'The delivery update was unclear. One colleague owns the next answer.'},-2,'order-01'),
+ record('care-02','CASE','OPEN',{customerName:'Example customer 02',title:'Help the customer get started',category:'PRODUCT',priority:'NORMAL',description:'Offer practical setup support, then confirm the product is working.'},4,'order-02'),
+ record('followup-01','TASK','OPEN',{customerName:'Example customer 02',title:'Personal delivery follow-up call',taskType:'DELIVERY_CHECK_IN',contactPreference:'CALL',contactWindow:'Weekday afternoons',attempts:0,phone:''},3,'order-02'),
+ record('followup-02','TASK','DONE',{customerName:'Example customer 04',title:'Personal delivery follow-up call',taskType:'DELIVERY_CHECK_IN',outcome:'REACHED',careScore:5,deliveryScore:4,productScore:5,attempts:1}),
+];
