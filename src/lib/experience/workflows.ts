@@ -13,6 +13,7 @@ export const actionSchema=z.discriminatedUnion('action',[
 ]);
 const orderTransitions:Record<string,string[]>={ENQUIRY:['QUOTED','CANCELLED'],QUOTED:['CONFIRMED','CANCELLED'],CONFIRMED:['PAID','CANCELLED'],PAID:['FULFILMENT'],FULFILMENT:['SHIPPED'],SHIPPED:['DELIVERED'],DELIVERED:[],CANCELLED:[]};
 const caseTransitions:Record<string,string[]>={OPEN:['IN_PROGRESS','WAITING_CUSTOMER','WAITING_PARTNER'],IN_PROGRESS:['WAITING_CUSTOMER','WAITING_PARTNER'],WAITING_CUSTOMER:['IN_PROGRESS'],WAITING_PARTNER:['IN_PROGRESS'],RESOLVED:['OPEN']};
-export function allowedTransitions(record:Pick<OpsRecord,'kind'|'status'>){return (record.kind==='ORDER'?orderTransitions:caseTransitions)[record.status]||[];}
+const taskTransitions:Record<string,string[]>={OPEN:['IN_PROGRESS'],IN_PROGRESS:['OPEN'],DONE:[],DECLINED:[]};
+export function allowedTransitions(record:Pick<OpsRecord,'kind'|'status'>){return (record.kind==='ORDER'?orderTransitions:record.kind==='CASE'?caseTransitions:taskTransitions)[record.status]||[];}
 export function checkTransition(record:Pick<OpsRecord,'kind'|'status'>,status:string){return allowedTransitions(record).includes(status);}
 export function followupDecision(outcome:string,attempts:number,nextAt?:string){if(outcome==='RESCHEDULED'&&!nextAt)throw new Error('Choose a callback time.');if(['REACHED','DECLINED'].includes(outcome))return {status:outcome==='REACHED'?'DONE':'DECLINED',dueAt:null};return {status:'OPEN',dueAt:nextAt?new Date(nextAt):new Date(Date.now()+86400000),escalate:attempts>=3};}
