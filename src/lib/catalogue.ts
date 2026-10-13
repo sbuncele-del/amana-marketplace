@@ -63,7 +63,10 @@ export async function getCatalogueProducts(search='',category='',sort='newest',a
  const term=search.trim().toLowerCase();
  const selected=catalogue.filter(p=>(!category||p.collections.includes(category))&&(!term||`${p.name} ${p.description} ${p.category.name}`.toLowerCase().includes(term)));
  const collections=category?[category]:[...new Set(selected.map(p=>p.category.slug))];
- const sources=await Promise.all(collections.map(async c=>{try{return await collectionSource(c);}catch{return [] as SupplierProduct[];}}));
+ const sources:SupplierProduct[][]=[];
+ for(let first=0;first<collections.length;first+=3){
+  sources.push(...await Promise.all(collections.slice(first,first+3).map(async c=>{try{return await collectionSource(c);}catch{return [] as SupplierProduct[];}})));
+ }
  const live=new Map(sources.flat().map(p=>[p.handle,p]));
  let products=selected.map(p=>update(p,live.get(p.slug)));
  // A retained launch item may sit outside the collection; check its product feed.
