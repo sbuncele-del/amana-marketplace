@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import {BrandLogo} from '@/components/brand-logo';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Shield, ArrowRight, Eye, EyeOff, Store, ShoppingBag } from "lucide-react";
@@ -79,7 +80,7 @@ export function RegisterForm() {
         </div>
         <div className="relative z-10 flex flex-col justify-center px-12">
           <Link href="/" className="text-2xl font-extrabold text-white mb-8">
-            <span className="text-[#D4A843]">Afrishelf</span>
+            <BrandLogo light className="h-auto w-48" />
           </Link>
           <h2 className="text-3xl font-bold text-white mb-4">
             Join Africa&apos;s Most<br />Trusted Marketplace
@@ -108,7 +109,7 @@ export function RegisterForm() {
         <div className="w-full max-w-md">
           <div className="lg:hidden mb-8">
             <Link href="/" className="text-2xl font-extrabold">
-              <span className="text-[#D4A843]">Afrishelf</span>
+              <BrandLogo className="h-auto w-48" />
             </Link>
           </div>
 

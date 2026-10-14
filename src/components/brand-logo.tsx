@@ -1,0 +1,1 @@
+export function BrandLogo({light=false,className=''}:{light?:boolean;className?:string}){return <img src={light?'/brand/afrishelf-light.svg':'/brand/afrishelf.svg'} alt="Afrishelf" width={1570} height={408} className={className} />;}

@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import {BrandLogo} from '@/components/brand-logo';
 import {usePathname} from 'next/navigation';
 import {useSession} from 'next-auth/react';
 import {useEffect,useRef,useState} from 'react';
@@ -15,7 +16,7 @@ export function Navbar(){
  return <header className="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm"><a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-[60] focus:rounded focus:bg-white focus:p-3">Skip to content</a>
   <div className="bg-[#1A1A2E] text-white/80"><div className="mx-auto flex h-8 max-w-[1400px] items-center justify-between px-4 text-[11px]"><span className="flex items-center gap-1.5"><MapPin size={12}/> Shopping in South Africa · ZAR</span><div className="flex gap-4">{(session?.user as {role?:string})?.role==='ADMIN'&&<Link href="/operations" className="hover:text-white">Operations</Link>}<Link href="/track" className="hover:text-white">Track order</Link><Link href="/contact" className="hover:text-white">Help & contact</Link></div></div></div>
   <div className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-4 px-4 py-3 sm:gap-6">
-   <Link href="/" aria-label="Afrishelf home" className="flex shrink-0 items-center gap-2.5"><span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D4A843] text-sm font-black text-[#1A1A2E]">AS</span><span className="text-lg font-extrabold leading-5 tracking-tight">Afrishelf<span className="block text-[10px] font-medium uppercase tracking-[.19em] text-gray-500">Marketplace</span></span></Link>
+   <Link href="/" aria-label="Afrishelf home" className="flex shrink-0 items-center gap-2.5"><BrandLogo className="h-auto w-32 sm:w-40" /></Link>
    <form action="/browse" role="search" className="order-3 flex h-11 w-full min-w-0 overflow-hidden rounded-lg border border-gray-300 bg-gray-50 focus-within:border-amber-700 focus-within:ring-2 focus-within:ring-amber-100 sm:order-none sm:flex-1"><input name="search" aria-label="Search products" placeholder="Search products, essentials and more…" type="search" className="min-w-0 flex-1 bg-transparent px-4 text-sm outline-none"/><button type="submit" aria-label="Search" className="bg-[#D4A843] px-4 text-[#1A1A2E] hover:bg-[#C4982F]"><Search size={21}/></button></form>
    <div className="ml-auto flex shrink-0 items-center gap-4"><Link href={session?.user?'/dashboard':'/login'} className="flex items-center gap-2 text-sm"><UserRound size={21}/><span className="hidden lg:block text-xs"><span className="block text-gray-500">{session?.user?`Hello, ${session.user.name?.split(' ')[0]||'there'}`:'Hello, sign in'}</span><span className="font-semibold">My account</span></span></Link><Link href="/cart" aria-label={`Cart, ${itemCount} items`} className="flex items-center gap-2 rounded-full border border-gray-200 px-3 py-2 text-sm font-bold"><ShoppingCart size={21}/><span>{itemCount}</span></Link></div>
   </div>
