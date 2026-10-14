@@ -22,8 +22,8 @@ const kids=JSON.parse(gunzipSync(Buffer.from([kidsPacked0,kidsPacked1,kidsPacked
 const catalogue=[...new Map([...baseCatalogue,...safety,...kids,...additional].filter(p=>isRetailProduct(p.name)).map(p=>[p.slug,p])).values()] as typeof snapshot;
 export function getCatalogueSnapshot(){return catalogue;}
 type SnapshotProduct=(typeof catalogue)[number];
-export type CatalogueProduct=Omit<SnapshotProduct,'variants'>&{variants:(SnapshotProduct['variants'][number]&{image?:string})[]};
-type SupplierProduct = {handle:string;variants:{id:number;title:string;price:string;available:boolean;image?:string;featured_image?:{src?:string}}[]};
+export type CatalogueProduct=Omit<SnapshotProduct,'variants'>&{variants:(SnapshotProduct['variants'][number]&{image?:string;weightGrams?:number})[]};
+type SupplierProduct = {handle:string;variants:{id:number;title:string;price:string;available:boolean;weight?:number;image?:string;featured_image?:{src?:string}}[]};
 const source='https://perfectdealz.co.za';
 function retail(cost:number,slug:string) {
  const target=slug==='8l-air-fryer-with-digital-led-display'?cost+380:slug==='8l-digital-touch-panel-air-fryer'?cost+400:Math.max(cost*1.35,cost+50);
@@ -40,7 +40,7 @@ function update(product:CatalogueProduct,supplier?:SupplierProduct):CataloguePro
   const cost=Number(current?.price);
   const launchImage=['8l-air-fryer-with-digital-led-display','8l-digital-touch-panel-air-fryer'].includes(product.slug)?product.images[v.title==='Black'?1:v.title==='White'?0:0]:undefined;
   const namedImage=product.images.find(image=>new RegExp('(?:^|[\\/_-])'+v.title.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(?:[\\/_-]|\\.)','i').test(image));
-  return {...v,image:launchImage||current?.image||v.image||namedImage,price:current&&Number.isFinite(cost)&&cost>0?retail(cost,product.slug):v.price,supplierAvailable:!!current?.available&&Number.isFinite(cost)&&cost>0};
+  return {...v,weightGrams:typeof current?.weight==='number'&&current.weight>0?current.weight:undefined,image:launchImage||current?.image||v.image||namedImage,price:current&&Number.isFinite(cost)&&cost>0?retail(cost,product.slug):v.price,supplierAvailable:!!current?.available&&Number.isFinite(cost)&&cost>0};
  });
  return {...product,variants,price:Math.min(...variants.map(v=>v.price)),supplierAvailable:variants.some(v=>v.supplierAvailable)};
 }
