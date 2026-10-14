@@ -12,7 +12,7 @@ export const authConfig: NextAuthConfig = {
       const pathname = nextUrl.pathname;
 
       const protectedRoutes = ["/dashboard", "/checkout", "/admin", "/operations"];
-      const isProtected = protectedRoutes.some((route) =>
+      const isProtected = pathname !== "/checkout" && protectedRoutes.some((route) =>
         pathname.startsWith(route)
       );
 
