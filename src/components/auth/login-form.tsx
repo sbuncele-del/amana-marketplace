@@ -12,7 +12,8 @@ import { Shield, ArrowRight, Eye, EyeOff } from "lucide-react";
 export function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") || "/browse";
+  const requested = searchParams.get("callbackUrl") || "/browse";
+  const callbackUrl = requested.startsWith("/") && !requested.startsWith("//") && !requested.includes("\\\\") ? requested : "/browse";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -89,7 +90,7 @@ export function LoginForm() {
           <h1 className="text-2xl font-bold mb-2">Sign in to your account</h1>
           <p className="text-gray-500 mb-8">
             Don&apos;t have an account?{" "}
-            <Link href="/register" className="text-[#D4A843] font-semibold hover:underline">
+            <Link href={`/register?role=buyer&callbackUrl=${encodeURIComponent(callbackUrl)}`} className="text-[#D4A843] font-semibold hover:underline">
               Create one free
             </Link>
           </p>

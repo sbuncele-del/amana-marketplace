@@ -32,7 +32,7 @@ export function RegisterForm() {
     lastName: "",
     email: "",
     password: "",
-    country: "",
+    country: "South Africa",
     storeName: "",
   });
   const [showPassword, setShowPassword] = useState(false);
@@ -62,7 +62,9 @@ export function RegisterForm() {
         return;
       }
 
-      router.push("/login?registered=true");
+      const requested = searchParams.get("callbackUrl") || "/browse";
+      const callback = requested.startsWith("/") && !requested.startsWith("//") && !requested.includes("\\\\") ? requested : "/browse";
+      router.push(`/login?registered=true&callbackUrl=${encodeURIComponent(callback)}`);
     } catch {
       setError("Something went wrong. Please try again.");
     } finally {
@@ -86,13 +88,13 @@ export function RegisterForm() {
             Join Africa&apos;s Most<br />Trusted Marketplace
           </h2>
           <p className="text-white/50 mb-8 max-w-md">
-            Start trading across borders with full escrow protection. Whether you&apos;re buying or selling, every transaction is safe.
+            Create your Afrishelf account to save delivery addresses and keep your shopping together.
           </p>
           <div className="space-y-4">
             {[
-              "100% escrow-protected trades",
-              "34 African countries connected",
-              "Seller verification & trust scores",
+              "Your delivery addresses in one place",
+              "Shop our South African catalogue",
+              "Personal customer care",
               "Free to join — no hidden fees",
             ].map((item) => (
               <div key={item} className="flex items-center gap-3">
