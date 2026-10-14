@@ -136,7 +136,7 @@ export default function AdminPage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-2xl font-extrabold">Admin Panel</h1>
-            <p className="text-gray-500 text-sm">Manage the Amana marketplace</p>
+            <p className="text-gray-500 text-sm">Manage the Afrishelf marketplace</p>
           </div>
           <div className="flex items-center gap-3">
             <div className="text-right text-sm">

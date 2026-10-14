@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { RegisterForm } from "@/components/auth/register-form";
 
 export const metadata = {
-  title: "Create Account — Amana",
+  title: "Create Account — Afrishelf",
   description: "Join Africa's trusted cross-border marketplace",
 };
 

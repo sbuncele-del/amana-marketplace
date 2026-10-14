@@ -2,7 +2,7 @@ import { Handshake, Truck, CreditCard, Code, Globe, Building2, Mail } from "luci
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "Partners — Amana Marketplace" };
+export const metadata = { title: "Partners — Afrishelf" };
 
 const logisticsPartners = [
   { name: "DHL Express Africa", desc: "Our primary cross-border shipping partner, providing express delivery to 34+ African countries with full tracking and insurance.", region: "Pan-African" },
@@ -13,20 +13,20 @@ const logisticsPartners = [
 ];
 
 const paymentPartners = [
-  { name: "Vesicash", desc: "Licensed escrow provider powering every transaction on Amana. Holds funds in regulated trust accounts until buyer approval.", role: "Escrow Provider" },
+  { name: "Vesicash", desc: "Licensed escrow provider powering every transaction on Afrishelf. Holds funds in regulated trust accounts until buyer approval.", role: "Escrow Provider" },
   { name: "Flutterwave", desc: "Pan-African payment gateway enabling card payments, bank transfers, and mobile money across 34+ countries.", role: "Payment Gateway" },
   { name: "M-Pesa", desc: "Mobile money integration for East African markets. Enables buyers to pay directly from their M-Pesa wallets.", role: "Mobile Money" },
   { name: "Paystack", desc: "Payment processing for Nigerian and Ghanaian markets. Supports cards, bank transfers, and USSD payments.", role: "Payment Processing" },
 ];
 
 const technologyPartners = [
-  { name: "Vercel", desc: "Cloud hosting platform powering Amana's global edge network for fast page loads across Africa.", role: "Cloud Infrastructure" },
+  { name: "Vercel", desc: "Cloud hosting platform powering Afrishelf's global edge network for fast page loads across Africa.", role: "Cloud Infrastructure" },
   { name: "Cloudinary", desc: "Image management platform handling product photography optimization, resizing, and CDN delivery.", role: "Media Management" },
-  { name: "Algolia", desc: "Search infrastructure powering Amana's product discovery with AI-powered relevance and multi-language support.", role: "Search & Discovery" },
+  { name: "Algolia", desc: "Search infrastructure powering Afrishelf's product discovery with AI-powered relevance and multi-language support.", role: "Search & Discovery" },
 ];
 
 const partnerBenefits = [
-  "Access to Amana's growing network of buyers and sellers across 34+ countries",
+  "Access to Afrishelf's growing network of buyers and sellers across 34+ countries",
   "Co-marketing opportunities and brand visibility on the platform",
   "Integration support from our engineering team",
   "Revenue sharing and commission structures tailored to your contribution",
@@ -49,7 +49,7 @@ export default function PartnersPage() {
             <span className="text-[#D4A843]">Partners</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Amana works with leading logistics, payment, and technology companies to deliver
+            Afrishelf works with leading logistics, payment, and technology companies to deliver
             a seamless cross-border commerce experience across Africa.
           </p>
         </div>
@@ -127,7 +127,7 @@ export default function PartnersPage() {
           </div>
           <div className="bg-white rounded-2xl border border-gray-100 p-8">
             <p className="text-gray-600 leading-relaxed mb-4">
-              Amana is proud to be aligned with the goals of the African Continental Free Trade Area (AfCFTA). 
+              Afrishelf is proud to be aligned with the goals of the African Continental Free Trade Area (AfCFTA). 
               We actively support the vision of a single continental market by:
             </p>
             <ul className="space-y-3 text-gray-600 text-sm">
@@ -181,7 +181,7 @@ export default function PartnersPage() {
             <Mail className="w-8 h-8 text-[#D4A843] mx-auto mb-4" />
             <h3 className="text-xl font-bold text-white mb-2">Partnership Inquiries</h3>
             <p className="text-white/60 mb-6 text-sm">
-              Send us a brief overview of your company and how you&apos;d like to partner with Amana.
+              Send us a brief overview of your company and how you&apos;d like to partner with Afrishelf.
             </p>
             <div className="bg-white/10 rounded-xl p-4 inline-block mb-4">
               <p className="text-white font-medium">partners@amanamarket.com</p>

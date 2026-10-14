@@ -1,7 +1,7 @@
 import { Map, ShoppingBag, Store, HelpCircle, Building2, FileText, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = { title: "Sitemap — Amana Marketplace" };
+export const metadata = { title: "Sitemap — Afrishelf" };
 
 const sections = [
   {
@@ -43,7 +43,7 @@ const sections = [
     icon: Building2,
     title: "Company",
     links: [
-      { label: "About Amana", href: "/about" },
+      { label: "About Afrishelf", href: "/about" },
       { label: "Careers", href: "/careers" },
       { label: "Press & Media", href: "/press" },
       { label: "Partners", href: "/partners" },
@@ -72,14 +72,14 @@ export default function SitemapPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-6">
             <Map className="w-4 h-4 text-[#D4A843]" />
-            <span className="text-sm text-white/80">Navigate Amana</span>
+            <span className="text-sm text-white/80">Navigate Afrishelf</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
             Site<br />
             <span className="text-[#D4A843]">Map</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            A complete overview of all pages on Amana Marketplace, organized by category.
+            A complete overview of all pages on Afrishelf, organized by category.
             Find what you&apos;re looking for quickly.
           </p>
         </div>

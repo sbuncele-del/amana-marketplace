@@ -1,7 +1,7 @@
 import { Shield, Eye, Database, Cookie, UserCheck, Mail, Globe } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = { title: "Privacy Policy — Amana Marketplace" };
+export const metadata = { title: "Privacy Policy — Afrishelf" };
 
 export default function PrivacyPage() {
   return (
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
             <span className="text-[#D4A843]">Policy</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Last updated: January 15, 2026. This Privacy Policy explains how Amana Marketplace
+            Last updated: January 15, 2026. This Privacy Policy explains how Afrishelf
             (&ldquo;we,&rdquo; &ldquo;us,&rdquo; &ldquo;our&rdquo;) collects, uses, shares, and protects your personal information.
           </p>
         </div>
@@ -71,7 +71,7 @@ export default function PrivacyPage() {
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
             <p>We use your personal information to:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
-              <li>Provide, maintain, and improve the Amana Marketplace platform</li>
+              <li>Provide, maintain, and improve the Afrishelf platform</li>
               <li>Process transactions and manage escrow through our partner Vesicash</li>
               <li>Verify seller identities and maintain marketplace trust and safety</li>
               <li>Facilitate communication between buyers and sellers</li>
@@ -216,7 +216,7 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-extrabold">9. Contact Us</h2>
           </div>
           <div className="text-sm text-gray-600 leading-relaxed bg-gray-50 rounded-xl p-6">
-            <p className="mb-2"><strong>Amana Marketplace Ltd.</strong></p>
+            <p className="mb-2"><strong>Afrishelf Ltd.</strong></p>
             <p>Data Protection & Privacy</p>
             <p>P.O. Box 12345, Nairobi, Kenya</p>
             <p className="mt-2">Email: <strong>privacy@amanamarket.com</strong></p>

@@ -2,14 +2,14 @@ import { Shield, Eye, Clock, RefreshCcw, BadgeCheck, MessageSquare, CreditCard, 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "Buyer Protection — Amana Marketplace" };
+export const metadata = { title: "Buyer Protection — Afrishelf" };
 
 const protections = [
   {
     icon: Shield,
     title: "100% Escrow Protection",
     description:
-      "Every payment you make on Amana goes into a secure Vesicash escrow account. Your funds are never sent directly to the seller — they are held safely until you receive and approve your order.",
+      "Every payment you make on Afrishelf goes into a secure Vesicash escrow account. Your funds are never sent directly to the seller — they are held safely until you receive and approve your order.",
   },
   {
     icon: Clock,
@@ -27,7 +27,7 @@ const protections = [
     icon: BadgeCheck,
     title: "Verified Sellers Only",
     description:
-      "Every seller on Amana undergoes identity verification. Premium sellers have business registration, tax compliance, and quality certifications verified by our team.",
+      "Every seller on Afrishelf undergoes identity verification. Premium sellers have business registration, tax compliance, and quality certifications verified by our team.",
   },
   {
     icon: CreditCard,
@@ -90,7 +90,7 @@ export default function BuyerProtectionPage() {
             <span className="text-[#D4A843]">Guarantee</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            When you shop on Amana, you&apos;re protected at every step. From secure escrow payments to verified sellers
+            When you shop on Afrishelf, you&apos;re protected at every step. From secure escrow payments to verified sellers
             and a dedicated dispute resolution team — we have your back.
           </p>
         </div>
@@ -101,7 +101,7 @@ export default function BuyerProtectionPage() {
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-2xl font-extrabold text-center mb-4">How We Protect You</h2>
           <p className="text-gray-500 text-center mb-12 max-w-2xl mx-auto">
-            Amana&apos;s buyer protection program is built into every transaction. You don&apos;t need to opt in — it&apos;s automatic.
+            Afrishelf&apos;s buyer protection program is built into every transaction. You don&apos;t need to opt in — it&apos;s automatic.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {protections.map((p) => {
@@ -175,7 +175,7 @@ export default function BuyerProtectionPage() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-extrabold text-white mb-4">Shop With Complete Confidence</h2>
           <p className="text-white/60 mb-8">
-            Every purchase on Amana is backed by escrow protection, verified sellers, and our buyer guarantee.
+            Every purchase on Afrishelf is backed by escrow protection, verified sellers, and our buyer guarantee.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/browse">

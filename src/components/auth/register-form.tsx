@@ -79,7 +79,7 @@ export function RegisterForm() {
         </div>
         <div className="relative z-10 flex flex-col justify-center px-12">
           <Link href="/" className="text-2xl font-extrabold text-white mb-8">
-            <span className="text-[#D4A843]">Amana</span>
+            <span className="text-[#D4A843]">Afrishelf</span>
           </Link>
           <h2 className="text-3xl font-bold text-white mb-4">
             Join Africa&apos;s Most<br />Trusted Marketplace
@@ -108,7 +108,7 @@ export function RegisterForm() {
         <div className="w-full max-w-md">
           <div className="lg:hidden mb-8">
             <Link href="/" className="text-2xl font-extrabold">
-              <span className="text-[#D4A843]">Amana</span>
+              <span className="text-[#D4A843]">Afrishelf</span>
             </Link>
           </div>
 
@@ -116,7 +116,7 @@ export function RegisterForm() {
           {step === 1 && (
             <div>
               <h1 className="text-2xl font-bold mb-2">Create your account</h1>
-              <p className="text-gray-500 mb-8">How do you want to use Amana?</p>
+              <p className="text-gray-500 mb-8">How do you want to use Afrishelf?</p>
 
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <button

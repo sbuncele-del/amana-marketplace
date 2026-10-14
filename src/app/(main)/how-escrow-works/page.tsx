@@ -2,7 +2,7 @@ import { ShieldCheck, CreditCard, Truck, CheckCircle, Banknote, ArrowDown, Searc
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "How Escrow Works — Amana Marketplace" };
+export const metadata = { title: "How Escrow Works — Afrishelf" };
 
 const steps = [
   {
@@ -58,7 +58,7 @@ const steps = [
 ];
 
 const benefits = [
-  { icon: ShieldCheck, title: "100% Purchase Protection", desc: "Every single transaction on Amana is escrow-protected. No exceptions." },
+  { icon: ShieldCheck, title: "100% Purchase Protection", desc: "Every single transaction on Afrishelf is escrow-protected. No exceptions." },
   { icon: Lock, title: "Secure Fund Holding", desc: "Powered by Vesicash, a licensed escrow provider. Funds are held in regulated trust accounts." },
   { icon: CreditCard, title: "15+ Payment Methods", desc: "Pay with M-Pesa, cards, bank transfer, Flutterwave, and more — in your local currency." },
   { icon: CheckCircle, title: "72-Hour Inspection", desc: "Full inspection period to verify your purchase before funds are ever released to the seller." },
@@ -79,7 +79,7 @@ export default function HowEscrowWorksPage() {
             <span className="text-[#D4A843]">Keeps You Safe</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Every transaction on Amana is protected by Vesicash escrow. Your money is held securely
+            Every transaction on Afrishelf is protected by Vesicash escrow. Your money is held securely
             until you receive and approve your order. Here&apos;s exactly how it works.
           </p>
         </div>
@@ -166,7 +166,7 @@ export default function HowEscrowWorksPage() {
               </ul>
             </div>
             <div className="border-2 border-green-200 rounded-2xl p-6 bg-green-50/30">
-              <h3 className="font-bold text-green-800 mb-4">✅ With Amana Escrow</h3>
+              <h3 className="font-bold text-green-800 mb-4">✅ With Afrishelf Escrow</h3>
               <ul className="space-y-3 text-sm text-gray-600">
                 <li>• Funds held securely until you approve the order</li>
                 <li>• 72-hour inspection window on every delivery</li>
@@ -184,7 +184,7 @@ export default function HowEscrowWorksPage() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-extrabold text-white mb-4">Ready to Trade With Confidence?</h2>
           <p className="text-white/60 mb-8">
-            Join thousands of buyers and sellers across Africa who trade safely with Amana&apos;s escrow protection.
+            Join thousands of buyers and sellers across Africa who trade safely with Afrishelf&apos;s escrow protection.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/browse">

@@ -2,7 +2,7 @@ import { Shield, Globe, Users, TrendingUp, MapPin, Heart } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "About Amana — Africa's Trusted Marketplace" };
+export const metadata = { title: "About Afrishelf — Africa's Trusted Marketplace" };
 
 const values = [
   { icon: Shield, title: "Trust First", desc: "Every transaction is escrow-protected. Buyers and sellers trade with complete confidence." },
@@ -35,7 +35,7 @@ export default function AboutPage() {
             Trade Across Africa,<br /><span className="text-[#D4A843]">With Zero Risk</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Amana is Africa&apos;s first cross-border marketplace with built-in escrow protection on every transaction. 
+            Afrishelf is Africa&apos;s first cross-border marketplace with built-in escrow protection on every transaction. 
             We connect buyers and sellers across the continent, making pan-African trade safe, simple, and accessible.
           </p>
         </div>

@@ -85,7 +85,7 @@ export async function POST(request: NextRequest) {
               currency: order.currency,
               buyerEmail: order.buyer.email || "",
               sellerEmail: order.seller.email || "",
-              title: `Amana Order ${order.orderNumber}`,
+              title: `Afrishelf Order ${order.orderNumber}`,
               description: `Order for ${productName} — escrow protected`,
               inspectionPeriodDays: 3,
             });

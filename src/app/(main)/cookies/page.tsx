@@ -1,7 +1,7 @@
 import { Cookie, Settings, Shield, BarChart3, Megaphone, Globe } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = { title: "Cookie Policy — Amana Marketplace" };
+export const metadata = { title: "Cookie Policy — Afrishelf" };
 
 const essentialCookies = [
   { name: "session_id", purpose: "Maintains your login session", duration: "Session (deleted when browser closes)" },
@@ -22,7 +22,7 @@ const analyticsCookies = [
 const marketingCookies = [
   { name: "_fbp", purpose: "Facebook Pixel — tracks conversions from Facebook ads", duration: "90 days" },
   { name: "_tw_pixel", purpose: "Twitter/X Pixel — measures ad campaign performance", duration: "30 days" },
-  { name: "ref_source", purpose: "Tracks which marketing channel referred you to Amana", duration: "30 days" },
+  { name: "ref_source", purpose: "Tracks which marketing channel referred you to Afrishelf", duration: "30 days" },
 ];
 
 export default function CookiesPage() {
@@ -166,13 +166,13 @@ export default function CookiesPage() {
               You can manage your cookie preferences at any time:
             </p>
             <ul className="list-disc list-inside space-y-1 ml-2">
-              <li><strong>On Amana:</strong> Click the cookie settings icon in the footer or visit your account privacy settings</li>
+              <li><strong>On Afrishelf:</strong> Click the cookie settings icon in the footer or visit your account privacy settings</li>
               <li><strong>Browser settings:</strong> Most browsers allow you to block or delete cookies through their settings menu</li>
               <li><strong>Opt-out tools:</strong> Use the Digital Advertising Alliance opt-out tool or the NAI Consumer Opt-Out to manage third-party advertising cookies</li>
             </ul>
             <p>
               Note: Blocking essential cookies will prevent you from logging in, adding items to your cart,
-              and completing purchases on Amana.
+              and completing purchases on Afrishelf.
             </p>
           </div>
         </section>

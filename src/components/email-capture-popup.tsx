@@ -91,7 +91,7 @@ export function EmailCapturePopup() {
               <Tag className="w-3 h-3" /> Limited Offer
             </div>
             <h2 className="text-2xl font-extrabold mb-1">Get 10% Off</h2>
-            <p className="text-white/70 text-sm">Your first order when you join Prime Sources</p>
+            <p className="text-white/70 text-sm">Your first order when you join Afrishelf</p>
           </div>
         </div>
 

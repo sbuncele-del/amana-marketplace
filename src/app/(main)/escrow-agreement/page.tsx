@@ -1,7 +1,7 @@
 import { Shield, Lock, Scale, DollarSign, AlertTriangle, FileText, Handshake } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = { title: "Escrow Agreement — Amana Marketplace" };
+export const metadata = { title: "Escrow Agreement — Afrishelf" };
 
 export default function EscrowAgreementPage() {
   return (
@@ -19,7 +19,7 @@ export default function EscrowAgreementPage() {
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
             Last updated: January 15, 2026. This Escrow Agreement governs the escrow services provided
-            for all transactions on Amana Marketplace through our partnership with Vesicash.
+            for all transactions on Afrishelf through our partnership with Vesicash.
           </p>
         </div>
       </section>
@@ -33,18 +33,18 @@ export default function EscrowAgreementPage() {
           </div>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
             <p>
-              Amana Marketplace partners with Vesicash, a licensed escrow service provider, to hold and
+              Afrishelf partners with Vesicash, a licensed escrow service provider, to hold and
               manage transaction funds on behalf of buyers and sellers. Vesicash operates under applicable
               financial regulations and maintains funds in regulated trust accounts separate from operational funds.
             </p>
             <p>
-              By using Amana Marketplace, you agree to the terms of this Escrow Agreement and acknowledge
+              By using Afrishelf, you agree to the terms of this Escrow Agreement and acknowledge
               that Vesicash acts as a neutral third party in the escrow process. Vesicash is not a party
               to the sale between buyer and seller — it solely holds and disburses funds according to the
               conditions set forth in this agreement.
             </p>
             <p>
-              The escrow service is provided automatically for all transactions on Amana Marketplace.
+              The escrow service is provided automatically for all transactions on Afrishelf.
               There is no opt-out from escrow protection — this is a fundamental feature of the Platform
               designed to protect all parties.
             </p>
@@ -58,12 +58,12 @@ export default function EscrowAgreementPage() {
             <h2 className="text-xl font-extrabold">2. Fund Holding</h2>
           </div>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
-            <p>When a buyer completes a purchase on Amana Marketplace:</p>
+            <p>When a buyer completes a purchase on Afrishelf:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>The full transaction amount (product price + shipping costs) is transferred to a Vesicash escrow account</li>
               <li>Funds are held in a regulated trust account at a licensed commercial bank</li>
-              <li>Escrow funds are segregated from Amana&apos;s and Vesicash&apos;s operational accounts</li>
-              <li>Neither Amana nor Vesicash may use escrow funds for their own purposes</li>
+              <li>Escrow funds are segregated from Afrishelf&apos;s and Vesicash&apos;s operational accounts</li>
+              <li>Neither Afrishelf nor Vesicash may use escrow funds for their own purposes</li>
               <li>The seller is notified that funds are in escrow and can proceed with order fulfillment</li>
               <li>Both buyer and seller can view the escrow status in their respective dashboards at all times</li>
             </ul>
@@ -85,7 +85,7 @@ export default function EscrowAgreementPage() {
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>The buyer explicitly confirms satisfaction with the delivered order through the Platform</li>
               <li>The 72-hour inspection window expires after confirmed delivery without the buyer opening a dispute</li>
-              <li>A dispute is resolved in the seller&apos;s favor by the Amana dispute resolution team</li>
+              <li>A dispute is resolved in the seller&apos;s favor by the Afrishelf dispute resolution team</li>
               <li>A partial refund is agreed/determined — the remaining amount is released to the seller</li>
             </ul>
 
@@ -145,7 +145,7 @@ export default function EscrowAgreementPage() {
           </div>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
             <p>
-              The escrow service fee is included in Amana Marketplace&apos;s standard commission. There are
+              The escrow service fee is included in Afrishelf&apos;s standard commission. There are
               no additional escrow fees charged to either buyers or sellers.
             </p>
             <div className="bg-gray-50 rounded-xl p-5 mt-3">
@@ -184,17 +184,17 @@ export default function EscrowAgreementPage() {
           </div>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
             <p>
-              <strong className="text-gray-900">Amana&apos;s Role:</strong> Amana Marketplace operates the platform
-              and facilitates the escrow process. Amana is responsible for the dispute resolution process and
+              <strong className="text-gray-900">Afrishelf&apos;s Role:</strong> Afrishelf operates the platform
+              and facilitates the escrow process. Afrishelf is responsible for the dispute resolution process and
               for communicating escrow instructions to Vesicash.
             </p>
             <p>
               <strong className="text-gray-900">Vesicash&apos;s Role:</strong> Vesicash holds and disburses funds
-              according to the instructions received from Amana based on transaction outcomes. Vesicash is
+              according to the instructions received from Afrishelf based on transaction outcomes. Vesicash is
               responsible for the security and regulatory compliance of fund custody.
             </p>
             <p>
-              <strong className="text-gray-900">Limitations:</strong> Neither Amana nor Vesicash is liable for:
+              <strong className="text-gray-900">Limitations:</strong> Neither Afrishelf nor Vesicash is liable for:
             </p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>The quality, safety, or legality of items sold on the Platform</li>

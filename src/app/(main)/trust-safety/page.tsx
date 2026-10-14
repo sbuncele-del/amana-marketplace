@@ -2,7 +2,7 @@ import { Shield, BadgeCheck, Lock, Eye, AlertTriangle, Flag, UserCheck, Server }
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "Trust & Safety — Amana Marketplace" };
+export const metadata = { title: "Trust & Safety — Afrishelf" };
 
 const verificationLevels = [
   {
@@ -82,7 +82,7 @@ export default function TrustSafetyPage() {
             <span className="text-[#D4A843]">Safety</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Amana is built on trust. From verified sellers and escrow payments to fraud prevention and data
+            Afrishelf is built on trust. From verified sellers and escrow payments to fraud prevention and data
             protection — we invest heavily in keeping our marketplace safe for everyone.
           </p>
         </div>
@@ -96,7 +96,7 @@ export default function TrustSafetyPage() {
             <h2 className="text-2xl font-extrabold">Verification System</h2>
           </div>
           <p className="text-gray-600 mb-6">
-            Our multi-layered verification process ensures that every seller on Amana is who they claim to be.
+            Our multi-layered verification process ensures that every seller on Afrishelf is who they claim to be.
             Buyers can shop with confidence knowing that all sellers have been vetted.
           </p>
           <div className="space-y-4">
@@ -231,7 +231,7 @@ export default function TrustSafetyPage() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-extrabold text-white mb-4">Trade With Confidence</h2>
           <p className="text-white/60 mb-8">
-            Amana&apos;s Trust & Safety measures are designed to protect every member of our marketplace.
+            Afrishelf&apos;s Trust & Safety measures are designed to protect every member of our marketplace.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/browse">

@@ -53,7 +53,7 @@ export function LoginForm() {
         </div>
         <div className="relative z-10 flex flex-col justify-center px-12">
           <Link href="/" className="text-2xl font-extrabold text-white mb-8">
-            <span className="text-[#D4A843]">Amana</span>
+            <span className="text-[#D4A843]">Afrishelf</span>
           </Link>
           <h2 className="text-3xl font-bold text-white mb-4">
             Welcome Back to<br />Africa&apos;s Trusted Marketplace
@@ -81,7 +81,7 @@ export function LoginForm() {
         <div className="w-full max-w-md">
           <div className="lg:hidden mb-8">
             <Link href="/" className="text-2xl font-extrabold">
-              <span className="text-[#D4A843]">Amana</span>
+              <span className="text-[#D4A843]">Afrishelf</span>
             </Link>
           </div>
 

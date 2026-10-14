@@ -13,7 +13,7 @@ function getResend(): Resend {
   return _resend;
 }
 
-const FROM_EMAIL = process.env.FROM_EMAIL || "Amana Marketplace <noreply@amana.market>";
+const FROM_EMAIL = process.env.FROM_EMAIL || "Afrishelf <noreply@amana.market>";
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
 async function sendEmail(to: string, subject: string, html: string) {
@@ -32,11 +32,11 @@ export async function sendPasswordResetEmail(email: string, token: string, name:
   
   await sendEmail(
     email,
-    "Reset your Amana password",
+    "Reset your Afrishelf password",
     `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
         <div style="text-align: center; margin-bottom: 32px;">
-          <h1 style="color: #D4A843; font-size: 28px; margin: 0;">Amana</h1>
+          <h1 style="color: #D4A843; font-size: 28px; margin: 0;">Afrishelf</h1>
           <p style="color: #666; font-size: 14px; margin-top: 4px;">Africa's Trusted Marketplace</p>
         </div>
         <h2 style="color: #1A1A2E; font-size: 20px;">Hi ${name},</h2>
@@ -46,7 +46,7 @@ export async function sendPasswordResetEmail(email: string, token: string, name:
         </div>
         <p style="color: #888; font-size: 13px;">If you didn't request this, you can safely ignore this email. Your password won't change.</p>
         <hr style="border: none; border-top: 1px solid #eee; margin: 32px 0;" />
-        <p style="color: #aaa; font-size: 12px; text-align: center;">© ${new Date().getFullYear()} Amana Marketplace. All rights reserved.</p>
+        <p style="color: #aaa; font-size: 12px; text-align: center;">© ${new Date().getFullYear()} Afrishelf. All rights reserved.</p>
       </div>
     `,
   );
@@ -77,10 +77,10 @@ export async function sendOrderConfirmationEmail(
     `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
         <div style="text-align: center; margin-bottom: 32px;">
-          <h1 style="color: #D4A843; font-size: 28px; margin: 0;">Amana</h1>
+          <h1 style="color: #D4A843; font-size: 28px; margin: 0;">Afrishelf</h1>
         </div>
         <h2 style="color: #1A1A2E;">Hi ${name},</h2>
-        <p style="color: #444; line-height: 1.6;">Your order <strong>${order.orderNumber}</strong> has been created and is protected by Amana Escrow.</p>
+        <p style="color: #444; line-height: 1.6;">Your order <strong>${order.orderNumber}</strong> has been created and is protected by Afrishelf Escrow.</p>
         <div style="background: #FAF8F5; border-radius: 12px; padding: 20px; margin: 24px 0;">
           <table style="width: 100%; border-collapse: collapse;">
             <tr><td style="padding: 6px 0; color: #666;">Product</td><td style="text-align: right; font-weight: 600;">${order.quantity}x ${order.productName}</td></tr>
@@ -97,7 +97,7 @@ export async function sendOrderConfirmationEmail(
           <a href="${orderUrl}" style="color: #D4A843; font-weight: 600; text-decoration: none;">View Order Details →</a>
         </div>
         <hr style="border: none; border-top: 1px solid #eee; margin: 32px 0;" />
-        <p style="color: #aaa; font-size: 12px; text-align: center;">© ${new Date().getFullYear()} Amana Marketplace</p>
+        <p style="color: #aaa; font-size: 12px; text-align: center;">© ${new Date().getFullYear()} Afrishelf</p>
       </div>
     `,
   );
@@ -118,7 +118,7 @@ export async function sendShippingNotificationEmail(
     `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
         <div style="text-align: center; margin-bottom: 32px;">
-          <h1 style="color: #D4A843; font-size: 28px; margin: 0;">Amana</h1>
+          <h1 style="color: #D4A843; font-size: 28px; margin: 0;">Afrishelf</h1>
         </div>
         <h2 style="color: #1A1A2E;">Hi ${name},</h2>
         <p style="color: #444; line-height: 1.6;">Great news! <strong>${order.storeName}</strong> has shipped your order <strong>${order.orderNumber}</strong>.</p>
@@ -128,7 +128,7 @@ export async function sendShippingNotificationEmail(
           <a href="${orderUrl}" style="background: #D4A843; color: #fff; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">Track Order</a>
         </div>
         <hr style="border: none; border-top: 1px solid #eee; margin: 32px 0;" />
-        <p style="color: #aaa; font-size: 12px; text-align: center;">© ${new Date().getFullYear()} Amana Marketplace</p>
+        <p style="color: #aaa; font-size: 12px; text-align: center;">© ${new Date().getFullYear()} Afrishelf</p>
       </div>
     `,
   );
@@ -147,18 +147,18 @@ export async function sendEscrowReleasedEmail(
     `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
         <div style="text-align: center; margin-bottom: 32px;">
-          <h1 style="color: #D4A843; font-size: 28px; margin: 0;">Amana</h1>
+          <h1 style="color: #D4A843; font-size: 28px; margin: 0;">Afrishelf</h1>
         </div>
         <h2 style="color: #1A1A2E;">Hi ${name},</h2>
         <p style="color: #444; line-height: 1.6;">The buyer has approved order <strong>${order.orderNumber}</strong>. Your escrow funds have been released!</p>
         <div style="background: #f0fdf4; border-radius: 12px; padding: 24px; margin: 24px 0; text-align: center;">
           <p style="color: #166534; margin: 0 0 8px; font-size: 14px;">Amount Released</p>
           <p style="font-size: 28px; font-weight: 700; color: #166534; margin: 0;">${order.currency} ${order.sellerPayout.toFixed(2)}</p>
-          <p style="color: #16a34a; font-size: 13px; margin-top: 8px;">After 5% Amana platform fee</p>
+          <p style="color: #16a34a; font-size: 13px; margin-top: 8px;">After 5% Afrishelf platform fee</p>
         </div>
         <p style="color: #444; line-height: 1.6;">Funds will be transferred to your registered payout account within 1-2 business days.</p>
         <hr style="border: none; border-top: 1px solid #eee; margin: 32px 0;" />
-        <p style="color: #aaa; font-size: 12px; text-align: center;">© ${new Date().getFullYear()} Amana Marketplace</p>
+        <p style="color: #aaa; font-size: 12px; text-align: center;">© ${new Date().getFullYear()} Afrishelf</p>
       </div>
     `,
   );
@@ -179,7 +179,7 @@ export async function sendPaymentReceivedEmail(
     `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
         <div style="text-align: center; margin-bottom: 32px;">
-          <h1 style="color: #D4A843; font-size: 28px; margin: 0;">Amana</h1>
+          <h1 style="color: #D4A843; font-size: 28px; margin: 0;">Afrishelf</h1>
         </div>
         <h2 style="color: #1A1A2E;">Hi ${name},</h2>
         <p style="color: #444; line-height: 1.6;">Your payment of <strong>${order.currency} ${order.totalAmount.toFixed(2)}</strong> for order <strong>${order.orderNumber}</strong> has been received and your funds are now held in escrow.</p>
@@ -188,7 +188,7 @@ export async function sendPaymentReceivedEmail(
           <a href="${orderUrl}" style="background: #D4A843; color: #fff; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">View Order</a>
         </div>
         <hr style="border: none; border-top: 1px solid #eee; margin: 32px 0;" />
-        <p style="color: #aaa; font-size: 12px; text-align: center;">© ${new Date().getFullYear()} Amana Marketplace</p>
+        <p style="color: #aaa; font-size: 12px; text-align: center;">© ${new Date().getFullYear()} Afrishelf</p>
       </div>
     `,
   );
@@ -209,7 +209,7 @@ export async function sendNewOrderToSellerEmail(
     `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
         <div style="text-align: center; margin-bottom: 32px;">
-          <h1 style="color: #D4A843; font-size: 28px; margin: 0;">Amana</h1>
+          <h1 style="color: #D4A843; font-size: 28px; margin: 0;">Afrishelf</h1>
         </div>
         <h2 style="color: #1A1A2E;">Hi ${name},</h2>
         <p style="color: #444; line-height: 1.6;">You have a new order!</p>
@@ -225,7 +225,7 @@ export async function sendNewOrderToSellerEmail(
           <a href="${dashboardUrl}" style="background: #D4A843; color: #fff; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">View in Dashboard</a>
         </div>
         <hr style="border: none; border-top: 1px solid #eee; margin: 32px 0;" />
-        <p style="color: #aaa; font-size: 12px; text-align: center;">© ${new Date().getFullYear()} Amana Marketplace</p>
+        <p style="color: #aaa; font-size: 12px; text-align: center;">© ${new Date().getFullYear()} Afrishelf</p>
       </div>
     `,
   );

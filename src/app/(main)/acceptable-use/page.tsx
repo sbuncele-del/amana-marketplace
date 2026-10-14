@@ -2,7 +2,7 @@ import { ShieldAlert, CheckCircle, XCircle, AlertTriangle, Flag, Scale, Ban } fr
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "Acceptable Use Policy — Amana Marketplace" };
+export const metadata = { title: "Acceptable Use Policy — Afrishelf" };
 
 const permittedActivities = [
   "Buying and selling legitimate products through the Platform",
@@ -99,7 +99,7 @@ export default function AcceptableUsePage() {
             <span className="text-[#D4A843]">Policy</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Last updated: January 15, 2026. This policy defines what is and isn&apos;t allowed on Amana
+            Last updated: January 15, 2026. This policy defines what is and isn&apos;t allowed on Afrishelf
             Marketplace. These standards exist to keep our community safe and trustworthy for everyone.
           </p>
         </div>
@@ -131,7 +131,7 @@ export default function AcceptableUsePage() {
             <h2 className="text-2xl font-extrabold">Prohibited Items</h2>
           </div>
           <p className="text-sm text-gray-600 mb-6">
-            The following categories of items may not be listed or sold on Amana Marketplace.
+            The following categories of items may not be listed or sold on Afrishelf.
             This list is not exhaustive — we reserve the right to remove any listing we determine
             to be inappropriate, harmful, or illegal.
           </p>

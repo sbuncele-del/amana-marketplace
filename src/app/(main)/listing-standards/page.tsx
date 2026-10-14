@@ -2,7 +2,7 @@ import { Image, Type, Tag, Layers, DollarSign, FileText, CheckCircle, XCircle } 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "Listing Standards — Amana Marketplace" };
+export const metadata = { title: "Listing Standards — Afrishelf" };
 
 const titleDos = [
   "Tanzanite Oval Cut 2.5ct — AAA Grade, Certified",
@@ -97,7 +97,7 @@ export default function ListingStandardsPage() {
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
             High-quality listings build buyer trust and increase your sales. Follow these standards to ensure
-            your products are presented professionally on Amana Marketplace.
+            your products are presented professionally on Afrishelf.
           </p>
         </div>
       </section>
@@ -229,7 +229,7 @@ export default function ListingStandardsPage() {
           <div className="bg-white rounded-xl border border-gray-100 p-6 space-y-4 text-sm text-gray-600">
             <p>
               <strong className="text-gray-900">Base Price:</strong> Set in your preferred currency. Multi-currency
-              conversion is handled automatically by Amana using daily exchange rates.
+              conversion is handled automatically by Afrishelf using daily exchange rates.
             </p>
             <p>
               <strong className="text-gray-900">Shipping Costs:</strong> Must be listed separately. Offer flat-rate,
@@ -237,7 +237,7 @@ export default function ListingStandardsPage() {
             </p>
             <p>
               <strong className="text-gray-900">No Hidden Fees:</strong> The price shown to buyers must be the final
-              product price. Do not request additional payments outside the Amana platform.
+              product price. Do not request additional payments outside the Afrishelf platform.
             </p>
             <p>
               <strong className="text-gray-900">Volume Discounts:</strong> If you offer bulk pricing, use the built-in
@@ -280,7 +280,7 @@ export default function ListingStandardsPage() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-extrabold text-white mb-4">Ready to Create a Listing?</h2>
           <p className="text-white/60 mb-8">
-            Put these standards into practice and create your first product listing on Amana.
+            Put these standards into practice and create your first product listing on Afrishelf.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/dashboard/sell">

@@ -2,7 +2,7 @@ import { Briefcase, Heart, MapPin, Globe, Zap, Users, Coffee, GraduationCap } fr
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "Careers — Amana Marketplace" };
+export const metadata = { title: "Careers — Afrishelf" };
 
 const values = [
   { icon: Globe, title: "Pan-African First", desc: "We build for the continent. Every decision considers the diverse needs of 54 nations, from payment methods to language support." },
@@ -75,7 +75,7 @@ const benefits = [
   { icon: GraduationCap, title: "Learning Budget", desc: "$1,500/year for courses, conferences, and books. We invest in your growth." },
   { icon: Heart, title: "Health Coverage", desc: "Comprehensive health insurance for you and your dependents." },
   { icon: Coffee, title: "Flexible Hours", desc: "We care about output, not hours. Work when you're most productive." },
-  { icon: Zap, title: "Equity Options", desc: "Early-stage employee stock options. Build wealth as Amana grows." },
+  { icon: Zap, title: "Equity Options", desc: "Early-stage employee stock options. Build wealth as Afrishelf grows." },
   { icon: Users, title: "Team Retreats", desc: "Annual all-hands retreat in a different African city each year." },
 ];
 
@@ -106,7 +106,7 @@ export default function CareersPage() {
           <h2 className="text-2xl font-extrabold mb-6">Our Mission</h2>
           <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
             Africa trades less with itself than any other continent. Only 15% of African trade is intra-continental,
-            compared to 58% in Asia and 67% in Europe. The reason? Trust. Amana exists to change this by providing
+            compared to 58% in Asia and 67% in Europe. The reason? Trust. Afrishelf exists to change this by providing
             the digital infrastructure — escrow protection, verified sellers, multi-currency payments — that makes
             cross-border trade safe and accessible for everyone.
           </p>

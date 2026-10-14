@@ -2,7 +2,7 @@ import { Package, Truck, Globe, FileText, Tag, Scale, CheckCircle, AlertTriangle
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "Shipping Guide for Sellers — Amana Marketplace" };
+export const metadata = { title: "Shipping Guide for Sellers — Afrishelf" };
 
 const packagingRequirements = [
   { title: "Inner Protection", desc: "Wrap items individually with bubble wrap, foam, or tissue paper. Fragile items need at least 2 inches of cushioning on all sides." },
@@ -24,11 +24,11 @@ const carrierComparison = [
 const crossBorderDocs = [
   {
     title: "Commercial Invoice",
-    desc: "Required for all international shipments. Must include: sender/receiver details, product description, quantity, value (in USD), HS code, and country of origin. Amana auto-generates this from your listing data.",
+    desc: "Required for all international shipments. Must include: sender/receiver details, product description, quantity, value (in USD), HS code, and country of origin. Afrishelf auto-generates this from your listing data.",
   },
   {
     title: "HS Codes (Harmonized System)",
-    desc: "Every product needs a correct HS code for customs classification. Amana suggests HS codes based on your product category, but verify accuracy. Incorrect HS codes can cause delays or additional duties.",
+    desc: "Every product needs a correct HS code for customs classification. Afrishelf suggests HS codes based on your product category, but verify accuracy. Incorrect HS codes can cause delays or additional duties.",
   },
   {
     title: "Certificate of Origin",
@@ -59,7 +59,7 @@ const labelRequirements = [
   { field: "Sender Phone", example: "+255 xxx xxx xxx" },
   { field: "Receiver Name", example: "As provided at checkout" },
   { field: "Receiver Address", example: "As provided at checkout" },
-  { field: "Amana Order ID", example: "AMN-2026-0847" },
+  { field: "Afrishelf Order ID", example: "AMN-2026-0847" },
   { field: "Contents Description", example: "Tanzanite gemstone, 2.5ct" },
   { field: "Declared Value", example: "$350 USD" },
 ];
@@ -224,7 +224,7 @@ export default function ShippingGuidePage() {
           <div className="mt-4 flex items-start gap-3 bg-[#D4A843]/5 rounded-xl p-4 border border-[#D4A843]/20">
             <AlertTriangle className="w-5 h-5 text-[#D4A843] flex-shrink-0 mt-0.5" />
             <p className="text-sm text-gray-600">
-              <strong>Important:</strong> Always include the Amana Order ID on the outer label. This helps our
+              <strong>Important:</strong> Always include the Afrishelf Order ID on the outer label. This helps our
               support team trace packages in case of delivery issues or disputes.
             </p>
           </div>

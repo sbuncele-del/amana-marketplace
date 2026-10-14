@@ -1,7 +1,7 @@
 import { FileText, AlertTriangle } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = { title: "Terms of Use — Amana Marketplace" };
+export const metadata = { title: "Terms of Use — Afrishelf" };
 
 export default function TermsPage() {
   return (
@@ -19,7 +19,7 @@ export default function TermsPage() {
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
             Last updated: January 15, 2026. Please read these Terms of Use carefully before using
-            Amana Marketplace. By accessing or using our platform, you agree to be bound by these terms.
+            Afrishelf. By accessing or using our platform, you agree to be bound by these terms.
           </p>
         </div>
       </section>
@@ -29,14 +29,14 @@ export default function TermsPage() {
           <h2 className="text-xl font-extrabold mb-3">1. Acceptance of Terms</h2>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
             <p>
-              By creating an account, browsing, or making any transaction on Amana Marketplace (&ldquo;the Platform&rdquo;),
+              By creating an account, browsing, or making any transaction on Afrishelf (&ldquo;the Platform&rdquo;),
               you agree to these Terms of Use, our <Link href="/privacy" className="text-[#D4A843] hover:underline">Privacy Policy</Link>,
               our <Link href="/escrow-agreement" className="text-[#D4A843] hover:underline">Escrow Agreement</Link>,
               and our <Link href="/acceptable-use" className="text-[#D4A843] hover:underline">Acceptable Use Policy</Link>.
               If you do not agree to any of these terms, do not use the Platform.
             </p>
             <p>
-              You must be at least 18 years old to use Amana Marketplace. By using the Platform, you represent
+              You must be at least 18 years old to use Afrishelf. By using the Platform, you represent
               and warrant that you are at least 18 years of age and have the legal capacity to enter into binding agreements.
             </p>
           </div>
@@ -45,7 +45,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-xl font-extrabold mb-3">2. Account Responsibilities</h2>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
-            <p>When you create an account on Amana, you agree to:</p>
+            <p>When you create an account on Afrishelf, you agree to:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>Provide accurate, current, and complete registration information</li>
               <li>Maintain the security of your password and account credentials</li>
@@ -64,7 +64,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-xl font-extrabold mb-3">3. Buyer Obligations</h2>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
-            <p>As a buyer on Amana Marketplace, you agree to:</p>
+            <p>As a buyer on Afrishelf, you agree to:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>Make payments through the Platform&apos;s escrow system — never arrange off-platform payments</li>
               <li>Review product listings carefully before purchasing, including descriptions, images, and seller ratings</li>
@@ -81,7 +81,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-xl font-extrabold mb-3">4. Seller Obligations</h2>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
-            <p>As a seller on Amana Marketplace, you agree to:</p>
+            <p>As a seller on Afrishelf, you agree to:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>Complete the seller verification process honestly and maintain accurate business information</li>
               <li>List products with accurate descriptions, images, and pricing as per our <Link href="/listing-standards" className="text-[#D4A843] hover:underline">Listing Standards</Link></li>
@@ -101,7 +101,7 @@ export default function TermsPage() {
           <h2 className="text-xl font-extrabold mb-3">5. Escrow Terms</h2>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
             <p>
-              All transactions on Amana are processed through Vesicash escrow. By using the Platform, you agree to the following escrow terms:
+              All transactions on Afrishelf are processed through Vesicash escrow. By using the Platform, you agree to the following escrow terms:
             </p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>All payments are held in regulated trust accounts managed by Vesicash, a licensed escrow provider</li>
@@ -119,7 +119,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-xl font-extrabold mb-3">6. Prohibited Conduct</h2>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
-            <p>You may not use Amana Marketplace to:</p>
+            <p>You may not use Afrishelf to:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>Engage in fraud, deception, or misrepresentation</li>
               <li>List or sell counterfeit, stolen, or illegal products</li>
@@ -141,16 +141,16 @@ export default function TermsPage() {
           <h2 className="text-xl font-extrabold mb-3">7. Intellectual Property Rights</h2>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
             <p>
-              The Amana Marketplace platform, including its design, software, logos, and content, is the
-              intellectual property of Amana Marketplace Ltd. You may not reproduce, distribute, or create
+              The Afrishelf platform, including its design, software, logos, and content, is the
+              intellectual property of Afrishelf Ltd. You may not reproduce, distribute, or create
               derivative works without our written permission.
             </p>
             <p>
-              By listing products on Amana, sellers grant us a non-exclusive, royalty-free license to display
+              By listing products on Afrishelf, sellers grant us a non-exclusive, royalty-free license to display
               their product images, descriptions, and store information on the Platform and in marketing materials.
             </p>
             <p>
-              If you believe your intellectual property is being infringed on Amana, report it to
+              If you believe your intellectual property is being infringed on Afrishelf, report it to
               <strong> ip@amanamarket.com</strong> with the relevant details and we will investigate promptly.
             </p>
           </div>
@@ -160,7 +160,7 @@ export default function TermsPage() {
           <h2 className="text-xl font-extrabold mb-3">8. Limitation of Liability</h2>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
             <p>
-              Amana Marketplace is a platform that facilitates transactions between buyers and sellers.
+              Afrishelf is a platform that facilitates transactions between buyers and sellers.
               We are not a party to the sale itself. To the maximum extent permitted by law:
             </p>
             <ul className="list-disc list-inside space-y-1 ml-2">
@@ -168,7 +168,7 @@ export default function TermsPage() {
               <li>We do not guarantee the truth or accuracy of product listings</li>
               <li>We do not guarantee that sellers will complete transactions</li>
               <li>Our total liability for any claim arising from use of the Platform shall not exceed the
-                fees paid by you to Amana in the 12 months preceding the claim</li>
+                fees paid by you to Afrishelf in the 12 months preceding the claim</li>
               <li>We are not liable for indirect, incidental, special, or consequential damages</li>
             </ul>
             <p>
@@ -203,7 +203,7 @@ export default function TermsPage() {
             <p>
               We may update these Terms of Use from time to time. We will notify you of material changes
               at least 30 days before they take effect through email or a notice on the Platform. Your
-              continued use of Amana after the effective date constitutes acceptance of the updated terms.
+              continued use of Afrishelf after the effective date constitutes acceptance of the updated terms.
             </p>
           </div>
         </section>

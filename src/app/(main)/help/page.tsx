@@ -1,7 +1,7 @@
 import { Search, MessageSquare, BookOpen, Shield, Truck, CreditCard, AlertTriangle, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = { title: "Help Centre — Amana Marketplace" };
+export const metadata = { title: "Help Centre — Afrishelf" };
 
 const topics = [
   { icon: Shield, title: "Escrow & Payments", desc: "How escrow works, payment methods, refunds, and payouts.", href: "/how-escrow-works" },
@@ -17,7 +17,7 @@ const faqs = [
   { q: "What payment methods do you accept?", a: "We accept M-Pesa, MTN MoMo, Airtel Money, Visa, Mastercard, bank transfers, and Flutterwave. Payment options vary by country." },
   { q: "How long does shipping take?", a: "Domestic orders typically arrive in 3–7 business days. Cross-border shipments take 7–21 days depending on the corridor. All orders include tracking." },
   { q: "How do I become a seller?", a: "Register with a seller account, complete our verification process (ID + business registration), and you can start listing products immediately." },
-  { q: "What is AfCFTA and how does it benefit me?", a: "The African Continental Free Trade Area provides preferential tariff rates for qualifying products traded between member countries. Amana automatically calculates AfCFTA eligibility, potentially reducing import duties." },
+  { q: "What is AfCFTA and how does it benefit me?", a: "The African Continental Free Trade Area provides preferential tariff rates for qualifying products traded between member countries. Afrishelf automatically calculates AfCFTA eligibility, potentially reducing import duties." },
   { q: "How do I track my order?", a: "Log into your account, go to Orders, and click on any order to see real-time tracking information. You'll also receive email/SMS updates at each stage." },
 ];
 

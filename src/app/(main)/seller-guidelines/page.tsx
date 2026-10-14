@@ -2,7 +2,7 @@ import { BadgeCheck, Camera, MessageSquare, ShieldCheck, Star, AlertTriangle, Pa
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "Seller Guidelines — Amana Marketplace" };
+export const metadata = { title: "Seller Guidelines — Afrishelf" };
 
 const tiers = [
   {
@@ -103,7 +103,7 @@ export default function SellerGuidelinesPage() {
             <span className="text-[#D4A843]">Guidelines</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Everything you need to know to succeed as a seller on Amana. From verification requirements
+            Everything you need to know to succeed as a seller on Afrishelf. From verification requirements
             to listing standards and communication policies.
           </p>
         </div>
@@ -203,7 +203,7 @@ export default function SellerGuidelinesPage() {
           </div>
           <div className="bg-white rounded-xl border border-gray-100 p-6">
             <p className="text-gray-600 text-sm mb-4">
-              The following items are strictly prohibited on Amana Marketplace. Listing them will result
+              The following items are strictly prohibited on Afrishelf. Listing them will result
               in immediate removal and potential account suspension:
             </p>
             <ul className="space-y-2">
@@ -223,7 +223,7 @@ export default function SellerGuidelinesPage() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-extrabold text-white mb-4">Ready to Start Selling?</h2>
           <p className="text-white/60 mb-8">
-            Join thousands of verified sellers across 34+ African countries on Amana Marketplace.
+            Join thousands of verified sellers across 34+ African countries on Afrishelf.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/dashboard/sell">

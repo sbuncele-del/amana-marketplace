@@ -2,7 +2,7 @@ import { Scale, Upload, Clock, FileText, MessageSquare, CheckCircle, XCircle, Al
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "Dispute Resolution — Amana Marketplace" };
+export const metadata = { title: "Dispute Resolution — Afrishelf" };
 
 const steps = [
   {
@@ -32,7 +32,7 @@ const steps = [
   {
     number: 4,
     icon: Scale,
-    title: "Amana Review",
+    title: "Afrishelf Review",
     time: "1–3 business days",
     description:
       "If no mutual agreement is reached, our dispute resolution team reviews all evidence from both sides. We examine the listing accuracy, shipping documentation, product condition evidence, and communication history to make a fair determination.",

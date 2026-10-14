@@ -10,7 +10,7 @@ export default async function SourcingPage() {
   const money = (amount: number) => new Intl.NumberFormat("en-ZA", { style: "currency", currency: "ZAR" }).format(amount);
   return (
     <main className="mx-auto max-w-5xl px-4 pb-16 pt-28">
-      <p className="text-sm font-semibold text-amber-700">Amana · Supplier sourcing</p>
+      <p className="text-sm font-semibold text-amber-700">Afrishelf · Supplier sourcing</p>
       <h1 className="mt-2 text-3xl font-bold">First appliance collection</h1>
       <p className="mt-3 text-gray-600">Two supplier product drafts, prepared for customer-first dropshipping. These are not published products and cannot be purchased.</p>
       <p className="mt-2 text-sm text-gray-500">Supplier: {catalogue.supplier} · Source checked: {catalogue.checkedAt}</p>
