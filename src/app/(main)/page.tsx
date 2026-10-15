@@ -53,7 +53,8 @@ export default async function HomePage() {
     return { ...item, product };
   }) }));
   const valuePool = snapshot.filter(p => p.price > 0 && p.price < 300 && p.images.length);
-  const valueHandles = [...new Set([/desktop.fan|mini.fan/i,/lunch.box/i,/earbud/i,/water.bottle/i,/storage.container|food.container/i].flatMap(match => valuePool.filter(p => match.test(p.name)).slice(0, 3).map(p => p.slug)))].slice(0, 15);
+  const valueCategories = [/desktop.fan|mini.fan/i,/lunch.box/i,/earbud/i,/water.bottle/i,/storage.container|food.container/i].map(match => valuePool.filter(p => match.test(p.name)).slice(0, 3));
+  const valueHandles = [...new Set([0,1,2].flatMap(index => valueCategories.flatMap(products => products[index] ? [products[index].slug] : [])))];
   const selected = new Set(valueHandles);
   const collectionCandidates = collectionSpecs.map(c => ({ ...c, handles: snapshot.filter(p => p.collections.includes(c.slug) && c.match.test(p.name) && p.images.length && !selected.has(p.slug)).slice(0, 4).map(p => { selected.add(p.slug); return p.slug; }) }));
   const [valueResults, collections] = await Promise.all([

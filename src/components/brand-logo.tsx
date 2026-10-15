@@ -1,1 +1,1 @@
-export function BrandLogo({light=false,className=''}:{light?:boolean;className?:string}){return <img src={light?'/brand/plentovo-light.svg':'/brand/plentovo.svg'} alt="Plentovo" width={600} height={124} className={className} />;}
+export function BrandLogo({light=false,className=''}:{light?:boolean;className?:string}){return <img src={light?'/brand/plentovo-light.svg':'/brand/plentovo.svg'} alt="Plentovo" width={600} height={145} className={className} />;}
