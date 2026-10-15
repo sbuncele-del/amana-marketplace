@@ -1,24 +1,24 @@
 import { Shield, Eye, Database, Cookie, UserCheck, Mail, Globe } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = { title: "Privacy Policy — Afrishelf" };
+export const metadata = { title: "Privacy Policy — Plentovo" };
 
 export default function PrivacyPage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1A1A2E] to-[#0F3460] py-20">
+      <section className="bg-gradient-to-br from-[#171B20] to-[#0F3460] py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-6">
-            <Shield className="w-4 h-4 text-[#D4A843]" />
+            <Shield className="w-4 h-4 text-[#DA292B]" />
             <span className="text-sm text-white/80">Your Data, Your Rights</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
             Privacy<br />
-            <span className="text-[#D4A843]">Policy</span>
+            <span className="text-[#DA292B]">Policy</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Last updated: January 15, 2026. This Privacy Policy explains how Afrishelf
+            Last updated: January 15, 2026. This Privacy Policy explains how Plentovo
             (&ldquo;we,&rdquo; &ldquo;us,&rdquo; &ldquo;our&rdquo;) collects, uses, shares, and protects your personal information.
           </p>
         </div>
@@ -28,7 +28,7 @@ export default function PrivacyPage() {
         {/* 1. Data Collection */}
         <section>
           <div className="flex items-center gap-3 mb-4">
-            <Database className="w-5 h-5 text-[#D4A843]" />
+            <Database className="w-5 h-5 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">1. Information We Collect</h2>
           </div>
           <div className="space-y-4 text-sm text-gray-600 leading-relaxed">
@@ -48,7 +48,7 @@ export default function PrivacyPage() {
                 <li>Device information: browser type, operating system, device model</li>
                 <li>Usage data: pages visited, search queries, products viewed, time on page</li>
                 <li>Location data: country-level location from IP address (we do not collect precise GPS data)</li>
-                <li>Cookies and similar technologies (see our <Link href="/cookies" className="text-[#D4A843] hover:underline">Cookie Policy</Link>)</li>
+                <li>Cookies and similar technologies (see our <Link href="/cookies" className="text-[#DA292B] hover:underline">Cookie Policy</Link>)</li>
               </ul>
             </div>
             <div>
@@ -65,13 +65,13 @@ export default function PrivacyPage() {
         {/* 2. Usage */}
         <section>
           <div className="flex items-center gap-3 mb-4">
-            <Eye className="w-5 h-5 text-[#D4A843]" />
+            <Eye className="w-5 h-5 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">2. How We Use Your Information</h2>
           </div>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
             <p>We use your personal information to:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
-              <li>Provide, maintain, and improve the Afrishelf platform</li>
+              <li>Provide, maintain, and improve the Plentovo platform</li>
               <li>Process transactions and manage escrow through our partner Vesicash</li>
               <li>Verify seller identities and maintain marketplace trust and safety</li>
               <li>Facilitate communication between buyers and sellers</li>
@@ -88,7 +88,7 @@ export default function PrivacyPage() {
         {/* 3. Sharing */}
         <section>
           <div className="flex items-center gap-3 mb-4">
-            <Globe className="w-5 h-5 text-[#D4A843]" />
+            <Globe className="w-5 h-5 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">3. How We Share Your Information</h2>
           </div>
           <div className="text-sm text-gray-600 leading-relaxed space-y-3">
@@ -115,14 +115,14 @@ export default function PrivacyPage() {
         {/* 4. Cookies */}
         <section>
           <div className="flex items-center gap-3 mb-4">
-            <Cookie className="w-5 h-5 text-[#D4A843]" />
+            <Cookie className="w-5 h-5 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">4. Cookies</h2>
           </div>
           <div className="text-sm text-gray-600 leading-relaxed">
             <p>
               We use essential cookies to operate the platform, analytics cookies to understand usage patterns,
               and optional marketing cookies with your consent. For full details, see our{" "}
-              <Link href="/cookies" className="text-[#D4A843] hover:underline">Cookie Policy</Link>.
+              <Link href="/cookies" className="text-[#DA292B] hover:underline">Cookie Policy</Link>.
             </p>
           </div>
         </section>
@@ -189,7 +189,7 @@ export default function PrivacyPage() {
         {/* 8. User Rights */}
         <section>
           <div className="flex items-center gap-3 mb-4">
-            <UserCheck className="w-5 h-5 text-[#D4A843]" />
+            <UserCheck className="w-5 h-5 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">8. Your Rights</h2>
           </div>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
@@ -212,11 +212,11 @@ export default function PrivacyPage() {
         {/* 9. Contact */}
         <section>
           <div className="flex items-center gap-3 mb-4">
-            <Mail className="w-5 h-5 text-[#D4A843]" />
+            <Mail className="w-5 h-5 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">9. Contact Us</h2>
           </div>
           <div className="text-sm text-gray-600 leading-relaxed bg-gray-50 rounded-xl p-6">
-            <p className="mb-2"><strong>Afrishelf Ltd.</strong></p>
+            <p className="mb-2"><strong>Plentovo Ltd.</strong></p>
             <p>Data Protection & Privacy</p>
             <p>P.O. Box 12345, Nairobi, Kenya</p>
             <p className="mt-2">Email: <strong>privacy@amanamarket.com</strong></p>

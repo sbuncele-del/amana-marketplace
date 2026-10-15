@@ -2,7 +2,7 @@ import { Shield, Globe, Users, TrendingUp, MapPin, Heart } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "About Afrishelf — Africa's Trusted Marketplace" };
+export const metadata = { title: "About Plentovo — Africa's Trusted Marketplace" };
 
 const values = [
   { icon: Shield, title: "Trust First", desc: "Every transaction is escrow-protected. Buyers and sellers trade with complete confidence." },
@@ -29,13 +29,13 @@ export default function AboutPage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1A1A2E] to-[#0F3460] py-20">
+      <section className="bg-gradient-to-br from-[#171B20] to-[#0F3460] py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
-            Trade Across Africa,<br /><span className="text-[#D4A843]">With Zero Risk</span>
+            Trade Across Africa,<br /><span className="text-[#DA292B]">With Zero Risk</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Afrishelf is Africa&apos;s first cross-border marketplace with built-in escrow protection on every transaction. 
+            Plentovo is Africa&apos;s first cross-border marketplace with built-in escrow protection on every transaction.
             We connect buyers and sellers across the continent, making pan-African trade safe, simple, and accessible.
           </p>
         </div>
@@ -46,7 +46,7 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((s) => (
             <div key={s.label}>
-              <div className="text-3xl font-extrabold text-[#D4A843]">{s.value}</div>
+              <div className="text-3xl font-extrabold text-[#DA292B]">{s.value}</div>
               <div className="text-sm text-gray-500 mt-1">{s.label}</div>
             </div>
           ))}
@@ -58,9 +58,9 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-2xl font-extrabold mb-6 text-center">Our Mission</h2>
           <p className="text-gray-600 text-center text-lg leading-relaxed max-w-3xl mx-auto">
-            To unlock the $3.4 trillion intra-African trade opportunity by removing the trust barrier. 
-            Under the African Continental Free Trade Area (AfCFTA), we provide the digital infrastructure 
-            for sellers and buyers to transact safely across borders — with escrow protection, local payments, 
+            To unlock the $3.4 trillion intra-African trade opportunity by removing the trust barrier.
+            Under the African Continental Free Trade Area (AfCFTA), we provide the digital infrastructure
+            for sellers and buyers to transact safely across borders — with escrow protection, local payments,
             and AfCFTA-compliant duty calculations built right in.
           </p>
         </div>
@@ -75,8 +75,8 @@ export default function AboutPage() {
               const Icon = v.icon;
               return (
                 <div key={v.title} className="bg-white rounded-xl p-6 border border-gray-100">
-                  <div className="w-10 h-10 rounded-lg bg-[#D4A843]/10 flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-[#D4A843]" />
+                  <div className="w-10 h-10 rounded-lg bg-[#DA292B]/10 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-[#DA292B]" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">{v.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
@@ -104,7 +104,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[#1A1A2E]">
+      <section className="py-16 bg-[#171B20]">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-extrabold text-white mb-4">Ready to Trade?</h2>
           <p className="text-white/50 mb-8">Join thousands of traders across Africa. Every transaction is escrow-protected.</p>

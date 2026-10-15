@@ -130,7 +130,7 @@ export default function OrdersPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="w-6 h-6 animate-spin text-[#D4A843]" />
+        <Loader2 className="w-6 h-6 animate-spin text-[#DA292B]" />
       </div>
     );
   }
@@ -155,7 +155,7 @@ export default function OrdersPage() {
         ].map((f) => (
           <button key={f.key} onClick={() => setFilter(f.key)}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-              filter === f.key ? "bg-[#D4A843] text-white" : "bg-white border border-gray-200 text-gray-500 hover:border-[#D4A843]/30"
+              filter === f.key ? "bg-[#DA292B] text-white" : "bg-white border border-gray-200 text-gray-500 hover:border-[#DA292B]/30"
             }`}>
             {f.icon} {f.label}
           </button>

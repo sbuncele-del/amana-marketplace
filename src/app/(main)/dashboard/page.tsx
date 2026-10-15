@@ -88,7 +88,7 @@ export default function DashboardPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="w-6 h-6 animate-spin text-[#D4A843]" />
+        <Loader2 className="w-6 h-6 animate-spin text-[#DA292B]" />
       </div>
     );
   }
@@ -120,7 +120,7 @@ export default function DashboardPage() {
         {statCards.map((stat) => (
           <div key={stat.label} className="bg-white rounded-xl border border-gray-100 p-5 hover:shadow-sm transition-shadow">
             <div className="flex items-center justify-between mb-3">
-              <div className="w-10 h-10 rounded-lg bg-[#D4A843]/10 flex items-center justify-center text-[#D4A843]">
+              <div className="w-10 h-10 rounded-lg bg-[#DA292B]/10 flex items-center justify-center text-[#DA292B]">
                 {stat.icon}
               </div>
               <div className="flex items-center gap-1 text-xs font-semibold text-[#2E7D32]">
@@ -136,7 +136,7 @@ export default function DashboardPage() {
       {/* Escrow Pipeline */}
       <div className="bg-white rounded-xl border border-gray-100 p-6 mb-8">
         <h2 className="font-bold mb-4 flex items-center gap-2">
-          <Shield className="w-5 h-5 text-[#D4A843]" />
+          <Shield className="w-5 h-5 text-[#DA292B]" />
           Escrow Pipeline
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -149,7 +149,7 @@ export default function DashboardPage() {
             <div key={pipeline.label} className="bg-[#FAF8F5] rounded-lg p-4 text-center">
               <div className="text-xl font-bold">{pipeline.count}</div>
               <div className="text-xs text-gray-500 mb-1">{pipeline.label}</div>
-              <div className="text-sm font-semibold text-[#D4A843]">{formatCurrency(pipeline.amount, "USD")}</div>
+              <div className="text-sm font-semibold text-[#DA292B]">{formatCurrency(pipeline.amount, "USD")}</div>
             </div>
           ))}
         </div>
@@ -159,7 +159,7 @@ export default function DashboardPage() {
       <div className="bg-white rounded-xl border border-gray-100">
         <div className="flex items-center justify-between p-6 pb-4">
           <h2 className="font-bold">Recent Orders</h2>
-          <Link href="/dashboard/orders" className="text-sm text-[#D4A843] hover:underline">View all</Link>
+          <Link href="/dashboard/orders" className="text-sm text-[#DA292B] hover:underline">View all</Link>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">

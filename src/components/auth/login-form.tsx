@@ -48,9 +48,9 @@ export function LoginForm() {
   return (
     <div className="min-h-screen flex">
       {/* Left Panel */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#1A1A2E] via-[#16213E] to-[#0F3460] relative overflow-hidden">
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#171B20] via-[#16213E] to-[#0F3460] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-[#D4A843] rounded-full blur-[100px]" />
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[#DA292B] rounded-full blur-[100px]" />
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#2E7D32] rounded-full blur-[120px]" />
         </div>
         <div className="relative z-10 flex flex-col justify-center px-12">
@@ -70,7 +70,7 @@ export function LoginForm() {
               "Personal care after delivery",
             ].map((item) => (
               <div key={item} className="flex items-center gap-3">
-                <Shield className="w-4 h-4 text-[#D4A843]" />
+                <Shield className="w-4 h-4 text-[#DA292B]" />
                 <span className="text-white/70 text-sm">{item}</span>
               </div>
             ))}
@@ -90,7 +90,7 @@ export function LoginForm() {
           <h1 className="text-2xl font-bold mb-2">Sign in to your account</h1>
           <p className="text-gray-500 mb-8">
             Don&apos;t have an account?{" "}
-            <Link href={`/register?role=buyer&callbackUrl=${encodeURIComponent(callbackUrl)}`} className="text-[#D4A843] font-semibold hover:underline">
+            <Link href={`/register?role=buyer&callbackUrl=${encodeURIComponent(callbackUrl)}`} className="text-[#DA292B] font-semibold hover:underline">
               Create one free
             </Link>
           </p>
@@ -131,10 +131,10 @@ export function LoginForm() {
 
             <div className="flex items-center justify-between">
               <label className="flex items-center gap-2">
-                <input type="checkbox" className="rounded border-gray-300 text-[#D4A843] focus:ring-[#D4A843]" />
+                <input type="checkbox" className="rounded border-gray-300 text-[#DA292B] focus:ring-[#DA292B]" />
                 <span className="text-sm text-gray-600">Remember me</span>
               </label>
-              <Link href="/forgot-password" className="text-sm text-[#D4A843] hover:underline">
+              <Link href="/forgot-password" className="text-sm text-[#DA292B] hover:underline">
                 Forgot password?
               </Link>
             </div>

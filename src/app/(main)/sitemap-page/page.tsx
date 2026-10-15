@@ -1,7 +1,7 @@
 import { Map, ShoppingBag, Store, HelpCircle, Building2, FileText, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = { title: "Sitemap — Afrishelf" };
+export const metadata = { title: "Sitemap — Plentovo" };
 
 const sections = [
   {
@@ -43,7 +43,7 @@ const sections = [
     icon: Building2,
     title: "Company",
     links: [
-      { label: "About Afrishelf", href: "/about" },
+      { label: "About Plentovo", href: "/about" },
       { label: "Careers", href: "/careers" },
       { label: "Press & Media", href: "/press" },
       { label: "Partners", href: "/partners" },
@@ -68,18 +68,18 @@ export default function SitemapPage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1A1A2E] to-[#0F3460] py-20">
+      <section className="bg-gradient-to-br from-[#171B20] to-[#0F3460] py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-6">
-            <Map className="w-4 h-4 text-[#D4A843]" />
-            <span className="text-sm text-white/80">Navigate Afrishelf</span>
+            <Map className="w-4 h-4 text-[#DA292B]" />
+            <span className="text-sm text-white/80">Navigate Plentovo</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
             Site<br />
-            <span className="text-[#D4A843]">Map</span>
+            <span className="text-[#DA292B]">Map</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            A complete overview of all pages on Afrishelf, organized by category.
+            A complete overview of all pages on Plentovo, organized by category.
             Find what you&apos;re looking for quickly.
           </p>
         </div>
@@ -94,8 +94,8 @@ export default function SitemapPage() {
               return (
                 <div key={section.title} className="border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="w-10 h-10 rounded-lg bg-[#D4A843]/10 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-[#D4A843]" />
+                    <div className="w-10 h-10 rounded-lg bg-[#DA292B]/10 flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-[#DA292B]" />
                     </div>
                     <h2 className="text-lg font-extrabold">{section.title}</h2>
                   </div>
@@ -104,9 +104,9 @@ export default function SitemapPage() {
                       <li key={link.href + link.label}>
                         <Link
                           href={link.href}
-                          className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#D4A843] transition-colors group"
+                          className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#DA292B] transition-colors group"
                         >
-                          <ExternalLink className="w-3.5 h-3.5 text-gray-300 group-hover:text-[#D4A843] transition-colors" />
+                          <ExternalLink className="w-3.5 h-3.5 text-gray-300 group-hover:text-[#DA292B] transition-colors" />
                           {link.label}
                         </Link>
                       </li>
@@ -124,16 +124,16 @@ export default function SitemapPage() {
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-2xl font-extrabold text-center mb-8">Account Pages</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <Link href="/dashboard" className="bg-white border border-gray-100 rounded-xl p-4 text-sm text-gray-600 hover:text-[#D4A843] hover:shadow-md transition-all">
+            <Link href="/dashboard" className="bg-white border border-gray-100 rounded-xl p-4 text-sm text-gray-600 hover:text-[#DA292B] hover:shadow-md transition-all">
               My Dashboard
             </Link>
-            <Link href="/dashboard/sell" className="bg-white border border-gray-100 rounded-xl p-4 text-sm text-gray-600 hover:text-[#D4A843] hover:shadow-md transition-all">
+            <Link href="/dashboard/sell" className="bg-white border border-gray-100 rounded-xl p-4 text-sm text-gray-600 hover:text-[#DA292B] hover:shadow-md transition-all">
               Sell a Product
             </Link>
-            <Link href="/checkout" className="bg-white border border-gray-100 rounded-xl p-4 text-sm text-gray-600 hover:text-[#D4A843] hover:shadow-md transition-all">
+            <Link href="/checkout" className="bg-white border border-gray-100 rounded-xl p-4 text-sm text-gray-600 hover:text-[#DA292B] hover:shadow-md transition-all">
               Checkout
             </Link>
-            <Link href="/track" className="bg-white border border-gray-100 rounded-xl p-4 text-sm text-gray-600 hover:text-[#D4A843] hover:shadow-md transition-all">
+            <Link href="/track" className="bg-white border border-gray-100 rounded-xl p-4 text-sm text-gray-600 hover:text-[#DA292B] hover:shadow-md transition-all">
               Track Order
             </Link>
           </div>

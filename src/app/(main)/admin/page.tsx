@@ -105,7 +105,7 @@ export default function AdminPage() {
 
   if (loading) return (
     <div className="pt-24 pb-16 flex items-center justify-center min-h-[60vh]">
-      <Loader2 className="w-8 h-8 animate-spin text-[#D4A843]" />
+      <Loader2 className="w-8 h-8 animate-spin text-[#DA292B]" />
     </div>
   );
 
@@ -136,7 +136,7 @@ export default function AdminPage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-2xl font-extrabold">Admin Panel</h1>
-            <p className="text-gray-500 text-sm">Manage the Afrishelf marketplace</p>
+            <p className="text-gray-500 text-sm">Manage the Plentovo marketplace</p>
           </div>
           <div className="flex items-center gap-3">
             <div className="text-right text-sm">
@@ -155,7 +155,7 @@ export default function AdminPage() {
               onClick={() => setActiveTab(tab.key)}
               className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold border-b-2 transition-colors whitespace-nowrap ${
                 activeTab === tab.key
-                  ? "text-[#D4A843] border-[#D4A843]"
+                  ? "text-[#DA292B] border-[#DA292B]"
                   : "text-gray-400 border-transparent hover:text-gray-600"
               }`}
             >
@@ -174,7 +174,7 @@ export default function AdminPage() {
               {statCards.map(stat => (
                 <div key={stat.label} className="bg-white rounded-xl border border-gray-100 p-5">
                   <div className="flex items-center justify-between mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-[#D4A843]/10 flex items-center justify-center text-[#D4A843]">{stat.icon}</div>
+                    <div className="w-10 h-10 rounded-lg bg-[#DA292B]/10 flex items-center justify-center text-[#DA292B]">{stat.icon}</div>
                   </div>
                   <div className="text-2xl font-extrabold">{stat.value}</div>
                   <div className="text-xs text-gray-400 mt-1">{stat.change}</div>
@@ -191,9 +191,9 @@ export default function AdminPage() {
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
                   { label: "Escrow Resolution Rate", value: platformHealth.escrowResolutionRate, color: "text-[#2E7D32]" },
-                  { label: "Platform Commission", value: formatCurrency(platformRevenue.totalCommission), color: "text-[#D4A843]" },
+                  { label: "Platform Commission", value: formatCurrency(platformRevenue.totalCommission), color: "text-[#DA292B]" },
                   { label: "Seller Verification Rate", value: platformHealth.sellerVerificationRate, color: "text-[#2E7D32]" },
-                  { label: "Repeat Buyer Rate", value: platformHealth.repeatBuyerRate, color: "text-[#D4A843]" },
+                  { label: "Repeat Buyer Rate", value: platformHealth.repeatBuyerRate, color: "text-[#DA292B]" },
                 ].map(metric => (
                   <div key={metric.label} className="bg-[#FAF8F5] rounded-lg p-4 text-center">
                     <div className={`text-xl font-bold ${metric.color}`}>{metric.value}</div>
@@ -207,14 +207,14 @@ export default function AdminPage() {
             {data.escrowBreakdown.length > 0 && (
               <div className="bg-white rounded-xl border border-gray-100 p-6">
                 <h2 className="font-bold mb-4 flex items-center gap-2">
-                  <DollarSign className="w-5 h-5 text-[#D4A843]" /> Escrow Pipeline
+                  <DollarSign className="w-5 h-5 text-[#DA292B]" /> Escrow Pipeline
                 </h2>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                   {data.escrowBreakdown.map(e => (
                     <div key={e.status} className="bg-gray-50 rounded-lg p-3 text-center">
                       <div className="text-lg font-bold">{e.count}</div>
                       <div className="text-xs text-gray-500">{e.status.replace(/_/g, " ")}</div>
-                      <div className="text-xs font-semibold text-[#D4A843] mt-1">{formatCurrency(e.amount)}</div>
+                      <div className="text-xs font-semibold text-[#DA292B] mt-1">{formatCurrency(e.amount)}</div>
                     </div>
                   ))}
                 </div>
@@ -246,7 +246,7 @@ export default function AdminPage() {
                     <tr key={user.id} className="border-t border-gray-50 hover:bg-gray-50/50">
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-[#D4A843]/10 flex items-center justify-center font-bold text-sm text-[#D4A843]">
+                          <div className="w-8 h-8 rounded-full bg-[#DA292B]/10 flex items-center justify-center font-bold text-sm text-[#DA292B]">
                             {user.name.charAt(0)}
                           </div>
                           <div>
@@ -369,7 +369,7 @@ export default function AdminPage() {
         {activeTab === "corridors" && (
           <div className="bg-white rounded-xl border border-gray-100 p-6">
             <h2 className="font-bold mb-6 flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-[#D4A843]" /> Top Trade Corridors
+              <TrendingUp className="w-5 h-5 text-[#DA292B]" /> Top Trade Corridors
             </h2>
             {data.corridors.length === 0 ? (
               <p className="text-gray-400 text-sm text-center py-8">No cross-border trade data yet</p>
@@ -377,7 +377,7 @@ export default function AdminPage() {
               <div className="space-y-4">
                 {data.corridors.map((corridor, i) => (
                   <div key={`${corridor.origin}-${corridor.destination}`} className="flex items-center gap-4 p-4 bg-[#FAF8F5] rounded-xl">
-                    <span className="w-8 h-8 rounded-full bg-[#D4A843]/10 flex items-center justify-center text-sm font-bold text-[#D4A843]">
+                    <span className="w-8 h-8 rounded-full bg-[#DA292B]/10 flex items-center justify-center text-sm font-bold text-[#DA292B]">
                       {i + 1}
                     </span>
                     <div className="flex-1">
@@ -387,7 +387,7 @@ export default function AdminPage() {
                       <div className="text-sm text-gray-400">{corridor.orders} orders</div>
                     </div>
                     <div className="text-right">
-                      <div className="font-bold text-[#D4A843]">{formatCurrency(corridor.gmv)}</div>
+                      <div className="font-bold text-[#DA292B]">{formatCurrency(corridor.gmv)}</div>
                       <div className="text-xs text-gray-400">GMV</div>
                     </div>
                   </div>

@@ -1,25 +1,25 @@
 import { Shield, Lock, Scale, DollarSign, AlertTriangle, FileText, Handshake } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = { title: "Escrow Agreement — Afrishelf" };
+export const metadata = { title: "Escrow Agreement — Plentovo" };
 
 export default function EscrowAgreementPage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1A1A2E] to-[#0F3460] py-20">
+      <section className="bg-gradient-to-br from-[#171B20] to-[#0F3460] py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-6">
-            <Shield className="w-4 h-4 text-[#D4A843]" />
+            <Shield className="w-4 h-4 text-[#DA292B]" />
             <span className="text-sm text-white/80">Powered by Vesicash</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
             Escrow<br />
-            <span className="text-[#D4A843]">Agreement</span>
+            <span className="text-[#DA292B]">Agreement</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
             Last updated: January 15, 2026. This Escrow Agreement governs the escrow services provided
-            for all transactions on Afrishelf through our partnership with Vesicash.
+            for all transactions on Plentovo through our partnership with Vesicash.
           </p>
         </div>
       </section>
@@ -28,23 +28,23 @@ export default function EscrowAgreementPage() {
         {/* Vesicash Partnership */}
         <section>
           <div className="flex items-center gap-3 mb-4">
-            <Handshake className="w-5 h-5 text-[#D4A843]" />
+            <Handshake className="w-5 h-5 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">1. Vesicash Partnership</h2>
           </div>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
             <p>
-              Afrishelf partners with Vesicash, a licensed escrow service provider, to hold and
+              Plentovo partners with Vesicash, a licensed escrow service provider, to hold and
               manage transaction funds on behalf of buyers and sellers. Vesicash operates under applicable
               financial regulations and maintains funds in regulated trust accounts separate from operational funds.
             </p>
             <p>
-              By using Afrishelf, you agree to the terms of this Escrow Agreement and acknowledge
+              By using Plentovo, you agree to the terms of this Escrow Agreement and acknowledge
               that Vesicash acts as a neutral third party in the escrow process. Vesicash is not a party
               to the sale between buyer and seller — it solely holds and disburses funds according to the
               conditions set forth in this agreement.
             </p>
             <p>
-              The escrow service is provided automatically for all transactions on Afrishelf.
+              The escrow service is provided automatically for all transactions on Plentovo.
               There is no opt-out from escrow protection — this is a fundamental feature of the Platform
               designed to protect all parties.
             </p>
@@ -54,16 +54,16 @@ export default function EscrowAgreementPage() {
         {/* Fund Holding */}
         <section>
           <div className="flex items-center gap-3 mb-4">
-            <Lock className="w-5 h-5 text-[#D4A843]" />
+            <Lock className="w-5 h-5 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">2. Fund Holding</h2>
           </div>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
-            <p>When a buyer completes a purchase on Afrishelf:</p>
+            <p>When a buyer completes a purchase on Plentovo:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>The full transaction amount (product price + shipping costs) is transferred to a Vesicash escrow account</li>
               <li>Funds are held in a regulated trust account at a licensed commercial bank</li>
-              <li>Escrow funds are segregated from Afrishelf&apos;s and Vesicash&apos;s operational accounts</li>
-              <li>Neither Afrishelf nor Vesicash may use escrow funds for their own purposes</li>
+              <li>Escrow funds are segregated from Plentovo&apos;s and Vesicash&apos;s operational accounts</li>
+              <li>Neither Plentovo nor Vesicash may use escrow funds for their own purposes</li>
               <li>The seller is notified that funds are in escrow and can proceed with order fulfillment</li>
               <li>Both buyer and seller can view the escrow status in their respective dashboards at all times</li>
             </ul>
@@ -77,7 +77,7 @@ export default function EscrowAgreementPage() {
         {/* Release Conditions */}
         <section className="bg-[#FAF8F5] rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-4">
-            <Scale className="w-5 h-5 text-[#D4A843]" />
+            <Scale className="w-5 h-5 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">3. Release Conditions</h2>
           </div>
           <div className="text-sm text-gray-600 leading-relaxed space-y-3">
@@ -85,7 +85,7 @@ export default function EscrowAgreementPage() {
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>The buyer explicitly confirms satisfaction with the delivered order through the Platform</li>
               <li>The 72-hour inspection window expires after confirmed delivery without the buyer opening a dispute</li>
-              <li>A dispute is resolved in the seller&apos;s favor by the Afrishelf dispute resolution team</li>
+              <li>A dispute is resolved in the seller&apos;s favor by the Plentovo dispute resolution team</li>
               <li>A partial refund is agreed/determined — the remaining amount is released to the seller</li>
             </ul>
 
@@ -109,7 +109,7 @@ export default function EscrowAgreementPage() {
         {/* Dispute Triggers */}
         <section>
           <div className="flex items-center gap-3 mb-4">
-            <AlertTriangle className="w-5 h-5 text-[#D4A843]" />
+            <AlertTriangle className="w-5 h-5 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">4. Dispute Triggers & Escrow Holds</h2>
           </div>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
@@ -128,7 +128,7 @@ export default function EscrowAgreementPage() {
             <p>
               During a dispute, funds remain securely in escrow. Neither party can access the funds until
               the dispute is resolved. The dispute resolution process follows the procedures described in our{" "}
-              <Link href="/dispute-resolution" className="text-[#D4A843] hover:underline">Dispute Resolution</Link> page.
+              <Link href="/dispute-resolution" className="text-[#DA292B] hover:underline">Dispute Resolution</Link> page.
             </p>
             <p>
               Resolution timeline: Most disputes are resolved within 3–5 business days. Complex cases
@@ -140,12 +140,12 @@ export default function EscrowAgreementPage() {
         {/* Fee Structure */}
         <section>
           <div className="flex items-center gap-3 mb-4">
-            <DollarSign className="w-5 h-5 text-[#D4A843]" />
+            <DollarSign className="w-5 h-5 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">5. Fee Structure</h2>
           </div>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
             <p>
-              The escrow service fee is included in Afrishelf&apos;s standard commission. There are
+              The escrow service fee is included in Plentovo&apos;s standard commission. There are
               no additional escrow fees charged to either buyers or sellers.
             </p>
             <div className="bg-gray-50 rounded-xl p-5 mt-3">
@@ -171,7 +171,7 @@ export default function EscrowAgreementPage() {
             </div>
             <p className="mt-2">
               Premium sellers may qualify for reduced commission rates. See{" "}
-              <Link href="/seller-guidelines" className="text-[#D4A843] hover:underline">Seller Guidelines</Link> for tier details.
+              <Link href="/seller-guidelines" className="text-[#DA292B] hover:underline">Seller Guidelines</Link> for tier details.
             </p>
           </div>
         </section>
@@ -179,22 +179,22 @@ export default function EscrowAgreementPage() {
         {/* Liability */}
         <section className="bg-[#FAF8F5] rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-4">
-            <FileText className="w-5 h-5 text-[#D4A843]" />
+            <FileText className="w-5 h-5 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">6. Liability</h2>
           </div>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
             <p>
-              <strong className="text-gray-900">Afrishelf&apos;s Role:</strong> Afrishelf operates the platform
-              and facilitates the escrow process. Afrishelf is responsible for the dispute resolution process and
+              <strong className="text-gray-900">Plentovo&apos;s Role:</strong> Plentovo operates the platform
+              and facilitates the escrow process. Plentovo is responsible for the dispute resolution process and
               for communicating escrow instructions to Vesicash.
             </p>
             <p>
               <strong className="text-gray-900">Vesicash&apos;s Role:</strong> Vesicash holds and disburses funds
-              according to the instructions received from Afrishelf based on transaction outcomes. Vesicash is
+              according to the instructions received from Plentovo based on transaction outcomes. Vesicash is
               responsible for the security and regulatory compliance of fund custody.
             </p>
             <p>
-              <strong className="text-gray-900">Limitations:</strong> Neither Afrishelf nor Vesicash is liable for:
+              <strong className="text-gray-900">Limitations:</strong> Neither Plentovo nor Vesicash is liable for:
             </p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>The quality, safety, or legality of items sold on the Platform</li>
@@ -217,7 +217,7 @@ export default function EscrowAgreementPage() {
             <p>
               This Escrow Agreement is governed by the laws of the Republic of Kenya. Any disputes related
               to the escrow service shall be resolved in accordance with the dispute resolution procedures
-              outlined in our <Link href="/terms" className="text-[#D4A843] hover:underline">Terms of Use</Link>.
+              outlined in our <Link href="/terms" className="text-[#DA292B] hover:underline">Terms of Use</Link>.
             </p>
           </div>
         </section>
@@ -227,7 +227,7 @@ export default function EscrowAgreementPage() {
             Questions about escrow? Contact <strong>escrow@amanamarket.com</strong>.
           </p>
           <p className="text-sm text-gray-400 mt-2">
-            See also: <Link href="/how-escrow-works" className="text-[#D4A843] hover:underline">How Escrow Works</Link> · <Link href="/buyer-protection" className="text-[#D4A843] hover:underline">Buyer Protection</Link> · <Link href="/terms" className="text-[#D4A843] hover:underline">Terms of Use</Link>
+            See also: <Link href="/how-escrow-works" className="text-[#DA292B] hover:underline">How Escrow Works</Link> · <Link href="/buyer-protection" className="text-[#DA292B] hover:underline">Buyer Protection</Link> · <Link href="/terms" className="text-[#DA292B] hover:underline">Terms of Use</Link>
           </p>
         </section>
       </div>

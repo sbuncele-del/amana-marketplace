@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { RegisterForm } from "@/components/auth/register-form";
 
 export const metadata = {
-  title: "Create Account — Afrishelf",
+  title: "Create Account — Plentovo",
   description: "Join Africa's trusted cross-border marketplace",
 };
 

@@ -1,7 +1,7 @@
 import { Cookie, Settings, Shield, BarChart3, Megaphone, Globe } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = { title: "Cookie Policy — Afrishelf" };
+export const metadata = { title: "Cookie Policy — Plentovo" };
 
 const essentialCookies = [
   { name: "session_id", purpose: "Maintains your login session", duration: "Session (deleted when browser closes)" },
@@ -22,22 +22,22 @@ const analyticsCookies = [
 const marketingCookies = [
   { name: "_fbp", purpose: "Facebook Pixel — tracks conversions from Facebook ads", duration: "90 days" },
   { name: "_tw_pixel", purpose: "Twitter/X Pixel — measures ad campaign performance", duration: "30 days" },
-  { name: "ref_source", purpose: "Tracks which marketing channel referred you to Afrishelf", duration: "30 days" },
+  { name: "ref_source", purpose: "Tracks which marketing channel referred you to Plentovo", duration: "30 days" },
 ];
 
 export default function CookiesPage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1A1A2E] to-[#0F3460] py-20">
+      <section className="bg-gradient-to-br from-[#171B20] to-[#0F3460] py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-6">
-            <Cookie className="w-4 h-4 text-[#D4A843]" />
+            <Cookie className="w-4 h-4 text-[#DA292B]" />
             <span className="text-sm text-white/80">Transparency</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
             Cookie<br />
-            <span className="text-[#D4A843]">Policy</span>
+            <span className="text-[#DA292B]">Policy</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
             Last updated: January 15, 2026. This policy explains what cookies we use, why we use them,
@@ -93,7 +93,7 @@ export default function CookiesPage() {
         {/* Analytics Cookies */}
         <section>
           <div className="flex items-center gap-3 mb-4">
-            <BarChart3 className="w-5 h-5 text-[#D4A843]" />
+            <BarChart3 className="w-5 h-5 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">Analytics Cookies</h2>
           </div>
           <p className="text-sm text-gray-600 mb-4">
@@ -126,7 +126,7 @@ export default function CookiesPage() {
         {/* Marketing Cookies */}
         <section>
           <div className="flex items-center gap-3 mb-4">
-            <Megaphone className="w-5 h-5 text-[#D4A843]" />
+            <Megaphone className="w-5 h-5 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">Marketing Cookies</h2>
           </div>
           <p className="text-sm text-gray-600 mb-4">
@@ -158,7 +158,7 @@ export default function CookiesPage() {
         {/* Managing Preferences */}
         <section className="bg-[#FAF8F5] rounded-2xl p-6">
           <div className="flex items-center gap-3 mb-4">
-            <Settings className="w-5 h-5 text-[#D4A843]" />
+            <Settings className="w-5 h-5 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">Managing Your Preferences</h2>
           </div>
           <div className="text-sm text-gray-600 leading-relaxed space-y-3">
@@ -166,13 +166,13 @@ export default function CookiesPage() {
               You can manage your cookie preferences at any time:
             </p>
             <ul className="list-disc list-inside space-y-1 ml-2">
-              <li><strong>On Afrishelf:</strong> Click the cookie settings icon in the footer or visit your account privacy settings</li>
+              <li><strong>On Plentovo:</strong> Click the cookie settings icon in the footer or visit your account privacy settings</li>
               <li><strong>Browser settings:</strong> Most browsers allow you to block or delete cookies through their settings menu</li>
               <li><strong>Opt-out tools:</strong> Use the Digital Advertising Alliance opt-out tool or the NAI Consumer Opt-Out to manage third-party advertising cookies</li>
             </ul>
             <p>
               Note: Blocking essential cookies will prevent you from logging in, adding items to your cart,
-              and completing purchases on Afrishelf.
+              and completing purchases on Plentovo.
             </p>
           </div>
         </section>
@@ -180,7 +180,7 @@ export default function CookiesPage() {
         {/* Third-Party Cookies */}
         <section>
           <div className="flex items-center gap-3 mb-4">
-            <Globe className="w-5 h-5 text-[#D4A843]" />
+            <Globe className="w-5 h-5 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">Third-Party Cookies</h2>
           </div>
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
@@ -217,7 +217,7 @@ export default function CookiesPage() {
 
         <section className="border-t border-gray-200 pt-8">
           <p className="text-sm text-gray-400">
-            See also: <Link href="/privacy" className="text-[#D4A843] hover:underline">Privacy Policy</Link> · <Link href="/terms" className="text-[#D4A843] hover:underline">Terms of Use</Link>
+            See also: <Link href="/privacy" className="text-[#DA292B] hover:underline">Privacy Policy</Link> · <Link href="/terms" className="text-[#DA292B] hover:underline">Terms of Use</Link>
           </p>
         </section>
       </div>

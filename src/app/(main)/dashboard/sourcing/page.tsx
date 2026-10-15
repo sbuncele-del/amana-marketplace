@@ -10,7 +10,7 @@ export default async function SourcingPage() {
   const money = (amount: number) => new Intl.NumberFormat("en-ZA", { style: "currency", currency: "ZAR" }).format(amount);
   return (
     <main className="mx-auto max-w-5xl px-4 pb-16 pt-28">
-      <p className="text-sm font-semibold text-amber-700">Afrishelf · Supplier sourcing</p>
+      <p className="text-sm font-semibold text-red-700">Plentovo · Supplier sourcing</p>
       <h1 className="mt-2 text-3xl font-bold">First appliance collection</h1>
       <p className="mt-3 text-gray-600">Two supplier product drafts, prepared for customer-first dropshipping. These are not published products and cannot be purchased.</p>
       <p className="mt-2 text-sm text-gray-500">Supplier: {catalogue.supplier} · Source checked: {catalogue.checkedAt}</p>
@@ -34,7 +34,7 @@ export default async function SourcingPage() {
                 <div className="flex justify-between border-t pt-2 font-bold"><dt>Estimated contribution</dt><dd>{money(contribution)}</dd></div>
               </dl>
               <p className="mt-3 text-xs text-gray-500">Assumes delivery collected equals supplier delivery cost. Excludes advertising, fixed costs and tax. Payment allowance is an estimate, not a verified fee. Source availability is not reserved stock.</p>
-              <a href={product.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-5 inline-block font-semibold text-amber-700 underline">View supplier product</a>
+              <a href={product.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-5 inline-block font-semibold text-red-700 underline">View supplier product</a>
               <h3 className="mt-5 font-semibold">Before activation</h3>
               <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-600">{product.unresolved.map(item => <li key={item}>{item}</li>)}</ul>
             </article>

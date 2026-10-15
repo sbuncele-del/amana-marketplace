@@ -114,7 +114,7 @@ export default function CheckoutPage() {
   if (loadingProduct || !product) {
     return (
       <div className="pt-24 pb-16 bg-[#FAF8F5] min-h-screen flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-[#D4A843]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#DA292B]" />
       </div>
     );
   }
@@ -183,7 +183,7 @@ export default function CheckoutPage() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
-          <Link href={`/product/${slug}`} className="hover:text-[#D4A843]">{product.name}</Link>
+          <Link href={`/product/${slug}`} className="hover:text-[#DA292B]">{product.name}</Link>
           <ChevronRight className="w-3 h-3" />
           <span className="text-gray-600">Checkout</span>
         </nav>
@@ -206,7 +206,7 @@ export default function CheckoutPage() {
                 }}
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all ${
                   step === s.key
-                    ? "bg-[#D4A843] text-white"
+                    ? "bg-[#DA292B] text-white"
                     : steps.findIndex(st => st.key === step) > i
                     ? "bg-[#2E7D32]/10 text-[#2E7D32]"
                     : "bg-gray-100 text-gray-400"
@@ -235,7 +235,7 @@ export default function CheckoutPage() {
               <div className="space-y-6">
                 <div className="bg-white rounded-xl border border-gray-100 p-6">
                   <h2 className="text-lg font-bold mb-6 flex items-center gap-2">
-                    <Truck className="w-5 h-5 text-[#D4A843]" />
+                    <Truck className="w-5 h-5 text-[#DA292B]" />
                     Shipping Address
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -246,7 +246,7 @@ export default function CheckoutPage() {
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1.5">Country</label>
                       <select name="country" value={shippingData.country} onChange={handleChange} required
-                        className="w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm focus:border-[#D4A843] focus:ring-2 focus:ring-[#D4A843]/20 outline-none">
+                        className="w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm focus:border-[#DA292B] focus:ring-2 focus:ring-[#DA292B]/20 outline-none">
                         <option value="">Select country</option>
                         {["Nigeria","Kenya","South Africa","Ghana","Tanzania","Ethiopia","Rwanda","Uganda","Morocco","Egypt","Senegal","Côte d'Ivoire","Cameroon"].map(c => (
                           <option key={c} value={c}>{c}</option>
@@ -265,7 +265,7 @@ export default function CheckoutPage() {
                 {/* Shipping Method Selection */}
                 <div className="bg-white rounded-xl border border-gray-100 p-6">
                   <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
-                    <Truck className="w-5 h-5 text-[#D4A843]" />
+                    <Truck className="w-5 h-5 text-[#DA292B]" />
                     Shipping Method
                   </h2>
                   <div className="space-y-3">
@@ -280,7 +280,7 @@ export default function CheckoutPage() {
                           className={`w-full flex items-center justify-between p-4 rounded-xl border-2 transition-all ${
                             disabled ? "opacity-40 cursor-not-allowed border-gray-100" :
                             shippingMethod === id
-                              ? "border-[#D4A843] bg-[#D4A843]/5"
+                              ? "border-[#DA292B] bg-[#DA292B]/5"
                               : "border-gray-100 hover:border-gray-200"
                           }`}
                         >
@@ -308,7 +308,7 @@ export default function CheckoutPage() {
             {step === "payment" && (
               <div className="bg-white rounded-xl border border-gray-100 p-6">
                 <h2 className="text-lg font-bold mb-6 flex items-center gap-2">
-                  <CreditCard className="w-5 h-5 text-[#D4A843]" />
+                  <CreditCard className="w-5 h-5 text-[#DA292B]" />
                   Payment Method
                 </h2>
                 <div className="space-y-3">
@@ -318,12 +318,12 @@ export default function CheckoutPage() {
                       onClick={() => setPaymentMethod(method.id)}
                       className={`w-full flex items-center gap-4 p-4 rounded-xl border-2 transition-all ${
                         paymentMethod === method.id
-                          ? "border-[#D4A843] bg-[#D4A843]/5"
+                          ? "border-[#DA292B] bg-[#DA292B]/5"
                           : "border-gray-100 hover:border-gray-200"
                       }`}
                     >
                       <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                        paymentMethod === method.id ? "bg-[#D4A843]/10 text-[#D4A843]" : "bg-gray-50 text-gray-400"
+                        paymentMethod === method.id ? "bg-[#DA292B]/10 text-[#DA292B]" : "bg-gray-50 text-gray-400"
                       }`}>
                         {method.icon}
                       </div>
@@ -332,7 +332,7 @@ export default function CheckoutPage() {
                         <div className="text-xs text-gray-400">{method.desc}</div>
                       </div>
                       <div className={`w-5 h-5 rounded-full border-2 ${
-                        paymentMethod === method.id ? "border-[#D4A843] bg-[#D4A843]" : "border-gray-200"
+                        paymentMethod === method.id ? "border-[#DA292B] bg-[#DA292B]" : "border-gray-200"
                       }`}>
                         {paymentMethod === method.id && (
                           <CheckCircle className="w-full h-full text-white" />
@@ -368,7 +368,7 @@ export default function CheckoutPage() {
             {step === "review" && (
               <div className="bg-white rounded-xl border border-gray-100 p-6">
                 <h2 className="text-lg font-bold mb-6 flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-[#D4A843]" />
+                  <CheckCircle className="w-5 h-5 text-[#DA292B]" />
                   Review Your Order
                 </h2>
 
@@ -411,12 +411,12 @@ export default function CheckoutPage() {
                 {/* Escrow flow reminder */}
                 <div className="bg-[#FAF8F5] rounded-xl p-4 mb-6">
                   <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
-                    <Shield className="w-4 h-4 text-[#D4A843]" /> Escrow Flow
+                    <Shield className="w-4 h-4 text-[#DA292B]" /> Escrow Flow
                   </h3>
                   <div className="space-y-2 text-xs text-gray-500">
-                    <div className="flex items-center gap-2"><span className="w-5 h-5 rounded-full bg-[#D4A843]/10 text-[#D4A843] flex items-center justify-center text-[10px] font-bold">1</span> Payment held in Vesicash escrow</div>
-                    <div className="flex items-center gap-2"><span className="w-5 h-5 rounded-full bg-[#D4A843]/10 text-[#D4A843] flex items-center justify-center text-[10px] font-bold">2</span> Seller ships with tracking</div>
-                    <div className="flex items-center gap-2"><span className="w-5 h-5 rounded-full bg-[#D4A843]/10 text-[#D4A843] flex items-center justify-center text-[10px] font-bold">3</span> You verify delivery (72hr window)</div>
+                    <div className="flex items-center gap-2"><span className="w-5 h-5 rounded-full bg-[#DA292B]/10 text-[#DA292B] flex items-center justify-center text-[10px] font-bold">1</span> Payment held in Vesicash escrow</div>
+                    <div className="flex items-center gap-2"><span className="w-5 h-5 rounded-full bg-[#DA292B]/10 text-[#DA292B] flex items-center justify-center text-[10px] font-bold">2</span> Seller ships with tracking</div>
+                    <div className="flex items-center gap-2"><span className="w-5 h-5 rounded-full bg-[#DA292B]/10 text-[#DA292B] flex items-center justify-center text-[10px] font-bold">3</span> You verify delivery (72hr window)</div>
                     <div className="flex items-center gap-2"><span className="w-5 h-5 rounded-full bg-[#2E7D32]/10 text-[#2E7D32] flex items-center justify-center text-[10px] font-bold">✓</span> Funds released to seller (or refunded)</div>
                   </div>
                 </div>
@@ -450,13 +450,13 @@ export default function CheckoutPage() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-500 flex items-center gap-1">
-                    Shipping <Truck className="w-3 h-3 text-[#D4A843]" />
+                    Shipping <Truck className="w-3 h-3 text-[#DA292B]" />
                   </span>
                   <span>{shippingCost === 0 ? "Free" : formatCurrency(shippingCost, product.currency)}</span>
                 </div>
                 <div className="border-t border-gray-100 pt-3 flex justify-between font-bold text-lg">
                   <span>Total</span>
-                  <span className="text-[#D4A843]">{formatCurrency(total, product.currency)}</span>
+                  <span className="text-[#DA292B]">{formatCurrency(total, product.currency)}</span>
                 </div>
               </div>
 
@@ -483,7 +483,7 @@ export default function CheckoutPage() {
               <div className="mt-6 space-y-2">
                 {[
                   { icon: <Shield className="w-3 h-3 text-[#2E7D32]" />, text: "Vesicash Escrow Protected" },
-                  { icon: <Lock className="w-3 h-3 text-[#D4A843]" />, text: "256-bit SSL Encrypted" },
+                  { icon: <Lock className="w-3 h-3 text-[#DA292B]" />, text: "256-bit SSL Encrypted" },
                   { icon: <Truck className="w-3 h-3 text-[#2E7D32]" />, text: "Insured Shipping" },
                 ].map((badge, i) => (
                   <div key={i} className="flex items-center gap-2 text-xs text-gray-400">
@@ -495,7 +495,7 @@ export default function CheckoutPage() {
 
               {/* Seller badge */}
               <div className="mt-6 flex items-center gap-3 border-t border-gray-100 pt-4">
-                <div className="w-8 h-8 rounded-full bg-[#D4A843]/10 flex items-center justify-center text-sm font-bold text-[#D4A843]">
+                <div className="w-8 h-8 rounded-full bg-[#DA292B]/10 flex items-center justify-center text-sm font-bold text-[#DA292B]">
                   {(product.seller.sellerProfile?.storeName || product.seller.name)?.[0] || "S"}
                 </div>
                 <div>

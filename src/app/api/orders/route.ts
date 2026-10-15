@@ -6,7 +6,7 @@ import { initializePayment } from "@/lib/flutterwave";
 import { createEscrowTransaction } from "@/lib/vesicash";
 import { sendOrderConfirmationEmail, sendNewOrderToSellerEmail } from "@/lib/email";
 
-const PLATFORM_COMMISSION_RATE = 0.05; // 5% Afrishelf commission
+const PLATFORM_COMMISSION_RATE = 0.05; // 5% Plentovo commission
 const ESCROW_FEE_RATE = 0.015; // 1.5% Vesicash fee
 
 // Shipping cost calculation
@@ -188,7 +188,7 @@ export async function POST(request: NextRequest) {
         currency: product.currency,
         buyerEmail: session.user.email || "",
         sellerEmail: product.seller.email,
-        title: `Afrishelf Order ${order.orderNumber}`,
+        title: `Plentovo Order ${order.orderNumber}`,
         description: `${quantity}x ${product.name} — escrow protected purchase`,
         inspectionPeriodDays: 3,
       });

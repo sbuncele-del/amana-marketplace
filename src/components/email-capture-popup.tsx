@@ -83,15 +83,15 @@ export function EmailCapturePopup() {
         </button>
 
         {/* Header */}
-        <div className="bg-gradient-to-br from-[#1A1A2E] to-[#0F3460] px-6 pt-8 pb-6 text-center text-white relative overflow-hidden">
-          <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#D4A843]/20 rounded-full blur-2xl" />
-          <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-[#D4A843]/20 rounded-full blur-2xl" />
+        <div className="bg-gradient-to-br from-[#171B20] to-[#0F3460] px-6 pt-8 pb-6 text-center text-white relative overflow-hidden">
+          <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#DA292B]/20 rounded-full blur-2xl" />
+          <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-[#DA292B]/20 rounded-full blur-2xl" />
           <div className="relative">
-            <div className="inline-flex items-center gap-2 bg-[#D4A843] text-[#1A1A2E] text-xs font-extrabold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 bg-[#DA292B] text-[#171B20] text-xs font-extrabold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
               <Tag className="w-3 h-3" /> Limited Offer
             </div>
             <h2 className="text-2xl font-extrabold mb-1">Get 10% Off</h2>
-            <p className="text-white/70 text-sm">Your first order when you join Afrishelf</p>
+            <p className="text-white/70 text-sm">Your first order when you join Plentovo</p>
           </div>
         </div>
 
@@ -110,7 +110,7 @@ export function EmailCapturePopup() {
                     placeholder="Enter your email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#D4A843] focus:border-transparent"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#DA292B] focus:border-transparent"
                     required
                     autoComplete="email"
                   />
@@ -119,7 +119,7 @@ export function EmailCapturePopup() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-[#D4A843] hover:bg-[#c49730] text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors disabled:opacity-60"
+                  className="w-full bg-[#DA292B] hover:bg-[#c49730] text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors disabled:opacity-60"
                 >
                   {loading ? "Subscribing…" : (
                     <>Claim My 10% Discount <ArrowRight className="w-4 h-4" /></>
@@ -139,7 +139,7 @@ export function EmailCapturePopup() {
               </p>
               <button
                 onClick={dismiss}
-                className="bg-[#1A1A2E] text-white font-bold px-6 py-2.5 rounded-xl text-sm hover:bg-[#0F3460] transition-colors"
+                className="bg-[#171B20] text-white font-bold px-6 py-2.5 rounded-xl text-sm hover:bg-[#0F3460] transition-colors"
               >
                 Start Shopping →
               </button>

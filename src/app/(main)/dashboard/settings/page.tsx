@@ -113,7 +113,7 @@ export default function SettingsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <Loader2 className="w-8 h-8 animate-spin text-[#D4A843]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#DA292B]" />
       </div>
     );
   }
@@ -153,7 +153,7 @@ export default function SettingsPage() {
         {/* Personal Info */}
         <div className="bg-white rounded-xl border border-gray-100 p-6">
           <h2 className="font-bold mb-4 flex items-center gap-2">
-            <User className="w-5 h-5 text-[#D4A843]" /> Personal Info
+            <User className="w-5 h-5 text-[#DA292B]" /> Personal Info
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input label="First Name" name="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
@@ -179,7 +179,7 @@ export default function SettingsPage() {
                   value={storeDescription}
                   onChange={(e) => setStoreDescription(e.target.value)}
                   rows={4}
-                  className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:border-[#D4A843] focus:ring-2 focus:ring-[#D4A843]/20 outline-none resize-none"
+                  className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:border-[#DA292B] focus:ring-2 focus:ring-[#DA292B]/20 outline-none resize-none"
                 />
               </div>
             </div>
@@ -190,7 +190,7 @@ export default function SettingsPage() {
         {data.store && (
           <div className="bg-white rounded-xl border border-gray-100 p-6">
             <h2 className="font-bold mb-4 flex items-center gap-2">
-              <CreditCard className="w-5 h-5 text-[#D4A843]" /> Payout Settings
+              <CreditCard className="w-5 h-5 text-[#DA292B]" /> Payout Settings
             </h2>
             <p className="text-sm text-gray-500 mb-4">
               When escrow funds are released, they will be sent to this account.
@@ -201,7 +201,7 @@ export default function SettingsPage() {
                 <select
                   value={payoutMethod}
                   onChange={(e) => setPayoutMethod(e.target.value as "bank" | "mobile")}
-                  className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:border-[#D4A843] focus:ring-2 focus:ring-[#D4A843]/20 outline-none"
+                  className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:border-[#DA292B] focus:ring-2 focus:ring-[#DA292B]/20 outline-none"
                 >
                   <option value="bank">Bank Transfer</option>
                   <option value="mobile">Mobile Money</option>
@@ -221,7 +221,7 @@ export default function SettingsPage() {
                     <select
                       value={mobileMoneyProvider}
                       onChange={(e) => setMobileMoneyProvider(e.target.value)}
-                      className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:border-[#D4A843] focus:ring-2 focus:ring-[#D4A843]/20 outline-none"
+                      className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:border-[#DA292B] focus:ring-2 focus:ring-[#DA292B]/20 outline-none"
                     >
                       <option value="">Select provider</option>
                       <option value="mpesa">M-Pesa</option>

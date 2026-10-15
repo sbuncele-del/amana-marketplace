@@ -22,11 +22,11 @@ const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://primesources.online"
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Afrishelf — Online Shopping South Africa",
-    template: "%s | Afrishelf",
+    default: "Plentovo — Online Shopping South Africa",
+    template: "%s | Plentovo",
   },
   description:
-    "Shop home, kitchen, electronics, beauty, kids and more at Afrishelf. Browse rand prices and request your order with South African delivery.",
+    "Shop home, kitchen, electronics, beauty, kids and more at Plentovo. Discover everyday choice and value, with South African delivery.",
   keywords: [
     "online marketplace South Africa",
     "buy online South Africa",
@@ -38,14 +38,13 @@ export const metadata: Metadata = {
     "home goods Africa",
     "beauty products South Africa",
     "cross-border shopping Africa",
-    "primesources",
     "buy and sell Africa",
     "affordable shopping South Africa",
     "trending products South Africa",
   ],
-  authors: [{ name: "Afrishelf", url: siteUrl }],
-  creator: "Afrishelf",
-  publisher: "Afrishelf",
+  authors: [{ name: "Plentovo", url: siteUrl }],
+  creator: "Plentovo",
+  publisher: "Plentovo",
   robots: {
     index: true,
     follow: true,
@@ -55,26 +54,25 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_ZA",
     url: siteUrl,
-    siteName: "Afrishelf",
-    title: "Afrishelf — Online Shopping South Africa",
+    siteName: "Plentovo",
+    title: "Plentovo — Online Shopping South Africa",
     description:
       "Everyday finds for your home and family, with South African delivery.",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Afrishelf — Shop South Africa",
+        url: "/brand/plentovo-social.jpg",
+        width: 1536,
+        height: 1024,
+        alt: "Plentovo — Shop South Africa",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Afrishelf — Online Shopping South Africa",
+    title: "Plentovo — Online Shopping South Africa",
     description:
       "Shop home, kitchen, electronics, beauty, kids and more in South Africa.",
-    images: ["/og-image.png"],
-    creator: "@primesources",
+    images: ["/brand/plentovo-social.jpg"],
   },
   icons: {
     icon: [

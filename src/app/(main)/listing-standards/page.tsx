@@ -2,7 +2,7 @@ import { Image, Type, Tag, Layers, DollarSign, FileText, CheckCircle, XCircle } 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "Listing Standards — Afrishelf" };
+export const metadata = { title: "Listing Standards — Plentovo" };
 
 const titleDos = [
   "Tanzanite Oval Cut 2.5ct — AAA Grade, Certified",
@@ -85,19 +85,19 @@ export default function ListingStandardsPage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1A1A2E] to-[#0F3460] py-20">
+      <section className="bg-gradient-to-br from-[#171B20] to-[#0F3460] py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-6">
-            <FileText className="w-4 h-4 text-[#D4A843]" />
+            <FileText className="w-4 h-4 text-[#DA292B]" />
             <span className="text-sm text-white/80">Quality First</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
             Product Listing<br />
-            <span className="text-[#D4A843]">Standards</span>
+            <span className="text-[#DA292B]">Standards</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
             High-quality listings build buyer trust and increase your sales. Follow these standards to ensure
-            your products are presented professionally on Afrishelf.
+            your products are presented professionally on Plentovo.
           </p>
         </div>
       </section>
@@ -106,7 +106,7 @@ export default function ListingStandardsPage() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4">
           <div className="flex items-center gap-3 mb-8">
-            <Type className="w-6 h-6 text-[#D4A843]" />
+            <Type className="w-6 h-6 text-[#DA292B]" />
             <h2 className="text-2xl font-extrabold">Title Format</h2>
           </div>
           <p className="text-gray-600 mb-6">
@@ -150,7 +150,7 @@ export default function ListingStandardsPage() {
       <section className="py-16 bg-[#FAF8F5]">
         <div className="max-w-5xl mx-auto px-4">
           <div className="flex items-center gap-3 mb-8">
-            <Image className="w-6 h-6 text-[#D4A843]" />
+            <Image className="w-6 h-6 text-[#DA292B]" />
             <h2 className="text-2xl font-extrabold">Image Requirements</h2>
           </div>
 
@@ -197,7 +197,7 @@ export default function ListingStandardsPage() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4">
           <div className="flex items-center gap-3 mb-8">
-            <FileText className="w-6 h-6 text-[#D4A843]" />
+            <FileText className="w-6 h-6 text-[#DA292B]" />
             <h2 className="text-2xl font-extrabold">Description Requirements</h2>
           </div>
           <p className="text-gray-600 mb-8">
@@ -223,13 +223,13 @@ export default function ListingStandardsPage() {
       <section className="py-16 bg-[#FAF8F5]">
         <div className="max-w-4xl mx-auto px-4">
           <div className="flex items-center gap-3 mb-8">
-            <DollarSign className="w-6 h-6 text-[#D4A843]" />
+            <DollarSign className="w-6 h-6 text-[#DA292B]" />
             <h2 className="text-2xl font-extrabold">Pricing Transparency</h2>
           </div>
           <div className="bg-white rounded-xl border border-gray-100 p-6 space-y-4 text-sm text-gray-600">
             <p>
               <strong className="text-gray-900">Base Price:</strong> Set in your preferred currency. Multi-currency
-              conversion is handled automatically by Afrishelf using daily exchange rates.
+              conversion is handled automatically by Plentovo using daily exchange rates.
             </p>
             <p>
               <strong className="text-gray-900">Shipping Costs:</strong> Must be listed separately. Offer flat-rate,
@@ -237,7 +237,7 @@ export default function ListingStandardsPage() {
             </p>
             <p>
               <strong className="text-gray-900">No Hidden Fees:</strong> The price shown to buyers must be the final
-              product price. Do not request additional payments outside the Afrishelf platform.
+              product price. Do not request additional payments outside the Plentovo platform.
             </p>
             <p>
               <strong className="text-gray-900">Volume Discounts:</strong> If you offer bulk pricing, use the built-in
@@ -251,7 +251,7 @@ export default function ListingStandardsPage() {
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-4">
           <div className="flex items-center gap-3 mb-4">
-            <Tag className="w-6 h-6 text-[#D4A843]" />
+            <Tag className="w-6 h-6 text-[#DA292B]" />
             <h2 className="text-2xl font-extrabold">Categories & Tags</h2>
           </div>
           <p className="text-gray-600 mb-8">
@@ -265,7 +265,7 @@ export default function ListingStandardsPage() {
               </div>
             ))}
           </div>
-          <div className="mt-6 bg-[#D4A843]/5 rounded-xl p-4 border border-[#D4A843]/20">
+          <div className="mt-6 bg-[#DA292B]/5 rounded-xl p-4 border border-[#DA292B]/20">
             <p className="text-sm text-gray-600">
               <strong>Tag Tips:</strong> Use specific, descriptive tags like &ldquo;tanzanite,&rdquo; &ldquo;AAA-grade,&rdquo;
               &ldquo;handmade,&rdquo; &ldquo;fair-trade&rdquo; rather than generic terms like &ldquo;jewelry&rdquo; or &ldquo;beautiful.&rdquo;
@@ -276,11 +276,11 @@ export default function ListingStandardsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-[#1A1A2E] to-[#0F3460]">
+      <section className="py-16 bg-gradient-to-br from-[#171B20] to-[#0F3460]">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-extrabold text-white mb-4">Ready to Create a Listing?</h2>
           <p className="text-white/60 mb-8">
-            Put these standards into practice and create your first product listing on Afrishelf.
+            Put these standards into practice and create your first product listing on Plentovo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/dashboard/sell">

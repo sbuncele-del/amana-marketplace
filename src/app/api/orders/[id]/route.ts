@@ -221,7 +221,7 @@ export async function PATCH(
         // Open dispute on Vesicash escrow
         if (order.escrowTransactionId) {
           try {
-            await vesicashDispute(order.escrowTransactionId, "Buyer initiated dispute via Afrishelf");
+            await vesicashDispute(order.escrowTransactionId, "Buyer initiated dispute via Plentovo");
           } catch (escrowError) {
             console.error("Vesicash dispute creation failed:", escrowError);
           }

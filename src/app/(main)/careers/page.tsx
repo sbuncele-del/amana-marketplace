@@ -2,7 +2,7 @@ import { Briefcase, Heart, MapPin, Globe, Zap, Users, Coffee, GraduationCap } fr
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "Careers — Afrishelf" };
+export const metadata = { title: "Careers — Plentovo" };
 
 const values = [
   { icon: Globe, title: "Pan-African First", desc: "We build for the continent. Every decision considers the diverse needs of 54 nations, from payment methods to language support." },
@@ -75,7 +75,7 @@ const benefits = [
   { icon: GraduationCap, title: "Learning Budget", desc: "$1,500/year for courses, conferences, and books. We invest in your growth." },
   { icon: Heart, title: "Health Coverage", desc: "Comprehensive health insurance for you and your dependents." },
   { icon: Coffee, title: "Flexible Hours", desc: "We care about output, not hours. Work when you're most productive." },
-  { icon: Zap, title: "Equity Options", desc: "Early-stage employee stock options. Build wealth as Afrishelf grows." },
+  { icon: Zap, title: "Equity Options", desc: "Early-stage employee stock options. Build wealth as Plentovo grows." },
   { icon: Users, title: "Team Retreats", desc: "Annual all-hands retreat in a different African city each year." },
 ];
 
@@ -83,18 +83,18 @@ export default function CareersPage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1A1A2E] to-[#0F3460] py-20">
+      <section className="bg-gradient-to-br from-[#171B20] to-[#0F3460] py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-6">
-            <Briefcase className="w-4 h-4 text-[#D4A843]" />
+            <Briefcase className="w-4 h-4 text-[#DA292B]" />
             <span className="text-sm text-white/80">Join Our Team</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
             Build the Future of<br />
-            <span className="text-[#D4A843]">African Commerce</span>
+            <span className="text-[#DA292B]">African Commerce</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            We&apos;re on a mission to unlock the $3.4 trillion intra-African trade opportunity. 
+            We&apos;re on a mission to unlock the $3.4 trillion intra-African trade opportunity.
             Join a passionate team building the infrastructure for trusted cross-border commerce across the continent.
           </p>
         </div>
@@ -106,7 +106,7 @@ export default function CareersPage() {
           <h2 className="text-2xl font-extrabold mb-6">Our Mission</h2>
           <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
             Africa trades less with itself than any other continent. Only 15% of African trade is intra-continental,
-            compared to 58% in Asia and 67% in Europe. The reason? Trust. Afrishelf exists to change this by providing
+            compared to 58% in Asia and 67% in Europe. The reason? Trust. Plentovo exists to change this by providing
             the digital infrastructure — escrow protection, verified sellers, multi-currency payments — that makes
             cross-border trade safe and accessible for everyone.
           </p>
@@ -122,8 +122,8 @@ export default function CareersPage() {
               const Icon = v.icon;
               return (
                 <div key={v.title} className="bg-white rounded-xl p-6 border border-gray-100">
-                  <div className="w-10 h-10 rounded-lg bg-[#D4A843]/10 flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-[#D4A843]" />
+                  <div className="w-10 h-10 rounded-lg bg-[#DA292B]/10 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-[#DA292B]" />
                   </div>
                   <h3 className="font-bold mb-2">{v.title}</h3>
                   <p className="text-gray-600 text-sm">{v.desc}</p>
@@ -189,7 +189,7 @@ export default function CareersPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-[#1A1A2E] to-[#0F3460]">
+      <section className="py-16 bg-gradient-to-br from-[#171B20] to-[#0F3460]">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-extrabold text-white mb-4">Don&apos;t See Your Role?</h2>
           <p className="text-white/60 mb-8">

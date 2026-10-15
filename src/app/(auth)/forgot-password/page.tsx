@@ -55,7 +55,7 @@ export default function ForgotPasswordPage() {
             </p>
             <p className="text-sm text-gray-400">
               Didn&apos;t receive it?{" "}
-              <button onClick={() => setSent(false)} className="text-[#D4A843] font-semibold hover:underline">
+              <button onClick={() => setSent(false)} className="text-[#DA292B] font-semibold hover:underline">
                 Try again
               </button>
             </p>
@@ -63,8 +63,8 @@ export default function ForgotPasswordPage() {
         ) : (
           <>
             <div className="mb-8">
-              <div className="w-12 h-12 rounded-full bg-[#D4A843]/10 flex items-center justify-center mb-4">
-                <Mail className="w-6 h-6 text-[#D4A843]" />
+              <div className="w-12 h-12 rounded-full bg-[#DA292B]/10 flex items-center justify-center mb-4">
+                <Mail className="w-6 h-6 text-[#DA292B]" />
               </div>
               <h1 className="text-2xl font-bold mb-2">Forgot your password?</h1>
               <p className="text-gray-500">

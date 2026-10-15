@@ -1,37 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --gold: #D4A843;
-  --gold-dark: #B8922E;
+  --gold: #DA292B;
+  --gold-dark: #B91F25;
   --forest: #2E7D32;
   --forest-light: #4CAF50;
   --earth: #5D4037;
-  --bg-dark: #1A1A2E;
+  --bg-dark: #171B20;
   --bg-cream: #FAF8F5;
 }
 
 @theme inline {
   --color-background: var(--bg-cream);
-  --color-foreground: #1A1A2E;
+  --color-foreground: #171B20;
 }
 
 body {
   background: var(--bg-cream);
-  color: #1A1A2E;
-  font-family: 'Inter', system-ui, sans-serif;
+  color: #171B20;
+  font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 /* Scrollbar styling */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #D4A843; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #B8922E; }
+::-webkit-scrollbar-thumb { background: #DA292B; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #B91F25; }
 
 
 button, a, input, select { -webkit-tap-highlight-color: transparent; }
 button:not(:disabled), select { cursor: pointer; }
-:focus-visible { outline: 2px solid #9b721a; outline-offset: 3px; }
+:focus-visible { outline: 2px solid #B91F25; outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+
+/* Plentovo: keep white type legible on primary brand actions. */
+.bg-\[\#DA292B\] { color: #fff; }

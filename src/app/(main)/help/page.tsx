@@ -1,7 +1,7 @@
 import { Search, MessageSquare, BookOpen, Shield, Truck, CreditCard, AlertTriangle, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = { title: "Help Centre — Afrishelf" };
+export const metadata = { title: "Help Centre — Plentovo" };
 
 const topics = [
   { icon: Shield, title: "Escrow & Payments", desc: "How escrow works, payment methods, refunds, and payouts.", href: "/how-escrow-works" },
@@ -17,14 +17,14 @@ const faqs = [
   { q: "What payment methods do you accept?", a: "We accept M-Pesa, MTN MoMo, Airtel Money, Visa, Mastercard, bank transfers, and Flutterwave. Payment options vary by country." },
   { q: "How long does shipping take?", a: "Domestic orders typically arrive in 3–7 business days. Cross-border shipments take 7–21 days depending on the corridor. All orders include tracking." },
   { q: "How do I become a seller?", a: "Register with a seller account, complete our verification process (ID + business registration), and you can start listing products immediately." },
-  { q: "What is AfCFTA and how does it benefit me?", a: "The African Continental Free Trade Area provides preferential tariff rates for qualifying products traded between member countries. Afrishelf automatically calculates AfCFTA eligibility, potentially reducing import duties." },
+  { q: "What is AfCFTA and how does it benefit me?", a: "The African Continental Free Trade Area provides preferential tariff rates for qualifying products traded between member countries. Plentovo automatically calculates AfCFTA eligibility, potentially reducing import duties." },
   { q: "How do I track my order?", a: "Log into your account, go to Orders, and click on any order to see real-time tracking information. You'll also receive email/SMS updates at each stage." },
 ];
 
 export default function HelpPage() {
   return (
     <div className="bg-white">
-      <section className="bg-gradient-to-br from-[#1A1A2E] to-[#0F3460] py-16">
+      <section className="bg-gradient-to-br from-[#171B20] to-[#0F3460] py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">Help Centre</h1>
           <p className="text-white/60 mb-8">Find answers to common questions or get in touch with our support team.</p>
@@ -44,9 +44,9 @@ export default function HelpPage() {
             {topics.map((t) => {
               const Icon = t.icon;
               return (
-                <Link key={t.title} href={t.href} className="group bg-[#FAF8F5] rounded-xl p-5 border border-gray-100 hover:border-[#D4A843]/30 hover:shadow-md transition-all">
-                  <Icon className="w-6 h-6 text-[#D4A843] mb-3" />
-                  <h3 className="font-bold text-sm mb-1 group-hover:text-[#D4A843] transition-colors">{t.title}</h3>
+                <Link key={t.title} href={t.href} className="group bg-[#FAF8F5] rounded-xl p-5 border border-gray-100 hover:border-[#DA292B]/30 hover:shadow-md transition-all">
+                  <Icon className="w-6 h-6 text-[#DA292B] mb-3" />
+                  <h3 className="font-bold text-sm mb-1 group-hover:text-[#DA292B] transition-colors">{t.title}</h3>
                   <p className="text-xs text-gray-500 leading-relaxed">{t.desc}</p>
                 </Link>
               );
@@ -74,7 +74,7 @@ export default function HelpPage() {
 
       <section className="py-12 text-center">
         <p className="text-gray-500 text-sm mb-4">Still need help?</p>
-        <Link href="/contact" className="inline-flex items-center gap-2 bg-[#D4A843] hover:bg-[#C4982F] text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-colors">
+        <Link href="/contact" className="inline-flex items-center gap-2 bg-[#DA292B] hover:bg-[#B91F25] text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-colors">
           <MessageSquare className="w-4 h-4" /> Contact Support
         </Link>
       </section>

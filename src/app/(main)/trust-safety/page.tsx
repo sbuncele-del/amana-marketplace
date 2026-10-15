@@ -2,7 +2,7 @@ import { Shield, BadgeCheck, Lock, Eye, AlertTriangle, Flag, UserCheck, Server }
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "Trust & Safety — Afrishelf" };
+export const metadata = { title: "Trust & Safety — Plentovo" };
 
 const verificationLevels = [
   {
@@ -71,18 +71,18 @@ export default function TrustSafetyPage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1A1A2E] to-[#0F3460] py-20">
+      <section className="bg-gradient-to-br from-[#171B20] to-[#0F3460] py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-6">
-            <Shield className="w-4 h-4 text-[#D4A843]" />
+            <Shield className="w-4 h-4 text-[#DA292B]" />
             <span className="text-sm text-white/80">Your Safety Matters</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
             Trust &<br />
-            <span className="text-[#D4A843]">Safety</span>
+            <span className="text-[#DA292B]">Safety</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Afrishelf is built on trust. From verified sellers and escrow payments to fraud prevention and data
+            Plentovo is built on trust. From verified sellers and escrow payments to fraud prevention and data
             protection — we invest heavily in keeping our marketplace safe for everyone.
           </p>
         </div>
@@ -92,11 +92,11 @@ export default function TrustSafetyPage() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4">
           <div className="flex items-center gap-3 mb-8">
-            <BadgeCheck className="w-6 h-6 text-[#D4A843]" />
+            <BadgeCheck className="w-6 h-6 text-[#DA292B]" />
             <h2 className="text-2xl font-extrabold">Verification System</h2>
           </div>
           <p className="text-gray-600 mb-6">
-            Our multi-layered verification process ensures that every seller on Afrishelf is who they claim to be.
+            Our multi-layered verification process ensures that every seller on Plentovo is who they claim to be.
             Buyers can shop with confidence knowing that all sellers have been vetted.
           </p>
           <div className="space-y-4">
@@ -104,7 +104,7 @@ export default function TrustSafetyPage() {
               <div key={v.level} className="border border-gray-100 rounded-xl p-6">
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="font-bold">{v.level}</h3>
-                  <span className="text-xs bg-[#D4A843]/10 text-[#D4A843] px-2.5 py-0.5 rounded-full">{v.applied}</span>
+                  <span className="text-xs bg-[#DA292B]/10 text-[#DA292B] px-2.5 py-0.5 rounded-full">{v.applied}</span>
                 </div>
                 <p className="text-gray-600 text-sm">{v.description}</p>
               </div>
@@ -122,8 +122,8 @@ export default function TrustSafetyPage() {
               const Icon = f.icon;
               return (
                 <div key={f.title} className="bg-white rounded-xl p-6 border border-gray-100">
-                  <div className="w-10 h-10 rounded-lg bg-[#D4A843]/10 flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-[#D4A843]" />
+                  <div className="w-10 h-10 rounded-lg bg-[#DA292B]/10 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-[#DA292B]" />
                   </div>
                   <h3 className="font-bold mb-2">{f.title}</h3>
                   <p className="text-gray-600 text-sm">{f.desc}</p>
@@ -138,7 +138,7 @@ export default function TrustSafetyPage() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4">
           <div className="flex items-center gap-3 mb-8">
-            <Lock className="w-6 h-6 text-[#D4A843]" />
+            <Lock className="w-6 h-6 text-[#DA292B]" />
             <h2 className="text-2xl font-extrabold">Secure Payments</h2>
           </div>
           <div className="bg-white rounded-xl border border-gray-100 p-6">
@@ -162,7 +162,7 @@ export default function TrustSafetyPage() {
       <section className="py-16 bg-[#FAF8F5]">
         <div className="max-w-5xl mx-auto px-4">
           <div className="flex items-center gap-3 mb-8">
-            <Server className="w-6 h-6 text-[#D4A843]" />
+            <Server className="w-6 h-6 text-[#DA292B]" />
             <h2 className="text-2xl font-extrabold">Data Protection</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
@@ -204,7 +204,7 @@ export default function TrustSafetyPage() {
       <section className="py-16 bg-[#FAF8F5]">
         <div className="max-w-4xl mx-auto px-4">
           <div className="flex items-center gap-3 mb-6">
-            <Flag className="w-6 h-6 text-[#D4A843]" />
+            <Flag className="w-6 h-6 text-[#DA292B]" />
             <h2 className="text-2xl font-extrabold">Reporting Abuse</h2>
           </div>
           <div className="bg-white rounded-xl border border-gray-100 p-6">
@@ -227,11 +227,11 @@ export default function TrustSafetyPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-[#1A1A2E] to-[#0F3460]">
+      <section className="py-16 bg-gradient-to-br from-[#171B20] to-[#0F3460]">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-extrabold text-white mb-4">Trade With Confidence</h2>
           <p className="text-white/60 mb-8">
-            Afrishelf&apos;s Trust & Safety measures are designed to protect every member of our marketplace.
+            Plentovo&apos;s Trust & Safety measures are designed to protect every member of our marketplace.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/browse">

@@ -2,7 +2,7 @@ import { Scale, Upload, Clock, FileText, MessageSquare, CheckCircle, XCircle, Al
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "Dispute Resolution — Afrishelf" };
+export const metadata = { title: "Dispute Resolution — Plentovo" };
 
 const steps = [
   {
@@ -32,7 +32,7 @@ const steps = [
   {
     number: 4,
     icon: Scale,
-    title: "Afrishelf Review",
+    title: "Plentovo Review",
     time: "1–3 business days",
     description:
       "If no mutual agreement is reached, our dispute resolution team reviews all evidence from both sides. We examine the listing accuracy, shipping documentation, product condition evidence, and communication history to make a fair determination.",
@@ -57,7 +57,7 @@ const outcomes = [
   {
     icon: Scale,
     title: "Partial Refund",
-    color: "text-[#D4A843] bg-[#D4A843]/10",
+    color: "text-[#DA292B] bg-[#DA292B]/10",
     description: "Issued when: the product has minor discrepancies from the listing, or the buyer and seller agree to a partial resolution. The agreed amount is returned to the buyer, the remainder released to the seller.",
   },
   {
@@ -95,15 +95,15 @@ export default function DisputeResolutionPage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1A1A2E] to-[#0F3460] py-20">
+      <section className="bg-gradient-to-br from-[#171B20] to-[#0F3460] py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-6">
-            <Scale className="w-4 h-4 text-[#D4A843]" />
+            <Scale className="w-4 h-4 text-[#DA292B]" />
             <span className="text-sm text-white/80">Fair & Transparent</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
             Dispute<br />
-            <span className="text-[#D4A843]">Resolution</span>
+            <span className="text-[#DA292B]">Resolution</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
             When things don&apos;t go as planned, we have a clear, fair process to resolve disputes.
@@ -123,7 +123,7 @@ export default function DisputeResolutionPage() {
               return (
                 <div key={step.number} className="flex gap-6">
                   <div className="flex flex-col items-center">
-                    <div className="w-10 h-10 rounded-full bg-[#1A1A2E] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-[#171B20] text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
                       {step.number}
                     </div>
                     {step.number < steps.length && <div className="w-px h-full bg-gray-200 mt-2" />}
@@ -131,7 +131,7 @@ export default function DisputeResolutionPage() {
                   <div className="pb-8">
                     <div className="flex items-center gap-3 mb-2">
                       <h3 className="text-lg font-bold">{step.title}</h3>
-                      <span className="text-xs bg-[#D4A843]/10 text-[#D4A843] px-2 py-0.5 rounded-full font-medium">
+                      <span className="text-xs bg-[#DA292B]/10 text-[#DA292B] px-2 py-0.5 rounded-full font-medium">
                         {step.time}
                       </span>
                     </div>
@@ -181,7 +181,7 @@ export default function DisputeResolutionPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-[#1A1A2E] to-[#0F3460]">
+      <section className="py-16 bg-gradient-to-br from-[#171B20] to-[#0F3460]">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-extrabold text-white mb-4">Need to Open a Dispute?</h2>
           <p className="text-white/60 mb-8">

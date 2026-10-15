@@ -14,7 +14,7 @@ export const servicePlaybook = [
  {stage:'For our people',standard:'Care for the people who care for customers.',actions:['Monitor team workloads and unblock colleagues.','Coach from real examples, without public blame.','Reward honesty, ownership and meaningful resolution.']},
 ];
 export const followUpScript = {
- opening:'Hello [preferred name], this is [your name] from Afrishelf. I’m checking that your delivery went smoothly and that you feel well looked after. Is this a convenient moment for a short check-in?',
+ opening:'Hello [preferred name], this is [your name] from Plentovo. I’m checking that your delivery went smoothly and that you feel well looked after. Is this a convenient moment for a short check-in?',
  questions:['Did your delivery arrive as expected, and were you kept informed?','Is the product working as you expected, or can we help you get started?','Did you feel treated with care and respect?','What could we make easier or better for you?'],
  recovery:'Thank you for telling me. I will own the next step and explain what happens next. You won’t need to repeat this to another person.',
  closing:'Thank you for your time. We appreciate your trust. I’ve recorded what we agreed, including when you will hear from us next.',

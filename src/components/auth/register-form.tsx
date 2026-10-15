@@ -75,9 +75,9 @@ export function RegisterForm() {
   return (
     <div className="min-h-screen flex">
       {/* Left Panel */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#1A1A2E] via-[#16213E] to-[#0F3460] relative overflow-hidden">
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#171B20] via-[#16213E] to-[#0F3460] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-[#D4A843] rounded-full blur-[100px]" />
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[#DA292B] rounded-full blur-[100px]" />
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#2E7D32] rounded-full blur-[120px]" />
         </div>
         <div className="relative z-10 flex flex-col justify-center px-12">
@@ -88,7 +88,7 @@ export function RegisterForm() {
             Join Africa&apos;s Most<br />Trusted Marketplace
           </h2>
           <p className="text-white/50 mb-8 max-w-md">
-            Create your Afrishelf account to save delivery addresses and keep your shopping together.
+            Create your Plentovo account to save delivery addresses and keep your shopping together.
           </p>
           <div className="space-y-4">
             {[
@@ -98,7 +98,7 @@ export function RegisterForm() {
               "Free to join — no hidden fees",
             ].map((item) => (
               <div key={item} className="flex items-center gap-3">
-                <Shield className="w-4 h-4 text-[#D4A843]" />
+                <Shield className="w-4 h-4 text-[#DA292B]" />
                 <span className="text-white/70 text-sm">{item}</span>
               </div>
             ))}
@@ -119,15 +119,15 @@ export function RegisterForm() {
           {step === 1 && (
             <div>
               <h1 className="text-2xl font-bold mb-2">Create your account</h1>
-              <p className="text-gray-500 mb-8">How do you want to use Afrishelf?</p>
+              <p className="text-gray-500 mb-8">How do you want to use Plentovo?</p>
 
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <button
                   onClick={() => { setRole("BUYER"); setStep(2); }}
-                  className="p-6 rounded-xl border-2 border-gray-200 bg-white hover:border-[#D4A843] hover:shadow-lg transition-all text-center group"
+                  className="p-6 rounded-xl border-2 border-gray-200 bg-white hover:border-[#DA292B] hover:shadow-lg transition-all text-center group"
                 >
-                  <div className="w-14 h-14 mx-auto mb-3 rounded-xl bg-[#D4A843]/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <ShoppingBag className="w-6 h-6 text-[#D4A843]" />
+                  <div className="w-14 h-14 mx-auto mb-3 rounded-xl bg-[#DA292B]/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <ShoppingBag className="w-6 h-6 text-[#DA292B]" />
                   </div>
                   <h3 className="font-bold mb-1">I want to Buy</h3>
                   <p className="text-xs text-gray-400">Shop from verified sellers across Africa</p>
@@ -147,7 +147,7 @@ export function RegisterForm() {
 
               <p className="text-center text-sm text-gray-500">
                 Already have an account?{" "}
-                <Link href="/login" className="text-[#D4A843] font-semibold hover:underline">
+                <Link href="/login" className="text-[#DA292B] font-semibold hover:underline">
                   Sign in
                 </Link>
               </p>
@@ -165,10 +165,10 @@ export function RegisterForm() {
               </button>
 
               <div className="flex items-center gap-2 mb-6">
-                <div className={`p-2 rounded-lg ${role === "SELLER" ? "bg-[#2E7D32]/10" : "bg-[#D4A843]/10"}`}>
+                <div className={`p-2 rounded-lg ${role === "SELLER" ? "bg-[#2E7D32]/10" : "bg-[#DA292B]/10"}`}>
                   {role === "SELLER"
                     ? <Store className="w-5 h-5 text-[#2E7D32]" />
-                    : <ShoppingBag className="w-5 h-5 text-[#D4A843]" />}
+                    : <ShoppingBag className="w-5 h-5 text-[#DA292B]" />}
                 </div>
                 <div>
                   <h1 className="text-2xl font-bold">
@@ -244,7 +244,7 @@ export function RegisterForm() {
                     value={formData.country}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm focus:border-[#D4A843] focus:ring-2 focus:ring-[#D4A843]/20 outline-none transition-all"
+                    className="w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm focus:border-[#DA292B] focus:ring-2 focus:ring-[#DA292B]/20 outline-none transition-all"
                   >
                     <option value="">Select your country</option>
                     {africanCountries.map((c) => (
@@ -273,7 +273,7 @@ export function RegisterForm() {
 
                 <p className="text-center text-sm text-gray-500">
                   Already have an account?{" "}
-                  <Link href="/login" className="text-[#D4A843] font-semibold hover:underline">
+                  <Link href="/login" className="text-[#DA292B] font-semibold hover:underline">
                     Sign in
                   </Link>
                 </p>

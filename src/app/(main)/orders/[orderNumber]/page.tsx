@@ -60,7 +60,7 @@ interface OrderDetail {
 const statusConfig: Record<string, { icon: React.ReactNode; color: string; bg: string; label: string }> = {
   PENDING: { icon: <Clock className="w-5 h-5" />, color: "text-gray-600", bg: "bg-gray-50", label: "Awaiting Payment" },
   PAID: { icon: <CheckCircle className="w-5 h-5" />, color: "text-blue-600", bg: "bg-blue-50", label: "Payment Received" },
-  ESCROW_HELD: { icon: <Shield className="w-5 h-5" />, color: "text-amber-600", bg: "bg-amber-50", label: "Funds in Escrow" },
+  ESCROW_HELD: { icon: <Shield className="w-5 h-5" />, color: "text-amber-600", bg: "bg-red-50", label: "Funds in Escrow" },
   SHIPPED: { icon: <Truck className="w-5 h-5" />, color: "text-blue-600", bg: "bg-blue-50", label: "Shipped" },
   IN_TRANSIT: { icon: <Truck className="w-5 h-5" />, color: "text-blue-600", bg: "bg-blue-50", label: "In Transit" },
   DELIVERED: { icon: <Package className="w-5 h-5" />, color: "text-blue-600", bg: "bg-blue-50", label: "Delivered — Verify Now" },
@@ -130,7 +130,7 @@ export default function OrderDetailPage() {
   if (loading) {
     return (
       <div className="pt-24 pb-16 bg-[#FAF8F5] min-h-screen flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-[#D4A843]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#DA292B]" />
       </div>
     );
   }
@@ -155,7 +155,7 @@ export default function OrderDetailPage() {
 
         {/* Payment success banner */}
         {paymentComplete && order.status === "PENDING" && (
-          <div className="bg-amber-50 border border-amber-200 text-amber-700 rounded-xl p-4 mb-6 flex items-start gap-3">
+          <div className="bg-red-50 border border-amber-200 text-red-700 rounded-xl p-4 mb-6 flex items-start gap-3">
             <Clock className="w-5 h-5 flex-shrink-0 mt-0.5" />
             <div>
               <h4 className="font-semibold">Payment Processing</h4>
@@ -220,7 +220,7 @@ export default function OrderDetailPage() {
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <Link href={`/product/${item.product.slug}`} className="font-semibold text-sm hover:text-[#D4A843] truncate block">
+                    <Link href={`/product/${item.product.slug}`} className="font-semibold text-sm hover:text-[#DA292B] truncate block">
                       {item.product.name}
                     </Link>
                     <p className="text-xs text-gray-400">
@@ -235,7 +235,7 @@ export default function OrderDetailPage() {
             {/* Escrow Progress */}
             <div className="bg-white rounded-xl border border-gray-100 p-6">
               <h2 className="font-bold mb-4 flex items-center gap-2">
-                <Shield className="w-5 h-5 text-[#D4A843]" /> Escrow Progress
+                <Shield className="w-5 h-5 text-[#DA292B]" /> Escrow Progress
               </h2>
               <div className="space-y-1">
                 {[
@@ -261,8 +261,8 @@ export default function OrderDetailPage() {
 
             {/* Buyer Actions */}
             {order.status === "PENDING" && order.paymentLink && (
-              <div className="bg-amber-50 border border-amber-200 rounded-xl p-6">
-                <h3 className="font-bold text-amber-800 mb-2">Complete Your Payment</h3>
+              <div className="bg-red-50 border border-amber-200 rounded-xl p-6">
+                <h3 className="font-bold text-red-700 mb-2">Complete Your Payment</h3>
                 <p className="text-sm text-amber-600 mb-4">Your order is reserved. Complete payment to secure it in escrow.</p>
                 <a href={order.paymentLink} target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="w-full sm:w-auto">
@@ -295,7 +295,7 @@ export default function OrderDetailPage() {
               <div className="space-y-4">
                 {order.events.map((event) => (
                   <div key={event.id} className="flex gap-3">
-                    <div className="w-2 h-2 rounded-full bg-[#D4A843] mt-2 flex-shrink-0" />
+                    <div className="w-2 h-2 rounded-full bg-[#DA292B] mt-2 flex-shrink-0" />
                     <div>
                       <p className="text-sm">{event.description}</p>
                       <p className="text-xs text-gray-400">{timeAgo(new Date(event.createdAt))}</p>
@@ -326,7 +326,7 @@ export default function OrderDetailPage() {
                 </div>
                 <div className="border-t pt-2 flex justify-between font-bold text-base">
                   <span>Total Paid</span>
-                  <span className="text-[#D4A843]">{formatCurrency(order.totalAmount, order.currency)}</span>
+                  <span className="text-[#DA292B]">{formatCurrency(order.totalAmount, order.currency)}</span>
                 </div>
                 <div className="border-t pt-2 mt-2">
                   <div className="flex justify-between text-xs text-gray-400">
@@ -364,7 +364,7 @@ export default function OrderDetailPage() {
             <div className="bg-white rounded-xl border border-gray-100 p-6">
               <h3 className="font-bold mb-3">Seller</h3>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#D4A843]/10 flex items-center justify-center font-bold text-[#D4A843]">
+                <div className="w-10 h-10 rounded-full bg-[#DA292B]/10 flex items-center justify-center font-bold text-[#DA292B]">
                   {(order.seller.sellerProfile?.storeName || order.seller.name)?.[0]}
                 </div>
                 <div>
@@ -380,7 +380,7 @@ export default function OrderDetailPage() {
             </div>
 
             {/* Back link */}
-            <Link href="/dashboard/orders" className="flex items-center gap-2 text-sm text-[#D4A843] hover:underline">
+            <Link href="/dashboard/orders" className="flex items-center gap-2 text-sm text-[#DA292B] hover:underline">
               <ArrowRight className="w-4 h-4 rotate-180" /> Back to all orders
             </Link>
           </div>

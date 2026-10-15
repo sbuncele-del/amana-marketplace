@@ -1,31 +1,103 @@
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import {ArrowRight,Truck,ShoppingBag,MessageCircle} from 'lucide-react';
-import departments from '@/data/departments.json';
-import {getCatalogueSnapshot,getCatalogueProduct} from '@/lib/catalogue';
-import {CatalogueCard} from '@/components/shop/catalogue-card';
-export const metadata:Metadata={title:'Online Shopping South Africa',description:'Shop kitchen, electronics, home, beauty, kids and more at Afrishelf. Browse rand prices and request your order with South African delivery.',alternates:{canonical:'/'}};
-const features=[{slug:'kitchen-dining',title:'A little more kitchen joy.',subtitle:'Cook, serve and make it yours.',colour:'bg-[#F3E7D5]',match:/air.fryer/i},{slug:'electronics',title:'Plug into everyday life.',subtitle:'Useful tech. Fresh possibilities.',colour:'bg-[#DDE9E6]',match:/headphone|speaker/i},{slug:'toys-kids-baby',title:'Big joy for little people.',subtitle:'Playtime starts here.',colour:'bg-[#E8E2EE]',match:/toy|teddy/i},{slug:'health-beauty',title:'Your everyday glow.',subtitle:'Make room for a little self-care.',colour:'bg-[#F2E0DD]',match:/brush|makeup/i}];
-export default async function HomePage(){
- const snapshot=getCatalogueSnapshot();
- const stories=features.map(f=>({...f,product:snapshot.find(p=>p.collections.includes(f.slug)&&f.match.test(p.name)&&p.images.length)||snapshot.find(p=>p.collections.includes(f.slug))}));
- const handles=['8l-air-fryer-with-digital-led-display','8l-digital-touch-panel-air-fryer',...stories.map(s=>s.product?.slug)].filter((s):s is string=>!!s);
- const selected=[...new Set([...handles,...snapshot.filter(p=>p.collections.includes('kitchen-dining')).slice(0,5).map(p=>p.slug)])].slice(0,8);
- const products=(await Promise.all(selected.map(s=>getCatalogueProduct(s)))).filter((p):p is NonNullable<typeof p>=>p!==null);
- const collectionSpecs=[{slug:'kitchen-dining',title:'Make room for kitchen joy',match:/mug|utensil|pan|pot|knife|chopping|kitchen|oil.*bottle|cutlery/i,eyebrow:'Cook · Serve · Share',text:'Useful finds for the meals and moments you make.'},{slug:'electronics',title:'Small tech. More possibilities.',match:/speaker|headphone|earbud|charger|bluetooth|keyboard|mouse|power.bank/i,eyebrow:'Connect your everyday',text:'Explore practical electronics for home, work and downtime.'},{slug:'toys-kids-baby',title:'More joy for the little ones',match:/toy|teddy|doll|puzzle|building.block|baby|play.mat/i,eyebrow:'Play · Discover · Grow',text:'Find something for their next adventure.'}];
- const used=new Set(selected);
- const collectionCandidates=collectionSpecs.map(c=>({...c,handles:snapshot.filter(p=>p.collections.includes(c.slug)&&c.match.test(p.name)&&p.images.length&&!used.has(p.slug)).slice(0,4).map(p=>{used.add(p.slug);return p.slug;})}));
- const collections=await Promise.all(collectionCandidates.map(async c=>({...c,products:(await Promise.all(c.handles.map(slug=>getCatalogueProduct(slug)))).filter((p):p is NonNullable<typeof p>=>p!==null)})));
- const moreDepartments=[{slug:'garden-outdoor',match:/garden|planter|hose|outdoor|watering/i,title:'A little life outdoors.',text:'Make the garden your favourite place.',colour:'bg-[#E6EBDF]'},{slug:'diy-hardware',match:/tool|drill|screw|wrench|hammer/i,title:'Make it. Fix it. Yours.',text:'Useful finds for your next project.',colour:'bg-[#E6E3D9]'},{slug:'furniture',match:/chair|table|desk|sofa|cabinet|shelf|stool/i,title:'Find your favourite corner.',text:'Make more of the space you call home.',colour:'bg-[#E8E2EE]'},{slug:'storage-organisation',match:/storage|organis|rack|basket|container/i,title:'A place for everything.',text:'Bring a little order to everyday life.',colour:'bg-[#F3E7D5]'}].map(d=>({...d,product:snapshot.find(p=>p.collections.includes(d.slug)&&d.match.test(p.name)&&p.images.length)}));
- return <main id="main-content" className="bg-[#F5F5F2] pb-14"><section className="mx-auto max-w-[1400px] px-4 pt-5 sm:pt-7"><div className="flex flex-col justify-between gap-4 rounded-2xl bg-[#1A1A2E] px-6 py-7 text-white sm:flex-row sm:items-end sm:px-9"><div><p className="text-[11px] font-semibold uppercase tracking-[.2em] text-[#D4A843]">Everyday finds. South African delivery.</p><h1 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Your world. A little better.</h1><p className="mt-3 max-w-xl text-sm leading-6 text-white/70">For your home, your family and everything in between. Find your next everyday essential.</p></div><Link href="/browse" className="inline-flex w-fit shrink-0 items-center gap-3 rounded-lg bg-[#D4A843] px-5 py-3 text-sm font-bold text-[#1A1A2E]">Explore the store <ArrowRight size={17}/></Link></div>
- <div className="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4">{stories.map(s=><Link href={`/department/${s.slug}`} key={s.slug} className={`group relative flex min-h-64 flex-col overflow-hidden rounded-xl ${s.colour} p-5 sm:min-h-80 sm:p-6`}><h2 className="relative z-10 max-w-48 text-xl font-extrabold leading-tight tracking-tight sm:text-2xl">{s.title}</h2><p className="relative z-10 mt-2 hidden text-xs text-gray-600 sm:block">{s.subtitle}</p><div className="relative mt-4 aspect-[4/3] flex-1">{s.product?.images[0]&&<Image src={s.product.images[0]} alt={s.product.name} fill sizes="(max-width:1024px) 50vw,25vw" className="rounded-lg object-contain mix-blend-multiply transition duration-300 group-hover:scale-105"/>}</div><span className="mt-3 flex items-center justify-between text-xs font-semibold">Shop {departments.find(d=>d.slug===s.slug)?.name}<ArrowRight size={15}/></span></Link>)}</div></section>
- <section className="mx-auto max-w-[1400px] px-4 pt-10"><p className="text-[10px] font-bold uppercase tracking-[.2em] text-amber-800">There is more on your shelf</p><h2 className="mt-1 text-2xl font-bold tracking-tight">Make more of your everyday</h2><div className="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4">{moreDepartments.map(d=><Link key={d.slug} href={`/department/${d.slug}`} className={`group flex flex-col rounded-xl p-5 ${d.colour}`}><h3 className="text-xl font-extrabold leading-tight">{d.title}</h3><p className="mt-2 text-xs leading-5 text-gray-600">{d.text}</p><div className="relative mt-4 aspect-[4/3]">{d.product?.images[0]&&<Image src={d.product.images[0]} alt={d.product.name} fill sizes="(max-width:1024px) 50vw,25vw" className="object-contain mix-blend-multiply transition duration-300 group-hover:scale-105"/>}</div><span className="mt-4 flex items-center justify-between gap-2 text-xs font-semibold">{departments.find(dep=>dep.slug===d.slug)?.name}<ArrowRight size={15}/></span></Link>)}</div></section>
- <section className="mx-auto max-w-[1400px] px-4 pt-9"><div className="mb-5 flex items-end justify-between"><div><p className="text-[10px] font-bold uppercase tracking-[.2em] text-amber-800">Selected for your everyday</p><h2 className="mt-1 text-2xl font-bold tracking-tight">Explore these finds</h2></div><Link href="/browse" className="text-xs font-semibold text-amber-800">Shop all →</Link></div><div className="grid grid-cols-2 gap-3 md:grid-cols-4">{products.map(p=><CatalogueCard key={p.id} product={p}/>)}</div></section>
- <section className="mx-auto max-w-[1400px] px-4 pt-9"><div className="grid gap-4 md:grid-cols-2"><Link href="/browse?maxPrice=300" className="flex items-center justify-between rounded-xl bg-[#E6EBDF] p-6"><div><p className="text-xs font-semibold text-gray-600">Small finds. Everyday value.</p><h2 className="mt-2 text-2xl font-extrabold">Discover finds under R300</h2><p className="mt-3 text-sm font-semibold">Explore the collection →</p></div><ShoppingBag size={38} className="shrink-0 text-[#68704D]"/></Link><Link href="/department/garden-outdoor" className="flex items-center justify-between rounded-xl bg-[#E6E3D9] p-6"><div><p className="text-xs font-semibold text-gray-600">Make the most of your space.</p><h2 className="mt-2 text-2xl font-extrabold">Bring life outdoors</h2><p className="mt-3 text-sm font-semibold">Shop Garden & Outdoor →</p></div><ArrowRight size={30}/></Link></div></section>
+import { ArrowRight, PackageCheck, MapPin, HeartHandshake } from 'lucide-react';
+import { getCatalogueSnapshot, getCatalogueProduct } from '@/lib/catalogue';
+import { CatalogueCard } from '@/components/shop/catalogue-card';
 
- <section className="mx-auto max-w-[1400px] px-4 pt-10"><p className="text-[10px] font-bold uppercase tracking-[.2em] text-amber-800">Find your kind of value</p><h2 className="mt-1 text-2xl font-bold tracking-tight">Good finds. Your budget.</h2><p className="mt-2 text-sm text-gray-500">Choose a starting point and explore prices that suit you.</p><div className="mt-5 grid gap-3 sm:grid-cols-3">{[{amount:150,colour:'bg-[#F3E7D5]',text:'Little additions to your everyday.'},{amount:300,colour:'bg-[#DDE9E6]',text:'Useful essentials. Fresh possibilities.'},{amount:500,colour:'bg-[#E8E2EE]',text:'More room to find something you love.'}].map(b=><Link key={b.amount} href={`/browse?maxPrice=${b.amount}`} className={`group rounded-xl p-6 ${b.colour}`}><p className="text-xs font-semibold text-gray-600">Shop finds under</p><h3 className="mt-2 text-4xl font-extrabold tracking-tight">R{b.amount}</h3><p className="mt-3 text-sm text-gray-600">{b.text}</p><span className="mt-5 flex items-center justify-between text-xs font-bold">Explore the collection<ArrowRight size={17}/></span></Link>)}</div></section>
- {collections.filter(c=>c.products.length).map(c=><section key={c.slug} className="mx-auto max-w-[1400px] px-4 pt-10"><div className="mb-5 flex items-end justify-between gap-4"><div><p className="text-[10px] font-bold uppercase tracking-[.2em] text-amber-800">{c.eyebrow}</p><h2 className="mt-1 text-2xl font-bold tracking-tight">{c.title}</h2><p className="mt-2 text-sm text-gray-500">{c.text}</p></div><Link href={`/department/${c.slug}`} className="shrink-0 text-xs font-semibold text-amber-800">Explore more →</Link></div><div className="grid grid-cols-2 gap-3 md:grid-cols-4">{c.products.map(p=><CatalogueCard key={p.id} product={p}/>)}</div></section>)}
+export const metadata: Metadata = {
+  title: 'Online Shopping South Africa',
+  description: 'Good things. Plenty of choice. Shop home, kitchen, electronics, beauty, kids and more at Plentovo, with South African delivery.',
+  alternates: { canonical: '/' },
+};
 
- <section className="mx-auto max-w-[1400px] px-4 pt-9"><div className="grid gap-5 rounded-xl border border-gray-200 bg-white p-6 sm:grid-cols-3">{[{icon:ShoppingBag,title:'Choose your finds',text:'Select your products, options and quantities.'},{icon:MessageCircle,title:'Confirm your delivered total',text:'Send your cart to Afrishelf for delivery costs and payment instructions.'},{icon:Truck,title:'Follow your delivery',text:'Once payment is confirmed, we arrange fulfilment and share tracking.'}].map(s=><div key={s.title} className="flex gap-3"><s.icon className="mt-1 shrink-0 text-amber-800" size={22}/><div><h2 className="text-sm font-bold">{s.title}</h2><p className="mt-1 text-xs leading-5 text-gray-500">{s.text}</p></div></div>)}</div></section></main>;
+const discoveryGroups = [
+  { title: 'Make yourself at home', subtitle: 'Stylish living for everyday life.', href: '/department/home-living', action: 'Shop home & kitchen', items: [
+    { label: 'Furniture', department: 'furniture', match: /sofa|armchair|coffee.table|lounge.chair/i },
+    { label: 'Cookware', department: 'kitchen-dining', match: /cookware|casserole|cooking.pot|saucepan/i },
+    { label: 'Bedding', department: 'home-living', match: /duvet|bedding|comforter|bed.sheet/i },
+    { label: 'Home décor', department: 'home-decor-gifts', match: /vase|candle|decor/i },
+  ]},
+  { title: 'A little everyday care', subtitle: 'Feel good, every day.', href: '/department/health-beauty', action: 'Shop beauty', items: [
+    { label: 'Skincare', department: 'health-beauty', match: /serum|moisturi|facial.clean|skin.care/i },
+    { label: 'Hair care', department: 'health-beauty', match: /hair.dryer|hair.straight|hair.brush/i },
+    { label: 'Fragrances', department: 'health-beauty', match: /perfume|fragrance|eau.de/i },
+    { label: 'Personal care', department: 'health-beauty', match: /electric.toothbrush|grooming|massage|personal.care/i },
+  ]},
+  { title: 'Made for play', subtitle: 'Big adventures start at home.', href: '/department/toys-kids-baby', action: 'Shop kids & baby', items: [
+    { label: 'Toys & games', department: 'toys-kids-baby', match: /teddy|building.block|puzzle|plush/i },
+    { label: 'Baby essentials', department: 'toys-kids-baby', match: /baby.bottle|feeding|sippy|baby.cup/i },
+    { label: 'Kids’ school', department: 'toys-kids-baby', match: /backpack|school.bag|lunch.box/i },
+    { label: 'Outdoor play', department: 'toys-kids-baby', match: /scooter|ride.on|tricycle/i },
+  ]},
+  { title: 'Smart everyday upgrades', subtitle: 'Tech, tools and a little more ease.', href: '/department/electronics', action: 'Shop electronics', items: [
+    { label: 'Audio', department: 'electronics', match: /headphone|earbud/i },
+    { label: 'Wearables', department: 'electronics', match: /smart.watch|smartwatch/i },
+    { label: 'Lighting', department: 'home-living', match: /desk.lamp|table.lamp|bedside.lamp/i },
+    { label: 'Organisation', department: 'storage-organisation', match: /storage.box|storage.bin|organis/i },
+  ]},
+];
+const collectionSpecs = [
+  { slug: 'kitchen-dining', title: 'Make room for kitchen joy', match: /mug|utensil|pan|pot|knife|chopping|kitchen|oil.*bottle|cutlery/i, text: 'Useful finds for the meals and moments you make.' },
+  { slug: 'electronics', title: 'Small tech. More possibilities.', match: /speaker|headphone|earbud|charger|bluetooth|keyboard|mouse|power.bank/i, text: 'Practical upgrades for home, work and downtime.' },
+  { slug: 'toys-kids-baby', title: 'More joy for the little ones', match: /toy|teddy|doll|puzzle|building.block|baby|play.mat/i, text: 'Find something for their next adventure.' },
+];
+
+export default async function HomePage() {
+  const snapshot = getCatalogueSnapshot();
+  const usedImages = new Set<string>();
+  const groups = discoveryGroups.map(group => ({ ...group, items: group.items.map(item => {
+    const candidates = snapshot.filter(p => p.collections.includes(item.department) && p.images.length && !usedImages.has(p.slug));
+    const product = candidates.find(p => item.match.test(p.name)) || candidates[0];
+    if (product) usedImages.add(product.slug);
+    return { ...item, product };
+  }) }));
+  const valuePool = snapshot.filter(p => p.price > 0 && p.price < 300 && p.images.length);
+  const valueHandles = [...new Set([/desktop.fan|mini.fan/i,/lunch.box/i,/earbud/i,/water.bottle/i,/storage.container|food.container/i].flatMap(match => valuePool.filter(p => match.test(p.name)).slice(0, 3).map(p => p.slug)))].slice(0, 15);
+  const selected = new Set(valueHandles);
+  const collectionCandidates = collectionSpecs.map(c => ({ ...c, handles: snapshot.filter(p => p.collections.includes(c.slug) && c.match.test(p.name) && p.images.length && !selected.has(p.slug)).slice(0, 4).map(p => { selected.add(p.slug); return p.slug; }) }));
+  const [valueResults, collections] = await Promise.all([
+    Promise.all(valueHandles.map(slug => getCatalogueProduct(slug))),
+    Promise.all(collectionCandidates.map(async c => ({ ...c, products: (await Promise.all(c.handles.map(slug => getCatalogueProduct(slug)))).filter((p): p is NonNullable<typeof p> => p !== null) }))),
+  ]);
+  // Display only freshly validated available products whose current retail price meets the heading.
+  const valueProducts = valueResults.filter((p): p is NonNullable<typeof p> => p !== null && p.supplierAvailable && p.price > 0 && p.price < 300).slice(0, 5);
+
+  return <main id="main-content" className="bg-[#F7F6F3] pb-14">
+    <section aria-labelledby="home-title" className="relative isolate mx-auto max-w-[1600px] overflow-hidden bg-[#EADCC8]">
+      <div className="absolute inset-0 hidden sm:block"><Image src="/brand/plentovo-hero.webp" alt="" fill priority sizes="100vw" className="object-cover object-center" /></div>
+      <div className="relative mx-auto max-w-[1400px] px-6 pb-5 pt-10 sm:flex sm:min-h-[370px] sm:items-center sm:px-8 sm:py-12 lg:min-h-[440px]">
+        <div className="relative z-10 sm:max-w-[47%] sm:rounded-xl sm:bg-[#f8efdf]/35 sm:p-4 lg:bg-transparent lg:p-0">
+          <h1 id="home-title" className="text-[clamp(2.6rem,4.4vw,4.4rem)] font-extrabold leading-[1.03] tracking-[-.045em] text-[#111820]">Good things.<br />Plenty of choice.</h1>
+          <p className="mt-5 text-base text-[#22282D] sm:text-lg lg:text-xl">Discover more for your everyday.</p>
+          <Link href="/browse" className="mt-7 inline-flex items-center gap-5 rounded-lg bg-[#DA292B] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#B91F25]">Explore the range <ArrowRight size={18} /></Link>
+        </div>
+        <div className="relative -mx-6 mt-5 aspect-[2/1] sm:hidden"><Image src="/brand/plentovo-hero.webp" alt="Home, kitchen, audio and beauty essentials in a warm studio setting" fill priority sizes="100vw" className="object-cover object-right" /></div>
+      </div>
+    </section>
+
+    <section aria-label="Discover your everyday" className="mx-auto grid max-w-[1400px] gap-4 px-4 pt-5 sm:grid-cols-2 xl:grid-cols-4">
+      {groups.map(group => <article key={group.title} className="flex flex-col rounded-xl border border-[#ECEAE5] bg-white p-4 lg:p-5">
+        <h2 className="text-xl font-bold leading-tight tracking-tight">{group.title}</h2>
+        <p className="mt-1.5 text-xs leading-5 text-gray-500">{group.subtitle}</p>
+        <div className="mt-4 grid grid-cols-2 gap-x-3 gap-y-4">{group.items.map(item => <Link key={item.label} href={`/department/${item.department}`} className="group min-w-0">
+          <div className="relative aspect-square overflow-hidden rounded-lg bg-[#F6F4F0]">{item.product?.images[0] && <Image src={item.product.images[0]} alt="" fill sizes="(max-width:640px) 44vw,(max-width:1280px) 22vw,145px" className="object-contain p-2 mix-blend-multiply transition duration-300 group-hover:scale-105" />}</div>
+          <span className="mt-2 block text-[11px] font-medium group-hover:text-red-700">{item.label}</span>
+        </Link>)}</div>
+        <Link href={group.href} className="mt-5 flex items-center justify-center gap-3 rounded-full bg-[#F4F4F4] px-3 py-3 text-xs font-semibold transition hover:bg-red-50 hover:text-red-700">{group.action}<ArrowRight size={15} /></Link>
+      </article>)}
+    </section>
+
+    {valueProducts.length > 0 && <section className="mx-auto max-w-[1400px] px-4 pt-10"><div className="mb-5 flex items-center justify-between gap-4"><h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Good finds under R300</h2><Link href="/browse?maxPrice=300&available=true" className="shrink-0 text-xs font-semibold text-red-700">View all →</Link></div><div className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-5">{valueProducts.map(product => <CatalogueCard key={product.id} product={product} />)}</div></section>}
+
+    <section aria-labelledby="living-title" className="relative isolate mx-auto mt-10 max-w-[1600px] overflow-hidden bg-[#EADFCF]">
+      <div className="absolute inset-0 hidden sm:block"><Image src="/brand/plentovo-living.webp" alt="" fill sizes="100vw" className="object-cover object-center" /></div>
+      <div className="relative mx-auto max-w-[1400px] px-6 pb-0 pt-9 sm:flex sm:min-h-[330px] sm:items-center sm:px-8 sm:py-10 lg:min-h-[380px]"><div className="relative z-10 max-w-sm sm:max-w-[37%]"><h2 id="living-title" className="text-4xl font-extrabold leading-[1.08] tracking-[-.035em] lg:text-5xl">More room<br />for good living.</h2><p className="mt-4 max-w-xs text-base leading-6">Everyday essentials for a home you’ll love.</p><Link href="/department/home-living" className="mt-6 inline-flex items-center gap-4 rounded-lg bg-[#DA292B] px-5 py-3.5 text-sm font-bold text-white hover:bg-[#B91F25]">Explore home & living<ArrowRight size={17} /></Link></div><div className="relative -mx-6 mt-6 aspect-[2/1] sm:hidden"><Image src="/brand/plentovo-living.webp" alt="A warm living room with a cream sofa, oak table and green plants" fill sizes="100vw" className="object-cover object-right" /></div></div>
+    </section>
+
+    {collections.filter(c => c.products.length).map(c => <section key={c.slug} className="mx-auto max-w-[1400px] px-4 pt-10"><div className="mb-5 flex items-end justify-between gap-4"><div><h2 className="text-2xl font-bold tracking-tight">{c.title}</h2><p className="mt-2 text-sm text-gray-500">{c.text}</p></div><Link href={`/department/${c.slug}`} className="shrink-0 text-xs font-semibold text-red-700">Explore more →</Link></div><div className="grid grid-cols-2 gap-3 md:grid-cols-4">{c.products.map(product => <CatalogueCard key={product.id} product={product} />)}</div></section>)}
+
+    <section className="mx-auto max-w-[1400px] px-4 pt-10"><h2 className="text-2xl font-bold tracking-tight">Good finds. Your budget.</h2><div className="mt-5 grid gap-4 sm:grid-cols-3">{[{amount:150,text:'Little additions to your everyday.'},{amount:300,text:'Useful essentials. Fresh possibilities.'},{amount:500,text:'More room for something you love.'}].map(b => <Link key={b.amount} href={`/browse?maxPrice=${b.amount}`} className="group rounded-xl border border-[#E9E4DD] bg-[#EFE9DF] p-6 transition hover:border-red-300"><p className="text-xs font-semibold text-gray-600">Shop finds under</p><h3 className="mt-2 text-4xl font-extrabold tracking-tight">R{b.amount}</h3><p className="mt-3 text-sm text-gray-600">{b.text}</p><span className="mt-5 flex items-center justify-between text-xs font-bold">Explore the collection<ArrowRight size={17} /></span></Link>)}</div></section>
+    <section aria-label="Help with your shopping" className="mx-auto max-w-[1400px] px-4 pt-10"><div className="grid gap-6 rounded-xl border border-gray-200 bg-white p-6 sm:grid-cols-3">{[{icon:PackageCheck,title:'Delivery, clearly explained',text:'See delivery rates, timelines and collection details.',href:'/shipping-faq'},{icon:MapPin,title:'Your place, remembered',text:'Sign in to save and manage your delivery addresses.',href:'/account'},{icon:HeartHandshake,title:'A little help, when you need it',text:'Talk to us about a product, delivery or return.',href:'/contact'}].map(s => <Link href={s.href} key={s.title} className="flex gap-3 hover:text-red-700"><s.icon className="mt-1 shrink-0 text-red-700" size={23} /><div><h2 className="text-sm font-bold">{s.title}</h2><p className="mt-1 text-xs leading-5 text-gray-500">{s.text}</p></div></Link>)}</div></section>
+  </main>;
 }

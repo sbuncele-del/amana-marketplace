@@ -174,7 +174,7 @@ export default function NewProductPage() {
         {/* Basic Info */}
         <div className="bg-white rounded-xl border border-gray-100 p-6">
           <h2 className="font-bold mb-4 flex items-center gap-2">
-            <Package className="w-5 h-5 text-[#D4A843]" /> Product Details
+            <Package className="w-5 h-5 text-[#DA292B]" /> Product Details
           </h2>
           <div className="space-y-4">
             <Input label="Product Name" name="name" value={formData.name} onChange={handleChange}
@@ -184,7 +184,7 @@ export default function NewProductPage() {
               <label className="block text-sm font-medium text-gray-700 mb-1.5">Description</label>
               <textarea name="description" value={formData.description} onChange={handleChange}
                 rows={6} placeholder="Describe your product in detail..."
-                className="w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm focus:border-[#D4A843] focus:ring-2 focus:ring-[#D4A843]/20 outline-none resize-none"
+                className="w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm focus:border-[#DA292B] focus:ring-2 focus:ring-[#DA292B]/20 outline-none resize-none"
                 required />
             </div>
 
@@ -194,7 +194,7 @@ export default function NewProductPage() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">Currency</label>
                 <select name="currency" value={formData.currency} onChange={handleChange}
-                  className="w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm focus:border-[#D4A843] focus:ring-2 focus:ring-[#D4A843]/20 outline-none">
+                  className="w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm focus:border-[#DA292B] focus:ring-2 focus:ring-[#DA292B]/20 outline-none">
                   <option value="USD">USD ($)</option>
                   <option value="NGN">NGN (₦)</option>
                   <option value="KES">KES (KSh)</option>
@@ -210,7 +210,7 @@ export default function NewProductPage() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">Category</label>
                 <select name="categoryId" value={formData.categoryId} onChange={handleChange} required
-                  className="w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm focus:border-[#D4A843] focus:ring-2 focus:ring-[#D4A843]/20 outline-none">
+                  className="w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm focus:border-[#DA292B] focus:ring-2 focus:ring-[#DA292B]/20 outline-none">
                   <option value="">Select category</option>
                   {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
                 </select>
@@ -236,7 +236,7 @@ export default function NewProductPage() {
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 mb-1.5">Origin Country</label>
             <select name="originCountry" value={formData.originCountry} onChange={handleChange} required
-              className="w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm focus:border-[#D4A843] focus:ring-2 focus:ring-[#D4A843]/20 outline-none">
+              className="w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm focus:border-[#DA292B] focus:ring-2 focus:ring-[#DA292B]/20 outline-none">
               <option value="">Select origin</option>
               {africanCountries.map(c => <option key={c} value={c}>{c}</option>)}
             </select>
@@ -249,8 +249,8 @@ export default function NewProductPage() {
                 <button key={country} type="button" onClick={() => toggleShipsTo(country)}
                   className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
                     shipsTo.includes(country)
-                      ? "bg-[#D4A843] text-white border-[#D4A843]"
-                      : "bg-white text-gray-500 border-gray-200 hover:border-[#D4A843]/30"
+                      ? "bg-[#DA292B] text-white border-[#DA292B]"
+                      : "bg-white text-gray-500 border-gray-200 hover:border-[#DA292B]/30"
                   }`}>
                   {country}
                 </button>
@@ -266,7 +266,7 @@ export default function NewProductPage() {
             <input type="text" value={tagInput} onChange={(e) => setTagInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), addTag())}
               placeholder="Add a tag..."
-              className="flex-1 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm focus:border-[#D4A843] focus:ring-2 focus:ring-[#D4A843]/20 outline-none" />
+              className="flex-1 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm focus:border-[#DA292B] focus:ring-2 focus:ring-[#DA292B]/20 outline-none" />
             <Button type="button" onClick={addTag} variant="outline" size="sm"><Plus className="w-4 h-4" /></Button>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -284,7 +284,7 @@ export default function NewProductPage() {
         {/* Image Upload */}
         <div className="bg-white rounded-xl border border-gray-100 p-6">
           <h2 className="font-bold mb-4 flex items-center gap-2">
-            <ImageIcon className="w-5 h-5 text-[#D4A843]" /> Product Images
+            <ImageIcon className="w-5 h-5 text-[#DA292B]" /> Product Images
           </h2>
 
           {/* Image previews */}
@@ -311,7 +311,7 @@ export default function NewProductPage() {
           {/* Upload area */}
           {imagePreviews.length < 8 && (
             <div
-              className="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center cursor-pointer hover:border-[#D4A843]/50 transition-colors"
+              className="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center cursor-pointer hover:border-[#DA292B]/50 transition-colors"
               onClick={() => fileInputRef.current?.click()}
               onDragOver={(e) => e.preventDefault()}
               onDrop={(e) => {
@@ -330,7 +330,7 @@ export default function NewProductPage() {
             >
               {uploadingImages ? (
                 <>
-                  <Loader2 className="w-8 h-8 text-[#D4A843] mx-auto mb-2 animate-spin" />
+                  <Loader2 className="w-8 h-8 text-[#DA292B] mx-auto mb-2 animate-spin" />
                   <p className="text-sm text-gray-500">Uploading images...</p>
                 </>
               ) : (

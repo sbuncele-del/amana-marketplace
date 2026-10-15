@@ -2,7 +2,7 @@ import { ShieldAlert, CheckCircle, XCircle, AlertTriangle, Flag, Scale, Ban } fr
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "Acceptable Use Policy — Afrishelf" };
+export const metadata = { title: "Acceptable Use Policy — Plentovo" };
 
 const permittedActivities = [
   "Buying and selling legitimate products through the Platform",
@@ -88,18 +88,18 @@ export default function AcceptableUsePage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1A1A2E] to-[#0F3460] py-20">
+      <section className="bg-gradient-to-br from-[#171B20] to-[#0F3460] py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-6">
-            <ShieldAlert className="w-4 h-4 text-[#D4A843]" />
+            <ShieldAlert className="w-4 h-4 text-[#DA292B]" />
             <span className="text-sm text-white/80">Community Standards</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
             Acceptable Use<br />
-            <span className="text-[#D4A843]">Policy</span>
+            <span className="text-[#DA292B]">Policy</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Last updated: January 15, 2026. This policy defines what is and isn&apos;t allowed on Afrishelf
+            Last updated: January 15, 2026. This policy defines what is and isn&apos;t allowed on Plentovo
             Marketplace. These standards exist to keep our community safe and trustworthy for everyone.
           </p>
         </div>
@@ -131,7 +131,7 @@ export default function AcceptableUsePage() {
             <h2 className="text-2xl font-extrabold">Prohibited Items</h2>
           </div>
           <p className="text-sm text-gray-600 mb-6">
-            The following categories of items may not be listed or sold on Afrishelf.
+            The following categories of items may not be listed or sold on Plentovo.
             This list is not exhaustive — we reserve the right to remove any listing we determine
             to be inappropriate, harmful, or illegal.
           </p>
@@ -178,7 +178,7 @@ export default function AcceptableUsePage() {
         {/* Enforcement */}
         <section>
           <div className="flex items-center gap-3 mb-6">
-            <Scale className="w-6 h-6 text-[#D4A843]" />
+            <Scale className="w-6 h-6 text-[#DA292B]" />
             <h2 className="text-2xl font-extrabold">Enforcement</h2>
           </div>
           <p className="text-sm text-gray-600 mb-6">
@@ -201,7 +201,7 @@ export default function AcceptableUsePage() {
         {/* Reporting */}
         <section className="bg-[#FAF8F5] rounded-2xl p-8">
           <div className="flex items-center gap-3 mb-4">
-            <Flag className="w-6 h-6 text-[#D4A843]" />
+            <Flag className="w-6 h-6 text-[#DA292B]" />
             <h2 className="text-xl font-extrabold">Reporting Violations</h2>
           </div>
           <div className="text-sm text-gray-600 space-y-2">
@@ -220,7 +220,7 @@ export default function AcceptableUsePage() {
 
         <section className="border-t border-gray-200 pt-8">
           <p className="text-sm text-gray-400">
-            See also: <Link href="/terms" className="text-[#D4A843] hover:underline">Terms of Use</Link> · <Link href="/trust-safety" className="text-[#D4A843] hover:underline">Trust & Safety</Link> · <Link href="/seller-guidelines" className="text-[#D4A843] hover:underline">Seller Guidelines</Link>
+            See also: <Link href="/terms" className="text-[#DA292B] hover:underline">Terms of Use</Link> · <Link href="/trust-safety" className="text-[#DA292B] hover:underline">Trust & Safety</Link> · <Link href="/seller-guidelines" className="text-[#DA292B] hover:underline">Seller Guidelines</Link>
           </p>
         </section>
       </div>

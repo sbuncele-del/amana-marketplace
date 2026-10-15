@@ -2,14 +2,14 @@ import { Shield, Eye, Clock, RefreshCcw, BadgeCheck, MessageSquare, CreditCard, 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "Buyer Protection — Afrishelf" };
+export const metadata = { title: "Buyer Protection — Plentovo" };
 
 const protections = [
   {
     icon: Shield,
     title: "100% Escrow Protection",
     description:
-      "Every payment you make on Afrishelf goes into a secure Vesicash escrow account. Your funds are never sent directly to the seller — they are held safely until you receive and approve your order.",
+      "Every payment you make on Plentovo goes into a secure Vesicash escrow account. Your funds are never sent directly to the seller — they are held safely until you receive and approve your order.",
   },
   {
     icon: Clock,
@@ -27,7 +27,7 @@ const protections = [
     icon: BadgeCheck,
     title: "Verified Sellers Only",
     description:
-      "Every seller on Afrishelf undergoes identity verification. Premium sellers have business registration, tax compliance, and quality certifications verified by our team.",
+      "Every seller on Plentovo undergoes identity verification. Premium sellers have business registration, tax compliance, and quality certifications verified by our team.",
   },
   {
     icon: CreditCard,
@@ -79,18 +79,18 @@ export default function BuyerProtectionPage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1A1A2E] to-[#0F3460] py-20">
+      <section className="bg-gradient-to-br from-[#171B20] to-[#0F3460] py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-6">
-            <Shield className="w-4 h-4 text-[#D4A843]" />
+            <Shield className="w-4 h-4 text-[#DA292B]" />
             <span className="text-sm text-white/80">Your Rights, Protected</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
             Buyer Protection<br />
-            <span className="text-[#D4A843]">Guarantee</span>
+            <span className="text-[#DA292B]">Guarantee</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            When you shop on Afrishelf, you&apos;re protected at every step. From secure escrow payments to verified sellers
+            When you shop on Plentovo, you&apos;re protected at every step. From secure escrow payments to verified sellers
             and a dedicated dispute resolution team — we have your back.
           </p>
         </div>
@@ -101,15 +101,15 @@ export default function BuyerProtectionPage() {
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-2xl font-extrabold text-center mb-4">How We Protect You</h2>
           <p className="text-gray-500 text-center mb-12 max-w-2xl mx-auto">
-            Afrishelf&apos;s buyer protection program is built into every transaction. You don&apos;t need to opt in — it&apos;s automatic.
+            Plentovo&apos;s buyer protection program is built into every transaction. You don&apos;t need to opt in — it&apos;s automatic.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {protections.map((p) => {
               const Icon = p.icon;
               return (
                 <div key={p.title} className="border border-gray-100 rounded-xl p-6 hover:shadow-md transition-shadow">
-                  <div className="w-10 h-10 rounded-lg bg-[#D4A843]/10 flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-[#D4A843]" />
+                  <div className="w-10 h-10 rounded-lg bg-[#DA292B]/10 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-[#DA292B]" />
                   </div>
                   <h3 className="font-bold mb-2">{p.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{p.description}</p>
@@ -171,11 +171,11 @@ export default function BuyerProtectionPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-[#1A1A2E] to-[#0F3460]">
+      <section className="py-16 bg-gradient-to-br from-[#171B20] to-[#0F3460]">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-extrabold text-white mb-4">Shop With Complete Confidence</h2>
           <p className="text-white/60 mb-8">
-            Every purchase on Afrishelf is backed by escrow protection, verified sellers, and our buyer guarantee.
+            Every purchase on Plentovo is backed by escrow protection, verified sellers, and our buyer guarantee.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/browse">

@@ -84,8 +84,8 @@ function ResetPasswordForm() {
   return (
     <>
       <div className="mb-8">
-        <div className="w-12 h-12 rounded-full bg-[#D4A843]/10 flex items-center justify-center mb-4">
-          <Lock className="w-6 h-6 text-[#D4A843]" />
+        <div className="w-12 h-12 rounded-full bg-[#DA292B]/10 flex items-center justify-center mb-4">
+          <Lock className="w-6 h-6 text-[#DA292B]" />
         </div>
         <h1 className="text-2xl font-bold mb-2">Set new password</h1>
         <p className="text-gray-500">Choose a strong password with at least 8 characters.</p>

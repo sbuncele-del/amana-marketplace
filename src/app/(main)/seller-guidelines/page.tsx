@@ -2,7 +2,7 @@ import { BadgeCheck, Camera, MessageSquare, ShieldCheck, Star, AlertTriangle, Pa
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "Seller Guidelines — Afrishelf" };
+export const metadata = { title: "Seller Guidelines — Plentovo" };
 
 const tiers = [
   {
@@ -92,18 +92,18 @@ export default function SellerGuidelinesPage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1A1A2E] to-[#0F3460] py-20">
+      <section className="bg-gradient-to-br from-[#171B20] to-[#0F3460] py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-6">
-            <BadgeCheck className="w-4 h-4 text-[#D4A843]" />
+            <BadgeCheck className="w-4 h-4 text-[#DA292B]" />
             <span className="text-sm text-white/80">Seller Handbook</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
             Seller<br />
-            <span className="text-[#D4A843]">Guidelines</span>
+            <span className="text-[#DA292B]">Guidelines</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Everything you need to know to succeed as a seller on Afrishelf. From verification requirements
+            Everything you need to know to succeed as a seller on Plentovo. From verification requirements
             to listing standards and communication policies.
           </p>
         </div>
@@ -127,7 +127,7 @@ export default function SellerGuidelinesPage() {
                   <ul className="space-y-1.5">
                     {tier.requirements.map((r) => (
                       <li key={r} className="text-sm text-gray-600 flex items-start gap-2">
-                        <span className="text-[#D4A843] mt-1">•</span>
+                        <span className="text-[#DA292B] mt-1">•</span>
                         {r}
                       </li>
                     ))}
@@ -159,8 +159,8 @@ export default function SellerGuidelinesPage() {
               const Icon = s.icon;
               return (
                 <div key={s.title} className="bg-white rounded-xl border border-gray-100 p-6">
-                  <div className="w-10 h-10 rounded-lg bg-[#D4A843]/10 flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-[#D4A843]" />
+                  <div className="w-10 h-10 rounded-lg bg-[#DA292B]/10 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-[#DA292B]" />
                   </div>
                   <h3 className="font-bold mb-2">{s.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
@@ -169,7 +169,7 @@ export default function SellerGuidelinesPage() {
             })}
           </div>
           <div className="mt-6 text-center">
-            <Link href="/listing-standards" className="text-[#D4A843] font-medium text-sm hover:underline">
+            <Link href="/listing-standards" className="text-[#DA292B] font-medium text-sm hover:underline">
               Read detailed listing standards →
             </Link>
           </div>
@@ -180,7 +180,7 @@ export default function SellerGuidelinesPage() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4">
           <div className="flex items-center gap-3 mb-8">
-            <MessageSquare className="w-6 h-6 text-[#D4A843]" />
+            <MessageSquare className="w-6 h-6 text-[#DA292B]" />
             <h2 className="text-2xl font-extrabold">Communication Policies</h2>
           </div>
           <div className="space-y-4">
@@ -203,7 +203,7 @@ export default function SellerGuidelinesPage() {
           </div>
           <div className="bg-white rounded-xl border border-gray-100 p-6">
             <p className="text-gray-600 text-sm mb-4">
-              The following items are strictly prohibited on Afrishelf. Listing them will result
+              The following items are strictly prohibited on Plentovo. Listing them will result
               in immediate removal and potential account suspension:
             </p>
             <ul className="space-y-2">
@@ -219,11 +219,11 @@ export default function SellerGuidelinesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-[#1A1A2E] to-[#0F3460]">
+      <section className="py-16 bg-gradient-to-br from-[#171B20] to-[#0F3460]">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-extrabold text-white mb-4">Ready to Start Selling?</h2>
           <p className="text-white/60 mb-8">
-            Join thousands of verified sellers across 34+ African countries on Afrishelf.
+            Join thousands of verified sellers across 34+ African countries on Plentovo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/dashboard/sell">

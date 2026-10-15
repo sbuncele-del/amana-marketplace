@@ -2,7 +2,7 @@ import { ShieldCheck, CreditCard, Truck, CheckCircle, Banknote, ArrowDown, Searc
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export const metadata = { title: "How Escrow Works — Afrishelf" };
+export const metadata = { title: "How Escrow Works — Plentovo" };
 
 const steps = [
   {
@@ -23,7 +23,7 @@ const steps = [
       "Your payment is held securely in a Vesicash escrow account — NOT sent directly to the seller. Funds are protected until you confirm satisfaction.",
     detail:
       "We support 15+ payment methods including M-Pesa, Flutterwave, bank transfer, and card payments. Multi-currency support means you pay in your local currency while sellers receive theirs.",
-    color: "bg-[#D4A843]/10 text-[#D4A843]",
+    color: "bg-[#DA292B]/10 text-[#DA292B]",
   },
   {
     number: 3,
@@ -58,7 +58,7 @@ const steps = [
 ];
 
 const benefits = [
-  { icon: ShieldCheck, title: "100% Purchase Protection", desc: "Every single transaction on Afrishelf is escrow-protected. No exceptions." },
+  { icon: ShieldCheck, title: "100% Purchase Protection", desc: "Every single transaction on Plentovo is escrow-protected. No exceptions." },
   { icon: Lock, title: "Secure Fund Holding", desc: "Powered by Vesicash, a licensed escrow provider. Funds are held in regulated trust accounts." },
   { icon: CreditCard, title: "15+ Payment Methods", desc: "Pay with M-Pesa, cards, bank transfer, Flutterwave, and more — in your local currency." },
   { icon: CheckCircle, title: "72-Hour Inspection", desc: "Full inspection period to verify your purchase before funds are ever released to the seller." },
@@ -68,18 +68,18 @@ export default function HowEscrowWorksPage() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1A1A2E] to-[#0F3460] py-20">
+      <section className="bg-gradient-to-br from-[#171B20] to-[#0F3460] py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-6">
-            <ShieldCheck className="w-4 h-4 text-[#D4A843]" />
+            <ShieldCheck className="w-4 h-4 text-[#DA292B]" />
             <span className="text-sm text-white/80">Powered by Vesicash</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
             How Escrow Protection<br />
-            <span className="text-[#D4A843]">Keeps You Safe</span>
+            <span className="text-[#DA292B]">Keeps You Safe</span>
           </h1>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Every transaction on Afrishelf is protected by Vesicash escrow. Your money is held securely
+            Every transaction on Plentovo is protected by Vesicash escrow. Your money is held securely
             until you receive and approve your order. Here&apos;s exactly how it works.
           </p>
         </div>
@@ -102,7 +102,7 @@ export default function HowEscrowWorksPage() {
                     <div className="flex flex-col md:flex-row gap-6">
                       {/* Step Number + Icon */}
                       <div className="flex-shrink-0 flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-full bg-[#1A1A2E] text-white flex items-center justify-center font-extrabold text-lg">
+                        <div className="w-12 h-12 rounded-full bg-[#171B20] text-white flex items-center justify-center font-extrabold text-lg">
                           {step.number}
                         </div>
                         <div className={`w-12 h-12 rounded-xl ${step.color} flex items-center justify-center`}>
@@ -119,7 +119,7 @@ export default function HowEscrowWorksPage() {
                   </div>
                   {i < steps.length - 1 && (
                     <div className="flex justify-center py-2">
-                      <ArrowDown className="w-6 h-6 text-[#D4A843]" />
+                      <ArrowDown className="w-6 h-6 text-[#DA292B]" />
                     </div>
                   )}
                 </div>
@@ -138,8 +138,8 @@ export default function HowEscrowWorksPage() {
               const Icon = b.icon;
               return (
                 <div key={b.title} className="bg-white rounded-xl p-6 border border-gray-100">
-                  <div className="w-10 h-10 rounded-lg bg-[#D4A843]/10 flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-[#D4A843]" />
+                  <div className="w-10 h-10 rounded-lg bg-[#DA292B]/10 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-[#DA292B]" />
                   </div>
                   <h3 className="font-bold mb-2">{b.title}</h3>
                   <p className="text-gray-600 text-sm">{b.desc}</p>
@@ -166,7 +166,7 @@ export default function HowEscrowWorksPage() {
               </ul>
             </div>
             <div className="border-2 border-green-200 rounded-2xl p-6 bg-green-50/30">
-              <h3 className="font-bold text-green-800 mb-4">✅ With Afrishelf Escrow</h3>
+              <h3 className="font-bold text-green-800 mb-4">✅ With Plentovo Escrow</h3>
               <ul className="space-y-3 text-sm text-gray-600">
                 <li>• Funds held securely until you approve the order</li>
                 <li>• 72-hour inspection window on every delivery</li>
@@ -180,11 +180,11 @@ export default function HowEscrowWorksPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-[#1A1A2E] to-[#0F3460]">
+      <section className="py-16 bg-gradient-to-br from-[#171B20] to-[#0F3460]">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-extrabold text-white mb-4">Ready to Trade With Confidence?</h2>
           <p className="text-white/60 mb-8">
-            Join thousands of buyers and sellers across Africa who trade safely with Afrishelf&apos;s escrow protection.
+            Join thousands of buyers and sellers across Africa who trade safely with Plentovo&apos;s escrow protection.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/browse">

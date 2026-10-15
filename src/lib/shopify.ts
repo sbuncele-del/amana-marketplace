@@ -1,4 +1,4 @@
-// Shopify Storefront API — Afrishelf Headless Integration
+// Shopify Storefront API — Plentovo Headless Integration
 // Docs: https://shopify.dev/docs/api/storefront
 
 const SHOPIFY_DOMAIN = process.env.SHOPIFY_STORE_DOMAIN || "";
@@ -483,7 +483,7 @@ export async function getCart(cartId: string): Promise<ShopifyCart | null> {
 // ─── Utility ─────────────────────────────────────────────────
 
 /**
- * Maps a Shopify product to Afrishelf's ProductCardData shape
+ * Maps a Shopify product to Plentovo's ProductCardData shape
  * so existing UI components work without changes.
  */
 export function toProductCardData(p: ShopifyProduct) {

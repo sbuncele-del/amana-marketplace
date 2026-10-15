@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get("limit") || "20");
     const after = searchParams.get("after") || undefined;
 
-    // Map Afrishelf sort values to Shopify sort keys
+    // Map Plentovo sort values to Shopify sort keys
     const sortMap: Record<string, { sortKey: "RELEVANCE" | "PRICE" | "TITLE" | "CREATED_AT" | "BEST_SELLING"; reverse: boolean }> = {
       newest: { sortKey: "CREATED_AT", reverse: true },
       oldest: { sortKey: "CREATED_AT", reverse: false },

@@ -31,10 +31,10 @@ export function CookieConsent() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4 animate-in slide-in-from-bottom duration-500">
-      <div className="max-w-4xl mx-auto bg-[#1A1A2E] border border-white/10 rounded-xl shadow-2xl p-5 sm:p-6">
+      <div className="max-w-4xl mx-auto bg-[#171B20] border border-white/10 rounded-xl shadow-2xl p-5 sm:p-6">
         <div className="flex items-start gap-4">
-          <div className="hidden sm:flex w-10 h-10 rounded-full bg-[#D4A843]/10 items-center justify-center flex-shrink-0 mt-0.5">
-            <Cookie className="w-5 h-5 text-[#D4A843]" />
+          <div className="hidden sm:flex w-10 h-10 rounded-full bg-[#DA292B]/10 items-center justify-center flex-shrink-0 mt-0.5">
+            <Cookie className="w-5 h-5 text-[#DA292B]" />
           </div>
 
           <div className="flex-1 min-w-0">
@@ -56,14 +56,14 @@ export function CookieConsent() {
               &ldquo;Accept&rdquo;, you consent to our use of cookies. Read our{" "}
               <Link
                 href="/cookies"
-                className="text-[#D4A843] hover:text-[#D4A843]/80 underline underline-offset-2"
+                className="text-[#DA292B] hover:text-[#DA292B]/80 underline underline-offset-2"
               >
                 Cookie Policy
               </Link>{" "}
               and{" "}
               <Link
                 href="/privacy"
-                className="text-[#D4A843] hover:text-[#D4A843]/80 underline underline-offset-2"
+                className="text-[#DA292B] hover:text-[#DA292B]/80 underline underline-offset-2"
               >
                 Privacy Policy
               </Link>{" "}
@@ -73,7 +73,7 @@ export function CookieConsent() {
             <div className="flex items-center gap-3">
               <button
                 onClick={accept}
-                className="px-5 py-2 text-xs font-semibold bg-[#D4A843] hover:bg-[#D4A843]/90 text-[#1A1A2E] rounded-lg transition-colors"
+                className="px-5 py-2 text-xs font-semibold bg-[#DA292B] hover:bg-[#DA292B]/90 text-[#171B20] rounded-lg transition-colors"
               >
                 Accept All
               </button>
