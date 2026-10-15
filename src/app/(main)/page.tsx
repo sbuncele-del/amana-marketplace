@@ -39,8 +39,11 @@ const discoveryGroups = [
 ];
 const collectionSpecs = [
   { slug: 'kitchen-dining', title: 'Make room for kitchen joy', match: /mug|utensil|pan|pot|knife|chopping|kitchen|oil.*bottle|cutlery/i, text: 'Useful finds for the meals and moments you make.' },
-  { slug: 'electronics', title: 'Small tech. More possibilities.', match: /speaker|headphone|earbud|charger|bluetooth|keyboard|mouse|power.bank/i, text: 'Practical upgrades for home, work and downtime.' },
+  { slug: 'electronics', title: 'Small tech. More possibilities.', match: /speaker|headphone|earbud|charger|bluetooth.speaker|computer.mouse|power.bank/i, text: 'Practical upgrades for home, work and downtime.' },
   { slug: 'toys-kids-baby', title: 'More joy for the little ones', match: /toy|teddy|doll|puzzle|building.block|baby|play.mat/i, text: 'Find something for their next adventure.' },
+  { slug: 'health-beauty', title: 'A little care, every day', match: /hair|skin|brush|beauty|makeup|groom|manicure|mirror/i, text: 'Everyday essentials for feeling your best.' },
+  { slug: 'storage-organisation', title: 'A place for everything', match: /storage|organis|rack|shelf|basket|drawer/i, text: 'Simple ways to make more room at home.' },
+  { slug: 'garden-outdoor', title: 'Good days start outside', match: /garden|plant|outdoor|camp|braai|picnic|solar/i, text: 'Find your next reason to enjoy the outdoors.' },
 ];
 
 export default async function HomePage() {
@@ -56,28 +59,28 @@ export default async function HomePage() {
   const valueCategories = [/desktop.fan|mini.fan/i,/lunch.box/i,/earbud/i,/water.bottle/i,/storage.container|food.container/i].map(match => valuePool.filter(p => match.test(p.name)).slice(0, 3));
   const valueHandles = [...new Set([0,1,2].flatMap(index => valueCategories.flatMap(products => products[index] ? [products[index].slug] : [])))];
   const selected = new Set(valueHandles);
-  const collectionCandidates = collectionSpecs.map(c => ({ ...c, handles: snapshot.filter(p => p.collections.includes(c.slug) && c.match.test(p.name) && p.images.length && !selected.has(p.slug)).slice(0, 4).map(p => { selected.add(p.slug); return p.slug; }) }));
+  const collectionCandidates = collectionSpecs.map(c => ({ ...c, handles: snapshot.filter(p => p.collections.includes(c.slug) && c.match.test(p.name) && p.images.length && !selected.has(p.slug)).slice(0, 8).map(p => { selected.add(p.slug); return p.slug; }) }));
   const [valueResults, collections] = await Promise.all([
     Promise.all(valueHandles.map(slug => getCatalogueProduct(slug))),
-    Promise.all(collectionCandidates.map(async c => ({ ...c, products: (await Promise.all(c.handles.map(slug => getCatalogueProduct(slug)))).filter((p): p is NonNullable<typeof p> => p !== null) }))),
+    Promise.all(collectionCandidates.map(async c => ({ ...c, products: (await Promise.all(c.handles.map(slug => getCatalogueProduct(slug)))).filter((p): p is NonNullable<typeof p> => p !== null && p.supplierAvailable && p.price > 0).slice(0, 5) }))),
   ]);
   // Display only freshly validated available products whose current retail price meets the heading.
   const valueProducts = valueResults.filter((p): p is NonNullable<typeof p> => p !== null && p.supplierAvailable && p.price > 0 && p.price < 300).slice(0, 5);
 
   return <main id="main-content" className="bg-[#F7F6F3] pb-14">
-    <section aria-labelledby="home-title" className="relative isolate mx-auto max-w-[1600px] overflow-hidden bg-[#EADCC8]">
-      <div className="absolute inset-0 hidden sm:block"><Image src="/brand/plentovo-hero.webp" alt="" fill priority sizes="100vw" className="object-cover object-center" /></div>
-      <div className="relative mx-auto max-w-[1400px] px-6 pb-5 pt-10 sm:flex sm:min-h-[370px] sm:items-center sm:px-8 sm:py-12 lg:min-h-[440px]">
+    <section aria-labelledby="home-title" className="relative isolate mx-auto max-w-[1800px] overflow-hidden bg-[#EADCC8]">
+      <div className="absolute inset-0 hidden sm:block"><Image src="/brand/plentovo-hero-v2.webp" alt="" fill priority sizes="100vw" className="object-cover object-center" /></div>
+      <div className="relative mx-auto max-w-[1800px] px-6 pb-5 pt-10 sm:flex sm:min-h-[370px] sm:items-center sm:px-8 sm:py-12 lg:min-h-[440px]">
         <div className="relative z-10 sm:max-w-[47%] sm:rounded-xl sm:bg-[#f8efdf]/35 sm:p-4 lg:bg-transparent lg:p-0">
           <h1 id="home-title" className="text-[clamp(2.6rem,4.4vw,4.4rem)] font-extrabold leading-[1.03] tracking-[-.045em] text-[#111820]">Good things.<br />Plenty of choice.</h1>
           <p className="mt-5 text-base text-[#22282D] sm:text-lg lg:text-xl">Discover more for your everyday.</p>
           <Link href="/browse" className="mt-7 inline-flex items-center gap-5 rounded-lg bg-[#DA292B] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#B91F25]">Explore the range <ArrowRight size={18} /></Link>
         </div>
-        <div className="relative -mx-6 mt-5 aspect-[2/1] sm:hidden"><Image src="/brand/plentovo-hero.webp" alt="Home, kitchen, audio and beauty essentials in a warm studio setting" fill priority sizes="100vw" className="object-cover object-right" /></div>
+        <div className="relative -mx-6 mt-5 aspect-[2/1] sm:hidden"><Image src="/brand/plentovo-hero-v2.webp" alt="Home, kitchen, audio and beauty essentials in a warm studio setting" fill priority sizes="100vw" className="object-cover object-right" /></div>
       </div>
     </section>
 
-    <section aria-label="Discover your everyday" className="mx-auto grid max-w-[1400px] gap-4 px-4 pt-5 sm:grid-cols-2 xl:grid-cols-4">
+    <section aria-label="Discover your everyday" className="mx-auto grid max-w-[1800px] gap-4 px-4 pt-5 sm:grid-cols-2 xl:grid-cols-4">
       {groups.map(group => <article key={group.title} className="flex flex-col rounded-xl border border-[#ECEAE5] bg-white p-4 lg:p-5">
         <h2 className="text-xl font-bold leading-tight tracking-tight">{group.title}</h2>
         <p className="mt-1.5 text-xs leading-5 text-gray-500">{group.subtitle}</p>
@@ -89,16 +92,16 @@ export default async function HomePage() {
       </article>)}
     </section>
 
-    {valueProducts.length > 0 && <section className="mx-auto max-w-[1400px] px-4 pt-10"><div className="mb-5 flex items-center justify-between gap-4"><h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Good finds under R300</h2><Link href="/browse?maxPrice=300&available=true" className="shrink-0 text-xs font-semibold text-red-700">View all →</Link></div><div className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-5">{valueProducts.map(product => <CatalogueCard key={product.id} product={product} />)}</div></section>}
+    {valueProducts.length > 0 && <section className="mx-auto max-w-[1800px] px-4 pt-10"><div className="mb-5 flex items-center justify-between gap-4"><h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Good finds under R300</h2><Link href="/browse?maxPrice=300&available=true" className="shrink-0 text-xs font-semibold text-red-700">View all →</Link></div><div className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-5">{valueProducts.map(product => <CatalogueCard key={product.id} product={product} />)}</div></section>}
 
-    <section aria-labelledby="living-title" className="relative isolate mx-auto mt-10 max-w-[1600px] overflow-hidden bg-[#EADFCF]">
+    <section aria-labelledby="living-title" className="relative isolate mx-auto mt-10 max-w-[1800px] overflow-hidden bg-[#EADFCF]">
       <div className="absolute inset-0 hidden sm:block"><Image src="/brand/plentovo-living.webp" alt="" fill sizes="100vw" className="object-cover object-center" /></div>
-      <div className="relative mx-auto max-w-[1400px] px-6 pb-0 pt-9 sm:flex sm:min-h-[330px] sm:items-center sm:px-8 sm:py-10 lg:min-h-[380px]"><div className="relative z-10 max-w-sm sm:max-w-[37%]"><h2 id="living-title" className="text-4xl font-extrabold leading-[1.08] tracking-[-.035em] lg:text-5xl">More room<br />for good living.</h2><p className="mt-4 max-w-xs text-base leading-6">Everyday essentials for a home you’ll love.</p><Link href="/department/home-living" className="mt-6 inline-flex items-center gap-4 rounded-lg bg-[#DA292B] px-5 py-3.5 text-sm font-bold text-white hover:bg-[#B91F25]">Explore home & living<ArrowRight size={17} /></Link></div><div className="relative -mx-6 mt-6 aspect-[2/1] sm:hidden"><Image src="/brand/plentovo-living.webp" alt="A warm living room with a cream sofa, oak table and green plants" fill sizes="100vw" className="object-cover object-right" /></div></div>
+      <div className="relative mx-auto max-w-[1800px] px-6 pb-0 pt-9 sm:flex sm:min-h-[330px] sm:items-center sm:px-8 sm:py-10 lg:min-h-[380px]"><div className="relative z-10 max-w-sm sm:max-w-[37%]"><h2 id="living-title" className="text-4xl font-extrabold leading-[1.08] tracking-[-.035em] lg:text-5xl">More room<br />for good living.</h2><p className="mt-4 max-w-xs text-base leading-6">Everyday essentials for a home you’ll love.</p><Link href="/department/home-living" className="mt-6 inline-flex items-center gap-4 rounded-lg bg-[#DA292B] px-5 py-3.5 text-sm font-bold text-white hover:bg-[#B91F25]">Explore home & living<ArrowRight size={17} /></Link></div><div className="relative -mx-6 mt-6 aspect-[2/1] sm:hidden"><Image src="/brand/plentovo-living.webp" alt="A warm living room with a cream sofa, oak table and green plants" fill sizes="100vw" className="object-cover object-right" /></div></div>
     </section>
 
-    {collections.filter(c => c.products.length).map(c => <section key={c.slug} className="mx-auto max-w-[1400px] px-4 pt-10"><div className="mb-5 flex items-end justify-between gap-4"><div><h2 className="text-2xl font-bold tracking-tight">{c.title}</h2><p className="mt-2 text-sm text-gray-500">{c.text}</p></div><Link href={`/department/${c.slug}`} className="shrink-0 text-xs font-semibold text-red-700">Explore more →</Link></div><div className="grid grid-cols-2 gap-3 md:grid-cols-4">{c.products.map(product => <CatalogueCard key={product.id} product={product} />)}</div></section>)}
+    {collections.filter(c => c.products.length).map(c => <section key={c.slug} className="mx-auto max-w-[1800px] px-4 pt-10"><div className="mb-5 flex items-end justify-between gap-4"><div><h2 className="text-2xl font-bold tracking-tight">{c.title}</h2><p className="mt-2 text-sm text-gray-500">{c.text}</p></div><Link href={`/department/${c.slug}`} className="shrink-0 text-xs font-semibold text-red-700">Explore more →</Link></div><div className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-5">{c.products.map(product => <CatalogueCard key={product.id} product={product} />)}</div></section>)}
 
-    <section className="mx-auto max-w-[1400px] px-4 pt-10"><h2 className="text-2xl font-bold tracking-tight">Good finds. Your budget.</h2><div className="mt-5 grid gap-4 sm:grid-cols-3">{[{amount:150,text:'Little additions to your everyday.'},{amount:300,text:'Useful essentials. Fresh possibilities.'},{amount:500,text:'More room for something you love.'}].map(b => <Link key={b.amount} href={`/browse?maxPrice=${b.amount}`} className="group rounded-xl border border-[#E9E4DD] bg-[#EFE9DF] p-6 transition hover:border-red-300"><p className="text-xs font-semibold text-gray-600">Shop finds under</p><h3 className="mt-2 text-4xl font-extrabold tracking-tight">R{b.amount}</h3><p className="mt-3 text-sm text-gray-600">{b.text}</p><span className="mt-5 flex items-center justify-between text-xs font-bold">Explore the collection<ArrowRight size={17} /></span></Link>)}</div></section>
-    <section aria-label="Help with your shopping" className="mx-auto max-w-[1400px] px-4 pt-10"><div className="grid gap-6 rounded-xl border border-gray-200 bg-white p-6 sm:grid-cols-3">{[{icon:PackageCheck,title:'Delivery, clearly explained',text:'See delivery rates, timelines and collection details.',href:'/shipping-faq'},{icon:MapPin,title:'Your place, remembered',text:'Sign in to save and manage your delivery addresses.',href:'/account'},{icon:HeartHandshake,title:'A little help, when you need it',text:'Talk to us about a product, delivery or return.',href:'/contact'}].map(s => <Link href={s.href} key={s.title} className="flex gap-3 hover:text-red-700"><s.icon className="mt-1 shrink-0 text-red-700" size={23} /><div><h2 className="text-sm font-bold">{s.title}</h2><p className="mt-1 text-xs leading-5 text-gray-500">{s.text}</p></div></Link>)}</div></section>
+    <section className="mx-auto max-w-[1800px] px-4 pt-10"><h2 className="text-2xl font-bold tracking-tight">Good finds. Your budget.</h2><div className="mt-5 grid gap-4 sm:grid-cols-3">{[{amount:150,text:'Little additions to your everyday.'},{amount:300,text:'Useful essentials. Fresh possibilities.'},{amount:500,text:'More room for something you love.'}].map(b => <Link key={b.amount} href={`/browse?maxPrice=${b.amount}`} className="group rounded-xl border border-[#E9E4DD] bg-[#EFE9DF] p-6 transition hover:border-red-300"><p className="text-xs font-semibold text-gray-600">Shop finds under</p><h3 className="mt-2 text-4xl font-extrabold tracking-tight">R{b.amount}</h3><p className="mt-3 text-sm text-gray-600">{b.text}</p><span className="mt-5 flex items-center justify-between text-xs font-bold">Explore the collection<ArrowRight size={17} /></span></Link>)}</div></section>
+    <section aria-label="Help with your shopping" className="mx-auto max-w-[1800px] px-4 pt-10"><div className="grid gap-6 rounded-xl border border-gray-200 bg-white p-6 sm:grid-cols-3">{[{icon:PackageCheck,title:'Delivery, clearly explained',text:'See delivery rates, timelines and collection details.',href:'/shipping-faq'},{icon:MapPin,title:'Your place, remembered',text:'Sign in to save and manage your delivery addresses.',href:'/account'},{icon:HeartHandshake,title:'A little help, when you need it',text:'Talk to us about a product, delivery or return.',href:'/contact'}].map(s => <Link href={s.href} key={s.title} className="flex gap-3 hover:text-red-700"><s.icon className="mt-1 shrink-0 text-red-700" size={23} /><div><h2 className="text-sm font-bold">{s.title}</h2><p className="mt-1 text-xs leading-5 text-gray-500">{s.text}</p></div></Link>)}</div></section>
   </main>;
 }

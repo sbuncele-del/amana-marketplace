@@ -78,7 +78,7 @@ export async function getCatalogueProducts(search='',category='',sort='newest',a
 }
 
 // Normal browsing validates only the visible page instead of refreshing every department.
-export async function getCataloguePage(search='',category='',page=1,limit=24) {
+export async function getCataloguePage(search='',category='',page=1,limit=25) {
  const term=search.trim().toLowerCase();
  const selected=catalogue.filter(p=>(!category||p.collections.includes(category))&&(!term||`${p.name} ${p.description} ${p.category.name}`.toLowerCase().includes(term)));
  const products=await Promise.all(selected.slice((page-1)*limit,page*limit).map(p=>getCatalogueProduct(p.slug).then(current=>current??update(p))));

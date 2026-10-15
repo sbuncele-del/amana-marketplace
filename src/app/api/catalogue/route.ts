@@ -2,7 +2,7 @@ import {NextRequest,NextResponse} from 'next/server';
 import {getCatalogueProducts,getCataloguePage,getCatalogueProduct} from '@/lib/catalogue';
 export async function GET(request:NextRequest){
  const q=request.nextUrl.searchParams;
- const page=Math.max(1,Math.floor(Number(q.get('page')))||1);const limit=Math.max(1,Math.min(48,Math.floor(Number(q.get('limit')))||24));
+ const page=Math.max(1,Math.floor(Number(q.get('page')))||1);const limit=Math.max(1,Math.min(48,Math.floor(Number(q.get('limit')))||25));
  const search=q.get('search')||'';const category=q.get('collection')||q.get('category')||'';const sort=q.get('sort')||'featured';
  let result;
  if(!q.has('minPrice')&&!q.has('maxPrice')&&q.get('available')!=='true'&&!['price-low','price-high'].includes(sort)){
