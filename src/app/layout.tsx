@@ -17,7 +17,7 @@ const playfair = Playfair_Display({
   weight: ["700", "800"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://primesources.online";
+import {siteUrl, jsonLd} from '@/lib/site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -76,10 +76,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
+      { url: "/brand/plentovo-icon.png", sizes: "192x192", type: "image/png" },
       { url: "/favicon.svg", type: "image/svg+xml" },
 
     ],
-    apple: "/favicon.svg",
+    apple: "/apple-touch-icon.png",
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined
@@ -95,6 +97,12 @@ export default function RootLayout({
   return (
     <html lang="en-ZA">
       <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{__html:jsonLd({
+          '@context':'https://schema.org', '@graph':[
+            {'@type':'Organization','@id':siteUrl+'/#organization',name:'Plentovo',url:siteUrl,address:{'@type':'PostalAddress',streetAddress:'116 Limpopo Avenue, Doringkloof',addressLocality:'Centurion',addressRegion:'Gauteng',postalCode:'0157',addressCountry:'ZA'},logo:siteUrl+'/brand/plentovo-icon.png'},
+            {'@type':'WebSite','@id':siteUrl+'/#website',name:'Plentovo',url:siteUrl,inLanguage:'en-ZA',publisher:{'@id':siteUrl+'/#organization'}}
+          ]
+        })}} />
         {gaId && (
           <>
             <Script

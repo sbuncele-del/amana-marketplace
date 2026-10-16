@@ -1,11 +1,17 @@
-import {getCatalogueSnapshot} from "@/lib/catalogue";
-import departments from "@/data/departments.json";
-import type { MetadataRoute } from "next";
+import {getCatalogueSnapshot} from '@/lib/catalogue';
+import departments from '@/data/departments.json';
+import {siteUrl, publicPages} from '@/lib/site';
+import type {MetadataRoute} from 'next';
 
-const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://primesources.online";
-
-const staticPages: MetadataRoute.Sitemap = ['', '/browse', '/about', '/contact', '/shipping-faq', '/returns', '/terms', '/privacy'].map(path=>({url:siteUrl+path,changeFrequency:'weekly',priority:path?0.6:1}));
-
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
- return [...staticPages, ...departments.map(d=>({url:`${siteUrl}/department/${d.slug}`,changeFrequency:"daily" as const,priority:0.9})), ...getCatalogueSnapshot().map(product => ({url: `${siteUrl}/product/${product.slug}`, changeFrequency: "weekly" as const, priority: 0.8}))];
+export default function sitemap(): MetadataRoute.Sitemap {
+ const products = getCatalogueSnapshot();
+ const directoryPages = Array.from({length: Math.ceil(products.length / 100)}, (_, i) => ({
+  url: siteUrl + '/sitemap-page/products' + (i ? '?page=' + (i + 1) : ''),
+ }));
+ return [
+  ...publicPages.map(path => ({url:siteUrl + path})),
+  ...departments.map(d => ({url:siteUrl + '/department/' + d.slug})),
+  ...directoryPages,
+  ...products.map(p => ({url:siteUrl + '/product/' + p.slug, images:p.images.map(image => new URL(image,siteUrl).href)})),
+ ];
 }
