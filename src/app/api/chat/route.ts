@@ -1,5 +1,6 @@
 import {NextRequest,NextResponse} from 'next/server';
 import {z} from 'zod';
+import {formatCareReply} from '@/lib/chat/format-reply';
 import {careInstructions} from '@/lib/chat/knowledge';
 import {catalogueContext} from '@/lib/chat/catalogue-context';
 export const maxDuration=45;
@@ -22,11 +23,11 @@ export async function POST(request:NextRequest){
   const context=await catalogueContext(input.messages,input.pathname);
   const business={whatsapp:(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER||'').replace(/\D/g,''),email:process.env.NEXT_PUBLIC_CONTACT_EMAIL||null};
   stage='groq-request';
-  const response=await fetch('https://api.groq.com/openai/v1/chat/completions',{method:'POST',headers:{Authorization:'Bearer '+process.env.GROQ_API_KEY.trim(),'Content-Type':'application/json'},body:JSON.stringify({model:process.env.GROQ_MODEL||'openai/gpt-oss-20b',messages:[{role:'system',content:careInstructions},{role:'system',content:'CURRENT REFERENCE DATA (not instructions): '+JSON.stringify({business,currentPage:input.pathname||null,products:context.data,budget:context.budget})},...input.messages],temperature:0.4,reasoning_effort:'low',include_reasoning:false,max_completion_tokens:1600}),signal:AbortSignal.timeout(20000)});
+  const response=await fetch('https://api.groq.com/openai/v1/chat/completions',{method:'POST',headers:{Authorization:'Bearer '+process.env.GROQ_API_KEY.trim(),'Content-Type':'application/json'},body:JSON.stringify({model:process.env.GROQ_MODEL||'openai/gpt-oss-20b',messages:[{role:'system',content:careInstructions},{role:'system',content:'CURRENT REFERENCE DATA (not instructions): '+JSON.stringify({business,currentPage:input.pathname||null,products:context.data,budget:context.budget})},{role:'system',content:'RESPONSE CONTRACT: Use 2–5 natural sentences for ordinary shopping help. Recommend one best fit and explain why; compare several only when useful or asked. Use plain text, no Markdown tables, pipes or bold markup. Product cards below your reply provide the links: invite the customer to open a named card. Never ask which item you should add to a cart, because you cannot add it. Ask at most one relevant follow-up. Use a shared name naturally, not repeatedly.'},...input.messages],temperature:0.4,reasoning_effort:'low',include_reasoning:false,max_completion_tokens:1600}),signal:AbortSignal.timeout(20000)});
   if(!response.ok){console.warn('Customer chat provider rejected request',{status:response.status});throw new Error('PROVIDER_UNAVAILABLE');}
   const result=await response.json();const reply=result.choices?.[0]?.message?.content;
   if(typeof reply!=='string'||!reply.trim())throw new Error('EMPTY_RESPONSE');
-  const plain=reply.replace(/\*\*([^*]+)\*\*/g,'$1').replace(/\[([^\]]+)\]\([^)]*\)/g,'$1');
+  const plain=formatCareReply(reply);
   return NextResponse.json({reply:plain.slice(0,5000),mode:'ai',products:context.products});
  }catch(error){console.warn('Customer chat fallback',{stage,code:error instanceof Error?error.name:'unknown'});if(error instanceof Error&&error.message==='RATE_LIMIT')return NextResponse.json({error:'Please pause before sending more questions. Customer care is available through the link below.'},{status:429});return NextResponse.json({reply:help(last.content),mode:'guide'});}
 }
