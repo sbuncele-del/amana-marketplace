@@ -17,12 +17,14 @@ export async function POST(request:NextRequest){
  let input;try{input=schema.parse(await request.json());}catch{return NextResponse.json({error:'Please send a short message.'},{status:400});}
  const last=input.messages.at(-1);if(last?.role!=='user')return NextResponse.json({error:'Please enter your question.'},{status:400});
  if(!process.env.GROQ_API_KEY)return NextResponse.json({reply:help(last.content),mode:'guide'});
+ let stage='rate-limit';
  try{
   await limitPublicRequest(request,'shopping-chat');
+  stage='groq-request';
   const response=await fetch('https://api.groq.com/openai/v1/chat/completions',{method:'POST',headers:{Authorization:'Bearer '+process.env.GROQ_API_KEY,'Content-Type':'application/json'},body:JSON.stringify({model:process.env.GROQ_MODEL||'llama-3.1-8b-instant',messages:[{role:'system',content:facts},...input.messages],temperature:0.2,max_completion_tokens:350}),signal:AbortSignal.timeout(15000)});
-  if(!response.ok)throw new Error('PROVIDER_UNAVAILABLE');
+  if(!response.ok){console.warn('Customer chat provider rejected request',{status:response.status});throw new Error('PROVIDER_UNAVAILABLE');}
   const result=await response.json();const reply=result.choices?.[0]?.message?.content;
   if(typeof reply!=='string'||!reply.trim())throw new Error('EMPTY_RESPONSE');
   return NextResponse.json({reply:reply.slice(0,4000),mode:'ai'});
- }catch(error){if(error instanceof Error&&error.message==='RATE_LIMIT')return NextResponse.json({error:'Please pause before sending more questions. Customer care is available through the link below.'},{status:429});return NextResponse.json({reply:help(last.content),mode:'guide'});}
+ }catch(error){console.warn('Customer chat fallback',{stage,code:error instanceof Error?error.name:'unknown'});if(error instanceof Error&&error.message==='RATE_LIMIT')return NextResponse.json({error:'Please pause before sending more questions. Customer care is available through the link below.'},{status:429});return NextResponse.json({reply:help(last.content),mode:'guide'});}
 }
