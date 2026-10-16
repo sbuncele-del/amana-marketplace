@@ -21,7 +21,7 @@ export async function POST(request:NextRequest){
  try{
   await limitPublicRequest(request,'shopping-chat');
   stage='groq-request';
-  const response=await fetch('https://api.groq.com/openai/v1/chat/completions',{method:'POST',headers:{Authorization:'Bearer '+process.env.GROQ_API_KEY,'Content-Type':'application/json'},body:JSON.stringify({model:process.env.GROQ_MODEL||'llama-3.1-8b-instant',messages:[{role:'system',content:facts},...input.messages],temperature:0.2,max_completion_tokens:350}),signal:AbortSignal.timeout(15000)});
+  const response=await fetch('https://api.groq.com/openai/v1/chat/completions',{method:'POST',headers:{Authorization:'Bearer '+process.env.GROQ_API_KEY.trim(),'Content-Type':'application/json'},body:JSON.stringify({model:process.env.GROQ_MODEL||'openai/gpt-oss-20b',messages:[{role:'system',content:facts},...input.messages],temperature:0.2,reasoning_effort:'low',include_reasoning:false,max_completion_tokens:1000}),signal:AbortSignal.timeout(15000)});
   if(!response.ok){console.warn('Customer chat provider rejected request',{status:response.status});throw new Error('PROVIDER_UNAVAILABLE');}
   const result=await response.json();const reply=result.choices?.[0]?.message?.content;
   if(typeof reply!=='string'||!reply.trim())throw new Error('EMPTY_RESPONSE');
