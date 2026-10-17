@@ -13,28 +13,28 @@ export const metadata: Metadata = {
 
 const discoveryGroups = [
   { title: 'Make yourself at home', subtitle: 'Stylish living for everyday life.', href: '/department/home-living', action: 'Shop home & kitchen', items: [
-    { label: 'Furniture', department: 'furniture', match: /sofa|armchair|coffee.table|lounge.chair/i },
-    { label: 'Cookware', department: 'kitchen-dining', match: /cookware|casserole|cooking.pot|saucepan/i },
-    { label: 'Bedding', department: 'home-living', match: /duvet|bedding|comforter|bed.sheet/i },
-    { label: 'Home décor', department: 'home-decor-gifts', match: /vase|candle|decor/i },
+    { label: 'Furniture', department: 'furniture', image: '/brand/categories/furniture-v1.webp' },
+    { label: 'Cookware', department: 'kitchen-dining', image: '/brand/categories/cookware-v1.webp' },
+    { label: 'Bedding', department: 'home-living', image: '/brand/categories/bedding-v1.webp' },
+    { label: 'Home décor', department: 'home-decor-gifts', image: '/brand/categories/home-decor-v1.webp' },
   ]},
   { title: 'A little everyday care', subtitle: 'Feel good, every day.', href: '/department/health-beauty', action: 'Shop beauty', items: [
-    { label: 'Skincare', department: 'health-beauty', match: /serum|moisturi|facial.clean|skin.care/i },
-    { label: 'Hair care', department: 'health-beauty', match: /hair.dryer|hair.straight|hair.brush/i },
-    { label: 'Fragrances', department: 'health-beauty', match: /perfume|fragrance|eau.de/i },
-    { label: 'Personal care', department: 'health-beauty', match: /electric.toothbrush|grooming|massage|personal.care/i },
+    { label: 'Skincare', department: 'health-beauty', image: '/brand/categories/skincare-v1.webp' },
+    { label: 'Hair care', department: 'health-beauty', image: '/brand/categories/hair-care-v1.webp' },
+    { label: 'Fragrances', department: 'health-beauty', image: '/brand/categories/fragrances-v1.webp' },
+    { label: 'Personal care', department: 'health-beauty', image: '/brand/categories/personal-care-v1.webp' },
   ]},
   { title: 'Made for play', subtitle: 'Big adventures start at home.', href: '/department/toys-kids-baby', action: 'Shop kids & baby', items: [
-    { label: 'Toys & games', department: 'toys-kids-baby', match: /teddy|building.block|puzzle|plush/i },
-    { label: 'Baby essentials', department: 'toys-kids-baby', match: /baby.bottle|feeding|sippy|baby.cup/i },
-    { label: 'Kids’ school', department: 'toys-kids-baby', match: /backpack|school.bag|lunch.box/i },
-    { label: 'Outdoor play', department: 'toys-kids-baby', match: /scooter|ride.on|tricycle/i },
+    { label: 'Toys & games', department: 'toys-kids-baby', image: '/brand/categories/toys-games-v1.webp' },
+    { label: 'Baby essentials', department: 'toys-kids-baby', image: '/brand/categories/baby-essentials-v1.webp' },
+    { label: 'Kids’ school', department: 'toys-kids-baby', image: '/brand/categories/kids-school-v1.webp' },
+    { label: 'Outdoor play', department: 'toys-kids-baby', image: '/brand/categories/outdoor-play-v1.webp' },
   ]},
   { title: 'Smart everyday upgrades', subtitle: 'Tech, tools and a little more ease.', href: '/department/electronics', action: 'Shop electronics', items: [
-    { label: 'Audio', department: 'electronics', match: /headphone|earbud/i },
-    { label: 'Wearables', department: 'electronics', match: /smart.watch|smartwatch/i },
-    { label: 'Lighting', department: 'home-living', match: /desk.lamp|table.lamp|bedside.lamp/i },
-    { label: 'Organisation', department: 'storage-organisation', match: /storage.box|storage.bin|organis/i },
+    { label: 'Audio', department: 'electronics', image: '/brand/categories/audio-v1.webp' },
+    { label: 'Wearables', department: 'electronics', image: '/brand/categories/wearables-v1.webp' },
+    { label: 'Lighting', department: 'home-living', image: '/brand/categories/lighting-v1.webp' },
+    { label: 'Organisation', department: 'storage-organisation', image: '/brand/categories/organisation-v1.webp' },
   ]},
 ];
 const collectionSpecs = [
@@ -48,13 +48,6 @@ const collectionSpecs = [
 
 export default async function HomePage() {
   const snapshot = getCatalogueSnapshot();
-  const usedImages = new Set<string>();
-  const groups = discoveryGroups.map(group => ({ ...group, items: group.items.map(item => {
-    const candidates = snapshot.filter(p => p.collections.includes(item.department) && p.images.length && !usedImages.has(p.slug));
-    const product = candidates.find(p => item.match.test(p.name)) || candidates[0];
-    if (product) usedImages.add(product.slug);
-    return { ...item, product };
-  }) }));
   const valuePool = snapshot.filter(p => p.price > 0 && p.price < 300 && p.images.length);
   const valueCategories = [/desktop.fan|mini.fan/i,/lunch.box/i,/earbud/i,/water.bottle/i,/storage.container|food.container/i].map(match => valuePool.filter(p => match.test(p.name)).slice(0, 3));
   const valueHandles = [...new Set([0,1,2].flatMap(index => valueCategories.flatMap(products => products[index] ? [products[index].slug] : [])))];
@@ -81,11 +74,11 @@ export default async function HomePage() {
     </section>
 
     <section aria-label="Discover your everyday" className="mx-auto grid max-w-[1800px] gap-4 px-4 pt-5 sm:grid-cols-2 xl:grid-cols-4">
-      {groups.map(group => <article key={group.title} className="flex flex-col rounded-xl border border-[#ECEAE5] bg-white p-4 lg:p-5">
+      {discoveryGroups.map(group => <article key={group.title} className="flex flex-col rounded-xl border border-[#ECEAE5] bg-white p-4 lg:p-5">
         <h2 className="text-xl font-bold leading-tight tracking-tight">{group.title}</h2>
         <p className="mt-1.5 text-xs leading-5 text-gray-500">{group.subtitle}</p>
         <div className="mt-4 grid grid-cols-2 gap-x-3 gap-y-4">{group.items.map(item => <Link key={item.label} href={`/department/${item.department}`} className="group min-w-0">
-          <div className="relative aspect-square overflow-hidden rounded-lg bg-[#F6F4F0]">{item.product?.images[0] && <Image src={item.product.images[0]} alt="" fill sizes="(max-width:640px) 44vw,(max-width:1280px) 22vw,145px" className="object-contain p-2 mix-blend-multiply transition duration-300 group-hover:scale-105" />}</div>
+          <div className="relative aspect-square overflow-hidden rounded-lg bg-[#F6F4F0]"><Image src={item.image} alt="" fill sizes="(max-width:640px) 44vw,(max-width:1280px) 22vw,200px" className="object-cover transition duration-300 group-hover:scale-105" /></div>
           <span className="mt-2 block text-[11px] font-medium group-hover:text-red-700">{item.label}</span>
         </Link>)}</div>
         <Link href={group.href} className="mt-5 flex items-center justify-center gap-3 rounded-full bg-[#F4F4F4] px-3 py-3 text-xs font-semibold transition hover:bg-red-50 hover:text-red-700">{group.action}<ArrowRight size={15} /></Link>
