@@ -78,7 +78,7 @@ export default async function HomePage() {
         <h2 className="text-xl font-bold leading-tight tracking-tight">{group.title}</h2>
         <p className="mt-1.5 text-xs leading-5 text-gray-500">{group.subtitle}</p>
         <div className="mt-4 grid grid-cols-2 gap-x-3 gap-y-4">{group.items.map(item => <Link key={item.label} href={`/department/${item.department}`} className="group min-w-0">
-          <div className="relative aspect-square overflow-hidden rounded-lg bg-[#F6F4F0]"><Image src={item.image} alt="" fill sizes="(max-width:640px) 44vw,(max-width:1280px) 22vw,200px" className="object-cover transition duration-300 group-hover:scale-105" /></div>
+          <div className="relative aspect-square overflow-hidden rounded-lg bg-[#F6F4F0]"><Image src={item.image} alt="" unoptimized fill sizes="(max-width:640px) 44vw,(max-width:1280px) 22vw,200px" className="object-cover transition duration-300 group-hover:scale-105" /></div>
           <span className="mt-2 block text-[11px] font-medium group-hover:text-red-700">{item.label}</span>
         </Link>)}</div>
         <Link href={group.href} className="mt-5 flex items-center justify-center gap-3 rounded-full bg-[#F4F4F4] px-3 py-3 text-xs font-semibold transition hover:bg-red-50 hover:text-red-700">{group.action}<ArrowRight size={15} /></Link>
