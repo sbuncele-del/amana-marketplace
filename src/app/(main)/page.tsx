@@ -51,14 +51,37 @@ export default async function HomePage() {
   const valuePool = snapshot.filter(p => p.price > 0 && p.price < 300 && p.images.length);
   const valueCategories = [/desktop.fan|mini.fan/i,/lunch.box/i,/earbud/i,/water.bottle/i,/storage.container|food.container/i].map(match => valuePool.filter(p => match.test(p.name)).slice(0, 3));
   const valueHandles = [...new Set([0,1,2].flatMap(index => valueCategories.flatMap(products => products[index] ? [products[index].slug] : [])))];
-  const selected = new Set(valueHandles);
-  const collectionCandidates = collectionSpecs.map(c => ({ ...c, handles: snapshot.filter(p => p.collections.includes(c.slug) && c.match.test(p.name) && p.images.length && !selected.has(p.slug)).slice(0, 12).map(p => { selected.add(p.slug); return p.slug; }) }));
-  const [valueResults, collections] = await Promise.all([
-    Promise.all(valueHandles.map(slug => getCatalogueProduct(slug))),
-    Promise.all(collectionCandidates.map(async c => ({ ...c, products: (await Promise.all(c.handles.map(slug => getCatalogueProduct(slug)))).filter((p): p is NonNullable<typeof p> => p !== null && p.supplierAvailable && p.price > 0).slice(0, 6) }))),
-  ]);
-  // Display only freshly validated available products whose current retail price meets the heading.
-  const valueProducts = valueResults.filter((p): p is NonNullable<typeof p> => p !== null && p.supplierAvailable && p.price > 0 && p.price < 300).slice(0, 6);
+  const selected = new Set<string>();
+  const checked = new Map<string, ReturnType<typeof getCatalogueProduct>>();
+  async function selectAvailable(handles: string[], maxPrice = Infinity) {
+    const products: NonNullable<Awaited<ReturnType<typeof getCatalogueProduct>>>[] = [];
+    // Refill after live validation, rather than truncating candidates before checking stock.
+    const candidates = [...new Set(handles)].filter(slug => !selected.has(slug)).slice(0, 60);
+    for (let offset = 0; offset < candidates.length && products.length < 6; offset += 6) {
+      const batch = await Promise.all(candidates.slice(offset, offset + 6).map(slug => {
+        let result = checked.get(slug);
+        if (!result) { result = getCatalogueProduct(slug); checked.set(slug, result); }
+        return result;
+      }));
+      for (const product of batch) {
+        if (product && product.supplierAvailable && product.price > 0 && product.price < maxPrice && !selected.has(product.slug)) {
+          products.push(product);
+          selected.add(product.slug);
+          if (products.length === 6) break;
+        }
+      }
+    }
+    return products;
+  }
+  const valueProducts = await selectAvailable([...valueHandles, ...valuePool.map(p => p.slug)], 300);
+  const collections = [];
+  for (const collection of collectionSpecs) {
+    const pool = snapshot.filter(p => p.collections.includes(collection.slug) && p.images.length);
+    const handles = [...pool.filter(p => collection.match.test(p.name)), ...pool.filter(p => !collection.match.test(p.name))].map(p => p.slug);
+    collections.push({ ...collection, products: await selectAvailable(handles) });
+  }
+  // If a department genuinely has fewer than six available items, fit the grid to the actual count.
+  const rowColumns = (count: number) => count >= 6 ? 'xl:grid-cols-6' : count === 5 ? 'xl:grid-cols-5' : count === 4 ? 'xl:grid-cols-4' : count === 3 ? 'xl:grid-cols-3' : count === 2 ? 'xl:grid-cols-2' : 'xl:grid-cols-1';
 
   return <main id="main-content" className="bg-[#F7F6F3] pb-14">
     <section aria-labelledby="home-title" className="relative isolate mx-auto max-w-[1800px] overflow-hidden bg-[#EADCC8]">
@@ -85,14 +108,14 @@ export default async function HomePage() {
       </article>)}
     </section>
 
-    {valueProducts.length > 0 && <section className="mx-auto max-w-[1800px] px-4 pt-10"><div className="mb-5 flex items-center justify-between gap-4"><h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Good finds under R300</h2><Link href="/browse?maxPrice=300&available=true" className="shrink-0 text-xs font-semibold text-red-700">View all →</Link></div><div className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6">{valueProducts.map(product => <CatalogueCard key={product.id} product={product} />)}</div></section>}
+    {valueProducts.length > 0 && <section className="mx-auto max-w-[1800px] px-4 pt-10"><div className="mb-5 flex items-center justify-between gap-4"><h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">Good finds under R300</h2><Link href="/browse?maxPrice=300&available=true" className="shrink-0 text-xs font-semibold text-red-700">View all →</Link></div><div className={`grid grid-cols-2 gap-3 md:grid-cols-3 ${rowColumns(valueProducts.length)}`}>{valueProducts.map(product => <CatalogueCard key={product.id} product={product} />)}</div></section>}
 
     <section aria-labelledby="living-title" className="relative isolate mx-auto mt-10 max-w-[1800px] overflow-hidden bg-[#EADFCF]">
       <div className="absolute inset-0 hidden sm:block"><Image src="/brand/plentovo-living.webp" alt="" fill sizes="100vw" className="object-cover object-center" /></div>
       <div className="relative mx-auto max-w-[1800px] px-6 pb-0 pt-9 sm:flex sm:min-h-[330px] sm:items-center sm:px-8 sm:py-10 lg:min-h-[380px]"><div className="relative z-10 max-w-sm sm:max-w-[37%]"><h2 id="living-title" className="text-4xl font-extrabold leading-[1.08] tracking-[-.035em] lg:text-5xl">More room<br />for good living.</h2><p className="mt-4 max-w-xs text-base leading-6">Everyday essentials for a home you’ll love.</p><Link href="/department/home-living" className="mt-6 inline-flex items-center gap-4 rounded-lg bg-[#DA292B] px-5 py-3.5 text-sm font-bold text-white hover:bg-[#B91F25]">Explore home & living<ArrowRight size={17} /></Link></div><div className="relative -mx-6 mt-6 aspect-[2/1] sm:hidden"><Image src="/brand/plentovo-living.webp" alt="A warm living room with a cream sofa, oak table and green plants" fill sizes="100vw" className="object-cover object-right" /></div></div>
     </section>
 
-    {collections.filter(c => c.products.length).map(c => <section key={c.slug} className="mx-auto max-w-[1800px] px-4 pt-10"><div className="mb-5 flex items-end justify-between gap-4"><div><h2 className="text-2xl font-bold tracking-tight">{c.title}</h2><p className="mt-2 text-sm text-gray-500">{c.text}</p></div><Link href={`/department/${c.slug}`} className="shrink-0 text-xs font-semibold text-red-700">Explore more →</Link></div><div className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6">{c.products.map(product => <CatalogueCard key={product.id} product={product} />)}</div></section>)}
+    {collections.filter(c => c.products.length).map(c => <section key={c.slug} className="mx-auto max-w-[1800px] px-4 pt-10"><div className="mb-5 flex items-end justify-between gap-4"><div><h2 className="text-2xl font-bold tracking-tight">{c.title}</h2><p className="mt-2 text-sm text-gray-500">{c.text}</p></div><Link href={`/department/${c.slug}`} className="shrink-0 text-xs font-semibold text-red-700">Explore more →</Link></div><div className={`grid grid-cols-2 gap-3 md:grid-cols-3 ${rowColumns(c.products.length)}`}>{c.products.map(product => <CatalogueCard key={product.id} product={product} />)}</div></section>)}
 
     <section className="mx-auto max-w-[1800px] px-4 pt-10"><h2 className="text-2xl font-bold tracking-tight">Good finds. Your budget.</h2><div className="mt-5 grid gap-4 sm:grid-cols-3">{[{amount:150,text:'Little additions to your everyday.'},{amount:300,text:'Useful essentials. Fresh possibilities.'},{amount:500,text:'More room for something you love.'}].map(b => <Link key={b.amount} href={`/browse?maxPrice=${b.amount}`} className="group rounded-xl border border-[#E9E4DD] bg-[#EFE9DF] p-6 transition hover:border-red-300"><p className="text-xs font-semibold text-gray-600">Shop finds under</p><h3 className="mt-2 text-4xl font-extrabold tracking-tight">R{b.amount}</h3><p className="mt-3 text-sm text-gray-600">{b.text}</p><span className="mt-5 flex items-center justify-between text-xs font-bold">Explore the collection<ArrowRight size={17} /></span></Link>)}</div></section>
     <section aria-label="Help with your shopping" className="mx-auto max-w-[1800px] px-4 pt-10"><div className="grid gap-6 rounded-xl border border-gray-200 bg-white p-6 sm:grid-cols-3">{[{icon:PackageCheck,title:'Delivery, clearly explained',text:'See delivery rates, timelines and collection details.',href:'/shipping-faq'},{icon:MapPin,title:'Your place, remembered',text:'Sign in to save and manage your delivery addresses.',href:'/account'},{icon:HeartHandshake,title:'A little help, when you need it',text:'Talk to us about a product, delivery or return.',href:'/contact'}].map(s => <Link href={s.href} key={s.title} className="flex gap-3 hover:text-red-700"><s.icon className="mt-1 shrink-0 text-red-700" size={23} /><div><h2 className="text-sm font-bold">{s.title}</h2><p className="mt-1 text-xs leading-5 text-gray-500">{s.text}</p></div></Link>)}</div></section>
