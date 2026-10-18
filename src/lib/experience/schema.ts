@@ -42,4 +42,12 @@ CREATE TABLE IF NOT EXISTS experience_rate_limits (
 );
 CREATE INDEX IF NOT EXISTS experience_rate_limit_expiry ON experience_rate_limits(expires_at);
 INSERT INTO experience_teams(id,name,country,capacity) VALUES('za-customer-care','South Africa · Customer Care','ZA',40) ON CONFLICT(id) DO NOTHING;
+
+CREATE TABLE IF NOT EXISTS catalogue_reviews (
+ id text PRIMARY KEY, slug text NOT NULL, user_id text NOT NULL REFERENCES "User"(id) ON DELETE CASCADE,
+ rating integer NOT NULL CHECK(rating BETWEEN 1 AND 5), comment text NOT NULL,
+ verified boolean NOT NULL DEFAULT false, created_at timestamptz NOT NULL DEFAULT now(),
+ UNIQUE(slug,user_id)
+);
+CREATE INDEX IF NOT EXISTS catalogue_reviews_slug ON catalogue_reviews(slug,created_at DESC);
 `;
