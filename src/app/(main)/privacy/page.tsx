@@ -72,10 +72,10 @@ export default function PrivacyPage() {
             <p>We use your personal information to:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>Provide, maintain, and improve the Plentovo platform</li>
-              <li>Process transactions and manage escrow through our partner Vesicash</li>
+              <li>Process orders and payments using the services available at checkout</li>
               <li>Verify seller identities and maintain marketplace trust and safety</li>
               <li>Facilitate communication between buyers and sellers</li>
-              <li>Send transactional notifications (order updates, escrow status, dispute updates)</li>
+              <li>Send transactional notifications (order updates, dispute updates)</li>
               <li>Send marketing communications (with your consent; you can opt out at any time)</li>
               <li>Detect and prevent fraud, abuse, and policy violations</li>
               <li>Comply with legal obligations across the jurisdictions we operate in</li>
@@ -99,7 +99,7 @@ export default function PrivacyPage() {
             </div>
             <div>
               <h3 className="font-bold text-gray-900 mb-1">With Service Providers</h3>
-              <p>We share data with Vesicash (escrow), Flutterwave (payments), shipping carriers, cloud infrastructure providers, and customer support tools — only as needed to provide our services.</p>
+              <p>We share data with service providers involved in payment processing, order fulfilment, hosting and customer support — only as needed to provide our services.</p>
             </div>
             <div>
               <h3 className="font-bold text-gray-900 mb-1">For Legal Compliance</h3>
@@ -144,7 +144,7 @@ export default function PrivacyPage() {
               <li>You may lodge a complaint with the Information Regulator</li>
             </ul>
             <p className="mt-2">
-              Our Information Officer can be reached at <strong>privacy@amanamarket.com</strong>.
+              Our Information Officer can be reached at <a href="/contact" className="font-semibold underline">our contact form</a>.
             </p>
           </div>
         </section>
@@ -166,7 +166,7 @@ export default function PrivacyPage() {
               <li>Ensuring any cross-border data transfers meet NDPR adequacy requirements</li>
             </ul>
             <p className="mt-2">
-              Our Data Protection Officer can be reached at <strong>dpo@amanamarket.com</strong>.
+              Our Data Protection Officer can be reached at <a href="/contact" className="font-semibold underline">our contact form</a>.
             </p>
           </div>
         </section>
@@ -203,7 +203,7 @@ export default function PrivacyPage() {
               <li><strong>Withdrawal of consent:</strong> Withdraw consent at any time for optional data processing</li>
             </ul>
             <p className="mt-2">
-              To exercise any of these rights, contact us at <strong>privacy@amanamarket.com</strong> or
+              To exercise any of these rights, contact us at <a href="/contact" className="font-semibold underline">our contact form</a> or
               through your account settings.
             </p>
           </div>
@@ -216,11 +216,11 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-extrabold">9. Contact Us</h2>
           </div>
           <div className="text-sm text-gray-600 leading-relaxed bg-gray-50 rounded-xl p-6">
-            <p className="mb-2"><strong>Plentovo Ltd.</strong></p>
+            <p className="mb-2"><strong>Plentovo</strong></p>
             <p>Data Protection & Privacy</p>
-            <p>P.O. Box 12345, Nairobi, Kenya</p>
-            <p className="mt-2">Email: <strong>privacy@amanamarket.com</strong></p>
-            <p>Phone: +254 xxx xxx xxx</p>
+            <p>116 Limpopo Avenue, Doringkloof, Centurion, 0157, South Africa</p>
+            <p className="mt-2">Contact: <a href="/contact" className="font-semibold underline">our contact form</a></p>
+            
             <p className="mt-4 text-gray-400">
               This Privacy Policy may be updated from time to time. We will notify you of material changes
               via email or through a notice on the platform.

@@ -15,7 +15,7 @@ const essentialCookies = [
 const analyticsCookies = [
   { name: "_ga", purpose: "Google Analytics — distinguishes unique users", duration: "2 years" },
   { name: "_gid", purpose: "Google Analytics — identifies user sessions", duration: "24 hours" },
-  { name: "_amana_metrics", purpose: "Internal analytics — page views, search queries, conversion tracking", duration: "1 year" },
+  { name: "site analytics (where enabled)", purpose: "Internal analytics — page views, search queries, conversion tracking", duration: "1 year" },
   { name: "ab_variant", purpose: "Assigns you to A/B test groups to improve our platform", duration: "30 days" },
 ];
 
@@ -210,7 +210,7 @@ export default function CookiesPage() {
               a banner on the Platform or by updating the &ldquo;Last updated&rdquo; date at the top of this page.
             </p>
             <p className="mt-3">
-              Questions? Contact us at <strong>privacy@amanamarket.com</strong>.
+              Questions? Contact us at <a href="/contact" className="font-semibold underline">our contact form</a>.
             </p>
           </div>
         </section>

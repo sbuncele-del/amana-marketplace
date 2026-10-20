@@ -31,7 +31,7 @@ export default function TermsPage() {
             <p>
               By creating an account, browsing, or making any transaction on Plentovo (&ldquo;the Platform&rdquo;),
               you agree to these Terms of Use, our <Link href="/privacy" className="text-[#DA292B] hover:underline">Privacy Policy</Link>,
-              our <Link href="/escrow-agreement" className="text-[#DA292B] hover:underline">Escrow Agreement</Link>,
+              our <Link href="/contact" className="text-[#DA292B] hover:underline">Customer care</Link>,
               and our <Link href="/acceptable-use" className="text-[#DA292B] hover:underline">Acceptable Use Policy</Link>.
               If you do not agree to any of these terms, do not use the Platform.
             </p>
@@ -66,7 +66,7 @@ export default function TermsPage() {
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
             <p>As a buyer on Plentovo, you agree to:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
-              <li>Make payments through the Platform&apos;s escrow system — never arrange off-platform payments</li>
+              <li>Make payments using the options displayed at checkout</li>
               <li>Review product listings carefully before purchasing, including descriptions, images, and seller ratings</li>
               <li>Provide an accurate shipping address and contact information for delivery</li>
               <li>Inspect delivered products within the 72-hour inspection window</li>
@@ -85,36 +85,19 @@ export default function TermsPage() {
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>Complete the seller verification process honestly and maintain accurate business information</li>
               <li>List products with accurate descriptions, images, and pricing as per our <Link href="/listing-standards" className="text-[#DA292B] hover:underline">Listing Standards</Link></li>
-              <li>Ship orders within the stated preparation time after escrow confirmation</li>
+              <li>Ship orders within the stated preparation time after payment confirmation</li>
               <li>Provide valid tracking information for all shipments</li>
               <li>Respond to buyer inquiries within 24 hours during business days</li>
               <li>Cooperate in dispute resolution by providing evidence within 48 hours</li>
               <li>Not sell prohibited items as defined in our <Link href="/acceptable-use" className="text-[#DA292B] hover:underline">Acceptable Use Policy</Link></li>
               <li>Comply with all applicable laws in your jurisdiction, including export regulations and tax obligations</li>
               <li>Accept returns and process refunds in accordance with our <Link href="/returns" className="text-[#DA292B] hover:underline">Returns Policy</Link></li>
-              <li>Not attempt to circumvent escrow or direct buyers to off-platform transactions</li>
+              <li>Not direct buyers to unauthorised payment channels</li>
             </ul>
           </div>
         </section>
 
-        <section className="bg-[#FAF8F5] rounded-2xl p-6">
-          <h2 className="text-xl font-extrabold mb-3">5. Escrow Terms</h2>
-          <div className="text-sm text-gray-600 leading-relaxed space-y-2">
-            <p>
-              All transactions on Plentovo are processed through Vesicash escrow. By using the Platform, you agree to the following escrow terms:
-            </p>
-            <ul className="list-disc list-inside space-y-1 ml-2">
-              <li>All payments are held in regulated trust accounts managed by Vesicash, a licensed escrow provider</li>
-              <li>Funds are released to the seller only when: (a) the buyer confirms satisfaction, (b) the 72-hour inspection window expires without a dispute, or (c) a dispute is resolved in the seller&apos;s favor</li>
-              <li>Funds are returned to the buyer only when: (a) the seller fails to ship within the agreed timeframe, or (b) a dispute is resolved in the buyer&apos;s favor</li>
-              <li>Escrow service fees are included in the platform commission and are not charged separately to buyers</li>
-              <li>Neither party may attempt to circumvent the escrow system</li>
-            </ul>
-            <p>
-              For full escrow details, see our <Link href="/escrow-agreement" className="text-[#DA292B] hover:underline">Escrow Agreement</Link>.
-            </p>
-          </div>
-        </section>
+        <section className="rounded-2xl border p-6"><h2 className="text-xl font-bold">5. Payments</h2><p className="mt-3 text-sm text-gray-600">Use the payment options displayed at checkout. Review the order total and delivery charges before confirming payment. For order or payment questions, contact customer care through our contact page.</p></section>
 
         <section>
           <h2 className="text-xl font-extrabold mb-3">6. Prohibited Conduct</h2>
@@ -125,7 +108,7 @@ export default function TermsPage() {
               <li>List or sell counterfeit, stolen, or illegal products</li>
               <li>Harass, threaten, or discriminate against other users</li>
               <li>Manipulate product reviews, ratings, or search results</li>
-              <li>Circumvent escrow by arranging off-platform payments</li>
+              <li>Request unauthorised payments outside checkout</li>
               <li>Use the Platform for money laundering or terrorist financing</li>
               <li>Scrape, data mine, or reverse engineer the Platform</li>
               <li>Impersonate another person or entity</li>
@@ -151,7 +134,7 @@ export default function TermsPage() {
             </p>
             <p>
               If you believe your intellectual property is being infringed on Plentovo, report it to
-              <strong> ip@amanamarket.com</strong> with the relevant details and we will investigate promptly.
+              <a href="/contact" className="font-semibold underline">our contact form</a> with the relevant details and we will investigate promptly.
             </p>
           </div>
         </section>
@@ -172,7 +155,7 @@ export default function TermsPage() {
               <li>We are not liable for indirect, incidental, special, or consequential damages</li>
             </ul>
             <p>
-              The escrow system significantly mitigates transaction risk, but does not eliminate all risk
+              Contact customer care if you have concerns about a transaction
               associated with online commerce.
             </p>
           </div>
@@ -183,12 +166,10 @@ export default function TermsPage() {
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
             <p>
               These Terms of Use shall be governed by and construed in accordance with the laws of the
-              Republic of Kenya, without regard to its conflict of law provisions.
+              Republic of South Africa, without regard to its conflict of law provisions.
             </p>
             <p>
-              Any dispute arising from or relating to these Terms shall first be submitted to mediation
-              in Nairobi, Kenya. If mediation is unsuccessful, the dispute shall be resolved by arbitration
-              under the Nairobi Centre for International Arbitration (NCIA) rules.
+              Please contact customer care about a dispute. Nothing in these terms limits rights or remedies available under applicable consumer protection law.
             </p>
             <p>
               For users in countries with mandatory consumer protection laws, those local protections
@@ -213,10 +194,10 @@ export default function TermsPage() {
             <AlertTriangle className="w-5 h-5 text-[#DA292B] flex-shrink-0 mt-0.5" />
             <div className="text-sm text-gray-500">
               <p>
-                Questions about these Terms? Contact our legal team at <strong>legal@amanamarket.com</strong>.
+                Questions about these Terms? Contact our legal team at <a href="/contact" className="font-semibold underline">our contact form</a>.
               </p>
               <p className="mt-2">
-                See also: <Link href="/privacy" className="text-[#DA292B] hover:underline">Privacy Policy</Link> · <Link href="/escrow-agreement" className="text-[#DA292B] hover:underline">Escrow Agreement</Link> · <Link href="/acceptable-use" className="text-[#DA292B] hover:underline">Acceptable Use Policy</Link> · <Link href="/cookies" className="text-[#DA292B] hover:underline">Cookie Policy</Link>
+                See also: <Link href="/privacy" className="text-[#DA292B] hover:underline">Privacy Policy</Link> · <Link href="/contact" className="text-[#DA292B] hover:underline">Customer care</Link> · <Link href="/acceptable-use" className="text-[#DA292B] hover:underline">Acceptable Use Policy</Link> · <Link href="/cookies" className="text-[#DA292B] hover:underline">Cookie Policy</Link>
               </p>
             </div>
           </div>
