@@ -125,7 +125,7 @@ export default function TermsPage() {
           <div className="text-sm text-gray-600 leading-relaxed space-y-2">
             <p>
               The Plentovo platform, including its design, software, logos, and content, is the
-              intellectual property of Plentovo Ltd. You may not reproduce, distribute, or create
+              intellectual property of Plentovo You may not reproduce, distribute, or create
               derivative works without our written permission.
             </p>
             <p>
