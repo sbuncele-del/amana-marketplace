@@ -7,7 +7,7 @@ export const maxDuration=300;
 
 export async function GET() {
  try {
-  const {csv,count}=buildPinterestFeed(await getCatalogueProducts());
+  const {csv,count}=buildPinterestFeed(await getCatalogueProducts('','','newest',false,true));
   if(!count)throw new Error('Empty catalogue');
   return new Response(csv,{headers:{
    'Content-Type':'text/csv; charset=utf-8',
@@ -16,7 +16,8 @@ export async function GET() {
    'X-Robots-Tag':'noindex',
    'X-Product-Count':String(count),
   }});
- }catch {
+ }catch(error) {
+  console.error("Pinterest feed generation failed",error instanceof Error?error.message:"Unknown error");
   return new Response('Product feed temporarily unavailable. Please retry later.',{status:503,headers:{'Cache-Control':'no-store','Retry-After':'300'}});
  }
 }
