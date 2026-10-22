@@ -1,28 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
-import { generateOrderNumber } from "@/lib/utils";
-import { initializePayment } from "@/lib/flutterwave";
-import { createEscrowTransaction } from "@/lib/vesicash";
-import { sendOrderConfirmationEmail, sendNewOrderToSellerEmail } from "@/lib/email";
-
-const PLATFORM_COMMISSION_RATE = 0.05; // 5% Plentovo commission
-const ESCROW_FEE_RATE = 0.015; // 1.5% Vesicash fee
-
-// Shipping cost calculation
-const shippingRates: Record<string, { domestic: number; crossBorder: number }> = {
-  dhl_express: { domestic: 15, crossBorder: 35 },
-  dhl_ecommerce: { domestic: 10, crossBorder: 25 },
-  aramex: { domestic: 12, crossBorder: 30 },
-  sendy: { domestic: 8, crossBorder: 0 },
-  self_ship: { domestic: 0, crossBorder: 0 },
-};
-
-function calculateShipping(method: string, isCrossBorder: boolean): number {
-  const rate = shippingRates[method] || shippingRates.dhl_ecommerce;
-  if (method === "self_ship") return 0;
-  return isCrossBorder ? rate.crossBorder : rate.domestic;
-}
 
 // GET /api/orders - List user orders
 export async function GET() {
