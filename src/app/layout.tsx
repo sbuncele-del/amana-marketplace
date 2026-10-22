@@ -17,7 +17,7 @@ const playfair = Playfair_Display({
   weight: ["700", "800"],
 });
 
-import {siteUrl, jsonLd} from '@/lib/site';
+import {siteUrl, jsonLd, socialLinks} from '@/lib/site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -99,7 +99,7 @@ export default function RootLayout({
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{__html:jsonLd({
           '@context':'https://schema.org', '@graph':[
-            {'@type':'Organization','@id':siteUrl+'/#organization',name:'Plentovo',url:siteUrl,address:{'@type':'PostalAddress',streetAddress:'116 Limpopo Avenue, Doringkloof',addressLocality:'Centurion',addressRegion:'Gauteng',postalCode:'0157',addressCountry:'ZA'},logo:siteUrl+'/brand/plentovo-icon.png'},
+            {'@type':'Organization','@id':siteUrl+'/#organization',name:'Plentovo',url:siteUrl,sameAs:socialLinks.map(s=>s.href),address:{'@type':'PostalAddress',streetAddress:'116 Limpopo Avenue, Doringkloof',addressLocality:'Centurion',addressRegion:'Gauteng',postalCode:'0157',addressCountry:'ZA'},logo:siteUrl+'/brand/plentovo-icon.png'},
             {'@type':'WebSite','@id':siteUrl+'/#website',name:'Plentovo',url:siteUrl,inLanguage:'en-ZA',publisher:{'@id':siteUrl+'/#organization'}}
           ]
         })}} />
