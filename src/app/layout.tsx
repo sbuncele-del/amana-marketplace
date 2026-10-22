@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import Script from "next/script";
+
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { CookieConsent } from "@/components/cookie-consent";
-import { Analytics } from "@vercel/analytics/react";
+import {ConsentAnalytics} from '@/components/consent-analytics';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -103,22 +103,7 @@ export default function RootLayout({
             {'@type':'WebSite','@id':siteUrl+'/#website',name:'Plentovo',url:siteUrl,inLanguage:'en-ZA',publisher:{'@id':siteUrl+'/#organization'}}
           ]
         })}} />
-        {gaId && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaId}', { page_path: window.location.pathname });
-              `}
-            </Script>
-          </>
-        )}
+
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased font-sans`}>
         <Providers>
@@ -126,7 +111,7 @@ export default function RootLayout({
 
         </Providers>
         <CookieConsent />
-        <Analytics />
+        <ConsentAnalytics measurementId={gaId} />
 
       </body>
     </html>

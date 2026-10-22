@@ -1,98 +1,19 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { Cookie, X } from "lucide-react";
-
-export function CookieConsent() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    // Check if user already accepted/declined
-    const consent = localStorage.getItem("amana-cookie-consent");
-    if (!consent) {
-      // Small delay so it doesn't flash on page load
-      const timer = setTimeout(() => setVisible(true), 1500);
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  const accept = () => {
-    localStorage.setItem("amana-cookie-consent", "accepted");
-    setVisible(false);
-  };
-
-  const decline = () => {
-    localStorage.setItem("amana-cookie-consent", "declined");
-    setVisible(false);
-  };
-
-  if (!visible) return null;
-
-  return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 animate-in slide-in-from-bottom duration-500">
-      <div className="max-w-4xl mx-auto bg-[#171B20] border border-white/10 rounded-xl shadow-2xl p-5 sm:p-6">
-        <div className="flex items-start gap-4">
-          <div className="hidden sm:flex w-10 h-10 rounded-full bg-[#DA292B]/10 items-center justify-center flex-shrink-0 mt-0.5">
-            <Cookie className="w-5 h-5 text-[#DA292B]" />
-          </div>
-
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-semibold text-white">
-                We use cookies
-              </h3>
-              <button
-                onClick={decline}
-                className="sm:hidden text-white/30 hover:text-white/60 transition-colors"
-                aria-label="Close"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-            <p className="text-xs text-white/45 leading-relaxed mb-4">
-              We use cookies and similar technologies to improve your experience,
-              analyse traffic, and personalise content. By clicking
-              &ldquo;Accept&rdquo;, you consent to our use of cookies. Read our{" "}
-              <Link
-                href="/cookies"
-                className="text-[#DA292B] hover:text-[#DA292B]/80 underline underline-offset-2"
-              >
-                Cookie Policy
-              </Link>{" "}
-              and{" "}
-              <Link
-                href="/privacy"
-                className="text-[#DA292B] hover:text-[#DA292B]/80 underline underline-offset-2"
-              >
-                Privacy Policy
-              </Link>{" "}
-              for more information.
-            </p>
-
-            <div className="flex items-center gap-3">
-              <button
-                onClick={accept}
-                className="px-5 py-2 text-xs font-semibold bg-[#DA292B] hover:bg-[#DA292B]/90 text-[#171B20] rounded-lg transition-colors"
-              >
-                Accept All
-              </button>
-              <button
-                onClick={decline}
-                className="px-5 py-2 text-xs font-semibold bg-white/5 hover:bg-white/10 text-white/60 border border-white/10 rounded-lg transition-colors"
-              >
-                Decline
-              </button>
-              <Link
-                href="/cookies"
-                className="hidden sm:inline-flex px-5 py-2 text-xs font-semibold text-white/40 hover:text-white/60 transition-colors"
-              >
-                Manage Preferences
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+'use client';
+import {useState,useEffect} from 'react';
+import Link from 'next/link';
+import {consentKey,consentChanged,openConsent,readConsent} from './consent-analytics';
+export function CookieConsent(){
+ const [visible,setVisible]=useState(false);
+ useEffect(()=>{setVisible(!readConsent());const open=()=>setVisible(true);window.addEventListener(openConsent,open);return()=>window.removeEventListener(openConsent,open);},[]);
+ function choose(value:'accepted'|'declined'){
+  const wasAccepted=readConsent()==='accepted';
+  try{localStorage.setItem(consentKey,value);localStorage.removeItem('amana-cookie-consent');}catch{setVisible(false);return;}
+  window.dispatchEvent(new Event(consentChanged));setVisible(false);
+  if(wasAccepted&&value==='declined'){
+   for(const entry of document.cookie.split(';')){const name=entry.split('=')[0].trim();if(name==='_ga'||name.startsWith('_ga_')||name==='_gid'){for(const domain of ['',`; domain=${location.hostname}`,`; domain=.${location.hostname}`])document.cookie=`${name}=; max-age=0; path=/${domain}`;}}
+   window.location.reload();
+  }
+ }
+ if(!visible)return null;
+ return <section aria-label="Cookie preferences" className="fixed inset-x-0 bottom-0 z-50 p-4"><div className="mx-auto max-w-4xl rounded-2xl border border-white/20 bg-[#171B20] p-6 text-white shadow-2xl"><h2 className="font-bold">Your cookie choices</h2><p className="mt-2 text-sm leading-6 text-white/80">Essential storage keeps your account, cart and delivery preferences working. You can also allow optional analytics to help us understand site usage. Read our <Link href="/cookies" className="underline">Cookie policy</Link> and <Link href="/privacy" className="underline">Privacy policy</Link>.</p><div className="mt-4 flex flex-wrap gap-3"><button onClick={()=>choose('declined')} className="min-h-11 rounded-lg border border-white/40 px-5 text-sm font-semibold">Essential only</button><button onClick={()=>choose('accepted')} className="min-h-11 rounded-lg bg-[#DA292B] px-5 text-sm font-semibold text-white">Accept analytics</button></div></div></section>;
 }
