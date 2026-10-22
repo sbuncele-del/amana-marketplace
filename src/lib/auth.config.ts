@@ -11,7 +11,7 @@ export const authConfig: NextAuthConfig = {
       const isLoggedIn = !!auth?.user;
       const pathname = nextUrl.pathname;
 
-      const protectedRoutes = ["/dashboard", "/checkout", "/admin", "/operations"];
+      const protectedRoutes = ["/dashboard", "/checkout", "/admin", "/operations", "/partner"];
       const isProtected = pathname !== "/checkout" && protectedRoutes.some((route) =>
         pathname.startsWith(route)
       );
