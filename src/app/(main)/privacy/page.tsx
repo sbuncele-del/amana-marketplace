@@ -1,7 +1,7 @@
 import { Shield, Eye, Database, Cookie, UserCheck, Mail, Globe } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = { title: "Privacy Policy — Plentovo" };
+export const metadata = { alternates: { canonical: "/privacy" }, title: "Privacy Policy — Plentovo" };
 
 export default function PrivacyPage() {
   return (

@@ -1,7 +1,7 @@
 import { Cookie, Settings, Shield, BarChart3, Megaphone, Globe } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = { title: "Cookie Policy — Plentovo" };
+export const metadata = { alternates: { canonical: "/cookies" }, title: "Cookie Policy — Plentovo" };
 
 const essentialCookies = [
   { name: "session_id", purpose: "Maintains your login session", duration: "Session (deleted when browser closes)" },

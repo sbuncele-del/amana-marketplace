@@ -1,7 +1,7 @@
 import { FileText, AlertTriangle } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = { title: "Terms of Use — Plentovo" };
+export const metadata = { alternates: { canonical: "/terms" }, title: "Terms of Use — Plentovo" };
 
 export default function TermsPage() {
   return (
