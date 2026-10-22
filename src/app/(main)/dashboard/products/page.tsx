@@ -59,7 +59,7 @@ export default function ProductsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="w-6 h-6 animate-spin text-[#D4A843]" />
+        <Loader2 className="w-6 h-6 animate-spin text-[#DA292B]" />
       </div>
     );
   }

@@ -28,7 +28,7 @@ export default function AnalyticsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <Loader2 className="w-8 h-8 animate-spin text-[#D4A843]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#DA292B]" />
       </div>
     );
   }
@@ -61,7 +61,7 @@ export default function AnalyticsPage() {
       <div className="bg-white rounded-xl border border-gray-100 p-6 mb-6">
         <div className="flex items-center justify-between mb-6">
           <h2 className="font-bold flex items-center gap-2">
-            <BarChart3 className="w-5 h-5 text-[#D4A843]" /> Monthly Revenue
+            <BarChart3 className="w-5 h-5 text-[#DA292B]" /> Monthly Revenue
           </h2>
           <span className="text-sm text-gray-400">Last 6 months</span>
         </div>
@@ -73,7 +73,7 @@ export default function AnalyticsPage() {
               <div key={m.month} className="flex-1 flex flex-col items-center gap-2">
                 <span className="text-xs font-semibold">{formatCurrency(m.amount, "USD")}</span>
                 <div
-                  className="w-full rounded-t-lg bg-gradient-to-t from-[#D4A843] to-[#D4A843]/60 transition-all hover:from-[#D4A843] hover:to-[#D4A843]"
+                  className="w-full rounded-t-lg bg-gradient-to-t from-[#DA292B] to-[#DA292B]/60 transition-all hover:from-[#DA292B] hover:to-[#DA292B]"
                   style={{ height: `${(m.amount / maxRevenue) * 100}%`, minHeight: m.amount > 0 ? "4px" : "0" }}
                 />
                 <span className="text-xs text-gray-400">{m.month}</span>
@@ -95,7 +95,7 @@ export default function AnalyticsPage() {
             <div className="space-y-4">
               {topProducts.map((product, i) => (
                 <div key={product.name} className="flex items-center gap-4">
-                  <span className="w-6 h-6 rounded-full bg-[#D4A843]/10 flex items-center justify-center text-xs font-bold text-[#D4A843]">
+                  <span className="w-6 h-6 rounded-full bg-[#DA292B]/10 flex items-center justify-center text-xs font-bold text-[#DA292B]">
                     {i + 1}
                   </span>
                   <div className="flex-1">
@@ -112,7 +112,7 @@ export default function AnalyticsPage() {
         {/* Trade Corridors */}
         <div className="bg-white rounded-xl border border-gray-100 p-6">
           <h2 className="font-bold mb-4 flex items-center gap-2">
-            <Globe className="w-5 h-5 text-[#D4A843]" /> Trade Corridors
+            <Globe className="w-5 h-5 text-[#DA292B]" /> Trade Corridors
           </h2>
           {topCorridors.length === 0 ? (
             <div className="text-center py-8 text-gray-400 text-sm">No cross-border trades yet</div>

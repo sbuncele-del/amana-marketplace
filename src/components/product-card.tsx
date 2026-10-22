@@ -46,7 +46,7 @@ export function ProductCard({ product }: { product: ProductCardData }) {
   return (
     <Link
       href={`/product/${product.slug}`}
-      className="group bg-white border border-gray-200 overflow-hidden hover:shadow-xl hover:border-[#D4A843]/40 transition-all duration-200 flex flex-col relative rounded-lg"
+      className="group bg-white border border-gray-200 overflow-hidden hover:shadow-xl hover:border-[#DA292B]/40 transition-all duration-200 flex flex-col relative rounded-lg"
     >
       {/* Discount badge */}
       {discount > 0 && (
@@ -81,7 +81,7 @@ export function ProductCard({ product }: { product: ProductCardData }) {
 
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-2">
-          <span className="bg-white text-[#1A1A2E] text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg">
+          <span className="bg-white text-[#171B20] text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg">
             <Eye className="w-3.5 h-3.5" /> View Product
           </span>
         </div>
@@ -98,7 +98,7 @@ export function ProductCard({ product }: { product: ProductCardData }) {
       {/* Info */}
       <div className="p-3 flex flex-col flex-1">
         {/* Product name */}
-        <h3 className="text-[13px] leading-tight font-medium text-gray-800 line-clamp-2 mb-2 min-h-[2.25rem] group-hover:text-[#D4A843] transition-colors">
+        <h3 className="text-[13px] leading-tight font-medium text-gray-800 line-clamp-2 mb-2 min-h-[2.25rem] group-hover:text-[#DA292B] transition-colors">
           {product.name}
         </h3>
 
@@ -121,7 +121,7 @@ export function ProductCard({ product }: { product: ProductCardData }) {
 
         {/* Price block */}
         <div className="mb-2">
-          <div className="text-base font-extrabold text-[#1A1A2E]">
+          <div className="text-base font-extrabold text-[#171B20]">
             {formatCurrency(product.price, product.currency)}
           </div>
           {product.comparePrice && product.comparePrice > product.price && (
@@ -136,13 +136,13 @@ export function ProductCard({ product }: { product: ProductCardData }) {
 
         {/* Shipping indicator */}
         <div className="flex items-center gap-1 text-[10px] text-emerald-600 font-medium mb-2">
-          <Truck className="w-3 h-3" /> Fast delivery available
+          <Truck className="w-3 h-3" /> Delivery confirmed before payment
         </div>
 
         {/* Add to cart button — appears on hover */}
         <div className="mt-auto pt-2 border-t border-gray-100">
-          <div className="w-full bg-[#D4A843] hover:bg-[#C4982F] text-white text-xs font-bold py-2 rounded-md flex items-center justify-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            <ShoppingCart className="w-3.5 h-3.5" /> Add to Cart
+          <div className="w-full bg-[#DA292B] hover:bg-[#B91F25] text-white text-xs font-bold py-2 rounded-md flex items-center justify-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <ShoppingCart className="w-3.5 h-3.5" /> View product
           </div>
           <div className="flex items-center justify-between text-[10px] text-gray-400 mt-2 group-hover:hidden">
             <span className="truncate max-w-[70%]">{storeName}</span>
@@ -191,10 +191,10 @@ export function ProductCardCompact({ product }: { product: ProductCardData }) {
         )}
       </div>
       <div className="p-2">
-        <h3 className="text-[12px] leading-tight text-gray-800 line-clamp-2 mb-1 group-hover:text-[#D4A843]">
+        <h3 className="text-[12px] leading-tight text-gray-800 line-clamp-2 mb-1 group-hover:text-[#DA292B]">
           {product.name}
         </h3>
-        <div className="text-sm font-extrabold text-[#1A1A2E]">
+        <div className="text-sm font-extrabold text-[#171B20]">
           {formatCurrency(product.price, product.currency)}
         </div>
         {product.comparePrice && product.comparePrice > product.price && (

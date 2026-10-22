@@ -231,7 +231,7 @@ export default function EditProductPage() {
   if (fetching) {
     return (
       <div className="flex items-center justify-center min-h-[40vh]">
-        <Loader2 className="w-8 h-8 animate-spin text-[#D4A843]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#DA292B]" />
       </div>
     );
   }
@@ -284,14 +284,14 @@ export default function EditProductPage() {
         {/* Basic Info */}
         <div className="bg-white rounded-xl border border-gray-100 p-6">
           <h2 className="font-bold mb-4 flex items-center gap-2">
-            <Package className="w-5 h-5 text-[#D4A843]" /> Product Details
+            <Package className="w-5 h-5 text-[#DA292B]" /> Product Details
           </h2>
           <div className="space-y-4">
             <Input label="Product Name" name="name" value={formData.name} onChange={handleChange} required />
             <div>
               <label className="block text-sm font-semibold mb-1.5">Description</label>
               <textarea name="description" value={formData.description} onChange={handleChange} rows={4}
-                className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:border-[#D4A843] focus:ring-1 focus:ring-[#D4A843] outline-none"
+                className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:border-[#DA292B] focus:ring-1 focus:ring-[#DA292B] outline-none"
                 required />
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -299,7 +299,7 @@ export default function EditProductPage() {
               <div>
                 <label className="block text-sm font-semibold mb-1.5">Currency</label>
                 <select name="currency" value={formData.currency} onChange={handleChange}
-                  className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:border-[#D4A843] focus:ring-1 focus:ring-[#D4A843] outline-none">
+                  className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:border-[#DA292B] focus:ring-1 focus:ring-[#DA292B] outline-none">
                   {["USD", "NGN", "KES", "GHS", "TZS", "ETB", "ZAR", "RWF", "UGX", "XOF", "EGP"].map(c => (
                     <option key={c} value={c}>{c}</option>
                   ))}
@@ -309,7 +309,7 @@ export default function EditProductPage() {
             <div>
               <label className="block text-sm font-semibold mb-1.5">Category</label>
               <select name="categoryId" value={formData.categoryId} onChange={handleChange}
-                className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:border-[#D4A843] focus:ring-1 focus:ring-[#D4A843] outline-none" required>
+                className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:border-[#DA292B] focus:ring-1 focus:ring-[#DA292B] outline-none" required>
                 <option value="">Select category</option>
                 {categories.map(cat => (
                   <option key={cat.id} value={cat.id}>{cat.name}</option>
@@ -323,7 +323,7 @@ export default function EditProductPage() {
             </div>
             <div className="flex items-center gap-3">
               <input type="checkbox" id="isActive" name="isActive" checked={formData.isActive}
-                onChange={handleChange} className="w-4 h-4 rounded border-gray-300 text-[#D4A843] focus:ring-[#D4A843]" />
+                onChange={handleChange} className="w-4 h-4 rounded border-gray-300 text-[#DA292B] focus:ring-[#DA292B]" />
               <label htmlFor="isActive" className="text-sm font-semibold">Active (visible to buyers)</label>
             </div>
           </div>
@@ -332,7 +332,7 @@ export default function EditProductPage() {
         {/* Images */}
         <div className="bg-white rounded-xl border border-gray-100 p-6">
           <h2 className="font-bold mb-4 flex items-center gap-2">
-            <ImageIcon className="w-5 h-5 text-[#D4A843]" /> Product Images
+            <ImageIcon className="w-5 h-5 text-[#DA292B]" /> Product Images
           </h2>
           <div className="grid grid-cols-4 gap-3 mb-4">
             {existingImages.map((url, i) => (
@@ -356,7 +356,7 @@ export default function EditProductPage() {
             ))}
             {existingImages.length + newImageFiles.length < 8 && (
               <button type="button" onClick={() => fileInputRef.current?.click()}
-                className="aspect-square rounded-lg border-2 border-dashed border-gray-200 flex flex-col items-center justify-center gap-1 hover:border-[#D4A843] hover:bg-[#D4A843]/5 transition-colors">
+                className="aspect-square rounded-lg border-2 border-dashed border-gray-200 flex flex-col items-center justify-center gap-1 hover:border-[#DA292B] hover:bg-[#DA292B]/5 transition-colors">
                 <Upload className="w-5 h-5 text-gray-400" />
                 <span className="text-[10px] text-gray-400">Add Image</span>
               </button>
@@ -373,7 +373,7 @@ export default function EditProductPage() {
             <div>
               <label className="block text-sm font-semibold mb-1.5">Origin Country</label>
               <select name="originCountry" value={formData.originCountry} onChange={handleChange}
-                className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:border-[#D4A843] focus:ring-1 focus:ring-[#D4A843] outline-none" required>
+                className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:border-[#DA292B] focus:ring-1 focus:ring-[#DA292B] outline-none" required>
                 <option value="">Select origin</option>
                 {africanCountries.map(c => (
                   <option key={c} value={c}>{c}</option>
@@ -387,8 +387,8 @@ export default function EditProductPage() {
                   <button key={country} type="button" onClick={() => toggleShipsTo(country)}
                     className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
                       shipsTo.includes(country)
-                        ? "bg-[#D4A843] text-white border-[#D4A843]"
-                        : "bg-white text-gray-500 border-gray-200 hover:border-[#D4A843]"
+                        ? "bg-[#DA292B] text-white border-[#DA292B]"
+                        : "bg-white text-gray-500 border-gray-200 hover:border-[#DA292B]"
                     }`}>
                     {country}
                   </button>
@@ -411,7 +411,7 @@ export default function EditProductPage() {
           {tags.length > 0 && (
             <div className="flex flex-wrap gap-2">
               {tags.map(tag => (
-                <span key={tag} className="bg-[#FAF8F5] border border-[#D4A843]/20 text-sm px-3 py-1 rounded-full flex items-center gap-1.5">
+                <span key={tag} className="bg-[#FAF8F5] border border-[#DA292B]/20 text-sm px-3 py-1 rounded-full flex items-center gap-1.5">
                   {tag}
                   <button type="button" onClick={() => setTags(tags.filter(t => t !== tag))}>
                     <X className="w-3 h-3 text-gray-400 hover:text-red-500" />
@@ -424,7 +424,7 @@ export default function EditProductPage() {
 
         {/* Submit */}
         <div className="flex items-center gap-3">
-          <Button type="submit" disabled={loading || uploadingImages} className="bg-[#D4A843] text-white hover:bg-[#B8922E]">
+          <Button type="submit" disabled={loading || uploadingImages} className="bg-[#DA292B] text-white hover:bg-[#B91F25]">
             {loading ? (
               <><Loader2 className="w-4 h-4 animate-spin mr-2" />{uploadingImages ? "Uploading images..." : "Saving..."}</>
             ) : (

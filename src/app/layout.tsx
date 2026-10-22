@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import Script from "next/script";
+
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { CookieConsent } from "@/components/cookie-consent";
-import { EmailCapturePopup } from "@/components/email-capture-popup";
-import { Analytics } from "@vercel/analytics/react";
+import {ConsentAnalytics} from '@/components/consent-analytics';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -18,16 +17,16 @@ const playfair = Playfair_Display({
   weight: ["700", "800"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://primesources.online";
+import {siteUrl, jsonLd, socialLinks} from '@/lib/site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Prime Sources — Africa's Growing Online Marketplace | Buy & Sell Across Africa",
-    template: "%s | Prime Sources Marketplace",
+    default: "Plentovo — Online Shopping South Africa",
+    template: "%s | Plentovo",
   },
   description:
-    "Shop electronics, fashion, home goods, beauty & more from verified African sellers. Fast shipping, secure payments via PayFast, EFT & card. Best prices guaranteed on primesources.online.",
+    "Shop home, kitchen, electronics, beauty, kids and more at Plentovo. Discover everyday choice and value, with South African delivery.",
   keywords: [
     "online marketplace South Africa",
     "buy online South Africa",
@@ -39,14 +38,13 @@ export const metadata: Metadata = {
     "home goods Africa",
     "beauty products South Africa",
     "cross-border shopping Africa",
-    "primesources",
     "buy and sell Africa",
     "affordable shopping South Africa",
     "trending products South Africa",
   ],
-  authors: [{ name: "Prime Sources", url: siteUrl }],
-  creator: "Prime Sources",
-  publisher: "Prime Sources",
+  authors: [{ name: "Plentovo", url: siteUrl }],
+  creator: "Plentovo",
+  publisher: "Plentovo",
   robots: {
     index: true,
     follow: true,
@@ -56,39 +54,37 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_ZA",
     url: siteUrl,
-    siteName: "Prime Sources Marketplace",
-    title: "Prime Sources — Africa's Growing Online Marketplace",
+    siteName: "Plentovo",
+    title: "Plentovo — Online Shopping South Africa",
     description:
-      "Shop electronics, fashion, home goods, beauty & more from verified African sellers. Secure payments, fast shipping across Africa.",
+      "Everyday finds for your home and family, with South African delivery.",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Prime Sources Marketplace — Shop Across Africa",
+        url: "/brand/plentovo-social.jpg",
+        width: 1536,
+        height: 1024,
+        alt: "Plentovo — Shop South Africa",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prime Sources — Africa's Growing Online Marketplace",
+    title: "Plentovo — Online Shopping South Africa",
     description:
-      "Shop electronics, fashion, home goods & more. Secure payments, fast shipping across Africa.",
-    images: ["/og-image.png"],
-    creator: "@primesources",
-  },
-  alternates: {
-    canonical: siteUrl,
+      "Shop home, kitchen, electronics, beauty, kids and more in South Africa.",
+    images: ["/brand/plentovo-social.jpg"],
   },
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
+      { url: "/brand/plentovo-icon.png", sizes: "192x192", type: "image/png" },
       { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico" },
+
     ],
     apple: "/apple-touch-icon.png",
   },
   verification: {
-    google: "", // Add your Google Search Console verification code here
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined
   },
 };
 
@@ -99,70 +95,24 @@ export default function RootLayout({
 }>) {
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
   return (
-    <html lang="en">
+    <html lang="en-ZA">
       <head>
-        {gaId && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaId}', { page_path: window.location.pathname });
-              `}
-            </Script>
-          </>
-        )}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{__html:jsonLd({
+          '@context':'https://schema.org', '@graph':[
+            {'@type':'Organization','@id':siteUrl+'/#organization',name:'Plentovo',url:siteUrl,sameAs:socialLinks.map(s=>s.href),address:{'@type':'PostalAddress',streetAddress:'116 Limpopo Avenue, Doringkloof',addressLocality:'Centurion',addressRegion:'Gauteng',postalCode:'0157',addressCountry:'ZA'},logo:siteUrl+'/brand/plentovo-icon.png'},
+            {'@type':'WebSite','@id':siteUrl+'/#website',name:'Plentovo',url:siteUrl,inLanguage:'en-ZA',publisher:{'@id':siteUrl+'/#organization'}}
+          ]
+        })}} />
+
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased font-sans`}>
         <Providers>
           {children}
-          <EmailCapturePopup />
+
         </Providers>
         <CookieConsent />
-        <Analytics />
-        {/* WhatsApp chat widget */}
-        <Script id="whatsapp-widget" strategy="lazyOnload">
-          {`
-            var url = 'https://wati-integration-prod-service.clare.ai/v2/watiWidget.js?161000';
-            var s = document.createElement('script');
-            s.type = 'text/javascript';
-            s.async = true;
-            s.src = url;
-            var options = {
-              enabled: true,
-              chatButtonSetting: {
-                backgroundColor: '#25D366',
-                ctaText: 'Chat with us',
-                borderRadius: '25',
-                marginLeft: '0',
-                marginRight: '20',
-                marginBottom: '20',
-                ctaIconWATI: false,
-                position: 'right'
-              },
-              brandSetting: {
-                brandName: 'Prime Sources',
-                brandSubTitle: 'Typically replies within minutes',
-                brandImg: '/favicon.ico',
-                welcomeText: 'Hi! Need help with your order or product info? Chat with us 👋',
-                messageText: '',
-                backgroundColor: '#1A1A2E',
-                ctaText: 'Start Chat',
-                borderRadius: '25',
-                autoShow: false,
-                phoneNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
-              }
-            };
-            s.onload = function() { CreateWhatsappChatWidget(options); };
-            var x = document.getElementsByTagName('script')[0];
-            x.parentNode.insertBefore(s, x);
-          `}
-        </Script>
+        <ConsentAnalytics measurementId={gaId} />
+
       </body>
     </html>
   );

@@ -44,9 +44,9 @@ export async function initializePayment(params: {
     },
     payment_options: params.paymentMethod || "card,mobilemoney,bank_transfer,ussd",
     customizations: {
-      title: "Amana Marketplace",
+      title: "Plentovo",
       description: `Order ${params.orderId}`,
-      logo: `${process.env.NEXT_PUBLIC_APP_URL}/logo.png`,
+      logo: `${process.env.NEXT_PUBLIC_APP_URL}/brand/plentovo.svg`,
     },
     meta: {
       order_id: params.orderId,

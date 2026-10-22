@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/layout/navbar";
+import {CustomerChat} from "@/components/shop/customer-chat";
 import { Footer } from "@/components/layout/footer";
 
 export default function MainLayout({
@@ -9,8 +10,9 @@ export default function MainLayout({
   return (
     <>
       <Navbar />
-      <main className="min-h-screen">{children}</main>
+      <div className="min-h-screen">{children}</div>
       <Footer />
+      <CustomerChat/>
     </>
   );
 }

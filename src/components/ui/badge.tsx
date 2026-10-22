@@ -8,7 +8,7 @@ interface BadgeProps {
 
 const variantStyles = {
   default: "bg-gray-100 text-gray-700",
-  gold: "bg-[#D4A843]/10 text-[#B8922E]",
+  gold: "bg-[#DA292B]/10 text-[#B91F25]",
   green: "bg-green-50 text-green-700",
   red: "bg-red-50 text-red-700",
   blue: "bg-blue-50 text-blue-700",

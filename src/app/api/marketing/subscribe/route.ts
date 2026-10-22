@@ -49,13 +49,13 @@ export async function POST(req: NextRequest) {
             Authorization: `Bearer ${resendKey}`,
           },
           body: JSON.stringify({
-            from: `Prime Sources <${fromEmail}>`,
+            from: `Plentovo <${fromEmail}>`,
             to: sanitizedEmail,
             subject: "🎉 Your 10% discount is here!",
             html: `
               <div style="font-family:sans-serif;max-width:500px;margin:0 auto;padding:32px 24px;background:#fff;">
                 <div style="background:linear-gradient(135deg,#1A1A2E,#0F3460);border-radius:16px;padding:32px;text-align:center;margin-bottom:24px;">
-                  <h1 style="color:#D4A843;font-size:28px;margin:0 0 8px;">Welcome to Prime Sources!</h1>
+                  <h1 style="color:#D4A843;font-size:28px;margin:0 0 8px;">Welcome to Plentovo!</h1>
                   <p style="color:rgba(255,255,255,0.7);margin:0;">Africa's #1 Online Marketplace</p>
                 </div>
                 <p style="color:#333;font-size:16px;">Hi there,</p>

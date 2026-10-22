@@ -1,0 +1,73 @@
+{
+  "supplier": "Perfect Dealz",
+  "checkedAt": "2026-10-12",
+  "currency": "ZAR",
+  "fulfilment": "Customer pays Amana; Amana places a single-unit supplier order; supplier delivers to customer.",
+  "shipping": {
+    "confirmedForSku": false,
+    "estimatedSmallParcel": 79,
+    "processingBusinessDays": [
+      0,
+      2
+    ],
+    "transitBusinessDays": [
+      3,
+      5
+    ]
+  },
+  "paymentAllowancePercent": 6,
+  "returnsAllowance": 50,
+  "products": [
+    {
+      "slug": "8l-air-fryer-digital-led",
+      "name": "8L Air Fryer with Digital LED Display",
+      "supplierSku": "YAD-YG544.",
+      "sourceUrl": "https://perfectdealz.co.za/products/8l-air-fryer-with-digital-led-display",
+      "supplierCost": 1119,
+      "proposedPrice": 1499,
+      "colours": [
+        "Black",
+        "White"
+      ],
+      "supplierAvailability": "In Stock (website)",
+      "description": "Supplier-listed 8-litre air fryer with digital LED controls. Colour-specific photos and specifications await confirmation.",
+      "status": "draft",
+      "images": [],
+      "unresolved": [
+        "Actual model and colour-specific photos",
+        "Permission to use supplier images",
+        "Warranty and return handling",
+        "South African plug and electrical specifications",
+        "Current variant stock",
+        "Final delivery and dropshipping charges",
+        "Packaging without supplier invoice or branding"
+      ]
+    },
+    {
+      "slug": "8l-air-fryer-digital-touch",
+      "name": "8L Digital Touch Panel Air Fryer",
+      "supplierSku": "NEA-299",
+      "sourceUrl": "https://perfectdealz.co.za/products/8l-digital-touch-panel-air-fryer",
+      "supplierCost": 1249,
+      "proposedPrice": 1649,
+      "colours": [
+        "Black",
+        "White"
+      ],
+      "supplierAvailability": "In Stock (website)",
+      "description": "Supplier-listed 8-litre air fryer with digital touch controls. Supplier specifications list 1800W, 220–240V, an 80–200°C range and a 60-minute timer; these remain unverified manufacturer claims.",
+      "status": "draft",
+      "images": [],
+      "unresolved": [
+        "Actual model and colour-specific photos",
+        "Permission to use supplier images",
+        "Warranty and return handling",
+        "South African plug",
+        "Current variant stock",
+        "Final delivery and dropshipping charges",
+        "Competitive delivered selling price",
+        "Packaging without supplier invoice or branding"
+      ]
+    }
+  ]
+}

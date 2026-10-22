@@ -1,176 +1,23 @@
-"use client";
-
-import {
-  createContext,
-  useContext,
-  useState,
-  useCallback,
-  useEffect,
-  ReactNode,
-} from "react";
-
-interface CartLine {
-  id: string;
-  quantity: number;
-  merchandise: {
-    id: string;
-    title: string;
-    price: { amount: string; currencyCode: string };
-    product: { title: string; handle: string; images: { url: string }[] };
-  };
+'use client';
+import { createContext,useContext,useState,useEffect,ReactNode } from 'react';
+type Line = {id:string;quantity:number;weightGrams?:number|null;merchandise:{id:string;title:string;price:{amount:string;currencyCode:string};product:{title:string;handle:string;images:{url:string}[]}}};
+const CartContext=createContext<null | {deliveryMethod:'DELIVERY'|'COLLECTION';setDeliveryMethod:(method:'DELIVERY'|'COLLECTION')=>void;cartId:string|null;checkoutUrl:string|null;lines:Line[];totalAmount:{amount:string;currencyCode:string}|null;itemCount:number;loading:boolean;addToCart:(id:string,quantity?:number)=>Promise<{checkoutUrl:string}>;updateLine:(id:string,quantity:number)=>Promise<void>;removeLine:(id:string)=>Promise<void>;goToCheckout:()=>void;clearCart:()=>void}>(null);
+const KEY='amana_local_cart_v1';
+async function validated(lines: unknown): Promise<Line[]> {
+ const response=await fetch('/api/catalogue/cart',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({lines}),cache:'no-store'});
+ if(!response.ok)throw new Error('Unable to check stock and prices');
+ return (await response.json()).lines;
 }
-
-interface CartState {
-  cartId: string | null;
-  checkoutUrl: string | null;
-  lines: CartLine[];
-  totalAmount: { amount: string; currencyCode: string } | null;
-  itemCount: number;
-  loading: boolean;
+export function CartProvider({children}:{children:ReactNode}) {
+ const [deliveryMethod,setDeliveryMethod]=useState<'DELIVERY'|'COLLECTION'>('DELIVERY');
+ const [lines,setLines]=useState<Line[]>([]); const [ready,setReady]=useState(false);
+ useEffect(()=>{try{if(localStorage.getItem('afrishelf_delivery_method_v1')==='COLLECTION')setDeliveryMethod('COLLECTION');}catch{}let active=true;void (async()=>{try{const current=await validated(JSON.parse(localStorage.getItem(KEY)||'[]'));if(active)setLines(current);}catch{}finally{if(active)setReady(true);}})();return()=>{active=false;};},[]);
+ useEffect(()=>{if(ready)try{localStorage.setItem(KEY,JSON.stringify(lines.map(({id,quantity})=>({id,quantity}))));}catch{}},[lines,ready]);
+ useEffect(()=>{if(ready)try{localStorage.setItem('afrishelf_delivery_method_v1',deliveryMethod);}catch{}},[ready,deliveryMethod]);
+ async function addToCart(id:string,quantity=1){const candidate=await validated([{id,quantity}]);if(!candidate.length)throw new Error('Invalid product');const found=lines.find(l=>l.id===id);const next=found?lines.map(l=>l.id===id?{...l,quantity:Math.min(10,l.quantity+quantity)}:l):[...lines,candidate[0]];const checked=await validated(next);localStorage.setItem(KEY,JSON.stringify(checked.map(({id,quantity})=>({id,quantity}))));setLines(checked);return {checkoutUrl:'/cart'};}
+ async function updateLine(id:string,quantity:number){setLines(await validated(lines.map(l=>l.id===id?{...l,quantity}:l)));}
+ async function removeLine(id:string){setLines(old=>old.filter(l=>l.id!==id));}
+ const total=lines.reduce((s,l)=>s+Number(l.merchandise.price.amount)*l.quantity,0);
+ return <CartContext.Provider value={{deliveryMethod,setDeliveryMethod,cartId:lines.length?'local':null,checkoutUrl:lines.length?'/cart':null,lines,totalAmount:{amount:total.toFixed(2),currencyCode:'ZAR'},itemCount:lines.reduce((s,l)=>s+l.quantity,0),loading:!ready,addToCart,updateLine,removeLine,goToCheckout:()=>{window.location.href='/cart';},clearCart:()=>setLines([])}}>{children}</CartContext.Provider>;
 }
-
-interface CartContextValue extends CartState {
-  addToCart: (merchandiseId: string, quantity?: number) => Promise<{ checkoutUrl: string }>;
-  updateLine: (lineId: string, quantity: number) => Promise<void>;
-  removeLine: (lineId: string) => Promise<void>;
-  goToCheckout: () => void;
-  clearCart: () => void;
-}
-
-const CartContext = createContext<CartContextValue | null>(null);
-
-const CART_ID_KEY = "amana_shopify_cart_id";
-
-export function CartProvider({ children }: { children: ReactNode }) {
-  const [state, setState] = useState<CartState>({
-    cartId: null,
-    checkoutUrl: null,
-    lines: [],
-    totalAmount: null,
-    itemCount: 0,
-    loading: false,
-  });
-
-  // Restore cart from localStorage on mount
-  useEffect(() => {
-    const savedCartId = localStorage.getItem(CART_ID_KEY);
-    if (savedCartId) {
-      fetch(`/api/shopify/cart?cartId=${encodeURIComponent(savedCartId)}`)
-        .then(r => r.ok ? r.json() : null)
-        .then(data => {
-          if (data?.cartId) {
-            setState(s => ({
-              ...s,
-              cartId: data.cartId,
-              checkoutUrl: data.checkoutUrl,
-              lines: data.lines ?? [],
-              totalAmount: data.totalAmount,
-              itemCount: (data.lines ?? []).reduce((sum: number, l: CartLine) => sum + l.quantity, 0),
-            }));
-          } else {
-            localStorage.removeItem(CART_ID_KEY);
-          }
-        })
-        .catch(() => localStorage.removeItem(CART_ID_KEY));
-    }
-  }, []);
-
-  const addToCart = useCallback(async (merchandiseId: string, quantity = 1) => {
-    setState(s => ({ ...s, loading: true }));
-    try {
-      const res = await fetch("/api/shopify/cart", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          merchandiseId,
-          quantity,
-          cartId: state.cartId || undefined,
-        }),
-      });
-
-      if (!res.ok) throw new Error("Failed to add to cart");
-      const data = await res.json();
-
-      localStorage.setItem(CART_ID_KEY, data.cartId);
-      setState(s => ({
-        ...s,
-        cartId: data.cartId,
-        checkoutUrl: data.checkoutUrl,
-        lines: data.lines ?? [],
-        totalAmount: data.totalAmount,
-        itemCount: (data.lines ?? []).reduce((sum: number, l: CartLine) => sum + l.quantity, 0),
-        loading: false,
-      }));
-
-      return { checkoutUrl: data.checkoutUrl };
-    } catch (err) {
-      setState(s => ({ ...s, loading: false }));
-      throw err;
-    }
-  }, [state.cartId]);
-
-  const updateLine = useCallback(async (lineId: string, quantity: number) => {
-    if (!state.cartId) return;
-    setState(s => ({ ...s, loading: true }));
-    try {
-      const res = await fetch("/api/shopify/cart", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cartId: state.cartId, lineId, quantity }),
-      });
-      const data = await res.json();
-      setState(s => ({
-        ...s,
-        lines: data.lines ?? [],
-        totalAmount: data.totalAmount,
-        itemCount: (data.lines ?? []).reduce((sum: number, l: CartLine) => sum + l.quantity, 0),
-        loading: false,
-      }));
-    } catch {
-      setState(s => ({ ...s, loading: false }));
-    }
-  }, [state.cartId]);
-
-  const removeLine = useCallback(async (lineId: string) => {
-    if (!state.cartId) return;
-    setState(s => ({ ...s, loading: true }));
-    try {
-      const res = await fetch("/api/shopify/cart", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cartId: state.cartId, removeLineIds: [lineId] }),
-      });
-      const data = await res.json();
-      setState(s => ({
-        ...s,
-        lines: data.lines ?? [],
-        totalAmount: data.totalAmount,
-        itemCount: (data.lines ?? []).reduce((sum: number, l: CartLine) => sum + l.quantity, 0),
-        loading: false,
-      }));
-    } catch {
-      setState(s => ({ ...s, loading: false }));
-    }
-  }, [state.cartId]);
-
-  const goToCheckout = useCallback(() => {
-    if (state.checkoutUrl) window.location.href = state.checkoutUrl;
-  }, [state.checkoutUrl]);
-
-  const clearCart = useCallback(() => {
-    localStorage.removeItem(CART_ID_KEY);
-    setState({ cartId: null, checkoutUrl: null, lines: [], totalAmount: null, itemCount: 0, loading: false });
-  }, []);
-
-  return (
-    <CartContext.Provider value={{ ...state, addToCart, updateLine, removeLine, goToCheckout, clearCart }}>
-      {children}
-    </CartContext.Provider>
-  );
-}
-
-export function useCart() {
-  const ctx = useContext(CartContext);
-  if (!ctx) throw new Error("useCart must be used within CartProvider");
-  return ctx;
-}
+export function useCart(){const context=useContext(CartContext);if(!context)throw new Error('CartProvider required');return context;}

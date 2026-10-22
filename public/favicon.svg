@@ -1,10 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#D4A843"/>
-      <stop offset="100%" stop-color="#C4982F"/>
-    </linearGradient>
-  </defs>
-  <rect width="32" height="32" rx="6" fill="url(#g)"/>
-  <text x="16" y="22" font-family="Arial Black, sans-serif" font-size="14" font-weight="900" fill="white" text-anchor="middle" letter-spacing="-0.5">PS</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect x="0" y="0" width="120" height="120" rx="19" fill="#DA292B"/><path d="M24 104V45Q24 35 34 31L61 19Q66 17 72 20L98 33L42 57V96Z" fill="white"/><path d="M48 62L98 40V69Q98 76 91 79L56 95V74L76 65V51L48 63Z" fill="white"/></svg>

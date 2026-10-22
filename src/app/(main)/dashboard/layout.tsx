@@ -29,7 +29,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <div className="bg-white rounded-xl border border-gray-100 p-4 sticky top-28">
               {/* Store info */}
               <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
-                <div className="w-10 h-10 rounded-full bg-[#D4A843]/10 flex items-center justify-center font-bold text-[#D4A843]">
+                <div className="w-10 h-10 rounded-full bg-[#DA292B]/10 flex items-center justify-center font-bold text-[#DA292B]">
                   <Store className="w-5 h-5" />
                 </div>
                 <div>
@@ -47,7 +47,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     href={link.href}
                     className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${
                       pathname === link.href
-                        ? "bg-[#D4A843]/10 text-[#D4A843]"
+                        ? "bg-[#DA292B]/10 text-[#DA292B]"
                         : "text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                     }`}
                   >
@@ -59,7 +59,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
               <div className="mt-6 pt-4 border-t border-gray-100">
                 <Link href="/dashboard/products/new">
-                  <button className="w-full flex items-center justify-center gap-2 bg-[#D4A843] text-white rounded-lg py-2.5 text-sm font-semibold hover:bg-[#c49a3a] transition-colors">
+                  <button className="w-full flex items-center justify-center gap-2 bg-[#DA292B] text-white rounded-lg py-2.5 text-sm font-semibold hover:bg-[#c49a3a] transition-colors">
                     <Plus className="w-4 h-4" /> Add Product
                   </button>
                 </Link>

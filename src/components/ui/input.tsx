@@ -21,7 +21,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             "flex h-10 w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm transition-colors",
             "file:border-0 file:bg-transparent file:text-sm file:font-medium",
             "placeholder:text-gray-400",
-            "focus:outline-none focus:ring-2 focus:ring-[#D4A843]/30 focus:border-[#D4A843]",
+            "focus:outline-none focus:ring-2 focus:ring-[#DA292B]/30 focus:border-[#DA292B]",
             "disabled:cursor-not-allowed disabled:opacity-50",
             error && "border-red-400 focus:ring-red-300 focus:border-red-400",
             className
