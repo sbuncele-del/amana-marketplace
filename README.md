@@ -1,126 +1,34 @@
-# 🌍 Amana — African Cross-Border Marketplace
+# Plentovo
 
-**Amana** (meaning *trust* in Swahili) is a secure cross-border marketplace connecting African sellers with buyers worldwide. Built with escrow-first payments, verified sellers, and multi-currency support.
+South African retail storefront at https://plentovo.com, an African Shelf brand.
+The repository retains its historical name `amana-marketplace`.
 
-> Part of the [ATG Group of Companies](https://atgfin.com) ecosystem.
+## Current launch stage
 
----
+Browsing-only prelaunch. Online order creation is closed on the server until an approved payment integration and the complete order lifecycle are tested. Payfast is under consideration; this repository does not establish provider approval.
 
-## ✨ Features
+Do not describe legacy Flutterwave or Vesicash modules as active integrations, promise escrow protection, invent partners, or fabricate reviews. CIPC registration details and a verified branded email remain pending.
 
-- **Buyer Protection** — Vesicash escrow holds funds until delivery is confirmed
-- **Secure Payments** — Flutterwave gateway supporting cards, mobile money, bank transfers
-- **Seller Verification** — KYC/business document verification with trust scores
-- **Product Marketplace** — Categories, search, filtering, reviews & ratings
-- **Order Tracking** — Full lifecycle from purchase to delivery
-- **Seller Dashboard** — Analytics, product management, order fulfillment, settings
-- **Multi-Currency** — USD, ZAR, NGN, KES, and more
-- **Responsive UI** — Radix UI + Tailwind CSS, mobile-first design
+## Development
 
-## 🛠 Tech Stack
+Node.js 24, Next.js 16, React 19, PostgreSQL and Prisma.
 
-| Layer | Technology |
-|-------|-----------|
-| Framework | Next.js 16 (App Router, TypeScript) |
-| Database | PostgreSQL 16 + Prisma ORM |
-| Auth | NextAuth v5 (credentials) |
-| Payments | Flutterwave |
-| Escrow | Vesicash |
-| UI | Radix UI + Tailwind CSS |
-| Validation | Zod |
-| Deployment | Docker + Nginx (Vultr VPS) |
+- Install: `npm ci`
+- Generate database client: `npx prisma generate`
+- Run locally: `npm run dev`
+- Check types: `npx tsc --noEmit`
+- Build: `npm run build` (runs the experience migration; use an approved database)
 
-## 📁 Project Structure
+Configure DATABASE_URL and authentication secrets in the environment. Email delivery requires RESEND_API_KEY and a verified FROM_EMAIL; missing configuration must fail explicitly. Public email links use src/lib/site.ts.
 
-```
-src/
-├── app/
-│   ├── (auth)/          # Login, Register
-│   ├── (main)/          # All public pages + dashboard
-│   └── api/             # REST endpoints (auth, products, orders, webhooks)
-├── components/          # Reusable UI (navbar, footer, product card, auth forms)
-├── lib/                 # Prisma client, auth config, payment integrations
-└── middleware.ts        # Route protection
-prisma/
-├── schema.prisma        # Database schema
-└── seed.ts              # Seed data
-```
+## Releases
 
-## 🚀 Getting Started
+The audited production baseline is b4b2c166ca8d4a1e01975087cba78bdbf3830a60 on catalogue/live-stock-health-beauty. The older main branch contains obsolete branding and operating claims. Never deploy main until it has been reconciled with the approved release. Verify Vercel project, commit and production aliases before releasing.
 
-### Prerequisites
-- Node.js 20+
-- PostgreSQL 16 (or use Docker)
+## Pinterest feed
 
-### Local Development
+`/feeds/pinterest.csv` uses live supplier prices and availability and Google taxonomy IDs. Supplier refresh errors must return a retryable 503 rather than publish false out-of-stock data. Category coverage and rule specificity require validation; Pinterest ingestion is separate from generating a valid CSV.
 
-```bash
-# Clone
-git clone https://github.com/sbuncele-del/amana-marketplace.git
-cd amana-marketplace
+## Social profiles
 
-# Install dependencies
-npm install
-
-# Set up environment
-cp .env.example .env.local
-# Edit .env.local with your database URL and API keys
-
-# Generate Prisma client
-npx prisma generate
-
-# Push schema to database
-npx prisma db push
-
-# Seed sample data
-npx prisma db seed
-
-# Start dev server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000)
-
-### Docker (Production)
-
-```bash
-# Set environment variables
-cp .env.example .env
-# Edit .env with production values
-
-# Build and start
-docker compose up -d --build
-
-# Run database migrations
-docker compose exec app npx prisma db push
-docker compose exec app npx prisma db seed
-```
-
-## 🌐 Deployment (Vultr VPS)
-
-A deployment script is included for Ubuntu 22.04+ VPS:
-
-```bash
-chmod +x deploy.sh
-sudo ./deploy.sh your-domain.com
-```
-
-This installs Docker, Nginx, and configures a reverse proxy. See `deploy.sh` for full details.
-
-## 🔑 Environment Variables
-
-| Variable | Description |
-|----------|-------------|
-| `DATABASE_URL` | PostgreSQL connection string |
-| `NEXTAUTH_URL` | App URL (e.g. https://your-domain.com) |
-| `NEXTAUTH_SECRET` | Random secret for session encryption |
-| `VESICASH_API_URL` | Vesicash API endpoint |
-| `VESICASH_PUBLIC_KEY` | Vesicash public key |
-| `VESICASH_PRIVATE_KEY` | Vesicash private key |
-| `FLUTTERWAVE_PUBLIC_KEY` | Flutterwave public key |
-| `FLUTTERWAVE_SECRET_KEY` | Flutterwave secret key |
-| `NEXT_PUBLIC_APP_URL` | Public-facing app URL |
-
-## 📄 License
-
-Proprietary — ATG Group of Companies. All rights reserved.
+The footer links Facebook, YouTube, TikTok and Pinterest. Ownership verification and the exact Instagram URL remain outstanding. Do not infer an Instagram handle.
