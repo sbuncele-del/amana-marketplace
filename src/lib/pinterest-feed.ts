@@ -9,6 +9,13 @@ const cell = (value:string) => '"'+value.replace(/"/g,'""')+'"';
 // Category IDs verified against Google's published English product taxonomy.
 // Match the product function first; use its department only as a fallback.
 const googleCategoryRules: [RegExp,string][] = [
+ [/\bpipe cutters?\b/i,"2080"],
+ [/\bshoe.*(?:rack|organi[sz]er)/i,"5559"],
+ [/\bsteam mops?\b/i,"543603"],
+ [/\bmops?\b/i,"2713"],
+ [/\b(?:electric|rechargeable).*massag/i,"543596"],
+ [/\bmassag.*(?:tool|roller)|\bgua sha\b/i,"543597"],
+ [/\bmassag(?:er|ers)\b/i,"471"],
  [/\bkey\s*chains?\b/i,"175"], // Apparel & Accessories > Handbag & Wallet Accessories > Keychains
  [/blood pressure/i,"495"], // Health & Beauty > Health Care > Biometric Monitors > Blood Pressure Monitors
  [/\bair.?fryer|deep fryer/i,"738"], // Home & Garden > Kitchen & Dining > Kitchen Appliances > Deep Fryers
@@ -101,7 +108,7 @@ const departmentGoogleCategories:Record<string,string> = {
 };
 export function googleProductCategory(product:Pick<CatalogueProduct,'name'|'category'>) {
  return googleCategoryRules.find(([pattern])=>pattern.test(product.name))?.[1]
-  ?? departmentGoogleCategories[product.category.slug] ?? '536';
+  ?? departmentGoogleCategories[product.category.slug] ?? ''; 
 }
 
 // One representative offer per product, matching the variant selected on arrival.
@@ -121,7 +128,9 @@ export function buildPinterestFeed(products:CatalogueProduct[]) {
   if(!['https:','http:'].includes(image.protocol)||!title||!description)continue;
   const link=new URL('/product/'+encodeURIComponent(product.slug),siteUrl);
   if(link.href.length>511||image.href.length>2000)continue;
-  rows.push([product.id.slice(0,127),title,description,link.href,image.href,variant.price.toFixed(2)+' ZAR',variant.supplierAvailable?'in stock':'out of stock',product.id.slice(0,127),'new',product.category.name,googleProductCategory(product)]);
+  const googleCategory=googleProductCategory(product);
+  if(!googleCategory)throw new Error(`Unmapped Google category: ${product.slug}`);
+  rows.push([product.id.slice(0,127),title,description,link.href,image.href,variant.price.toFixed(2)+' ZAR',variant.supplierAvailable?'in stock':'out of stock',product.id.slice(0,127),'new',product.category.name,googleCategory]);
  }
  return {csv:[columns.map(cell).join(','),...rows.map(row=>row.map(cell).join(','))].join('\r\n')+'\r\n',count:rows.length};
 }
