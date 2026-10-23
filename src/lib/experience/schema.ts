@@ -41,6 +41,28 @@ CREATE TABLE IF NOT EXISTS experience_rate_limits (
  key text PRIMARY KEY, hits integer NOT NULL DEFAULT 1, expires_at timestamptz NOT NULL
 );
 CREATE INDEX IF NOT EXISTS experience_rate_limit_expiry ON experience_rate_limits(expires_at);
+CREATE TABLE IF NOT EXISTS marketing_subscribers (
+ id text PRIMARY KEY, email text NOT NULL UNIQUE,
+ status text NOT NULL DEFAULT 'PENDING' CHECK(status IN ('PENDING','ACTIVE','UNSUBSCRIBED','BOUNCED','COMPLAINED')),
+ source text NOT NULL DEFAULT 'website', token text NOT NULL UNIQUE,
+ consent_text text, consent_ip_hash text, consented_at timestamptz,
+ confirmation_sent_at timestamptz, confirmed_at timestamptz, unsubscribed_at timestamptz,
+ created_at timestamptz NOT NULL DEFAULT now(), updated_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS marketing_subscribers_status ON marketing_subscribers(status,created_at DESC);
+CREATE TABLE IF NOT EXISTS marketing_campaigns (
+ id text PRIMARY KEY, name text NOT NULL, subject text NOT NULL, preheader text NOT NULL DEFAULT '',
+ body text NOT NULL, cta_label text, cta_url text,
+ status text NOT NULL DEFAULT 'DRAFT' CHECK(status IN ('DRAFT','SENDING','SENT','FAILED')),
+ recipients integer NOT NULL DEFAULT 0, delivered integer NOT NULL DEFAULT 0, failed integer NOT NULL DEFAULT 0,
+ created_by text, created_at timestamptz NOT NULL DEFAULT now(), sent_at timestamptz
+);
+CREATE TABLE IF NOT EXISTS marketing_campaign_recipients (
+ campaign_id text NOT NULL REFERENCES marketing_campaigns(id) ON DELETE CASCADE,
+ subscriber_id text NOT NULL REFERENCES marketing_subscribers(id) ON DELETE CASCADE,
+ status text NOT NULL DEFAULT 'QUEUED' CHECK(status IN ('QUEUED','SENT','FAILED')),
+ provider_id text, sent_at timestamptz, PRIMARY KEY(campaign_id,subscriber_id)
+);
 INSERT INTO experience_teams(id,name,country,capacity) VALUES('za-customer-care','South Africa · Customer Care','ZA',40) ON CONFLICT(id) DO NOTHING;
 
 CREATE TABLE IF NOT EXISTS catalogue_reviews (
