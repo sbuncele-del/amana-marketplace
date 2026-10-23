@@ -1,3 +1,4 @@
+import {EmailCapturePopup} from '@/components/email-capture-popup';
 import {MarketSelector} from '@/components/shop/market-selector';
 import { Navbar } from "@/components/layout/navbar";
 import {CustomerChat} from "@/components/shop/customer-chat";
@@ -15,6 +16,7 @@ export default function MainLayout({
       <div className="min-h-screen">{children}</div>
       <Footer />
       <CustomerChat/>
+      <EmailCapturePopup/>
     </>
   );
 }
