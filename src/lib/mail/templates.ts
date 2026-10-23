@@ -21,16 +21,18 @@ export function confirmSubscriptionEmail(token: string) {
   };
 }
 
-export type WelcomeProduct = {name: string; slug: string; image: string; price: number; currency: string};
+export type WelcomeProduct = {name: string; slug: string; image: string; price: number; currency: string; department?: string};
 export function welcomeEmail(token: string, products: WelcomeProduct[] = [], market: string | null = null) {
-  const cards = market === 'ZA' ? products.filter(p => p.currency === 'ZAR' && Number.isFinite(p.price) && p.price > 0).slice(0, 4).map(p => {
+  const valid = market === 'ZA' ? products.filter(p => {
+    if (p.currency !== 'ZAR' || !Number.isFinite(p.price) || p.price <= 0) return false;
+    try { return new URL(p.image, siteUrl).protocol === 'https:'; } catch { return false; }
+  }).filter((p, i, all) => all.findIndex(other => other.slug === p.slug) === i).slice(0, 12) : [];
+  const card = (p: WelcomeProduct) => {
     const href = `${siteUrl}/product/${encodeURIComponent(p.slug)}`;
-    let image: URL;
-    try { image = new URL(p.image, siteUrl); } catch { return ''; }
-    if (!['https:', 'http:'].includes(image.protocol)) return '';
     const price = new Intl.NumberFormat('en-ZA', {style: 'currency', currency: p.currency}).format(p.price);
-    return `<tr><td style="padding:20px 0;border-bottom:1px solid #eceef0;"><a href="${esc(href)}"><img src="${esc(image.href)}" alt="${esc(p.name)}" width="220" style="display:block;width:100%;max-width:220px;height:auto;margin:0 auto 16px;"></a><h3 style="margin:0 0 8px;font-size:18px;">${esc(p.name)}</h3><p style="font-size:18px;font-weight:700;margin:0;">From ${esc(price)}</p>${button('Explore this find', href)}</td></tr>`;
-  }).join('') : '';
+    return `<td class="product-column" width="50%" valign="top" style="width:50%;padding:10px 8px 24px;vertical-align:top;"><a href="${esc(href)}" style="color:#171B20;text-decoration:none;"><img class="email-product-image" src="${esc(new URL(p.image, siteUrl).href)}" alt="${esc(p.name)}" width="240" height="180" style="display:block;width:100%;height:180px;object-fit:contain;background:#f7f6f3;border-radius:10px;border:0;"><p style="margin:14px 0 7px;font-size:11px;line-height:1.4;text-transform:uppercase;letter-spacing:1px;color:#6b7280;">${esc(p.department || 'Everyday finds')}</p><h3 style="margin:0 0 10px;font-size:16px;line-height:1.4;font-weight:600;">${esc(p.name)}</h3><p style="font-size:20px;font-weight:800;margin:0 0 12px;color:#171B20;">From ${esc(price)}</p><span style="font-size:14px;font-weight:700;color:#DA292B;">Explore this find →</span></a></td>`;
+  };
+  const cards = Array.from({length: Math.ceil(valid.length / 2)}, (_, i) => `<tr>${valid.slice(i * 2, i * 2 + 2).map(card).join('')}${valid.length === i * 2 + 1 ? '<td class="product-column" width="50%"></td>' : ''}</tr>`).join('');
   return {
     subject: 'Welcome to Plentovo — make room for good things',
     html: layout({
@@ -39,7 +41,7 @@ export function welcomeEmail(token: string, products: WelcomeProduct[] = [], mar
       content:
         heading('Welcome to Plentovo') +
         paragraph('You are confirmed. Expect an occasional email from us with new arrivals, useful finds and offers worth opening. No clutter, and never your details passed on.') +
-        (cards ? heading('Good finds to get you started') + paragraph('A few recommendations from our South African range, chosen to bring more ease and joy to your everyday.') + `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${cards}</table>` + paragraph('<span style="font-size:12px;color:#6b7280;">Prices and availability were checked when this email was prepared and may change. Check the product page for current details.</span>') : paragraph(market === 'ZA' ? 'Explore our South African range for your next everyday find.' : 'Choose your shopping country on Plentovo to explore the available range. We will share local recommendations as they become available.')) +
+        (cards ? heading('Selected for you') + paragraph('Explore good finds for your home, family and everyday life, across our South African departments.') + `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${cards}</table>` + paragraph('<span style="font-size:12px;color:#6b7280;">Prices and availability were checked when this email was prepared and may change. Check the product page for current details.</span>') : paragraph(market === 'ZA' ? 'Explore our South African range for your next everyday find.' : 'Choose your shopping country on Plentovo to explore the available range. We will share local recommendations as they become available.')) +
         button('Browse Plentovo', `${siteUrl}/browse`),
     }),
   };
