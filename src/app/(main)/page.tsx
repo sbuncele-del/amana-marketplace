@@ -1,3 +1,4 @@
+import {catalogueMarket} from '@/lib/commerce/selection';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -47,6 +48,7 @@ const collectionSpecs = [
 ];
 
 export default async function HomePage() {
+  if (!(await catalogueMarket())) return <main className="mx-auto max-w-3xl px-6 py-20"><h1 className="text-3xl font-bold">Good things are on the way</h1><p className="mt-4">The catalogue for your selected country is not available yet. Choose South Africa above to browse our South African range; delivery remains limited to that country.</p></main>;
   const snapshot = getCatalogueSnapshot();
   const valuePool = snapshot.filter(p => p.price > 0 && p.price < 300 && p.images.length);
   const valueCategories = [/desktop.fan|mini.fan/i,/lunch.box/i,/earbud/i,/water.bottle/i,/storage.container|food.container/i].map(match => valuePool.filter(p => match.test(p.name)).slice(0, 3));

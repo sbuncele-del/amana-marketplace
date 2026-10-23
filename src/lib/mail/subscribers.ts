@@ -1,6 +1,7 @@
 import 'server-only';
 import {createHash, randomBytes, randomUUID} from 'node:crypto';
 import {transaction, experiencePool, ensureExperienceSchema} from '@/lib/experience/store';
+import {welcomeRecommendations} from './welcome-products';
 import {resend, sendMail} from './send';
 import {confirmSubscriptionEmail, welcomeEmail, oneClickUnsubscribe} from './templates';
 
@@ -10,7 +11,7 @@ const hashIp = (ip: string) => createHash('sha256').update(`${process.env.NEXTAU
 const newToken = () => randomBytes(24).toString('base64url');
 
 /** Records the sign-up with consent evidence and sends the double opt-in email. Always reports success to the caller. */
-export async function requestSubscription(email: string, source: string, ip: string) {
+export async function requestSubscription(email: string, source: string, ip: string, market: string | null = null) {
   const row = await transaction(async client => {
     const existing = (await client.query('SELECT id,status,token,confirmation_sent_at FROM marketing_subscribers WHERE email=$1 FOR UPDATE', [email])).rows[0];
     if (existing?.status === 'ACTIVE') return {...existing, send: 'none' as const};
@@ -18,11 +19,11 @@ export async function requestSubscription(email: string, source: string, ip: str
     // Do not re-send a confirmation more than once every 10 minutes.
     if (existing?.status === 'PENDING' && existing.confirmation_sent_at && Date.now() - existing.confirmation_sent_at.getTime() < 10 * 60_000) return {...existing, send: 'none' as const};
     if (existing) {
-      await client.query("UPDATE marketing_subscribers SET status='PENDING',consent_text=$2,consent_ip_hash=$3,consented_at=now(),confirmation_sent_at=now(),updated_at=now() WHERE id=$1", [existing.id, CONSENT_TEXT, hashIp(ip)]);
+      await client.query("UPDATE marketing_subscribers SET status='PENDING',consent_text=$2,consent_ip_hash=$3,consented_at=now(),market_code=$4,confirmation_sent_at=now(),updated_at=now() WHERE id=$1", [existing.id, CONSENT_TEXT, hashIp(ip), market]);
       return {...existing, send: 'confirm' as const};
     }
     const id = randomUUID(), token = newToken();
-    await client.query('INSERT INTO marketing_subscribers(id,email,source,token,consent_text,consent_ip_hash,consented_at,confirmation_sent_at) VALUES($1,$2,$3,$4,$5,$6,now(),now())', [id, email, source, token, CONSENT_TEXT, hashIp(ip)]);
+    await client.query('INSERT INTO marketing_subscribers(id,email,source,token,consent_text,consent_ip_hash,consented_at,confirmation_sent_at,market_code) VALUES($1,$2,$3,$4,$5,$6,now(),now(),$7)', [id, email, source, token, CONSENT_TEXT, hashIp(ip), market]);
     return {id, token, status: 'PENDING', send: 'confirm' as const};
   });
   if (row.send === 'confirm') {
@@ -37,10 +38,11 @@ export async function confirmSubscription(token: string) {
     `UPDATE marketing_subscribers s SET status='ACTIVE',confirmed_at=COALESCE(s.confirmed_at,now()),unsubscribed_at=NULL,updated_at=now()
      FROM (SELECT id,confirmed_at AS prev FROM marketing_subscribers WHERE token=$1) o
      WHERE s.id=o.id AND s.status IN ('PENDING','ACTIVE','UNSUBSCRIBED')
-     RETURNING s.email,s.token,(o.prev IS NULL) AS first`, [token])).rows[0];
+     RETURNING s.email,s.token,s.market_code,(o.prev IS NULL) AS first`, [token])).rows[0];
   if (!sub) return 'invalid' as const;
   if (sub.first) {
-    const mail = welcomeEmail(sub.token);
+    const products = await welcomeRecommendations(sub.market_code).catch(e => {console.error('[mail] recommendations unavailable', e); return [];});
+    const mail = welcomeEmail(sub.token, products, sub.market_code);
     await sendMail({to: sub.email, ...mail, unsubscribeUrl: oneClickUnsubscribe(sub.token), tags: {type: 'welcome'}}).catch(e => console.error('[mail] welcome failed', e));
   }
   await syncContact(sub.email, false);

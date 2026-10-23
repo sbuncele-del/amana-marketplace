@@ -15,5 +15,5 @@ export async function GET(request:NextRequest){
   result={products:visible.filter(p=>(!Number.isFinite(min)||p.price>=Math.max(0,min))&&(!Number.isFinite(max)||p.price<=Math.max(0,max))&&(q.get('available')!=='true'||p.supplierAvailable)),total:all.length,page,totalPages:Math.ceil(all.length/limit),hasNextPage:page*limit<all.length};
  }
  const products=result.products.map(({details,sourceUrl,sourceCheckedAt,variants,...card})=>card);
- return NextResponse.json({...result,products});
+ return NextResponse.json({...result,products},{headers:{'Cache-Control':'private, no-store'}});
 }
