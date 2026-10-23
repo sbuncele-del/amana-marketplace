@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState, type FormEvent } from "react";
 import Link from "next/link";
+import Image from "next/image";
 type Data = {
   applications: { id: string; name: string; status: string }[];
   markets: { code: string; name: string }[];
@@ -22,7 +23,7 @@ type Data = {
     delivery_address: Record<string, string>;
   }[];
 };
-const field = "rounded border p-2 text-sm";
+const field = "mt-2 block w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100";
 function form(e: FormEvent<HTMLFormElement>) {
   e.preventDefault();
   return Object.fromEntries(new FormData(e.currentTarget));
@@ -58,13 +59,14 @@ export function PartnerWorkspace() {
       setBusy(false);
     }
   }
+  const approved = Boolean(data?.applications.some(p => p.status === "APPROVED"));
   return (
     <main className="min-h-screen bg-slate-50 p-6 md:p-12">
-      <div className="mx-auto max-w-5xl">
-        <Link href="/" className="text-sm underline">
+      <div className="mx-auto max-w-7xl">
+        <Link href="/" className="text-sm font-semibold text-red-700">
           Plentovo store
         </Link>
-        <h1 className="my-5 text-3xl font-bold">Partner workspace</h1>
+        <header className="my-6 flex flex-wrap items-center justify-between gap-6 border-b border-slate-200 pb-6"><div><Image src="/brand/plentovo.svg" alt="Plentovo" width="180" height="42" /><h1 className="mt-6 text-3xl font-bold">Partner workspace</h1></div><span className="rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-600">{approved ? "Approved partner" : "Partner onboarding"}</span></header>
         <p className="text-slate-600">
           Manage your assigned stock and fulfilment. Applications require
           Plentovo verification before access is granted.
@@ -75,13 +77,14 @@ export function PartnerWorkspace() {
         {data && (
           <>
             {data.applications.map((p) => (
-              <p key={p.id} className="my-4 rounded border bg-white p-4">
+              <p key={p.id} className="my-4 rounded-2xl border border-slate-200 bg-white p-6">
                 {p.name} · {p.status}
               </p>
             ))}
+            {!approved && <section className="my-6 rounded-2xl bg-slate-900 p-6 text-white"><h2 className="text-xl font-semibold">Your next step</h2><p className="mt-2 text-slate-300">{data.applications.length ? "Your application is on file. Our team will review your business before activating selling and fulfilment access." : "Tell us about your business. Plentovo reviews every application before activating selling and fulfilment access."}</p><ol className="mt-5 grid gap-3 text-sm md:grid-cols-3"><li>1. Submit business details</li><li>2. Plentovo reviews your application</li><li>3. Manage approved stock and assignments</li></ol></section>}
             {!data.applications.length && (
               <form
-                className="my-6 grid gap-4 rounded border bg-white p-6"
+                className="my-6 grid gap-6 rounded-2xl border border-slate-200 bg-white p-6 md:grid-cols-2 md:p-8"
                 onSubmit={(e) => {
                   const v = form(e);
                   void send({
@@ -96,7 +99,7 @@ export function PartnerWorkspace() {
                   });
                 }}
               >
-                <h2 className="text-xl font-bold">
+                <h2 className="text-xl font-bold md:col-span-2">
                   Apply to partner with Plentovo
                 </h2>
                 <label>
@@ -123,19 +126,20 @@ export function PartnerWorkspace() {
                     ))}
                   </select>
                 </label>
-                <label>
+                <label className="md:col-span-2">
                   Business and fulfilment details{" "}
                   <textarea name="note" maxLength={2000} className={field} />
                 </label>
                 <button
                   disabled={busy}
-                  className="rounded bg-red-600 p-3 text-white disabled:opacity-50"
+                  className="rounded-xl bg-[#DA292B] p-3 font-semibold text-white disabled:opacity-50 md:col-span-2"
                 >
                   Submit application
                 </button>
               </form>
             )}
-            <h2 className="mt-8 text-xl font-bold">Assigned inventory</h2>
+            {approved && <><nav className="my-8 flex gap-6 border-b border-slate-200 pb-4 text-sm font-semibold"><a href="#inventory">Inventory ({data.offers.length})</a><a href="#fulfilment">Fulfilment ({data.shipments.length})</a></nav>
+            <h2 id="inventory" className="mt-8 text-xl font-bold">Assigned inventory</h2>
             {!data.offers.length && <p className="my-3">No offers assigned.</p>}
             {data.offers.map((o) => (
               <form
@@ -187,7 +191,7 @@ export function PartnerWorkspace() {
                 </button>
               </form>
             ))}
-            <h2 className="mt-8 text-xl font-bold">Fulfilment assignments</h2>
+            <h2 id="fulfilment" className="mt-8 text-xl font-bold">Fulfilment assignments</h2>
             {!data.shipments.length && <p className="my-3">No assignments.</p>}
             {data.shipments.map((s) => (
               <article key={s.id} className="my-4 rounded border bg-white p-5">
@@ -243,7 +247,7 @@ export function PartnerWorkspace() {
                   </form>
                 )}
               </article>
-            ))}
+            ))}</>}
           </>
         )}
       </div>

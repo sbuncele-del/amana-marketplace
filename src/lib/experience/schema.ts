@@ -66,6 +66,10 @@ CREATE TABLE IF NOT EXISTS marketing_campaign_recipients (
 );
 INSERT INTO experience_teams(id,name,country,capacity) VALUES('za-customer-care','South Africa · Customer Care','ZA',40) ON CONFLICT(id) DO NOTHING;
 
+CREATE TABLE IF NOT EXISTS mail_webhook_events (
+ id text PRIMARY KEY, type text NOT NULL, email_id text, received_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS mail_webhook_events_received ON mail_webhook_events(received_at DESC);
 CREATE TABLE IF NOT EXISTS catalogue_reviews (
  id text PRIMARY KEY, slug text NOT NULL, user_id text NOT NULL REFERENCES "User"(id) ON DELETE CASCADE,
  rating integer NOT NULL CHECK(rating BETWEEN 1 AND 5), comment text NOT NULL,

@@ -1,3 +1,4 @@
+import {MailActivity} from "@/components/commerce/mail-activity";
 import { redirect } from "next/navigation";
 import { commerceActor, CommerceError } from "@/lib/commerce/access";
 import { CommerceConsole } from "@/components/commerce/console";
@@ -26,12 +27,12 @@ export default async function Page() {
       </main>
     );
   return (
-    <CommerceConsole
+    <> {actor.admin && <div className="mx-auto max-w-7xl px-5"><MailActivity /></div>}<CommerceConsole
       initialMarket={
         actor.admin || actor.grants.some((g) => !g.market_code)
           ? "ZA"
           : actor.grants[0].market_code || "ZA"
       }
-    />
+    /></>
   );
 }

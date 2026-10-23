@@ -1,3 +1,4 @@
+import {commerceActor} from '@/lib/commerce/access';
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
@@ -135,6 +136,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const actor = await commerceActor();
+    if (!(await prisma.$queryRaw<{id:string}[]>`SELECT p.id FROM commerce_partners p JOIN commerce_partner_members m ON m.partner_id=p.id WHERE p.kind='SELLER' AND p.status='APPROVED' AND m.active=true AND m.user_id=${actor.id}`).length) return NextResponse.json({error: "Plentovo must approve your partner application before you can list products."}, {status:403});
     const body = await request.json();
     const {
       name,
