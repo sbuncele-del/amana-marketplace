@@ -1,4 +1,5 @@
 import 'server-only';
+import {catalogueMarket} from './commerce/selection';
 import {unstable_cache} from 'next/cache';
 import {isRetailProduct} from './catalogue-eligibility';
 import additional from '@/data/additional-catalogue';
@@ -57,12 +58,14 @@ async function collectionSourceRaw(collection:string) {
  throw new Error('Catalogue pagination limit exceeded');
 }
 const collectionSource=unstable_cache(collectionSourceRaw,['perfect-dealz-live-v1'],{revalidate:300});
-export async function getCatalogueProduct(slug:string,fresh=false,strictRefresh=false) {
+export async function getCatalogueProduct(slug:string,fresh=false,strictRefresh=false,market?:string) {
+ if(market ? market!=='ZA' : !(await catalogueMarket()))return null;
  const product=catalogue.find(p=>p.slug===slug);if(!product)return null;
  try {const data=await readSource(`/products/${encodeURIComponent(slug)}.js`,fresh);return update(product,{handle:slug,variants:data.variants.map((v:SupplierProduct['variants'][number])=>({...v,price:String(Number(v.price)/100),image:v.featured_image?.src}))});}
  catch(error) {if(strictRefresh)throw error;return update(product);}
 }
 export async function getCatalogueProducts(search='',category='',sort='newest',availableOnly=false,strictRefresh=false) {
+ if(!(await catalogueMarket()))return [];
  const term=search.trim().toLowerCase();
  const selected=catalogue.filter(p=>(!category||p.collections.includes(category))&&(!term||`${p.name} ${p.description} ${p.category.name}`.toLowerCase().includes(term)));
  const collections=category?[category]:[...new Set(selected.map(p=>p.category.slug))];
@@ -79,6 +82,7 @@ export async function getCatalogueProducts(search='',category='',sort='newest',a
 
 // Normal browsing validates only the visible page instead of refreshing every department.
 export async function getCataloguePage(search='',category='',page=1,limit=25) {
+ if(!(await catalogueMarket()))return {products:[],total:0,page,totalPages:0,hasNextPage:false};
  const term=search.trim().toLowerCase();
  const selected=catalogue.filter(p=>(!category||p.collections.includes(category))&&(!term||`${p.name} ${p.description} ${p.category.name}`.toLowerCase().includes(term)));
  const products=await Promise.all(selected.slice((page-1)*limit,page*limit).map(p=>getCatalogueProduct(p.slug).then(current=>current??update(p))));

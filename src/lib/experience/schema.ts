@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS marketing_subscribers (
  created_at timestamptz NOT NULL DEFAULT now(), updated_at timestamptz NOT NULL DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS marketing_subscribers_status ON marketing_subscribers(status,created_at DESC);
+ALTER TABLE marketing_subscribers ADD COLUMN IF NOT EXISTS market_code text CHECK(market_code IS NULL OR market_code ~ '^[A-Z]{2}$');
 CREATE TABLE IF NOT EXISTS marketing_campaigns (
  id text PRIMARY KEY, name text NOT NULL, subject text NOT NULL, preheader text NOT NULL DEFAULT '',
  body text NOT NULL, cta_label text, cta_url text,
