@@ -1,28 +1,10 @@
-import { Resend } from "resend";
 import {siteUrl} from "./site";
+import {sendMail} from "./mail/send";
 
-// Lazy-init Resend client to avoid build errors when API key is missing
-let _resend: Resend | null = null;
-function getResend(): Resend {
-  if (!_resend) {
-    const key = process.env.RESEND_API_KEY;
-    if (!key) {
-      console.warn("[Email] RESEND_API_KEY not set — emails will be logged to console instead");
-    }
-    _resend = new Resend(key || "re_placeholder");
-  }
-  return _resend;
-}
-
-const FROM_EMAIL = process.env.FROM_EMAIL;
 const APP_URL = siteUrl;
 
 async function sendEmail(to: string, subject: string, html: string) {
-  if (!process.env.RESEND_API_KEY || !FROM_EMAIL) {
-    throw new Error("Email delivery requires RESEND_API_KEY and a verified FROM_EMAIL");
-  }
-  const result = await getResend().emails.send({ from: FROM_EMAIL, to, subject, html });
-  if (result.error) throw new Error("Email provider rejected delivery");
+  await sendMail({to, subject, html, tags: {type: "transactional"}});
 }
 
 // ─── Password Reset ───────────────────────────────────────────────

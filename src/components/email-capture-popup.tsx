@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, Tag, Mail, ArrowRight } from "lucide-react";
+import { X, Mail, ArrowRight } from "lucide-react";
 
 const STORAGE_KEY = "ps_email_popup_dismissed";
 const DELAY_MS = 8000; // show after 8 seconds
@@ -9,16 +9,15 @@ const DELAY_MS = 8000; // show after 8 seconds
 export function EmailCapturePopup() {
   const [visible, setVisible] = useState(false);
   const [email, setEmail] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [trap, setTrap] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    // Don't show if already dismissed or submitted
     if (typeof window === "undefined") return;
-    const dismissed = localStorage.getItem(STORAGE_KEY);
-    if (dismissed) return;
-
+    if (localStorage.getItem(STORAGE_KEY)) return;
     const timer = setTimeout(() => setVisible(true), DELAY_MS);
     return () => clearTimeout(timer);
   }, []);
@@ -30,31 +29,24 @@ export function EmailCapturePopup() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !email.includes("@")) {
-      setError("Please enter a valid email address.");
+    if (!consent) {
+      setError("Please tick the box to agree to receive our emails.");
       return;
     }
     setLoading(true);
     setError("");
     try {
-      // Fire GA4 event if available
-      if (typeof window !== "undefined" && (window as any).gtag) {
-        (window as any).gtag("event", "email_signup", {
-          event_category: "engagement",
-          event_label: "popup_discount",
-        });
-      }
-      // Store in Shopify customer list via our API (or just save locally for now)
-      await fetch("/api/marketing/subscribe", {
+      const res = await fetch("/api/marketing/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      }).catch(() => {}); // Silent fail — we still show success
-
+        body: JSON.stringify({ email, consent: true, source: "popup", website: trap }),
+      });
+      if (!res.ok) throw new Error((await res.json().catch(() => ({}))).error);
+      (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.("event", "email_signup", { event_category: "engagement", event_label: "popup" });
       setSubmitted(true);
       localStorage.setItem(STORAGE_KEY, "1");
-    } catch {
-      setError("Something went wrong. Please try again.");
+    } catch (err) {
+      setError(err instanceof Error && err.message ? err.message : "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -63,45 +55,24 @@ export function EmailCapturePopup() {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-0 z-[200] flex items-end sm:items-center justify-center p-4 sm:p-0">
-      {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-        onClick={dismiss}
-        aria-hidden="true"
-      />
-
-      {/* Modal */}
+    <div className="fixed inset-0 z-[200] flex items-end sm:items-center justify-center p-4 sm:p-0" role="dialog" aria-modal="true" aria-label="Join the Plentovo list">
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={dismiss} aria-hidden="true" />
       <div className="relative z-10 bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden animate-in slide-in-from-bottom-4 duration-300">
-        {/* Close */}
-        <button
-          onClick={dismiss}
-          className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 z-10"
-          aria-label="Close"
-        >
+        <button onClick={dismiss} className="absolute top-3 right-3 text-white/70 hover:text-white z-10" aria-label="Close">
           <X className="w-5 h-5" />
         </button>
 
-        {/* Header */}
-        <div className="bg-gradient-to-br from-[#171B20] to-[#0F3460] px-6 pt-8 pb-6 text-center text-white relative overflow-hidden">
-          <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#DA292B]/20 rounded-full blur-2xl" />
-          <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-[#DA292B]/20 rounded-full blur-2xl" />
+        <div className="bg-[#171B20] px-6 pt-8 pb-6 text-center text-white relative overflow-hidden">
+          <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#DA292B]/30 rounded-full blur-2xl" />
           <div className="relative">
-            <div className="inline-flex items-center gap-2 bg-[#DA292B] text-[#171B20] text-xs font-extrabold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
-              <Tag className="w-3 h-3" /> Limited Offer
-            </div>
-            <h2 className="text-2xl font-extrabold mb-1">Get 10% Off</h2>
-            <p className="text-white/70 text-sm">Your first order when you join Plentovo</p>
+            <h2 className="text-2xl font-extrabold mb-1">Be first to know</h2>
+            <p className="text-white/70 text-sm">New arrivals and good deals from Plentovo</p>
           </div>
         </div>
 
-        {/* Body */}
         <div className="px-6 py-6">
           {!submitted ? (
             <>
-              <p className="text-sm text-gray-500 text-center mb-4">
-                Subscribe for exclusive deals, new arrivals & the best prices across Africa.
-              </p>
               <form onSubmit={handleSubmit} className="space-y-3">
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -115,33 +86,28 @@ export function EmailCapturePopup() {
                     autoComplete="email"
                   />
                 </div>
-                {error && <p className="text-red-500 text-xs">{error}</p>}
+                <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={trap} onChange={(e) => setTrap(e.target.value)} className="hidden" />
+                <label className="flex items-start gap-2 text-xs text-gray-500 leading-5">
+                  <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} className="mt-1" />
+                  <span>I agree to receive Plentovo news, new arrivals and offers by email. I can unsubscribe at any time. See our <a href="/privacy" className="underline">privacy policy</a>.</span>
+                </label>
+                {error && <p className="text-red-600 text-xs" role="alert">{error}</p>}
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-[#DA292B] hover:bg-[#c49730] text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors disabled:opacity-60"
+                  className="w-full bg-[#DA292B] hover:bg-[#b82224] text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors disabled:opacity-60"
                 >
-                  {loading ? "Subscribing…" : (
-                    <>Claim My 10% Discount <ArrowRight className="w-4 h-4" /></>
-                  )}
+                  {loading ? "Sending…" : (<>Keep me posted <ArrowRight className="w-4 h-4" /></>)}
                 </button>
               </form>
-              <p className="text-xs text-gray-400 text-center mt-3">
-                No spam. Unsubscribe anytime.
-              </p>
+              <p className="text-xs text-gray-400 text-center mt-3">We will email you to confirm. No spam.</p>
             </>
           ) : (
             <div className="text-center py-4">
-              <div className="text-4xl mb-3">🎉</div>
-              <h3 className="font-extrabold text-lg mb-1">You&apos;re in!</h3>
-              <p className="text-sm text-gray-500 mb-4">
-                Check your inbox for your 10% discount code.
-              </p>
-              <button
-                onClick={dismiss}
-                className="bg-[#171B20] text-white font-bold px-6 py-2.5 rounded-xl text-sm hover:bg-[#0F3460] transition-colors"
-              >
-                Start Shopping →
+              <h3 className="font-extrabold text-lg mb-1">Check your inbox</h3>
+              <p className="text-sm text-gray-500 mb-4">We have sent a confirmation email. Tap the button inside to finish signing up.</p>
+              <button onClick={dismiss} className="bg-[#171B20] text-white font-bold px-6 py-2.5 rounded-xl text-sm hover:bg-black transition-colors">
+                Keep browsing
               </button>
             </div>
           )}
