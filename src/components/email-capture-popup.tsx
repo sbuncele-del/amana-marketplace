@@ -1,12 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import {useSession} from "next-auth/react";
+import {usePathname} from "next/navigation";
 import { X, Mail, ArrowRight } from "lucide-react";
 
 const STORAGE_KEY = "ps_email_popup_dismissed";
 const DELAY_MS = 8000; // show after 8 seconds
 
 export function EmailCapturePopup() {
+  const {status} = useSession();
+  const pathname = usePathname();
+  const eligible = status === "unauthenticated" && !["/account", "/admin", "/dashboard", "/operations", "/partner", "/checkout", "/newsletter"].some(path => pathname.startsWith(path));
   const [markets, setMarkets] = useState<{code:string;name:string}[]>([]);
   const [market, setMarket] = useState('');
   const [countryError, setCountryError] = useState('');
@@ -19,7 +24,7 @@ export function EmailCapturePopup() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (!eligible) return;
     if (localStorage.getItem(STORAGE_KEY)) return;
     let retry: ReturnType<typeof setTimeout>;
     const show = () => {
@@ -28,7 +33,7 @@ export function EmailCapturePopup() {
     };
     const timer = setTimeout(show, DELAY_MS);
     return () => {clearTimeout(timer); clearTimeout(retry);};
-  }, []);
+  }, [eligible]);
 
   useEffect(() => {
     if (!visible) return;
@@ -70,7 +75,7 @@ export function EmailCapturePopup() {
     }
   };
 
-  if (!visible) return null;
+  if (!eligible || !visible) return null;
 
   return (
     <div className="fixed inset-0 z-[200] flex items-end sm:items-center justify-center p-4 sm:p-0" role="dialog" aria-modal="true" aria-label="Join the Plentovo list">

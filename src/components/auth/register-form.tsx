@@ -35,6 +35,7 @@ export function RegisterForm() {
     country: "South Africa",
     storeName: "",
   });
+  const [marketingConsent, setMarketingConsent] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -52,7 +53,7 @@ export function RegisterForm() {
       const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, role }),
+        body: JSON.stringify({ ...formData, role, marketingConsent }),
       });
 
       const data = await res.json();
@@ -62,7 +63,7 @@ export function RegisterForm() {
         return;
       }
 
-      const requested = searchParams.get("callbackUrl") || "/browse";
+      const requested = searchParams.get("callbackUrl") || (role === "SELLER" ? "/partner" : "/account");
       const callback = requested.startsWith("/") && !requested.startsWith("//") && !requested.includes("\\\\") ? requested : "/browse";
       router.push(`/login?registered=true&callbackUrl=${encodeURIComponent(callback)}`);
     } catch {
@@ -175,7 +176,7 @@ export function RegisterForm() {
                     {role === "SELLER" ? "Create Seller Account" : "Create Buyer Account"}
                   </h1>
                   <p className="text-sm text-gray-500">
-                    {role === "SELLER" ? "Start selling across Africa" : "Shop with escrow protection"}
+                    {role === "SELLER" ? "Apply to partner with Plentovo" : "Keep your shopping together"}
                   </p>
                 </div>
               </div>
@@ -264,7 +265,7 @@ export function RegisterForm() {
                   />
                 )}
 
-                <div className="pt-2">
+                <label className="flex items-start gap-2 text-sm text-gray-600"><input type="checkbox" checked={marketingConsent} onChange={e => setMarketingConsent(e.target.checked)} className="mt-1"/><span>Email me Plentovo news, new arrivals and offers. I can unsubscribe at any time. We will send an email to confirm this choice. <Link href="/privacy" className="underline">Privacy policy</Link></span></label><div className="pt-2">
                   <Button type="submit" className="w-full" size="lg" disabled={loading}>
                     {loading ? "Creating account..." : "Create Account"}
                     <ArrowRight className="w-4 h-4" />
