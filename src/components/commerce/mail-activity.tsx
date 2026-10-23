@@ -1,0 +1,9 @@
+"use client";
+import {useEffect,useState} from 'react';
+type Activity={configured:boolean;events:{id:string;type:string;email_id:string|null;received_at:string}[]};
+export function MailActivity(){
+ const [data,setData]=useState<Activity|null>(null);const [error,setError]=useState('');
+ async function refresh(){try{const r=await fetch('/api/operations/mail',{cache:'no-store'});if(!r.ok)throw Error('Unable to load email activity');setData(await r.json());setError('');}catch{setError('Unable to load email activity. Try refreshing.');}}
+ useEffect(()=>{void refresh();},[]);
+ return <section className="my-6 rounded-2xl border border-slate-200 bg-white p-6"><div className="flex items-center justify-between"><h2 className="text-xl font-semibold">Email webhook activity</h2><button className="text-sm font-semibold text-red-700" onClick={()=>void refresh()}>Refresh activity</button></div><p className="mt-2 text-sm text-slate-500">{data?.configured?'Webhook secret configured. Verified incoming events appear below.':'Webhook configuration has not been confirmed.'}</p>{error&&<p role="alert">{error}</p>}{!data&&!error&&<p role="status">Loading activity…</p>}{data&&!data.events.length&&<p className="mt-4 text-sm">No verified events recorded yet. Configuration alone does not confirm delivery.</p>}{data&&data.events.length>0&&<div className="mt-4 overflow-x-auto"><table className="w-full text-left text-sm"><thead><tr><th className="p-2">Event</th><th className="p-2">Email reference</th><th className="p-2">Received</th></tr></thead><tbody>{data.events.map(e=><tr className="border-t border-slate-100" key={e.id}><td className="p-2">{e.type.replace('email.','')}</td><td className="p-2">{e.email_id||'—'}</td><td className="p-2">{new Date(e.received_at).toLocaleString()}</td></tr>)}</tbody></table></div>}</section>;
+}

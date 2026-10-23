@@ -80,8 +80,8 @@ export default function CampaignsPage() {
             <ul className="mt-3 space-y-1 text-sm">
               <li>{h?.apiKey ? "✅" : "❌"} Resend API key</li>
               <li>{h?.fromEmail ? "✅" : "❌"} Sender address {h?.fromEmail && <span className="text-gray-500">({h.fromEmail})</span>}</li>
-              <li>{verified ? "✅" : "❌"} Domain verified in Resend {h?.domains.map((d) => <span key={d.name} className="text-gray-500">({d.name}: {d.status}) </span>)}{h?.error && <span className="text-red-600">{h.error}</span>}</li>
-              <li>{h?.webhookSecret ? "✅" : "⚠️"} Bounce &amp; complaint webhook</li>
+              <li>{h?.error ? "⚠️" : verified ? "✅" : "⚠️"} {h?.error ? "Domain verification could not be checked" : "Resend domain verification"} {h?.domains.map((d) => <span key={d.name} className="text-gray-500">({d.name}: {d.status}) </span>)}{h?.error && <span className="text-red-600">{h.error}</span>}</li>
+              <li>{h?.webhookSecret ? "✅" : "⚠️"} Webhook secret configured (see Team Console for received events)</li>
               <li>{h?.supportInbox ? "✅" : "⚠️"} Customer care alert inbox</li>
             </ul>
           </div>
