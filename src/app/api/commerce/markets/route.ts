@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ensureCommerce } from "@/lib/commerce/store";
 import { experiencePool } from "@/lib/experience/store";
-import { resolveMarket } from "@/lib/commerce/domain";
+
 export async function GET(request: NextRequest) {
   try {
     await ensureCommerce();
@@ -11,16 +11,18 @@ export async function GET(request: NextRequest) {
       )
     ).rows;
     const saved = request.cookies.get("plentovo-market")?.value;
-    const detected = request.headers.get("x-vercel-ip-country");
+    const hint = request.headers.get("x-vercel-ip-country");
+    const detected = hint && /^[A-Z]{2}$/.test(hint) ? hint : null;
+    const countryNames = new Intl.DisplayNames(['en'], {type:'region'});
+    const detectedName = detected ? countryNames.of(detected) || detected : null;
+    const savedActive = markets.some(m => m.code === saved);
+    const detectedActive = markets.some(m => m.code === detected);
     return NextResponse.json(
       {
         markets,
-        selectedMarket: saved ? (markets.some(m => m.code === saved) ? saved : null) : (markets.some(m => m.code === 'ZA') ? 'ZA' : null),
-        suggestedMarket: resolveMarket(
-          markets.map((m) => m.code),
-          saved,
-          detected,
-        ),
+        selectedMarket: saved ? (savedActive ? saved : null) : (detectedActive ? detected : null),
+        confirmed: Boolean(saved && savedActive),
+        detectedCountry: detected ? {code: detected, name: detectedName, available: detectedActive} : null,
         orderingEnabled: false,
       },
       { headers: { "Cache-Control": "private, no-store" } },
@@ -63,7 +65,7 @@ export async function POST(request: NextRequest) {
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       path: "/",
-      maxAge: 31536000,
+      ...(body.remember === false ? {} : {maxAge: 31536000}),
     });
     return response;
   } catch (e) {

@@ -21,8 +21,13 @@ export function EmailCapturePopup() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (localStorage.getItem(STORAGE_KEY)) return;
-    const timer = setTimeout(() => setVisible(true), DELAY_MS);
-    return () => clearTimeout(timer);
+    let retry: ReturnType<typeof setTimeout>;
+    const show = () => {
+      if (document.querySelector('dialog[open]')) {retry = setTimeout(show, 1000); return;}
+      setVisible(true);
+    };
+    const timer = setTimeout(show, DELAY_MS);
+    return () => {clearTimeout(timer); clearTimeout(retry);};
   }, []);
 
   useEffect(() => {
@@ -30,7 +35,7 @@ export function EmailCapturePopup() {
     const controller = new AbortController();
     fetch('/api/commerce/markets', {signal:controller.signal}).then(async r => {
       if (!r.ok) throw new Error();
-      const data = await r.json(); setMarkets(data.markets);
+      const data = await r.json(); setMarkets(data.markets); setMarket(data.selectedMarket || '');
     }).catch(e => {if (e.name !== 'AbortError') setCountryError('Local recommendations are temporarily unavailable. You can still subscribe for general updates.');});
     return () => controller.abort();
   }, [visible]);
@@ -99,12 +104,7 @@ export function EmailCapturePopup() {
                     autoComplete="email"
                   />
                 </div>
-                <label className="block text-sm font-semibold">Shopping country
-                  <select value={market} onChange={e => setMarket(e.target.value)} className="mt-1 w-full rounded-xl border border-gray-200 px-3 py-3 font-normal">
-                    <option value="">General updates — country not selected</option>
-                    {markets.map(m => <option key={m.code} value={m.code}>{m.name}</option>)}
-                  </select>
-                </label>
+                <p className="text-xs text-gray-500">{market ? `Recommendations for ${markets.find(m => m.code === market)?.name || market}.` : 'General updates until your delivery country is available.'} <button type="button" className="underline" onClick={() => {setVisible(false); window.dispatchEvent(new Event('plentovo:change-country'));}}>Change delivery country</button></p>
                 {countryError && <p role="status" className="text-xs text-gray-500">{countryError}</p>}
                 <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={trap} onChange={(e) => setTrap(e.target.value)} className="hidden" />
                 <label className="flex items-start gap-2 text-xs text-gray-500 leading-5">
