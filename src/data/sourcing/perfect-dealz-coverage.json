@@ -1,0 +1,2127 @@
+{
+  "checkedAt": "2026-10-24T09:55:41.267423+00:00",
+  "sourceUnique": 10070,
+  "sourceExcluded": 30,
+  "addedCount": 228,
+  "eligibleCatalogueTotal": 10058,
+  "retainedAbsentFromCurrentFeeds": [
+    "100kg-digital-platform-scale",
+    "300kg-digital-platform-scale-reliable-weighing-solution",
+    "4-in-1-mask-bowl-and-brush-set",
+    "aluminium-alloy-32-baseball-bat",
+    "black-racer-remote-control-toy-car",
+    "digital-scale-500kg",
+    "foldable-toddler-potty-training-seat-with-ladder-and-cushioned-support",
+    "glow-in-the-dark-string-launcher-toy",
+    "green-2cm-x-100m-grafting-tape",
+    "half-moon-rainbow-multicolor-entrance-mat",
+    "high-quality-2100w-hand-held-electric-concrete-mixer",
+    "led-hover-soccer-ball",
+    "magic-water-painting-preschool-sketchbook",
+    "mini-donut-maker-machine",
+    "modern-marble-look-dining-table-and-chair-set",
+    "play-n-snack-travel-tray",
+    "professional-brushless-electric-mixer",
+    "wooden-dinosaur-puzzle-60-piece-jigsaw"
+  ],
+  "coverage": [
+    {
+      "collection": "affordable-wardrobes",
+      "publicFeedProducts": 45,
+      "advertisedCount": 53
+    },
+    {
+      "collection": "baby-essentials",
+      "publicFeedProducts": 212,
+      "advertisedCount": 214
+    },
+    {
+      "collection": "backup-power",
+      "publicFeedProducts": 99,
+      "advertisedCount": 99
+    },
+    {
+      "collection": "beauty-skincare",
+      "publicFeedProducts": 253,
+      "advertisedCount": 253
+    },
+    {
+      "collection": "bed-bath",
+      "publicFeedProducts": 230,
+      "advertisedCount": 231
+    },
+    {
+      "collection": "camping-braai-picnic",
+      "publicFeedProducts": 102,
+      "advertisedCount": 102
+    },
+    {
+      "collection": "car-care-tools",
+      "publicFeedProducts": 145,
+      "advertisedCount": 146
+    },
+    {
+      "collection": "car-electronics-accessories",
+      "publicFeedProducts": 50,
+      "advertisedCount": 50
+    },
+    {
+      "collection": "cleaning-laundry",
+      "publicFeedProducts": 196,
+      "advertisedCount": 196
+    },
+    {
+      "collection": "clothing-accessories",
+      "publicFeedProducts": 200,
+      "advertisedCount": 201
+    },
+    {
+      "collection": "diy-hardware",
+      "publicFeedProducts": 1021,
+      "advertisedCount": 1023
+    },
+    {
+      "collection": "educational-toys",
+      "publicFeedProducts": 80,
+      "advertisedCount": 80
+    },
+    {
+      "collection": "electrical-accessories",
+      "publicFeedProducts": 1676,
+      "advertisedCount": 1683
+    },
+    {
+      "collection": "electronics",
+      "publicFeedProducts": 2171,
+      "advertisedCount": 2181
+    },
+    {
+      "collection": "fitness-exercise",
+      "publicFeedProducts": 156,
+      "advertisedCount": 157
+    },
+    {
+      "collection": "furniture",
+      "publicFeedProducts": 924,
+      "advertisedCount": 1195
+    },
+    {
+      "collection": "garden-outdoor",
+      "publicFeedProducts": 641,
+      "advertisedCount": 644
+    },
+    {
+      "collection": "garden-care",
+      "publicFeedProducts": 119,
+      "advertisedCount": 119
+    },
+    {
+      "collection": "hardware",
+      "publicFeedProducts": 57,
+      "advertisedCount": 57
+    },
+    {
+      "collection": "health-beauty",
+      "publicFeedProducts": 1087,
+      "advertisedCount": 1090
+    },
+    {
+      "collection": "health-care",
+      "publicFeedProducts": 102,
+      "advertisedCount": 103
+    },
+    {
+      "collection": "home-living",
+      "publicFeedProducts": 4588,
+      "advertisedCount": 4868
+    },
+    {
+      "collection": "home-decor-gifts",
+      "publicFeedProducts": 355,
+      "advertisedCount": 361
+    },
+    {
+      "collection": "kids-accessories",
+      "publicFeedProducts": 141,
+      "advertisedCount": 141
+    },
+    {
+      "collection": "kitchen-dining",
+      "publicFeedProducts": 1598,
+      "advertisedCount": 1605
+    },
+    {
+      "collection": "ladders",
+      "publicFeedProducts": 18,
+      "advertisedCount": 18
+    },
+    {
+      "collection": "lighting-lamps",
+      "publicFeedProducts": 242,
+      "advertisedCount": 242
+    },
+    {
+      "collection": "measuring-tools-scales",
+      "publicFeedProducts": 82,
+      "advertisedCount": 82
+    },
+    {
+      "collection": "outdoor-solar-lighting",
+      "publicFeedProducts": 191,
+      "advertisedCount": 191
+    },
+    {
+      "collection": "outdoor-activities",
+      "publicFeedProducts": 197,
+      "advertisedCount": 201
+    },
+    {
+      "collection": "personal-care",
+      "publicFeedProducts": 501,
+      "advertisedCount": 502
+    },
+    {
+      "collection": "ride-ons",
+      "publicFeedProducts": 62,
+      "advertisedCount": 62
+    },
+    {
+      "collection": "security",
+      "publicFeedProducts": 121,
+      "advertisedCount": 125
+    },
+    {
+      "collection": "shapewear",
+      "publicFeedProducts": 37,
+      "advertisedCount": 37
+    },
+    {
+      "collection": "sports-accessories",
+      "publicFeedProducts": 45,
+      "advertisedCount": 45
+    },
+    {
+      "collection": "stationery-office-supplies",
+      "publicFeedProducts": 694,
+      "advertisedCount": 694
+    },
+    {
+      "collection": "storage-organisation",
+      "publicFeedProducts": 352,
+      "advertisedCount": 352
+    },
+    {
+      "collection": "tools",
+      "publicFeedProducts": 715,
+      "advertisedCount": 716
+    },
+    {
+      "collection": "toys-games",
+      "publicFeedProducts": 472,
+      "advertisedCount": 472
+    },
+    {
+      "collection": "toys-kids-baby",
+      "publicFeedProducts": 958,
+      "advertisedCount": 960
+    }
+  ],
+  "added": [
+    {
+      "slug": "3-door-wooden-wardrobe-with-mirrored-center-drawers",
+      "name": "3-Door Wooden Wardrobe with Mirrored Center & Drawers",
+      "collections": [
+        "affordable-wardrobes",
+        "home-living",
+        "storage-organisation"
+      ]
+    },
+    {
+      "slug": "multi-door-wooden-wardrobe-wall-unit",
+      "name": "Multi-Door Wooden Wardrobe Wall Unit",
+      "collections": [
+        "affordable-wardrobes",
+        "clothing-accessories",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "3-door-grey-wooden-wardrobe-with-mirrored-center-3-drawers",
+      "name": "3-Door Grey Wooden Wardrobe with Mirrored Center & 3 Drawers",
+      "collections": [
+        "affordable-wardrobes",
+        "clothing-accessories",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "multi-compartment-white-natural-oak-wardrobe-armoire",
+      "name": "Multi-Compartment White & Natural Oak Wardrobe Armoire",
+      "collections": [
+        "affordable-wardrobes",
+        "clothing-accessories",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "4-door-wooden-wardrobe-armoire-with-dual-mirrors-6-drawers",
+      "name": "4-Door Wooden Wardrobe Armoire with Dual Mirrors & 6 Drawers",
+      "collections": [
+        "affordable-wardrobes",
+        "furniture",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "multi-door-bedroom-wardrobe-with-built-in-central-mirror",
+      "name": "Multi-Door Bedroom Wardrobe with Built-In Central Mirror",
+      "collections": [
+        "affordable-wardrobes",
+        "home-living",
+        "storage-organisation"
+      ]
+    },
+    {
+      "slug": "3-door-freestanding-wardrobe",
+      "name": "3-Door Freestanding Wardrobe for Stylish Storage Solutions",
+      "collections": [
+        "affordable-wardrobes",
+        "furniture",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "non-slip-breathable-mesh-baby-sock-shoes",
+      "name": "Non-Slip Breathable Mesh Baby Sock Shoes",
+      "collections": [
+        "baby-essentials",
+        "clothing-accessories",
+        "home-living",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "3pc-owl-silicone-baby-feeding-bowl-and-cutlery-set",
+      "name": "3pc Owl Silicone Baby Feeding Bowl and Cutlery Set",
+      "collections": [
+        "baby-essentials",
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "summer-infant-sit-in-style-booster-seat",
+      "name": "Summer Infant Sit in Style Booster Seat",
+      "collections": [
+        "baby-essentials",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "foldable-children-potty-training-toilet-seat-with-step-ladder",
+      "name": "Foldable Children Potty Training Toilet Seat",
+      "collections": [
+        "baby-essentials",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "vacuum-storage-bags-with-hand-pump",
+      "name": "Vacuum Storage Bags with Hand Pump",
+      "collections": [
+        "bed-bath",
+        "cleaning-laundry",
+        "home-living",
+        "storage-organisation"
+      ]
+    },
+    {
+      "slug": "ultrasonic-aroma-air-humidifier-essential-oil-diffuser",
+      "name": "Ultrasonic Aroma Air Humidifier & Essential Oil Diffuser",
+      "collections": [
+        "bed-bath",
+        "health-beauty",
+        "home-living",
+        "personal-care"
+      ]
+    },
+    {
+      "slug": "modern-cordless-copper-turret-table-lamp",
+      "name": "Modern Cordless Copper Turret Table Lamp",
+      "collections": [
+        "bed-bath",
+        "electronics",
+        "home-living",
+        "lighting-lamps"
+      ]
+    },
+    {
+      "slug": "red-and-white-striped-outdoor-bean-bag-lounger",
+      "name": "Red and White Striped Outdoor Bean Bag Lounger",
+      "collections": [
+        "camping-braai-picnic",
+        "furniture",
+        "garden-outdoor",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "car-steering-wheel-wire-rope-lock",
+      "name": "Car Steering Wheel Wire Rope Lock",
+      "collections": [
+        "car-care-tools",
+        "diy-hardware"
+      ]
+    },
+    {
+      "slug": "19-piece-automotive-trim-removal-tool-kit",
+      "name": "19-Piece Automotive Trim Removal Tool Kit",
+      "collections": [
+        "car-care-tools",
+        "diy-hardware"
+      ]
+    },
+    {
+      "slug": "3-in-1-wdr-full-hd-1080p-car-dvr-dash-camera",
+      "name": "3-in-1 WDR Full HD 1080P Car DVR Dash Camera",
+      "collections": [
+        "car-electronics-accessories",
+        "electronics"
+      ]
+    },
+    {
+      "slug": "poly-cotton-overalls-2-piece-with-reflective-tape",
+      "name": "Poly Cotton Overalls 2-Piece with Reflective Tape",
+      "collections": [
+        "clothing-accessories",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "ice-bean-banana-pillow",
+      "name": "Ice Bean Banana Pillow - Playful Novelty Styling",
+      "collections": [
+        "clothing-accessories",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "dumpling-plush-throw-pillow",
+      "name": "Dumpling Plush Throw Pillow -Whimsical Comfort for Your Home",
+      "collections": [
+        "clothing-accessories",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "multilayer-beaded-charm-necklace",
+      "name": "Multilayer Beaded Charm Necklace",
+      "collections": [
+        "clothing-accessories",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "lettered-corduroy-plush-throw-pillow",
+      "name": "Lettered Corduroy Plush Throw Pillow",
+      "collections": [
+        "clothing-accessories",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "flower-cushion",
+      "name": "Flower Cushion - Stylish Comfort for Every Space",
+      "collections": [
+        "clothing-accessories",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "11-piece-sewing-machine-presser-feet-kit",
+      "name": "11-Piece Sewing Machine Presser Feet Kit",
+      "collections": [
+        "clothing-accessories",
+        "electrical-accessories",
+        "electronics",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "multi-functional-sewing-machine-presser-feet-kit",
+      "name": "Multi-Functional Sewing Machine Presser Feet Kit",
+      "collections": [
+        "clothing-accessories",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "42-piece-domestic-sewing-machine-presser-feet-set",
+      "name": "42-Piece Domestic Sewing Machine Presser Feet Set",
+      "collections": [
+        "clothing-accessories",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "23m-heavy-duty-galvanized-steel-link-chain",
+      "name": "23M Heavy-Duty Galvanized Steel Link Chain",
+      "collections": [
+        "diy-hardware",
+        "tools"
+      ]
+    },
+    {
+      "slug": "hot-stapler-plastic-repair-kit-with-1200pcs-staples",
+      "name": "Hot Stapler Plastic Repair Kit with 1200PCS Staples",
+      "collections": [
+        "diy-hardware",
+        "tools"
+      ]
+    },
+    {
+      "slug": "magnetic-drawing-board-with-carry-handle",
+      "name": "Magnetic Drawing Board with Carry Handle",
+      "collections": [
+        "educational-toys",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "mini-magnetic-snakes-ladders-board-game",
+      "name": "Mini Magnetic Snakes & Ladders Board Game",
+      "collections": [
+        "educational-toys",
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "wireless-microphone",
+      "name": "Wireless Microphone: Crystal-Clear Sound for Every Occasion",
+      "collections": [
+        "electrical-accessories",
+        "electronics"
+      ]
+    },
+    {
+      "slug": "micro-foldable-drone-aircraft",
+      "name": "Micro Foldable Drone Aircraft - For Travel Content Creators",
+      "collections": [
+        "electrical-accessories",
+        "electronics",
+        "garden-outdoor",
+        "outdoor-activities"
+      ]
+    },
+    {
+      "slug": "wired-rgb-gaming-headset-with-microphone",
+      "name": "Wired RGB Gaming Headset with Microphone",
+      "collections": [
+        "electrical-accessories",
+        "electronics"
+      ]
+    },
+    {
+      "slug": "wireless-folding-keyboard",
+      "name": "Wireless Folding Keyboard for Ultimate Portability",
+      "collections": [
+        "electrical-accessories",
+        "electronics"
+      ]
+    },
+    {
+      "slug": "led-backlit-gaming-keyboard-and-mouse-combo",
+      "name": "LED Backlit Gaming Keyboard and Mouse Combo",
+      "collections": [
+        "electrical-accessories",
+        "electronics"
+      ]
+    },
+    {
+      "slug": "smart-remote-control",
+      "name": "Smart Remote Control: Effortless Device Management Made Easy",
+      "collections": [
+        "electrical-accessories",
+        "electronics"
+      ]
+    },
+    {
+      "slug": "digital-programmable-plug-in-timer-socket",
+      "name": "Digital Programmable Plug-In Timer Socket",
+      "collections": [
+        "electrical-accessories",
+        "electronics"
+      ]
+    },
+    {
+      "slug": "12-port-usb-charging-station-and-power-adapter",
+      "name": "12-Port USB Charging Station and Power Adapter",
+      "collections": [
+        "electrical-accessories",
+        "electronics"
+      ]
+    },
+    {
+      "slug": "keyboard-and-mouse-combo",
+      "name": "Keyboard and Mouse Combo - Comfortable Typing Performance",
+      "collections": [
+        "electrical-accessories",
+        "electronics"
+      ]
+    },
+    {
+      "slug": "4-in-1-wired-led-backlit-gaming-keyboard",
+      "name": "4-in-1 Wired LED Backlit Gaming Keyboard",
+      "collections": [
+        "electrical-accessories",
+        "electronics"
+      ]
+    },
+    {
+      "slug": "handheld-violent-turbo-blower-fan",
+      "name": "Handheld Violent Turbo Blower Fan",
+      "collections": [
+        "electrical-accessories",
+        "electronics"
+      ]
+    },
+    {
+      "slug": "bottle-ambient-lamp-head-unit",
+      "name": "Bottle Ambient Lamp Head Unit - Cordless LED",
+      "collections": [
+        "electrical-accessories",
+        "electronics",
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "4g-solar-powered-outdoor-security-camera",
+      "name": "4G Solar-Powered Outdoor Security Camera",
+      "collections": [
+        "electrical-accessories",
+        "electronics",
+        "garden-outdoor"
+      ]
+    },
+    {
+      "slug": "handheld-video-game-console",
+      "name": "Handheld Video Game Console - Retro Gaming Fun Anywhere",
+      "collections": [
+        "electrical-accessories",
+        "electronics"
+      ]
+    },
+    {
+      "slug": "portable-tablet-with-keyboard-and-mouse-set",
+      "name": "Portable Tablet with Keyboard and Mouse Set",
+      "collections": [
+        "electrical-accessories",
+        "electronics"
+      ]
+    },
+    {
+      "slug": "8-channel-5-in-1-cctv-digital-video-recorder",
+      "name": "8-Channel 5-in-1 CCTV Digital Video Recorder",
+      "collections": [
+        "electrical-accessories",
+        "electronics"
+      ]
+    },
+    {
+      "slug": "5mp-4-channel-nvr-poe-security-camera-kit",
+      "name": "5MP 4-Channel NVR PoE Security Camera Kit",
+      "collections": [
+        "electrical-accessories",
+        "electronics",
+        "outdoor-activities",
+        "security"
+      ]
+    },
+    {
+      "slug": "5mp-5-in-1-32-channel-hybrid-digital-video-recorder-dvr",
+      "name": "5MP 5-in-1 32-Channel Hybrid Digital Video Recorder (DVR)",
+      "collections": [
+        "electrical-accessories",
+        "electronics"
+      ]
+    },
+    {
+      "slug": "v380-pro-ptz-outdoor-security-camera",
+      "name": "V380 Pro PTZ Outdoor Security Camera",
+      "collections": [
+        "electrical-accessories",
+        "electronics",
+        "garden-outdoor",
+        "security"
+      ]
+    },
+    {
+      "slug": "2mp-1080p-security-camera",
+      "name": "2MP 1080P Security Camera - High-Definition Surveillance",
+      "collections": [
+        "electrical-accessories",
+        "electronics",
+        "garden-outdoor",
+        "security"
+      ]
+    },
+    {
+      "slug": "silver-25l-3-in-1-countertop-electric-oven-air-fryer-unit",
+      "name": "Silver 25L 3-in-1 Countertop Electric Oven & Air Fryer Unit",
+      "collections": [
+        "electrical-accessories",
+        "electronics",
+        "home-living",
+        "kitchen-dining"
+      ]
+    },
+    {
+      "slug": "wireless-light-bulb-security-camera",
+      "name": "Wireless Light Bulb Security Camera",
+      "collections": [
+        "electronics",
+        "security"
+      ]
+    },
+    {
+      "slug": "wireless-wi-fi-light-bulb-security-camera",
+      "name": "Wireless Wi-Fi Light Bulb Security Camera",
+      "collections": [
+        "electronics",
+        "security"
+      ]
+    },
+    {
+      "slug": "dual-aperture-laser-led-ambient-party-light",
+      "name": "Dual-Aperture Laser LED Ambient Party Light",
+      "collections": [
+        "electronics",
+        "lighting-lamps"
+      ]
+    },
+    {
+      "slug": "4-channel-ahd-digital-video-recorder",
+      "name": "4-Channel AHD Digital Video Recorder",
+      "collections": [
+        "electronics",
+        "security"
+      ]
+    },
+    {
+      "slug": "smart-wireless-wi-fi-indoor-pan-tilt-security-camera",
+      "name": "Smart Wireless Wi-Fi Indoor Pan-Tilt Security Camera",
+      "collections": [
+        "electronics",
+        "security"
+      ]
+    },
+    {
+      "slug": "flexible-rgb-led-light-strip-reel",
+      "name": "Flexible RGB LED Light Strip Reel",
+      "collections": [
+        "electronics",
+        "lighting-lamps"
+      ]
+    },
+    {
+      "slug": "smart-wireless-wi-fi-indoor-security-camera",
+      "name": "Smart Wireless Wi-Fi Indoor Security Camera",
+      "collections": [
+        "electronics",
+        "security"
+      ]
+    },
+    {
+      "slug": "5-in-1-digital-video-recorder",
+      "name": "5-in-1 Digital Video Recorder: Ultimate Security Hub",
+      "collections": [
+        "electronics",
+        "security"
+      ]
+    },
+    {
+      "slug": "4-3-inch-video-baby-monitor-with-remote-pan-tilt-camera",
+      "name": "4.3 Inch Video Baby Monitor with Remote Pan-Tilt Camera",
+      "collections": [
+        "electronics",
+        "security"
+      ]
+    },
+    {
+      "slug": "2mp-full-color-outdoor-bullet-security-camera",
+      "name": "2MP Full-Color Outdoor Bullet Security Camera",
+      "collections": [
+        "electronics",
+        "security"
+      ]
+    },
+    {
+      "slug": "3mp-8-channel-poe-nvr-system-unit",
+      "name": "3MP 8-Channel PoE NVR System Unit",
+      "collections": [
+        "electronics",
+        "lighting-lamps",
+        "security"
+      ]
+    },
+    {
+      "slug": "5mp-360-degree-panoramic-fisheye-ip-security-camera",
+      "name": "5MP 360-Degree Panoramic Fisheye IP Security Camera",
+      "collections": [
+        "electronics",
+        "security"
+      ]
+    },
+    {
+      "slug": "outdoor-ahd-5mp-ptz-security-camera",
+      "name": "Outdoor AHD 5MP PTZ Security Camera",
+      "collections": [
+        "electronics",
+        "garden-outdoor",
+        "security"
+      ]
+    },
+    {
+      "slug": "3mp-16-channel-nvr-poe-security-camera-kit",
+      "name": "3MP 16-Channel NVR PoE Security Camera Kit",
+      "collections": [
+        "electronics",
+        "security"
+      ]
+    },
+    {
+      "slug": "y611-pan-tilt-camera-lighting-unit",
+      "name": "Y611 Pan & Tilt Camera & Lighting Unit",
+      "collections": [
+        "electronics",
+        "security"
+      ]
+    },
+    {
+      "slug": "5mp-full-color-bullet-security-camera",
+      "name": "5MP Full-Color Bullet Security Camera",
+      "collections": [
+        "electronics",
+        "garden-outdoor",
+        "security"
+      ]
+    },
+    {
+      "slug": "3-in-1-smart-outdoor-floodlight-security-camera-unit",
+      "name": "3-in-1 Smart Outdoor Floodlight Security Camera Unit",
+      "collections": [
+        "electronics",
+        "garden-outdoor",
+        "security"
+      ]
+    },
+    {
+      "slug": "3mp-4-channel-nvr-poe-security-camera-kit",
+      "name": "3MP 4-Channel NVR PoE Security Camera Kit",
+      "collections": [
+        "electronics",
+        "garden-outdoor",
+        "outdoor-activities",
+        "security"
+      ]
+    },
+    {
+      "slug": "433mhz-wireless-pir-motion-detector-unit",
+      "name": "433MHz Wireless PIR Motion Detector Unit",
+      "collections": [
+        "electronics",
+        "home-living",
+        "kitchen-dining",
+        "security"
+      ]
+    },
+    {
+      "slug": "xy-wi-fi-cam-od30-bullet-security-camera-unit",
+      "name": "XY Wi-Fi Cam OD30 Bullet Security Camera Unit",
+      "collections": [
+        "electronics",
+        "security"
+      ]
+    },
+    {
+      "slug": "wi-fi-smart-bulb-security-camera",
+      "name": "Wi-Fi Smart Bulb Security Camera",
+      "collections": [
+        "electronics",
+        "security"
+      ]
+    },
+    {
+      "slug": "3mp-2k-wireless-window-security-camera",
+      "name": "3MP 2K Wireless Window Security Camera",
+      "collections": [
+        "electronics",
+        "home-living",
+        "kitchen-dining",
+        "security"
+      ]
+    },
+    {
+      "slug": "dual-lens-ptz-outdoor-security-camera",
+      "name": "Dual-Lens PTZ Outdoor Security Camera",
+      "collections": [
+        "electronics",
+        "security"
+      ]
+    },
+    {
+      "slug": "1080p-outdoor-ptz-wi-fi-security-camera",
+      "name": "1080P Outdoor PTZ Wi-Fi Security Camera",
+      "collections": [
+        "electronics",
+        "garden-outdoor",
+        "security"
+      ]
+    },
+    {
+      "slug": "solar-powered-security-camera-with-integrated-led-floodlight",
+      "name": "Solar-Powered Security Camera with Integrated LED Floodlight",
+      "collections": [
+        "electronics",
+        "garden-outdoor",
+        "outdoor-solar-lighting",
+        "security"
+      ]
+    },
+    {
+      "slug": "4-lens-ptz-wi-fi-security-camera-unit",
+      "name": "4-Lens PTZ Wi-Fi Security Camera Unit",
+      "collections": [
+        "electronics",
+        "garden-outdoor",
+        "outdoor-activities",
+        "security"
+      ]
+    },
+    {
+      "slug": "solar-wall-light-security-camera-unit",
+      "name": "Solar Wall Light Security Camera Unit",
+      "collections": [
+        "electronics",
+        "garden-outdoor",
+        "outdoor-solar-lighting",
+        "security"
+      ]
+    },
+    {
+      "slug": "1080p-hd-wireless-outdoor-ptz-security-camera",
+      "name": "1080P HD Wireless Outdoor PTZ Security Camera",
+      "collections": [
+        "electronics",
+        "security"
+      ]
+    },
+    {
+      "slug": "solar-wall-light-ptz-camera",
+      "name": "Solar Wall Light PTZ Camera - Smart Security & Illumination",
+      "collections": [
+        "electronics",
+        "garden-outdoor",
+        "outdoor-solar-lighting",
+        "security"
+      ]
+    },
+    {
+      "slug": "remote-control-construction-vehicle-excavator-truck-play-set",
+      "name": "Remote Control Construction Vehicle Excavator Truck Play Set",
+      "collections": [
+        "electronics",
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "21-speed-adult-mountain-bike",
+      "name": "21-Speed Adult Mountain Bike: Conquer Any Terrain with Style",
+      "collections": [
+        "fitness-exercise",
+        "garden-outdoor",
+        "health-beauty",
+        "outdoor-activities"
+      ]
+    },
+    {
+      "slug": "2-litre-motivational-water-bottle-with-built-in-straw",
+      "name": "2-Litre Motivational Water Bottle with Built-In Straw",
+      "collections": [
+        "fitness-exercise",
+        "sports-accessories"
+      ]
+    },
+    {
+      "slug": "single-bed-frame-and-base-set-with-character-ear-headboard",
+      "name": "Single Bed Frame and Base set with Character Ear Headboard",
+      "collections": [
+        "furniture",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "multi-piece-modular-kitchen-unit-in-a-brown-and-white-finish",
+      "name": "Multi-Piece Modular Kitchen Unit in a Brown and White Finish",
+      "collections": [
+        "furniture",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "multi-piece-modular-metallic-kitchen-unit",
+      "name": "Multi-Piece Modular Metallic Kitchen Unit",
+      "collections": [
+        "furniture",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "raised-steel-kitchen-cupboard-set",
+      "name": "Raised Steel Kitchen Cupboard Set",
+      "collections": [
+        "furniture",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "multi-piece-modular-kitchen-storage-cabinet-set",
+      "name": "Multi-Piece Modular Kitchen Storage Cabinet Set",
+      "collections": [
+        "furniture",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "marble-look-modern-dining-table",
+      "name": "Marble Look Modern Dining Table",
+      "collections": [
+        "furniture",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "sl-f100-separate-solar-wall-lamp",
+      "name": "SL-F100 Separate Solar Wall Lamp",
+      "collections": [
+        "garden-outdoor",
+        "outdoor-solar-lighting"
+      ]
+    },
+    {
+      "slug": "tactical-motorcycle-and-sports-face-mask-with-goggles",
+      "name": "Tactical Motorcycle and Sports Face Mask with Goggles",
+      "collections": [
+        "garden-outdoor",
+        "outdoor-activities"
+      ]
+    },
+    {
+      "slug": "tactical-full-face-protective-mask-with-integrated-goggles",
+      "name": "Tactical Full-Face Protective Mask with Integrated Goggles",
+      "collections": [
+        "garden-outdoor",
+        "outdoor-activities"
+      ]
+    },
+    {
+      "slug": "outdoor-gas-heater-main-body-reflector-dome",
+      "name": "Outdoor Gas Heater Main Body & Reflector Dome",
+      "collections": [
+        "garden-outdoor",
+        "outdoor-solar-lighting"
+      ]
+    },
+    {
+      "slug": "thermal-first-aid-emergency-sleeping-bag",
+      "name": "Thermal First Aid Emergency Sleeping Bag",
+      "collections": [
+        "garden-outdoor",
+        "outdoor-activities"
+      ]
+    },
+    {
+      "slug": "mountain-bike-with-suspension-fork-triple-chainset",
+      "name": "Mountain Bike with Suspension Fork & Triple Chainset",
+      "collections": [
+        "garden-outdoor",
+        "outdoor-activities"
+      ]
+    },
+    {
+      "slug": "outdoor-home-swing-for-kids",
+      "name": "Outdoor Home Swing for Kids - Safe & Fun Backyard Play",
+      "collections": [
+        "garden-outdoor",
+        "outdoor-activities",
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "toy-handgun-toy-pistol-set",
+      "name": "Toy Handgun Toy Pistol Set - Safe Fun for Kids & Families",
+      "collections": [
+        "garden-outdoor",
+        "outdoor-activities"
+      ]
+    },
+    {
+      "slug": "clear-amber-rotating-makeup-brush-storage-bucket",
+      "name": "Clear Amber Rotating Makeup Brush Storage Bucket",
+      "collections": [
+        "health-beauty",
+        "home-living",
+        "personal-care",
+        "storage-organisation"
+      ]
+    },
+    {
+      "slug": "anti-fog-protective-safety-goggles",
+      "name": "Anti-Fog Protective Safety Goggles",
+      "collections": [
+        "health-beauty",
+        "personal-care"
+      ]
+    },
+    {
+      "slug": "multi-stage-mineral-replacement-filter-cartridge",
+      "name": "Multi-Stage Mineral Replacement Filter Cartridge",
+      "collections": [
+        "health-beauty",
+        "health-care",
+        "home-living",
+        "kitchen-dining"
+      ]
+    },
+    {
+      "slug": "360-degree-rotating-desktop-storage-bucket",
+      "name": "360-Degree Rotating Desktop Storage Bucket",
+      "collections": [
+        "health-beauty",
+        "home-living",
+        "personal-care",
+        "storage-organisation"
+      ]
+    },
+    {
+      "slug": "white-cloth-tape-48mm-10m",
+      "name": "White Cloth Tape – 48mm × 10M Office",
+      "collections": [
+        "home-living",
+        "stationery-office-supplies"
+      ]
+    },
+    {
+      "slug": "2xl-classic-popcorn-bucket",
+      "name": "2XL Classic Popcorn Bucket - Ultimate Movie Night Companion",
+      "collections": [
+        "home-living",
+        "kitchen-dining"
+      ]
+    },
+    {
+      "slug": "5-pack-of-vacuum-storage-compression-bags",
+      "name": "5-Pack of Vacuum Storage Compression Bags",
+      "collections": [
+        "home-living",
+        "storage-organisation"
+      ]
+    },
+    {
+      "slug": "extra-large-retro-style-popcorn-bucket",
+      "name": "Extra Large Retro-Style Popcorn Bucket",
+      "collections": [
+        "home-living",
+        "kitchen-dining"
+      ]
+    },
+    {
+      "slug": "framed-golden-tree-of-life-abstract-canvas-wall-art",
+      "name": "Framed Golden Tree of Life Abstract Canvas Wall Art",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "round-vintage-double-loop-mirror-tray-gold-medium-size",
+      "name": "Round Vintage Double Loop Mirror Tray Gold Medium Size",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "gold-metal-mirror-decor-tray-large",
+      "name": "Gold Metal Mirror Decor Tray Large",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "golden-metal-mirrored-decorative-tray-large",
+      "name": "Golden Metal Mirrored Decorative Tray Large",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "golden-round-style-mirror-tray-large-size",
+      "name": "Golden Round Style Mirror Tray Large Size",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "golden-metal-mirrored-decorative-tray-medium",
+      "name": "Golden Metal Mirrored Decorative Tray Medium",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "1-4m-executive-l-shape-office-desk",
+      "name": "1.4m Executive L-Shape Office Desk",
+      "collections": [
+        "home-living",
+        "stationery-office-supplies"
+      ]
+    },
+    {
+      "slug": "home-lavender-ceramic-oil-burner-and-fragrance-oil-set",
+      "name": "Home Lavender Ceramic Oil Burner and Fragrance Oil Set",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "office-desk-mat",
+      "name": "Office Desk Mat - Sophisticated Surface",
+      "collections": [
+        "home-living",
+        "stationery-office-supplies"
+      ]
+    },
+    {
+      "slug": "2-piece-stainless-steel-cutlery-set",
+      "name": "2-Piece Stainless Steel Cutlery Set",
+      "collections": [
+        "home-living",
+        "kitchen-dining"
+      ]
+    },
+    {
+      "slug": "framed-abstract-canvas-wall-art-piece",
+      "name": "Framed Abstract Canvas Wall Art Piece",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "digital-twin-bell-alarm-clock-with-backlit-lcd-display",
+      "name": "Digital Twin-Bell Alarm Clock with Backlit LCD Display",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "framed-black-girl-magic-canvas-art-portrait",
+      "name": "Framed Black Girl Magic Canvas Art Portrait",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "artificial-palm-tree-in-nursery-pot",
+      "name": "Artificial Palm Tree in Nursery Pot",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "generic-golden-ginkgo-leaf-wall-art-piece",
+      "name": "Generic Golden Ginkgo Leaf Wall Art Piece",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "floral-botanical-canvas-wall-art-piece",
+      "name": "Floral Botanical Canvas Wall Art Piece",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "3d-pen-filament-refill",
+      "name": "3D Pen Filament Refill - Smooth & Reliable Extrusion",
+      "collections": [
+        "home-living",
+        "stationery-office-supplies"
+      ]
+    },
+    {
+      "slug": "elegant-feathers-and-palm-fronds-abstract-art-piece",
+      "name": "Elegant Feathers and Palm Fronds Abstract Art Piece",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "autumn-pumpkin-framed-wall-art-piece",
+      "name": "Autumn Pumpkin Framed Wall Art Piece",
+      "collections": [
+        "home-decor-gifts",
+        "home-living",
+        "kitchen-dining"
+      ]
+    },
+    {
+      "slug": "two-tone-steel-l-shaped-kitchen-storage-unit",
+      "name": "Two-Tone Steel L-Shaped Kitchen Storage Unit",
+      "collections": [
+        "home-living",
+        "kitchen-dining"
+      ]
+    },
+    {
+      "slug": "60x80cm-autumn-fields-canvas-wall-art",
+      "name": "60x80cm Autumn Fields Canvas Wall Art for Elegant Interiors",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "50x50-sunflower-canvas-wall-art",
+      "name": "50x50 Sunflower Canvas Wall Art",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "vertical-golden-tree-canvas-wall-art",
+      "name": "Vertical Golden Tree Canvas Wall Art",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "japanese-style-kitchen-cleaver-knife",
+      "name": "Japanese-Style Kitchen Cleaver Knife",
+      "collections": [
+        "home-living",
+        "kitchen-dining"
+      ]
+    },
+    {
+      "slug": "red-electric-hot-air-popcorn-maker",
+      "name": "Red Electric Hot-Air Popcorn Maker",
+      "collections": [
+        "home-living",
+        "kitchen-dining"
+      ]
+    },
+    {
+      "slug": "hoppers-pvc-and-silicone-3d-animal-keychain",
+      "name": "Hoppers PVC and Silicone 3D Animal Keychain",
+      "collections": [
+        "home-decor-gifts",
+        "home-living"
+      ]
+    },
+    {
+      "slug": "glow-in-the-dark-soft-star-moon-pink-blanket",
+      "name": "Glow in The Dark Soft Star Moon Pink Blanket",
+      "collections": [
+        "kids-accessories",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "glow-in-the-dark-ball-sports-lovers-blanket",
+      "name": "Glow in The Dark Ball Sports Lovers Blanket",
+      "collections": [
+        "kids-accessories",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "glow-in-the-dark-unicorn-colorful-throw-blanket",
+      "name": "Glow in The Dark Unicorn Colorful Throw Blanket",
+      "collections": [
+        "kids-accessories",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "foldable-toddler-potty-training-seat-with-cushioned-support",
+      "name": "Foldable Toddler Potty Training Seat with Cushioned Support",
+      "collections": [
+        "kids-accessories",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "kids-electronic-study-book-for-intelligence-learning",
+      "name": "Kids Electronic Study Book for Intelligence Learning",
+      "collections": [
+        "kids-accessories",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "thick-memory-foam-baby-play-mat-150x180cm",
+      "name": "Thick Memory Foam Baby Play Mat 150x180cm",
+      "collections": [
+        "kids-accessories",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "plush-parrot-toy",
+      "name": "Plush Parrot Toy - A Colorful and Soft Decorative Touch",
+      "collections": [
+        "kids-accessories",
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "multifunctional-portable-baby-crib",
+      "name": "MultiFunctional Portable Baby Crib",
+      "collections": [
+        "kids-accessories",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "multifunctional-portable-baby-cradle-and-bassinet",
+      "name": "Multifunctional Portable Baby Cradle and Bassinet",
+      "collections": [
+        "kids-accessories",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "wireless-baby-monitor-with-night-vision-camera",
+      "name": "Wireless Baby Monitor With Night Vision Camera",
+      "collections": [
+        "kids-accessories",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "multifunctional-slide-swing-baby-playground",
+      "name": "Multifunctional Slide Swing Baby Playground",
+      "collections": [
+        "kids-accessories",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "video-baby-monitor-with-audio-and-night-vision",
+      "name": "Video Baby Monitor with Audio and Night Vision",
+      "collections": [
+        "kids-accessories",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "baby-diaper-changing-station",
+      "name": "Baby Diaper Changing Station",
+      "collections": [
+        "kids-accessories",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "3-in-1-kids-plastic-toddler-booster-dining-chair",
+      "name": "3 In 1 Kids Plastic Toddler Booster Dining Chair",
+      "collections": [
+        "kids-accessories",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "thin-memory-foam-baby-play-mat-150x180cm",
+      "name": "Thin Memory Foam Baby Play Mat 150x180cm",
+      "collections": [
+        "kids-accessories",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "thin-memory-foam-baby-play-mat-200x180cm",
+      "name": "Thin Memory Foam Baby Play Mat 200x180cm",
+      "collections": [
+        "kids-accessories",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "thick-memory-foam-baby-play-mat-200x180cm",
+      "name": "Thick Memory Foam Baby Play Mat 200x180cm",
+      "collections": [
+        "kids-accessories",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "beauty-mole-removal-sweep-spot-pen",
+      "name": "Beauty Mole Removal Sweep Spot Pen",
+      "collections": [
+        "health-beauty",
+        "personal-care"
+      ]
+    },
+    {
+      "slug": "pvc-anti-skid-foot-massager-bathroom-mat",
+      "name": "PVC Anti Skid Foot Massager Bathroom Mat",
+      "collections": [
+        "health-beauty",
+        "personal-care"
+      ]
+    },
+    {
+      "slug": "wooden-puzzle-60-piece-jigsaw",
+      "name": "Wooden Puzzle 60 Piece Jigsaw",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "melia-rabbit-plush-doll",
+      "name": "Melia Rabbit Plush Doll - Long Floppy Ears",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "shooting-soft-bullet-blaster-toy-foam-dart-gun-set",
+      "name": "Shooting Soft Bullet Blaster Toy Foam Dart Gun Set",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "die-cast-model-alloy-cars-emergency-rescue-vehicle-gift-set",
+      "name": "Die-Cast Model Alloy Cars Emergency Rescue Vehicle Gift Set",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "racing-boat-remote-control-toy",
+      "name": "Racing Boat Remote Control Toy",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "37-key-electronic-keyboard-toy",
+      "name": "37-Key Electronic Keyboard Toy",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "fruit-bee-cat-plush",
+      "name": "Fruit Bee Cat Plush - Perfect for Snuggles",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "plush-rag-doll-with-animal-hat",
+      "name": "Plush Rag Doll with Animal Hat",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "style-raccoon-toy",
+      "name": "Style Raccoon Toy - Ultra-soft Cuddles",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "cute-teddy-bear-plush",
+      "name": "Cute Teddy Bear Plush - Perfect for Cozy Cuddles and Decor",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "european-mink-bear-paw-pillow",
+      "name": "European Mink Bear Paw Pillow - Ultra-luxurious Faux Fur",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "sequin-sloth-toy",
+      "name": "Sequin Sloth Toy - Sensory Tactile Fun",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "happy-scarf-dog-toy",
+      "name": "Happy Scarf Dog Toy - Interactive Squeaking Fun",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "honey-donkey-plush-toy",
+      "name": "Honey Donkey Plush Toy - Gentle Snuggles",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "sloth-plush-toy",
+      "name": "Sloth Plush Toy - Brings Ultra-Cozy Hugs",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "dolphin-soft-toy",
+      "name": "Dolphin Soft Toy - A Cuddly Plush Companion",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "capybara-plush-toy",
+      "name": "Capybara Plush Toy - Adorable Soft Snuggles for Everyone",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "slap-unicorn-bracelet",
+      "name": "Slap Unicorn Bracelet - Fun and Magical Kids Accessory",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "remote-control-stunt-motorcycle-toy-with-rider-figure",
+      "name": "Remote Control Stunt Motorcycle Toy with Rider Figure",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "motorized-soft-foam-dart-blaster",
+      "name": "Motorized Soft Foam Dart Blaster",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "train-car-storage-track-set",
+      "name": "Train Car Storage Track Set -  For Young Engineers",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "truck-with-trailer-toy",
+      "name": "Truck with Trailer Toy - Fun for Young Vehicle Enthusiasts",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "rotating-electric-magnetic-fishing-game-toy",
+      "name": "Rotating Electric Magnetic Fishing Game Toy",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "magnetic-bar-blocks-building-set",
+      "name": "Magnetic Bar Blocks Building Set",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "carabary-round-pillow",
+      "name": "Carabary Round Pillow - Rich Fabric Textures",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "cute-beret-puppy-plush-toy",
+      "name": "Cute Beret Puppy Plush Toy - Adorable Puppy Plush",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "soft-plush-teddy-bear-toy-with-neck-pendant",
+      "name": "Soft Plush Teddy Bear Toy with Neck Pendant",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "floral-skirt-duck-toy",
+      "name": "Floral Skirt Duck Toy - Charming Plush for Kids' Rooms",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "die-cast-metal-toy-car-set-with-multi-tier-storage-case",
+      "name": "Die-Cast Metal Toy Car Set with Multi-Tier Storage Case",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "interactive-airplane-toy-main-body",
+      "name": "Interactive Airplane Toy Main Body",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "ejection-bumper-car-toy",
+      "name": "Ejection Bumper Car Toy: Thrilling Interactive Racing Fun",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "interactive-robot-puppy-toy",
+      "name": "Interactive Robot Puppy Toy - Fun & Engaging Play for Kids",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "diy-charm-bracelet-making-kit-for-girls",
+      "name": "DIY Charm Bracelet Making Kit for Girls",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "full-face-tactical-skull-protective-mask",
+      "name": "Full-Face Tactical Skull Protective Mask",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "realistic-octopus-plush-toy",
+      "name": "Realistic Octopus Plush Toy - Soft & Captivating Decor",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "plush-seal-soft-toy",
+      "name": "Plush Seal Soft Toy - Adorable Arctic Companion",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "plush-teddy-bear-unit",
+      "name": "Plush Teddy Bear Unit - The Ultimate Heartwarming Gift",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "50cm-bean-plush-banana",
+      "name": "50cm Bean Plush Banana - Irresistible Charm & Comfort",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "38-piece-magnetic-building-tiles-set",
+      "name": "38-Piece Magnetic Building Tiles Set",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "engineering-excavator-toy-with-movable-arm",
+      "name": "Engineering Excavator Toy with Movable Arm",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "funny-city-track-41-piece-flexible-track-playset",
+      "name": "Funny City Track 41-Piece Flexible Track Playset",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "transparent-gear-airplane-toy",
+      "name": "Transparent Gear Airplane Toy - Dynamic Fun Awaits!",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "farm-model-die-cast-metal-series-toy-set",
+      "name": "Farm Model Die-Cast Metal Series Toy Set",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "animal-piano-kids-cartoon-musical-keyboard",
+      "name": "Animal Piano Kids Cartoon Musical Keyboard",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "fire-warrior-diy-take-apart-rescue-play-set",
+      "name": "Fire Warrior DIY Take-Apart Rescue Play Set",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "caterpillar-plush-throw-pillow",
+      "name": "Caterpillar Plush Throw Pillow",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "18-piece-pretend-food-play-set",
+      "name": "18-Piece Pretend Food Play Set",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "a-dinosaur-adventure-playset-box",
+      "name": "Dinosaur Adventure Playset Box",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "luminous-rail-diy-set",
+      "name": "Luminous Rail DIY Set - Glow-in-the-Dark Racing Fun",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "kitchen-helper-happy-little-chef-pretend-play",
+      "name": "Kitchen Helper Happy Little Chef Pretend Play",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "6-in-1-engineering-squad-robot-vehicle-set",
+      "name": "6-in-1 Engineering Squad Robot Vehicle Set",
+      "collections": [
+        "toys-games",
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "gold-metal-mirror-decor-tray-medium",
+      "name": "Gold Metal Mirror Decor Tray Medium",
+      "collections": [
+        "home-decor-gifts"
+      ]
+    },
+    {
+      "slug": "rectangle-mirror-vanity-tray-medium-size",
+      "name": "Rectangle Mirror Vanity Tray Medium Size",
+      "collections": [
+        "home-decor-gifts"
+      ]
+    },
+    {
+      "slug": "golden-round-style-mirror-tray-medium-size",
+      "name": "Golden Round Style Mirror Tray Medium Size",
+      "collections": [
+        "home-decor-gifts"
+      ]
+    },
+    {
+      "slug": "12v-14ah-gel-battery",
+      "name": "12V 14Ah GEL Battery - Reliable Power for Your Applications",
+      "collections": [
+        "backup-power"
+      ]
+    },
+    {
+      "slug": "portable-mesh-nebulizer",
+      "name": "Portable Mesh Nebulizer",
+      "collections": [
+        "health-beauty"
+      ]
+    },
+    {
+      "slug": "1-in-1-out-combiner-box-with-surge-protection-breaker",
+      "name": "1-In 1-Out Combiner Box with Surge Protection & Breaker",
+      "collections": [
+        "electrical-accessories"
+      ]
+    },
+    {
+      "slug": "glove-with-built-in-flashlight",
+      "name": "Glove with Built-In Flashlight",
+      "collections": [
+        "tools"
+      ]
+    },
+    {
+      "slug": "portable-electric-shoe-dryer-machine",
+      "name": "Portable Electric Shoe Dryer Machine",
+      "collections": [
+        "cleaning-laundry"
+      ]
+    },
+    {
+      "slug": "preschool-workbooks-in-maths-and-english-for-kids",
+      "name": "Preschool Workbooks in Maths and English for Kids",
+      "collections": [
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "pest-repelling-aid",
+      "name": "Pest Repelling Aid",
+      "collections": [
+        "garden-outdoor"
+      ]
+    },
+    {
+      "slug": "kiddies-moon-folding-chair",
+      "name": "Kiddies Moon Folding Chair with Padded Seat",
+      "collections": [
+        "furniture"
+      ]
+    },
+    {
+      "slug": "portable-wearable-electric-heated-shawl-blanket",
+      "name": "Portable Wearable Electric Heated Shawl Blanket",
+      "collections": [
+        "bed-bath"
+      ]
+    },
+    {
+      "slug": "de-rust-lubricating-spray",
+      "name": "De-Rust Lubricating Spray for Rust Removal",
+      "collections": [
+        "car-care-tools"
+      ]
+    },
+    {
+      "slug": "100-piece-multifunction-drill-bit-kit-for-wood-metal-and-concrete",
+      "name": "100 Piece Multifunction Drill Bit Kit for Wood Metal",
+      "collections": [
+        "tools"
+      ]
+    },
+    {
+      "slug": "custom-printing-men-tie-dye-sweatshirt",
+      "name": "Custom Printing Men Tie Dye Sweatshirt",
+      "collections": [
+        "clothing-accessories"
+      ]
+    },
+    {
+      "slug": "hd-4k-photography-drone",
+      "name": "HD 4K Photography Drone",
+      "collections": [
+        "electronics"
+      ]
+    },
+    {
+      "slug": "air-fryer-silicone-liner",
+      "name": "Air Fryer Silicone Liner",
+      "collections": [
+        "kitchen-dining"
+      ]
+    },
+    {
+      "slug": "plastic-fish-scale-remover",
+      "name": "Plastic Fish Scale Remover with Protective Cover",
+      "collections": [
+        "kitchen-dining"
+      ]
+    },
+    {
+      "slug": "portable-baby-booster-seat-harness",
+      "name": "Portable Baby Booster Seat Harness",
+      "collections": [
+        "toys-kids-baby"
+      ]
+    },
+    {
+      "slug": "satin-sleeping-bonnet-night-cap",
+      "name": "Satin Sleeping Bonnet Night Cap",
+      "collections": [
+        "health-beauty"
+      ]
+    },
+    {
+      "slug": "stainless-steel-2-tier-chocolate-fountain",
+      "name": "Stainless Steel 2 Tier Chocolate Fountain",
+      "collections": [
+        "kitchen-dining"
+      ]
+    },
+    {
+      "slug": "5l-luxury-stainless-steel-silver-buffet-chafing-dish",
+      "name": "5L Luxury Stainless Steel Silver Buffet Chafing Dish",
+      "collections": [
+        "kitchen-dining"
+      ]
+    },
+    {
+      "slug": "aluminium-portable-laptop-stand",
+      "name": "Aluminium Portable Laptop Stand",
+      "collections": [
+        "electronics"
+      ]
+    },
+    {
+      "slug": "16-piece-tabletop-spice-rack",
+      "name": "16 Piece Tabletop Spice Rack",
+      "collections": [
+        "kitchen-dining"
+      ]
+    },
+    {
+      "slug": "3-plates-suction-glass-lifter",
+      "name": "3 Plates Suction Glass Lifter",
+      "collections": [
+        "tools"
+      ]
+    },
+    {
+      "slug": "fragile-warning-packing-tape",
+      "name": "Fragile Warning Packing Tape – Heavy‑Duty Shipping Safety Tape",
+      "collections": [
+        "stationery-office-supplies"
+      ]
+    }
+  ],
+  "excluded": [
+    "retractable-self-defense-baton",
+    "lipstick-pepper-spray-10ml",
+    "lipstick-pepper-spray-20ml",
+    "gun-cleaning-kit-for-rifle-pistol-shotgun",
+    "nato-pepper-spray-60ml",
+    "64cm-telescopic-self-defence-security-baton",
+    "stainless-steel-karambit-folding-pocket-knife",
+    "g10-stainless-steel-folding-hunting-knife",
+    "folding-hunting-knife-with-wood-inlay",
+    "engraved-wilderness-tactical-folding-knife",
+    "tactical-trench-folding-knife",
+    "wooden-handle-folding-tactical-pocket-knife",
+    "wooden-handle-folding-tactical-knife",
+    "outdoor-survival-and-tactical-edc-folding-knife",
+    "mini-tactical-kerambit-knife-with-rigid-sheath",
+    "knuckle-knife-folding-pocket-knife-and-knuckle-duster",
+    "credit-card-folding-knife",
+    "gun-laser-scope-sight",
+    "hunting-rifle-scope-4-16x44-aoeys",
+    "professional-stun-gun-tw-801",
+    "million-volt-tactical-rechargeable-stun-gun-flashlight-with-laser",
+    "stun-gun-with-flashlight",
+    "pistol-light-with-tripod",
+    "super-stun-baton-with-led-flashlight",
+    "self-defensive-stun-gun-flashlight",
+    "self-defense-stun-gun",
+    "multifunctional-police-self-defense-flashlight-taser-stun-gun",
+    "rifle-scope",
+    "3-9x40-aoeg-riflescope-with-mount",
+    "assembly-service"
+  ]
+}
