@@ -1,3 +1,4 @@
+import {readMerchandising} from '@/lib/homepage-merchandising';
 import {catalogueMarket} from '@/lib/commerce/selection';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -75,9 +76,17 @@ export default async function HomePage() {
     }
     return products;
   }
+  const merchandising=readMerchandising();
+  const demandProducts=merchandising?await selectAvailable(merchandising.products.map(p=>p.slug)):[];
+  const activeMerchandising=demandProducts.length?merchandising:null;
+  const heroProduct=demandProducts[0];
   const valueProducts = await selectAvailable([...valueHandles, ...valuePool.map(p => p.slug)], 300);
   const collections = [];
-  for (const collection of collectionSpecs) {
+  for (const collection of [...collectionSpecs].sort((a,b)=>{
+    const order=activeMerchandising?.departmentOrder||[];
+    const rank=(slug:string)=>{const i=order.indexOf(slug);return i<0?order.length:i;};
+    return rank(a.slug)-rank(b.slug);
+  })) {
     const pool = snapshot.filter(p => p.collections.includes(collection.slug) && p.images.length);
     const handles = [...pool.filter(p => collection.match.test(p.name)), ...pool.filter(p => !collection.match.test(p.name))].map(p => p.slug);
     collections.push({ ...collection, products: await selectAvailable(handles) });
@@ -87,17 +96,18 @@ export default async function HomePage() {
 
   return <main id="main-content" className="bg-[#F7F6F3] pb-14">
     <section aria-labelledby="home-title" className="relative isolate mx-auto max-w-[1800px] overflow-hidden bg-[#EADCC8]">
-      <div className="absolute inset-0 hidden sm:block"><Image src="/brand/plentovo-hero-v2.webp" alt="" fill priority sizes="100vw" className="object-cover object-center" /></div>
+      <div className="absolute inset-0 hidden sm:block"><Image src={heroProduct?.images[0]||"/brand/plentovo-hero-v2.webp"} alt={heroProduct?.name||""} fill priority sizes="100vw" className={heroProduct?"object-contain object-right":"object-cover object-center"} /></div>
       <div className="relative mx-auto max-w-[1800px] px-6 pb-5 pt-10 sm:flex sm:min-h-[370px] sm:items-center sm:px-8 sm:py-12 lg:min-h-[440px]">
         <div className="relative z-10 sm:max-w-[47%] sm:rounded-xl sm:bg-[#f8efdf]/35 sm:p-4 lg:bg-transparent lg:p-0">
-          <h1 id="home-title" className="text-[clamp(2.6rem,4.4vw,4.4rem)] font-extrabold leading-[1.03] tracking-[-.045em] text-[#111820]">Good things.<br />Plenty of choice.</h1>
-          <p className="mt-5 text-base text-[#22282D] sm:text-lg lg:text-xl">Discover more for your everyday.</p>
-          <Link href="/browse" className="mt-7 inline-flex items-center gap-5 rounded-lg bg-[#DA292B] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#B91F25]">Explore the range <ArrowRight size={18} /></Link>
+          <h1 id="home-title" className="text-[clamp(2.6rem,4.4vw,4.4rem)] font-extrabold leading-[1.03] tracking-[-.045em] text-[#111820]">{activeMerchandising?activeMerchandising.heroHeadline:<>Good things.<br />Plenty of choice.</>}</h1>
+          <p className="mt-5 text-base text-[#22282D] sm:text-lg lg:text-xl">{activeMerchandising?.heroDescription||"Discover more for your everyday."}</p>
+          <Link href={heroProduct?`/product/${heroProduct.slug}`:"/browse"} className="mt-7 inline-flex items-center gap-5 rounded-lg bg-[#DA292B] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#B91F25]">Explore the range <ArrowRight size={18} /></Link>
         </div>
-        <div className="relative -mx-6 mt-5 aspect-[2/1] sm:hidden"><Image src="/brand/plentovo-hero-v2.webp" alt="Home, kitchen, audio and beauty essentials in a warm studio setting" fill priority sizes="100vw" className="object-cover object-right" /></div>
+        <div className="relative -mx-6 mt-5 aspect-[2/1] sm:hidden"><Image src={heroProduct?.images[0]||"/brand/plentovo-hero-v2.webp"} alt={heroProduct?.name||"Home, kitchen, audio and beauty essentials in a warm studio setting"} fill priority sizes="100vw" className={heroProduct?"object-contain":"object-cover object-right"} /></div>
       </div>
     </section>
 
+    {activeMerchandising&&<section aria-labelledby="demand-title" className="mx-auto max-w-[1800px] px-4 pt-7"><h2 id="demand-title" className="text-2xl font-bold">{activeMerchandising.headline}</h2><p className="mb-5 mt-2 text-sm text-gray-600">{activeMerchandising.description}</p><div className={`grid grid-cols-2 gap-3 md:grid-cols-3 ${rowColumns(demandProducts.length)}`}>{demandProducts.map(product=><CatalogueCard key={product.slug} product={product}/>)}</div></section>}
     <section aria-label="Discover your everyday" className="mx-auto grid max-w-[1800px] gap-4 px-4 pt-5 sm:grid-cols-2 xl:grid-cols-4">
       {discoveryGroups.map(group => <article key={group.title} className="flex flex-col rounded-xl border border-[#ECEAE5] bg-white p-4 lg:p-5">
         <h2 className="text-xl font-bold leading-tight tracking-tight">{group.title}</h2>
