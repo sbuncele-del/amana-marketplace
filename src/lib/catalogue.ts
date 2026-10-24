@@ -1,8 +1,10 @@
 import 'server-only';
+import {catalogueSearch} from './catalogue-search';
 import {catalogueMarket} from './commerce/selection';
 import {unstable_cache} from 'next/cache';
 import {isRetailProduct} from './catalogue-eligibility';
 import additional from '@/data/additional-catalogue';
+import supplierRefresh from '@/data/supplier-refresh-catalogue';
 import type snapshot from '@/data/catalogue.json';
 import packed0 from '@/data/catalogue-packed-0.json';
 import packed1 from '@/data/catalogue-packed-1.json';
@@ -20,7 +22,7 @@ import kidsPacked2 from '@/data/kids-packed-2.json';
 import kidsPacked3 from '@/data/kids-packed-3.json';
 const baseCatalogue=JSON.parse(gunzipSync(Buffer.from([packed0,packed1,packed2,packed3,packed4,packed5,packed6,packed7].join(''),'base64')).toString('utf8')) as typeof snapshot;
 const kids=JSON.parse(gunzipSync(Buffer.from([kidsPacked0,kidsPacked1,kidsPacked2,kidsPacked3].join(''),'base64')).toString('utf8')) as typeof snapshot;
-const catalogue=[...new Map([...baseCatalogue,...safety,...kids,...additional].filter(p=>isRetailProduct(p.name)).map(p=>[p.slug,p])).values()] as typeof snapshot;
+const catalogue=[...new Map([...baseCatalogue,...safety,...kids,...additional,...supplierRefresh].filter(p=>isRetailProduct(p.name)).map(p=>[p.slug,p])).values()] as typeof snapshot;
 export function getCatalogueSnapshot(){return catalogue;}
 type SnapshotProduct=(typeof catalogue)[number];
 export type CatalogueProduct=Omit<SnapshotProduct,'variants'>&{variants:(SnapshotProduct['variants'][number]&{image?:string;weightGrams?:number})[]};
@@ -67,7 +69,7 @@ export async function getCatalogueProduct(slug:string,fresh=false,strictRefresh=
 export async function getCatalogueProducts(search='',category='',sort='newest',availableOnly=false,strictRefresh=false) {
  if(!(await catalogueMarket()))return [];
  const term=search.trim().toLowerCase();
- const selected=catalogue.filter(p=>(!category||p.collections.includes(category))&&(!term||`${p.name} ${p.description} ${p.category.name}`.toLowerCase().includes(term)));
+ const selected=catalogueSearch(catalogue.filter(p=>!category||p.collections.includes(category)),term);
  const collections=category?[category]:[...new Set(selected.map(p=>p.category.slug))];
  const sources:SupplierProduct[][]=[];
  for(let first=0;first<collections.length;first+=3){
@@ -84,7 +86,7 @@ export async function getCatalogueProducts(search='',category='',sort='newest',a
 export async function getCataloguePage(search='',category='',page=1,limit=25) {
  if(!(await catalogueMarket()))return {products:[],total:0,page,totalPages:0,hasNextPage:false};
  const term=search.trim().toLowerCase();
- const selected=catalogue.filter(p=>(!category||p.collections.includes(category))&&(!term||`${p.name} ${p.description} ${p.category.name}`.toLowerCase().includes(term)));
+ const selected=catalogueSearch(catalogue.filter(p=>!category||p.collections.includes(category)),term);
  const products=await Promise.all(selected.slice((page-1)*limit,page*limit).map(p=>getCatalogueProduct(p.slug).then(current=>current??update(p))));
  return {products,total:selected.length,page,totalPages:Math.ceil(selected.length/limit),hasNextPage:page*limit<selected.length};
 }

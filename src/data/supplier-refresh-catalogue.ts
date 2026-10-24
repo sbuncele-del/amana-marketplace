@@ -1,0 +1,10 @@
+import part0 from './supplier-refresh-packed-0.json';
+import part1 from './supplier-refresh-packed-1.json';
+import part2 from './supplier-refresh-packed-2.json';
+import part3 from './supplier-refresh-packed-3.json';
+import part4 from './supplier-refresh-packed-4.json';
+import part5 from './supplier-refresh-packed-5.json';
+import part6 from './supplier-refresh-packed-6.json';
+import {gunzipSync} from 'node:zlib';
+import type snapshot from './catalogue.json';
+export default JSON.parse(gunzipSync(Buffer.from([part0,part1,part2,part3,part4,part5,part6].join(''),'base64')).toString('utf8')) as typeof snapshot;
