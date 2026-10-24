@@ -66,6 +66,10 @@ CREATE TABLE IF NOT EXISTS marketing_campaign_recipients (
 );
 INSERT INTO experience_teams(id,name,country,capacity) VALUES('za-customer-care','South Africa · Customer Care','ZA',40) ON CONFLICT(id) DO NOTHING;
 
+CREATE TABLE IF NOT EXISTS homepage_merchandising (
+ market text PRIMARY KEY CHECK(market='ZA'), payload jsonb NOT NULL CHECK(jsonb_typeof(payload)='object'),
+ version integer NOT NULL DEFAULT 1, updated_at timestamptz NOT NULL DEFAULT now()
+);
 CREATE TABLE IF NOT EXISTS mail_webhook_events (
  id text PRIMARY KEY, type text NOT NULL, email_id text, received_at timestamptz NOT NULL DEFAULT now()
 );

@@ -1,4 +1,4 @@
-import {readMerchandising} from '@/lib/homepage-merchandising';
+import {getHomepageMerchandising} from '@/lib/homepage-merchandising-store';
 import {catalogueMarket} from '@/lib/commerce/selection';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -76,7 +76,7 @@ export default async function HomePage() {
     }
     return products;
   }
-  const merchandising=readMerchandising();
+  const merchandising=await getHomepageMerchandising();
   const demandProducts=merchandising?await selectAvailable(merchandising.products.map(p=>p.slug)):[];
   const activeMerchandising=demandProducts.length?merchandising:null;
   const heroProduct=demandProducts[0];
