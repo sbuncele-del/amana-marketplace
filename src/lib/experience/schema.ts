@@ -74,6 +74,18 @@ CREATE TABLE IF NOT EXISTS mail_webhook_events (
  id text PRIMARY KEY, type text NOT NULL, email_id text, received_at timestamptz NOT NULL DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS mail_webhook_events_received ON mail_webhook_events(received_at DESC);
+CREATE TABLE IF NOT EXISTS mail_lifecycle_runs (
+ id text PRIMARY KEY,started_at timestamptz NOT NULL DEFAULT now(),finished_at timestamptz,
+ status text NOT NULL DEFAULT 'RUNNING',processed integer NOT NULL DEFAULT 0
+);
+CREATE TABLE IF NOT EXISTS mail_lifecycle (
+ id text PRIMARY KEY, kind text NOT NULL CHECK(kind IN ('WELCOME','DAY3','FEEDBACK')),
+ subscriber_id text REFERENCES marketing_subscribers(id),order_id text REFERENCES experience_records(id),
+ due_at timestamptz NOT NULL,status text NOT NULL DEFAULT 'QUEUED',attempts integer NOT NULL DEFAULT 0,
+ claimed_at timestamptz,first_attempt_at timestamptz,recipient text,provider_id text,accepted_at timestamptz,
+ token text UNIQUE,responded_at timestamptz,last_error text,created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS mail_lifecycle_due ON mail_lifecycle(status,due_at);
 CREATE TABLE IF NOT EXISTS catalogue_reviews (
  id text PRIMARY KEY, slug text NOT NULL, user_id text NOT NULL REFERENCES "User"(id) ON DELETE CASCADE,
  rating integer NOT NULL CHECK(rating BETWEEN 1 AND 5), comment text NOT NULL,

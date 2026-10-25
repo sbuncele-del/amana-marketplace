@@ -11,7 +11,7 @@ const DELAY_MS = 8000; // show after 8 seconds
 export function EmailCapturePopup() {
   const {status} = useSession();
   const pathname = usePathname();
-  const eligible = status === "unauthenticated" && !["/account", "/admin", "/dashboard", "/operations", "/partner", "/checkout", "/newsletter"].some(path => pathname.startsWith(path));
+  const eligible = status === "unauthenticated" && !["/account", "/admin", "/dashboard", "/operations", "/partner", "/checkout", "/newsletter", "/feedback"].some(path => pathname.startsWith(path));
   const [markets, setMarkets] = useState<{code:string;name:string}[]>([]);
   const [market, setMarket] = useState('');
   const [countryError, setCountryError] = useState('');

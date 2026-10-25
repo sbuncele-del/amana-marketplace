@@ -1,9 +1,9 @@
 import 'server-only';
 import {createHash, randomBytes, randomUUID} from 'node:crypto';
 import {transaction, experiencePool, ensureExperienceSchema} from '@/lib/experience/store';
-import {welcomeRecommendations} from './welcome-products';
+import {sendWelcomeTracked} from './lifecycle';
 import {resend, sendMail} from './send';
-import {confirmSubscriptionEmail, welcomeEmail, oneClickUnsubscribe} from './templates';
+import {confirmSubscriptionEmail} from './templates';
 
 export const CONSENT_TEXT = 'I agree to receive Plentovo news, new arrivals and offers by email. I can unsubscribe at any time.';
 
@@ -38,12 +38,10 @@ export async function confirmSubscription(token: string) {
     `UPDATE marketing_subscribers s SET status='ACTIVE',confirmed_at=COALESCE(s.confirmed_at,now()),unsubscribed_at=NULL,updated_at=now()
      FROM (SELECT id,confirmed_at AS prev FROM marketing_subscribers WHERE token=$1) o
      WHERE s.id=o.id AND s.status IN ('PENDING','ACTIVE','UNSUBSCRIBED')
-     RETURNING s.email,s.token,s.market_code,(o.prev IS NULL) AS first`, [token])).rows[0];
+     RETURNING s.id,s.email,s.token,s.market_code,(o.prev IS NULL) AS first`, [token])).rows[0];
   if (!sub) return 'invalid' as const;
   if (sub.first) {
-    const products = await welcomeRecommendations(sub.market_code).catch(e => {console.error('[mail] recommendations unavailable', e); return [];});
-    const mail = welcomeEmail(sub.token, products, sub.market_code);
-    await sendMail({to: sub.email, ...mail, unsubscribeUrl: oneClickUnsubscribe(sub.token), tags: {type: 'welcome'}}).catch(e => console.error('[mail] welcome failed', e));
+    await sendWelcomeTracked(sub);
   }
   await syncContact(sub.email, false);
   return 'confirmed' as const;
