@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {businessDay,followupDue} from '../src/lib/mail/timing';
+assert.equal(followupDue(new Date('2026-10-26T12:00:00Z'),3).toISOString(),'2026-10-29T08:00:00.000Z');
+assert.equal(followupDue(new Date('2026-10-23T13:00:00Z'),2,true).toISOString(),'2026-10-27T08:00:00.000Z');
+assert.equal(followupDue(new Date('2026-12-24T12:00:00Z'),2,true).toISOString(),'2026-12-29T08:00:00.000Z');
+assert.equal(businessDay(new Date('2026-04-03T00:00:00Z')),false);
+assert.equal(businessDay(new Date('2026-04-06T00:00:00Z')),false);
+assert.equal(businessDay(new Date('2026-08-10T00:00:00Z')),false);
+process.env.ZA_EXTRA_HOLIDAYS='2026-10-29';
+assert.equal(followupDue(new Date('2026-10-26T12:00:00Z'),3).toISOString(),'2026-10-30T08:00:00.000Z');
+delete process.env.ZA_EXTRA_HOLIDAYS;
+console.log('Passed weekday, weekend, Christmas, Easter, observed Sunday holiday and special holiday scheduling checks.');
