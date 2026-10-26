@@ -5,7 +5,7 @@ import {shoppingMissions,missionSection,type ShoppingMission} from '@/lib/shoppi
 
 export function MissionCard({mission:m}:{mission:ShoppingMission}){
  return <Link href={'/collections/'+m.slug} className="group flex overflow-hidden rounded-2xl border border-[#E9E4DD] bg-white transition hover:border-red-300 focus-visible:outline-2 focus-visible:outline-red-700">
-  <div className="relative w-1/3 shrink-0 bg-[#EFE9DF]"><Image src={m.image} alt="" fill sizes="(max-width:768px) 30vw, 15vw" className="object-cover"/></div>
+  <div className="relative w-1/3 shrink-0 bg-[#EFE9DF]"><Image unoptimized src={m.image} alt="" fill sizes="(max-width:768px) 30vw, 15vw" className="object-cover"/></div>
   <div className="flex flex-1 flex-col p-5"><h3 className="text-lg font-bold leading-tight">{m.shortTitle}</h3><p className="mt-2 text-xs leading-5 text-gray-600">{m.description}</p><span className="mt-5 inline-flex items-center gap-3 text-sm font-bold text-red-700">Help me choose<ArrowRight size={16}/></span></div>
  </Link>;
 }
