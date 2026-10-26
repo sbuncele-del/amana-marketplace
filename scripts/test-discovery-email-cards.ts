@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {welcomeEmail} from '../src/lib/mail/templates';
+const products=[{slug:'example-mug',name:'Example ceramic mug',price:179,currency:'ZAR',image:'https://example.com/mug.jpg'}];
+const general=welcomeEmail('test-token',products,'ZA','general');
+assert.equal(general.subject,'What would make your everyday easier?');
+assert(general.html.includes('Explore these everyday finds'));
+assert(general.html.includes('Example ceramic mug'));
+assert(general.html.includes('/product/example-mug'));
+assert(general.html.includes('179'));
+assert(!general.html.includes('based on products you explored'));
+const personal=welcomeEmail('test-token',products,'ZA',true);
+assert(personal.html.includes('based on products you explored'));
+assert(!welcomeEmail('test-token',products,'ZA','general').html.includes('customers also bought'));
+assert(!welcomeEmail('test-token',products,'GB','general').html.includes('Example ceramic mug'));
+console.log('Passed general/personal discovery cards, product links/prices, truthful labels and market restriction checks.');

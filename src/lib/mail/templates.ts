@@ -22,7 +22,7 @@ export function confirmSubscriptionEmail(token: string) {
 }
 
 export type WelcomeProduct = {name: string; slug: string; image: string; price: number; currency: string; department?: string};
-export function welcomeEmail(token: string, products: WelcomeProduct[] = [], market: string | null = null, discovery=false) {
+export function welcomeEmail(token: string, products: WelcomeProduct[] = [], market: string | null = null, discovery:boolean|'general'=false) {
   const valid = market === 'ZA' ? products.filter(p => {
     if (p.currency !== 'ZAR' || !Number.isFinite(p.price) || p.price <= 0) return false;
     try { return new URL(p.image, siteUrl).protocol === 'https:'; } catch { return false; }
@@ -34,14 +34,14 @@ export function welcomeEmail(token: string, products: WelcomeProduct[] = [], mar
   };
   const cards = Array.from({length: Math.ceil(valid.length / 2)}, (_, i) => `<tr>${valid.slice(i * 2, i * 2 + 2).map(card).join('')}${valid.length === i * 2 + 1 ? '<td class="product-column" width="50%"></td>' : ''}</tr>`).join('');
   return {
-    subject: discovery?'Good finds for the things you are exploring':'Welcome to Plentovo — make room for good things',
+    subject: discovery==='general'?'What would make your everyday easier?':discovery?'Good finds for the things you are exploring':'Welcome to Plentovo — make room for good things',
     html: layout({
       preheader: 'Good things. Plenty of choice.',
       unsubscribeUrl: unsubscribeLink(token),
       content:
-        heading(discovery?'Keep exploring good things':'Welcome to Plentovo') +
-        paragraph(discovery?'Here are relevant finds based on products you explored on Plentovo. Compare the options and choose what works for you.':'You are confirmed. Expect an occasional email from us with new arrivals, useful finds and offers worth opening. No clutter, and never your details passed on.') +
-        (cards ? heading('Selected for you') + paragraph('Explore good finds for your home, family and everyday life, across our South African departments.') + `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${cards}</table>` + paragraph('<span style="font-size:12px;color:#6b7280;">Prices and availability were checked when this email was prepared and may change. Check the product page for current details.</span>') : paragraph(market === 'ZA' ? 'Explore our South African range for your next everyday find.' : 'Choose your shopping country on Plentovo to explore the available range. We will share local recommendations as they become available.')) +
+        heading(discovery==='general'?'What would make your everyday easier?':discovery?'Keep exploring good things':'Welcome to Plentovo') +
+        paragraph(discovery==='general'?'A few days in, here are some useful finds for cooking, making room at home, family life and everyday convenience. Take a look and see what fits your day.':discovery?'Here are relevant finds based on products you explored on Plentovo. Compare the options and choose what works for you.':'You are confirmed. Expect an occasional email from us with new arrivals, useful finds and offers worth opening. No clutter, and never your details passed on.') +
+        (cards ? heading(discovery==='general'?'Explore these everyday finds':'Selected for you') + paragraph('Explore good finds for your home, family and everyday life, across our South African departments.') + `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${cards}</table>` + paragraph('<span style="font-size:12px;color:#6b7280;">Prices and availability were checked when this email was prepared and may change. Check the product page for current details.</span>') : paragraph(market === 'ZA' ? 'Explore our South African range for your next everyday find.' : 'Choose your shopping country on Plentovo to explore the available range. We will share local recommendations as they become available.')) +
         button('Browse Plentovo', `${siteUrl}/browse`),
     }),
   };

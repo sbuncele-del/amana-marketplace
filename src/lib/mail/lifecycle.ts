@@ -44,8 +44,9 @@ export async function runLifecycle(){
  if(!s){await db.query("UPDATE mail_lifecycle SET status='SKIPPED',last_error='Subscription no longer eligible' WHERE id=$1",[j.id]);continue;}
  email=s.email;unsubscribeUrl=oneClickUnsubscribe(s.token);
  if(j.kind==='WELCOME'){const products=await welcomeRecommendations(s.market_code).catch(()=>[]);mail=welcomeEmail(s.token,products,s.market_code);}else{
- const relevant=await discoveryProducts(email);
- mail=relevant.length?welcomeEmail(s.token,relevant,'ZA',true):campaignEmail({subject:'What would make your everyday easier?',preheader:'A little help finding your next good thing.',body:'A few days in, we wanted to help you find your way around Plentovo. Explore useful finds for cooking, making room at home, family life and everyday convenience.\n\nLooking for something specific? Our team can help you choose. Tell us what you need through our contact page.\n\nGood things. Plenty of choice.',ctaLabel:'Explore Plentovo',ctaUrl:siteUrl+'/browse?utm_source=email&utm_medium=lifecycle&utm_campaign=day3',token:s.token});}
+ const relevant=s.market_code==='ZA'?await discoveryProducts(email):[];
+ const currentFinds=relevant.length?[]:await welcomeRecommendations(s.market_code).catch(()=>[]);
+ mail=relevant.length?welcomeEmail(s.token,relevant,'ZA',true):currentFinds.length?welcomeEmail(s.token,currentFinds,s.market_code,'general'):campaignEmail({subject:'What would make your everyday easier?',preheader:'A little help finding your next good thing.',body:'A few days in, we wanted to help you find your way around Plentovo. Explore useful finds for cooking, making room at home, family life and everyday convenience.\n\nLooking for something specific? Our team can help you choose. Tell us what you need through our contact page.\n\nGood things. Plenty of choice.',ctaLabel:'Explore Plentovo',ctaUrl:siteUrl+'/browse?utm_source=email&utm_medium=lifecycle&utm_campaign=day3',token:s.token});}
  }else{
  const o=(await db.query("SELECT reference,data FROM experience_records WHERE id=$1 AND status='DELIVERED' AND data->>'followUpConsent'='true'",[j.order_id])).rows[0];
  if(!o){await db.query("UPDATE mail_lifecycle SET status='SKIPPED',last_error='Order no longer eligible' WHERE id=$1",[j.id]);continue;}
