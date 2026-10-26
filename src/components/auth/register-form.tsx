@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import {RELEVANT_EMAIL_CONSENT_TEXT} from "@/lib/mail/consent";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import {BrandLogo} from '@/components/brand-logo';
@@ -53,7 +54,7 @@ export function RegisterForm() {
       const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, role, marketingConsent }),
+        body: JSON.stringify({ ...formData, role, marketingConsent, personalizeEmails: marketingConsent }),
       });
 
       const data = await res.json();
@@ -265,7 +266,7 @@ export function RegisterForm() {
                   />
                 )}
 
-                <label className="flex items-start gap-2 text-sm text-gray-600"><input type="checkbox" checked={marketingConsent} onChange={e => setMarketingConsent(e.target.checked)} className="mt-1"/><span>Email me Plentovo news, new arrivals and offers. I can unsubscribe at any time. We will send an email to confirm this choice. <Link href="/privacy" className="underline">Privacy policy</Link></span></label><div className="pt-2">
+                <label className="flex items-start gap-2 text-sm text-gray-600"><input type="checkbox" checked={marketingConsent} onChange={e => setMarketingConsent(e.target.checked)} className="mt-1"/><span>{RELEVANT_EMAIL_CONSENT_TEXT} We will send an email to confirm this choice. <Link href="/privacy" className="underline">Privacy policy</Link></span></label><div className="pt-2">
                   <Button type="submit" className="w-full" size="lg" disabled={loading}>
                     {loading ? "Creating account..." : "Create Account"}
                     <ArrowRight className="w-4 h-4" />

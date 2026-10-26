@@ -8,6 +8,7 @@ export const registerSchema = z.object({
   country: z.string().min(2, "Please select a country"),
   role: z.enum(["BUYER", "SELLER"]),
   marketingConsent: z.boolean().optional().default(false),
+  personalizeEmails: z.boolean().optional().default(false),
   // Seller-specific fields
   storeName: z.string().optional(),
   phone: z.string().optional(),

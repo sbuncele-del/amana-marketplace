@@ -5,25 +5,31 @@ import {sendWelcomeTracked} from './lifecycle';
 import {resend, sendMail} from './send';
 import {confirmSubscriptionEmail} from './templates';
 
-export const CONSENT_TEXT = 'I agree to receive Plentovo news, new arrivals and offers by email. I can unsubscribe at any time.';
+import {EMAIL_CONSENT_TEXT,RELEVANT_EMAIL_CONSENT_TEXT} from './consent';
+export const CONSENT_TEXT = EMAIL_CONSENT_TEXT;
 
 const hashIp = (ip: string) => createHash('sha256').update(`${process.env.NEXTAUTH_SECRET || 'plentovo'}:${ip}`).digest('hex').slice(0, 32);
 const newToken = () => randomBytes(24).toString('base64url');
 
 /** Records the sign-up with consent evidence and sends the double opt-in email. Always reports success to the caller. */
-export async function requestSubscription(email: string, source: string, ip: string, market: string | null = null) {
+export async function requestSubscription(email: string, source: string, ip: string, market: string | null = null, personalize=false) {
+  const consentText=personalize?RELEVANT_EMAIL_CONSENT_TEXT:CONSENT_TEXT;
   const row = await transaction(async client => {
     const existing = (await client.query('SELECT id,status,token,confirmation_sent_at FROM marketing_subscribers WHERE email=$1 FOR UPDATE', [email])).rows[0];
+    if(personalize){
+      await client.query('INSERT INTO mail_interest_preferences(user_id,enabled,updated_at) SELECT id,true,now() FROM "User" WHERE lower(email)=lower($1) AND "isActive"=true ON CONFLICT(user_id) DO UPDATE SET enabled=true,updated_at=now()',[email]);
+      if(existing&&!['BOUNCED','COMPLAINED'].includes(existing.status))await client.query('UPDATE marketing_subscribers SET consent_text=$2,consent_ip_hash=$3,consented_at=now(),updated_at=now() WHERE id=$1',[existing.id,consentText,hashIp(ip)]);
+    }
     if (existing?.status === 'ACTIVE') return {...existing, send: 'none' as const};
     if (existing?.status === 'BOUNCED' || existing?.status === 'COMPLAINED') return {...existing, send: 'none' as const};
     // Do not re-send a confirmation more than once every 10 minutes.
     if (existing?.status === 'PENDING' && existing.confirmation_sent_at && Date.now() - existing.confirmation_sent_at.getTime() < 10 * 60_000) return {...existing, send: 'none' as const};
     if (existing) {
-      await client.query("UPDATE marketing_subscribers SET status='PENDING',consent_text=$2,consent_ip_hash=$3,consented_at=now(),market_code=$4,confirmation_sent_at=now(),updated_at=now() WHERE id=$1", [existing.id, CONSENT_TEXT, hashIp(ip), market]);
+      await client.query("UPDATE marketing_subscribers SET status='PENDING',consent_text=$2,consent_ip_hash=$3,consented_at=now(),market_code=$4,confirmation_sent_at=now(),updated_at=now() WHERE id=$1", [existing.id, consentText, hashIp(ip), market]);
       return {...existing, send: 'confirm' as const};
     }
     const id = randomUUID(), token = newToken();
-    await client.query('INSERT INTO marketing_subscribers(id,email,source,token,consent_text,consent_ip_hash,consented_at,confirmation_sent_at,market_code) VALUES($1,$2,$3,$4,$5,$6,now(),now(),$7)', [id, email, source, token, CONSENT_TEXT, hashIp(ip), market]);
+    await client.query('INSERT INTO marketing_subscribers(id,email,source,token,consent_text,consent_ip_hash,consented_at,confirmation_sent_at,market_code) VALUES($1,$2,$3,$4,$5,$6,now(),now(),$7)', [id, email, source, token, consentText, hashIp(ip), market]);
     return {id, token, status: 'PENDING', send: 'confirm' as const};
   });
   if (row.send === 'confirm') {
