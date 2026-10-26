@@ -47,3 +47,8 @@ button:not(:disabled), select { cursor: pointer; }
   body:has([data-mobile-purchase]) { padding-bottom: calc(86px + env(safe-area-inset-bottom)); }
   body:has([data-mobile-purchase]) button[aria-label="Open Plentovo help"] { bottom: calc(100px + env(safe-area-inset-bottom)); }
 }
+
+@media (max-width: 639px) {
+  .mobile-shortcuts { scrollbar-width: none; }
+  .mobile-shortcuts::-webkit-scrollbar { display: none; }
+}

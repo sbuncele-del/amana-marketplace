@@ -28,3 +28,8 @@ Scope: mobile shopping improvements and shared accessibility fixes. Desktop grid
 ## Hosted-preview findings
 - Vercel image optimiser returns 402 OPTIMIZED_IMAGE_REQUEST_PAYMENT_REQUIRED. Image delivery now bypasses that paid endpoint globally; source compositions are unchanged.
 - Preview authentication settings are absent (NEXTAUTH_SECRET and AUTH_TRUST_HOST exist only for production). Adding a separate branch-scoped preview secret was rejected by automatic approval review and requires explicit user approval. Production secrets were not read or copied.
+
+## 390px live browsing checks
+Passed image selection, expanded product details, red variant/mobile add-to-cart, quantity recalculation, collection/free-delivery total, disabled payment, removing test item, combined availability/price filters with drawer staying open, sort, pagination with retained query, empty-search reset, browser back/forward, department search/Escape, Help open/close, bathroom storage+R300 selections and no page-wide horizontal overflow. The test cart was cleared.
+
+Visual findings: mobile header occupied too much height and floating Help overlapped card details. Header spacing/logo/search/shortcut row compacted below 640px only; mobile Help opens the same care dialog from the existing top bar, removing the floating obstruction. Desktop remains unchanged.
