@@ -7,7 +7,11 @@ import {ArrowLeft,ArrowRight,Pause,Play} from 'lucide-react';
 const slides=[
  {title:'Good things. Plenty of choice.',text:'Make everyday cooking a little easier.',image:'/brand/plentovo-hero-v2.webp',href:'/collections/kitchen-made-easier',action:'Explore the kitchen'},
  {title:'More room for good living.',text:'Find your favourite place to unwind.',image:'/brand/plentovo-living.webp',href:'/collections/living-room',action:'Explore living room'},
- {title:'Make room to rest.',text:'Bedding, bedside essentials and a little more calm.',image:'/brand/categories/bedding-v1.webp',href:'/collections/bedroom',action:'Explore the bedroom'}
+ {title:'Make room to rest.',text:'Bedding, bedside essentials and a little more calm.',image:'/brand/categories/bedding-v1.webp',href:'/collections/bedroom',action:'Explore the bedroom'},
+ {title:'Big ideas. Little adventures.',text:'Find something for their next moment of play.',image:'/brand/categories/toys-games-v1.webp',href:'/collections/kids-play',action:'Explore playtime'},
+ {title:'Everyday, refreshed.',text:'Small changes for a bathroom that works around you.',image:'/brand/categories/personal-care-v1.webp',href:'/collections/bathroom',action:'Explore the bathroom'},
+ {title:'A little care, every day.',text:'Make time for the routine that feels like you.',image:'/brand/categories/skincare-v1.webp',href:'/collections/beauty-routine',action:'Explore everyday care'},
+ {title:'Good days start outside.',text:'Find useful things for fresh air and time together.',image:'/brand/categories/outdoor-play-v1.webp',href:'/collections/outdoor-living',action:'Explore outdoor living'}
 ];
 export function ShoppingSlideshow(){
  const [active,setActive]=useState(0);
@@ -29,8 +33,8 @@ export function ShoppingSlideshow(){
   if(paused||hovered||focused||reduced||!visible)return;
   const timer=window.setInterval(()=>setActive(i=>(i+1)%slides.length),6500);
   return()=>window.clearInterval(timer);
- },[paused,hovered,focused,reduced,visible]);
- function move(delta:number){setPaused(true);setActive(i=>(i+delta+slides.length)%slides.length);}
+ },[active,paused,hovered,focused,reduced,visible]);
+ function move(delta:number){setActive(i=>(i+delta+slides.length)%slides.length);}
  return <section aria-label="Shopping inspiration" aria-roledescription="carousel"
   onMouseEnter={()=>setHovered(true)} onMouseLeave={()=>setHovered(false)}
   onFocusCapture={()=>setFocused(true)} onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget as Node|null))setFocused(false);}}
@@ -49,8 +53,8 @@ export function ShoppingSlideshow(){
    </div>
   </div>)}
   <div className="absolute bottom-3 left-5 right-5 z-20 flex items-center justify-between gap-3 sm:left-10 sm:right-10">
-   <div className="flex items-center gap-1 rounded-full bg-white/95 px-2 py-1">{slides.map((s,i)=><button key={s.href} type="button" aria-label={`Show slide ${i+1}: ${s.title}`} aria-pressed={i===active} onClick={()=>{setActive(i);setPaused(true);}} className="flex h-9 w-9 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-red-700"><span className={`block h-2 rounded-full ${i===active?'w-6 bg-red-700':'w-2 bg-gray-400'}`}/></button>)}</div>
-   <div className="flex gap-2">{[{label:'Previous slide',click:()=>move(-1),icon:ArrowLeft},{label:paused||reduced?'Play slideshow':'Pause slideshow',click:()=>{if(paused||reduced){setReduced(false);setPaused(false);}else setPaused(true);},icon:paused||reduced?Play:Pause},{label:'Next slide',click:()=>move(1),icon:ArrowRight}].map(c=><button key={c.label} type="button" aria-label={c.label} onClick={c.click} className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white/95 text-[#171B20] hover:bg-white focus-visible:outline-2 focus-visible:outline-red-700"><c.icon size={17}/></button>)}</div>
+   <div className="flex items-center gap-1 rounded-full bg-white/95 px-2 py-1">{slides.map((s,i)=><button key={s.href} type="button" aria-label={`Show slide ${i+1}: ${s.title}`} aria-pressed={i===active} onClick={()=>{setActive(i);}} className="flex h-9 w-6 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-red-700"><span className={`block h-2 rounded-full ${i===active?'w-4 bg-red-700':'w-2 bg-gray-400'}`}/></button>)}</div>
+   <div className="flex gap-1 sm:gap-2">{[{label:'Previous slide',click:()=>move(-1),icon:ArrowLeft},{label:paused||reduced?'Play slideshow':'Pause slideshow',click:()=>{if(paused||reduced){setReduced(false);setPaused(false);}else setPaused(true);},icon:paused||reduced?Play:Pause},{label:'Next slide',click:()=>move(1),icon:ArrowRight}].map(c=><button key={c.label} type="button" aria-label={c.label} onClick={c.click} className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-gray-200 bg-white/95 text-[#171B20] hover:bg-white focus-visible:outline-2 focus-visible:outline-red-700"><c.icon size={17}/></button>)}</div>
   </div>
  </section>;
 }
