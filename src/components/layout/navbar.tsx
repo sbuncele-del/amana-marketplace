@@ -8,7 +8,7 @@ import {useEffect,useRef,useState} from 'react';
 import {Search,Menu,X,ChevronDown,ShoppingCart,MapPin,UserRound,Package} from 'lucide-react';
 import {useCart} from '@/contexts/cart-context';
 import departments from '@/data/departments.json';
-const quickLinks=[{name:'Help me choose',href:'/collections'},{name:'All products',href:'/browse'},{name:'Kitchen & Dining',href:'/department/kitchen-dining'},{name:'Electronics',href:'/department/electronics'},{name:'Kids, Toys & Baby',href:'/department/toys-kids-baby'},{name:'Health & Beauty',href:'/department/health-beauty'},{name:'Under R300',href:'/browse?maxPrice=300'},{name:'In stock',href:'/browse?available=true'}];
+const quickLinks=[{name:'All products',href:'/browse'},{name:'Kitchen & Dining',href:'/department/kitchen-dining'},{name:'Electronics',href:'/department/electronics'},{name:'Kids, Toys & Baby',href:'/department/toys-kids-baby'},{name:'Health & Beauty',href:'/department/health-beauty'},{name:'Under R300',href:'/browse?maxPrice=300'},{name:'In stock',href:'/browse?available=true'}];
 export function Navbar(){
  const {data:session}=useSession();const {open:openLocation}=useDelivery();const {itemCount}=useCart();const pathname=usePathname();
  const [open,setOpen]=useState(false);const [deptSearch,setDeptSearch]=useState('');const menuRef=useRef<HTMLDivElement>(null);const toggleRef=useRef<HTMLButtonElement>(null);
