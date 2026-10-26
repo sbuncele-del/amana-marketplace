@@ -36,14 +36,9 @@ export function MarketSelector() {
       window.location.reload();
     } catch(e) {setError(e instanceof Error ? e.message : 'Please try again.');setBusy(false);}
   }
-  const current = data?.markets.find(m => m.code === data.selectedMarket);
   const detected = data?.detectedCountry;
   const suggested = data?.markets.find(m => m.code === detected?.code);
   return <>
-    <div className="border-b bg-stone-50 px-4 py-2 text-center text-sm">
-      <button type="button" onClick={() => {setChanging(false);setOpen(true);}} className="rounded px-2 py-1 font-semibold underline-offset-4 hover:underline">{current ? `Deliver to ${current.name} · ${current.currency}` : 'Choose delivery country'}</button>
-      {!open && error && <p role="alert" className="text-xs text-red-700">{error}</p>}
-    </div>
     <dialog ref={dialog} aria-labelledby="country-title" onCancel={() => setOpen(false)} onClose={() => setOpen(false)} className="fixed inset-0 m-auto w-[calc(100%-2rem)] max-w-2xl rounded-2xl border-0 bg-white p-0 text-[#171B20] shadow-2xl backdrop:bg-black/50">
       <div className="flex items-center justify-between border-b bg-stone-50 px-6 py-4">
         <h2 id="country-title" className="text-lg font-bold">{detected ? `Visiting from ${detected.name}?` : 'Welcome to Plentovo'}</h2>

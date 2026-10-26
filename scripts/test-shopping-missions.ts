@@ -1,0 +1,53 @@
+import assert from 'node:assert/strict';
+import {shoppingMissions,getShoppingMission,missionCandidates,missionBudget,missionPage,missionWindow,missionSection} from '../src/lib/shopping-missions';
+
+const make=(slug:string,name:string,price=100)=>({slug,name,price,images:['/example.jpg']});
+const mission=getShoppingMission('small-space-living')!;
+const items=[make('shoe-rack','4 Tier Shoe Storage Rack'),make('spice-rack','Kitchen Spice Rack'),make('side-table','Oak Side Table'),make('bathroom','Bathroom Storage Shelf'),make('toy','Toy Race Car'),make('empty','Shoe Storage Rack'),make('bracket','Adjustable Shower Head Wall Bracket')];
+items[5].images=[];
+const rows=missionCandidates(mission,items);
+assert.deepEqual(rows.find(r=>r.group.id==='bedroom')!.products.map(p=>p.slug),['shoe-rack']);
+assert.equal(rows.flatMap(r=>r.products).some(p=>p.slug==='toy'||p.slug==='empty'||p.slug==='bracket'),false);
+assert.equal(missionCandidates(mission,items,'living').length,1);
+assert.equal(missionCandidates(mission,items,'living')[0].products[0].slug,'side-table');
+assert.equal(missionCandidates(mission,[make('a','Shoe Rack'),make('b','Shoe Rack')],'bedroom',['b'])[0].products[0].slug,'b');
+assert.equal(missionCandidates(mission,[make('new-product','New Shoe Rack')],'bedroom')[0].products[0].slug,'new-product');
+assert.equal(getShoppingMission('unknown'),undefined);
+for(const value of [undefined,'','NaN','Infinity','-10','0',['300']])assert.equal(missionBudget(value),undefined);
+assert.equal(missionBudget('300'),300);
+assert.equal(missionBudget('250.50'),250.5);
+assert.equal(missionBudget('2000000'),1000000);
+assert.equal(new Set(shoppingMissions.map(m=>m.slug)).size,shoppingMissions.length);
+assert.equal(shoppingMissions.every(m=>new Set(m.groups.map(g=>g.id)).size===m.groups.length),true);
+console.log('Shopping mission relevance, filtering, fresh catalogue entries, priority and budget checks passed.');
+
+assert.equal(shoppingMissions.length,15);
+for(const slug of ['bathroom','bedroom','dining-room','living-room','home-office','cleaning','laundry','kids-play','baby-essentials','beauty-routine','fitness-at-home','travel-essentials'])assert.ok(getShoppingMission(slug));
+assert.equal(missionSection('bathroom'),'Shop by room');
+assert.equal(missionSection('travel-essentials'),'Out and about');
+assert.equal(missionPage('2'),2);
+for(const value of ['Infinity','-5','NaN',undefined,['2']])assert.equal(missionPage(value),1);
+const shoes=Array.from({length:31},(_,i)=>make('shoe-'+String(i).padStart(2,'0'),'Shoe Storage Rack'));
+const shoePools=missionCandidates(mission,shoes,'bedroom');
+const windows=[1,2,3].map(page=>missionWindow(shoePools,page));
+assert.deepEqual(windows.map(w=>w.products.length),[12,12,7]);
+assert.equal(new Set(windows.flatMap(w=>w.products.map(p=>p.slug))).size,31);
+assert.equal(windows[0].hasNext,true);
+assert.equal(windows[2].hasNext,false);
+assert.equal(missionWindow([],1).totalPages,1);
+const overlap=missionCandidates(getShoppingMission('baby-essentials')!,[make('nappy','Nappy Bag')]);
+assert.equal(overlap.flatMap(p=>p.products).length,1);
+const budgetOrder=missionCandidates(mission,[make('a','Shoe Rack',1000),make('b','Shoe Rack',100)],'bedroom',[],300);
+assert.equal(budgetOrder[0].products[0].slug,'b');
+assert.equal(budgetOrder[0].products.length,2); // No exclusions based on stale prices.
+assert.ok(missionCandidates(getShoppingMission('bathroom')!,[make('bath','Bathroom Shower Caddy')]).some(g=>g.products.length));
+assert.ok(missionCandidates(getShoppingMission('bedroom')!,[make('bed','Duvet Cover Set')]).some(g=>g.products.length));
+assert.ok(missionCandidates(getShoppingMission('dining-room')!,[make('dining','Dining Chair')]).some(g=>g.products.length));
+console.log('Expanded room coverage, pagination without omissions/duplicates, budget order and group ownership passed.');
+
+const laundryDry=missionCandidates(getShoppingMission('laundry')!,[make('dish','Kitchen Dish Drying Rack'),make('clothes','Clothes Drying Rack')],'dry');
+assert.deepEqual(laundryDry[0].products.map(p=>p.slug),['clothes']);
+const knownStock=missionCandidates(mission,[{...make('a','Shoe Rack'),supplierAvailable:false},{...make('b','Shoe Rack'),supplierAvailable:true}],'bedroom');
+assert.equal(knownStock[0].products[0].slug,'b');
+assert.equal(knownStock[0].products.length,2);
+console.log('Laundry relevance and stock-order hints passed without excluding stale candidates.');
