@@ -3,11 +3,11 @@ import {shoppingMissions,getShoppingMission,missionCandidates,missionBudget} fro
 
 const make=(slug:string,name:string,price=100)=>({slug,name,price,images:['/example.jpg']});
 const mission=getShoppingMission('small-space-living')!;
-const items=[make('shoe-rack','4 Tier Shoe Storage Rack'),make('spice-rack','Kitchen Spice Rack'),make('side-table','Oak Side Table'),make('bathroom','Bathroom Storage Shelf'),make('toy','Toy Race Car'),make('empty','Shoe Storage Rack')];
+const items=[make('shoe-rack','4 Tier Shoe Storage Rack'),make('spice-rack','Kitchen Spice Rack'),make('side-table','Oak Side Table'),make('bathroom','Bathroom Storage Shelf'),make('toy','Toy Race Car'),make('empty','Shoe Storage Rack'),make('bracket','Adjustable Shower Head Wall Bracket')];
 items[5].images=[];
 const rows=missionCandidates(mission,items);
 assert.deepEqual(rows.find(r=>r.group.id==='bedroom')!.products.map(p=>p.slug),['shoe-rack']);
-assert.equal(rows.flatMap(r=>r.products).some(p=>p.slug==='toy'||p.slug==='empty'),false);
+assert.equal(rows.flatMap(r=>r.products).some(p=>p.slug==='toy'||p.slug==='empty'||p.slug==='bracket'),false);
 assert.equal(missionCandidates(mission,items,'living').length,1);
 assert.equal(missionCandidates(mission,items,'living')[0].products[0].slug,'side-table');
 assert.equal(missionCandidates(mission,[make('a','Shoe Rack'),make('b','Shoe Rack')],'bedroom',['b'])[0].products[0].slug,'b');
