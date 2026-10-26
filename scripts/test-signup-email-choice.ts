@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {registerSchema} from '../src/lib/validations';
+const account={firstName:'Test',lastName:'Customer',email:'test@example.invalid',password:'test-password-123',country:'South Africa',role:'BUYER'};
+const legacy=registerSchema.parse({...account,marketingConsent:true});
+assert.equal(legacy.personalizeEmails,false,'Older forms must not silently grant expanded permission');
+const accepted=registerSchema.parse({...account,marketingConsent:true,personalizeEmails:true});
+assert.equal(accepted.marketingConsent&&accepted.personalizeEmails,true);
+const declined=registerSchema.parse(account);
+assert.equal(declined.marketingConsent,false);
+assert.equal(declined.personalizeEmails,false);
+console.log('Passed combined signup choice, legacy-client compatibility and optional signup checks.');

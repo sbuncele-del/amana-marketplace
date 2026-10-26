@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { firstName, lastName, email, password, country, role, storeName, phone, marketingConsent } = validated.data;
+    const { firstName, lastName, email, password, country, role, storeName, phone, marketingConsent, personalizeEmails } = validated.data;
 
     // Check if user exists
     const existingUser = await prisma.user.findUnique({
@@ -71,7 +71,7 @@ export async function POST(request: NextRequest) {
     if (marketingConsent) {
       const ip = request.headers.get('x-forwarded-for')?.split(',')[0].trim() || 'unknown';
       // Newsletter delivery failure must not undo a successfully created account.
-      await requestSubscription(user.email, 'registration', ip, country === 'South Africa' ? 'ZA' : null).catch(error => console.error('[register] newsletter confirmation failed', error));
+      await requestSubscription(user.email, 'registration', ip, country === 'South Africa' ? 'ZA' : null, personalizeEmails).catch(error => console.error('[register] newsletter confirmation failed', error));
     }
     return NextResponse.json(
       { message: "Account created successfully", user },
