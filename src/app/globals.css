@@ -38,3 +38,12 @@ button:not(:disabled), select { cursor: pointer; }
 
 /* Plentovo: keep white type legible on primary brand actions. */
 .bg-\[\#DA292B\] { color: #fff; }
+
+/* Mobile form controls stay readable when the software keyboard opens. */
+@media (max-width: 639px) {
+  input:not([type="checkbox"]):not([type="radio"]), select, textarea { font-size: 16px; }
+}
+@media (max-width: 1023px) {
+  body:has([data-mobile-purchase]) { padding-bottom: calc(86px + env(safe-area-inset-bottom)); }
+  body:has([data-mobile-purchase]) button[aria-label="Open Plentovo help"] { bottom: calc(100px + env(safe-area-inset-bottom)); }
+}

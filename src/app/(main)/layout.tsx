@@ -1,3 +1,4 @@
+import {AppInstall} from '@/components/app-install';
 import {Suspense} from 'react';
 import {EmailInterestCapture} from '@/components/shop/email-interests';
 import {EmailCapturePopup} from '@/components/email-capture-popup';
@@ -17,6 +18,7 @@ export default function MainLayout({
       <Navbar />
       <MarketSelector />
       <div className="min-h-screen">{children}</div>
+      <AppInstall/>
       <Footer />
       <CustomerChat/>
       <EmailCapturePopup/>

@@ -45,7 +45,7 @@ export function ShoppingSlideshow(){
   {slides.map((slide,i)=><div key={slide.href} hidden={i!==active} role="group" aria-roledescription="slide" aria-label={`${i+1} of ${slides.length}`} className="relative">
    <div className="relative md:h-[clamp(340px,33.333vw,600px)]">
     <div className="absolute inset-0 hidden md:block">
-     <Image unoptimized src={slide.image} alt="" fill priority={i===0} sizes="100vw" className="object-cover object-right"/>
+     <Image src={slide.image} alt="" fill priority={i===0} sizes="100vw" className="object-cover object-right"/>
      <div className="absolute inset-0 bg-gradient-to-r from-[#F7F1E7]/90 via-[#F7F1E7]/25 to-transparent"/>
     </div>
     <div className="relative z-10 px-5 py-7 sm:px-10 md:flex md:h-full md:w-[46%] md:flex-col md:justify-center md:pb-20 md:pt-8 lg:px-12">
@@ -54,7 +54,7 @@ export function ShoppingSlideshow(){
      <p className="mt-4 max-w-md text-sm leading-6 text-[#252E35] lg:text-base">{slide.text}</p>
      <Link href={slide.href} className="mt-5 inline-flex w-fit items-center gap-3 rounded-lg bg-[#DA292B] px-5 py-3 text-sm font-bold text-white hover:bg-[#B91F25]">{slide.action}<ArrowRight size={16}/></Link>
     </div>
-    <Image unoptimized src={slide.image} alt="" width={2172} height={724} sizes="100vw" className="block h-auto w-full md:hidden"/>
+    <Image src={slide.image} alt="" width={2172} height={724} sizes="100vw" className="block h-auto w-full md:hidden"/>
    </div>
   </div>)}
   <div className="relative z-20 flex items-center justify-between gap-3 px-5 py-3 sm:px-10 md:absolute md:bottom-2 md:left-0 md:right-0">
