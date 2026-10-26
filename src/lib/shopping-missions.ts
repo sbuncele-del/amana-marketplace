@@ -1,5 +1,5 @@
-export type MissionProduct = {slug:string; name:string; price:number; images:string[]};
-export type MissionGroup = {id:string; title:string; description:string; match:RegExp};
+export type MissionProduct = {slug:string; name:string; price:number; images:string[]; supplierAvailable?:boolean};
+export type MissionGroup = {id:string; title:string; description:string; match:RegExp; exclude?:RegExp};
 export type ShoppingMission = {slug:string; title:string; shortTitle:string; description:string; image:string; imageAlt:string; groups:MissionGroup[]; checklist:string[]};
 export const shoppingMissions:ShoppingMission[] = [
  {slug:'small-space-living',shortTitle:'Make more room at home',title:'Make room for better living.',description:'Storage, organisation and thoughtful furniture. Find a useful starting point for the space you have.',image:'/brand/plentovo-living.webp',imageAlt:'A warm living room with a sofa, table and plants',groups:[
@@ -58,7 +58,7 @@ export const shoppingMissions:ShoppingMission[] = [
  ],checklist:["Check that cleaning tools are suitable for the surfaces in your home.","Read power, charging and maintenance details for electrical tools.","Confirm capacities, dimensions and replacement-part requirements."]},
  {"slug":"laundry","shortTitle":"Take the fuss out of laundry","title":"A little more ease on laundry day.","description":"Explore sorting, drying, garment care and storage for your laundry routine.","image":"/brand/categories/organisation-v1.webp","imageAlt":"Take the fuss out of laundry inspiration",groups:[
   {id:"sort",title:"Sort before you start",description:"Find laundry baskets and sorting essentials.",match:/\b(laundry basket|laundry hamper|laundry sorter|laundry bag|wash bag)/i},
-  {id:"dry",title:"Make room for drying",description:"Compare clothes airers and drying racks.",match:/\b(drying rack|clothes airer|clothes.*dry|washing line|clothesline|laundry.*rack\b)/i},
+  {id:"dry",title:"Make room for drying",description:"Compare clothes airers and drying racks.",match:/\b(drying rack|clothes airer|clothes.*dry|washing line|clothesline|laundry.*rack\b)/i,exclude:/\b(dish|kitchen|bottle)\b/i},
   {id:"care",title:"Look after your clothes",description:"Explore garment-care tools and accessories.",match:/\b(garment steamer|steam iron|ironing board|lint remover|fabric shaver|lint roller)/i},
   {id:"put-away",title:"Put clean clothes in order",description:"Find hangers and wardrobe organisation.",match:/\b(clothes hanger|coat hanger|trouser hanger|wardrobe.*organi[sz]\w*|clothing.*storage|underwear.*organi[sz]\w*)/i}
  ],checklist:["Measure drying and storage space, including folded dimensions.","Check fabric suitability and instructions for garment-care tools.","Confirm capacity and power requirements before choosing appliances."]},
@@ -97,7 +97,7 @@ export function getShoppingMission(slug:string){return shoppingMissions.find(m=>
 export function missionCandidates<T extends MissionProduct>(mission:ShoppingMission,items:T[],group?:string,priority:string[]=[],maxPrice?:number){
  const order=new Map(priority.map((slug,index)=>[slug,index]));
  const groups=mission.groups.filter(g=>!group||g.id===group);
- return groups.map(g=>({group:g,products:items.filter(p=>p.images.length>0&&mission.groups.find(candidate=>candidate.match.test(p.name))?.id===g.id).sort((a,b)=>(maxPrice?Number(a.price>maxPrice)-Number(b.price>maxPrice):0)||(order.get(a.slug)??priority.length)-(order.get(b.slug)??priority.length)||a.slug.localeCompare(b.slug))}));
+ return groups.map(g=>({group:g,products:items.filter(p=>p.images.length>0&&mission.groups.find(candidate=>candidate.match.test(p.name)&&!candidate.exclude?.test(p.name))?.id===g.id).sort((a,b)=>(maxPrice?Number(a.price>maxPrice)-Number(b.price>maxPrice):0)||(order.get(a.slug)??priority.length)-(order.get(b.slug)??priority.length)||Number(b.supplierAvailable===true)-Number(a.supplierAvailable===true)||a.slug.localeCompare(b.slug))}));
 }
 export function missionBudget(value:unknown):number|undefined{
  const n=typeof value==='string'?Number(value):NaN;

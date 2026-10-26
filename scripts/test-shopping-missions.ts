@@ -44,3 +44,10 @@ assert.ok(missionCandidates(getShoppingMission('bathroom')!,[make('bath','Bathro
 assert.ok(missionCandidates(getShoppingMission('bedroom')!,[make('bed','Duvet Cover Set')]).some(g=>g.products.length));
 assert.ok(missionCandidates(getShoppingMission('dining-room')!,[make('dining','Dining Chair')]).some(g=>g.products.length));
 console.log('Expanded room coverage, pagination without omissions/duplicates, budget order and group ownership passed.');
+
+const laundryDry=missionCandidates(getShoppingMission('laundry')!,[make('dish','Kitchen Dish Drying Rack'),make('clothes','Clothes Drying Rack')],'dry');
+assert.deepEqual(laundryDry[0].products.map(p=>p.slug),['clothes']);
+const knownStock=missionCandidates(mission,[{...make('a','Shoe Rack'),supplierAvailable:false},{...make('b','Shoe Rack'),supplierAvailable:true}],'bedroom');
+assert.equal(knownStock[0].products[0].slug,'b');
+assert.equal(knownStock[0].products.length,2);
+console.log('Laundry relevance and stock-order hints passed without excluding stale candidates.');

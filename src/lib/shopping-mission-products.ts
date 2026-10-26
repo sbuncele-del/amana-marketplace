@@ -5,7 +5,18 @@ import {getHomepageMerchandising} from '@/lib/homepage-merchandising-store';
 import {missionCandidates,missionWindow,type ShoppingMission} from '@/lib/shopping-missions';
 import type {CatalogueCardData} from '@/components/shop/catalogue-card';
 
-const currentProduct=cache((slug:string)=>getCatalogueProduct(slug,false,true,'ZA').catch(()=>null));
+const currentProduct=cache(async(slug:string)=>{
+ for(let attempt=0;attempt<2;attempt++){
+  try{return await getCatalogueProduct(slug,false,true,'ZA');}
+  catch(error){
+   const message=error instanceof Error?error.message:'Unknown refresh failure';
+   const transient=/\((429|500|502|503|504)\)|timeout|aborted/i.test(message);
+   if(!transient||attempt===1){console.warn('[shopping] Could not refresh product',slug,message);return null;}
+   await new Promise(resolve=>setTimeout(resolve,700+(slug.length%5)*100));
+  }
+ }
+ return null;
+});
 export async function shoppingMissionProducts(mission:ShoppingMission,group?:string,maxPrice?:number,page=1){
  const demand=await getHomepageMerchandising();
  const pools=missionCandidates(mission,getCatalogueSnapshot(),group,demand?.products.map(p=>p.slug)||[],maxPrice);
@@ -13,8 +24,8 @@ export async function shoppingMissionProducts(mission:ShoppingMission,group?:str
  const window=missionWindow(pools,page);
  const slugs=[...new Set(window.products.map(p=>p.slug))];
  const checked=new Map<string,Awaited<ReturnType<typeof currentProduct>>>();
- for(let offset=0;offset<slugs.length;offset+=8){
-  const batch=slugs.slice(offset,offset+8);
+ for(let offset=0;offset<slugs.length;offset+=4){
+  const batch=slugs.slice(offset,offset+4);
   const values=await Promise.all(batch.map(currentProduct));
   batch.forEach((slug,i)=>checked.set(slug,values[i]));
  }
