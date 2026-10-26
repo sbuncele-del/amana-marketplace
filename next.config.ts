@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
     }];
   },
   images: {
+    // Serve source images while the Vercel optimiser returns billing-related 402s.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

@@ -24,3 +24,7 @@ Scope: mobile shopping improvements and shared accessibility fixes. Desktop grid
 - Installation: supported Android prompt, manual iPhone instructions, standalone launch and reconnect fallback; no stale prices/account HTML.
 - Desktop regression: header, slideshow, mission cards and three-column product arrangement match approved design.
 - Payment success/failure/cancel/duplicate notification/order confirmation are a separate merchant-readiness gate.
+
+## Hosted-preview findings
+- Vercel image optimiser returns 402 OPTIMIZED_IMAGE_REQUEST_PAYMENT_REQUIRED. Image delivery now bypasses that paid endpoint globally; source compositions are unchanged.
+- Preview authentication settings are absent (NEXTAUTH_SECRET and AUTH_TRUST_HOST exist only for production). Adding a separate branch-scoped preview secret was rejected by automatic approval review and requires explicit user approval. Production secrets were not read or copied.
