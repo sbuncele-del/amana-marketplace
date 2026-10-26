@@ -27,7 +27,7 @@ const groups=[
       {
         "label": "Measuring & scales",
         "href": "/department/measuring-tools-scales",
-        "image": "https://cdn.shopify.com/s/files/1/0599/8821/3889/files/pomelli_photoshoot_image_1_1_0804_45.jpg?v=1785851573"
+        "image": "https://cdn.shopify.com/s/files/1/0599/8821/3889/files/ce0609f9-health-beauty-personal-bathroom-scale-perfect-dealz-1233947295755__83753.jpg?v=1768537453"
       }
     ]
   },
