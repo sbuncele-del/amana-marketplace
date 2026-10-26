@@ -83,10 +83,10 @@ export async function getCatalogueProducts(search='',category='',sort='newest',a
 }
 
 // Normal browsing validates only the visible page instead of refreshing every department.
-export async function getCataloguePage(search='',category='',page=1,limit=25) {
- if(!(await catalogueMarket()))return {products:[],total:0,page,totalPages:0,hasNextPage:false};
+export async function getCataloguePage(search='',category='',page=1,limit=25,market?:string) {
+ if(market ? market!=='ZA' : !(await catalogueMarket()))return {products:[],total:0,page,totalPages:0,hasNextPage:false};
  const term=search.trim().toLowerCase();
  const selected=catalogueSearch(catalogue.filter(p=>!category||p.collections.includes(category)),term);
- const products=await Promise.all(selected.slice((page-1)*limit,page*limit).map(p=>getCatalogueProduct(p.slug).then(current=>current??update(p))));
+ const products=await Promise.all(selected.slice((page-1)*limit,page*limit).map(p=>getCatalogueProduct(p.slug,false,false,market).then(current=>current??update(p))));
  return {products,total:selected.length,page,totalPages:Math.ceil(selected.length/limit),hasNextPage:page*limit<selected.length};
 }
