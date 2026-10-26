@@ -12,7 +12,7 @@ import {ShoppingMissions} from '@/components/shop/shopping-missions';
 type Props={params:Promise<{slug:string}>;searchParams:Promise<Record<string,string|string[]|undefined>>};
 export async function generateMetadata({params}:Props):Promise<Metadata>{
  const {slug}=await params;const mission=getShoppingMission(slug);
- return mission?{title:mission.shortTitle,description:mission.description,alternates:{canonical:'/collections/'+mission.slug}}:{title:'Collection not found',robots:{index:false,follow:true}};
+ return mission?{title:mission.shortTitle,description:mission.description,alternates:{canonical:'/collections/'+mission.slug},openGraph:{title:mission.shortTitle,description:mission.description,url:'https://plentovo.com/collections/'+mission.slug,images:[{url:mission.image,alt:mission.imageAlt}]},twitter:{card:'summary_large_image',title:mission.shortTitle,description:mission.description,images:[mission.image]}}:{title:'Collection not found',robots:{index:false,follow:true}};
 }
 async function MissionProducts({slug,group,maxPrice}:{slug:string;group?:string;maxPrice?:number}){
  const mission=getShoppingMission(slug)!;
