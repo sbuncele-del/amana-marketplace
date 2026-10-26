@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {rankEmailInterests} from '../src/lib/mail/interest-ranking';
+const p=(slug:string,name:string,category:string)=>({slug,name,price:100,category:{slug:category}});
+const all=[p('sofa','Lounge couch','furniture'),p('sofa2','Lounge sofa','furniture'),p('kettle','Steel kettle','kitchen'),p('mug','Ceramic mug','kitchen')];
+const now=Date.parse('2026-10-26T08:00:00Z');
+const history=[{slug:'sofa',weight:5,last_seen:new Date(now-86400000)}];
+assert.deepEqual(rankEmailInterests(history,all,new Set(),now),['sofa','sofa2']);
+assert.deepEqual(rankEmailInterests(history,all,new Set(['sofa']),now),['sofa2']);
+assert.deepEqual(rankEmailInterests([],all,new Set(),now),[]);
+assert.deepEqual(rankEmailInterests([{...history[0],last_seen:new Date(now-31*86400000)}],all,new Set(),now),[]);
+assert.equal(rankEmailInterests([...history,{slug:'kettle',weight:10,last_seen:new Date(now)}],all,new Set(),now)[0],'kettle');
+console.log('Passed relevance, purchase exclusion, no-history, expired-history and changing-interest checks.');
