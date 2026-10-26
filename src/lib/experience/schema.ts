@@ -74,6 +74,14 @@ CREATE TABLE IF NOT EXISTS mail_webhook_events (
  id text PRIMARY KEY, type text NOT NULL, email_id text, received_at timestamptz NOT NULL DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS mail_webhook_events_received ON mail_webhook_events(received_at DESC);
+CREATE TABLE IF NOT EXISTS mail_interest_preferences (
+ user_id text PRIMARY KEY REFERENCES "User"(id) ON DELETE CASCADE, enabled boolean NOT NULL DEFAULT false,
+ updated_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE TABLE IF NOT EXISTS mail_product_interests (
+ user_id text NOT NULL REFERENCES "User"(id) ON DELETE CASCADE,slug text NOT NULL,weight integer NOT NULL,
+ last_seen timestamptz NOT NULL DEFAULT now(),PRIMARY KEY(user_id,slug)
+);
 CREATE TABLE IF NOT EXISTS mail_lifecycle_runs (
  id text PRIMARY KEY,started_at timestamptz NOT NULL DEFAULT now(),finished_at timestamptz,
  status text NOT NULL DEFAULT 'RUNNING',processed integer NOT NULL DEFAULT 0

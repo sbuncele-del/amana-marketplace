@@ -22,3 +22,11 @@ Feedback links use 256-bit random tokens in fragments rather than URL query logs
 ## Validation and release
 
 Run node --import tsx scripts/test-mail-timing.ts, TypeScript noEmit and scoped ESLint. Validate SQL/queue transactions and feedback idempotency without sending real customer emails. After release verify unauthenticated cron access is rejected, the feedback page renders, and the next authenticated scheduler execution appears in the team console. No successful mail delivery is established by a configured API key alone.
+
+## Interest-based day-three discovery
+
+My account contains a separate, optional relevant-email preference (off initially). Signals require a signed-in active account, optional analytics accepted in the browser, explicit relevant-email preference and an ACTIVE newsletter subscription. Search text is transient; store only up to three matched catalogue IDs per search and exact product IDs for product views. Weight a product view more than a search-result impression, deduplicate within 30 minutes and decay older signals when ranking. Never claim search impressions were purchases or exact product views.
+
+At send time, rank recent seeds and similar products, exclude recently paid/shipped/delivered items, refresh variant stock/prices and include up to six relevant products. If preferences are off, history is empty/stale, or all candidates are unavailable, use a general help/discovery message without a supposedly personalised product list. No cross-site tracking or external customer profiling. Anonymous searches are not associated retrospectively with an account.
+
+Disabling the preference deletes stored interests; daily processing purges interest records older than 30 days. Privacy policy describes this. Run node --import tsx scripts/test-email-interests.ts for ranking, purchase-exclusion and expiry checks. This changes the day-three email, not manually authored campaigns.
