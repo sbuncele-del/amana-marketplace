@@ -1,3 +1,4 @@
+import {ShoppingSlideshow} from '@/components/shop/shopping-slideshow';
 import type {Metadata} from 'next';
 import Link from 'next/link';
 import {ArrowRight} from 'lucide-react';
@@ -7,7 +8,7 @@ import {MissionCard} from '@/components/shop/shopping-missions';
 export const metadata:Metadata={title:'Shopping ideas for every room and routine',description:'Find useful Plentovo products by room, everyday need and budget. Explore bathroom, bedroom, dining, kitchen, home office, outdoor living and more.',alternates:{canonical:'/collections'}};
 export default function CollectionsPage(){
  const sections=['Shop by room','Everyday life','Out and about'];
- return <main id="main-content" className="bg-[#F7F6F3] pb-14"><div className="mx-auto max-w-[1800px] px-4 pt-4">
+ return <main id="main-content" className="bg-[#F7F6F3] pb-14"><ShoppingSlideshow/><div className="mx-auto max-w-[1800px] px-4 pt-4">
   <nav aria-label="Breadcrumb" className="mb-4 text-xs text-gray-600"><Link href="/" className="underline">Home</Link><span className="mx-2">/</span>Shopping ideas</nav>
   <h1 className="text-2xl font-extrabold sm:text-3xl">Shopping ideas for your everyday</h1>
   <nav aria-label="Shopping idea sections" className="mt-4 flex flex-wrap items-center gap-2 border-b border-[#E5E0D8] pb-4"><span className="mr-2 text-xs font-semibold text-gray-500">Find your starting point</span>{sections.map((title,i)=><a href={'#ideas-'+i} key={title} className="rounded-full border border-[#DED8CF] bg-white px-4 py-2.5 text-xs font-bold text-[#30383E] transition hover:border-red-300 hover:text-red-700">{title}</a>)}</nav>

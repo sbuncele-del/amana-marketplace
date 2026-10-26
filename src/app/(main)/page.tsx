@@ -1,3 +1,4 @@
+import {ShoppingSlideshow} from '@/components/shop/shopping-slideshow';
 import {getHomepageMerchandising} from '@/lib/homepage-merchandising-store';
 import {ShoppingMissions} from '@/components/shop/shopping-missions';
 import type { Metadata } from 'next';
@@ -94,6 +95,7 @@ export default async function HomePage() {
 
   return <main id="main-content" className="bg-[#F7F6F3] pb-14">
     <h1 className="sr-only">Plentovo — Good things. Plenty of choice.</h1>
+    <ShoppingSlideshow/>
     <ShoppingMissions/>
 
     {activeMerchandising&&<section aria-labelledby="demand-title" className="mx-auto max-w-[1800px] px-4 pt-7"><h2 id="demand-title" className="text-2xl font-bold">{activeMerchandising.headline}</h2><p className="mb-5 mt-2 text-sm text-gray-600">{activeMerchandising.description}</p><div className={`grid grid-cols-2 gap-3 md:grid-cols-3 ${rowColumns(demandProducts.length)}`}>{demandProducts.map(product=><CatalogueCard key={product.slug} product={product}/>)}</div></section>}
