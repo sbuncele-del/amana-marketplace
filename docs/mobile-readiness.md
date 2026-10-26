@@ -6,7 +6,7 @@ Scope: mobile shopping improvements and shared accessibility fixes. Desktop grid
 - Product price/availability near the title on mobile; options precede collapsed details. Mobile purchase bar shares selected variant, quantity, pending/error and cart state with the existing purchase controls, and hides while the main purchase button is in view.
 - Label associations, autofill hints, named password controls and 16px mobile fields. Mobile safe-area space and repositioned help button above the purchase bar.
 - Newsletter uses Radix modal focus management, Escape dismissal and bounded dynamic-viewport scrolling. Offer requires 45 seconds plus 35% page depth, cookie choice resolved, no open modal and no active form field. Signup/marketing consent semantics remain unchanged.
-- Filter drawer open state survives search-parameter changes; pagination wraps. Mobile mission cards are shorter without removing available collections; collection introductions are shorter on mobile. Responsive image delivery enabled without changing crop rules.
+- Filter drawer open state survives search-parameter changes; pagination wraps. Mobile mission cards are shorter without removing available collections; collection introductions are shorter on mobile. Original compressed image delivery retained: Vercel image optimisation returns HTTP 402 on this account, so enabling it would break images. Responsive source derivatives remain a follow-up performance task.
 - Manifest, home-screen icons, user-invoked install guidance and service worker. Cache allowlist contains only offline HTML and two icons. Navigation is network-first; API/non-GET/third-party requests are untouched. No private/catalogue HTML cache.
 
 ## Verification
