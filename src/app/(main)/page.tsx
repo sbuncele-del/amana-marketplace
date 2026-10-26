@@ -1,5 +1,5 @@
 import {getHomepageMerchandising} from '@/lib/homepage-merchandising-store';
-import {catalogueMarket} from '@/lib/commerce/selection';
+import {ShoppingMissions} from '@/components/shop/shopping-missions';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -49,7 +49,6 @@ const collectionSpecs = [
 ];
 
 export default async function HomePage() {
-  if (!(await catalogueMarket())) return <main className="mx-auto max-w-3xl px-6 py-20"><h1 className="text-3xl font-bold">Good things are on the way</h1><p className="mt-4">The catalogue for your selected country is not available yet. Choose South Africa above to browse our South African range; delivery remains limited to that country.</p></main>;
   const snapshot = getCatalogueSnapshot();
   const valuePool = snapshot.filter(p => p.price > 0 && p.price < 300 && p.images.length);
   const valueCategories = [/desktop.fan|mini.fan/i,/lunch.box/i,/earbud/i,/water.bottle/i,/storage.container|food.container/i].map(match => valuePool.filter(p => match.test(p.name)).slice(0, 3));
@@ -63,7 +62,7 @@ export default async function HomePage() {
     for (let offset = 0; offset < candidates.length && products.length < 6; offset += 6) {
       const batch = await Promise.all(candidates.slice(offset, offset + 6).map(slug => {
         let result = checked.get(slug);
-        if (!result) { result = getCatalogueProduct(slug); checked.set(slug, result); }
+        if (!result) { result = getCatalogueProduct(slug,false,false,'ZA'); checked.set(slug, result); }
         return result;
       }));
       for (const product of batch) {
@@ -106,6 +105,8 @@ export default async function HomePage() {
         <div className="relative -mx-6 mt-5 aspect-[2/1] sm:hidden"><Image src={heroProduct?.images[0]||"/brand/plentovo-hero-v2.webp"} alt={heroProduct?.name||"Home, kitchen, audio and beauty essentials in a warm studio setting"} fill priority sizes="100vw" className={heroProduct?"object-contain":"object-cover object-right"} /></div>
       </div>
     </section>
+
+    <ShoppingMissions/>
 
     {activeMerchandising&&<section aria-labelledby="demand-title" className="mx-auto max-w-[1800px] px-4 pt-7"><h2 id="demand-title" className="text-2xl font-bold">{activeMerchandising.headline}</h2><p className="mb-5 mt-2 text-sm text-gray-600">{activeMerchandising.description}</p><div className={`grid grid-cols-2 gap-3 md:grid-cols-3 ${rowColumns(demandProducts.length)}`}>{demandProducts.map(product=><CatalogueCard key={product.slug} product={product}/>)}</div></section>}
     <section aria-label="Discover your everyday" className="mx-auto grid max-w-[1800px] gap-4 px-4 pt-5 sm:grid-cols-2 xl:grid-cols-4">

@@ -1,0 +1,22 @@
+import assert from 'node:assert/strict';
+import {shoppingMissions,getShoppingMission,missionCandidates,missionBudget} from '../src/lib/shopping-missions';
+
+const make=(slug:string,name:string,price=100)=>({slug,name,price,images:['/example.jpg']});
+const mission=getShoppingMission('small-space-living')!;
+const items=[make('shoe-rack','4 Tier Shoe Storage Rack'),make('spice-rack','Kitchen Spice Rack'),make('side-table','Oak Side Table'),make('bathroom','Bathroom Storage Shelf'),make('toy','Toy Race Car'),make('empty','Shoe Storage Rack')];
+items[5].images=[];
+const rows=missionCandidates(mission,items);
+assert.deepEqual(rows.find(r=>r.group.id==='bedroom')!.products.map(p=>p.slug),['shoe-rack']);
+assert.equal(rows.flatMap(r=>r.products).some(p=>p.slug==='toy'||p.slug==='empty'),false);
+assert.equal(missionCandidates(mission,items,'living').length,1);
+assert.equal(missionCandidates(mission,items,'living')[0].products[0].slug,'side-table');
+assert.equal(missionCandidates(mission,[make('a','Shoe Rack'),make('b','Shoe Rack')],'bedroom',['b'])[0].products[0].slug,'b');
+assert.equal(missionCandidates(mission,[make('new-product','New Shoe Rack')],'bedroom')[0].products[0].slug,'new-product');
+assert.equal(getShoppingMission('unknown'),undefined);
+for(const value of [undefined,'','NaN','Infinity','-10','0',['300']])assert.equal(missionBudget(value),undefined);
+assert.equal(missionBudget('300'),300);
+assert.equal(missionBudget('250.50'),250.5);
+assert.equal(missionBudget('2000000'),1000000);
+assert.equal(new Set(shoppingMissions.map(m=>m.slug)).size,shoppingMissions.length);
+assert.equal(shoppingMissions.every(m=>new Set(m.groups.map(g=>g.id)).size===m.groups.length),true);
+console.log('Shopping mission relevance, filtering, fresh catalogue entries, priority and budget checks passed.');
