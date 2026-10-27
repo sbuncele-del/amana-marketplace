@@ -15,6 +15,8 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return {
       beforeFiles: [
+        { source: "/algeria", destination: "https://plentovo-algeria.vercel.app/algeria" },
+        { source: "/algeria/:path*", destination: "https://plentovo-algeria.vercel.app/algeria/:path*" },
         { source: "/tunisia", destination: "https://plentovo-tunisia.vercel.app/tunisia" },
         { source: "/tunisia/:path*", destination: "https://plentovo-tunisia.vercel.app/tunisia/:path*" },
       ],
