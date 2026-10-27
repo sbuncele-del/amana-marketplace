@@ -21,7 +21,7 @@ export async function POST(request:NextRequest){
  if(!eligible)return NextResponse.json({recorded:false},{headers});
  if(Number(request.headers.get('content-length')||0)>1000)return NextResponse.json({recorded:false},{headers});
  const b=z.object({search:z.string().trim().max(100).optional(),slug:z.string().max(200).optional()}).strict().parse(await request.json());
- const all=getCatalogueSnapshot();const slugs=b.slug?all.filter(p=>p.slug===b.slug).map(p=>p.slug):b.search?catalogueSearch(all,b.search).slice(0,3).map(p=>p.slug):[];
+ const all=(await getCatalogueSnapshot());const slugs=b.slug?all.filter(p=>p.slug===b.slug).map(p=>p.slug):b.search?catalogueSearch(all,b.search).slice(0,3).map(p=>p.slug):[];
  // Never retain raw search text. Keep only matched catalogue IDs for up to 30 days.
  for(const slug of slugs)await experiencePool().query(`INSERT INTO mail_product_interests(user_id,slug,weight,last_seen) VALUES($1,$2,$3,now()) ON CONFLICT(user_id,slug) DO UPDATE SET weight=LEAST(20,mail_product_interests.weight+$3),last_seen=now() WHERE mail_product_interests.last_seen<now()-interval '30 minutes'`,[u.id,slug,b.slug?5:2]);
  return NextResponse.json({recorded:slugs.length>0},{headers});

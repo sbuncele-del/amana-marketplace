@@ -66,6 +66,7 @@ export default function ProductsPage() {
 
   return (
     <div>
+<p className="m-4 rounded-lg border bg-white p-4 text-sm">Live Plentovo catalogue and storefront controls are in <Link href="/operations/store" className="font-semibold text-red-700 underline">Store management</Link>. This older dashboard manages legacy listings.</p>
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-extrabold">Products</h1>

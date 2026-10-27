@@ -13,7 +13,7 @@ export async function catalogueContext(messages:Message[],pathname?:string){
  const kettleWanted=/\bkettles?\b/.test(query);
  const partsWanted=/\b(part|parts|replacement|element|cord|plug|repair|accessor)/.test(query);
  const coldKettleWanted=/cold.water|sports|stovetop|camping/.test(query);
- const ranked=getCatalogueSnapshot().filter(p=>{
+ const ranked=(await getCatalogueSnapshot()).filter(p=>{
   if(kettleWanted&&!/\bkettles?\b/i.test(p.name))return false;
   if(kettleWanted&&!partsWanted&&/element|cord|plug|heater|replacement/i.test(p.name))return false;
   if(kettleWanted&&!coldKettleWanted&&/cold.water|sports.kettle|kettlebell/i.test(p.name))return false;

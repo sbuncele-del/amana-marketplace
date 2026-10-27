@@ -52,3 +52,6 @@ button:not(:disabled), select { cursor: pointer; }
   .mobile-shortcuts { scrollbar-width: none; }
   .mobile-shortcuts::-webkit-scrollbar { display: none; }
 }
+
+/* Campaign accents stay scoped to the storefront and preserve approved typography. */
+.store-theme .bg-\[\#DA292B\] { background-color: var(--store-accent, #DA292B); }

@@ -19,7 +19,7 @@ const currentProduct=cache(async(slug:string)=>{
 });
 export async function shoppingMissionProducts(mission:ShoppingMission,group?:string,maxPrice?:number,page=1){
  const demand=await getHomepageMerchandising();
- const pools=missionCandidates(mission,getCatalogueSnapshot(),group,demand?.products.map(p=>p.slug)||[],maxPrice);
+ const pools=missionCandidates(mission,(await getCatalogueSnapshot()),group,demand?.products.map(p=>p.slug)||[],maxPrice);
  // Twelve candidates per group and page; every candidate has a browsable page.
  const window=missionWindow(pools,page);
  const slugs=[...new Set(window.products.map(p=>p.slug))];

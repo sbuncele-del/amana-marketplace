@@ -4,16 +4,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {ArrowLeft,ArrowRight,Pause,Play} from 'lucide-react';
 
-const slides=[
- {title:'Good things. Plenty of choice.',text:'Make everyday cooking a little easier.',image:'/brand/plentovo-hero-v2.webp',href:'/collections/kitchen-made-easier',action:'Explore the kitchen'},
- {title:'More room for good living.',text:'Find your favourite place to unwind.',image:'/brand/plentovo-living.webp',href:'/collections/living-room',action:'Explore living room'},
- {title:'Make room to rest.',text:'Bedding, bedside essentials and a little more calm.',image:'/brand/heroes/bedroom-hero-v2.webp',href:'/collections/bedroom',action:'Explore the bedroom'},
- {title:'Big ideas. Little adventures.',text:'Find something for their next moment of play.',image:'/brand/heroes/playtime-hero-v2.webp',href:'/collections/kids-play',action:'Explore playtime'},
- {title:'Everyday, refreshed.',text:'Small changes for a bathroom that works around you.',image:'/brand/heroes/bathroom-hero-v2.webp',href:'/collections/bathroom',action:'Explore the bathroom'},
- {title:'A little care, every day.',text:'Make time for the routine that feels like you.',image:'/brand/heroes/care-hero-v2.webp',href:'/collections/beauty-routine',action:'Explore everyday care'},
- {title:'Good days start outside.',text:'Find useful things for fresh air and time together.',image:'/brand/heroes/outdoor-hero-v2.webp',href:'/collections/outdoor-living',action:'Explore outdoor living'}
-];
-export function ShoppingSlideshow(){
+import {defaultSlides} from '@/lib/cms/defaults';
+import type {StoreConfig} from '@/lib/cms/domain';
+
+export function ShoppingSlideshow({slides=defaultSlides}:{slides?:StoreConfig['slides']}){
  const [active,setActive]=useState(0);
  const [paused,setPaused]=useState(false);
  const [hovered,setHovered]=useState(false);
