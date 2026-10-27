@@ -12,6 +12,14 @@ const nextConfig: NextConfig = {
       permanent: true,
     }];
   },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        { source: "/tunisia", destination: "https://plentovo-tunisia.vercel.app/tunisia" },
+        { source: "/tunisia/:path*", destination: "https://plentovo-tunisia.vercel.app/tunisia/:path*" },
+      ],
+    };
+  },
   images: {
     // Serve source images while the Vercel optimiser returns billing-related 402s.
     unoptimized: true,
