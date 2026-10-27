@@ -8,7 +8,7 @@ import {limitPublicRequest} from '@/lib/experience/public-rate-limit';
 const schema=z.object({pathname:z.string().max(240).regex(/^\/[^?#]*$/).optional(),messages:z.array(z.object({role:z.enum(['user','assistant']),content:z.string().min(1).max(2000)})).min(1).max(24)});
 function help(message:string){if(/deliver|shipping|courier|collect/i.test(message))return 'We deliver within South Africa. Allow 0–2 business days for processing, then 3–5 business days after dispatch. Delivery starts at R79 for parcels below 10kg and increases by total weight. See Delivery & collection below for the full rates.';
  if(/return|refund|faulty/i.test(message))return 'For a return or faulty item, please review Returns & refunds below, then contact customer care with your order reference and what went wrong. I cannot approve or process a refund here.';
- if(/address|located|office/i.test(message))return 'Our business address is 116 Limpopo Avenue, Doringkloof, Centurion, 0157, South Africa. Please contact customer care before visiting or sending a return.';
+ if(/address|located|office/i.test(message))return 'Our business address is 26 Lemonwood Street, Eco-Park Estate, Centurion, Gauteng, 0157, South Africa. Please contact customer care before visiting or sending a return.';
  return 'I can help you find delivery information, returns guidance and customer care. For a personal response about an order or product, please use Contact customer care below.';}
 export async function POST(request:NextRequest){
  if(Number(request.headers.get('content-length')||0)>60000)return NextResponse.json({error:'Please send a shorter message.'},{status:413});
