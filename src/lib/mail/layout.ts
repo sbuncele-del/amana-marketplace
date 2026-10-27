@@ -5,7 +5,7 @@ export const brand = {
   tagline: 'Good things. Plenty of choice.',
   red: '#DA292B',
   ink: '#171B20',
-  address: 'Plentovo · African Shelf, 116 Limpopo Avenue, Doringkloof, Centurion, 0157, South Africa',
+  address: 'Plentovo · Masaphokati Global Shelf (Pty) Ltd · Reg. 2026/850096/07, 26 Lemonwood Street, Eco-Park Estate, Centurion, Gauteng, 0157, South Africa',
 };
 
 export function esc(value: unknown) {

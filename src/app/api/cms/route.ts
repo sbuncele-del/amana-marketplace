@@ -1,3 +1,4 @@
+import { qualityFlags } from "@/lib/catalogue-quality";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { commerceActor, CommerceError } from "@/lib/commerce/access";
@@ -110,6 +111,15 @@ export async function GET(r: NextRequest) {
             slug: m.slug,
             title: m.shortTitle,
           })),
+          qualityFlags:
+            kind === "product"
+              ? qualityFlags({
+                  name: draft.name,
+                  description: draft.description,
+                  details: draft.details,
+                  images: draft.images,
+                })
+              : [],
           published:
             kind === "product"
               ? live.products.find((p) => p.slug === key) || null
@@ -142,6 +152,7 @@ export async function GET(r: NextRequest) {
         status: active.get(p.slug)?.status || "active",
         draft: edits.has(p.slug),
         price: p.price,
+        qualityFlags: qualityFlags(p),
       })),
       ...docs
         .filter((d) => d.draft.source === "manual")
@@ -152,8 +163,13 @@ export async function GET(r: NextRequest) {
           status: active.get(d.key)?.status || "unpublished",
           draft: true,
           price: d.draft.variants[0]?.price,
+          qualityFlags: qualityFlags(d.draft),
         })),
-    ].filter((p) => !q || `${p.name} ${p.slug}`.toLowerCase().includes(q));
+    ].filter(
+      (p) =>
+        (!q || `${p.name} ${p.slug}`.toLowerCase().includes(q)) &&
+        (!r.nextUrl.searchParams.has("review") || p.qualityFlags.length > 0),
+    );
     return NextResponse.json(
       {
         products: rows.slice((page - 1) * 30, page * 30),

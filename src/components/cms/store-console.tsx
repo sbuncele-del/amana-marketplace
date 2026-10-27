@@ -5,6 +5,7 @@ import Image from "next/image";
 import type { CmsProduct, StoreConfig, CmsKind } from "@/lib/cms/domain";
 import { themes } from "@/lib/cms/domain";
 type ProductRow = {
+  qualityFlags?: string[];
   slug: string;
   name: string;
   source: string;
@@ -20,6 +21,8 @@ type Release = {
   created_at: string;
 };
 type Data = {
+  sourceUrl?: string | null;
+  qualityFlags?: string[];
   draft?: CmsProduct | StoreConfig;
   version?: number;
   products?: ProductRow[];
@@ -83,6 +86,7 @@ export function StoreConsole({
   const [kind, setKind] = useState<CmsKind>(initialKind),
     [key, setKey] = useState(initialKind === "storefront" ? "plentovo" : ""),
     [q, setQ] = useState(""),
+    [reviewOnly, setReviewOnly] = useState(false),
     [page, setPage] = useState(1),
     [data, setData] = useState<Data>(),
     [draft, setDraft] = useState<CmsProduct | StoreConfig>(),
@@ -94,12 +98,18 @@ export function StoreConsole({
     [end, setEnd] = useState("");
   const requestId = useRef(0);
   const load = useCallback(
-    async (k: CmsKind, id: string, query: string, p: number) => {
+    async (
+      k: CmsKind,
+      id: string,
+      query: string,
+      p: number,
+      review = false,
+    ) => {
       const current = ++requestId.current;
       setBusy(true);
       try {
         const r = await fetch(
-          `/api/cms?kind=${k}&${id ? "key=" + encodeURIComponent(id) : "q=" + encodeURIComponent(query) + "&page=" + p}`,
+          `/api/cms?kind=${k}&${id ? "key=" + encodeURIComponent(id) : "q=" + encodeURIComponent(query) + "&page=" + p}${review ? "&review=1" : ""}`,
         );
         const d = await r.json();
         if (!r.ok) throw Error(d.error);
@@ -120,8 +130,8 @@ export function StoreConsole({
   const search = useRef("");
   search.current = q;
   useEffect(() => {
-    void load(kind, key, search.current, page);
-  }, [kind, key, page, load]); // Search submits explicitly to avoid refreshing an open edit.
+    void load(kind, key, search.current, page, reviewOnly);
+  }, [kind, key, page, load, reviewOnly]); // Search submits explicitly to avoid refreshing an open edit.
   useEffect(() => {
     const warn = (e: BeforeUnloadEvent) => {
       if (dirty) e.preventDefault();
@@ -353,7 +363,7 @@ export function StoreConsole({
                 onSubmit={(e) => {
                   e.preventDefault();
                   setPage(1);
-                  void load(kind, "", q, 1);
+                  void load(kind, "", q, 1, reviewOnly);
                 }}
               >
                 <input
@@ -367,6 +377,17 @@ export function StoreConsole({
                   Search
                 </button>
               </form>
+              <label className="mb-4 flex items-center gap-2 text-sm">
+                <input
+                  type="checkbox"
+                  checked={reviewOnly}
+                  onChange={(e) => {
+                    setReviewOnly(e.target.checked);
+                    setPage(1);
+                  }}
+                />
+                Only products flagged for supplier-content review
+              </label>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
                   <thead className="border-b text-gray-500">
@@ -387,6 +408,11 @@ export function StoreConsole({
                           >
                             {p.name}
                           </button>
+                          {p.qualityFlags?.length ? (
+                            <span className="mt-1 block text-xs text-amber-800">
+                              Content review needed
+                            </span>
+                          ) : null}
                           <p className="mt-1 text-xs text-gray-500">
                             R{p.price.toFixed(2)}
                           </p>
@@ -442,6 +468,20 @@ export function StoreConsole({
                     onChange={(e) => void upload(e.target.files?.[0])}
                   />
                 </label>
+                {data?.qualityFlags?.length ? (
+                  <aside className="rounded-lg bg-amber-50 p-4 text-sm">
+                    <h3 className="font-semibold">Supplier content review</h3>
+                    <ul className="mt-2 list-disc pl-5">
+                      {data.qualityFlags.map((flag) => (
+                        <li key={flag}>{flag}</li>
+                      ))}
+                    </ul>
+                    <p className="mt-2">
+                      Preserve supplier wording and supporting evidence. Do not
+                      invent claims, approvals or product specifications.
+                    </p>
+                  </aside>
+                ) : null}
                 {product && (
                   <>
                     <p className="rounded-lg bg-gray-50 p-3 text-sm">

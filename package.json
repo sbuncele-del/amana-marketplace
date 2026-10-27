@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run check:shopping && npm run check:cms && prisma generate && node --import tsx scripts/migrate-experience.ts && next build",
+    "build": "npm run check:shopping && npm run check:cms && npm run check:access && prisma generate && node --import tsx scripts/migrate-experience.ts && next build",
     "start": "next start",
     "lint": "eslint",
     "check:shopping": "node --import tsx scripts/test-shopping-missions.ts && eslint src/lib/shopping-missions.ts src/lib/shopping-mission-products.ts src/components/shop/shopping-missions.tsx 'src/app/(main)/collections/[slug]/page.tsx' 'src/app/(main)/page.tsx' 'src/app/(main)/collections/page.tsx'",
-    "check:cms": "node --import tsx scripts/test-cms.ts"
+    "check:cms": "node --import tsx scripts/test-cms.ts",
+    "check:access": "node --import tsx scripts/test-access.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.8.0",

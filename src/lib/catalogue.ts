@@ -1,5 +1,6 @@
 import 'server-only';
 import {cache} from 'react';
+import {cleanSupplierText,cleanImages} from './catalogue-quality';
 import {applyEditorial} from '@/lib/cms/editorial';
 import departments from '@/data/departments.json';
 import {liveCms} from '@/lib/cms/store';
@@ -36,7 +37,7 @@ export const getCatalogueSnapshot=cache(async():Promise<CatalogueProduct[]>=>{
   originCountry:'South Africa',seller:{name:'Plentovo',country:'South Africa',sellerProfile:{storeName:'Plentovo',storeSlug:'plentovo',trustScore:0,isVerified:false}},stock:p.variants.reduce((n,v)=>n+v.stock,0),avgRating:0,reviewCount:0,totalSold:0,fulfilmentStatus:'Managed by Plentovo',deliveryNote:'See delivery information.',sourceCheckedAt:'',sourceUrl:'',sku:p.sku,currency:'ZAR',price:Math.min(...p.variants.map(v=>v.price)),priceOnRequest:false,
   colours:p.variants.map(v=>v.title),specifications:[],supplierAvailable:p.variants.some(v=>v.stock>0),
   variants:p.variants.map(v=>({...v,supplierAvailable:v.stock>0,managedStock:v.stock})),
- })).map(p=>({...p,category:{slug:p.category.slug,name:departments.find(d=>d.slug===p.category.slug)?.name||p.category.name}}));
+ })).map(p=>({...p,name:cleanSupplierText(p.name),description:cleanSupplierText(p.description),details:cleanSupplierText(p.details||''),images:cleanImages(p.images),category:{slug:p.category.slug,name:departments.find(d=>d.slug===p.category.slug)?.name||p.category.name}}));
 });
 type SnapshotProduct=(typeof catalogue)[number];
 export type CatalogueProduct=Omit<SnapshotProduct,'variants'>&{variants:(SnapshotProduct['variants'][number]&{image?:string;weightGrams?:number;managedStock?:number})[]};

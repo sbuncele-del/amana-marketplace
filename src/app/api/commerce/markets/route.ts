@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(
       {
         markets,
-        selectedMarket: saved ? (savedActive ? saved : null) : (detectedActive ? detected : null),
+        selectedMarket: savedActive ? saved : detectedActive ? detected : (markets.some(m=>m.code==='ZA')?'ZA':null),
         confirmed: Boolean(saved && savedActive),
         detectedCountry: detected ? {code: detected, name: detectedName, available: detectedActive} : null,
         orderingEnabled: false,

@@ -3,7 +3,7 @@ import { RegisterForm } from "@/components/auth/register-form";
 
 export const metadata = {
   title: "Create Account — Plentovo",
-  description: "Join Africa's trusted cross-border marketplace",
+  description: "Create your Plentovo account with a secure email code",
 };
 
 export default function RegisterPage() {
