@@ -1,5 +1,9 @@
 export const messages = {
   "en": {
+    "ideasEyebrow": "A little help choosing",
+    "ideasTitle": "What would make your everyday easier?",
+    "ideasText": "Start with your room, your routine or your next adventure.",
+    "moreIdeas": "More ways to explore",
     "country": "Tunisia",
     "announcement": "Plentovo Tunisia · A new chapter, coming soon",
     "search": "Search your next good find",
@@ -69,6 +73,10 @@ export const messages = {
     "more": "More room for good living."
   },
   "fr": {
+    "ideasEyebrow": "Un peu d’aide pour choisir",
+    "ideasTitle": "Comment simplifier votre quotidien ?",
+    "ideasText": "Commencez par une pièce, une routine ou votre prochaine aventure.",
+    "moreIdeas": "Encore plus à découvrir",
     "country": "Tunisie",
     "announcement": "Plentovo Tunisie · Un nouveau chapitre, bientôt",
     "search": "Rechercher votre prochaine trouvaille",
@@ -138,6 +146,10 @@ export const messages = {
     "more": "Plus de place pour bien vivre."
   },
   "ar": {
+    "ideasEyebrow": "مساعدة بسيطة للاختيار",
+    "ideasTitle": "ما الذي يجعل يومك أسهل؟",
+    "ideasText": "ابدأ بغرفتك أو روتينك أو مغامرتك القادمة.",
+    "moreIdeas": "المزيد لاكتشافه",
     "country": "تونس",
     "announcement": "بلينتوفو تونس · بداية جديدة قريباً",
     "search": "ابحث عن اختيارك القادم",
