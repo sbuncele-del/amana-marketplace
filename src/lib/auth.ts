@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
+import {verifyCode} from "@/lib/access/store";
 import { prisma } from "@/lib/prisma";
 import { authConfig } from "@/lib/auth.config";
 
@@ -12,9 +13,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       credentials: {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
+        code: {label:"Code",type:"text"},challenge:{label:"Challenge",type:"text"},
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) return null;
+        if(!credentials?.email)return null;
+        let verified=false;
+        if(credentials.code&&credentials.challenge){if(process.env.VERCEL_ENV==='preview')return null;verified=!!(await verifyCode(String(credentials.email),String(credentials.challenge),String(credentials.code)));if(!verified)return null;}
+        else if(!credentials.password)return null;
 
         const user = await prisma.user.findUnique({
           where: { email: String(credentials.email).trim().toLowerCase() },
@@ -23,7 +28,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         if (!user || !user.isActive) return null;
 
-        const isValid = await bcrypt.compare(
+        const isValid = verified || await bcrypt.compare(
           credentials.password as string,
           user.passwordHash
         );

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { useState, useEffect, useCallback } from "react";
 import {
@@ -132,6 +133,7 @@ export default function AdminPage() {
 
   return (
     <div className="pt-24 pb-16">
+<p className="m-4 rounded-lg border bg-white p-4 text-sm">Live Plentovo catalogue and storefront controls are in <Link href="/operations/store" className="font-semibold text-red-700 underline">Store management</Link>. This older dashboard manages legacy listings.</p>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
           <div>

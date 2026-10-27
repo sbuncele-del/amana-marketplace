@@ -13,7 +13,7 @@ export async function POST(request:NextRequest,{params}:Context){
  const session=await auth();
  if(!session?.user?.id)return NextResponse.json({error:'Please sign in to write a review.'},{status:401});
  const {slug}=await params;
- if(!getCatalogueSnapshot().some(p=>p.slug===slug))return NextResponse.json({error:'Product not found.'},{status:404});
+ if(!(await getCatalogueSnapshot()).some(p=>p.slug===slug))return NextResponse.json({error:'Product not found.'},{status:404});
  let body;try{body=await request.json();}catch{return NextResponse.json({error:'Invalid review.'},{status:400});}
  const comment=typeof body.comment==='string'?body.comment.trim():'';
  if(!Number.isInteger(body.rating)||body.rating<1||body.rating>5||comment.length<10||comment.length>2000)return NextResponse.json({error:'Choose 1–5 stars and write between 10 and 2,000 characters.'},{status:400});

@@ -103,7 +103,7 @@ export default function RootLayout({
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{__html:jsonLd({
           '@context':'https://schema.org', '@graph':[
-            {'@type':'Organization','@id':siteUrl+'/#organization',name:'Plentovo',url:siteUrl,sameAs:socialLinks.map(s=>s.href),address:{'@type':'PostalAddress',streetAddress:'116 Limpopo Avenue, Doringkloof',addressLocality:'Centurion',addressRegion:'Gauteng',postalCode:'0157',addressCountry:'ZA'},logo:siteUrl+'/brand/plentovo-icon.png'},
+            {'@type':'Organization','@id':siteUrl+'/#organization',name:'Plentovo',legalName:'Masaphokati Global Shelf (Pty) Ltd',identifier:'2026/850096/07',telephone:'+27 74 012 6873',email:'hello@plentovo.com',url:siteUrl,sameAs:socialLinks.map(s=>s.href),address:{'@type':'PostalAddress',streetAddress:'26 Lemonwood Street, Eco-Park Estate',addressLocality:'Centurion',addressRegion:'Gauteng',postalCode:'0157',addressCountry:'ZA'},logo:siteUrl+'/brand/plentovo-icon.png'},
             {'@type':'WebSite','@id':siteUrl+'/#website',name:'Plentovo',url:siteUrl,inLanguage:'en-ZA',publisher:{'@id':siteUrl+'/#organization'}}
           ]
         })}} />

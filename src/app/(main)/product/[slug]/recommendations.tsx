@@ -18,7 +18,7 @@ async function availableCards(candidates:CatalogueProduct[],excluded:Set<string>
  return cards;
 }
 export default async function ProductRecommendations({product}:{product:CatalogueProduct}){
- const ranked=rankRecommendations(product,getCatalogueSnapshot());
+ const ranked=rankRecommendations(product,(await getCatalogueSnapshot()));
  const excluded=new Set([product.slug]);
  const similar=await availableCards(ranked.similar,excluded);
  const complements=await availableCards(ranked.complements,excluded);

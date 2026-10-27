@@ -3,7 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: "standalone",
   async redirects() {
-    return [{
+    return [
+      ...["/delivery","/shipping","/faq"].map(source=>({source,destination:"/shipping-faq",permanent:true})),
+      {
       source: "/:path*",
       has: [{ type: "host", value: "www.plentovo.com" }],
       destination: "https://plentovo.com/:path*",

@@ -124,7 +124,7 @@ export function CommerceConsole({
               One brand. Local availability. Accountable partners.
             </p>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4"><Link href="/operations/store" className="text-sm underline">Store management</Link>
             <Link href="/operations" className="text-sm underline">
               Customer care
             </Link>

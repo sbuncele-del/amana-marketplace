@@ -12,7 +12,7 @@ export async function welcomeRecommendations(market: string | null): Promise<Wel
   // Two available products per department; never label unproven items bestsellers.
   // Cap supplier checks at six candidates per department, in batches of six.
   const departments = ['home-living', 'kitchen-dining', 'electronics', 'health-beauty', 'toys-kids-baby', 'garden-outdoor'];
-  const snapshot = getCatalogueSnapshot().filter(p => p.images.length);
+  const snapshot = (await getCatalogueSnapshot()).filter(p => p.images.length);
   const used = new Set<string>();
   const groups = departments.map(department => ({department, found: [] as WelcomeProduct[], candidates: snapshot.filter(p => p.category.slug === department || p.collections.includes(department)).slice(0, 6)}));
   for (let round = 0; round < 6; round++) {

@@ -16,7 +16,7 @@ export function MarketSelector() {
     fetch('/api/commerce/markets', {signal: controller.signal}).then(async r => {
       if (!r.ok) throw new Error();
       const location: LocationData = await r.json();
-      setData(location); setChoice(location.selectedMarket || ''); setOpen(!location.confirmed);
+      setData(location); setChoice(location.selectedMarket || ''); setOpen(false);
     }).catch(e => {if (e.name !== 'AbortError') setError('Location detection is temporarily unavailable. Please try again later.');});
     const change = () => {setChanging(true);setOpen(true);};
     window.addEventListener('plentovo:change-country', change);

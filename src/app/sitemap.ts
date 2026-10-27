@@ -4,8 +4,8 @@ import departments from '@/data/departments.json';
 import {siteUrl, publicPages} from '@/lib/site';
 import type {MetadataRoute} from 'next';
 
-export default function sitemap(): MetadataRoute.Sitemap {
- const products = getCatalogueSnapshot();
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+ const products = (await getCatalogueSnapshot());
  const directoryPages = Array.from({length: Math.ceil(products.length / 100)}, (_, i) => ({
   url: siteUrl + '/sitemap-page/products' + (i ? '?page=' + (i + 1) : ''),
  }));
