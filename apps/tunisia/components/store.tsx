@@ -10,7 +10,7 @@ const asset=(path:string)=>`/tunisia/brand/${path}`;
 export default function Store({locale,route,products,initialQuery}:{locale:Locale;route:string;products:Product[];initialQuery:string}){
  const t=messages[locale], url=(path='')=>`/${locale}${path?'/'+path:''}`;
  const [cart,setCart]=useState<CartLine[]>([]),[ready,setReady]=useState(false),[query,setQuery]=useState(initialQuery);
- useEffect(()=>{document.cookie=`plentovo_tn_language=${locale}; Path=/tunisia; Max-Age=31536000; SameSite=Lax`;},[locale]);
+ useEffect(()=>{document.documentElement.lang=locale==='ar'?'ar-TN':locale==='fr'?'fr-TN':'en';document.documentElement.dir=locale==='ar'?'rtl':'ltr';document.cookie=`plentovo_tn_language=${locale}; Path=/tunisia; Max-Age=31536000; SameSite=Lax`;},[locale]);
  useEffect(()=>{try{const value=JSON.parse(localStorage.getItem(storageKey)||'[]');if(Array.isArray(value))setCart(value.filter((l:CartLine)=>products.some(p=>p.id===l.id)&&Number.isInteger(l.quantity)&&l.quantity>0).map((l:CartLine)=>({id:l.id,quantity:Math.min(l.quantity,products.find(p=>p.id===l.id)!.stock)})).filter((l:CartLine)=>l.quantity>0))}catch{}setReady(true)},[products]);
  useEffect(()=>{if(ready)try{localStorage.setItem(storageKey,JSON.stringify(cart))}catch{}},[cart,ready]);
  function change(id:string,amount:number){const p=products.find(p=>p.id===id);if(!p)return;setCart(lines=>{const current=lines.find(l=>l.id===id)?.quantity||0;const quantity=Math.max(0,Math.min(p.stock,current+amount));return [...lines.filter(l=>l.id!==id),...(quantity?[{id,quantity}]:[])]})}
