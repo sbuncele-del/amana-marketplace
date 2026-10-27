@@ -3,10 +3,12 @@
 import { useState, useEffect } from "react";
 import {useSession} from "next-auth/react";
 import {usePathname} from "next/navigation";
+import * as Dialog from "@radix-ui/react-dialog";
+import {readConsent} from "@/components/consent-analytics";
 import { X, Mail, ArrowRight } from "lucide-react";
 
 const STORAGE_KEY = "ps_email_popup_dismissed";
-const DELAY_MS = 8000; // show after 8 seconds
+const DELAY_MS = 45000; // Only offer after time and meaningful browsing.
 
 export function EmailCapturePopup() {
   const {status} = useSession();
@@ -25,15 +27,21 @@ export function EmailCapturePopup() {
 
   useEffect(() => {
     if (!eligible) return;
-    if (localStorage.getItem(STORAGE_KEY)) return;
-    let retry: ReturnType<typeof setTimeout>;
+    try { if (localStorage.getItem(STORAGE_KEY)) return; } catch { return; }
+    const started = Date.now();
     const show = () => {
-      if (document.querySelector('dialog[open]')) {retry = setTimeout(show, 1000); return;}
+      if (Date.now() - started < DELAY_MS || document.hidden || !readConsent()) return;
+      if (document.querySelector('dialog[open], [role="dialog"][aria-modal="true"], [aria-label="Cookie preferences"]')) return;
+      const focused = document.activeElement;
+      if (focused?.matches('input,textarea,select,[contenteditable="true"]')) return;
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollable < 300 || window.scrollY / scrollable < 0.35) return;
       setVisible(true);
+      window.clearInterval(timer);
     };
-    const timer = setTimeout(show, DELAY_MS);
-    return () => {clearTimeout(timer); clearTimeout(retry);};
-  }, [eligible]);
+    const timer = window.setInterval(show, 3000);
+    return () => window.clearInterval(timer);
+  }, [eligible, pathname]);
 
   useEffect(() => {
     if (!visible) return;
@@ -47,7 +55,7 @@ export function EmailCapturePopup() {
 
   const dismiss = () => {
     setVisible(false);
-    localStorage.setItem(STORAGE_KEY, "1");
+    try { localStorage.setItem(STORAGE_KEY, "1"); } catch { /* Browsing still works without storage. */ }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -67,7 +75,7 @@ export function EmailCapturePopup() {
       if (!res.ok) throw new Error((await res.json().catch(() => ({}))).error);
       (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.("event", "email_signup", { event_category: "engagement", event_label: "popup" });
       setSubmitted(true);
-      localStorage.setItem(STORAGE_KEY, "1");
+      try { localStorage.setItem(STORAGE_KEY, "1"); } catch { /* Browsing still works without storage. */ }
     } catch (err) {
       setError(err instanceof Error && err.message ? err.message : "Something went wrong. Please try again.");
     } finally {
@@ -78,18 +86,18 @@ export function EmailCapturePopup() {
   if (!eligible || !visible) return null;
 
   return (
-    <div className="fixed inset-0 z-[200] flex items-end sm:items-center justify-center p-4 sm:p-0" role="dialog" aria-modal="true" aria-label="Join the Plentovo list">
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={dismiss} aria-hidden="true" />
-      <div className="relative z-10 bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden animate-in slide-in-from-bottom-4 duration-300">
-        <button onClick={dismiss} className="absolute top-3 right-3 text-white/70 hover:text-white z-10" aria-label="Close">
+    <Dialog.Root open={visible} onOpenChange={open => {if (!open) dismiss();}}><Dialog.Portal>
+      <Dialog.Overlay className="fixed inset-0 z-[199] bg-black/50 backdrop-blur-sm" />
+      <Dialog.Content aria-describedby="newsletter-description" className="fixed bottom-4 left-1/2 z-[200] max-h-[calc(100dvh-32px)] w-[calc(100%-32px)] max-w-md -translate-x-1/2 overflow-y-auto rounded-2xl bg-white shadow-2xl sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2">
+        <button onClick={dismiss} className="absolute top-1 right-1 flex h-11 w-11 items-center justify-center text-white/70 hover:text-white z-10" aria-label="Close">
           <X className="w-5 h-5" />
         </button>
 
         <div className="bg-[#171B20] px-6 pt-8 pb-6 text-center text-white relative overflow-hidden">
           <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#DA292B]/30 rounded-full blur-2xl" />
           <div className="relative">
-            <h2 className="text-2xl font-extrabold mb-1">Be first to know</h2>
-            <p className="text-white/70 text-sm">New arrivals and good deals from Plentovo</p>
+            <Dialog.Title className="text-2xl font-extrabold mb-1">Be first to know</Dialog.Title>
+            <Dialog.Description id="newsletter-description" className="text-white/70 text-sm">New arrivals and good deals from Plentovo</Dialog.Description>
           </div>
         </div>
 
@@ -100,6 +108,7 @@ export function EmailCapturePopup() {
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                   <input
+                    aria-label="Email address"
                     type="email"
                     placeholder="Enter your email address"
                     value={email}
@@ -137,7 +146,7 @@ export function EmailCapturePopup() {
             </div>
           )}
         </div>
-      </div>
-    </div>
+      </Dialog.Content>
+    </Dialog.Portal></Dialog.Root>
   );
 }

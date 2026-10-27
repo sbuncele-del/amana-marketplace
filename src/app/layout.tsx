@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 
 import "./globals.css";
@@ -19,7 +19,11 @@ const playfair = Playfair_Display({
 
 import {siteUrl, jsonLd, socialLinks} from '@/lib/site';
 
+export const viewport: Viewport = {width:"device-width", initialScale:1, themeColor:"#DA292B", viewportFit:"cover"};
+
 export const metadata: Metadata = {
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {capable:true, title:"Plentovo", statusBarStyle:"default"},
   metadataBase: new URL(siteUrl),
   title: {
     default: "Plentovo — Online Shopping South Africa",
