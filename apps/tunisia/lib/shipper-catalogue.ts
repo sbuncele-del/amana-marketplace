@@ -18,7 +18,8 @@ const readSnapshot=unstable_cache(async()=>{
   for(const row of data.data){
    // Products can shift between pages while the retailer is adding new items.
    if(typeof row.uuid==='string'){if(seen.has(row.uuid))continue;seen.add(row.uuid);}
-   rows.push(row);
+   // Cache compact retail records; never cache wholesale cost or repeat galleries/copy.
+   rows.push({uuid:row.uuid,name:row.name,link:row.link,price:row.price,available_qte:row.available_qte,status:row.status,variants:Array.isArray(row.variants)?row.variants.map((variant:{uuid:unknown;name:unknown;price:unknown;available_qte:unknown})=>({uuid:variant.uuid,name:variant.name,price:variant.price,available_qte:variant.available_qte})):[]});
   }
   if(page===1){
    const last=Number(data.pagination?.last_page);
@@ -26,11 +27,12 @@ const readSnapshot=unstable_cache(async()=>{
    else if(data.data.length>=100)throw new Error('Missing supplier pagination');
   }
  }
- return validateCatalogue(normaliseShipper(rows,content as SupplierContent[]));
-},['tunisia-shipper-complete-snapshot-v2'],{revalidate:300,tags:['tunisia-shipper-catalogue']});
+ validateCatalogue(normaliseShipper(rows,content as SupplierContent[]));
+ return rows;
+},['tunisia-shipper-complete-snapshot-v3'],{revalidate:300,tags:['tunisia-shipper-catalogue']});
 
 export const getLiveProducts=cache(async()=>{
  if(!(process.env.SHIPPER_NETWORK_API_KEY||process.env.TUNISIA_SHIPPER_API_KEY))return [];
- try{return await readSnapshot();}
+ try{return validateCatalogue(normaliseShipper(await readSnapshot(),content as SupplierContent[]));}
  catch(error){console.warn('[Tunisia Shipper] snapshot unavailable: '+(error instanceof Error?error.message:'unknown error'));return [];}
 });
