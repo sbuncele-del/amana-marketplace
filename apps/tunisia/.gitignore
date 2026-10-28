@@ -11,3 +11,6 @@ data/shipper-account-bindings.json
 data/shipper-account-content.json
 .private-supplier-import/
 *.xlsx
+
+# Dated layout samples remain private.
+data/storefront-preview.json

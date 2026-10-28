@@ -1,0 +1,10 @@
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),ts=require('typescript');
+const cache=new Map(),root=path.resolve(__dirname,'../../..');
+function load(file){if(cache.has(file))return cache.get(file);if(file.endsWith('.json'))return JSON.parse(fs.readFileSync(file,'utf8'));const exports={};cache.set(file,exports);const requireLocal=name=>{if(name.startsWith('@/')||name.startsWith('.')){let target=name.startsWith('@/')?path.resolve(__dirname,'..',name.slice(2)):path.resolve(path.dirname(file),name);target=['','.ts','.tsx','.json'].map(ext=>target+ext).find(fs.existsSync);return load(target);}return require(name);};new Function('exports','require',ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020,jsx:ts.JsxEmit.ReactJSX,esModuleInterop:true}}).outputText)(exports,requireLocal);return exports;}
+const {storefrontTranslator}=load(path.resolve(__dirname,'../lib/storefront-locale.ts'));
+const {discoveryGroups}=load(path.join(root,'packages/storefront/discovery.ts'));
+const {moreGroups}=load(path.join(root,'packages/storefront/more-departments.tsx'));
+const {footerColumns}=load(path.join(root,'packages/storefront/footer.tsx'));
+const {storefrontDepartments}=load(path.join(root,'packages/storefront/departments.ts'));
+const {homeMissions}=load(path.resolve(__dirname,'../lib/storefront-copy.ts'));
+for(const locale of ['fr','ar'])test(`${locale}: approved category, footer and department labels are localized`,()=>{const t=storefrontTranslator(locale),labels=[...discoveryGroups,...moreGroups].flatMap(g=>[g.title,g.subtitle,g.action,...g.items.map(i=>i.label)]).concat(footerColumns.flatMap(g=>[g.title,...g.links.map(l=>l.name)]).filter(s=>s!=='Finds under R300'),storefrontDepartments.map(d=>d.name));for(const label of labels)if(!(locale==='fr'&&label==='Audio'))assert.notEqual(t(label),label,`Missing ${locale}: ${label}`);for(const m of homeMissions){assert.notEqual(m.title[locale],m.title.en);assert.ok(m.description[locale].length>25);}});

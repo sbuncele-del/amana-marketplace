@@ -1,3 +1,4 @@
+import {SharedMissions} from '../../../packages/storefront/missions';
 import Link from 'next/link';
 import Image from 'next/image';
 import {ArrowRight} from 'lucide-react';
@@ -13,8 +14,5 @@ export function ShoppingMissions({current,slugs}:{current?:string;slugs?:string[
  const all=shoppingMissions.filter(m=>m.slug!==current);
  const ordered=current?[...all.filter(m=>missionSection(m.slug)===missionSection(current)),...all.filter(m=>missionSection(m.slug)!==missionSection(current))]:all;
  const visible=slugs?slugs.map(slug=>all.find(m=>m.slug===slug)).filter((m):m is ShoppingMission=>Boolean(m)):ordered.slice(0,current?3:6);
- return <section aria-labelledby="shopping-missions-title" className="mx-auto max-w-[1800px] px-4 pt-7">
-  <div className="mb-5 flex flex-wrap items-end justify-between gap-3"><div><p className="text-xs font-bold uppercase tracking-[.16em] text-[#B91F25]">A little help choosing</p><h2 id="shopping-missions-title" className="mt-2 text-2xl font-extrabold tracking-tight sm:text-3xl">{current?'Find your next useful idea':'What would make your everyday easier?'}</h2><p className="mt-2 text-sm text-gray-600">Start with your room, your routine or your next adventure.</p></div><Link href="/collections" className="text-sm font-semibold text-red-700 underline underline-offset-4">Explore all {shoppingMissions.length} shopping ideas →</Link></div>
-  <div className="grid gap-3 md:gap-4 md:grid-cols-3">{visible.map(m=><MissionCard key={m.slug} mission={m}/>)}</div>
- </section>;
+ return <SharedMissions missions={visible.map(m=>({slug:m.slug,href:'/collections/'+m.slug,image:m.image,title:m.shortTitle,description:m.description}))} eyebrow="A little help choosing" title={current?'Find your next useful idea':'What would make your everyday easier?'} text="Start with your room, your routine or your next adventure." action="Help me choose" allHref="/collections" allAction={`Explore all ${shoppingMissions.length} shopping ideas`}/>;
 }
