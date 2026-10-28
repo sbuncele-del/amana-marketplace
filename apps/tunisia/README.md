@@ -64,3 +64,11 @@ flag in .env.example does not unlock checkout. This is deliberate until:
 submit orders, handle webhooks, import automatically or reconcile COD.
 Never copy South African secrets into this project. Store future credentials
 in Vercel's environment settings, never in source code or chat.
+
+## Shipper credential and verification
+
+Set `SHIPPER_NETWORK_API_KEY` as a production Secret in this project. The legacy
+`TUNISIA_SHIPPER_API_KEY` is also accepted. The build runs three bounded, read-only
+checks (geography, catalogue sample, first product detail) and logs only status,
+counts and field names. No credentials, product values or customer data are logged.
+This verifies access; it does not import products or open ordering.
