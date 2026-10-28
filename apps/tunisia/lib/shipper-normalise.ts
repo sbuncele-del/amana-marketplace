@@ -1,7 +1,7 @@
 import type {Product,Translation} from './catalogue';
 export type SupplierContent={sourceName:string;sourceUrl:string;sourceProductId:string;slug:string;category:string;title:Translation;description:Translation;images:string[]};
 type Row={uuid?:unknown;name?:unknown;price?:unknown;available_qte?:unknown;status?:unknown;variants?:unknown};
-function units(value:unknown,scale:number){
+export function units(value:unknown,scale:number){
  if(typeof value!=='number'&&typeof value!=='string')return null;
  const text=String(value).trim().replace(/(\.\d*?)0+$/, '$1').replace(/\.$/,'');
  if(!/^\d+(\.\d{1,3})?$/.test(text))return null;

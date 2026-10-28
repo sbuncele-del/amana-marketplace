@@ -73,7 +73,15 @@ checks (geography, catalogue sample, first product detail) and logs only status,
 counts and field names. No credentials, product values or customer data are logged.
 This verifies access; it does not import products or open ordering.
 
-## Live catalogue
+## Catalogue import
+
+The account catalogue is imported into a Tunisia-only Postgres database by a resumable, checkpointed importer
+with a reconciliation report; the storefront serves it paginated. See `docs/catalogue-import.md`. The public
+Shipper API cannot list or enrol marketplace products or supply images and descriptions; what we need from Shipper
+is in `docs/shipper-bulk-catalogue-request.md`. Until the database holds a completed sync, the live account catalogue
+below keeps working as before.
+
+## Live catalogue (legacy path, used until the database is populated)
 
 The storefront now reads the paginated account catalogue server-side, cached for
 5 minutes. Prices use the supplier account selling price, never cost. Only items

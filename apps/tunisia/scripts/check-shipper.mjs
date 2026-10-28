@@ -20,7 +20,7 @@ else {
   const result=await read('/products?per_page=5&page=1');
   const rows=Array.isArray(result.data)?result.data:[];
   console.log(prefix+' catalogue '+JSON.stringify({ok:true,sampleCount:rows.length,total:result.pagination?.total??null,lastPage:result.pagination?.last_page??null,fields:rows[0]?Object.keys(rows[0]).sort():[]}));
-  console.log(prefix+' mapping '+JSON.stringify(rows.map(row=>({status:row.status,priceType:typeof row.price,priceDecimals:String(row.price).split('.')[1]?.length??0,stockType:typeof row.available_qte,matched:content.some(c=>c.sourceProductId===row.uuid||c.sourceName===row.name),variants:Array.isArray(row.variants)?row.variants.length:null}))));
+  console.log(prefix+' mapping '+JSON.stringify(rows.map(row=>({status:row.status,priceType:typeof row.price,priceDecimals:String(row.price).split('.')[1]?.length??0,stockType:typeof row.available_qte,matched:content.some(c=>c.sourceProductId===row.uuid||c.sourceName===row.name),linkHost:typeof row.link==='string'?(()=>{try{return new URL(row.link).hostname}catch{return 'unparseable'}})():null,linkHasUuidSegment:typeof row.link==='string'&&/\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}(\/|$|\?)/i.test(row.link),variants:Array.isArray(row.variants)?row.variants.length:null}))));
   if(rows[0]?.uuid && /^[a-zA-Z0-9-]+$/.test(rows[0].uuid)){
    const detail=await read('/products/'+encodeURIComponent(rows[0].uuid));
    console.log(prefix+' product detail '+JSON.stringify({ok:true,fields:Object.keys(detail).sort()}));
