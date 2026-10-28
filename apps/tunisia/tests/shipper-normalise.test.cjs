@@ -11,3 +11,8 @@ test('unreviewed content, inactive products and fractional stock are withheld',(
 test('database decimal strings retain exact millime precision',()=>assert.equal(normaliseShipper([{...base,price:'25.000000000000000000000000000000'}],content)[0].priceMillimes,25000));
 
 test('supplier variants repeating the parent name use neutral option labels',()=>{const [p]=normaliseShipper([{...base,variants:[{uuid:'variant-1',name:'Source',price:29,available_qte:2}]}],content);assert.equal(p.title.en,'Product — Option 1');assert.equal(p.title.ar,'منتج — الخيار 1');assert.equal(p.supplierProductId,'variant-1')});
+
+test('normalised whitespace matches retailer product names',()=>assert.equal(normaliseShipper([{...base,uuid:'retailer-1',name:'  SOURCE  '}],content)[0].supplierProductId,'retailer-1'));
+test('ambiguous titles never select the first supplier arbitrarily',()=>{const duplicate={...content[0],sourceProductId:'source-2',slug:'source-two'};assert.equal(normaliseShipper([{...base,uuid:'retailer-1'}],[...content,duplicate]).length,0)});
+test('a verified supplier source link resolves duplicate titles',()=>{const duplicate={...content[0],sourceProductId:'source-2',slug:'source-two'};const [p]=normaliseShipper([{...base,uuid:'retailer-1',link:'https://app.shipper.market/products/source-2'}],[...content,duplicate]);assert.equal(p.slug,'source-two');assert.equal(p.supplierProductId,'retailer-1')});
+test('supplier copy provenance is public while costs stay private',()=>{const [p]=normaliseShipper([base],[{...content[0],originalSupplierCopy:true}]);assert.equal(p.originalSupplierCopy,true);assert.equal('cost' in p,false)});

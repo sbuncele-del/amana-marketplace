@@ -9,5 +9,11 @@ export default async function Page({params,searchParams}:{params:Promise<{locale
  const route=path.join('/');
  if(!['','shop','cart','checkout','track','help'].includes(route)&&!(path[0]==='product'&&path.length===2&&products.some(p=>p.slug===path[1])))notFound();
  const query=(await searchParams).q||'';
- return <Store initialQuery={query} locale={locale as Locale} route={route} products={products}/>;
+ // List/cart pages need summaries; only the selected product needs its full copy/gallery.
+ const publicProducts=products.map(product=>{
+  if(route===`product/${product.slug}`)return product;
+  const {description,images,...summary}=product;
+  return summary;
+ });
+ return <Store initialQuery={query} locale={locale as Locale} route={route} products={publicProducts}/>;
 }

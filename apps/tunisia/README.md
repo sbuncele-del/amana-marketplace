@@ -83,3 +83,25 @@ text summarizes or translates those facts. Variant UUIDs are retained.
 Private supplier cost fields are excluded from browser props. Failed reads
 withhold products; no stock or prices are invented. New account products need
 content enrichment before appearing. Checkout remains closed.
+
+## Expanded account catalogue (October 2026)
+
+The public supplier-page capture has been expanded into JSON batches listed in
+`data/shipper-content-batches.json`; `data/shipper-content-index.ts` combines these
+with the original translated records. Run `node scripts/prepare-supplier-content.mjs
+/path/to/captured-content.json` from this app to prepare another reviewed capture.
+The input contains sourceName, sourceUrl, description and image URLs, never API
+credentials, supplier costs or customer data. Existing translated records stay intact.
+New copy is displayed as original supplier text, not claimed to be translated.
+
+The shop displays 48 entries per page, searches the complete loaded catalogue, and
+the homepage shows 12 entries with a link to all. Only a selected product receives
+full description/gallery props. Account selling price and stock remain request-driven
+API reads cached for 300 seconds. This is not background polling or automatic
+marketplace enrolment. Invalid prices, inactive listings and ambiguous name matches
+are withheld. Stable source links/UUIDs take precedence over unique normalised names.
+
+Build verification now reconciles the complete account catalogue (up to the current
+20-page guard), logging counts only. The advertised 12,000+ marketplace still requires
+full-feed/bulk-enrolment support and a durable sync pipeline; this capture does not
+claim that all 12,000 are available in the account. Checkout remains disabled.

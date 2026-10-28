@@ -2,7 +2,8 @@ import raw from '@/data/catalogue.json';
 export const locales = ['en','fr','ar'] as const;
 export type Locale = typeof locales[number];
 export type Translation = Record<Locale,string>;
-export type Product = {id:string; slug:string; supplierProductId:string; title:Translation; description:Translation; category:string; image:string; images?:string[]; priceMillimes:number; stock:number; active:boolean};
+export type Product = {id:string; slug:string; supplierProductId:string; title:Translation; description:Translation; category:string; image:string; images?:string[]; priceMillimes:number; stock:number; active:boolean; originalSupplierCopy?:boolean};
+export type StoreProduct = Omit<Product,'description'|'images'> & Partial<Pick<Product,'description'|'images'>>;
 export function validateCatalogue(input:unknown):Product[]{
  if(!Array.isArray(input)) throw new Error('Catalogue must be an array');
  const ids=new Set<string>(), slugs=new Set<string>();

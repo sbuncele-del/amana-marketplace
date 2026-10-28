@@ -1,6 +1,8 @@
 import type {Product,Translation} from './catalogue';
-export type SupplierContent={sourceName:string;sourceUrl:string;sourceProductId:string;slug:string;category:string;title:Translation;description:Translation;images:string[]};
-type Row={uuid?:unknown;name?:unknown;price?:unknown;available_qte?:unknown;status?:unknown;variants?:unknown};
+export type SupplierContent={sourceName:string;sourceUrl:string;sourceProductId:string;slug:string;category:string;title:Translation;description:Translation;images:string[];originalSupplierCopy?:boolean};
+type Row={uuid?:unknown;name?:unknown;link?:unknown;price?:unknown;available_qte?:unknown;status?:unknown;variants?:unknown};
+const productName=(value:unknown)=>typeof value==='string'?value.normalize('NFKC').replace(/\s+/g,' ').trim().toLocaleLowerCase('fr'):'';
+function linkedSource(value:unknown){try{const url=new URL(String(value));return url.origin==='https://app.shipper.market'?url.pathname.match(/^\/products\/([a-zA-Z0-9-]+)\/?$/)?.[1]:undefined;}catch{return undefined;}}
 function units(value:unknown,scale:number){
  if(typeof value!=='number'&&typeof value!=='string')return null;
  const text=String(value).trim().replace(/(\.\d*?)0+$/, '$1').replace(/\.$/,'');
@@ -10,8 +12,13 @@ function units(value:unknown,scale:number){
 }
 export function normaliseShipper(rows:Row[],content:SupplierContent[]):Product[]{
  const out:Product[]=[];
+ const byId=new Map(content.map(c=>[c.sourceProductId,c]));
+ const byName=new Map<string,SupplierContent[]>();
+ for(const item of content){const key=productName(item.sourceName);byName.set(key,[...(byName.get(key)||[]),item]);}
  for(const row of rows){
-  const info=content.find(c=>c.sourceProductId===row.uuid)||content.find(c=>c.sourceName===row.name);
+  const matches=byName.get(productName(row.name));
+  // Never guess between two suppliers using the same product title.
+  const info=byId.get(String(row.uuid))||byId.get(linkedSource(row.link)||'')||(matches?.length===1?matches[0]:undefined);
   if(!info||String(row.status).toLowerCase()!=='active')continue;
   const image=info.images.find(s=>s.startsWith('https://cdn.shipper.network/'));
   if(!image)continue;
@@ -25,9 +32,9 @@ export function normaliseShipper(rows:Row[],content:SupplierContent[]):Product[]
    const label=typeof variant?.name==='string'?variant.name.trim():'';
    // Some supplier variants repeat the parent name instead of providing attributes.
    // Number the options without inventing colours, sizes or other attributes.
-   const parentLabel=label===String(row.name).trim()||label===info.sourceName.trim();
+   const parentLabel=productName(label)===productName(row.name)||productName(label)===productName(info.sourceName);
    const title=variant?{en:info.title.en+' — '+(label&&!parentLabel?label:`Option ${variantIndex+1}`),fr:info.title.fr+' — '+(label&&!parentLabel?label:`Option ${variantIndex+1}`),ar:info.title.ar+' — '+(label&&!parentLabel?label:`الخيار ${variantIndex+1}`)}:info.title;
-   out.push({id:uuid,supplierProductId:uuid,slug:info.slug+(variant?'-'+uuid:''),title,description:info.description,category:info.category,image,images:info.images,priceMillimes:price,stock,active:true});
+   out.push({id:uuid,supplierProductId:uuid,slug:info.slug+(variant?'-'+uuid:''),title,description:info.description,category:info.category,image,images:info.images,priceMillimes:price,stock,active:true,...(info.originalSupplierCopy?{originalSupplierCopy:true}:{})});
   }
  }
  return out;

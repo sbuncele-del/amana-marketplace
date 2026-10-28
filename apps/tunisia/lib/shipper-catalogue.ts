@@ -1,6 +1,6 @@
 import 'server-only';
 import {cache} from 'react';
-import content from '@/data/shipper-content.json';
+import content from '@/data/shipper-content-index';
 import {normaliseShipper,type SupplierContent} from './shipper-normalise';
 import {validateCatalogue} from './catalogue';
 export const getLiveProducts=cache(async()=>{
