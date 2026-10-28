@@ -72,3 +72,14 @@ Set `SHIPPER_NETWORK_API_KEY` as a production Secret in this project. The legacy
 checks (geography, catalogue sample, first product detail) and logs only status,
 counts and field names. No credentials, product values or customer data are logged.
 This verifies access; it does not import products or open ordering.
+
+## Live catalogue
+
+The storefront now reads the paginated account catalogue server-side, cached for
+5 minutes. Prices use the supplier account selling price, never cost. Only items
+with matched supplier content in `data/shipper-content.json` are published.
+Descriptions and images were taken from supplier product pages; English/Arabic
+text summarizes or translates those facts. Variant UUIDs are retained.
+Private supplier cost fields are excluded from browser props. Failed reads
+withhold products; no stock or prices are invented. New account products need
+content enrichment before appearing. Checkout remains closed.
