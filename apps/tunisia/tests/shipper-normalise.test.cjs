@@ -23,3 +23,5 @@ test('verified export retailer IDs resolve identical source names',()=>{const du
 test('export attributes label variants without invented options',()=>{const [p]=normaliseShipper([{...base,variants:[{uuid:'variant-1',name:'Source',price:29,available_qte:2}]}],[{...content[0],variantLabels:{'variant-1':'Color: noir'}}]);assert.equal(p.title.fr,'Produit — Color: noir')});
 
 test('re-enrolled source products retain unique public URLs',()=>{const out=normaliseShipper([{...base,uuid:'retailer-a'},{...base,uuid:'retailer-b'}],content);assert.equal(new Set(out.map(p=>p.slug)).size,2);assert.equal(new Set(out.map(p=>p.groupSlug)).size,2);assert.deepEqual(out.map(p=>p.priceMillimes),[25125,25125])});
+
+test('export variant IDs resolve a separately identified API parent',()=>{const duplicate={...content[0],sourceProductId:'source-2',slug:'other',variantLabels:{'variant-2':'Color: bleu'}};const [p]=normaliseShipper([{...base,uuid:'api-parent',variants:[{uuid:'variant-2',name:'Source',price:25,available_qte:1}]}],[...content,duplicate]);assert.equal(p.groupSlug,'other');assert.equal(p.optionLabel,'Color: bleu')});

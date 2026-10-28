@@ -12,13 +12,14 @@ function units(value:unknown,scale:number){
 }
 export function normaliseShipper(rows:Row[],content:SupplierContent[],onHold?:(reason:string)=>void):Product[]{
  const out:Product[]=[];
- const byId=new Map(content.flatMap(c=>[c.sourceProductId,...(c.retailerProductIds||[])].map(id=>[id,c] as const)));
+ const byId=new Map(content.flatMap(c=>[c.sourceProductId,...(c.retailerProductIds||[]),...Object.keys(c.variantLabels||{})].map(id=>[id,c] as const)));
  const byName=new Map<string,SupplierContent[]>();
  for(const item of content){const key=productName(item.sourceName);byName.set(key,[...(byName.get(key)||[]),item]);}
  for(const row of rows){
   const matches=byName.get(productName(row.name));
   // Never guess between two suppliers using the same product title.
-  const info=byId.get(String(row.uuid))||byId.get(linkedSource(row.link)||'')||(matches?.length===1?matches[0]:undefined);
+  const variantMatches=Array.isArray(row.variants)?[...new Set(row.variants.map(v=>byId.get(String(v?.uuid))).filter(Boolean))]:[];
+  const info=byId.get(String(row.uuid))||byId.get(linkedSource(row.link)||'')||(variantMatches.length===1?variantMatches[0]:undefined)||(matches?.length===1?matches[0]:undefined);
   if(!info){onHold?.(matches&&matches.length>1?'ambiguous_content':'missing_content');continue;}
   if(String(row.status).toLowerCase()!=='active'){onHold?.('inactive');continue;}
   const image=info.images.find(s=>s.startsWith('https://cdn.shipper.network/'));
