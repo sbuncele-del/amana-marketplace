@@ -31,8 +31,16 @@ const readSnapshot=unstable_cache(async()=>{
  return rows;
 },['tunisia-shipper-complete-snapshot-v3'],{revalidate:300,tags:['tunisia-shipper-catalogue']});
 
+// Share a cold public-catalogue load across concurrent requests in this instance.
+// This is one project-wide public catalogue, never request/user-specific state.
+let pendingSnapshot:ReturnType<typeof readSnapshot>|undefined;
+function sharedSnapshot(){
+ if(!pendingSnapshot)pendingSnapshot=readSnapshot().finally(()=>{pendingSnapshot=undefined;});
+ return pendingSnapshot;
+}
+
 export const getLiveProducts=cache(async()=>{
  if(!(process.env.SHIPPER_NETWORK_API_KEY||process.env.TUNISIA_SHIPPER_API_KEY))return [];
- try{return validateCatalogue(normaliseShipper(await readSnapshot(),content as SupplierContent[]));}
+ try{return validateCatalogue(normaliseShipper(await sharedSnapshot(),content as SupplierContent[]));}
  catch(error){console.warn('[Tunisia Shipper] snapshot unavailable: '+(error instanceof Error?error.message:'unknown error'));return [];}
 });
