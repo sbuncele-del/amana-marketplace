@@ -11,6 +11,7 @@
     "catalogue:migrate": "tsx scripts/catalogue-migrate.mts",
     "catalogue:sync": "tsx scripts/catalogue-sync.mts",
     "catalogue:report": "tsx scripts/catalogue-report.mts",
+    "catalogue:sheet": "tsx scripts/sheet-to-content.mts",
     "catalogue:content": "tsx scripts/content-import.mts"
   },
   "dependencies": {
