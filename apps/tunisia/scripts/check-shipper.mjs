@@ -1,10 +1,19 @@
 // Read-only build verification. Never log credentials or raw supplier/customer data.
 const token=process.env.SHIPPER_NETWORK_API_KEY || process.env.TUNISIA_SHIPPER_API_KEY;
 import fs from 'node:fs';
+import {bindAccountContent} from '../lib/shipper-content.ts';
 import {normaliseShipper} from '../lib/shipper-normalise.ts';
-const content=JSON.parse(fs.readFileSync(new URL('../data/shipper-content.json',import.meta.url),'utf8'));
+let content=JSON.parse(fs.readFileSync(new URL('../data/shipper-content.json',import.meta.url),'utf8'));
 const manifestUrl=new URL('../data/shipper-content-batches.json',import.meta.url);
 if(fs.existsSync(manifestUrl))for(const file of JSON.parse(fs.readFileSync(manifestUrl,'utf8')))content.push(...JSON.parse(fs.readFileSync(new URL('../data/'+file,import.meta.url),'utf8')));
+// Exact identifiers and variant labels stay in the private Tunisia database.
+if(process.env.DATABASE_URL||process.env.POSTGRES_URL){
+ const {Pool}=await import('pg');
+ const pool=new Pool({connectionString:process.env.DATABASE_URL||process.env.POSTGRES_URL,max:1,connectionTimeoutMillis:10000});
+ try{const {rows}=await pool.query("SELECT name,payload FROM public.plentovo_tn_catalogue_metadata WHERE name IN ('bindings','content')");const bindings=rows.find(r=>r.name==='bindings')?.payload,extra=rows.find(r=>r.name==='content')?.payload;if(Array.isArray(bindings)&&Array.isArray(extra))content=bindAccountContent([...content,...extra],bindings);}
+ catch{console.log('[Tunisia Shipper] private metadata check unavailable; using base content.');}
+ finally{await pool.end();}
+}
 const prefix='[Tunisia Shipper]';
 if(!token){console.log(prefix+' not configured in this environment; skipping read-only check.');}
 else {
@@ -21,12 +30,13 @@ else {
  } catch { console.log(prefix+' geography check failed; no response body logged.'); }
  try {
   const rows=[];let reportedTotal=null;
-  for(let page=1;page<=20;page++){
+  for(let page=1;page<=150;page++){
+   if(page>1)await new Promise(resolve=>setTimeout(resolve,650));
    const result=await read('/products?per_page=100&page='+page);
    if(!Array.isArray(result.data))throw new Error('Invalid catalogue');
    rows.push(...result.data);reportedTotal=result.pagination?.total??null;
    const last=Number(result.pagination?.last_page);
-   if(Number.isInteger(last)&&last>0){if(last>20)throw new Error('Verified page limit exceeded');if(page>=last)break;}
+   if(Number.isInteger(last)&&last>0){if(last>150)throw new Error('Verified page limit exceeded');if(page>=last)break;}
    else if(result.data.length<100)break;else throw new Error('Missing pagination');
   }
   const heldReasons={};

@@ -41,5 +41,10 @@ export function normaliseShipper(rows:Row[],content:SupplierContent[],onHold?:(r
   }
   if(out.length===before)onHold?.(holdReason);
  }
+ // A retailer can enrol the same source more than once. Keep each account ID
+ // distinct without allowing duplicate public URLs to invalidate the snapshot.
+ const parentsBySlug=new Map<string,Set<string>>();
+ for(const p of out){const slug=p.groupSlug||p.slug;const ids=parentsBySlug.get(slug)||new Set<string>();ids.add(p.groupId||p.id);parentsBySlug.set(slug,ids);}
+ for(const p of out){if((parentsBySlug.get(p.groupSlug||p.slug)?.size||0)>1){const suffix='-'+(p.groupId||p.id);p.groupSlug=(p.groupSlug||p.slug)+suffix;if(!p.optionLabel)p.slug+=suffix;}}
  return out;
 }

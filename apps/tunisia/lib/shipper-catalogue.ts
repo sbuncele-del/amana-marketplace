@@ -3,6 +3,7 @@ import {cache} from 'react';
 import {unstable_cache} from 'next/cache';
 import content from '@/data/shipper-content-index';
 import {normaliseShipper,type SupplierContent} from './shipper-normalise';
+import {supplierContent} from './private-supplier-content';
 import {validateCatalogue} from './catalogue';
 
 // Cache the validated snapshot, never individual pages from different sync runs.
@@ -47,6 +48,6 @@ function sharedSnapshot(){
 
 export const getLiveProducts=cache(async()=>{
  if(!(process.env.SHIPPER_NETWORK_API_KEY||process.env.TUNISIA_SHIPPER_API_KEY))return [];
- try{return validateCatalogue(normaliseShipper(await sharedSnapshot(),content as SupplierContent[]));}
+ try{const [rows,metadata]=await Promise.all([sharedSnapshot(),supplierContent(content as SupplierContent[])]);return validateCatalogue(normaliseShipper(rows,metadata));}
  catch(error){console.warn('[Tunisia Shipper] snapshot unavailable: '+(error instanceof Error?error.message:'unknown error'));return [];}
 });

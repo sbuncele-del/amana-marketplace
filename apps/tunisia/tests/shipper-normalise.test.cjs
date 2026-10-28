@@ -21,3 +21,5 @@ test('withheld products report a reason without exposing private values',()=>{co
 
 test('verified export retailer IDs resolve identical source names',()=>{const duplicate={...content[0],sourceProductId:'source-2',slug:'source-two',retailerProductIds:['retailer-1']};const [p]=normaliseShipper([{...base,uuid:'retailer-1'}],[...content,duplicate]);assert.equal(p.slug,'source-two')});
 test('export attributes label variants without invented options',()=>{const [p]=normaliseShipper([{...base,variants:[{uuid:'variant-1',name:'Source',price:29,available_qte:2}]}],[{...content[0],variantLabels:{'variant-1':'Color: noir'}}]);assert.equal(p.title.fr,'Produit — Color: noir')});
+
+test('re-enrolled source products retain unique public URLs',()=>{const out=normaliseShipper([{...base,uuid:'retailer-a'},{...base,uuid:'retailer-b'}],content);assert.equal(new Set(out.map(p=>p.slug)).size,2);assert.equal(new Set(out.map(p=>p.groupSlug)).size,2);assert.deepEqual(out.map(p=>p.priceMillimes),[25125,25125])});

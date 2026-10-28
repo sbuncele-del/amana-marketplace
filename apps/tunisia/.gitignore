@@ -5,3 +5,9 @@ next-env.d.ts
 .env*
 !.env.example
 .vercel/
+
+# Server-only account export mappings belong in the private database.
+data/shipper-account-bindings.json
+data/shipper-account-content.json
+.private-supplier-import/
+*.xlsx
