@@ -112,3 +112,14 @@ temporary outage cannot empty it.
   `TUNISIA_ADMIN_TOKEN` must be set by the project owner.
 * Content for products beyond the first ten, and native review of French and Arabic text.
 * Search is substring matching in SQL (as before); full-text ranking can be added if the catalogue grows.
+
+## Importing a Shipper spreadsheet export
+
+`npm run catalogue:sheet -- <export.xlsx> --out <dir>` reads a Shipper "retailer products" export and writes
+`content.json` (feed it to `npm run catalogue:content -- <dir>/content.json`), `report.csv` and `summary.json`.
+It is offline: no database, no Shipper API. Rows with a Parent ID are grouped as variants of one product. Supplier copy is
+stored in its source language only (French or Arabic); English is never guessed, so those products stay `pending`
+(`incomplete_title_en` etc.) until translated (`--translate`, off by default) or supplied. Products whose ID or name already
+exists in `data/shipper-content.json` are skipped so curated content is never overwritten. Suspected duplicates (same
+supplier and normalised name) are only reported. Content does not make a product sellable: it must also appear in the
+account catalogue (`GET /products`) with a price and stock. Costs are not written to any output.
