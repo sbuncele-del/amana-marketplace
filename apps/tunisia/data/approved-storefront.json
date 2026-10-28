@@ -1,0 +1,154 @@
+{
+  "slides": [
+    {
+      "title": "Good things. Plenty of choice.",
+      "text": "Make everyday cooking a little easier.",
+      "image": "/brand/plentovo-hero-v2.webp",
+      "href": "/collections/kitchen-made-easier",
+      "action": "Explore the kitchen"
+    },
+    {
+      "title": "More room for good living.",
+      "text": "Find your favourite place to unwind.",
+      "image": "/brand/plentovo-living.webp",
+      "href": "/collections/living-room",
+      "action": "Explore living room"
+    },
+    {
+      "title": "Make room to rest.",
+      "text": "Bedding, bedside essentials and a little more calm.",
+      "image": "/brand/heroes/bedroom-hero-v2.webp",
+      "href": "/collections/bedroom",
+      "action": "Explore the bedroom"
+    },
+    {
+      "title": "Big ideas. Little adventures.",
+      "text": "Find something for their next moment of play.",
+      "image": "/brand/heroes/playtime-hero-v2.webp",
+      "href": "/collections/kids-play",
+      "action": "Explore playtime"
+    },
+    {
+      "title": "Everyday, refreshed.",
+      "text": "Small changes for a bathroom that works around you.",
+      "image": "/brand/heroes/bathroom-hero-v2.webp",
+      "href": "/collections/bathroom",
+      "action": "Explore the bathroom"
+    },
+    {
+      "title": "A little care, every day.",
+      "text": "Make time for the routine that feels like you.",
+      "image": "/brand/heroes/care-hero-v2.webp",
+      "href": "/collections/beauty-routine",
+      "action": "Explore everyday care"
+    },
+    {
+      "title": "Good days start outside.",
+      "text": "Find useful things for fresh air and time together.",
+      "image": "/brand/heroes/outdoor-hero-v2.webp",
+      "href": "/collections/outdoor-living",
+      "action": "Explore outdoor living"
+    }
+  ],
+  "missions": [
+    {
+      "slug": "small-space-living",
+      "title": "Make more room at home",
+      "description": "Storage, organisation and thoughtful furniture. Find a useful starting point for the space you have.",
+      "image": "/brand/plentovo-living.webp"
+    },
+    {
+      "slug": "kitchen-made-easier",
+      "title": "Make everyday cooking easier",
+      "description": "Find useful tools for preparing, cooking and keeping things organised. Start with what would make your day easier.",
+      "image": "/brand/categories/cookware-v1.webp"
+    },
+    {
+      "slug": "outdoor-living",
+      "title": "Enjoy more time outside",
+      "description": "Find practical starting points for the garden, an outdoor meal or a day away. Choose the occasion that fits.",
+      "image": "https://cdn.shopify.com/s/files/1/0599/8821/3889/files/shot_1_16.jpg?v=1790070610"
+    },
+    {
+      "slug": "bathroom",
+      "title": "Refresh your bathroom",
+      "description": "Find a place for daily essentials, refresh your bathroom and make your routine easier.",
+      "image": "/brand/categories/personal-care-v1.webp"
+    },
+    {
+      "slug": "bedroom",
+      "title": "Make your bedroom your own",
+      "description": "Explore bedding, bedside furniture and organisation for a bedroom that works around you.",
+      "image": "/brand/categories/bedding-v1.webp"
+    },
+    {
+      "slug": "dining-room",
+      "title": "Bring everyone to the table",
+      "description": "Find dining furniture, tableware and serving essentials for everyday meals and shared occasions.",
+      "image": "https://cdn.shopify.com/s/files/1/0599/8821/3889/files/pomelli_photoshoot_image_1_1_0709_18_c0070458-adff-42a9-be3c-00568c909954.jpg?v=1783589713"
+    },
+    {
+      "slug": "living-room",
+      "title": "Make yourself at home",
+      "description": "Explore sofas, tables, lighting and finishing touches around the way you use your living room.",
+      "image": "/brand/categories/furniture-v1.webp"
+    },
+    {
+      "slug": "home-office",
+      "title": "Make space for your best work",
+      "description": "Find furniture, organisation and useful accessories for working or studying at home.",
+      "image": "https://cdn.shopify.com/s/files/1/0599/8821/3889/files/75b36344-Aluminium_Portable_Laptop_Stand_Perfect_Dealz__34868.jpg?v=1768538391"
+    },
+    {
+      "slug": "cleaning",
+      "title": "Make cleaning feel simpler",
+      "description": "Find tools for floors, surfaces and everyday cleaning jobs around the home.",
+      "image": "/brand/categories/organisation-v1.webp"
+    },
+    {
+      "slug": "laundry",
+      "title": "Take the fuss out of laundry",
+      "description": "Explore sorting, drying, garment care and storage for your laundry routine.",
+      "image": "https://cdn.shopify.com/s/files/1/0599/8821/3889/files/pomelli_photoshoot_image_1_1_0526_34.jpg?v=1779801980"
+    },
+    {
+      "slug": "kids-play",
+      "title": "Make room for play",
+      "description": "Explore creative play, puzzles, games and outdoor fun around your child's interests.",
+      "image": "/brand/categories/toys-games-v1.webp"
+    },
+    {
+      "slug": "baby-essentials",
+      "title": "Find your everyday baby essentials",
+      "description": "Explore feeding accessories, changing essentials and organisation for life with a baby.",
+      "image": "/brand/categories/baby-essentials-v1.webp"
+    },
+    {
+      "slug": "beauty-routine",
+      "title": "Make time for everyday care",
+      "description": "Find grooming tools, beauty organisation and useful accessories for your own routine.",
+      "image": "/brand/categories/skincare-v1.webp"
+    },
+    {
+      "slug": "fitness-at-home",
+      "title": "Move more at home",
+      "description": "Explore simple exercise equipment around your space, preferences and routine.",
+      "image": "https://cdn.shopify.com/s/files/1/0599/8821/3889/files/Haead82cea40a4114a7f3b7c578484b23L.webp?v=1772706920"
+    },
+    {
+      "slug": "travel-essentials",
+      "title": "Pack for your next journey",
+      "description": "Find packing, luggage and comfort accessories around your next trip.",
+      "image": "https://cdn.shopify.com/s/files/1/0599/8821/3889/files/pomelli-image-2026-03-04T113729.813.png?v=1772617909"
+    }
+  ],
+  "featuredMissions": [
+    "small-space-living",
+    "kitchen-made-easier",
+    "outdoor-living",
+    "bathroom",
+    "bedroom",
+    "dining-room"
+  ],
+  "featuredTitle": "Chosen for your everyday"
+}

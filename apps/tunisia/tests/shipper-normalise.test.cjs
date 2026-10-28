@@ -18,3 +18,6 @@ test('a verified supplier source link resolves duplicate titles',()=>{const dupl
 test('supplier copy provenance is public while costs stay private',()=>{const [p]=normaliseShipper([base],[{...content[0],originalSupplierCopy:true}]);assert.equal(p.originalSupplierCopy,true);assert.equal('cost' in p,false)});
 
 test('withheld products report a reason without exposing private values',()=>{const reasons=[];normaliseShipper([{...base,price:null}],content,r=>reasons.push(r));assert.deepEqual(reasons,['invalid_price'])});
+
+test('verified export retailer IDs resolve identical source names',()=>{const duplicate={...content[0],sourceProductId:'source-2',slug:'source-two',retailerProductIds:['retailer-1']};const [p]=normaliseShipper([{...base,uuid:'retailer-1'}],[...content,duplicate]);assert.equal(p.slug,'source-two')});
+test('export attributes label variants without invented options',()=>{const [p]=normaliseShipper([{...base,variants:[{uuid:'variant-1',name:'Source',price:29,available_qte:2}]}],[{...content[0],variantLabels:{'variant-1':'Color: noir'}}]);assert.equal(p.title.fr,'Produit — Color: noir')});

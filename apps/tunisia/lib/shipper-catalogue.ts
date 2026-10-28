@@ -12,8 +12,13 @@ const readSnapshot=unstable_cache(async()=>{
  if(!token)throw new Error('Supplier credential unavailable');
  const rows=[];const seen=new Set<string>();let lastPage=1;
  for(let page=1;page<=lastPage;page++){
+  // Stay below the provider's read budget, including a complete 12k catalogue.
+  if(page>1)await new Promise(resolve=>setTimeout(resolve,650));
   const response=await fetch(`https://server.shipper.network/api/v1/products?per_page=100&page=${page}`,{headers:{Authorization:`Bearer ${token}`,Accept:'application/json'},redirect:'error',signal:AbortSignal.timeout(15000),cache:'no-store'});
-  if(!response.ok)throw new Error(`Supplier HTTP ${response.status}`);
+  if(!response.ok){
+   const retry=response.headers.get('retry-after');
+   throw new Error(`Supplier HTTP ${response.status}${response.status===429&&retry?' (retry after '+retry+')':''}`);
+  }
   const data=await response.json();if(!Array.isArray(data.data))throw new Error('Invalid supplier catalogue');
   for(const row of data.data){
    // Products can shift between pages while the retailer is adding new items.
@@ -23,13 +28,14 @@ const readSnapshot=unstable_cache(async()=>{
   }
   if(page===1){
    const last=Number(data.pagination?.last_page);
-   if(Number.isInteger(last)&&last>=1){if(last>20)throw new Error('Catalogue exceeds verified import limit');lastPage=last;}
+   if(Number.isInteger(last)&&last>=1){if(last>150)throw new Error('Catalogue exceeds verified import limit');lastPage=last;}
    else if(data.data.length>=100)throw new Error('Missing supplier pagination');
   }
  }
- validateCatalogue(normaliseShipper(rows,content as SupplierContent[]));
+ const published=validateCatalogue(normaliseShipper(rows,content as SupplierContent[]));
+ if(rows.length&&!published.length)throw new Error('No verified products in supplier snapshot');
  return rows;
-},['tunisia-shipper-complete-snapshot-v3'],{revalidate:300,tags:['tunisia-shipper-catalogue']});
+},['tunisia-shipper-complete-snapshot-v4'],{revalidate:300,tags:['tunisia-shipper-catalogue']});
 
 // Share a cold public-catalogue load across concurrent requests in this instance.
 // This is one project-wide public catalogue, never request/user-specific state.

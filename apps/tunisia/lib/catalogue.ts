@@ -2,7 +2,7 @@ import raw from '@/data/catalogue.json';
 export const locales = ['en','fr','ar'] as const;
 export type Locale = typeof locales[number];
 export type Translation = Record<Locale,string>;
-export type Product = {id:string; slug:string; supplierProductId:string; title:Translation; description:Translation; category:string; image:string; images?:string[]; priceMillimes:number; stock:number; active:boolean; originalSupplierCopy?:boolean};
+export type Product = {id:string; slug:string; supplierProductId:string; title:Translation; description:Translation; category:string; image:string; images?:string[]; priceMillimes:number; stock:number; active:boolean; originalSupplierCopy?:boolean;groupId?:string;groupSlug?:string;optionLabel?:string;groupTitle?:Translation};
 export type StoreProduct = Omit<Product,'description'|'images'> & Partial<Pick<Product,'description'|'images'>>;
 export function validateCatalogue(input:unknown):Product[]{
  if(!Array.isArray(input)) throw new Error('Catalogue must be an array');
@@ -18,4 +18,4 @@ export function validateCatalogue(input:unknown):Product[]{
  return input as Product[];
 }
 export const products=validateCatalogue(raw).filter(p=>p.active);
-export function money(amount:number,locale:Locale){return new Intl.NumberFormat(locale==='ar'?'ar-TN':locale==='fr'?'fr-TN':'en-TN',{style:'currency',currency:'TND',minimumFractionDigits:3,maximumFractionDigits:3}).format(amount/1000)}
+export function money(amount:number,locale:Locale){return new Intl.NumberFormat(locale==='ar'?'ar-TN':locale==='fr'?'fr-TN':'en-TN',{minimumFractionDigits:0,maximumFractionDigits:3}).format(amount/1000)+' '+(locale==='ar'?'د.ت':'DT')}
