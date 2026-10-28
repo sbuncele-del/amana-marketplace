@@ -3,7 +3,7 @@ import Link from 'next/link';
 import {useEffect,useState} from 'react';
 import {Search,ShoppingBag,ArrowRight,Package,Truck,CheckCircle2,Banknote,Plus,Minus,Trash2,Menu,UserRound,MapPin} from 'lucide-react';
 import {ideas} from '@/lib/merchandising';
-import {groupProducts} from '@/lib/product-groups';
+import {groupProducts,chooseVariant} from '@/lib/product-groups';
 import {copy,matchesCategory} from '@/lib/storefront-copy';
 import {ProductCards} from './product-cards';
 import {StorefrontHome} from './storefront-home';
@@ -32,7 +32,7 @@ export default function Store({locale,route,products,initialQuery,maxPrice=0}:{l
  const selected=products.find(p=>`product/${p.slug}`===route||`product/${p.groupSlug}`===route);
  const siblings=selected?products.filter(p=>(p.groupId||p.id)===(selected.groupId||selected.id)):[];
  const [selectedOption,setSelectedOption]=useState('');
- const chosen=siblings.find(p=>p.id===selectedOption)||siblings.find(p=>p.stock>0)||selected;
+ const chosen=chooseVariant(siblings,selectedOption,route.replace(/^product\//,''));
  function empty(){return <div className="empty"><Package size={40}/><h2>{products.length&&query?t.noResults:t.emptyTitle}</h2><p>{t.emptyText}</p>{query&&<button className="text-button" onClick={()=>setQuery('')}>{t.clear}</button>}</div>}
  function productGrid(){
   if(!filtered.length)return empty();

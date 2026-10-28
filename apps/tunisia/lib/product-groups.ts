@@ -14,3 +14,6 @@ export function groupProducts(products:StoreProduct[]):ProductGroup[]{
  }
  return [...groups.values()];
 }
+export function chooseVariant(variants:StoreProduct[],preferredId:string,requestedSlug:string){
+ return variants.find(p=>p.id===preferredId)||variants.find(p=>p.slug===requestedSlug)||variants.find(p=>p.stock>0)||variants[0];
+}
