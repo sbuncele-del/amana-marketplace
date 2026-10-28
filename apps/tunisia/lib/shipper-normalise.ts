@@ -16,14 +16,18 @@ export function normaliseShipper(rows:Row[],content:SupplierContent[]):Product[]
   const image=info.images.find(s=>s.startsWith('https://cdn.shipper.network/'));
   if(!image)continue;
   const variants=Array.isArray(row.variants)&&row.variants.length?row.variants:[null];
-  for(const variant of variants){
+  for(const [variantIndex,variant] of variants.entries()){
    const uuid=variant?.uuid??row.uuid;
    if(typeof uuid!=='string'||!/^[a-zA-Z0-9-]+$/.test(uuid))continue;
    const price=units(variant?.price??row.price,1000),stock=units(variant?.available_qte??row.available_qte,1);
    if(price===null||price<=0||stock===null)continue;
    // Explicit public allowlist: supplier cost and private identifiers never enter client props.
-   const label=typeof variant?.name==='string'?variant.name:'';
-   out.push({id:uuid,supplierProductId:uuid,slug:info.slug+(variant?'-'+uuid:''),title:label?{en:info.title.en+' — '+label,fr:info.title.fr+' — '+label,ar:info.title.ar+' — '+label}:info.title,description:info.description,category:info.category,image,images:info.images,priceMillimes:price,stock,active:true});
+   const label=typeof variant?.name==='string'?variant.name.trim():'';
+   // Some supplier variants repeat the parent name instead of providing attributes.
+   // Number the options without inventing colours, sizes or other attributes.
+   const parentLabel=label===String(row.name).trim()||label===info.sourceName.trim();
+   const title=variant?{en:info.title.en+' — '+(label&&!parentLabel?label:`Option ${variantIndex+1}`),fr:info.title.fr+' — '+(label&&!parentLabel?label:`Option ${variantIndex+1}`),ar:info.title.ar+' — '+(label&&!parentLabel?label:`الخيار ${variantIndex+1}`)}:info.title;
+   out.push({id:uuid,supplierProductId:uuid,slug:info.slug+(variant?'-'+uuid:''),title,description:info.description,category:info.category,image,images:info.images,priceMillimes:price,stock,active:true});
   }
  }
  return out;

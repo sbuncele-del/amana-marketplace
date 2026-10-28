@@ -58,7 +58,7 @@ products selected into our reseller account. Please provide or enable:
 
 1. A supported bulk-add operation for all eligible marketplace products, or a
    complete catalogue feed/API/export that can be imported programmatically.
-2. Product and variant UUIDs, SKUs, titles, descriptions, category paths,
+2. Product and variant UUIDs, actual variant attributes (colour/size/etc.), SKUs, titles, descriptions, category paths,
    image/media URLs and confirmation these assets can be used on our store.
 3. Supplier costs, suggested retail prices where available, currency/VAT basis,
    variant stock/status, minimum retail-price rules, fees and deposit requirements.
@@ -73,3 +73,9 @@ and any plan requirements. Do not change our subscription or incur charges
 without our approval.
 
 Thank you.
+
+## Variant content gap
+
+The live API can repeat the parent product name as every variant name. Neutral
+numbered option labels preserve distinct UUIDs without inventing colours/sizes.
+Shipper must provide the UUID-to-attribute mapping before ordering opens.
