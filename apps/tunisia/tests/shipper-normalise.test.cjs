@@ -16,3 +16,5 @@ test('normalised whitespace matches retailer product names',()=>assert.equal(nor
 test('ambiguous titles never select the first supplier arbitrarily',()=>{const duplicate={...content[0],sourceProductId:'source-2',slug:'source-two'};assert.equal(normaliseShipper([{...base,uuid:'retailer-1'}],[...content,duplicate]).length,0)});
 test('a verified supplier source link resolves duplicate titles',()=>{const duplicate={...content[0],sourceProductId:'source-2',slug:'source-two'};const [p]=normaliseShipper([{...base,uuid:'retailer-1',link:'https://app.shipper.market/products/source-2'}],[...content,duplicate]);assert.equal(p.slug,'source-two');assert.equal(p.supplierProductId,'retailer-1')});
 test('supplier copy provenance is public while costs stay private',()=>{const [p]=normaliseShipper([base],[{...content[0],originalSupplierCopy:true}]);assert.equal(p.originalSupplierCopy,true);assert.equal('cost' in p,false)});
+
+test('withheld products report a reason without exposing private values',()=>{const reasons=[];normaliseShipper([{...base,price:null}],content,r=>reasons.push(r));assert.deepEqual(reasons,['invalid_price'])});

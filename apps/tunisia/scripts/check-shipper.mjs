@@ -29,9 +29,10 @@ else {
    if(Number.isInteger(last)&&last>0){if(last>20)throw new Error('Verified page limit exceeded');if(page>=last)break;}
    else if(result.data.length<100)break;else throw new Error('Missing pagination');
   }
-  const published=normaliseShipper(rows,content),ids=new Set(published.map(p=>p.id));
+  const heldReasons={};
+  const published=normaliseShipper(rows,content,reason=>heldReasons[reason]=(heldReasons[reason]||0)+1),ids=new Set(published.map(p=>p.id));
   const publishedParents=rows.filter(r=>(Array.isArray(r.variants)&&r.variants.length?r.variants:[r]).some(v=>ids.has(v.uuid))).length;
-  console.log(prefix+' reconciliation '+JSON.stringify({ok:true,accountProducts:rows.length,reportedTotal,contentProducts:content.length,publishedProducts:publishedParents,publishedEntries:published.length,heldProducts:rows.length-publishedParents,zeroStockEntries:published.filter(p=>p.stock===0).length,duplicateEntries:published.length-ids.size}));
+  console.log(prefix+' reconciliation '+JSON.stringify({ok:true,accountProducts:rows.length,reportedTotal,contentProducts:content.length,publishedProducts:publishedParents,publishedEntries:published.length,heldProducts:rows.length-publishedParents,zeroStockEntries:published.filter(p=>p.stock===0).length,duplicateEntries:published.length-ids.size,heldReasons}));
   if(rows[0]?.uuid && /^[a-zA-Z0-9-]+$/.test(rows[0].uuid)){
    const detail=await read('/products/'+encodeURIComponent(rows[0].uuid));
    console.log(prefix+' product detail '+JSON.stringify({ok:true,fields:Object.keys(detail).sort()}));
