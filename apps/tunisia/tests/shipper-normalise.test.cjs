@@ -7,3 +7,5 @@ test('account UUID can differ while source title matches',()=>assert.equal(norma
 test('variant UUID price and stock are preserved',()=>{const [p]=normaliseShipper([{...base,variants:[{uuid:'variant-1',name:'Blue',price:29,available_qte:2}]}],content);assert.equal(p.supplierProductId,'variant-1');assert.equal(p.priceMillimes,29000);assert.equal(p.stock,2)});
 test('missing retail price never falls back to supplier cost',()=>assert.equal(normaliseShipper([{...base,price:null}],content).length,0));
 test('unreviewed content, inactive products and fractional stock are withheld',()=>{assert.equal(normaliseShipper([base],[]).length,0);assert.equal(normaliseShipper([{...base,status:'inactive'}],content).length,0);assert.equal(normaliseShipper([{...base,available_qte:1.5}],content).length,0)});
+
+test('database decimal strings retain exact millime precision',()=>assert.equal(normaliseShipper([{...base,price:'25.000000000000000000000000000000'}],content)[0].priceMillimes,25000));

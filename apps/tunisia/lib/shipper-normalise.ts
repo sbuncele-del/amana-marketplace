@@ -3,8 +3,9 @@ export type SupplierContent={sourceName:string;sourceUrl:string;sourceProductId:
 type Row={uuid?:unknown;name?:unknown;price?:unknown;available_qte?:unknown;status?:unknown;variants?:unknown};
 function units(value:unknown,scale:number){
  if(typeof value!=='number'&&typeof value!=='string')return null;
- if(!/^\d+(\.\d{1,3})?$/.test(String(value)))return null;
- const result=Number(value)*scale;
+ const text=String(value).trim().replace(/(\.\d*?)0+$/, '$1').replace(/\.$/,'');
+ if(!/^\d+(\.\d{1,3})?$/.test(text))return null;
+ const result=Number(text)*scale;
  return Number.isSafeInteger(Math.round(result))&&Math.abs(result-Math.round(result))<0.00001?Math.round(result):null;
 }
 export function normaliseShipper(rows:Row[],content:SupplierContent[]):Product[]{
