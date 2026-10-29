@@ -1,5 +1,5 @@
 import {getCatalogueSnapshot,getCatalogueProduct} from '@/lib/catalogue';
-export type ChatProduct={name:string;href:string;price:number;hasOptions:boolean};
+export type ChatProduct={image?:string;name:string;href:string;price:number;hasOptions:boolean};
 type Message={role:'user'|'assistant';content:string};
 const stop=new Set('a an the i im am my me you your we our is are was were be been to for of in on at with and or it this that these those please can could would will want need looking find help buy get show some something one ones other another any have has do does how what which much under below less than budget rand zar r name called hello hi hey thanks thank mum mom dad mother father daughter son wife husband partner friend birthday present gift delivery shipping order return refund about also only from not more than up practical useful nice good great best affordable cheap reliable durable simple recommendation recommend options option choose choosing suitable need needs use everyday'.split(' '));
 export async function catalogueContext(messages:Message[],pathname?:string){
@@ -24,11 +24,11 @@ export async function catalogueContext(messages:Message[],pathname?:string){
  const slugs=[...new Set([...(currentSlug?[currentSlug]:[]),...ranked])].slice(0,5);
  const checked=await Promise.all(slugs.map(slug=>getCatalogueProduct(slug)));
  const data=checked.filter(p=>p!==null).map(p=>({
-  name:p!.name,href:'/product/'+p!.slug,priceFrom:p!.price,currency:'ZAR',available:p!.supplierAvailable,
+  image:p!.images[0],name:p!.name,href:'/product/'+p!.slug,priceFrom:p!.price,currency:'ZAR',available:p!.supplierAvailable,
   description:p!.description.slice(0,600),
   variants:p!.variants.slice(0,12).map(v=>({option:v.title,price:v.price,available:v.supplierAvailable})),
  }));
- const products:ChatProduct[]=data.filter(p=>p.available&&(!budget||p.priceFrom<=budget)).slice(0,3).map(p=>({name:p.name,href:p.href,price:p.priceFrom,hasOptions:p.variants.length>1}));
+ const products:ChatProduct[]=data.filter(p=>p.available&&(!budget||p.priceFrom<=budget)).slice(0,3).map(p=>({image:p.image,name:p.name,href:p.href,price:p.priceFrom,hasOptions:p.variants.length>1}));
  const referenceData=data.filter(p=>products.some(card=>card.href===p.href)||p.href==='/product/'+currentSlug);
  return {data:referenceData,products,budget};
 }
