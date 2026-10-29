@@ -1,3 +1,4 @@
+import {defaultSlides} from '../../../packages/storefront/slides';
 import approved from '@/data/approved-storefront.json';
 import {ideas as categories,slides as translatedSlides} from './merchandising';
 import type {Locale,Translation} from './catalogue';
@@ -41,18 +42,27 @@ export const copy={
  }
 };
 const slideTexts=[
- tr(approved.slides[0].text,'Simplifiez votre quotidien en cuisine.','اجعل الطبخ اليومي أسهل قليلًا.'),
- tr(approved.slides[1].text,'Trouvez votre endroit préféré pour vous détendre.','اعثر على مكانك المفضل للاسترخاء.'),
- tr(approved.slides[2].text,'Du linge de lit, des essentiels de chevet et un peu plus de calme.','مفروشات وأساسيات بجانب السرير ولمسة من الهدوء.'),
- tr(approved.slides[3].text,'Trouvez de quoi accompagner leur prochain moment de jeu.','اعثر على ما يناسب لحظة اللعب القادمة.'),
- tr(approved.slides[4].text,'De petits changements pour une salle de bains adaptée à vous.','تغييرات صغيرة لحمام يناسب احتياجاتك.'),
- tr(approved.slides[5].text,'Prenez le temps d’une routine qui vous ressemble.','خصّص وقتًا لروتين يشبهك.'),
- tr(approved.slides[6].text,'Des trouvailles utiles pour le grand air et les moments partagés.','أشياء مفيدة للهواء الطلق وقضاء الوقت معًا.')
+ tr(defaultSlides[0].text,'Simplifiez votre quotidien en cuisine.','اجعل الطبخ اليومي أسهل قليلًا.'),
+ tr(defaultSlides[1].text,'Trouvez votre endroit préféré pour vous détendre.','اعثر على مكانك المفضل للاسترخاء.'),
+ tr(defaultSlides[2].text,'Du linge de lit, des essentiels de chevet et un peu plus de calme.','مفروشات وأساسيات بجانب السرير ولمسة من الهدوء.'),
+ tr(defaultSlides[3].text,'Trouvez de quoi accompagner leur prochain moment de jeu.','اعثر على ما يناسب لحظة اللعب القادمة.'),
+ tr(defaultSlides[4].text,'De petits changements pour une salle de bains adaptée à vous.','تغييرات صغيرة لحمام يناسب احتياجاتك.'),
+ tr(defaultSlides[5].text,'Prenez le temps d’une routine qui vous ressemble.','خصّص وقتًا لروتين يشبهك.'),
+ tr(defaultSlides[6].text,'Des trouvailles utiles pour le grand air et les moments partagés.','أشياء مفيدة للهواء الطلق وقضاء الوقت معًا.')
 ];
-const slideActions=[tr(approved.slides[0].action,'Explorez la cuisine','استكشف المطبخ'),tr(approved.slides[1].action,'Explorez le salon','استكشف غرفة المعيشة'),tr(approved.slides[2].action,'Explorez la chambre','استكشف غرفة النوم'),tr(approved.slides[3].action,'Explorez les jeux','استكشف الألعاب'),tr(approved.slides[4].action,'Explorez la salle de bains','استكشف الحمام'),tr(approved.slides[5].action,'Explorez les soins quotidiens','استكشف العناية اليومية'),tr(approved.slides[6].action,'Explorez la vie en plein air','استكشف الحياة في الهواء الطلق')];
-export const homeSlides=approved.slides.map((s,i)=>({...s,image:s.image.replace('/brand/',''),title:translatedSlides[i].title,text:slideTexts[i],action:slideActions[i],category:translatedSlides[i].category}));
+const slideActions=[tr(defaultSlides[0].action,'Explorez la cuisine','استكشف المطبخ'),tr(defaultSlides[1].action,'Explorez le salon','استكشف غرفة المعيشة'),tr(defaultSlides[2].action,'Explorez la chambre','استكشف غرفة النوم'),tr(defaultSlides[3].action,'Explorez les jeux','استكشف الألعاب'),tr(defaultSlides[4].action,'Explorez la salle de bains','استكشف الحمام'),tr(defaultSlides[5].action,'Explorez les soins quotidiens','استكشف العناية اليومية'),tr(defaultSlides[6].action,'Explorez la vie en plein air','استكشف الحياة في الهواء الطلق')];
+export const homeSlides=defaultSlides.map((s,i)=>({...s,image:s.image.replace('/brand/',''),title:{...translatedSlides[i].title,en:s.title},text:slideTexts[i],action:slideActions[i],category:translatedSlides[i].category}));
 const missionKeys:Record<string,string>={'small-space-living':'organisation','kitchen-made-easier':'kitchen','outdoor-living':'outdoor','bathroom':'bathroom','bedroom':'bedroom','dining-room':'dining','living-room':'living','home-office':'school','cleaning':'cleaning','laundry':'laundry','kids-play':'play','baby-essentials':'baby','beauty-routine':'care','fitness-at-home':'fitness','travel-essentials':'travel'};
 const missionTranslations:Record<string,[string,string,string,string]>={
+ "living-room":["Faites comme chez vous", "اشعر بأنك في بيتك", "Canapés, tables, éclairage et touches finales pour votre façon de vivre le salon.", "اكتشف الأرائك والطاولات والإضاءة واللمسات التي تناسب استخدامك لغرفة المعيشة."],
+ "home-office":["Faites de la place pour bien travailler", "وفّر مساحة لأفضل عمل", "Mobilier, rangement et accessoires utiles pour travailler ou étudier chez vous.", "أثاث وتنظيم وإكسسوارات مفيدة للعمل أو الدراسة في المنزل."],
+ "cleaning":["Simplifiez le ménage", "اجعل التنظيف أسهل", "Des outils pour les sols, les surfaces et les tâches ménagères du quotidien.", "أدوات للأرضيات والأسطح ومهام التنظيف اليومية في المنزل."],
+ "laundry":["Simplifiez votre lessive", "اجعل الغسيل أسهل", "Tri, séchage, entretien des vêtements et rangement pour votre routine de lessive.", "اكتشف الفرز والتجفيف والعناية بالملابس والتخزين لروتين الغسيل."],
+ "kids-play":["Faites de la place au jeu", "وفّر مساحة للعب", "Jeux créatifs, puzzles et activités de plein air selon les centres d’intérêt de votre enfant.", "ألعاب إبداعية وألغاز وأنشطة خارجية تناسب اهتمامات طفلك."],
+ "baby-essentials":["Les essentiels de bébé au quotidien", "اعثر على أساسيات رضيعك اليومية", "Accessoires de repas, de change et de rangement pour la vie avec bébé.", "مستلزمات الرضاعة وتغيير الحفاضات والتنظيم للحياة مع الرضيع."],
+ "beauty-routine":["Du temps pour prendre soin de vous", "خصّص وقتًا للعناية اليومية", "Outils de soin, rangement beauté et accessoires utiles pour votre routine.", "أدوات عناية وتنظيم وإكسسوارات مفيدة لروتينك اليومي."],
+ "fitness-at-home":["Bougez à votre rythme", "تحرّك بطريقتك", "Équipements et accessoires pour bouger et faire de l’exercice chez vous.", "معدات وإكسسوارات للحركة والتمارين في المنزل."],
+ "travel-essentials":["Préparez votre prochaine escapade", "استعد لرحلتك القادمة", "Bagages, rangement et accessoires pratiques pour partir plus sereinement.", "حقائب وتنظيم وإكسسوارات عملية لرحلة أكثر راحة."],
  'small-space-living':['Faites plus de place chez vous','وفّر مساحة أكبر في منزلك','Rangement, organisation et mobilier bien pensé. Un point de départ utile pour l’espace dont vous disposez.','تخزين وتنظيم وأثاث مدروس. ابدأ بما يناسب المساحة المتوفرة لديك.'],
  'kitchen-made-easier':['Simplifiez la cuisine au quotidien','اجعل الطبخ اليومي أسهل','Des outils utiles pour préparer, cuisiner et organiser. Commencez par ce qui faciliterait votre journée.','أدوات مفيدة للتحضير والطبخ والتنظيم. ابدأ بما يجعل يومك أسهل.'],
  'outdoor-living':['Profitez davantage de l’extérieur','استمتع بوقت أطول في الخارج','Des idées pratiques pour le jardin, un repas dehors ou une escapade. Choisissez selon l’occasion.','أفكار عملية للحديقة أو وجبة في الخارج أو يوم بعيدًا عن المنزل. اختر ما يناسب خططك.'],
@@ -78,6 +88,6 @@ export const productRows=[
  {key:'outdoor',title:tr('Good days start outside','Les beaux jours commencent dehors','أيام جميلة تبدأ في الخارج'),text:tr('Find your next reason to enjoy the outdoors.','Trouvez votre prochaine raison de profiter de l’extérieur.','اعثر على سببك القادم للاستمتاع بالهواء الطلق.')}
 ];
 const normal=(s:string)=>s.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-const aliases:Record<string,string[]>={home:['living','bedroom','kitchen','dining','organisation','decor'],electronics:['audio','lighting','wearables','electronics','bluetooth','camera','charge','projecteur'],kids:['play','baby','school'],hair:['hair','cheveu','tondeuse','rasoir'],fragrances:['parfum','fragrance'],fitness:['fitness','sport','exercise','roue','roller'],travel:['travel','voyage','sac'],cleaning:['cleaning','nettoy'],laundry:['laundry','linge','lavage']};
+const aliases:Record<string,string[]>={tools:['outil','tool','perceuse','pince','tournevis','bricolage'],hardware:['quincaillerie','hardware','vis','outil'],security:['securite','security','camera','alarme','cadenas'],automotive:['auto','voiture','car ','moto'],fashion:['mode','vetement','bijou','lunette','fashion'],kitchen:['kitchen','cuisine','cuisson','ustensile','poele','casserole'],living:['salon','canape','fauteuil','living','sofa'],furniture:['meuble','fauteuil','canape','furniture','chaise','table'],decor:['decor','vase','cadre'],bedroom:['bedroom','chambre','literie','oreiller','lit '],dining:['dining','vaisselle','assiette','couverts'],care:['care','soin','beaute','skin','serum','creme','brosse'],play:['toy','jouet','jeux','puzzle','play'],baby:['baby','bebe','biberon'],school:['school','ecole','scolaire','bureau'],organisation:['organis','rangement','etagere','storage'],outdoor:['outdoor','jardin','camping','exterieur'],lighting:['lighting','lampe','eclairage'],audio:['audio','ecouteur','casque','haut-parleur'],wearables:['wearable','montre','bracelet'],home:['living','bedroom','kitchen','dining','organisation','decor'],electronics:['audio','lighting','wearables','electronics','bluetooth','camera','charge','projecteur'],kids:['play','baby','school'],hair:['hair','cheveu','tondeuse','rasoir'],fragrances:['parfum','fragrance'],fitness:['fitness','sport','exercise','roue','roller'],travel:['travel','voyage','sac'],cleaning:['cleaning','nettoy'],laundry:['laundry','linge','lavage']};
 export function matchesCategory(p:{category:string;title:Translation},key:string){const hay=normal(p.category+' '+Object.values(p.title).join(' '));return (aliases[key]||[key]).some(term=>hay.includes(normal(term)));}
 export function local(locale:Locale,text:Translation){return text[locale];}
