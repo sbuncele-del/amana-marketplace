@@ -47,8 +47,8 @@ function retail(cost:number,slug:string) {
  const target=slug==='8l-air-fryer-with-digital-led-display'?cost+380:slug==='8l-digital-touch-panel-air-fryer'?cost+400:Math.max(cost*1.35,cost+50);
  return Math.ceil((target-9)/10)*10+9;
 }
-async function readSource(path:string,fresh=false) {
- const response=await fetch(source+path,{...(fresh?{cache:'no-store' as const}:{next:{revalidate:300}}),signal:AbortSignal.timeout(15000)});
+async function readSource(path:string,fresh=false,timeoutMs=15000) {
+ const response=await fetch(source+path,{...(fresh?{cache:'no-store' as const}:{next:{revalidate:300}}),signal:AbortSignal.timeout(timeoutMs)});
  if(!response.ok)throw new Error(`Catalogue source unavailable (${response.status})`);
  return response.json();
 }
@@ -76,11 +76,11 @@ async function collectionSourceRaw(collection:string) {
  throw new Error('Catalogue pagination limit exceeded');
 }
 const collectionSource=unstable_cache(collectionSourceRaw,['perfect-dealz-live-v1'],{revalidate:300});
-export async function getCatalogueProduct(slug:string,fresh=false,strictRefresh=false,market?:string) {
+export async function getCatalogueProduct(slug:string,fresh=false,strictRefresh=false,market?:string,timeoutMs=(fresh||strictRefresh?15000:5000)) {
  if(market ? market!=='ZA' : !(await catalogueMarket()))return null;
  const product=(await getCatalogueSnapshot()).find(p=>p.slug===slug);if(!product)return null;
  if(product.variants.some(v=>v.managedStock!==undefined))return product;
- try {const data=await readSource(`/products/${encodeURIComponent(slug)}.js`,fresh);return update(product,{handle:slug,variants:data.variants.map((v:SupplierProduct['variants'][number])=>({...v,price:String(Number(v.price)/100),image:v.featured_image?.src}))});}
+ try {const data=await readSource(`/products/${encodeURIComponent(slug)}.js`,fresh,timeoutMs);return update(product,{handle:slug,variants:data.variants.map((v:SupplierProduct['variants'][number])=>({...v,price:String(Number(v.price)/100),image:v.featured_image?.src}))});}
  catch(error) {if(strictRefresh)throw error;return update(product);}
 }
 export async function getCatalogueProducts(search='',category='',sort='newest',availableOnly=false,strictRefresh=false) {
