@@ -10,7 +10,7 @@
     "check:shopping": "node --import tsx scripts/test-shopping-missions.ts && eslint src/lib/shopping-missions.ts src/lib/shopping-mission-products.ts src/components/shop/shopping-missions.tsx 'src/app/(main)/collections/[slug]/page.tsx' 'src/app/(main)/page.tsx' 'src/app/(main)/collections/page.tsx'",
     "check:cms": "node --import tsx scripts/test-cms.ts",
     "check:access": "node --import tsx scripts/test-access.ts",
-    "check:storefront": "node --import tsx scripts/test-shared-storefront.tsx"
+    "check:storefront": "node --import tsx scripts/test-shared-storefront.tsx && node --import tsx scripts/test-catalogue-browse-layout.tsx"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.8.0",
