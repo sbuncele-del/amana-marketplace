@@ -1,5 +1,5 @@
 'use client';
-import {CompanyInformation,MarketReturns,companyCopy} from '../../../packages/storefront/company-information';
+import {CompanyInformation,MarketReturns,companyCopy} from './company-information';
 import {contacts,contactLabels,contactHref} from '../../../packages/storefront/contacts';
 import Link from 'next/link';
 import {useEffect,useState} from 'react';
