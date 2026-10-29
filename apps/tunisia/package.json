@@ -14,7 +14,8 @@
     "pg": "8.19.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "@plentovo/storefront": "file:../../packages/storefront"
+    "@plentovo/storefront": "file:../../packages/storefront",
+    "@radix-ui/react-dialog": "^1.1.15"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.2.1",
