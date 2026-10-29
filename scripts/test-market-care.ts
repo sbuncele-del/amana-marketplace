@@ -1,3 +1,4 @@
+import {selectHomepageRows} from '../src/lib/homepage-selection';
 import assert from 'node:assert/strict';
 import {marketChat} from '../packages/storefront/market-chat-handler';
 import {marketCareInstructions} from '../packages/storefront/market-care';
@@ -33,6 +34,9 @@ async function main(){try{
  const result=await (await marketChat(make({locale:'fr',pathname:'/tunisia/fr/shop',messages:[{role:'user',content:'un mug'}]}),config)).json();
  assert.equal(result.mode,'ai');assert.equal(result.products[0].price,20);assert.match(sent.messages[0].content,/Default to French/);assert.match(sent.messages[0].content,/NEVER import South African/);
  global.fetch=async()=>new Response('',{status:429});assert.equal((await (await marketChat(make({locale:'ar',messages:[{role:'user',content:'مرحبا'}]}),config)).json()).mode,'guide');
+ const reads=new Map<string,number>();
+ const rows=await selectHomepageRows([{key:'demand',handles:['shared','unavailable']},{key:'value',handles:['shared','cheap','expensive'],maxPrice:30}],async(slug,timeout)=>{assert.ok(timeout>0&&timeout<=4500);reads.set(slug,(reads.get(slug)||0)+1);return {slug,price:slug==='expensive'?40:20,supplierAvailable:slug!=='unavailable'};});
+ assert.deepEqual(rows.demand.map(p=>p.slug),['shared']);assert.deepEqual(rows.value.map(p=>p.slug),['cheap']);assert.equal(reads.get('shared'),1);
  console.log('Market care checks passed: shared script, country policies, multilingual retrieval, unit conversion, contacts, social links, input validation and provider fallback.');
 }finally{global.fetch=oldFetch;if(oldKey===undefined)delete process.env.GROQ_API_KEY;else process.env.GROQ_API_KEY=oldKey;}
 
