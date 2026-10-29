@@ -18,13 +18,9 @@ export function BusinessDetails() {
         </div>
         <div>
           <dt className="font-semibold">
-            Registered business & contact address
+            Registered office — South Africa
           </dt>
           <dd>{business.registeredOffice}</dd>
-        </div>
-        <div>
-          <dt className="font-semibold">Customer contact office</dt>
-          <dd>{business.contactOffice}</dd>
         </div>
         <div>
           <dt className="font-semibold">Customer care</dt>
@@ -46,8 +42,7 @@ export function BusinessDetails() {
         </div>
       </dl>
       <p className="mt-4 text-xs text-gray-500">
-        Contact us before visiting or arranging a return. Collection
-        arrangements are shown separately on our delivery page.
+        This is our registered office, not an automatic returns or collection point. Contact customer support for the correct return instructions.
       </p>
     </section>
   );
