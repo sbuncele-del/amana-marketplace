@@ -4,7 +4,7 @@ const hits=new Map<string,{count:number;until:number}>();
 export async function marketChat(request:Request,config:{country:'Tunisia'|'Algeria';basePath:string;context:(messages:{role:'user'|'assistant';content:string}[],locale:CareLocale,pathname:string)=>Promise<CareProduct[]>}){
  const headers={'Cache-Control':'no-store'};
  const json=(body:unknown,status=200)=>Response.json(body,{status,headers});
- const origin=request.headers.get('origin');if(origin&&origin!==new URL(request.url).origin)return json({error:'Request not allowed.'},403);
+ const origin=request.headers.get('origin');if(origin&&origin!==new URL(request.url).origin&&origin!=='https://plentovo.com')return json({error:'Request not allowed.'},403);
  if(Number(request.headers.get('content-length')||0)>60000)return json({error:'Message too long.'},413);
  let body;try{const text=await request.text();if(text.length>60000)return json({error:'Message too long.'},413);body=JSON.parse(text);}catch{return json({error:'Invalid message.'},400);}
  const locale:CareLocale=['en','fr','ar'].includes(body?.locale)?body.locale:'en';

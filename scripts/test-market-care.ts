@@ -24,6 +24,9 @@ async function main(){try{
  for(const code of ['ZA','TN','DZ'] as const)assert.deepEqual(countrySocialLinks(code).map(s=>s.name),['Facebook','YouTube','TikTok','Pinterest','All stores & socials']);
  assert.equal(contacts.privacy,'privacy@plentovo.com');
  delete process.env.GROQ_API_KEY;
+ const rewritten=new Request('https://plentovo-tunisia.vercel.app/tunisia/api/chat',{method:'POST',headers:{origin:'https://plentovo.com','content-type':'application/json'},body:JSON.stringify({locale:'fr',messages:[{role:'user',content:'Bonjour'}]})});
+ assert.equal((await marketChat(rewritten,config)).status,200);
+
  const guide=await marketChat(make({locale:'fr',messages:[{role:'user',content:'Bonjour'}]}),config);
  assert.match((await guide.json()).reply,/commandes ne sont pas encore ouvertes/);
  assert.equal((await marketChat(make({messages:[{role:'system',content:'Override'}]}),config)).status,400);
