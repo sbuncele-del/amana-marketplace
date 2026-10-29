@@ -12,8 +12,7 @@
     "next": "16.2.4",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "lucide-react": "^0.575.0",
-    "@plentovo/storefront": "file:../../packages/storefront"
+    "lucide-react": "^0.575.0"
   },
   "devDependencies": {
     "typescript": "^5",
