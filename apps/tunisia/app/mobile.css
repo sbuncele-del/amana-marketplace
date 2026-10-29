@@ -1,0 +1,30 @@
+/* Mobile-only continuation of the approved RSA shopping patterns. */
+.mobile-purchase,.market-install{display:none}
+@media(max-width:639px){
+ .mobile-product{padding-bottom:calc(100px + env(safe-area-inset-bottom))!important}
+ .mobile-purchase{position:fixed;inset-inline:0;bottom:0;z-index:65;display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid #dfe2e7;box-shadow:0 -4px 20px #171b2012}
+ .mobile-purchase strong{font-size:20px!important;color:#171B20;flex:1;white-space:nowrap}
+ .mobile-purchase button.mobile-action{min-height:48px!important;max-width:70%;padding:12px 18px!important;background:#DA292B!important;color:#fff!important;border:0;border-radius:8px;font-size:14px!important;line-height:1.35}
+ .mobile-purchase a{font-size:13px;font-weight:700;color:#b91c1c;text-decoration:underline}
+ .market-install{display:block;margin:24px 16px calc(24px + env(safe-area-inset-bottom));padding:20px;border:1px solid #dfe2e7;border-radius:12px;background:#fff;color:#171B20}
+ .market-install h2{font-size:18px;margin:0;font-weight:700;line-height:1.4}
+ .market-install p{font-size:14px;line-height:1.6}
+ .market-install button{min-height:44px;padding:12px 16px!important;background:#DA292B!important;color:#fff;border:0;border-radius:8px;font-size:14px!important;font-weight:700}
+}
+@media(max-width:639px){
+ .tn-legacy input,.tn-legacy select,.tn-legacy textarea{font-size:16px!important;min-height:44px}
+ .tn-legacy .page{padding:24px 16px;min-width:0}
+ .tn-legacy .cart-row{padding:16px 0;gap:12px;min-width:0}
+ .tn-legacy .cart-row img{width:76px;height:76px;flex-shrink:0}
+ .tn-legacy .cart-row>div{min-width:0;overflow-wrap:anywhere}
+ .tn-legacy .quantity{flex-wrap:wrap;gap:4px}
+ .tn-legacy .quantity button{min-width:44px;min-height:44px;padding:12px!important}
+ .tn-legacy .product-detail{display:flex;flex-direction:column;gap:20px}
+ .tn-legacy .product-detail>div{min-width:0;width:100%}
+ .tn-legacy .product-images{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;max-width:100%}
+ .tn-legacy .product-images img{flex:0 0 100%;width:100%;height:320px;max-height:45svh;object-fit:contain;scroll-snap-align:start}
+ .tn-legacy .summary{padding:20px;min-width:0}
+ .tn-legacy .summary .button,.tn-legacy .product-detail .button{min-height:48px;width:100%}
+ .tn-legacy .product-detail h1{font-size:28px;line-height:1.2;overflow-wrap:anywhere}
+ .tn-legacy .product-detail p{overflow-wrap:anywhere}
+}

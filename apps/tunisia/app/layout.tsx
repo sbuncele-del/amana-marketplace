@@ -1,4 +1,8 @@
 import './globals.css';
+import './mobile.css';
+import type {Metadata,Viewport} from 'next';
+export const viewport:Viewport={width:'device-width',initialScale:1,viewportFit:'cover',themeColor:'#DA292B'};
+export const metadata:Metadata={manifest:'/tunisia/manifest.webmanifest',appleWebApp:{capable:true,title:'Plentovo Tunisia',statusBarStyle:'default'}};
 import {Inter} from 'next/font/google';
 const inter=Inter({subsets:['latin'],variable:'--font-inter',display:'swap'});
 import {headers} from 'next/headers';

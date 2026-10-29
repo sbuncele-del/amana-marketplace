@@ -1,0 +1,2 @@
+import type {MetadataRoute} from 'next';
+export default function manifest():MetadataRoute.Manifest{return {id:'/tunisia/',name:'Plentovo Tunisia',short_name:'Plentovo Tunisia',description:'Good things. Plenty of choice.',start_url:'/tunisia/',scope:'/tunisia/',display:'standalone',lang:'en',background_color:'#FAF8F5',theme_color:'#DA292B',icons:[{src:'https://plentovo.com/icons/plentovo-512.png',sizes:'512x512',type:'image/png',purpose:'any'}],shortcuts:[{name:'Shop',url:'/tunisia/en/shop'},{name:'Cart',url:'/tunisia/en/cart'}]};}
