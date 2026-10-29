@@ -17,7 +17,7 @@ export function mailConfigured() {
 function sender() {
   const from = process.env.FROM_EMAIL;
   if (!from) throw new Error('FROM_EMAIL is not configured');
-  return {from, replyTo: process.env.REPLY_TO_EMAIL || from.match(/<([^>]+)>/)?.[1] || from};
+  return {from, replyTo: process.env.REPLY_TO_EMAIL || 'support@plentovo.com'};
 }
 
 export type Mail = {
