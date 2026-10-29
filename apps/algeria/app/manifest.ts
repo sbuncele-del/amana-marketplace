@@ -1,0 +1,2 @@
+import type {MetadataRoute} from 'next';
+export default function manifest():MetadataRoute.Manifest{return {id:'/algeria/',name:'Plentovo Algeria',short_name:'Plentovo Algeria',description:'Good things. Plenty of choice.',start_url:'/algeria/',scope:'/algeria/',display:'standalone',lang:'ar',background_color:'#FAF8F5',theme_color:'#DA292B',icons:[{src:'https://plentovo.com/icons/plentovo-512.png',sizes:'512x512',type:'image/png',purpose:'any'}],shortcuts:[{name:'Shop',url:'/algeria/ar/shop'},{name:'Cart',url:'/algeria/ar/cart'}]};}
