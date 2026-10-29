@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {buildTunisiaPinterestFeed} from '../apps/tunisia/lib/pinterest-feed.ts';
+const base={id:'one',slug:'mug',title:{fr:'Mug "bleu", été'},description:{fr:'<p>Une tasse\npratique</p>'},category:'kitchen dining',image:'https://example.com/mug.jpg',priceMillimes:20000,stock:3,active:true};
+const {csv,count}=buildTunisiaPinterestFeed([base,{...base,id:'two',active:false}]);
+assert.equal(count,1);assert(csv.includes('"20.000 TND"'));assert(csv.includes('"in stock"'));assert(csv.includes('Mug ""bleu"", été'));assert(csv.includes('Une tasse pratique'));assert(csv.includes('/tunisia/fr/product/mug'));assert(csv.includes('"638"'));assert(!csv.includes('supplierProductId'));
+const grouped=buildTunisiaPinterestFeed([{...base,id:'a',groupId:'g',groupSlug:'mugs',stock:0,priceMillimes:30000},{...base,id:'b',groupId:'g',groupSlug:'mugs',priceMillimes:21550}]);
+assert.equal(grouped.count,1);assert(grouped.csv.includes('"tn-g"'));assert(grouped.csv.includes('"21.550 TND"'));assert(grouped.csv.includes('/product/mugs'));
+assert(buildTunisiaPinterestFeed([{...base,stock:0}]).csv.includes('"out of stock"'));
+for(const invalid of [{priceMillimes:0},{image:'javascript:alert(1)'},{stock:-1},{slug:'../bad'}])assert.equal(buildTunisiaPinterestFeed([{...base,...invalid}]).count,0);
+assert.equal(buildTunisiaPinterestFeed([]).count,0);
+console.log('Tunisia Pinterest checks passed: currency scaling, millimes, French CSV, variants, stock and invalid records');
