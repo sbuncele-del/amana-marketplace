@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {marketSitemap} from '../packages/storefront/market-sitemap.ts';
+const xml=marketSitemap('tunisia',['','shop'],[{slug:'mug-a',groupSlug:'mug'},{slug:'mug-b',groupSlug:'mug'},{slug:'hidden',active:false}]);
+assert.equal((xml.match(/<url>/g)||[]).length,9);
+assert.equal((xml.match(/<xhtml:link/g)||[]).length,27);
+assert(!xml.includes('mug-a'));assert(!xml.includes('hidden'));
+assert(xml.includes('https://plentovo.com/tunisia/fr/product/mug'));
+assert.equal((marketSitemap('algeria',['','shop','help','company-information','returns'],[]).match(/<url>/g)||[]).length,15);
+assert.equal((marketSitemap('tunisia',[''],Array.from({length:12000},(_,i)=>({slug:'product-'+i}))).match(/<url>/g)||[]).length,36003);
+assert(marketSitemap('tunisia',['help?x=1&y=2'],[]).includes('&amp;'));
+assert.throws(()=>marketSitemap('tunisia',[],Array.from({length:16667},(_,i)=>({slug:'p-'+i}))));
+console.log('Sitemap checks passed: locales, variants, inactive products, escaping, empty catalogue, 12k products and URL limit');
