@@ -5,6 +5,7 @@ const entries:Record<string,{en:string;fr:string;ar:string}>={};
 function collect(value:unknown){if(!value||typeof value!=='object')return;const v=value as Record<string,unknown>;if(typeof v.en==='string'&&typeof v.fr==='string'&&typeof v.ar==='string')entries[v.en]=v as {en:string;fr:string;ar:string};else Object.values(v).forEach(collect);}
 [copy,homeSlides,homeMissions,productRows,discoveryGroups,messages].forEach(collect);
 const extra:[string,string,string][]=[
+['Company information','Informations sur la société','معلومات الشركة'],['Customer support','Service client','خدمة العملاء'],
 ['View all','Tout voir','عرض الكل'],['Explore more','Découvrir davantage','اكتشف المزيد'],['Explore the collection','Explorer la collection','استكشف المجموعة'],
 ['Discover your everyday','Découvrez votre quotidien','اكتشف حياتك اليومية'],['Help with your shopping','Aide pour vos achats','مساعدة في التسوق'],
 ['More to explore','Encore plus à découvrir','المزيد لاكتشافه'],['Find a useful starting point for your next plan.','Trouvez un point de départ utile pour votre prochain projet.','اعثر على بداية مفيدة لخطتك القادمة.'],['Browse all products','Voir tous les produits','تصفح كل المنتجات'],
