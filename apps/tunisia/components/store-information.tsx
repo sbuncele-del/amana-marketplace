@@ -5,7 +5,7 @@ import type {Locale} from '@/lib/catalogue';
 import {copy} from '@/lib/storefront-copy';
 export function StoreInformation({locale,route}:{locale:Locale;route:string}){
  const fr=locale==='fr',ar=locale==='ar';
- if(route==='company-information')return <CompanyInformation locale={locale} country="Tunisia" returnsHref={`/${locale}/returns`} contactHref={`/${locale}/help#contact`}/>;
+ if(route==='company-information')return <CompanyInformation locale={locale} country="Tunisia" returnsHref={`/tunisia/${locale}/returns`} contactHref={`/tunisia/${locale}/help#contact`}/>;
  if(route==='returns')return <MarketReturns locale={locale} country="Tunisia"/>;
  const title=route==='privacy'?copy.footerLinks.privacy[locale]:route==='terms'?copy.footerLinks.terms[locale]:route==='cookies'?copy.footerLinks.cookies[locale]:copy.help[locale];
  return <section className="page information"><h1>{title}</h1>
