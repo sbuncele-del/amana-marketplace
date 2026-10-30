@@ -144,7 +144,7 @@ test('a verified payment moves the order to PAID once and only for the exact amo
   assert.equal(row.data.paymentVerified, true);
   assert.equal(row.data.awaitingPayment, false);
   assert.equal(row.data.paymentRef, '1089250');
-  assert.equal((await h.pg.query("SELECT count(*)::int AS n FROM experience_events WHERE type='PAYMENT_VERIFIED'")).rows[0].n, 1);
+  assert.equal(((await h.pg.query("SELECT count(*)::int AS n FROM experience_events WHERE type='PAYMENT_VERIFIED'")).rows[0] as {n: number}).n, 1);
 });
 test('orders that are not waiting on Payfast cannot be marked paid by a notification', async () => {
   const h = await harness();

@@ -5,7 +5,7 @@ Perfect Dealz: customer and delivery details, items, what was paid, margin, and 
 
 ## Status
 
-Built and tested; **not connected to anything yet**. Checkout and orders are still closed, and no payment provider is
+Built and tested. [payfast-checkout.md](payfast-checkout.md) connects it to Payfast payments (separate branch; off until enabled). Checkout and orders are still closed, and no payment provider is
 integrated, so nothing calls it. The future Payfast notification handler must verify the payment, set the order to
 `PAID` with `data.paymentVerified = true`, and then call `notifyPaidOrderLive(orderId)`
 (`src/lib/orders/notify-live.ts`). Until then the only entry point is the staff route below.
