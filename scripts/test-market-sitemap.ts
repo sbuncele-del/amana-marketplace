@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {marketSitemap} from '../packages/storefront/market-sitemap.ts';
+import {marketSitemap} from '../packages/storefront/market-sitemap';
 const xml=marketSitemap('tunisia',['','shop'],[{slug:'mug-a',groupSlug:'mug'},{slug:'mug-b',groupSlug:'mug'},{slug:'hidden',active:false}]);
 assert.equal((xml.match(/<url>/g)||[]).length,9);
 assert.equal((xml.match(/<xhtml:link/g)||[]).length,27);

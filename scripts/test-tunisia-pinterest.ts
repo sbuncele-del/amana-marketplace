@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {buildTunisiaPinterestFeed} from '../apps/tunisia/lib/pinterest-feed.ts';
+import {buildTunisiaPinterestFeed} from '../apps/tunisia/lib/pinterest-feed';
 const base={id:'one',slug:'mug',title:{fr:'Mug "bleu", été'},description:{fr:'<p>Une tasse\npratique</p>'},category:'kitchen dining',image:'https://example.com/mug.jpg',priceMillimes:20000,stock:3,active:true};
 const {csv,count}=buildTunisiaPinterestFeed([base,{...base,id:'two',active:false}]);
 assert.equal(count,1);assert(csv.includes('"20.000 TND"'));assert(csv.includes('"in stock"'));assert(csv.includes('Mug ""bleu"", été'));assert(csv.includes('Une tasse pratique'));assert(csv.includes('/tunisia/fr/product/mug'));assert(csv.includes('"638"'));assert(!csv.includes('supplierProductId'));

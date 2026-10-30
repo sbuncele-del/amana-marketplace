@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {canInviteShopping} from '../packages/storefront/shopping-invitation.ts';
+import {canInviteShopping} from '../packages/storefront/shopping-invitation';
 for(const [path,base] of [['/browse',''],['/product/mug',''],['/tunisia/fr/shop','/tunisia'],['/ar/shop','/tunisia'],['/tunisia/en','/tunisia']]){
  assert(canInviteShopping(path,base,45000,650,800),path);
  assert(!canInviteShopping(path,base,44000,650,800));
