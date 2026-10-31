@@ -3,6 +3,8 @@ import ProductRecommendations from './recommendations';
 // Served from the edge cache and refreshed at most every 5 minutes (the supplier feed itself refreshes every 5 minutes).
 // The page no longer reads the visitor's session, so one rendered copy serves everyone, including search engines.
 export const revalidate=300;
+// Nothing here depends on the visitor (market is fixed to ZA, no session), so render once and cache; unknown slugs render on first request.
+export const dynamic='force-static';
 import Reviews from './reviews';
 import {getProductReviews} from '@/lib/product-reviews';
 import type {Metadata} from 'next';
