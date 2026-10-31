@@ -5,6 +5,19 @@ import Store from '@/components/store';
 import {locales,type Locale} from '@/lib/catalogue';
 import {getStorefrontPreviewProducts} from '@/lib/storefront-preview';
 import {getLiveProducts} from '@/lib/shipper-catalogue';
+import {codConfig} from '@/lib/orders/config';
+import type {Metadata} from 'next';
+const origin='https://plentovo.com/tunisia';
+// Indexing stays off until TUNISIA_INDEXING=true. Even then, cart, checkout and tracking are never indexed.
+export async function generateMetadata({params}:{params:Promise<{locale:string;path?:string[]}>}):Promise<Metadata>{
+ const {locale,path=[]}=await params;
+ const route=path.join('/'),private_=['cart','checkout','track'].includes(route);
+ const suffix=route?'/'+route:'';
+ return {
+  ...(private_?{robots:{index:false,follow:false}}:{}),
+  alternates:{canonical:`${origin}/${locale}${suffix}`,languages:{en:`${origin}/en${suffix}`,fr:`${origin}/fr${suffix}`,ar:`${origin}/ar${suffix}`,'x-default':`${origin}/en${suffix}`}},
+ };
+}
 export default async function Page({params,searchParams}:{params:Promise<{locale:string;path?:string[]}>;searchParams:Promise<{q?:string;maxPrice?:string}>}){
  const {locale,path=[]}=await params;
  if(!locales.includes(locale as Locale))notFound();
@@ -24,5 +37,5 @@ export default async function Page({params,searchParams}:{params:Promise<{locale
   const {description,images,...summary}=product;
   return summary;
  });
- return <Store initialQuery={query} locale={locale as Locale} route={route} products={publicProducts} maxPrice={maxPrice}/>;
+ return <Store initialQuery={query} locale={locale as Locale} route={route} products={publicProducts} maxPrice={maxPrice} ordersOpen={codConfig(process.env)!==null}/>;
 }
