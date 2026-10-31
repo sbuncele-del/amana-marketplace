@@ -1,9 +1,11 @@
 'use client';
 import {useState} from 'react';
 import Link from 'next/link';
+import {useSession} from 'next-auth/react';
 import type {ProductReview} from '@/lib/product-reviews';
 type Reviews={reviews:ProductReview[];count:number;average:number|null;available:boolean};
-export default function Reviews({slug,initial,canModerate=false}:{slug:string;initial:Reviews;canModerate?:boolean}){
+export default function Reviews({slug,initial}:{slug:string;initial:Reviews}){
+ const {data:session}=useSession();const canModerate=session?.user?.role==='ADMIN';
  const [data,setData]=useState(initial);const [rating,setRating]=useState('');const [comment,setComment]=useState('');const [message,setMessage]=useState('');const [busy,setBusy]=useState(false);const [login,setLogin]=useState(false);
  async function submit(event:React.FormEvent<HTMLFormElement>){event.preventDefault();setBusy(true);setMessage('');setLogin(false);try{const res=await fetch(`/api/product-reviews/${encodeURIComponent(slug)}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({rating:Number(rating),comment})});const result=await res.json();if(!res.ok){setLogin(res.status===401);setMessage(result.error||'Please try again.');return;}setData(result);setComment('');setRating('');setMessage('Thank you for sharing your experience. Your review is now published.');}catch{setMessage('We could not save your review. Please try again.');}finally{setBusy(false);}}
  async function remove(id:string){if(!window.confirm('Remove this review as spam or abusive content? Honest negative feedback should remain.'))return;try{const res=await fetch(`/api/product-reviews/${encodeURIComponent(slug)}?id=${encodeURIComponent(id)}`,{method:'DELETE'});if(!res.ok)throw new Error();window.location.reload();}catch{setMessage('The review could not be removed. Please try again.');}}

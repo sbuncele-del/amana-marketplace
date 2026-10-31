@@ -3,7 +3,7 @@ import {cache} from 'react';
 import {cleanSupplierText,cleanImages} from './catalogue-quality';
 import {applyEditorial} from '@/lib/cms/editorial';
 import departments from '@/data/departments.json';
-import {liveCms} from '@/lib/cms/store';
+import {liveCms,liveCmsCached} from '@/lib/cms/store';
 import {catalogueSearch} from './catalogue-search';
 import {catalogueMarket} from './commerce/selection';
 import {unstable_cache} from 'next/cache';
@@ -29,8 +29,8 @@ const baseCatalogue=JSON.parse(gunzipSync(Buffer.from([packed0,packed1,packed2,p
 const kids=JSON.parse(gunzipSync(Buffer.from([kidsPacked0,kidsPacked1,kidsPacked2,kidsPacked3].join(''),'base64')).toString('utf8')) as typeof snapshot;
 const catalogue=[...new Map([...baseCatalogue,...safety,...kids,...additional,...supplierRefresh].filter(p=>isRetailProduct(p.name)).map(p=>[p.slug,p])).values()] as typeof snapshot;
 export function getSupplierSnapshot(){return catalogue;}
-export const getCatalogueSnapshot=cache(async():Promise<CatalogueProduct[]>=>{
- const {products}=await liveCms();
+const buildSnapshot=async(cms:typeof liveCms):Promise<CatalogueProduct[]>=>{
+ const {products}=await cms();
  return applyEditorial<CatalogueProduct>(catalogue,products,p=>({
   id:p.slug,slug:p.slug,name:p.name,description:p.description,details:p.details,images:p.images,
   category:{slug:p.category,name:departments.find(d=>d.slug===p.category)?.name||p.category},collections:p.collections,
@@ -38,7 +38,10 @@ export const getCatalogueSnapshot=cache(async():Promise<CatalogueProduct[]>=>{
   colours:p.variants.map(v=>v.title),specifications:[],supplierAvailable:p.variants.some(v=>v.stock>0),
   variants:p.variants.map(v=>({...v,supplierAvailable:v.stock>0,managedStock:v.stock})),
  })).map(p=>({...p,name:cleanSupplierText(p.name),description:cleanSupplierText(p.description),details:cleanSupplierText(p.details||''),images:cleanImages(p.images),category:{slug:p.category.slug,name:departments.find(d=>d.slug===p.category.slug)?.name||p.category.name}}));
-});
+};
+export const getCatalogueSnapshot=cache(()=>buildSnapshot(liveCms));
+// For pages that may be cached for a few minutes (product pages, sitemaps); see liveCmsCached.
+export const getCatalogueSnapshotCached=cache(()=>buildSnapshot(liveCmsCached));
 type SnapshotProduct=(typeof catalogue)[number];
 export type CatalogueProduct=Omit<SnapshotProduct,'variants'>&{variants:(SnapshotProduct['variants'][number]&{image?:string;weightGrams?:number;managedStock?:number})[]};
 type SupplierProduct = {handle:string;variants:{id:number;title:string;price:string;available:boolean;weight?:number;image?:string;featured_image?:{src?:string}}[]};
@@ -48,7 +51,9 @@ function retail(cost:number,slug:string) {
  return Math.ceil((target-9)/10)*10+9;
 }
 async function readSource(path:string,fresh=false,timeoutMs=15000) {
- const response=await fetch(source+path,{...(fresh?{cache:'no-store' as const}:{next:{revalidate:300}}),signal:AbortSignal.timeout(timeoutMs)});
+ // A cached fetch must not carry an AbortSignal (Next skips the data cache and renders the page dynamically), so the timeout is a race.
+ const request=fresh?fetch(source+path,{cache:'no-store',signal:AbortSignal.timeout(timeoutMs)}):Promise.race([fetch(source+path,{next:{revalidate:300}}),new Promise<never>((_,reject)=>setTimeout(()=>reject(new Error('Catalogue source timed out')),timeoutMs).unref?.())]);
+ const response=await request;
  if(!response.ok)throw new Error(`Catalogue source unavailable (${response.status})`);
  return response.json();
 }
@@ -76,9 +81,9 @@ async function collectionSourceRaw(collection:string) {
  throw new Error('Catalogue pagination limit exceeded');
 }
 const collectionSource=unstable_cache(collectionSourceRaw,['perfect-dealz-live-v1'],{revalidate:300});
-export async function getCatalogueProduct(slug:string,fresh=false,strictRefresh=false,market?:string,timeoutMs=(fresh||strictRefresh?15000:5000)) {
+export async function getCatalogueProduct(slug:string,fresh=false,strictRefresh=false,market?:string,timeoutMs=(fresh||strictRefresh?15000:5000),cacheable=false) {
  if(market ? market!=='ZA' : !(await catalogueMarket()))return null;
- const product=(await getCatalogueSnapshot()).find(p=>p.slug===slug);if(!product)return null;
+ const product=(await (cacheable?getCatalogueSnapshotCached:getCatalogueSnapshot)()).find(p=>p.slug===slug);if(!product)return null;
  if(product.variants.some(v=>v.managedStock!==undefined))return product;
  try {const data=await readSource(`/products/${encodeURIComponent(slug)}.js`,fresh,timeoutMs);return update(product,{handle:slug,variants:data.variants.map((v:SupplierProduct['variants'][number])=>({...v,price:String(Number(v.price)/100),image:v.featured_image?.src}))});}
  catch(error) {if(strictRefresh)throw error;return update(product);}
