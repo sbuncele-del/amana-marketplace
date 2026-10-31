@@ -1,6 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { connection } from "next/server";
+import { unstable_cache } from "next/cache";
 import {
   saveCmsWithClient,
   releaseCmsWithClient,
@@ -26,8 +27,7 @@ export async function ensureCms() {
     throw e;
   }));
 }
-export const liveCms = cache(async () => {
-  await connection();
+async function readLiveCms() {
   if (!process.env.DATABASE_URL)
     return { products: [] as CmsProduct[], store: defaultStore };
   await ensureCms();
@@ -44,7 +44,17 @@ export const liveCms = cache(async () => {
         )
       : defaultStore,
   };
+}
+// Read fresh on every request. Using this opts the page out of caching.
+export const liveCms = cache(async () => {
+  await connection();
+  return readLiveCms();
 });
+// Same data, reused for up to 5 minutes. Pages that read it can be cached (product pages, sitemaps). Publishing or a
+// scheduled release can therefore take up to 5 minutes to show on those pages.
+export const liveCmsCached = cache(
+  unstable_cache(readLiveCms, ["cms-live-v1"], { revalidate: 300 }),
+);
 export async function cmsDocument(kind: CmsKind, key: string) {
   await ensureCms();
   return (

@@ -1,4 +1,4 @@
-import {getCatalogueSnapshot} from '@/lib/catalogue';
+import {getCatalogueSnapshotCached} from '@/lib/catalogue';
 import {pagesXml, parseFile, productsXml} from '@/lib/sitemaps';
 import {shoppingMissions} from '@/lib/shopping-missions';
 import departments from '@/data/departments.json';
@@ -10,7 +10,7 @@ const headers = {'Content-Type': 'application/xml; charset=utf-8', 'Cache-Contro
 export async function GET(_request: Request, {params}: {params: Promise<{file: string}>}) {
   const file = parseFile((await params).file);
   if (!file) return new Response('Not found', {status: 404});
-  const products = await getCatalogueSnapshot();
+  const products = await getCatalogueSnapshotCached();
   if (!products.length) return new Response('Catalogue temporarily unavailable', {status: 503, headers: {'Retry-After': '300', 'Cache-Control': 'no-store'}});
   if (file.kind === 'pages') {
     const directory = Array.from({length: Math.ceil(products.length / 100)}, (_, i) => `${siteUrl}/sitemap-page/products${i ? `?page=${i + 1}` : ''}`);
