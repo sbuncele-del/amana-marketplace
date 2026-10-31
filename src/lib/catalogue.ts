@@ -51,7 +51,9 @@ function retail(cost:number,slug:string) {
  return Math.ceil((target-9)/10)*10+9;
 }
 async function readSource(path:string,fresh=false,timeoutMs=15000) {
- const response=await fetch(source+path,{...(fresh?{cache:'no-store' as const}:{next:{revalidate:300}}),signal:AbortSignal.timeout(timeoutMs)});
+ // A cached fetch must not carry an AbortSignal (Next skips the data cache and renders the page dynamically), so the timeout is a race.
+ const request=fresh?fetch(source+path,{cache:'no-store',signal:AbortSignal.timeout(timeoutMs)}):Promise.race([fetch(source+path,{next:{revalidate:300}}),new Promise<never>((_,reject)=>setTimeout(()=>reject(new Error('Catalogue source timed out')),timeoutMs).unref?.())]);
+ const response=await request;
  if(!response.ok)throw new Error(`Catalogue source unavailable (${response.status})`);
  return response.json();
 }
