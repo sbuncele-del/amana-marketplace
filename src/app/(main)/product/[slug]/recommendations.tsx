@@ -1,4 +1,4 @@
-import {getCatalogueProduct,getCatalogueSnapshot,type CatalogueProduct} from '@/lib/catalogue';
+import {getCatalogueProduct,getCatalogueSnapshotCached,type CatalogueProduct} from '@/lib/catalogue';
 import {rankRecommendations} from '@/lib/product-recommendations';
 import {CatalogueCard,type CatalogueCardData} from '@/components/shop/catalogue-card';
 
@@ -6,7 +6,7 @@ async function availableCards(candidates:CatalogueProduct[],excluded:Set<string>
  const cards:CatalogueCardData[]=[];
  // Bounded parallel checks; stale snapshot stock is never used to exclude candidates.
  for(let start=0;start<20&&start<candidates.length&&cards.length<5;start+=10){
-  const current=await Promise.all(candidates.slice(start,start+10).map(p=>getCatalogueProduct(p.slug,false,false,'ZA')));
+  const current=await Promise.all(candidates.slice(start,start+10).map(p=>getCatalogueProduct(p.slug,false,false,'ZA',undefined,true)));
   for(const p of current){
    if(!p||excluded.has(p.slug))continue;
    const variant=p.variants.filter(v=>v.supplierAvailable&&v.price>0).sort((a,b)=>a.price-b.price)[0];
@@ -18,7 +18,7 @@ async function availableCards(candidates:CatalogueProduct[],excluded:Set<string>
  return cards;
 }
 export default async function ProductRecommendations({product}:{product:CatalogueProduct}){
- const ranked=rankRecommendations(product,(await getCatalogueSnapshot()));
+ const ranked=rankRecommendations(product,(await getCatalogueSnapshotCached()));
  const excluded=new Set([product.slug]);
  const similar=await availableCards(ranked.similar,excluded);
  const complements=await availableCards(ranked.complements,excluded);
