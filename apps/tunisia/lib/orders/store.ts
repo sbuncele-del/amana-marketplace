@@ -19,7 +19,7 @@ export async function saveOrder(db: Queryable, o: CodOrder, hourlyLimit = 3): Pr
   const recent = Number((await db.query("SELECT count(*)::int AS n FROM public.plentovo_tn_orders WHERE customer->>'phone'=$1 AND created_at>now()-interval '1 hour'", [o.phone])).rows[0].n);
   if (recent >= hourlyLimit) return {status: 'rate_limited'};
   const reference = `TN-${randomBytes(4).toString('hex').toUpperCase()}`;
-  const customer = {name: o.name, phone: o.phone, governorate: o.governorate, delegation: o.delegation, address: o.address, notes: o.notes};
+  const customer = {name: o.name, phone: o.phone, governorate: o.governorate, delegation: o.delegation, address: o.address, notes: o.notes, email: o.email};
   const r = await db.query(
     'INSERT INTO public.plentovo_tn_orders(id,reference,request_key,locale,customer,items,subtotal_millimes) VALUES($1,$2,$3,$4,$5,$6,$7) ON CONFLICT(request_key) DO NOTHING RETURNING reference',
     [randomUUID(), reference, o.requestKey, o.locale, JSON.stringify(customer), JSON.stringify(o.items), o.subtotalMillimes]);

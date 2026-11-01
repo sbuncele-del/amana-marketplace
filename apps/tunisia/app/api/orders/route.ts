@@ -1,6 +1,6 @@
 import {Pool} from 'pg';
 import {codConfig} from '@/lib/orders/config';
-import {checkCodOrder, codAlert} from '@/lib/orders/cod';
+import {checkCodOrder, codAlert, codConfirmation} from '@/lib/orders/cod';
 import {markAlerted, ordersSchema, saveOrder} from '@/lib/orders/store';
 import {getLiveProducts} from '@/lib/shipper-catalogue';
 
@@ -37,6 +37,15 @@ export async function POST(request: Request) {
       // The order is safely stored; asking the customer to retry re-sends the alert without creating a second order.
       if (!r.ok) { console.error('[tn-orders] alert email failed', r.status); return reply(503, {code: 'TEMPORARY'}); }
       await markAlerted(pool, saved.reference);
+      // Best effort: the order is already saved and staff alerted, so a failed customer copy must never fail the order.
+      if (checked.order.email) {
+        const copy = codConfirmation(saved.reference, checked.order);
+        await fetch('https://api.resend.com/emails', {
+          method: 'POST', signal: AbortSignal.timeout(10000),
+          headers: {Authorization: `Bearer ${cfg.resendKey}`, 'Content-Type': 'application/json', 'Idempotency-Key': `tn-confirm-${saved.reference}`},
+          body: JSON.stringify({from: cfg.from, to: [checked.order.email], reply_to: cfg.to[0], subject: copy.subject, html: copy.html, tags: [{name: 'type', value: 'tn-cod-confirmation'}]}),
+        }).then(r => { if (!r.ok) console.error('[tn-orders] confirmation email failed', r.status); }).catch(e => console.error('[tn-orders] confirmation email error', e instanceof Error ? e.message : e));
+      }
     }
     return reply(201, {reference: saved.reference, totalMillimes: checked.order.subtotalMillimes});
   } catch (e) {
