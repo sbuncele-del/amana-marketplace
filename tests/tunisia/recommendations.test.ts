@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {test} from 'node:test';
-import {recommend} from '../../apps/tunisia/lib/recommendations';
+import {recommend, seeMoreLabel} from '../../apps/tunisia/lib/recommendations';
 import type {ProductGroup} from '../../apps/tunisia/lib/product-groups';
 
 const g = (id: string, en: string, price: number, stock = 3, image = 'x.jpg'): ProductGroup => ({id, slug: id, title: {en, fr: en, ar: en}, image, category: 'general', variants: [], priceMillimes: price, stock});
@@ -18,3 +18,8 @@ test('similar names and prices rank first, and the order is stable', () => {
   assert.deepEqual(recommend(viewed, all).map(x => x.id), ids);
 });
 test('respects the limit', () => assert.equal(recommend(viewed, all, 1).length, 1));
+test('the see-more link is worded in each language', () => {
+  assert.equal(seeMoreLabel('en', 'Electronics'), 'See more in Electronics');
+  assert.equal(seeMoreLabel('fr', 'Électronique'), 'Voir plus dans Électronique');
+  assert.match(seeMoreLabel('ar', 'إلكترونيات'), /^المزيد في /);
+});
