@@ -11,7 +11,7 @@ const origin='https://plentovo.com/tunisia';
 // Indexing stays off until TUNISIA_INDEXING=true. Even then, cart, checkout and tracking are never indexed.
 export async function generateMetadata({params}:{params:Promise<{locale:string;path?:string[]}>}):Promise<Metadata>{
  const {locale,path=[]}=await params;
- const route=path.join('/'),private_=['cart','checkout','track'].includes(route);
+ const route=path.join('/'),private_=['cart','checkout','track','account'].includes(route);
  const suffix=route?'/'+route:'';
  return {
   ...(private_?{robots:{index:false,follow:false}}:{}),
@@ -26,7 +26,7 @@ export default async function Page({params,searchParams}:{params:Promise<{locale
  const products=informationOnly?[]:previewOnly?await getStorefrontPreviewProducts():await getLiveProducts();
  if(!previewOnly&&products.length)after(()=>publishCareRetailIndex(products));
  const route=path.join('/');
- if(!['','shop','cart','checkout','track','help','collections','privacy','terms','cookies','company-information','returns'].includes(route)&&!(path[0]==='product'&&path.length===2&&products.some(p=>p.slug===path[1]||p.groupSlug===path[1])))notFound();
+ if(!['','shop','cart','checkout','track','account','help','collections','privacy','terms','cookies','company-information','returns'].includes(route)&&!(path[0]==='product'&&path.length===2&&products.some(p=>p.slug===path[1]||p.groupSlug===path[1])))notFound();
  const search=await searchParams;
  const query=search.q||'';
  const maxPrice=Number(search.maxPrice)>0?Number(search.maxPrice):0;
