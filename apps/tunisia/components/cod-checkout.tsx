@@ -18,7 +18,7 @@ export function CodCheckout({locale, t, cart, total, unresolved, onPlaced, shopH
     e.preventDefault(); setBusy(true); setError(''); setField('');
     const f = new FormData(e.currentTarget), get = (n: string) => String(f.get(n) ?? '');
     try {
-      const r = await fetch('/tunisia/api/orders', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({requestKey: key.current, locale, name: get('name'), phone: get('phone'), governorate: get('governorate'), delegation: get('delegation'), address: get('address'), notes: get('notes'), website: get('website'), lines: cart})});
+      const r = await fetch('/tunisia/api/orders', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({requestKey: key.current, locale, name: get('name'), phone: get('phone'), governorate: get('governorate'), delegation: get('delegation'), address: get('address'), notes: get('notes'), email: get('email'), website: get('website'), lines: cart})});
       const d = await r.json().catch(() => ({}));
       if (r.status === 201) { onPlaced(); setDone(d.reference); return; }
       setField(d.field ?? '');
@@ -33,6 +33,7 @@ export function CodCheckout({locale, t, cart, total, unresolved, onPlaced, shopH
       <label>{t.phone}<input required type="tel" dir="ltr" inputMode="tel" autoComplete="tel" name="phone" placeholder="98 123 456" {...mark('phone')}/><small>{c.phoneHelp}</small></label>
       <div className="field-pair"><label>{t.governorate}<select required name="governorate" defaultValue="" {...mark('governorate')}><option value="" disabled>{c.choose}</option>{governorates.map(g => <option key={g}>{g}</option>)}</select></label>
       <label>{t.delegation}<input required minLength={2} maxLength={80} name="delegation" {...mark('delegation')}/></label></div>
+      <label>{c.email}<input type="email" dir="ltr" inputMode="email" autoComplete="email" maxLength={120} name="email" {...mark('email')}/><small>{c.emailHelp}</small></label>
       <label>{t.address}<textarea required minLength={5} maxLength={300} autoComplete="street-address" name="address" {...mark('address')}/></label>
       <label>{t.notes}<textarea maxLength={300} name="notes"/></label>
       <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{position: 'absolute', left: '-9999px', height: 0, width: 0, opacity: 0}}/>
