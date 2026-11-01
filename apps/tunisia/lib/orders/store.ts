@@ -9,7 +9,9 @@ export const ordersSchema = `CREATE TABLE IF NOT EXISTS public.plentovo_tn_order
  id text PRIMARY KEY, reference text NOT NULL UNIQUE, request_key text NOT NULL UNIQUE, status text NOT NULL DEFAULT 'PENDING_CONFIRMATION',
  locale text NOT NULL, customer jsonb NOT NULL, items jsonb NOT NULL, subtotal_millimes integer NOT NULL CHECK(subtotal_millimes>0),
  alerted_at timestamptz, created_at timestamptz NOT NULL DEFAULT now());
-CREATE INDEX IF NOT EXISTS plentovo_tn_orders_phone ON public.plentovo_tn_orders ((customer->>'phone'), created_at DESC);`;
+CREATE INDEX IF NOT EXISTS plentovo_tn_orders_phone ON public.plentovo_tn_orders ((customer->>'phone'), created_at DESC);
+ALTER TABLE public.plentovo_tn_orders ADD COLUMN IF NOT EXISTS shipper_order_id text, ADD COLUMN IF NOT EXISTS shipper_status text, ADD COLUMN IF NOT EXISTS shipper_claimed_at timestamptz, ADD COLUMN IF NOT EXISTS shipper_error text, ADD COLUMN IF NOT EXISTS shipper_updated_at timestamptz;
+CREATE INDEX IF NOT EXISTS plentovo_tn_orders_shipper ON public.plentovo_tn_orders (shipper_order_id);`;
 
 export type Saved = {status: 'created' | 'existing'; reference: string; alerted: boolean} | {status: 'rate_limited'};
 
