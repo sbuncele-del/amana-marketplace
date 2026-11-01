@@ -1,6 +1,7 @@
 import {Pool} from 'pg';
 import {codConfig} from '@/lib/orders/config';
 import {checkCodOrder, codAlert, codConfirmation} from '@/lib/orders/cod';
+import {shipperConfig, submitToShipper} from '@/lib/orders/shipper-orders';
 import {markAlerted, ordersSchema, saveOrder} from '@/lib/orders/store';
 import {getLiveProducts} from '@/lib/shipper-catalogue';
 
@@ -45,6 +46,19 @@ export async function POST(request: Request) {
           headers: {Authorization: `Bearer ${cfg.resendKey}`, 'Content-Type': 'application/json', 'Idempotency-Key': `tn-confirm-${saved.reference}`},
           body: JSON.stringify({from: cfg.from, to: [checked.order.email], reply_to: cfg.to[0], subject: copy.subject, html: copy.html, tags: [{name: 'type', value: 'tn-cod-confirmation'}]}),
         }).then(r => { if (!r.ok) console.error('[tn-orders] confirmation email failed', r.status); }).catch(e => console.error('[tn-orders] confirmation email error', e instanceof Error ? e.message : e));
+      }
+    }
+    // Optional hand-off to Shipper (off unless TUNISIA_SHIPPER_SUBMIT=true). Never fails the order; a problem alerts staff to place it by hand.
+    const shipper = shipperConfig(process.env);
+    if (shipper) {
+      const sent = await submitToShipper(pool, shipper, saved.reference, checked.order).catch(e => ({status: 'unknown' as const, detail: e instanceof Error ? e.message : 'error'}));
+      if (sent.status === 'rejected' || sent.status === 'unknown') {
+        console.error('[tn-shipper] not sent', saved.reference, sent.detail);
+        await fetch('https://api.resend.com/emails', {
+          method: 'POST', signal: AbortSignal.timeout(10000),
+          headers: {Authorization: `Bearer ${cfg.resendKey}`, 'Content-Type': 'application/json', 'Idempotency-Key': `tn-shipper-fail-${saved.reference}`},
+          body: JSON.stringify({from: cfg.from, to: cfg.to, subject: `Check Shipper: order ${saved.reference} may not be there`, html: `<p>Order <strong>${saved.reference}</strong> was saved but the hand-off to Shipper did not complete.</p><p>${sent.detail.replace(/[<>&]/g, ' ')}</p><p>Look for it in Shipper (search by the customer's phone) before placing it by hand, so it is not entered twice.</p>`}),
+        }).catch(() => undefined);
       }
     }
     return reply(201, {reference: saved.reference, totalMillimes: checked.order.subtotalMillimes});
