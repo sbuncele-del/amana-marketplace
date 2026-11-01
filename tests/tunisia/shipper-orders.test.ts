@@ -8,7 +8,7 @@ import {applyShipperEvent, buildShipperOrder, parseShipperEvent, shipperConfig, 
 
 const products: PricedProduct[] = [{id: 'uuid-1', title: {en: 'Air fryer', fr: 'Friteuse', ar: 'قلاية'}, priceMillimes: 249000, stock: 5, active: true}];
 const input = {requestKey: 'a'.repeat(20), locale: 'fr', name: 'Amine Ben Salah', phone: '+216 98 123 456', governorate: 'Tunis', delegation: 'La Marsa', address: '12 Rue de la Paix', notes: '', lines: [{id: 'uuid-1', quantity: 2}]};
-const cfg = {apiKey: 'k', storeName: 'Plentovo Tunisia', confirm: true, shippingTnd: 9};
+const cfg = {apiKey: 'k', storeName: 'Plentovo Tunisia', confirm: true, autoFulfill: true, shippingTnd: 9};
 async function setup() {
   const pg = new PGlite(); const db: Queryable = {query: (sql, params) => pg.query(sql, params as never[]) as never};
   await pg.exec(ordersSchema);
@@ -23,13 +23,15 @@ test('submitting is off unless switched on with a key', () => {
   assert.equal(shipperConfig({}), null);
   assert.equal(shipperConfig({TUNISIA_SHIPPER_SUBMIT: 'true'}), null);
   assert.equal(shipperConfig({TUNISIA_SHIPPER_SUBMIT: 'yes', SHIPPER_NETWORK_API_KEY: 'k'}), null);
-  assert.deepEqual(shipperConfig({TUNISIA_SHIPPER_SUBMIT: 'true', TUNISIA_SHIPPER_API_KEY: 'k', TUNISIA_SHIPPING_FEE_TND: '9'}), {apiKey: 'k', storeName: 'Plentovo Tunisia', confirm: true, shippingTnd: 9});
+  assert.deepEqual(shipperConfig({TUNISIA_SHIPPER_SUBMIT: 'true', TUNISIA_SHIPPER_API_KEY: 'k', TUNISIA_SHIPPING_FEE_TND: '9'}), {apiKey: 'k', storeName: 'Plentovo Tunisia', confirm: true, autoFulfill: true, shippingTnd: 9});
   assert.equal(shipperConfig({TUNISIA_SHIPPER_SUBMIT: 'true', SHIPPER_NETWORK_API_KEY: 'k', TUNISIA_SHIPPING_FEE_TND: '-1'}), null);
+  // If our own staff do the confirming, nothing may be fulfilled automatically.
+  assert.deepEqual([shipperConfig({TUNISIA_SHIPPER_SUBMIT: 'true', SHIPPER_NETWORK_API_KEY: 'k', TUNISIA_SHIPPER_CONFIRMATION: 'false'})?.confirm, shipperConfig({TUNISIA_SHIPPER_SUBMIT: 'true', SHIPPER_NETWORK_API_KEY: 'k', TUNISIA_SHIPPER_CONFIRMATION: 'false'})?.autoFulfill], [false, false]);
 });
-test('the Shipper order is cash on delivery, a draft, with local phone and line totals in TND', async () => {
+test('the Shipper order is cash on delivery, confirmed by Shipper then fulfilled, with local phone and line totals in TND', async () => {
   const {order, reference} = await setup();
   const p = buildShipperOrder(reference, order, cfg);
-  assert.equal(p.is_cod, true); assert.equal(p.auto_fulfill, false); assert.equal(p.with_confirmation, true);
+  assert.equal(p.is_cod, true); assert.equal(p.auto_fulfill, true); assert.equal(p.with_confirmation, true);
   assert.equal(p.address.phone1, '98123456'); assert.equal(p.address.division_1, 'Tunis'); assert.equal(p.address.address2, 'La Marsa'); assert.equal(p.address.country, 'TN');
   assert.deepEqual(p.items, [{id: 'uuid-1', quantity: 2, total_price: 498}]);
   assert.equal(p.external_order_id, reference); assert.equal(p.shipping_total, 9);

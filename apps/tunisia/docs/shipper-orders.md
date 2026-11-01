@@ -1,21 +1,22 @@
 # Shipper order hand-off (Tunisia)
 
 Off by default. When `TUNISIA_SHIPPER_SUBMIT=true` (and a Shipper API key is set), each new cash-on-delivery order is sent
-to Shipper right after it is saved, as a **draft** (`auto_fulfill: false`) marked cash on delivery, with
-`with_confirmation: true` so Shipper phones the customer before anything ships. Shipper's id and later statuses are stored
+to Shipper right after it is saved, marked cash on delivery with `with_confirmation: true`, so Shipper phones the customer,
+confirms, and then fulfils it (`auto_fulfill: true`; set `TUNISIA_SHIPPER_AUTOFULFILL=false` to keep drafts instead). Shipper's id and later statuses are stored
 on the order row (`shipper_order_id`, `shipper_status`, `shipper_error`).
 
 ## Before switching it on (not verified)
 
-1. **Fees and money.** Ask Shipper for the delivery fee per governorate, who collects the cash, when it is paid to us,
-   and what happens on refused or returned parcels. Put the customer delivery fee in `TUNISIA_SHIPPING_FEE_TND`.
-2. **Who confirms.** With the default, Shipper calls the customer. Our customer email and the staff alert say we call;
-   align the wording or set `TUNISIA_SHIPPER_CONFIRMATION=false`.
+1. **Fees and money.** Per the account owner, Shipper handles delivery fees and cash collection. Leave
+   `TUNISIA_SHIPPING_FEE_TND=0` unless Shipper wants a fee charged on the order.
+2. **Who confirms.** Shipper phones the customer and fulfils. The staff alert still says to call; treat it as a heads-up.
+   Setting `TUNISIA_SHIPPER_CONFIRMATION=false` (our staff confirm) also turns auto-fulfil off.
 3. **Product ids.** Orders use our product `id` as Shipper's product/variant UUID. Confirm with one test order that the
    products you list resolve.
 4. **Governorate names.** Sent as written in our list (e.g. "Béja", "Le Kef") and must match
    `GET /countries/TN/divisions`. The delegation goes in the address line, not `division_2`. Check with the test order.
-5. **Test with one order** in Shipper's dashboard before real customers: check address, phone, items, COD amount, draft.
+5. **Test with one order** in Shipper's dashboard before real customers: check address, phone, items, COD amount, and that
+   it shows as awaiting confirmation. The key is known to work for reading products; creating orders is untested.
 
 ## Turn it on
 

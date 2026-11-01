@@ -1,18 +1,20 @@
-// Sends a saved Tunisia cash-on-delivery order to Shipper and records where it is. Off unless TUNISIA_SHIPPER_SUBMIT=true.
+// Sends a saved Tunisia cash-on-delivery order to Shipper (which phones the customer, then fulfils) and records where it is. Off unless TUNISIA_SHIPPER_SUBMIT=true.
 // Shipper's API has no idempotency key, so a submission is claimed in the database first and is never retried blindly:
 // a timeout or server error could mean Shipper already has the order, so that case is flagged for a person to check.
 import {createHmac, timingSafeEqual} from 'node:crypto';
 import type {CodOrder} from './cod';
 import type {Queryable} from './store';
 
-export type ShipperConfig = {apiKey: string; storeName: string; confirm: boolean; shippingTnd: number};
+export type ShipperConfig = {apiKey: string; storeName: string; confirm: boolean; autoFulfill: boolean; shippingTnd: number};
 
 export function shipperConfig(env: Record<string, string | undefined>): ShipperConfig | null {
   if (env.TUNISIA_SHIPPER_SUBMIT !== 'true') return null;
   const apiKey = env.SHIPPER_NETWORK_API_KEY || env.TUNISIA_SHIPPER_API_KEY || '';
   const shipping = Number(env.TUNISIA_SHIPPING_FEE_TND ?? 0);
   if (!apiKey || !Number.isFinite(shipping) || shipping < 0) return null;
-  return {apiKey, storeName: env.TUNISIA_SHIPPER_STORE_NAME || 'Plentovo Tunisia', confirm: env.TUNISIA_SHIPPER_CONFIRMATION !== 'false', shippingTnd: shipping};
+  const confirm = env.TUNISIA_SHIPPER_CONFIRMATION !== 'false';
+  // Shipper phones the customer, then fulfils. Never fulfil automatically unless Shipper does that confirming call.
+  return {apiKey, storeName: env.TUNISIA_SHIPPER_STORE_NAME || 'Plentovo Tunisia', confirm, autoFulfill: confirm && env.TUNISIA_SHIPPER_AUTOFULFILL !== 'false', shippingTnd: shipping};
 }
 
 // Shipper wants division names exactly as in GET /countries/TN/divisions. Governorate comes from our fixed list; the
@@ -23,7 +25,7 @@ export function buildShipperOrder(reference: string, o: CodOrder, cfg: ShipperCo
     items: o.items.map(i => ({id: i.id, quantity: i.quantity, total_price: (i.unitMillimes * i.quantity) / 1000})),
     shipping_total: cfg.shippingTnd,
     is_cod: true,
-    auto_fulfill: false,
+    auto_fulfill: cfg.autoFulfill,
     with_confirmation: cfg.confirm,
     store_name: cfg.storeName,
     external_order_id: reference,
