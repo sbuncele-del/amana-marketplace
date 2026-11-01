@@ -3,6 +3,8 @@ export type ChatProduct={image?:string;name:string;href:string;price:number;hasO
 type Message={role:'user'|'assistant';content:string};
 const stop=new Set('a an the i im am my me you your we our is are was were be been to for of in on at with and or it this that these those please can could would will want need looking find help buy get show some something one ones other another any have has do does how what which much under below less than budget rand zar r name called hello hi hey thanks thank mum mom dad mother father daughter son wife husband partner friend birthday present gift delivery shipping order return refund about also only from not more than up practical useful nice good great best affordable cheap reliable durable simple recommendation recommend options option choose choosing suitable need needs use everyday'.split(' '));
 // Words customers use for things the catalogue names differently. Phrases are tested against product names only.
+// Descriptors that can end a request ("a kettle in black") without being the thing asked for.
+const qualifiers=new Set('black white red blue green pink grey gray silver gold brown purple yellow orange beige turquoise navy teal cream rose maroon burgundy khaki clear small medium large big mini set pack kit pcs piece pieces electric digital manual portable'.split(' '));
 const concepts:{ask:RegExp;names:RegExp}[]=[
  {ask:/\b(bedding|linen|bedlinen|bed linen|sheets?)\b/,names:/\b(pillow|pillowcase|duvet|comforter|quilt|blanket|mattress|bed ?sheet|sheet set|fitted sheet|bed ?linen)/i},
  {ask:/\b(cookware|pots?|pans?)\b/,names:/\b(pan|pot|skillet|wok|saucepan|casserole|cookware)\b/i},
@@ -23,7 +25,14 @@ export async function catalogueContext(messages:Message[],pathname?:string){
  const kettleWanted=/\bkettles?\b/.test(query);
  const partsWanted=/\b(part|parts|replacement|element|cord|plug|repair|accessor)/.test(query);
  const coldKettleWanted=/cold.water|sports|stovetop|camping/.test(query);
- const ranked=(await getCatalogueSnapshot()).filter(p=>{
+ const snapshot=await getCatalogueSnapshot();
+ // The last word of the latest message is the thing being asked for ("leather sofa"). If nothing is named that, say so instead of matching the adjective.
+ const latestWords=(latest.toLowerCase().replace(/airfryers?/g,'air fryer').match(/[a-z][a-z0-9-]+/g)||[]).filter(w=>w.length>2&&!stop.has(w)&&!/^r?\d/.test(w)).map(w=>w.length>4&&!w.endsWith('ss')?w.replace(/s$/,''):w);
+ const head=latestWords.at(-1);
+ const headNeeded=!!head&&latestWords.length>=2&&!qualifiers.has(head)&&!concepts.some(c=>c.ask.test(head));
+ const headRe=head?new RegExp('\\b'+head+'s?\\b','i'):null;
+ const headUnknown=!!head&&latestWords.length>=2&&!qualifiers.has(head)&&!concepts.some(c=>c.ask.test(head))&&!snapshot.some(p=>new RegExp('\\b'+head+'s?\\b','i').test(p.name));
+ const ranked=headUnknown?[]:snapshot.filter(p=>{
   if(kettleWanted&&!/\bkettles?\b/i.test(p.name))return false;
   if(kettleWanted&&!partsWanted&&/element|cord|plug|heater|replacement/i.test(p.name))return false;
   if(kettleWanted&&!coldKettleWanted&&/cold.water|sports.kettle|kettlebell/i.test(p.name))return false;
@@ -34,7 +43,7 @@ export async function catalogueContext(messages:Message[],pathname?:string){
   const accessory=(!storageAsked&&/\b(vacuum|storage)\b/.test(name)?3:0)+(wanted.length&&!/travel|neck/.test(query)&&/\b(travel|neck)\b/.test(name)?3:0);
   const extra=(hit||synonym)?words.reduce((sum,w)=>sum+(p.category.name.toLowerCase().includes(w)?1:0)+(new RegExp('\\b'+w+'s?\\b').test((p.description||'').toLowerCase())?1:0),0):0;
   return {p,score:hit+synonym-accessory+Math.min(extra,2),named:hit+synonym};})
-  .filter(({p,score,named})=>named>0&&score>=2&&(!budget||p.price<=budget))
+  .filter(({p,score,named})=>named>0&&score>=2&&(!headNeeded||headRe!.test(p.name))&&(!budget||p.price<=budget))
   .sort((a,b)=>b.score-a.score||a.p.price-b.p.price).slice(0,5).map(({p})=>p.slug);
  const slugs=[...new Set([...(currentSlug?[currentSlug]:[]),...ranked])].slice(0,5);
  const checked=await Promise.all(slugs.map(slug=>getCatalogueProduct(slug)));
