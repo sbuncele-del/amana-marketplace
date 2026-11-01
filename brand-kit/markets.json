@@ -1,0 +1,44 @@
+{
+  "company": {
+    "legal": "Masaphokati Global Shelf (Pty) Ltd",
+    "reg": "2026/850096/07",
+    "address": "26 Lemonwood Street, Eco-Park Estate, Centurion, Gauteng, 0157",
+    "phone": "+27 74 012 6873",
+    "site": "https://plentovo.com"
+  },
+  "header": { "show_upcoming": false },
+  "markets": [
+    { "code": "za", "status": "live", "name": {"en": "South Africa", "fr": "Afrique du Sud", "ar": "جنوب أفريقيا"}, "langs": ["en"],
+      "path": {"en": ""}, "phone": null },
+    { "code": "tn", "status": "live", "name": {"en": "Tunisia", "fr": "Tunisie", "ar": "تونس"}, "langs": ["fr", "ar"],
+      "path": {"fr": "/tunisia/fr", "ar": "/tunisia/ar"}, "phone": null },
+    { "code": "dz", "status": "approved", "name": {"en": "Algeria", "fr": "Algérie", "ar": "الجزائر"}, "langs": ["fr", "ar"],
+      "path": {"fr": "/algeria/fr", "ar": "/algeria/ar"}, "phone": null }
+  ],
+  "global_roles": [
+    {"key": "accounts", "name": "Plentovo Accounts", "tag": "Billing, payments & supplier accounts"},
+    {"key": "compliance", "name": "Plentovo Compliance", "tag": "Legal, privacy & regulatory"},
+    {"key": "support", "name": "Plentovo Support", "tag": "Customer care & order help"},
+    {"key": "hello", "name": "Plentovo", "tag": "Hello — we’d love to hear from you"},
+    {"key": "suppliers", "name": "Plentovo Suppliers", "tag": "Supplier partnerships & sourcing"},
+    {"key": "orders", "name": "Plentovo Orders", "tag": "Order confirmations & delivery updates"},
+    {"key": "returns", "name": "Plentovo Returns", "tag": "Returns, refunds & resolutions"},
+    {"key": "sales", "name": "Plentovo Sales", "tag": "Bulk & business orders"},
+    {"key": "partners", "name": "Plentovo Partnerships", "tag": "Affiliates, brands & collaborations"},
+    {"key": "press", "name": "Plentovo Press", "tag": "Media & press enquiries"},
+    {"key": "careers", "name": "Plentovo Careers", "tag": "Join the Plentovo team"}
+  ],
+  "person": {"key": "sbusiso", "name": "Sbusiso Mavuso", "tag": "Founder & CEO | Plentovo", "email": "sibusiso@masaphokatiholdings.co.za"},
+  "market_roles": ["orders", "support"],
+  "i18n": {
+    "en": {"dir": "ltr", "greet": "Kind regards,", "serving": "Now serving {list}", "serving_n": "Now serving {n} countries", "and": " & ",
+      "brand_of": "{legal} · Reg. {reg}",
+      "roles": {"orders": ["Plentovo Orders", "Order confirmations & delivery updates"], "support": ["Plentovo Support", "Customer care & order help"]}},
+    "fr": {"dir": "ltr", "greet": "Cordialement,", "serving": "Disponible : {list}", "serving_n": "Disponible dans {n} pays", "and": " et ",
+      "brand_of": "Plentovo est une marque de {legal} · RC {reg}",
+      "roles": {"orders": ["Plentovo Commandes", "Confirmation de commande et livraison"], "support": ["Plentovo Service client", "Aide et suivi de commande"]}},
+    "ar": {"dir": "rtl", "greet": "مع أطيب التحيات،", "serving": "متوفر في {list}", "serving_n": "متوفر في {n} دولة", "and": " و",
+      "brand_of": "Plentovo علامة تجارية لشركة {legal} · Reg. {reg}",
+      "roles": {"orders": ["Plentovo الطلبات", "تأكيد الطلبات والتسليم"], "support": ["Plentovo خدمة العملاء", "المساعدة وتتبع الطلبات"]}}
+  }
+}

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plentovo email signatures</title>
+<style>
+  body{margin:0;background:#f4f4f2;font-family:Arial,Helvetica,sans-serif;color:#171b20}
+  main{max-width:720px;margin:0 auto;padding:32px 20px 60px}
+  h1{font-size:22px;margin:0 0 6px}
+  p.lead{margin:0 0 28px;color:#555;line-height:1.5;font-size:14px}
+  .card{background:#fff;border:1px solid #e2e2de;border-radius:10px;padding:22px 24px;margin-bottom:26px}
+  .card h2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#888;margin:0 0 14px}
+  .mail{border-top:1px solid #eee;margin-top:14px;padding-top:16px;color:#333;font-size:14px}
+  button{margin-top:16px;background:#da292b;color:#fff;border:0;border-radius:6px;padding:10px 16px;font-size:14px;cursor:pointer}
+  button:hover{background:#b91f25}
+  .ok{margin-left:10px;color:#2a7a3b;font-size:13px;display:none}
+  ol{color:#444;font-size:14px;line-height:1.7;padding-left:20px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Plentovo email signatures</h1>
+  <p class="lead">Generated from <code>markets.json</code> (add a country there, re-run the build). Text only: no images. Colours are Plentovo red and near-black. Press <b>Copy signature</b>, then paste into the Gmail signature box.</p>
+
+<!--CARDS-->
+
+  <h2 style="font-size:15px">Putting them into Gmail</h2>
+  <ol>
+    <li>Gmail → Settings → See all settings → General → Signature → <b>Create new</b>. Name it after the address, e.g. "Plentovo Accounts".</li>
+    <li>Click <b>Copy signature</b> above, click into the signature box, paste (Cmd+V). Colours and links come across.</li>
+    <li>Repeat for each of the others (Sbusiso, Compliance, Support, Hello, Suppliers, Orders, Returns, Sales, Partners, Press, Careers, and the four Tunisia ones in French and Arabic).</li>
+    <li>Under <b>Signature defaults</b> choose Plentovo Accounts for new emails and for replies/forwards. Save changes at the bottom.</li>
+    <li>Then Accounts → Send mail as → edit info on each address row and set the sender name to match (e.g. "Plentovo Support").</li>
+  </ol>
+</main>
+<script>
+function copySig(id,btn){
+  var el=document.getElementById(id),html=el.outerHTML,ok=btn.nextElementSibling;
+  function done(){ok.style.display='inline';setTimeout(function(){ok.style.display='none'},2000)}
+  function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');done()}catch(e){}s.removeAllRanges()}
+  if(navigator.clipboard&&window.ClipboardItem){
+    navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([el.innerText],{type:'text/plain'})})]).then(done,fallback);
+  }else fallback();
+}
+</script>
+</body>
+</html>
