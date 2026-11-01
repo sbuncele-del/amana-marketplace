@@ -1,4 +1,7 @@
 /* Mobile-only continuation of the approved RSA shopping patterns. */
+/* The :root colour variables are missing from the built stylesheet, which left buttons transparent (white on cream). */
+.tn-legacy{--red:#DA292B;--ink:#171B20;--cream:#FAF8F5;--line:#e7e3dd}
+.tn-legacy .button,.tn-legacy .product-card button,.tn-legacy .summary>button{background-color:#DA292B}
 .mobile-purchase,.market-install{display:none}
 @media(max-width:639px){
  .mobile-product{padding-bottom:calc(100px + env(safe-area-inset-bottom))!important}
