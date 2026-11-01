@@ -22,3 +22,6 @@ export function recommend(viewed: ProductGroup, groups: ProductGroup[], limit = 
 }
 
 export const recommendationTitle = {en: 'You may also like', fr: 'Vous aimerez aussi', ar: 'قد يعجبك أيضًا'} as const;
+
+export const seeMoreLabel = (locale: 'en' | 'fr' | 'ar', department: string) =>
+  locale === 'fr' ? `Voir plus dans ${department}` : locale === 'ar' ? `المزيد في ${department}` : `See more in ${department}`;
