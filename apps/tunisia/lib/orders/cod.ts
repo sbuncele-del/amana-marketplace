@@ -74,7 +74,7 @@ const confirmationCopy = {
 export function codConfirmation(reference: string, o: CodOrder) {
   const c = confirmationCopy[o.locale], rtl = o.locale === 'ar', align = rtl ? 'right' : 'left', other = rtl ? 'left' : 'right';
   const rows = o.items.map(i => `<tr><td style="padding:6px 0;border-bottom:1px solid #eee;text-align:${align};">${esc(i.title)}</td><td style="padding:6px 8px;border-bottom:1px solid #eee;text-align:center;">${i.quantity}</td><td dir="ltr" style="padding:6px 0;border-bottom:1px solid #eee;text-align:${other};white-space:nowrap;">${tnd(i.unitMillimes * i.quantity)}</td></tr>`).join('');
-  const html = `<div dir="${rtl ? 'rtl' : 'ltr'}" style="font-family:Arial,sans-serif;font-size:15px;line-height:1.55;color:#171B20;max-width:560px;text-align:${align};"><img src="https://plentovo.com/brand/plentovo-header.gif" alt="Plentovo" width="560" style="display:block;width:100%;max-width:560px;height:auto;border:0;margin:0 0 12px;">
+  const html = `<div dir="${rtl ? 'rtl' : 'ltr'}" style="font-family:Arial,sans-serif;font-size:15px;line-height:1.55;color:#171B20;max-width:560px;text-align:${align};"><a href="https://plentovo.com/tunisia/${o.locale}"><img src="https://plentovo.com/brand/plentovo-header.gif" alt="Plentovo" width="560" style="display:block;width:100%;max-width:560px;height:auto;border:0;margin:0 0 12px;"></a>
 <p style="margin:12px 0 4px;">${esc(c.hello(o.name))}</p><p style="margin:0 0 16px;">${c.intro}</p>
 <p style="margin:0 0 16px;">${c.ref}: <strong dir="ltr">${esc(reference)}</strong></p>
 <table style="width:100%;border-collapse:collapse;font-size:14px;"><tr style="color:#666;"><th style="text-align:${align};">${c.item}</th><th>${c.qty}</th><th style="text-align:${other};">${c.price}</th></tr>${rows}</table>
