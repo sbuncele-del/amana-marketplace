@@ -6,7 +6,13 @@
     "phone": "+27 74 012 6873",
     "site": "https://plentovo.com"
   },
-  "header": { "show_upcoming": false },
+  "header": { "show_upcoming": false,
+    "groups": [
+      {"label": "TECH", "photos": ["audio", "wearables", "personal-care"]},
+      {"label": "HOME", "photos": ["cookware", "home-decor", "lighting"]},
+      {"label": "BEAUTY", "photos": ["skincare", "hair-care", "fragrances"]},
+      {"label": "KIDS & BABY", "photos": ["baby-essentials", "toys-games", "kids-school"]}
+    ] },
   "markets": [
     { "code": "za", "status": "live", "name": {"en": "South Africa", "fr": "Afrique du Sud", "ar": "جنوب أفريقيا"}, "langs": ["en"],
       "path": {"en": ""}, "phone": null },
