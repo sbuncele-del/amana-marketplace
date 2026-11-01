@@ -1,4 +1,15 @@
 /* Mobile-only continuation of the approved RSA shopping patterns. */
+/* Product page: details card and help cards (same layout as the South Africa store). */
+.tn-pdp-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:24px 28px;margin-top:8px}
+.tn-pdp-card h2{font-size:20px;font-weight:700;margin:0 0 14px}
+.tn-pdp-card p{color:#3a3f47;line-height:1.75;font-size:15px;margin:0;white-space:pre-line}
+.tn-pdp-card p.tn-pdp-note{color:#6b7280;font-size:12px;margin:0 0 10px}
+.tn-pdp-help{display:grid;gap:12px;margin:24px 0 36px}
+@media(min-width:640px){.tn-pdp-help{grid-template-columns:repeat(3,1fr)}}
+.tn-pdp-help a{display:block;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px}
+.tn-pdp-help a:hover{border-color:#DA292B66}
+.tn-pdp-help h2{font-size:14px;font-weight:700;margin:0}
+.tn-pdp-help p{color:#6b7280;font-size:12px;margin:8px 0 0;line-height:1.5}
 /* A site-wide `p{color:#6a6864}` rule overrides the shared product card's own colours (price, stock, category). Restore them. */
 a.group>div:last-child>p:nth-of-type(1){color:#6b7280}
 a.group>div:last-child>p:nth-of-type(2){color:#171B20}
