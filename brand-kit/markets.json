@@ -34,7 +34,7 @@
     {"key": "press", "name": "Plentovo Press", "tag": "Media & press enquiries"},
     {"key": "careers", "name": "Plentovo Careers", "tag": "Join the Plentovo team"}
   ],
-  "person": {"key": "sbusiso", "name": "Sbusiso Mavuso", "tag": "Founder & CEO | Plentovo", "email": "sibusiso@masaphokatiholdings.co.za"},
+  "person": {"key": "sbusiso", "name": "Sbusiso Mavuso", "tag": "Founder & CEO | Plentovo", "email": "sibusiso@plentovo.com"},
   "market_roles": ["orders", "support"],
   "i18n": {
     "en": {"dir": "ltr", "greet": "Kind regards,", "serving": "Now serving {list}", "serving_n": "Now serving {n} countries", "and": " & ",
