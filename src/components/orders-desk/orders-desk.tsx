@@ -34,7 +34,7 @@ const when = (iso: string) => new Date(iso).toLocaleString("en-GB", { day: "nume
 
 // One screen for two audiences. Staff get the whole call desk; a seller gets the orders confirmed for them, with the
 // customer's delivery details and nothing about how the call went. The server decides which one this person is.
-export function OrdersDesk() {
+export function OrdersDesk({ embedded = false }: { embedded?: boolean }) {
   const [who, setWho] = useState<Who | null>(null);
   const [orders, setOrders] = useState<DeskOrder[]>([]);
   const [partners, setPartners] = useState<Partner[]>([]);
@@ -136,7 +136,7 @@ export function OrdersDesk() {
   if (!who) return <p className="m-8 rounded-md border border-slate-200 bg-white p-4 text-sm text-slate-700">{err}</p>;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 pb-16 pt-24 text-slate-900">
+    <div className={`mx-auto max-w-7xl px-4 pb-16 text-slate-900 ${embedded ? "pt-8" : "pt-24"}`}>
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="text-xl font-semibold">{who === "staff" ? "Orders" : "Your orders"}</h1>
