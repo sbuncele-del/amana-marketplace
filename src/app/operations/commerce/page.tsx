@@ -1,4 +1,3 @@
-import {MailActivity} from "@/components/commerce/mail-activity";
 import { redirect } from "next/navigation";
 import { commerceActor, CommerceError } from "@/lib/commerce/access";
 import { OpsShell } from "@/components/operations/shell";
@@ -36,7 +35,6 @@ export default async function Page() {
             : actor.grants[0].market_code || "ZA"
         }
       />
-      {actor.admin && <MailActivity />}
     </OpsShell>
   );
 }
