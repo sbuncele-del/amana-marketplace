@@ -1,3 +1,4 @@
+import { OpsShell } from "@/components/operations/shell";
 import { StoreConsole } from "@/components/cms/store-console";
 import { commerceActor } from "@/lib/commerce/access";
 import { canCms } from "@/lib/cms/domain";
@@ -18,11 +19,13 @@ export default async function StorePage() {
       </main>
     );
   return (
-    <StoreConsole
+    <OpsShell title="Store management">
+      <StoreConsole
       readOnly={process.env.VERCEL_ENV === "preview"}
       initialKind={
         canCms(a.admin, a.grants, "product") ? "product" : "storefront"
       }
-    />
+      />
+    </OpsShell>
   );
 }

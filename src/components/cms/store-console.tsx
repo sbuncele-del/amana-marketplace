@@ -273,30 +273,14 @@ export function StoreConsole({
   const product = draft && "source" in draft ? draft : undefined;
   const store = draft && "slides" in draft ? draft : undefined;
   return (
-    <main className="min-h-screen bg-[#F7F6F3] text-[#191D23]">
-      <header className="border-b bg-white px-5 py-5">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4">
-          <div>
-            <Link href="/operations" className="text-sm text-red-700">
-              ← Team console
-            </Link>
-            <h1 className="mt-2 text-2xl font-bold">
-              Plentovo store management
-            </h1>
-            <p className="mt-1 text-sm text-gray-500">
-              Catalogue, campaigns and the storefront your customers see.
-            </p>
-          </div>
-          <Link
-            href="/"
-            target="_blank"
-            className="rounded-lg border px-4 py-2 text-sm"
-          >
-            View store ↗
-          </Link>
-        </div>
-      </header>
-      <div className="mx-auto grid max-w-7xl gap-6 p-4 lg:grid-cols-[200px_1fr]">
+    <div className="text-[#191D23]">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+        <p className="text-slate-600">Products, campaigns and the storefront customers see.</p>
+        <Link href="/" target="_blank" className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm">
+          View store ↗
+        </Link>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-[180px_1fr]">
         <nav
           aria-label="Store management"
           className="flex gap-2 overflow-x-auto lg:flex-col"
@@ -310,19 +294,13 @@ export function StoreConsole({
               onClick={() =>
                 navigate(k as CmsKind, k === "storefront" ? "plentovo" : "")
               }
-              className={`whitespace-nowrap rounded-lg p-3 text-left text-sm font-semibold ${kind === k ? "bg-white shadow-sm text-red-700" : ""}`}
+              className={`whitespace-nowrap rounded-md px-3 py-2 text-left text-sm ${kind === k ? "bg-white border border-slate-200 font-semibold" : "text-slate-600"}`}
             >
               {label}
             </button>
           ))}
-          <Link className="p-3 text-sm" href="/operations/commerce">
-            Orders & fulfilment
-          </Link>
           <Link className="p-3 text-sm" href="/admin/campaigns">
             Email campaigns
-          </Link>
-          <Link className="p-3 text-sm" href="/operations/commerce">
-            Team access
           </Link>
         </nav>
         <div className="min-w-0">
@@ -342,7 +320,7 @@ export function StoreConsole({
             </p>
           )}
           {!draft && kind === "product" && (
-            <section className="rounded-xl border bg-white p-5">
+            <section className="rounded-lg border bg-white p-5">
               <div className="flex flex-wrap justify-between gap-3">
                 <h2 className="text-xl font-bold">
                   Products{" "}
@@ -457,7 +435,7 @@ export function StoreConsole({
                   {dirty ? " · Unsaved changes" : ""}
                 </span>
               </div>
-              <section className="space-y-5 rounded-xl border bg-white p-5">
+              <section className="space-y-5 rounded-lg border bg-white p-5">
                 <label className="block text-sm font-medium">
                   Upload an image
                   <input
@@ -914,7 +892,7 @@ export function StoreConsole({
                   </button>
                 </div>
               </section>
-              <section className="mt-5 rounded-xl border bg-white p-5">
+              <section className="mt-5 rounded-lg border bg-white p-5">
                 <h3 className="font-bold">Publish or schedule</h3>
                 <p className="mt-1 text-sm text-gray-500">
                   Dates use your device’s local time. Leaving start blank
@@ -955,7 +933,7 @@ export function StoreConsole({
                   </p>
                 )}
               </section>
-              <section className="mt-5 rounded-xl border bg-white p-5">
+              <section className="mt-5 rounded-lg border bg-white p-5">
                 <h3 className="font-bold">Release history & restore</h3>
                 {!data?.releases?.length && (
                   <p className="mt-3 text-sm text-gray-500">
@@ -1020,6 +998,6 @@ export function StoreConsole({
           )}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

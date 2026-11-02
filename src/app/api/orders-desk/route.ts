@@ -6,13 +6,13 @@ import { commerceFailure, requireOrigin, privateHeaders } from "@/lib/commerce/h
 import { experiencePool } from "@/lib/experience/store";
 import { deskPool } from "@/lib/orders-desk/pool";
 import { listOrders, moveOrder, orderHistory } from "@/lib/orders-desk/store";
-import { STATUSES } from "@/lib/orders-desk/domain";
+import { MARKET_CODES, MARKETS, STATUSES } from "@/lib/orders-desk/domain";
 
-const MARKET = "TN";
 // Staff (admins, or people granted the Tunisia market) run the calls. Approved seller partners see their own confirmed orders.
 function role(a: CommerceActor, write: boolean) {
-  if (permits(a.admin, a.grants, MARKET, write)) return "staff" as const;
-  if (a.partners.length) return "seller" as const;
+  const markets = MARKET_CODES.filter((m) => permits(a.admin, a.grants, m, write));
+  if (markets.length) return { who: "staff" as const, markets };
+  if (a.partners.length) return { who: "seller" as const, markets: [] as string[] };
   throw new CommerceError(403, "You don't have access to orders.");
 }
 
@@ -29,14 +29,14 @@ const move = z.object({
 export async function GET(r: NextRequest) {
   try {
     const a = await commerceActor();
-    const who = role(a, false);
+    const { who, markets } = role(a, false);
     const db = await deskPool();
     const history = r.nextUrl.searchParams.get("history");
     if (history) {
       if (who !== "staff") throw new CommerceError(403, "Call history is for staff only.");
-      return NextResponse.json({ history: await orderHistory(db, history) }, { headers: privateHeaders });
+      return NextResponse.json({ history: await orderHistory(db, history, markets) }, { headers: privateHeaders });
     }
-    const orders = await listOrders(db, who === "staff" ? { who } : { who, partnerIds: a.partners });
+    const orders = await listOrders(db, who === "staff" ? { who, markets } : { who, partnerIds: a.partners });
     // The seller list for the "who delivers this" choice, and the names shown on a seller's own screen.
     const partners = (
       await experiencePool().query(
@@ -46,7 +46,7 @@ export async function GET(r: NextRequest) {
         who === "staff" ? [] : [a.partners],
       )
     ).rows;
-    return NextResponse.json({ who, orders, partners, me: a.name }, { headers: privateHeaders });
+    return NextResponse.json({ who, orders, partners, me: a.name, markets: markets.map((code) => ({ code, name: MARKETS[code as keyof typeof MARKETS].name })) }, { headers: privateHeaders });
   } catch (e) {
     return commerceFailure(e);
   }
@@ -56,14 +56,14 @@ export async function POST(r: NextRequest) {
   try {
     requireOrigin(r);
     const a = await commerceActor();
-    const who = role(a, true);
+    const { who, markets } = role(a, true);
     const parsed = move.safeParse(await r.json().catch(() => null));
     if (!parsed.success) throw new CommerceError(400, "Check the details and try again.");
     const { reference, expectedFrom, ...rest } = parsed.data;
     const result = await moveOrder(await deskPool(), {
       reference,
       expectedFrom,
-      actor: { id: a.id, name: a.name, who, partnerIds: a.partners },
+      actor: { id: a.id, name: a.name, who, partnerIds: a.partners, markets },
       move: rest,
     });
     if (!result.ok)

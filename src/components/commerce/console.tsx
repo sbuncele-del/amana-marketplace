@@ -1,6 +1,5 @@
 "use client";
 import { useCallback, useEffect, useState, type FormEvent } from "react";
-import Link from "next/link";
 import { formatMoney } from "@/lib/commerce/domain";
 import type { Market, Grant } from "@/lib/commerce/domain";
 type Partner = {
@@ -110,65 +109,43 @@ export function CommerceConsole({
     }
   }
   return (
-    <main className="min-h-screen bg-slate-50 p-5 md:p-10">
-      <div className="mx-auto max-w-7xl">
-        <header className="flex flex-wrap items-center justify-between gap-5">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-red-600">
-              Plentovo · Commerce
-            </p>
-            <h1 className="mt-2 text-3xl font-bold text-slate-900">
-              Markets & fulfilment
-            </h1>
-            <p className="mt-2 text-sm text-slate-600">
-              One brand. Local availability. Accountable partners.
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-4"><Link href="/operations/store" className="text-sm underline">Store management</Link>
-            <Link href="/operations" className="text-sm underline">
-              Customer care
-            </Link>
-            <Link href="/partner" className="text-sm underline">
-              Partner workspace
-            </Link>
-            <label className="text-sm">
-              Market
-              <select
-                className={field}
-                value={market}
-                onChange={(e) => {
-                  setMarket(e.target.value);
-                  setPage(1);
-                }}
-              >
-                {(data?.markets || [{ code: "ZA", name: "South Africa" }]).map(
-                  (m) => (
-                    <option key={m.code} value={m.code}>
-                      {m.name}
-                    </option>
-                  ),
-                )}
-              </select>
-            </label>
-          </div>
-        </header>
-        <p className="my-6 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
-          Browsing-only launch: online ordering remains closed. Markets in
-          preparation are not offered to customers.
+    <div>
+      <div>
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <p className="text-slate-600">Markets, partners, catalogue offers and shipments.</p>
+          <label className="text-xs font-medium text-slate-600">
+            Country
+            <select
+              className="mt-1 block rounded-md border border-slate-300 bg-white px-2.5 py-1.5 text-sm text-slate-900"
+              value={market}
+              onChange={(e) => {
+                setMarket(e.target.value);
+                setPage(1);
+              }}
+            >
+              {(data?.markets || [{ code: "ZA", name: "South Africa" }]).map(
+                (m) => (
+                  <option key={m.code} value={m.code}>
+                    {m.name}
+                  </option>
+                ),
+              )}
+            </select>
+          </label>
+        </div>
+        <p className="mt-3 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900">
+          Online ordering is closed in markets that are still in preparation.
         </p>
         <div role="status" aria-live="polite" className="my-3 text-sm">
           {message}
         </div>
-        <nav
-          aria-label="Commerce sections"
-          className="mb-6 flex flex-wrap gap-2"
-        >
+        <nav aria-label="Commerce sections" className="mb-4 flex flex-wrap gap-1 border-b border-slate-200">
           {["Markets", "Partners", "Catalogue", "Fulfilment", "Access"].map(
             (t) => (
               <button
                 key={t}
                 onClick={() => setTab(t)}
-                className={`rounded-full px-4 py-2 text-sm ${t === tab ? "bg-slate-900 text-white" : "border bg-white"}`}
+                className={`-mb-px border-b-2 px-3 py-2 text-sm ${t === tab ? "border-slate-900 font-semibold" : "border-transparent text-slate-500 hover:text-slate-800"}`}
               >
                 {t}
               </button>
@@ -185,7 +162,7 @@ export function CommerceConsole({
                   {data.markets.map((m) => (
                     <article
                       key={m.code}
-                      className="rounded-xl border bg-white p-5"
+                      className="rounded-lg border bg-white p-5"
                     >
                       <h2 className="text-lg font-bold">{m.name}</h2>
                       <p className="my-2 text-sm">
@@ -232,7 +209,7 @@ export function CommerceConsole({
                 </div>
                 {data.actor.admin && (
                   <form
-                    className="grid gap-4 rounded-xl border bg-white p-6 md:grid-cols-3"
+                    className="grid gap-4 rounded-lg border bg-white p-6 md:grid-cols-3"
                     onSubmit={(e) => {
                       const v = values(e);
                       const old = data.markets.find((m) => m.code === v.code);
@@ -314,7 +291,7 @@ export function CommerceConsole({
                 {data.partners.map((p) => (
                   <article
                     key={p.id}
-                    className="rounded-xl border bg-white p-5"
+                    className="rounded-lg border bg-white p-5"
                   >
                     <h2 className="text-lg font-bold">{p.name}</h2>
                     <p className="my-2 text-sm">
@@ -364,13 +341,13 @@ export function CommerceConsole({
             )}
             {tab === "Catalogue" && (
               <section>
-                <h2 className="mb-4 text-xl font-bold">Supplier offers</h2>
+                <h2 className="mb-4 text-base font-bold">Supplier offers</h2>
                 <p className="mb-4 text-sm text-slate-600">
                   The existing storefront catalogue remains connected to its
                   current feed. Offers here form the new controlled catalogue;
                   publication approval does not yet replace the storefront feed.
                 </p>
-                <div className="overflow-auto rounded-xl border bg-white">
+                <div className="overflow-auto rounded-lg border bg-white">
                   <table className="w-full text-left text-sm">
                     <thead>
                       <tr>
@@ -432,7 +409,7 @@ export function CommerceConsole({
                     Next
                   </button>
                 </div>
-                <details className="rounded-xl border bg-white p-5">
+                <details className="rounded-lg border bg-white p-5">
                   <summary className="cursor-pointer font-semibold">
                     Add a supplier offer
                   </summary>
@@ -528,14 +505,14 @@ export function CommerceConsole({
             )}
             {tab === "Fulfilment" && (
               <section>
-                <h2 className="text-xl font-bold">Partner assignments</h2>
+                <h2 className="text-base font-bold">Partner assignments</h2>
                 <p className="my-3 text-sm text-slate-600">
                   Only confirmed paid orders can be allocated. Each parcel has
                   its own accountable partner and tracking record.
                 </p>
                 {data.shipments.map((s) => (
                   <article
-                    className="my-3 rounded-xl border bg-white p-4"
+                    className="my-3 rounded-lg border bg-white p-4"
                     key={s.id}
                   >
                     <p className="font-semibold">{s.order_id}</p>
@@ -547,7 +524,7 @@ export function CommerceConsole({
                 {!data.shipments.length && (
                   <p className="mt-5">No paid orders allocated yet.</p>
                 )}
-                <details className="mt-6 rounded-xl border bg-white p-5">
+                <details className="mt-6 rounded-lg border bg-white p-5">
                   <summary className="cursor-pointer font-semibold">
                     Allocate a verified paid item
                   </summary>
@@ -616,11 +593,11 @@ export function CommerceConsole({
               <section>
                 {data.actor.admin ? (
                   <>
-                    <h2 className="text-xl font-bold">
+                    <h2 className="text-base font-bold">
                       Team and partner access
                     </h2>
                     <form
-                      className="my-5 grid gap-4 rounded-xl border bg-white p-5 md:grid-cols-3"
+                      className="my-5 grid gap-4 rounded-lg border bg-white p-5 md:grid-cols-3"
                       onSubmit={(e) => {
                         const v = values(e);
                         void send({
@@ -676,7 +653,7 @@ export function CommerceConsole({
                       </p>
                     ))}
                     <form
-                      className="my-6 grid gap-4 rounded-xl border bg-white p-5 md:grid-cols-3"
+                      className="my-6 grid gap-4 rounded-lg border bg-white p-5 md:grid-cols-3"
                       onSubmit={(e) => {
                         const v = values(e);
                         void send({
@@ -723,6 +700,6 @@ export function CommerceConsole({
           </>
         )}
       </div>
-    </main>
+    </div>
   );
 }

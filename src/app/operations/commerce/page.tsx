@@ -1,6 +1,7 @@
 import {MailActivity} from "@/components/commerce/mail-activity";
 import { redirect } from "next/navigation";
 import { commerceActor, CommerceError } from "@/lib/commerce/access";
+import { OpsShell } from "@/components/operations/shell";
 import { CommerceConsole } from "@/components/commerce/console";
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -27,12 +28,15 @@ export default async function Page() {
       </main>
     );
   return (
-    <> {actor.admin && <div className="mx-auto max-w-7xl px-5"><MailActivity /></div>}<CommerceConsole
-      initialMarket={
-        actor.admin || actor.grants.some((g) => !g.market_code)
-          ? "ZA"
-          : actor.grants[0].market_code || "ZA"
-      }
-    /></>
+    <OpsShell title="Markets & fulfilment">
+      <CommerceConsole
+        initialMarket={
+          actor.admin || actor.grants.some((g) => !g.market_code)
+            ? "ZA"
+            : actor.grants[0].market_code || "ZA"
+        }
+      />
+      {actor.admin && <MailActivity />}
+    </OpsShell>
   );
 }
