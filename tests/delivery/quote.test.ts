@@ -19,14 +19,13 @@ test('Perfect Dealz parcels always use their own rate', () => {
   assert.deepEqual(q, {feeCents: 7900, setBy: 'perfect-dealz', courier: null, service: null, costCents: null, marginCents: null});
   assert.equal(quoteDelivery({grams: 3000, zone: null, fulfilledBy: 'PERFECT_DEALZ'})?.feeCents, 7900);
 });
-test('our own parcels: Bob Go price when it is lower, capped at Perfect Dealz when it is not', () => {
+test('our own parcels: the customer pays the full Bob Go price, with no cap', () => {
   const low = quoteDelivery({grams: 5000, zone: 'local', fulfilledBy: 'PLENTOVO'})!;
   assert.equal(low.feeCents, 7038); assert.equal(low.setBy, 'bob-go'); assert.equal(low.marginCents, 0);
-  const capped = quoteDelivery({grams: 5000, zone: 'main', fulfilledBy: 'PLENTOVO'})!;
-  assert.equal(capped.feeCents, 7900); assert.equal(capped.setBy, 'capped-at-perfect-dealz');
-  assert.equal(capped.costCents, 9798); assert.equal(capped.marginCents, -1898);
-  const heavy = quoteDelivery({grams: 40000, zone: 'local', fulfilledBy: 'PLENTOVO'})!;
-  assert.equal(heavy.feeCents, 13385); assert.equal(heavy.courier, 'Internet Express');
+  const main = quoteDelivery({grams: 5000, zone: 'main', fulfilledBy: 'PLENTOVO'})!;
+  assert.equal(main.feeCents, 9798); assert.equal(main.costCents, 9798); assert.equal(main.marginCents, 0);
+  const heavy = quoteDelivery({grams: 40000, zone: 'main', fulfilledBy: 'PLENTOVO'})!;
+  assert.equal(heavy.feeCents, 33259); assert.equal(heavy.courier, 'SkyNet');
 });
 test('refuses to guess when it cannot price a parcel we ship ourselves', () => {
   assert.equal(quoteDelivery({grams: 5000, zone: null, fulfilledBy: 'PLENTOVO'}), null);

@@ -1,9 +1,8 @@
 // Delivery fee rule, in cents (ZAR, VAT included).
 //
 // Parcels Perfect Dealz ships from its own warehouse: the customer pays Perfect Dealz's published rate (delivery-rates.ts).
-// Parcels we ship ourselves through Bob Go: the customer pays Bob Go's cheapest price for the weight and zone, but never
-// more than Perfect Dealz's rate, so our prices stay competitive. When Perfect Dealz is the lower of the two we pay the
-// difference, and the quote says so rather than hiding it.
+// Parcels we ship ourselves through Bob Go (sellers we onboard): the customer pays the full Bob Go price for the weight and
+// zone. The cost of delivery is passed to the customer, so there is no cap and no shortfall for us to absorb.
 import rates from "@/data/delivery/bobgo-rates.json";
 import { deliveryBands } from "@/lib/delivery-rates";
 
@@ -11,13 +10,13 @@ export type Zone = "local" | "main" | "regional";
 export type FulfilledBy = "PERFECT_DEALZ" | "PLENTOVO";
 export type Quote = {
   feeCents: number;
-  // Who set the customer's fee: Perfect Dealz's table, Bob Go's price, or Bob Go's price held down to Perfect Dealz's rate.
-  setBy: "perfect-dealz" | "bob-go" | "capped-at-perfect-dealz";
+  // Who set the customer's fee: Perfect Dealz's published table, or Bob Go's price.
+  setBy: "perfect-dealz" | "bob-go";
   courier: string | null;
   service: string | null;
   // What we pay Bob Go. null when Bob Go is not used.
   costCents: number | null;
-  // Fee minus cost. Zero or negative means we absorb part of the delivery.
+  // Fee minus cost. Zero while the customer pays the full Bob Go price.
   marginCents: number | null;
 };
 
@@ -60,15 +59,7 @@ export function quoteDelivery(args: { grams: number; zone: Zone | null; fulfille
   if (!zone) return null;
   const bob = cheapestBobGo(grams, zone);
   if (!bob) return null;
-  const fee = Math.min(bob.cents, pd);
-  return {
-    feeCents: fee,
-    setBy: bob.cents <= pd ? "bob-go" : "capped-at-perfect-dealz",
-    courier: bob.courier,
-    service: bob.service,
-    costCents: bob.cents,
-    marginCents: fee - bob.cents,
-  };
+  return { feeCents: bob.cents, setBy: "bob-go", courier: bob.courier, service: bob.service, costCents: bob.cents, marginCents: 0 };
 }
 
 // For the cart, before an address is known: the lowest Bob Go price across zones, never above Perfect Dealz's rate.
