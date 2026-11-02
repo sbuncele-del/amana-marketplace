@@ -14,10 +14,23 @@ test('Bob Go cheapest price per zone comes from the rate card, rounding the weig
   assert.equal(cheapestBobGo(9200, 'main')?.cents, cheapestBobGo(10000, 'main')?.cents);
   assert.equal(cheapestBobGo(2_000_000, 'local'), null);
 });
-test('Perfect Dealz parcels always use their own rate', () => {
-  const q = quoteDelivery({grams: 3000, zone: 'local', fulfilledBy: 'PERFECT_DEALZ'});
-  assert.deepEqual(q, {feeCents: 7900, setBy: 'perfect-dealz', courier: null, service: null, costCents: null, marginCents: null});
-  assert.equal(quoteDelivery({grams: 3000, zone: null, fulfilledBy: 'PERFECT_DEALZ'})?.feeCents, 7900);
+test('Perfect Dealz parcels: the cheaper of their rate and Bob Go from their warehouse', () => {
+  const local = quoteDelivery({grams: 3000, zone: 'local', fulfilledBy: 'PERFECT_DEALZ'})!;
+  assert.equal(local.feeCents, 7038); assert.equal(local.setBy, 'bob-go'); assert.equal(local.compared, true);
+  const main = quoteDelivery({grams: 3000, zone: 'main', fulfilledBy: 'PERFECT_DEALZ'})!;
+  assert.equal(main.feeCents, 7900); assert.equal(main.setBy, 'perfect-dealz'); assert.equal(main.costCents, 7900);
+  const mid = quoteDelivery({grams: 12000, zone: 'main', fulfilledBy: 'PERFECT_DEALZ'})!;
+  assert.equal(mid.setBy, 'bob-go'); assert.ok(mid.feeCents < 12000);
+  const unknown = quoteDelivery({grams: 3000, zone: null, fulfilledBy: 'PERFECT_DEALZ'})!;
+  assert.equal(unknown.feeCents, 7900); assert.equal(unknown.compared, false);
+});
+test('a Perfect Dealz parcel is never dearer than the same parcel through Bob Go', () => {
+  for (const zone of ['local', 'main', 'regional'] as const)
+    for (const grams of [500, 3000, 9000, 12000, 25000, 45000, 90000]) {
+      const pd = quoteDelivery({grams, zone, fulfilledBy: 'PERFECT_DEALZ'})!, bob = cheapestBobGo(grams, zone)!;
+      assert.ok(pd.feeCents <= bob.cents, `${zone} ${grams}`);
+      assert.ok(pd.feeCents <= perfectDealzFeeCents(grams)!, `${zone} ${grams}`);
+    }
 });
 test('our own parcels: the customer pays the full Bob Go price, with no cap', () => {
   const low = quoteDelivery({grams: 5000, zone: 'local', fulfilledBy: 'PLENTOVO'})!;
