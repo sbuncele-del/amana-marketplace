@@ -264,7 +264,10 @@
     "images": [
       "https://cdn.shipper.network/storage/vxyiitz0nlxzofop/uploads/products/11545835/conversions/6ab140ef8204f-1790001391-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "8840531d-f167-4121-83cf-c290aa6d467e"
+    ]
   },
   {
     "sourceName": "Brosse de toilettage pour chats et chiens",

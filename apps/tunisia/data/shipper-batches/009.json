@@ -18,7 +18,10 @@
     "images": [
       "https://cdn.shipper.network/storage/lmxfjvwpeyybljj5/uploads/products/11546157/conversions/6ab14cded6f33-1790004446-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "ed76e792-5eb7-4623-ae2d-9159c33510cf"
+    ]
   },
   {
     "sourceName": "Miroirs d’Angle Mort HD 360° – 2 Pièces",
@@ -181,7 +184,10 @@
     "images": [
       "https://cdn.shipper.network/storage/vis533kftaq0utvc/uploads/products/6261888/conversions/6867e6c1ebac9-1751639745-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "d9bf30ed-02e8-432b-9436-a692ef71b641"
+    ]
   },
   {
     "sourceName": "Caméra Endoscopique Android pour Inspection – Câble Souple 10 m",

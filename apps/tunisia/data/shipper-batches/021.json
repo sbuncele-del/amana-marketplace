@@ -181,7 +181,10 @@
       "https://cdn.shipper.network/storage/1afvih0k7ufom0q4/uploads/products/11557595/conversions/6ab3d5d07426e-1790170576-thumbnail-medium.jpg",
       "https://cdn.shipper.network/storage/1afvih0k7ufom0q4/uploads/products/11557597/conversions/6ab3d5dc92747-1790170588-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "63f5cc42-c0ca-4379-9987-ed928695f0ff"
+    ]
   },
   {
     "sourceName": "Ruban LED RGB avec télécommande",

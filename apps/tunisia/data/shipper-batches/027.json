@@ -135,7 +135,10 @@
     "images": [
       "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/11664322/conversions/6ac8ea495bbc7-1791552073-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "3ce61344-fc95-4a74-8ef2-1acbbc552d50"
+    ]
   },
   {
     "sourceName": "serum medicube",

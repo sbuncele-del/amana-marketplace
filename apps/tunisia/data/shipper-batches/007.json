@@ -41,7 +41,10 @@
     "images": [
       "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/11664425/conversions/6ac8ebf643a77-1791552502-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "a2bb2a6a-b166-487e-91ab-e0abea389396"
+    ]
   },
   {
     "sourceName": "montre doreé pour homme",
@@ -174,7 +177,10 @@
     "images": [
       "https://cdn.shipper.network/storage/y9mzf2xuugwu4abl/uploads/products/11633013/conversions/6ac37bd7da17f-1791196119-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "09703009-f40a-44c1-82ee-89df4b55f507"
+    ]
   },
   {
     "sourceName": "Rasoir Anti-Bouloches Électrique",

@@ -345,7 +345,10 @@
       "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/11351239/conversions/6a8eadca31061-1787735498-thumbnail-medium.jpg",
       "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/11351241/conversions/6a8eadeca6004-1787735532-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "c03c8d68-2713-41b8-9c86-885505482d13"
+    ]
   },
   {
     "sourceName": "Cafetière électrique sans fil",

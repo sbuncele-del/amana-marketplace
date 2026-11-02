@@ -313,7 +313,10 @@
     "images": [
       "https://cdn.shipper.network/storage/9bu44r7ysq3zjxdt/uploads/products/11730463/conversions/6ad22133d82ea-1792155955-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "f77d6318-8f06-4be7-aadc-57ef19fd017f"
+    ]
   },
   {
     "sourceName": "Lampe de Camping LED 4 Panneaux",

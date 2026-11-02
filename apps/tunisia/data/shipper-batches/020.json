@@ -61,7 +61,10 @@
     "images": [
       "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/11735830/conversions/6ad3aaea5f966-1792256746-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "933c6575-6cd2-4796-8e7c-62b748c40e88"
+    ]
   },
   {
     "sourceName": "barouk",
@@ -219,7 +222,10 @@
     "images": [
       "https://cdn.shipper.network/storage/kqnpfzozbfkiqv2a/uploads/products/11435066/conversions/6a9e7dd4d2b59-1788771796-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "a6024ebd-d85d-4170-b7ca-cac569d4dbf6"
+    ]
   },
   {
     "sourceName": "camera double lens wifi-8mp",

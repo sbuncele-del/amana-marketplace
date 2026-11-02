@@ -93,7 +93,10 @@
     "images": [
       "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/11711971/conversions/6ace214730ee2-1791893831-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "9b7d2b79-7b32-4ac0-bd76-61469c6f9342"
+    ]
   },
   {
     "sourceName": "masseur de soins du visage multifonctionnel",
@@ -329,7 +332,10 @@
     "images": [
       "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/11711357/conversions/6ace0a86ec26a-1791888006-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "f4b1aad4-ef85-44a2-b9bc-fa882df63864"
+    ]
   },
   {
     "sourceName": "Autocollants Liftants pour le Visage",

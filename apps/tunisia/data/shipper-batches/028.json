@@ -356,6 +356,10 @@
       "https://cdn.shipper.network/storage/ncuxmm6cdc1tprii/uploads/products/11302181/conversions/6a84be25d5b77-1787084325-thumbnail-medium.jpg",
       "https://cdn.shipper.network/storage/ncuxmm6cdc1tprii/uploads/products/11302182/conversions/6a84be2eee191-1787084334-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "450bbcbe-8e0e-4370-b1ca-df444d2c53c6",
+      "76eaccf5-f12b-4bc5-9886-103bf15abfb3"
+    ]
   }
 ]
