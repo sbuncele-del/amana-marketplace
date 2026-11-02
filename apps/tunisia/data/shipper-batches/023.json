@@ -230,7 +230,10 @@
     "images": [
       "https://cdn.shipper.network/storage/vis533kftaq0utvc/uploads/products/6241284/conversions/6867aff6c7a6e-1751625718-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "c4df4760-8fa6-4492-ad58-25389d494d1c"
+    ]
   },
   {
     "sourceName": "Correcteur de Posture",

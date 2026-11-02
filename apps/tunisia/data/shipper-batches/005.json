@@ -215,7 +215,10 @@
       "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/11665821/conversions/6ac8f2a9805b5-1791554217-thumbnail-medium.jpg",
       "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/11665819/conversions/6ac8f2a28ca6f-1791554210-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "324be42c-8e3f-4150-a2a2-3cf0cf79af51"
+    ]
   },
   {
     "sourceName": "Lunettes C L N Pour Femme",
@@ -257,7 +260,10 @@
     "images": [
       "https://cdn.shipper.network/storage/y9mzf2xuugwu4abl/uploads/products/11635348/conversions/6ac3be156ec3c-1791213077-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "423c4bca-5705-4e01-9bf7-318595f01ac7"
+    ]
   },
   {
     "sourceName": "creme anthelios ultra",
@@ -445,7 +451,10 @@
     "images": [
       "https://cdn.shipper.network/storage/vis533kftaq0utvc/uploads/products/6242318/conversions/6867b0d54fbdf-1751625941-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "0ec796a2-801d-458c-8b09-05e2b6c3164b"
+    ]
   },
   {
     "sourceName": "Bracelet Bee Rush",
@@ -510,6 +519,9 @@
     "images": [
       "https://cdn.shipper.network/storage/fxo6y1sh1gsjnzf0/uploads/products/11641212/conversions/6ac5051308d10-1791296787-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "bd995f3a-e304-4bb0-aab5-4cfae1c4b9a8"
+    ]
   }
 ]

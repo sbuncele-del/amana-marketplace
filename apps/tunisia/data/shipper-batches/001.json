@@ -360,7 +360,10 @@
       "https://cdn.shipper.network/storage/1afvih0k7ufom0q4/uploads/products/11557568/conversions/6ab3d4f79e41c-1790170359-thumbnail-medium.jpg",
       "https://cdn.shipper.network/storage/1afvih0k7ufom0q4/uploads/products/11557571/conversions/6ab3d5113730c-1790170385-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "c7052c60-a932-47b6-aab4-b8a8d906d372"
+    ]
   },
   {
     "sourceName": "Ensemble Tailleur 2 Pièces Gilet sans Manches et Pantalon Large",

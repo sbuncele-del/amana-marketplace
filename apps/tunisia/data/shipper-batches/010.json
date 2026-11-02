@@ -132,7 +132,10 @@
       "https://cdn.shipper.network/storage/9bu44r7ysq3zjxdt/uploads/products/11730760/conversions/6ad2330c944bf-1792160524-thumbnail-medium.jpg",
       "https://cdn.shipper.network/storage/9bu44r7ysq3zjxdt/uploads/products/11730494/conversions/6ad222d45bfbd-1792156372-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "fb571a4c-fe10-433e-8968-f0e55aa3b69a"
+    ]
   },
   {
     "sourceName": "Batterie de cuisine",
@@ -153,7 +156,10 @@
     "images": [
       "https://cdn.shipper.network/storage/y9mzf2xuugwu4abl/uploads/products/11635179/conversions/6ac3b7cd76e70-1791211469-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "87aee3a5-c857-4e3c-90d9-6eaa2a8baf14"
+    ]
   },
   {
     "sourceName": "Support Dorsal pour Voiture & Chaise de Bureau",
@@ -399,7 +405,10 @@
     "images": [
       "https://cdn.shipper.network/storage/ufqcsdd9kngsc0kx/uploads/products/11444483/conversions/6aa0054b645c5-1788872011-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "1ef565d3-a8e2-4a18-b497-2fd104109d6c"
+    ]
   },
   {
     "sourceName": "Séchoir à linge vertical pliable",

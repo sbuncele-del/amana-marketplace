@@ -254,7 +254,10 @@
     "images": [
       "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/11666824/conversions/6ac904abe7deb-1791558827-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "3151ee0d-78ec-42d4-b6a9-e6ae590d7b74"
+    ]
   },
   {
     "sourceName": "Coffret Cadeau Femme",

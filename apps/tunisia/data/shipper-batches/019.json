@@ -84,7 +84,10 @@
     "images": [
       "https://cdn.shipper.network/storage/ufqcsdd9kngsc0kx/uploads/products/11444312/conversions/6aa00183a937a-1788871043-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "2f56174b-f453-408b-b3b3-47f183eb5039"
+    ]
   },
   {
     "sourceName": "Kit d’élimination des verrues جهاز ازالة التالول المعنق",
@@ -132,7 +135,10 @@
     "images": [
       "https://cdn.shipper.network/storage/kqnpfzozbfkiqv2a/uploads/products/11434960/conversions/6a9e78f42ca30-1788770548-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "8c4f195d-4207-4052-b60c-9f806c5d7461"
+    ]
   },
   {
     "sourceName": "Drap plat",
@@ -153,7 +159,10 @@
     "images": [
       "https://cdn.shipper.network/storage/vis533kftaq0utvc/uploads/products/6261947/conversions/6867e7afd31d9-1751639983-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "05c05118-aa34-4882-adec-17e52e4e5d3f"
+    ]
   },
   {
     "sourceName": "Projecteur LED de Noël",

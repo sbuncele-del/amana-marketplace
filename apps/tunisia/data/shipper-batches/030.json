@@ -200,7 +200,10 @@
       "https://cdn.shipper.network/storage/tnmjobi3wydelpaq/uploads/products/11753058/conversions/6ad8ce128968f-1792593426-thumbnail-medium.jpg",
       "https://cdn.shipper.network/storage/tnmjobi3wydelpaq/uploads/products/11753051/conversions/6ad8cda4e6afb-1792593316-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "c83f6108-7e91-4d4a-bea1-0aba30a93315"
+    ]
   },
   {
     "sourceName": "Tapis de Massage des Pieds",

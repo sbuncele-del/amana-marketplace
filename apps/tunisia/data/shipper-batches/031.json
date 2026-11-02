@@ -337,6 +337,9 @@
       "https://cdn.shipper.network/storage/tnmjobi3wydelpaq/uploads/products/11752993/conversions/6ad8ca76299d2-1792592502-thumbnail-medium.jpg",
       "https://cdn.shipper.network/storage/tnmjobi3wydelpaq/uploads/products/11752978/conversions/6ad8ca3fdef47-1792592447-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "23a0eda2-052b-45e0-b5b2-736f1d0d04e8"
+    ]
   }
 ]

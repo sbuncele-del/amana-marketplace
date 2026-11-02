@@ -164,7 +164,10 @@
     "images": [
       "https://cdn.shipper.network/storage/vis533kftaq0utvc/uploads/products/6242365/conversions/6867b23ea8457-1751626302-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "525816ad-21f4-40cf-99cd-65a7dd1df638"
+    ]
   },
   {
     "sourceName": "boîtier Android TV Waka Box G216",
@@ -306,7 +309,10 @@
     "images": [
       "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/11711343/conversions/6ace097d2150a-1791887741-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "55ad7082-0d8e-4573-8ae1-afc250822699"
+    ]
   },
   {
     "sourceName": "montre femme guess",

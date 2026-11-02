@@ -201,7 +201,10 @@
     "images": [
       "https://cdn.shipper.network/storage/tnmjobi3wydelpaq/uploads/products/11753025/conversions/6ad8cb4d91227-1792592717-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "54adb2fb-3a15-4cc6-acac-9839aa47c440"
+    ]
   },
   {
     "sourceName": "Sac Femme 2 couleurs",
@@ -360,7 +363,10 @@
     "images": [
       "https://cdn.shipper.network/storage/y9mzf2xuugwu4abl/uploads/products/11635465/conversions/6ac3c25236081-1791214162-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "6d7f52f8-d87e-4061-8384-13113e9fc79a"
+    ]
   },
   {
     "sourceName": "**Peigne Lisseur et Boucleur Électrique 2-en-1 avec Ions Négatifs**",
@@ -437,7 +443,10 @@
       "https://cdn.shipper.network/storage/tnmjobi3wydelpaq/uploads/products/11753045/conversions/6ad8cd14a851f-1792593172-thumbnail-medium.jpg",
       "https://cdn.shipper.network/storage/tnmjobi3wydelpaq/uploads/products/11753043/conversions/6ad8ccf02277a-1792593136-thumbnail-medium.jpg"
     ],
-    "originalSupplierCopy": true
+    "originalSupplierCopy": true,
+    "retailerProductIds": [
+      "f770abf2-a9ca-4c24-8cb6-2561c3183803"
+    ]
   },
   {
     "sourceName": "Coffret Cadeau Femme",
