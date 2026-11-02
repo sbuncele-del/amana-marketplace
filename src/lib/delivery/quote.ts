@@ -41,10 +41,11 @@ export function cheapestBobGo(grams: number, zone: Zone) {
   const row = zones[zone]?.rows.find(([w]) => kg <= w);
   if (!row) return null;
   let best: { cents: number; courier: string; service: string } | null = null;
-  row[1].forEach((cents, i) => {
-    if (cents == null) return;
-    if (!best || cents < best.cents) best = { cents, courier: zones[zone].services[i][0], service: zones[zone].services[i][1] };
-  });
+  for (let i = 0; i < row[1].length; i++) {
+    const cents = row[1][i];
+    if (cents == null) continue;
+    if (best === null || cents < best.cents) best = { cents, courier: zones[zone].services[i][0], service: zones[zone].services[i][1] };
+  }
   return best;
 }
 
