@@ -1,6 +1,7 @@
 "use client";
 import { useCallback, useEffect, useState, type FormEvent } from "react";
 import { formatMoney } from "@/lib/commerce/domain";
+import { MailActivity } from "./mail-activity";
 import type { Market, Grant } from "@/lib/commerce/domain";
 type Partner = {
   id: string;
@@ -53,7 +54,30 @@ type Data = {
   page: number;
 };
 const field =
-  "w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm";
+  "w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm";
+const chipClass: Record<string, string> = {
+  ACTIVE: "bg-green-50 text-green-800 border-green-200",
+  APPROVED: "bg-green-50 text-green-800 border-green-200",
+  AVAILABLE: "bg-green-50 text-green-800 border-green-200",
+  DELIVERED: "bg-green-50 text-green-800 border-green-200",
+  PREPARATION: "bg-amber-50 text-amber-800 border-amber-200",
+  PENDING: "bg-amber-50 text-amber-800 border-amber-200",
+  STALE: "bg-amber-50 text-amber-800 border-amber-200",
+  ASSIGNED: "bg-blue-50 text-blue-800 border-blue-200",
+  ACCEPTED: "bg-blue-50 text-blue-800 border-blue-200",
+  DISPATCHED: "bg-indigo-50 text-indigo-800 border-indigo-200",
+  SUSPENDED: "bg-red-50 text-red-800 border-red-200",
+  REJECTED: "bg-red-50 text-red-800 border-red-200",
+  UNAVAILABLE: "bg-red-50 text-red-800 border-red-200",
+};
+function Chip({ s }: { s: string }) {
+  const label = s.toLowerCase().replace(/_/g, " ").replace(/^./, (c) => c.toUpperCase());
+  return (
+    <span className={`whitespace-nowrap rounded-full border px-2 py-0.5 text-xs ${chipClass[s] ?? "bg-slate-100 text-slate-700 border-slate-200"}`}>
+      {label}
+    </span>
+  );
+}
 const button =
   "rounded-lg bg-[#DA292B] px-4 py-2 text-sm font-semibold text-white disabled:opacity-50";
 function values(e: FormEvent<HTMLFormElement>) {
@@ -139,18 +163,39 @@ export function CommerceConsole({
         <div role="status" aria-live="polite" className="my-3 text-sm">
           {message}
         </div>
+        {data && (
+          <div className="mb-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
+            {[
+              ["Active markets", `${data.markets.filter((m) => m.status === "ACTIVE").length} of ${data.markets.length}`],
+              ["Partners to review", String(data.partners.filter((p) => p.status === "PENDING").length)],
+              ["Offers needing attention", String(data.offers.filter((o) => !o.approved || o.stock_status !== "AVAILABLE" || new Date(o.expires_at) < new Date()).length)],
+              ["Open shipments", String(data.shipments.filter((x) => !["DELIVERED", "REJECTED"].includes(x.status)).length)],
+            ].map(([label, value]) => (
+              <div key={label} className="rounded-lg border border-slate-200 bg-white px-4 py-3">
+                <p className="text-xs text-slate-500">{label}</p>
+                <p className="mt-1 text-2xl font-semibold tabular-nums">{value}</p>
+              </div>
+            ))}
+          </div>
+        )}
         <nav aria-label="Commerce sections" className="mb-4 flex flex-wrap gap-1 border-b border-slate-200">
-          {["Markets", "Partners", "Catalogue", "Fulfilment", "Access"].map(
-            (t) => (
-              <button
-                key={t}
-                onClick={() => setTab(t)}
-                className={`-mb-px border-b-2 px-3 py-2 text-sm ${t === tab ? "border-slate-900 font-semibold" : "border-transparent text-slate-500 hover:text-slate-800"}`}
-              >
-                {t}
-              </button>
-            ),
-          )}
+          {[
+            ["Markets", data?.markets.length],
+            ["Partners", data?.partners.length],
+            ["Catalogue", data?.offers.length],
+            ["Fulfilment", data?.shipments.length],
+            ["Access", undefined],
+            ...(data?.actor.admin ? [["Email", undefined] as const] : []),
+          ].map(([t, n]) => (
+            <button
+              key={t as string}
+              onClick={() => setTab(t as string)}
+              className={`-mb-px border-b-2 px-3 py-2 text-sm ${t === tab ? "border-slate-900 font-semibold" : "border-transparent text-slate-500 hover:text-slate-800"}`}
+            >
+              {t}
+              {typeof n === "number" && <span className="ml-1.5 rounded bg-slate-100 px-1.5 py-0.5 text-xs text-slate-600">{n}</span>}
+            </button>
+          ))}
         </nav>
         {!data ? (
           <p>Sign in with assigned commerce access to load this workspace.</p>
@@ -158,58 +203,67 @@ export function CommerceConsole({
           <>
             {tab === "Markets" && (
               <section className="space-y-5">
-                <div className="grid gap-4 md:grid-cols-3">
-                  {data.markets.map((m) => (
-                    <article
-                      key={m.code}
-                      className="rounded-lg border bg-white p-5"
-                    >
-                      <h2 className="text-lg font-bold">{m.name}</h2>
-                      <p className="my-2 text-sm">
-                        {m.status} · {m.currency} · {m.locale}
-                      </p>
-                      <p className="text-xs text-slate-500">
-                        {Object.entries(m.readiness)
-                          .filter(([, v]) => !v)
-                          .map(([k]) => k)
-                          .join(", ") || "Readiness checks recorded"}
-                        {Object.values(m.readiness).some((v) => !v)
-                          ? " pending"
-                          : ""}
-                      </p>
-                      {data.actor.admin && (
-                        <button
-                          disabled={busy}
-                          className="mt-4 text-sm underline"
-                          onClick={() => {
-                            const status =
-                              m.status === "ACTIVE" ? "SUSPENDED" : "ACTIVE";
-                            void send({
-                              action: "market",
-                              market: {
-                                code: m.code,
-                                name: m.name,
-                                currency: m.currency,
-                                locale: m.locale,
-                                languages: m.languages,
-                                readiness: m.readiness,
-                                version: m.version,
-                                status,
-                              },
-                            });
-                          }}
-                        >
-                          {m.status === "ACTIVE"
-                            ? "Suspend market"
-                            : "Activate market"}
-                        </button>
-                      )}
-                    </article>
-                  ))}
+                <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+                  <table className="w-full text-left text-sm">
+                    <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+                      <tr>
+                        {["Country", "Status", "Currency", "Language", "Ready for launch", ""].map((h) => (
+                          <th key={h} className="px-3 py-2">{h}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {data.markets.map((m) => (
+                        <tr key={m.code} className="border-t border-slate-100">
+                          <td className="px-3 py-2.5 font-medium">{m.name} <span className="text-xs text-slate-400">{m.code}</span></td>
+                          <td className="px-3 py-2.5"><Chip s={m.status} /></td>
+                          <td className="px-3 py-2.5">{m.currency}</td>
+                          <td className="px-3 py-2.5">{m.locale}</td>
+                          <td className="px-3 py-2.5">
+                            <div className="flex flex-wrap gap-1.5">
+                              {Object.entries(m.readiness).map(([k, v]) => (
+                                <span key={k} className={`rounded px-1.5 py-0.5 text-xs ${v ? "bg-green-50 text-green-800" : "bg-slate-100 text-slate-500"}`}>
+                                  {v ? "✓" : "○"} {k}
+                                </span>
+                              ))}
+                            </div>
+                          </td>
+                          <td className="px-3 py-2.5 text-right">
+                            {data.actor.admin && (
+                              <button
+                                disabled={busy}
+                                className="rounded-md border border-slate-300 px-3 py-1 text-xs hover:bg-slate-50"
+                                onClick={() => {
+                                  const status = m.status === "ACTIVE" ? "SUSPENDED" : "ACTIVE";
+                                  void send({
+                                    action: "market",
+                                    market: {
+                                      code: m.code,
+                                      name: m.name,
+                                      currency: m.currency,
+                                      locale: m.locale,
+                                      languages: m.languages,
+                                      readiness: m.readiness,
+                                      version: m.version,
+                                      status,
+                                    },
+                                  });
+                                }}
+                              >
+                                {m.status === "ACTIVE" ? "Suspend" : "Activate"}
+                              </button>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
                 {data.actor.admin && (
+                  <details className="rounded-lg border border-slate-200 bg-white">
+                  <summary className="cursor-pointer px-5 py-3 text-sm font-semibold">Add or edit a market</summary>
                   <form
-                    className="grid gap-4 rounded-lg border bg-white p-6 md:grid-cols-3"
+                    className="grid gap-4 p-5 md:grid-cols-3"
                     onSubmit={(e) => {
                       const v = values(e);
                       const old = data.markets.find((m) => m.code === v.code);
@@ -235,9 +289,6 @@ export function CommerceConsole({
                       });
                     }}
                   >
-                    <h2 className="font-bold md:col-span-3">
-                      Configure a market
-                    </h2>
                     {[
                       ["code", "Country code, e.g. ZA"],
                       ["name", "Country name"],
@@ -277,15 +328,15 @@ export function CommerceConsole({
                       Save market
                     </button>
                   </form>
+                  </details>
                 )}
               </section>
             )}
             {tab === "Partners" && (
               <section className="space-y-4">
                 {!data.partners.length && (
-                  <p>
-                    No applications for this market yet. Partners apply through
-                    their workspace.
+                  <p className="rounded-lg border border-dashed border-slate-300 bg-white px-4 py-8 text-center text-sm text-slate-500">
+                    No applications yet. Sellers and delivery partners apply from their own workspace.
                   </p>
                 )}
                 {data.partners.map((p) => (
@@ -293,9 +344,12 @@ export function CommerceConsole({
                     key={p.id}
                     className="rounded-lg border bg-white p-5"
                   >
-                    <h2 className="text-lg font-bold">{p.name}</h2>
-                    <p className="my-2 text-sm">
-                      {p.kind} · {p.status} · {p.markets.join(", ")}
+                    <div className="flex items-center justify-between gap-3">
+                      <h2 className="font-semibold">{p.name}</h2>
+                      <Chip s={p.status} />
+                    </div>
+                    <p className="mt-1 text-sm text-slate-600">
+                      {p.kind === "FULFILMENT" ? "Delivery / fulfilment partner" : "Seller"} · {p.markets.join(", ") || "No markets yet"}
                     </p>
                     <p className="text-xs text-slate-500">{p.website}</p>
                     {data.actor.admin && (
@@ -349,11 +403,11 @@ export function CommerceConsole({
                 </p>
                 <div className="overflow-auto rounded-lg border bg-white">
                   <table className="w-full text-left text-sm">
-                    <thead>
+                    <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
                       <tr>
                         {["Product", "SKU", "Retail", "Stock", "Approval"].map(
                           (h) => (
-                            <th key={h} className="p-4">
+                            <th key={h} className="px-3 py-2">
                               {h}
                             </th>
                           ),
@@ -363,20 +417,18 @@ export function CommerceConsole({
                     <tbody>
                       {data.offers.map((o) => (
                         <tr key={o.id} className="border-t">
-                          <td className="p-4">{o.title}</td>
-                          <td className="p-4">{o.supplier_sku}</td>
-                          <td className="p-4">
+                          <td className="px-3 py-2.5">{o.title}</td>
+                          <td className="px-3 py-2.5">{o.supplier_sku}</td>
+                          <td className="px-3 py-2.5">
                             {formatMoney(o.price_minor, o.currency)}
                           </td>
-                          <td className="p-4">
-                            {new Date(o.expires_at) < new Date()
-                              ? "STALE"
-                              : o.stock_status}
+                          <td className="px-3 py-2.5">
+                            <Chip s={new Date(o.expires_at) < new Date() ? "STALE" : o.stock_status} />
                           </td>
-                          <td className="p-4">
+                          <td className="px-3 py-2.5">
                             <button
                               disabled={busy}
-                              className="underline"
+                              className="rounded-md border border-slate-300 px-3 py-1 text-xs hover:bg-slate-50"
                               onClick={() =>
                                 void send({
                                   action: "offer-review",
@@ -515,14 +567,17 @@ export function CommerceConsole({
                     className="my-3 rounded-lg border bg-white p-4"
                     key={s.id}
                   >
-                    <p className="font-semibold">{s.order_id}</p>
-                    <p className="text-sm">
-                      {s.status} · {s.tracking_number || "Awaiting dispatch"}
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="font-semibold">{s.order_id}</p>
+                      <Chip s={s.status} />
+                    </div>
+                    <p className="mt-1 text-sm text-slate-600">
+                      {s.tracking_number ? `Tracking ${s.tracking_number}` : "Awaiting dispatch"}
                     </p>
                   </article>
                 ))}
                 {!data.shipments.length && (
-                  <p className="mt-5">No paid orders allocated yet.</p>
+                  <p className="rounded-lg border border-dashed border-slate-300 bg-white px-4 py-8 text-center text-sm text-slate-500">No paid orders have been given to a partner yet.</p>
                 )}
                 <details className="mt-6 rounded-lg border bg-white p-5">
                   <summary className="cursor-pointer font-semibold">
@@ -589,6 +644,7 @@ export function CommerceConsole({
                 </details>
               </section>
             )}
+            {tab === "Email" && data.actor.admin && <MailActivity />}
             {tab === "Access" && (
               <section>
                 {data.actor.admin ? (
