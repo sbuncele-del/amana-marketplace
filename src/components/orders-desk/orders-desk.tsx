@@ -3,12 +3,15 @@ import { Fragment, useCallback, useEffect, useMemo, useState } from "react";
 import {
   age,
   isStale,
+  MARKETS,
   MAX_ATTEMPTS,
+  money,
   nextMoves,
   SELLER_VISIBLE,
   STATUS_LABEL,
   TABS,
   tabCounts,
+  toMinor,
   type DeskStatus,
   type TabKey,
   type Who,
@@ -19,7 +22,6 @@ type Partner = { id: string; name: string };
 type Event = { by: string; kind: string; from: string; to: string; note: string; at: string };
 type Draft = { to: DeskStatus; note: string; fee: string; partnerId: string; tracking: string };
 
-const tnd = (m: number) => `${(m / 1000).toFixed(3)} TND`;
 const chip: Record<DeskStatus, string> = {
   PENDING_CONFIRMATION: "bg-amber-50 text-amber-800 border-amber-200",
   NO_ANSWER: "bg-orange-50 text-orange-800 border-orange-200",
@@ -38,6 +40,8 @@ export function OrdersDesk({ embedded = false }: { embedded?: boolean }) {
   const [who, setWho] = useState<Who | null>(null);
   const [orders, setOrders] = useState<DeskOrder[]>([]);
   const [partners, setPartners] = useState<Partner[]>([]);
+  const [markets, setMarkets] = useState<{ code: string; name: string }[]>([]);
+  const [country, setCountry] = useState("ALL");
   const [tab, setTab] = useState<TabKey | null>(null);
   const [q, setQ] = useState("");
   const [open, setOpen] = useState<string | null>(null);
@@ -59,6 +63,7 @@ export function OrdersDesk({ embedded = false }: { embedded?: boolean }) {
     setWho(j.who);
     setOrders(j.orders);
     setPartners(j.partners);
+    setMarkets(j.markets ?? []);
     setErr("");
     setLoaded(true);
   }, []);
@@ -73,20 +78,21 @@ export function OrdersDesk({ embedded = false }: { embedded?: boolean }) {
     [who],
   );
   const active: TabKey = tab ?? tabs[0]?.key ?? "to_call";
-  const counts = useMemo(() => tabCounts(orders), [orders]);
-  const stale = orders.filter((o) => isStale(o.status, o.createdAt)).length;
+  const scoped = useMemo(() => (country === "ALL" ? orders : orders.filter((o) => o.market === country)), [orders, country]);
+  const counts = useMemo(() => tabCounts(scoped), [scoped]);
+  const stale = scoped.filter((o) => isStale(o.status, o.createdAt)).length;
   const partnerName = (id: string | null) => partners.find((p) => p.id === id)?.name ?? "";
 
   const rows = useMemo(() => {
     const t = tabs.find((x) => x.key === active);
     const needle = q.trim().toLowerCase();
-    return orders.filter(
+    return scoped.filter(
       (o) =>
         (needle
           ? [o.reference, o.name, o.phone, o.governorate].some((v) => v.toLowerCase().includes(needle))
           : (t?.statuses as readonly string[] | undefined)?.includes(o.status)) ?? false,
     );
-  }, [orders, tabs, active, q]);
+  }, [scoped, tabs, active, q]);
 
   async function openRow(o: DeskOrder) {
     setMsg("");
@@ -101,12 +107,12 @@ export function OrdersDesk({ embedded = false }: { embedded?: boolean }) {
   }
   function start(o: DeskOrder, to: DeskStatus) {
     setMsg("");
-    setDraft({ to, note: "", fee: o.deliveryFeeMillimes != null ? String(o.deliveryFeeMillimes / 1000) : "", partnerId: o.partnerId ?? "", tracking: o.trackingNumber ?? "" });
+    setDraft({ to, note: "", fee: o.deliveryFeeMillimes != null ? String(o.deliveryFeeMillimes / (MARKETS[o.market as keyof typeof MARKETS]?.minor ?? 1000)) : "", partnerId: o.partnerId ?? "", tracking: o.trackingNumber ?? "" });
   }
   async function send(o: DeskOrder, d: Draft) {
     setBusy(true);
     setMsg("");
-    const fee = d.fee.trim() === "" ? undefined : Math.round(Number(d.fee.replace(",", ".")) * 1000);
+    const fee = d.fee.trim() === "" ? undefined : toMinor(o.market, Number(d.fee.replace(",", ".")));
     const r = await fetch("/api/orders-desk", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -136,10 +142,10 @@ export function OrdersDesk({ embedded = false }: { embedded?: boolean }) {
   if (!who) return <p className="m-8 rounded-md border border-slate-200 bg-white p-4 text-sm text-slate-700">{err}</p>;
 
   return (
-    <div className={`mx-auto max-w-7xl px-4 pb-16 text-slate-900 ${embedded ? "pt-8" : "pt-24"}`}>
+    <div className={embedded ? "text-slate-900" : "mx-auto max-w-7xl px-4 pb-16 pt-24 text-slate-900"}>
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-xl font-semibold">{who === "staff" ? "Orders" : "Your orders"}</h1>
+          {!embedded && <h1 className="text-xl font-semibold">{who === "staff" ? "Orders" : "Your orders"}</h1>}
           <p className="mt-1 text-sm text-slate-500">
             {who === "staff"
               ? `${counts.to_call} to call${stale ? ` · ${stale} waiting more than 2 hours` : ""} · ${counts.no_answer} no answer · ${counts.confirmed} confirmed, not yet sent`
@@ -149,6 +155,18 @@ export function OrdersDesk({ embedded = false }: { embedded?: boolean }) {
         <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search reference, name or phone" className={`${field} max-w-xs`} aria-label="Search orders" />
       </div>
 
+      {who === "staff" && markets.length > 1 && (
+        <div className="mt-4 flex flex-wrap gap-1.5" aria-label="Country">
+          {[{ code: "ALL", name: "All countries" }, ...markets].map((m) => {
+            const n = m.code === "ALL" ? orders.length : orders.filter((o) => o.market === m.code).length;
+            return (
+              <button key={m.code} onClick={() => { setCountry(m.code); setOpen(null); }} aria-pressed={country === m.code} className={`rounded-md border px-3 py-1.5 text-sm ${country === m.code ? "border-slate-900 bg-slate-900 text-white" : "border-slate-300 bg-white hover:bg-slate-100"}`}>
+                {m.name} <span className="opacity-70">{n}</span>
+              </button>
+            );
+          })}
+        </div>
+      )}
       <div role="tablist" className="mt-5 flex flex-wrap gap-1 border-b border-slate-200">
         {tabs.map((t) => (
           <button
@@ -169,6 +187,7 @@ export function OrdersDesk({ embedded = false }: { embedded?: boolean }) {
           <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
             <tr>
               <th className="px-3 py-2">Order</th>
+              {markets.length > 1 && <th className="px-3 py-2">Country</th>}
               <th className="px-3 py-2">Customer</th>
               <th className="px-3 py-2">Items</th>
               <th className="px-3 py-2 text-right">To collect</th>
@@ -178,7 +197,7 @@ export function OrdersDesk({ embedded = false }: { embedded?: boolean }) {
           </thead>
           <tbody>
             {rows.length === 0 && (
-              <tr><td colSpan={6} className="px-3 py-10 text-center text-slate-500">{q ? "No orders match that search." : "Nothing here."}</td></tr>
+              <tr><td colSpan={7} className="px-3 py-10 text-center text-slate-500">{q ? "No orders match that search." : "Nothing here."}</td></tr>
             )}
             {rows.map((o) => {
               const late = isStale(o.status, o.createdAt);
@@ -191,6 +210,7 @@ export function OrdersDesk({ embedded = false }: { embedded?: boolean }) {
                       <div className="font-medium">{o.reference}</div>
                       <div className={`text-xs ${late ? "font-semibold text-red-700" : "text-slate-500"}`}>{age(o.createdAt)} ago{late ? " · not called" : ""}</div>
                     </td>
+                    {markets.length > 1 && <td className="px-3 py-2.5 text-xs text-slate-600">{MARKETS[o.market as keyof typeof MARKETS]?.name ?? o.market}</td>}
                     <td className="px-3 py-2.5">
                       <div>{o.name}</div>
                       <a href={`tel:${o.phone}`} onClick={(e) => e.stopPropagation()} className="text-xs text-blue-700 underline">{o.phone}</a>
@@ -201,7 +221,7 @@ export function OrdersDesk({ embedded = false }: { embedded?: boolean }) {
                       {o.items.length > 2 ? ` +${o.items.length - 2} more` : ""}
                     </td>
                     <td className="px-3 py-2.5 text-right tabular-nums">
-                      {tnd(total)}
+                      {money(o.market, total)}
                       {o.deliveryFeeMillimes == null && <div className="text-xs text-slate-400">fee not set</div>}
                     </td>
                     {who === "staff" ? (
@@ -220,7 +240,7 @@ export function OrdersDesk({ embedded = false }: { embedded?: boolean }) {
                   </tr>
                   {open === o.reference && (
                     <tr className="border-t border-slate-100 bg-slate-50">
-                      <td colSpan={6} className="px-4 py-4">
+                      <td colSpan={7} className="px-4 py-4">
                         <div className="grid gap-6 md:grid-cols-3">
                           <div>
                             <h3 className="text-xs font-semibold uppercase text-slate-500">Deliver to</h3>
@@ -231,9 +251,9 @@ export function OrdersDesk({ embedded = false }: { embedded?: boolean }) {
                           <div>
                             <h3 className="text-xs font-semibold uppercase text-slate-500">Items</h3>
                             <ul className="mt-1 text-sm">
-                              {o.items.map((i, n) => (<li key={n} className="flex justify-between gap-4"><span>{i.quantity}× {i.title}</span><span className="tabular-nums">{tnd(i.quantity * i.unitMillimes)}</span></li>))}
-                              <li className="flex justify-between gap-4 text-slate-500"><span>Delivery</span><span className="tabular-nums">{o.deliveryFeeMillimes != null ? tnd(o.deliveryFeeMillimes) : "not set"}</span></li>
-                              <li className="mt-1 flex justify-between gap-4 border-t pt-1 font-semibold"><span>To collect</span><span className="tabular-nums">{tnd(total)}</span></li>
+                              {o.items.map((i, n) => (<li key={n} className="flex justify-between gap-4"><span>{i.quantity}× {i.title}</span><span className="tabular-nums">{money(o.market, i.quantity * i.unitMillimes)}</span></li>))}
+                              <li className="flex justify-between gap-4 text-slate-500"><span>Delivery</span><span className="tabular-nums">{o.deliveryFeeMillimes != null ? money(o.market, o.deliveryFeeMillimes) : "not set"}</span></li>
+                              <li className="mt-1 flex justify-between gap-4 border-t pt-1 font-semibold"><span>To collect</span><span className="tabular-nums">{money(o.market, total)}</span></li>
                             </ul>
                           </div>
                           {who === "staff" && (
@@ -260,7 +280,7 @@ export function OrdersDesk({ embedded = false }: { embedded?: boolean }) {
                             {draft && (
                               <form onSubmit={(e) => { e.preventDefault(); send(o, draft); }} className="mt-3 grid max-w-2xl gap-3 sm:grid-cols-2">
                                 {draft.to === "CONFIRMED" && (
-                                  <label className="text-sm">Delivery fee agreed (TND)
+                                  <label className="text-sm">Delivery fee agreed ({MARKETS[o.market as keyof typeof MARKETS]?.currency ?? "TND"})
                                     <input className={field} inputMode="decimal" required value={draft.fee} onChange={(e) => setDraft({ ...draft, fee: e.target.value })} />
                                   </label>
                                 )}

@@ -106,3 +106,19 @@ export function missingForMove(m: MoveInput, current: { partnerId: string | null
   if (m.to === "DISPATCHED" && !(m.partnerId ?? current.partnerId)) return "Choose who is delivering this order.";
   return null;
 }
+
+// Countries the desk can show. Amounts are stored in the smallest unit the storefront already uses:
+// Tunisia in millimes (1,000 to the dinar), the others in cents (100 to the unit).
+export const MARKETS = {
+  TN: { name: "Tunisia", currency: "TND", minor: 1000 },
+  DZ: { name: "Algeria", currency: "DZD", minor: 100 },
+  ZA: { name: "South Africa", currency: "ZAR", minor: 100 },
+} as const;
+export type MarketCode = keyof typeof MARKETS;
+export const MARKET_CODES = Object.keys(MARKETS) as MarketCode[];
+export function money(market: string, amount: number) {
+  const m = MARKETS[market as MarketCode] ?? MARKETS.TN;
+  return `${(amount / m.minor).toFixed(m.minor === 1000 ? 3 : 2)} ${m.currency}`;
+}
+export const toMinor = (market: string, value: number) =>
+  Math.round(value * (MARKETS[market as MarketCode] ?? MARKETS.TN).minor);

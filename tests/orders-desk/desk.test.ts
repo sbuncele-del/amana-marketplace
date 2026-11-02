@@ -4,7 +4,7 @@ import {PGlite} from '@electric-sql/pglite';
 import {canMove, isStale, missingForMove, nextMoves, tabCounts} from '../../src/lib/orders-desk/domain';
 import {deskSchema, listOrders, moveOrder, orderHistory} from '../../src/lib/orders-desk/store';
 
-const staff = {id: 'u1', name: 'Amel', who: 'staff' as const};
+const staff = {id: 'u1', name: 'Amel', who: 'staff' as const, markets: ['TN', 'DZ', 'ZA']};
 const seller = {id: 'u2', name: 'Sfax Fulfilment', who: 'seller' as const, partnerIds: ['p1']};
 async function setup() {
   const db = new PGlite();
@@ -41,7 +41,7 @@ test('a call is counted and logged, and a second person cannot overwrite it', as
   assert.ok(a.ok && a.order.status === 'NO_ANSWER' && a.order.callAttempts === 1 && a.order.lastCallBy === 'Amel');
   const stale = await moveOrder(db, {reference: 'TN-1', expectedFrom: 'PENDING_CONFIRMATION', actor: {...staff, name: 'Ben'}, move: {to: 'CANCELLED', note: 'x'}});
   assert.ok(!stale.ok && stale.code === 'CHANGED');
-  const h = await orderHistory(db, 'TN-1');
+  const h = await orderHistory(db, 'TN-1', ['TN']);
   assert.equal(h.length, 1); assert.equal(h[0].note, 'rang twice');
 });
 test('confirming needs a fee; sellers see only confirmed orders assigned to them, without call notes', async () => {
@@ -67,4 +67,13 @@ test('a seller can dispatch and deliver their own order but not another seller\'
   assert.ok(!cancel.ok && cancel.code === 'NOT_ALLOWED');
   const done = await moveOrder(db, {reference: 'TN-1', expectedFrom: 'DISPATCHED', actor: seller, move: {to: 'DELIVERED'}});
   assert.ok(done.ok && done.order.status === 'DELIVERED');
+});
+test('staff only see and change the countries they are allowed', async () => {
+  const db = await setup();
+  await db.query("UPDATE public.plentovo_tn_orders SET market='DZ' WHERE reference='TN-2'");
+  assert.deepEqual((await listOrders(db, {who: 'staff', markets: ['TN']}, 50)).map(o => o.reference), ['TN-1']);
+  assert.equal((await listOrders(db, {who: 'staff', markets: ['TN', 'DZ']}, 50)).length, 2);
+  const blocked = await moveOrder(db, {reference: 'TN-2', expectedFrom: 'PENDING_CONFIRMATION', actor: {...staff, markets: ['TN']}, move: {to: 'NO_ANSWER'}});
+  assert.ok(!blocked.ok && blocked.code === 'NOT_FOUND');
+  assert.deepEqual(await orderHistory(db, 'TN-2', ['TN']), []);
 });
