@@ -13,6 +13,7 @@
     "check:tunisia-recommendations": "node --import tsx --test tests/tunisia/recommendations.test.ts",
     "check:tunisia-confirmation": "node --import tsx --test tests/tunisia/confirmation.test.ts",
     "check:tunisia-account": "node --import tsx --test tests/tunisia/account.test.ts",
+    "check:orders-desk": "node --import tsx --test tests/orders-desk/desk.test.ts",
     "check:seo": "node --import tsx --test tests/seo/sitemaps.test.ts",
     "check:cms": "node --import tsx scripts/test-cms.ts",
     "check:access": "node --import tsx scripts/test-access.ts",

@@ -12,8 +12,8 @@ customer to confirm the order and the delivery fee before anything is dispatched
   `DATABASE_URL`/`POSTGRES_URL`), `RESEND_API_KEY`, `TUNISIA_FROM_EMAIL` (a sender verified in Resend) and `TUNISIA_ORDER_ALERT_EMAIL`.
   The page shows the existing "not open yet" checkout until then.
 * Nothing is sent to Shipper. Staff place confirmed orders with Shipper by hand until its order API, COD remittance terms and
-  Algeria/Tunisia coverage are verified. Add the Shipper submission and an order list screen next; today staff see orders only
-  in the email (and the table).
+  Algeria/Tunisia coverage are verified. Staff now work orders from the orders desk (`/admin/orders`): call status, attempts, call log, delivery fee and the seller
+  who delivers. Sellers see only their own confirmed orders at `/partner/orders`. Shipper submission is still manual.
 
 ## Google indexing (separate switch)
 The site was hard-coded `noindex, nofollow`. It now stays that way unless `TUNISIA_INDEXING=true`. When on, public pages are
