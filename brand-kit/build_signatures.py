@@ -29,7 +29,6 @@ def sig(sid, name, tag, email, phone, url, url_label, lang, legal_lines):
       <div><a href="{url}" style="color:#da292b;font-weight:bold;text-decoration:none;">{e(url_label)}</a></div>
       <div style="height:8px;line-height:8px;">&nbsp;</div>
       {ls}
-      <div class="hdr" style="margin:12px 0 0;"><a href="{C["site"]}"><img src="{C["site"]}/brand/plentovo-header.gif" alt="Plentovo" width="480" style="display:block;width:480px;max-width:100%;height:auto;border:0;"></a></div>
     </div>'''
 
 cards = []
@@ -37,7 +36,6 @@ def add(title, body, sid):
     cards.append(f'''  <div class="card">
     <h2>{e(title)}</h2>
     {body}
-    <label class="opt"><input type="checkbox" checked onchange="hdr('{sid}',this)"> Include header image</label>
     <button onclick="copySig('{sid}',this)">Copy signature</button><span class="ok">Copied</span>
   </div>''')
 
