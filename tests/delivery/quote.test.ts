@@ -1,0 +1,56 @@
+import assert from 'node:assert/strict';
+import {test} from 'node:test';
+import {cartEstimateCents, cheapestBobGo, perfectDealzFeeCents, quoteDelivery, rateCardAgeDays} from '../../src/lib/delivery/quote';
+
+test('Perfect Dealz bands match their published table', () => {
+  assert.equal(perfectDealzFeeCents(9990), 7900);
+  assert.equal(perfectDealzFeeCents(10000), 12000);
+  assert.equal(perfectDealzFeeCents(39000), 19900);
+  assert.equal(perfectDealzFeeCents(250000), 69900);
+});
+test('Bob Go cheapest price per zone comes from the rate card, rounding the weight up', () => {
+  assert.deepEqual(cheapestBobGo(5000, 'local'), {cents: 7038, courier: 'Fastway', service: 'LOC'});
+  assert.equal(cheapestBobGo(5000, 'main')?.cents, 9798);
+  assert.equal(cheapestBobGo(9200, 'main')?.cents, cheapestBobGo(10000, 'main')?.cents);
+  assert.equal(cheapestBobGo(2_000_000, 'local'), null);
+});
+test('Perfect Dealz parcels: the cheaper of their rate and Bob Go from their warehouse', () => {
+  const local = quoteDelivery({grams: 3000, zone: 'local', fulfilledBy: 'PERFECT_DEALZ'})!;
+  assert.equal(local.feeCents, 7038); assert.equal(local.setBy, 'bob-go'); assert.equal(local.compared, true);
+  const main = quoteDelivery({grams: 3000, zone: 'main', fulfilledBy: 'PERFECT_DEALZ'})!;
+  assert.equal(main.feeCents, 7900); assert.equal(main.setBy, 'perfect-dealz'); assert.equal(main.costCents, 7900);
+  const mid = quoteDelivery({grams: 12000, zone: 'main', fulfilledBy: 'PERFECT_DEALZ'})!;
+  assert.equal(mid.setBy, 'bob-go'); assert.ok(mid.feeCents < 12000);
+  const unknown = quoteDelivery({grams: 3000, zone: null, fulfilledBy: 'PERFECT_DEALZ'})!;
+  assert.equal(unknown.feeCents, 7900); assert.equal(unknown.compared, false);
+});
+test('a Perfect Dealz parcel is never dearer than the same parcel through Bob Go', () => {
+  for (const zone of ['local', 'main', 'regional'] as const)
+    for (const grams of [500, 3000, 9000, 12000, 25000, 45000, 90000]) {
+      const pd = quoteDelivery({grams, zone, fulfilledBy: 'PERFECT_DEALZ'})!, bob = cheapestBobGo(grams, zone)!;
+      assert.ok(pd.feeCents <= bob.cents, `${zone} ${grams}`);
+      assert.ok(pd.feeCents <= perfectDealzFeeCents(grams)!, `${zone} ${grams}`);
+    }
+});
+test('our own parcels: the customer pays the full Bob Go price, with no cap', () => {
+  const low = quoteDelivery({grams: 5000, zone: 'local', fulfilledBy: 'PLENTOVO'})!;
+  assert.equal(low.feeCents, 7038); assert.equal(low.setBy, 'bob-go'); assert.equal(low.marginCents, 0);
+  const main = quoteDelivery({grams: 5000, zone: 'main', fulfilledBy: 'PLENTOVO'})!;
+  assert.equal(main.feeCents, 9798); assert.equal(main.costCents, 9798); assert.equal(main.marginCents, 0);
+  const heavy = quoteDelivery({grams: 40000, zone: 'main', fulfilledBy: 'PLENTOVO'})!;
+  assert.equal(heavy.feeCents, 33259); assert.equal(heavy.courier, 'SkyNet');
+});
+test('refuses to guess when it cannot price a parcel we ship ourselves', () => {
+  assert.equal(quoteDelivery({grams: 5000, zone: null, fulfilledBy: 'PLENTOVO'}), null);
+  assert.equal(quoteDelivery({grams: 0, zone: 'local', fulfilledBy: 'PLENTOVO'}), null);
+  assert.equal(quoteDelivery({grams: NaN, zone: 'local', fulfilledBy: 'PERFECT_DEALZ'}), null);
+  assert.equal(quoteDelivery({grams: 1_500_000, zone: 'local', fulfilledBy: 'PLENTOVO'}), null);
+});
+test('the cart estimate is never above Perfect Dealz and uses the cheapest zone', () => {
+  assert.equal(cartEstimateCents(5000), 7038);
+  assert.equal(cartEstimateCents(100), 7038);
+  assert.ok(cartEstimateCents(60000)! <= 39900);
+});
+test('rate card age is measured from its export date', () => {
+  assert.equal(rateCardAgeDays(new Date('2026-11-12T00:00:00Z')), 10);
+});
