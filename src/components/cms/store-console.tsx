@@ -39,9 +39,18 @@ type Data = {
   releases?: Release[];
 };
 const field =
-  "mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm";
+  "mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm focus:border-slate-500 focus:outline-none";
 const button =
   "rounded-lg bg-[#DA292B] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40";
+function Chip({ tone, children }: { tone: "green" | "amber" | "blue" | "grey"; children: React.ReactNode }) {
+  const c = {
+    green: "bg-green-50 text-green-800 border-green-200",
+    amber: "bg-amber-50 text-amber-800 border-amber-200",
+    blue: "bg-blue-50 text-blue-800 border-blue-200",
+    grey: "bg-slate-100 text-slate-600 border-slate-200",
+  }[tone];
+  return <span className={`whitespace-nowrap rounded-full border px-2 py-0.5 text-xs ${c}`}>{children}</span>;
+}
 function Field({
   label,
   value,
@@ -56,7 +65,7 @@ function Field({
   type?: string;
 }) {
   return (
-    <label className="block text-sm font-medium">
+    <label className="block text-sm font-medium text-slate-700">
       {label}
       {multiline ? (
         <textarea
@@ -299,13 +308,13 @@ export function StoreConsole({
               {label}
             </button>
           ))}
-          <Link className="p-3 text-sm" href="/admin/campaigns">
+          <Link className="whitespace-nowrap rounded-md px-3 py-2 text-sm text-slate-600 hover:bg-white" href="/admin/campaigns">
             Email campaigns
           </Link>
         </nav>
         <div className="min-w-0">
           {readOnly && (
-            <p className="mb-4 rounded-lg bg-amber-100 p-4 text-sm">
+            <p className="mb-4 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900">
               Preview deployment · You can explore the editor. Saving, uploads
               and publishing are disabled because previews share the live
               database.
@@ -314,18 +323,18 @@ export function StoreConsole({
           {message && (
             <p
               role="status"
-              className="mb-4 rounded-lg border bg-white p-4 text-sm"
+              className="mb-4 rounded-md border border-slate-200 bg-white px-3 py-2 text-sm"
             >
               {message}
             </p>
           )}
           {!draft && kind === "product" && (
-            <section className="rounded-lg border bg-white p-5">
+            <section className="rounded-lg border border-slate-200 bg-white p-5">
               <div className="flex flex-wrap justify-between gap-3">
-                <h2 className="text-xl font-bold">
+                <h2 className="text-base font-semibold">
                   Products{" "}
-                  <span className="text-sm font-normal text-gray-500">
-                    {data?.total?.toLocaleString()} items
+                  <span className="ml-1 rounded bg-slate-100 px-1.5 py-0.5 text-xs font-normal text-slate-600">
+                    {data?.total?.toLocaleString() ?? "…"}
                   </span>
                 </h2>
                 <button
@@ -351,35 +360,42 @@ export function StoreConsole({
                   value={q}
                   onChange={(e) => setQ(e.target.value)}
                 />
-                <button className="rounded-lg border px-4" disabled={busy}>
+                <button className="mt-1 rounded-md border border-slate-300 px-4 text-sm hover:bg-slate-50" disabled={busy}>
                   Search
                 </button>
               </form>
-              <label className="mb-4 flex items-center gap-2 text-sm">
-                <input
-                  type="checkbox"
-                  checked={reviewOnly}
-                  onChange={(e) => {
-                    setReviewOnly(e.target.checked);
-                    setPage(1);
-                  }}
-                />
-                Only products flagged for supplier-content review
-              </label>
+              <div className="mb-4 flex gap-1.5">
+                {[
+                  [false, "All products"],
+                  [true, "Needs content review"],
+                ].map(([v, label]) => (
+                  <button
+                    key={String(v)}
+                    onClick={() => {
+                      setReviewOnly(v as boolean);
+                      setPage(1);
+                    }}
+                    aria-pressed={reviewOnly === v}
+                    className={`rounded-md border px-3 py-1.5 text-sm ${reviewOnly === v ? "border-slate-900 bg-slate-900 text-white" : "border-slate-300 bg-white hover:bg-slate-50"}`}
+                  >
+                    {label as string}
+                  </button>
+                ))}
+              </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
-                  <thead className="border-b text-gray-500">
+                  <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
                     <tr>
-                      <th className="py-3">Product</th>
-                      <th>Source</th>
-                      <th>Live state</th>
-                      <th>Draft</th>
+                      <th className="px-3 py-2">Product</th>
+                      <th className="px-3 py-2">Source</th>
+                      <th className="px-3 py-2">In store</th>
+                      <th className="px-3 py-2">Draft</th>
                     </tr>
                   </thead>
                   <tbody>
                     {data?.products?.map((p) => (
-                      <tr key={p.slug} className="border-b">
-                        <td className="py-4 pr-3">
+                      <tr key={p.slug} className="border-t border-slate-100 hover:bg-slate-50">
+                        <td className="px-3 py-3">
                           <button
                             className="text-left font-semibold hover:text-red-700"
                             onClick={() => navigate("product", p.slug)}
@@ -387,17 +403,15 @@ export function StoreConsole({
                             {p.name}
                           </button>
                           {p.qualityFlags?.length ? (
-                            <span className="mt-1 block text-xs text-amber-800">
-                              Content review needed
-                            </span>
+                            <span className="mt-1 block"><Chip tone="amber">Content review needed</Chip></span>
                           ) : null}
                           <p className="mt-1 text-xs text-gray-500">
                             R{p.price.toFixed(2)}
                           </p>
                         </td>
-                        <td>{p.source}</td>
-                        <td>{p.status}</td>
-                        <td>{p.draft ? "Saved" : "—"}</td>
+                        <td className="px-3 py-3 capitalize text-slate-600">{p.source}</td>
+                        <td className="px-3 py-3"><Chip tone={p.status === "active" ? "green" : "grey"}>{p.status === "active" ? "Active" : "Archived"}</Chip></td>
+                        <td className="px-3 py-3">{p.draft ? <Chip tone="blue">Draft saved</Chip> : <span className="text-slate-400">—</span>}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -425,17 +439,24 @@ export function StoreConsole({
           {draft && (
             <>
               <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-                <h2 className="text-xl font-bold">
-                  {product
-                    ? product.name || "New product"
-                    : "Storefront & campaign theme"}
-                </h2>
-                <span className="text-sm text-gray-500">
+                <div>
+                  {product && (
+                    <button onClick={() => navigate("product", "")} className="text-sm text-slate-500 hover:text-slate-900">
+                      ← All products
+                    </button>
+                  )}
+                  <h2 className="text-base font-semibold">
+                    {product
+                      ? product.name || "New product"
+                      : "Storefront & campaign theme"}
+                  </h2>
+                </div>
+                <span className="flex items-center gap-2 text-sm text-slate-500">
                   Draft version {version}
-                  {dirty ? " · Unsaved changes" : ""}
+                  {dirty && <Chip tone="amber">Unsaved changes</Chip>}
                 </span>
               </div>
-              <section className="space-y-5 rounded-lg border bg-white p-5">
+              <section className="space-y-5 rounded-lg border border-slate-200 bg-white p-5">
                 <label className="block text-sm font-medium">
                   Upload an image
                   <input
@@ -585,7 +606,7 @@ export function StoreConsole({
                         {product.variants.map((v, i) => (
                           <div
                             key={i}
-                            className="grid gap-3 rounded-lg border p-3 sm:grid-cols-3"
+                            className="grid gap-3 rounded-md border border-slate-200 bg-slate-50 p-3 sm:grid-cols-3"
                           >
                             {(
                               [
@@ -699,7 +720,7 @@ export function StoreConsole({
                         </select>
                       </label>
                     </div>
-                    <h3 className="font-bold">Slideshow</h3>
+                    <h3 className="font-semibold">Slideshow</h3>
                     {store.slides.map((slide, i) => (
                       <fieldset
                         key={i}
@@ -791,7 +812,7 @@ export function StoreConsole({
                     >
                       + Add slide
                     </button>
-                    <h3 className="font-bold">Homepage sections</h3>
+                    <h3 className="font-semibold">Homepage sections</h3>
                     {store.sectionOrder.map((id, i) => (
                       <div
                         key={id}
@@ -882,7 +903,7 @@ export function StoreConsole({
                     </Link>
                   </>
                 )}
-                <div className="border-t pt-4">
+                <div className="sticky bottom-0 -mx-5 -mb-5 flex items-center gap-3 rounded-b-lg border-t border-slate-200 bg-white/95 px-5 py-3 backdrop-blur">
                   <button
                     className={button}
                     disabled={busy || !dirty}
@@ -890,10 +911,13 @@ export function StoreConsole({
                   >
                     {busy ? "Working…" : "Save draft"}
                   </button>
+                  <span className="text-xs text-slate-500">
+                    {dirty ? "You have unsaved changes." : "Saved. Publish from the section below."}
+                  </span>
                 </div>
               </section>
-              <section className="mt-5 rounded-lg border bg-white p-5">
-                <h3 className="font-bold">Publish or schedule</h3>
+              <section className="mt-5 rounded-lg border border-slate-200 bg-white p-5">
+                <h3 className="font-semibold">Publish or schedule</h3>
                 <p className="mt-1 text-sm text-gray-500">
                   Dates use your device’s local time. Leaving start blank
                   publishes now.
@@ -933,8 +957,8 @@ export function StoreConsole({
                   </p>
                 )}
               </section>
-              <section className="mt-5 rounded-lg border bg-white p-5">
-                <h3 className="font-bold">Release history & restore</h3>
+              <section className="mt-5 rounded-lg border border-slate-200 bg-white p-5">
+                <h3 className="font-semibold">Release history & restore</h3>
                 {!data?.releases?.length && (
                   <p className="mt-3 text-sm text-gray-500">
                     No releases yet. The current store remains unchanged.
