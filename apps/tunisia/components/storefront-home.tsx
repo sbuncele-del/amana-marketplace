@@ -15,7 +15,7 @@ const categoryKeys:Record<string,string>={'kitchen-dining':'kitchen','home-livin
 export function StorefrontHome({locale,groups,collections=false}:{locale:Locale;groups:ProductGroup[];onAdd?:(id:string)=>void;collections?:boolean}){
  const t=storefrontTranslator(locale),m=messages[locale];
  const shop=(key:string)=>`/${locale}/shop?q=${encodeURIComponent(categoryKeys[key]||key)}`;
- const route=(href:string)=>href.startsWith('/department/')?shop(href.split('/').pop()!):href.startsWith('/collections/')?shop(homeMissions.find(m=>href.endsWith(m.slug))?.key||'home'):`/${locale}/help`;
+ const route=(href:string)=>href.startsWith('/department/')?(slug=>categoryKeys[slug]?`/${locale}/category/${slug}`:shop(slug))(href.split('/').pop()!):href.startsWith('/collections/')?shop(homeMissions.find(m=>href.endsWith(m.slug))?.key||'home'):`/${locale}/help`;
  const asset=(image:string)=>image.startsWith('/brand/')?'/tunisia'+image:image;
  const stocked=groups.filter(g=>g.stock>0);
  const missions=collections?homeMissions:featuredMissions.map(slug=>homeMissions.find(m=>m.slug===slug)!);
