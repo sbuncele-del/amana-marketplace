@@ -2,7 +2,7 @@ import {after} from 'next/server';
 import {publishCareRetailIndex} from '@/lib/care-retail-index';
 import {notFound} from 'next/navigation';
 import Store from '@/components/store';
-import {locales,type Locale} from '@/lib/catalogue';
+import {locales,type Locale,type StoreProduct} from '@/lib/catalogue';
 import {getStorefrontPreviewProducts} from '@/lib/storefront-preview';
 import {getLiveProducts} from '@/lib/shipper-catalogue';
 import {codConfig} from '@/lib/orders/config';
@@ -52,7 +52,7 @@ export default async function Page({params,searchParams}:{params:Promise<{locale
  const selected=products.find(p=>route===`product/${p.slug}`||route===`product/${p.groupSlug}`);
  // A product page needs only its own options and its "You may also like" picks, not all ~6,000 products (the payload was ~5 MB).
  // The picks come from the same recommend() the page uses, so the result is identical.
- let scope=products;
+ let scope:StoreProduct[]=products;
  if(selected){const groups=groupProducts(products),viewedId=selected.groupId||selected.id,viewed=groups.find(g=>g.id===viewedId);const keep=new Set([viewedId,...(viewed?recommend(viewed,groups).map(g=>g.id):[])]);scope=products.filter(p=>keep.has(p.groupId||p.id));}
  // A category page is one page of 24 product cards plus links to the other categories, never the whole catalogue.
  let category;
