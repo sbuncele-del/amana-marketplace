@@ -1,10 +1,11 @@
 import {readCareRetailIndex} from '@/lib/care-retail-index';
+import type {StoreProduct} from '@/lib/catalogue';
 import {getLiveProducts} from '@/lib/shipper-catalogue';
 import {marketSitemap} from '../../../../packages/storefront/market-sitemap';
 export const dynamic='force-dynamic';
 export async function GET(){
  // The live catalogue is the source of truth; the stored index is only a fallback if the account read fails.
- let products=await getLiveProducts().catch(()=>[]);
+ let products:StoreProduct[]=await getLiveProducts().catch(()=>[]);
  if(!products.length)products=await readCareRetailIndex();
  // Never publish/cache a misleading empty sitemap during a database outage.
  if(!products.length)return new Response('Published catalogue temporarily unavailable',{status:503,headers:{'Retry-After':'300','Cache-Control':'no-store'}});
