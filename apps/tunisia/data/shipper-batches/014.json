@@ -1,485 +1,386 @@
 [
   {
-    "sourceName": "Sèche-cheveux",
-    "sourceUrl": "https://app.shipper.market/products/5b0821ba-789d-4c71-b49a-603fe14deedf",
-    "sourceProductId": "5b0821ba-789d-4c71-b49a-603fe14deedf",
-    "slug": "seche-cheveux-5b0821ba",
+    "sourceName": "Mini masseur de cou électrique portable",
+    "sourceUrl": "https://app.shipper.market/products/0c247276-03e5-4e37-9633-43ad375bcbcf",
+    "sourceProductId": "0c247276-03e5-4e37-9633-43ad375bcbcf",
+    "slug": "mini-masseur-de-cou-electrique-portable-0c247276",
+    "category": "care beauty hair skincare organisation massage & relaxation",
+    "title": {
+      "en": "Mini masseur de cou électrique portable",
+      "fr": "Mini masseur de cou électrique portable",
+      "ar": "Mini masseur de cou électrique portable"
+    },
+    "description": {
+      "en": "Coussin de Massage Rechargeable TJ-P1\nLe coussin de massage TJ-P1 est conçu pour offrir une expérience de massage confortable au niveau du cou. Grâce à son design pratique et à ses fonctionnalités intégrées, il constitue une solution simple pour un usage quotidien.\nÉquipé d'une commande par bouton, il permet une utilisation facile et intuitive. Sa fonction de contrôle de la synchronisation facilite la gestion du temps d'utilisation selon vos besoins.\nFabriqué en plastique, ce coussin de massage est rechargeable et dispose d'une conception réglable pour un meilleur confort d'utilisation.\nCaractéristiques :\nNom du produit : Coussin de massage\nModèle : TJ-P1\nMatériau : Plastique\nPosition de massage : Cou\nTension d'entrée : 3,7 V\nCommande : Bouton\nFonction : Contrôle de la synchronisation\nCaractéristiques : Multi-fonction, réglable, confortable, rechargeable\nEmballage : Boîte couleur\nOrigine : Guangdong, Chine",
+      "fr": "Coussin de Massage Rechargeable TJ-P1\nLe coussin de massage TJ-P1 est conçu pour offrir une expérience de massage confortable au niveau du cou. Grâce à son design pratique et à ses fonctionnalités intégrées, il constitue une solution simple pour un usage quotidien.\nÉquipé d'une commande par bouton, il permet une utilisation facile et intuitive. Sa fonction de contrôle de la synchronisation facilite la gestion du temps d'utilisation selon vos besoins.\nFabriqué en plastique, ce coussin de massage est rechargeable et dispose d'une conception réglable pour un meilleur confort d'utilisation.\nCaractéristiques :\nNom du produit : Coussin de massage\nModèle : TJ-P1\nMatériau : Plastique\nPosition de massage : Cou\nTension d'entrée : 3,7 V\nCommande : Bouton\nFonction : Contrôle de la synchronisation\nCaractéristiques : Multi-fonction, réglable, confortable, rechargeable\nEmballage : Boîte couleur\nOrigine : Guangdong, Chine",
+      "ar": "Coussin de Massage Rechargeable TJ-P1\nLe coussin de massage TJ-P1 est conçu pour offrir une expérience de massage confortable au niveau du cou. Grâce à son design pratique et à ses fonctionnalités intégrées, il constitue une solution simple pour un usage quotidien.\nÉquipé d'une commande par bouton, il permet une utilisation facile et intuitive. Sa fonction de contrôle de la synchronisation facilite la gestion du temps d'utilisation selon vos besoins.\nFabriqué en plastique, ce coussin de massage est rechargeable et dispose d'une conception réglable pour un meilleur confort d'utilisation.\nCaractéristiques :\nNom du produit : Coussin de massage\nModèle : TJ-P1\nMatériau : Plastique\nPosition de massage : Cou\nTension d'entrée : 3,7 V\nCommande : Bouton\nFonction : Contrôle de la synchronisation\nCaractéristiques : Multi-fonction, réglable, confortable, rechargeable\nEmballage : Boîte couleur\nOrigine : Guangdong, Chine"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/vxyiitz0nlxzofop/uploads/products/10491830/6a1ea0d94f7cd-1780392153.jpg",
+      "https://cdn.shipper.network/storage/vxyiitz0nlxzofop/uploads/products/10491825/6a1ea0ca5cc0c-1780392138.jpg",
+      "https://cdn.shipper.network/storage/vxyiitz0nlxzofop/uploads/products/10491827/6a1ea0d34510d-1780392147.jpg",
+      "https://cdn.shipper.network/storage/vxyiitz0nlxzofop/uploads/products/10491828/6a1ea0d34a8a2-1780392147.jpg",
+      "https://cdn.shipper.network/storage/vxyiitz0nlxzofop/uploads/products/10491829/6a1ea0d59feff-1780392149.jpg",
+      "https://cdn.shipper.network/storage/vxyiitz0nlxzofop/uploads/products/10491831/6a1ea0de0aa02-1780392158.jpg",
+      "https://cdn.shipper.network/storage/vxyiitz0nlxzofop/uploads/products/10491833/6a1ea0f7a62c1-1780392183.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "linge de bain",
+    "sourceUrl": "https://app.shipper.market/products/0c35b711-b086-4d50-bc6e-e0cf31379548",
+    "sourceProductId": "0c35b711-b086-4d50-bc6e-e0cf31379548",
+    "slug": "linge-de-bain-0c35b711",
+    "category": "bathroom care beauty hair skincare cleaning laundry",
+    "title": {
+      "en": "linge de bain",
+      "fr": "linge de bain",
+      "ar": "linge de bain"
+    },
+    "description": {
+      "en": "linge de bain en éponge, coloris bordeaux, en 100 % coton bio. Doux et absorbants, ils sont adaptés à la toilette quotidienne du visage et du corps. Format pratique de 27 × 17 cm, avec une finition soignée et une boucle de suspension.",
+      "fr": "linge de bain en éponge, coloris bordeaux, en 100 % coton bio. Doux et absorbants, ils sont adaptés à la toilette quotidienne du visage et du corps. Format pratique de 27 × 17 cm, avec une finition soignée et une boucle de suspension.",
+      "ar": "linge de bain en éponge, coloris bordeaux, en 100 % coton bio. Doux et absorbants, ils sont adaptés à la toilette quotidienne du visage et du corps. Format pratique de 27 × 17 cm, avec une finition soignée et une boucle de suspension."
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/ldsnapsux8q2ssbd/uploads/products/11165749/conversions/6a83098f6780a-1786972559-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/ldsnapsux8q2ssbd/uploads/products/11163041/conversions/6a82d77078887-1786959728-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/ldsnapsux8q2ssbd/uploads/products/11163043/conversions/6a82d795a7da1-1786959765-thumbnail-medium.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Pistolet de Massage Musculaire et Relaxation Fascial Gun",
+    "sourceUrl": "https://app.shipper.market/products/0c3d8298-6b53-4fb0-b52e-2320461676e5",
+    "sourceProductId": "0c3d8298-6b53-4fb0-b52e-2320461676e5",
+    "slug": "pistolet-de-massage-musculaire-et-relaxation-fascial-gun-0c3d8298",
+    "category": "care beauty hair skincare play organisation cleaning laundry school office",
+    "title": {
+      "en": "Pistolet de Massage Musculaire et Relaxation Fascial Gun",
+      "fr": "Pistolet de Massage Musculaire et Relaxation Fascial Gun",
+      "ar": "Pistolet de Massage Musculaire et Relaxation Fascial Gun"
+    },
+    "description": {
+      "en": "Découvrez le Pistolet de Massage Musculaire et Relaxation Fascial Gun, un appareil pratique conçu pour accompagner la détente et la récupération musculaire après une journée active ou une séance de sport. Grâce à son moteur puissant et silencieux, ses percussions ciblées et ses têtes de massage interchangeables, il permet de travailler différentes zones musculaires selon les besoins. Sa batterie rechargeable et son étui de transport facilitent son utilisation à la maison, à la salle de sport ou en déplacement.\n\n• Pistolet de massage musculaire conçu pour accompagner la détente et la récupération après l’effort\n\n• Moteur puissant et silencieux pour une utilisation confortable\n\n• Percussions profondes adaptées au massage des muscles sollicités\n\n• Têtes de massage interchangeables permettant de cibler différentes zones du corps\n\n• Batterie rechargeable offrant une utilisation pratique sans branchement permanent\n\n• Conception ergonomique facilitant la prise en main pendant les séances\n\n• Format portable adapté à une utilisation à domicile, au bureau ou après le sport\n\n• Étui de transport inclus pour faciliter le rangement et les déplacements\n\n• Utilisation adaptée aux jambes, bras, épaules et autres zones musculaires selon les besoins\n\n• Fonctionnement simple et intuitif pour une prise en main rapide\n\n• Convient aux sportifs comme aux personnes recherchant un moment de relaxation\n\n• Solution pratique pour intégrer le massage musculaire à une routine quotidienne\n\n• Design compact facilitant le rangement après chaque utilisation\n\n• Entretien simple avec un nettoyage régulier de l’appareil et des embouts\n\n• Structure conçue pour une utilisation régulière et pratique\n\n• Accessoire idéal pour profiter d’un massage ciblé sans quitter son domicile\n\nLe Pistolet de Massage Musculaire et Relaxation Fascial Gun associe puissance, confort et mobilité pour vous accompagner dans vos moments de détente et de récupération. Son moteur silencieux, ses têtes interchangeables, sa batterie rechargeable et son étui de transport en font un accessoire polyvalent pour profiter facilement d’un massage musculaire ciblé au quotidien.",
+      "fr": "Découvrez le Pistolet de Massage Musculaire et Relaxation Fascial Gun, un appareil pratique conçu pour accompagner la détente et la récupération musculaire après une journée active ou une séance de sport. Grâce à son moteur puissant et silencieux, ses percussions ciblées et ses têtes de massage interchangeables, il permet de travailler différentes zones musculaires selon les besoins. Sa batterie rechargeable et son étui de transport facilitent son utilisation à la maison, à la salle de sport ou en déplacement.\n\n• Pistolet de massage musculaire conçu pour accompagner la détente et la récupération après l’effort\n\n• Moteur puissant et silencieux pour une utilisation confortable\n\n• Percussions profondes adaptées au massage des muscles sollicités\n\n• Têtes de massage interchangeables permettant de cibler différentes zones du corps\n\n• Batterie rechargeable offrant une utilisation pratique sans branchement permanent\n\n• Conception ergonomique facilitant la prise en main pendant les séances\n\n• Format portable adapté à une utilisation à domicile, au bureau ou après le sport\n\n• Étui de transport inclus pour faciliter le rangement et les déplacements\n\n• Utilisation adaptée aux jambes, bras, épaules et autres zones musculaires selon les besoins\n\n• Fonctionnement simple et intuitif pour une prise en main rapide\n\n• Convient aux sportifs comme aux personnes recherchant un moment de relaxation\n\n• Solution pratique pour intégrer le massage musculaire à une routine quotidienne\n\n• Design compact facilitant le rangement après chaque utilisation\n\n• Entretien simple avec un nettoyage régulier de l’appareil et des embouts\n\n• Structure conçue pour une utilisation régulière et pratique\n\n• Accessoire idéal pour profiter d’un massage ciblé sans quitter son domicile\n\nLe Pistolet de Massage Musculaire et Relaxation Fascial Gun associe puissance, confort et mobilité pour vous accompagner dans vos moments de détente et de récupération. Son moteur silencieux, ses têtes interchangeables, sa batterie rechargeable et son étui de transport en font un accessoire polyvalent pour profiter facilement d’un massage musculaire ciblé au quotidien.",
+      "ar": "Découvrez le Pistolet de Massage Musculaire et Relaxation Fascial Gun, un appareil pratique conçu pour accompagner la détente et la récupération musculaire après une journée active ou une séance de sport. Grâce à son moteur puissant et silencieux, ses percussions ciblées et ses têtes de massage interchangeables, il permet de travailler différentes zones musculaires selon les besoins. Sa batterie rechargeable et son étui de transport facilitent son utilisation à la maison, à la salle de sport ou en déplacement.\n\n• Pistolet de massage musculaire conçu pour accompagner la détente et la récupération après l’effort\n\n• Moteur puissant et silencieux pour une utilisation confortable\n\n• Percussions profondes adaptées au massage des muscles sollicités\n\n• Têtes de massage interchangeables permettant de cibler différentes zones du corps\n\n• Batterie rechargeable offrant une utilisation pratique sans branchement permanent\n\n• Conception ergonomique facilitant la prise en main pendant les séances\n\n• Format portable adapté à une utilisation à domicile, au bureau ou après le sport\n\n• Étui de transport inclus pour faciliter le rangement et les déplacements\n\n• Utilisation adaptée aux jambes, bras, épaules et autres zones musculaires selon les besoins\n\n• Fonctionnement simple et intuitif pour une prise en main rapide\n\n• Convient aux sportifs comme aux personnes recherchant un moment de relaxation\n\n• Solution pratique pour intégrer le massage musculaire à une routine quotidienne\n\n• Design compact facilitant le rangement après chaque utilisation\n\n• Entretien simple avec un nettoyage régulier de l’appareil et des embouts\n\n• Structure conçue pour une utilisation régulière et pratique\n\n• Accessoire idéal pour profiter d’un massage ciblé sans quitter son domicile\n\nLe Pistolet de Massage Musculaire et Relaxation Fascial Gun associe puissance, confort et mobilité pour vous accompagner dans vos moments de détente et de récupération. Son moteur silencieux, ses têtes interchangeables, sa batterie rechargeable et son étui de transport en font un accessoire polyvalent pour profiter facilement d’un massage musculaire ciblé au quotidien."
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/11646775/conversions/6ac61ea54a48f-1791368869-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/11646774/conversions/6ac61ea549bf6-1791368869-thumbnail-medium.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Lampe Solaire Murale LED",
+    "sourceUrl": "https://app.shipper.market/products/0c3f714f-ffd2-4e56-80de-50033ed44a08",
+    "sourceProductId": "0c3f714f-ffd2-4e56-80de-50033ed44a08",
+    "slug": "lampe-solaire-murale-led-0c3f714f",
+    "category": "lighting outdoor",
+    "title": {
+      "en": "Lampe Solaire Murale LED",
+      "fr": "Lampe Solaire Murale LED",
+      "ar": "Lampe Solaire Murale LED"
+    },
+    "description": {
+      "en": "Découvrez la lampe solaire murale BK-36 à 42 LED, idéale pour éclairer et sécuriser vos espaces extérieurs. Équipée d'un détecteur de mouvement et d'un panneau solaire, elle fonctionne grâce à l'énergie solaire, sans branchement électrique.\n\nSon design compact et moderne permet une installation sur les murs, dans les jardins, les terrasses, les garages ou à l'entrée de la maison. Livrée avec une télécommande selon les indications de l'emballage, elle offre un éclairage extérieur pratique et économique.",
+      "fr": "Découvrez la lampe solaire murale BK-36 à 42 LED, idéale pour éclairer et sécuriser vos espaces extérieurs. Équipée d'un détecteur de mouvement et d'un panneau solaire, elle fonctionne grâce à l'énergie solaire, sans branchement électrique.\n\nSon design compact et moderne permet une installation sur les murs, dans les jardins, les terrasses, les garages ou à l'entrée de la maison. Livrée avec une télécommande selon les indications de l'emballage, elle offre un éclairage extérieur pratique et économique.",
+      "ar": "Découvrez la lampe solaire murale BK-36 à 42 LED, idéale pour éclairer et sécuriser vos espaces extérieurs. Équipée d'un détecteur de mouvement et d'un panneau solaire, elle fonctionne grâce à l'énergie solaire, sans branchement électrique.\n\nSon design compact et moderne permet une installation sur les murs, dans les jardins, les terrasses, les garages ou à l'entrée de la maison. Livrée avec une télécommande selon les indications de l'emballage, elle offre un éclairage extérieur pratique et économique."
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/11759816/conversions/6adb2869e7073-1792747625-thumbnail-medium.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Kit Dispositifs anti-ronflement nasales magnétiques 15 pairs",
+    "sourceUrl": "https://app.shipper.market/products/0c49ef88-772a-4b23-b942-a9dc6e842273",
+    "sourceProductId": "0c49ef88-772a-4b23-b942-a9dc6e842273",
+    "slug": "kit-dispositifs-anti-ronflement-nasales-magnetiques-15-pairs-0c49ef88",
+    "category": "care beauty hair skincare the essentials",
+    "title": {
+      "en": "Kit Dispositifs anti-ronflement nasales magnétiques 15 pairs",
+      "fr": "Kit Dispositifs anti-ronflement nasales magnétiques 15 pairs",
+      "ar": "Kit Dispositifs anti-ronflement nasales magnétiques 15 pairs"
+    },
+    "description": {
+      "en": "Bandlettes nasales 15 paires magnétiques anti-ronflement, Dilatateur nasale pour le sommeil, Pansements nasaux contre le ronflement,Sleep better, anti-snoring nose strips, safe and effective nose patch, better breathing, intake breathing nose strips, unisex anti-snoring equipment for home \nSÛRS ET EFFICACES – Les dilatateurs nasaux sont parfaitement adaptés aux sprays nasaux et aux pots Neti pour soulager la congestion et réduire les ronflements. Sûrs, sans médicament et sans latex, ils sont recommandés par les médecins comme la meilleure solution contre la respiration buccale et les ronflements.\nFACILE À UTILISER - Les kits de démarrage anti-ronflement comprennent tout ce dont vous avez besoin : quatre bandes de soulagement réutilisables de différentes tailles pour un ajustement parfait, 15 ou 30 bandelettes nasales à usage unique et un applicateur magnétique pour une application facile",
+      "fr": "Bandlettes nasales 15 paires magnétiques anti-ronflement, Dilatateur nasale pour le sommeil, Pansements nasaux contre le ronflement,Sleep better, anti-snoring nose strips, safe and effective nose patch, better breathing, intake breathing nose strips, unisex anti-snoring equipment for home \nSÛRS ET EFFICACES – Les dilatateurs nasaux sont parfaitement adaptés aux sprays nasaux et aux pots Neti pour soulager la congestion et réduire les ronflements. Sûrs, sans médicament et sans latex, ils sont recommandés par les médecins comme la meilleure solution contre la respiration buccale et les ronflements.\nFACILE À UTILISER - Les kits de démarrage anti-ronflement comprennent tout ce dont vous avez besoin : quatre bandes de soulagement réutilisables de différentes tailles pour un ajustement parfait, 15 ou 30 bandelettes nasales à usage unique et un applicateur magnétique pour une application facile",
+      "ar": "Bandlettes nasales 15 paires magnétiques anti-ronflement, Dilatateur nasale pour le sommeil, Pansements nasaux contre le ronflement,Sleep better, anti-snoring nose strips, safe and effective nose patch, better breathing, intake breathing nose strips, unisex anti-snoring equipment for home \nSÛRS ET EFFICACES – Les dilatateurs nasaux sont parfaitement adaptés aux sprays nasaux et aux pots Neti pour soulager la congestion et réduire les ronflements. Sûrs, sans médicament et sans latex, ils sont recommandés par les médecins comme la meilleure solution contre la respiration buccale et les ronflements.\nFACILE À UTILISER - Les kits de démarrage anti-ronflement comprennent tout ce dont vous avez besoin : quatre bandes de soulagement réutilisables de différentes tailles pour un ajustement parfait, 15 ou 30 bandelettes nasales à usage unique et un applicateur magnétique pour une application facile"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10698932/6a326f760cc46-1781690230.png",
+      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10698928/6a326f3a099c8-1781690170.png",
+      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10674953/6a3119df70cb7-1781602783.jpg",
+      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10674947/6a3119d90438e-1781602777.jpg",
+      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10674948/6a3119d906954-1781602777.jpg",
+      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10674949/6a3119daf1cab-1781602778.jpg",
+      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10674950/6a3119daf398e-1781602778.jpg",
+      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10674951/6a3119dd3ee0f-1781602781.jpg",
+      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10674952/6a3119dd415f0-1781602781.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "KAYALI Eden Juicy Apple",
+    "sourceUrl": "https://app.shipper.market/products/0c5fa979-5553-4902-b8c3-9795fdbe7462",
+    "sourceProductId": "0c5fa979-5553-4902-b8c3-9795fdbe7462",
+    "slug": "kayali-eden-juicy-apple-0c5fa979",
     "category": "care beauty hair skincare",
     "title": {
-      "en": "Sèche-cheveux",
-      "fr": "Sèche-cheveux",
-      "ar": "Sèche-cheveux"
+      "en": "KAYALI Eden Juicy Apple",
+      "fr": "KAYALI Eden Juicy Apple",
+      "ar": "KAYALI Eden Juicy Apple"
     },
     "description": {
-      "en": "Sèche-cheveux professionnel MAX BRA N°809, de couleur noire avec finitions dorées, conçu pour un séchage rapide et un coiffage précis. Il est livré avec des embouts concentrateurs permettant de diriger le flux d’air. Son format ergonomique et sa poignée avec commandes intégrées le rendent pratique pour un usage domestique ou en salon.",
-      "fr": "Sèche-cheveux professionnel MAX BRA N°809, de couleur noire avec finitions dorées, conçu pour un séchage rapide et un coiffage précis. Il est livré avec des embouts concentrateurs permettant de diriger le flux d’air. Son format ergonomique et sa poignée avec commandes intégrées le rendent pratique pour un usage domestique ou en salon.",
-      "ar": "Sèche-cheveux professionnel MAX BRA N°809, de couleur noire avec finitions dorées, conçu pour un séchage rapide et un coiffage précis. Il est livré avec des embouts concentrateurs permettant de diriger le flux d’air. Son format ergonomique et sa poignée avec commandes intégrées le rendent pratique pour un usage domestique ou en salon."
+      "en": "Un parfum fruité, pétillant et irrésistiblement joyeux\nEden Juicy Apple | 01 by KAYALI est une fragrance florale fruitée audacieuse, ludique et pleine d’énergie. Véritable explosion de fraîcheur et de gourmandise, ce parfum séduit dès la première vaporisation avec une pomme rouge juteuse, des baies sucrées et des notes florales lumineuses, pour un sillage joyeux et addictif.\nPensé pour celles qui aiment les parfums funs, vibrants et pleins de caractère, Eden Juicy Apple incarne une féminité moderne, spontanée et irrésistiblement séduisante.",
+      "fr": "Un parfum fruité, pétillant et irrésistiblement joyeux\nEden Juicy Apple | 01 by KAYALI est une fragrance florale fruitée audacieuse, ludique et pleine d’énergie. Véritable explosion de fraîcheur et de gourmandise, ce parfum séduit dès la première vaporisation avec une pomme rouge juteuse, des baies sucrées et des notes florales lumineuses, pour un sillage joyeux et addictif.\nPensé pour celles qui aiment les parfums funs, vibrants et pleins de caractère, Eden Juicy Apple incarne une féminité moderne, spontanée et irrésistiblement séduisante.",
+      "ar": "Un parfum fruité, pétillant et irrésistiblement joyeux\nEden Juicy Apple | 01 by KAYALI est une fragrance florale fruitée audacieuse, ludique et pleine d’énergie. Véritable explosion de fraîcheur et de gourmandise, ce parfum séduit dès la première vaporisation avec une pomme rouge juteuse, des baies sucrées et des notes florales lumineuses, pour un sillage joyeux et addictif.\nPensé pour celles qui aiment les parfums funs, vibrants et pleins de caractère, Eden Juicy Apple incarne une féminité moderne, spontanée et irrésistiblement séduisante."
     },
     "images": [
-      "https://cdn.shipper.network/storage/y9mzf2xuugwu4abl/uploads/products/11633098/conversions/6ac38111e45fa-1791197457-thumbnail-medium.jpg"
+      "https://cdn.shipper.network/storage/0pon5upprlnmc2vv/uploads/products/10331377/69ff0b8ab6abe-1778322314.jpg",
+      "https://cdn.shipper.network/storage/0pon5upprlnmc2vv/uploads/products/10331378/69ff0b8abaedd-1778322314.jpg",
+      "https://cdn.shipper.network/storage/0pon5upprlnmc2vv/uploads/products/10331379/69ff0b8c0dc9d-1778322316.jpg",
+      "https://cdn.shipper.network/storage/0pon5upprlnmc2vv/uploads/products/10331381/69ff0b8c27457-1778322316.jpg",
+      "https://cdn.shipper.network/storage/0pon5upprlnmc2vv/uploads/products/10331382/69ff0b8c7e3a1-1778322316.png"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Protection Anti-Frottement pour Talons",
-    "sourceUrl": "https://app.shipper.market/products/5c0f57a9-b6e2-4576-8a37-3fdc3512a2b0",
-    "sourceProductId": "5c0f57a9-b6e2-4576-8a37-3fdc3512a2b0",
-    "slug": "protection-anti-frottement-pour-talons-5c0f57a9",
+    "sourceName": "Chaise confort",
+    "sourceUrl": "https://app.shipper.market/products/0c74b66c-d1c9-47df-bc2e-b972b4857cbb",
+    "sourceProductId": "0c74b66c-d1c9-47df-bc2e-b972b4857cbb",
+    "slug": "chaise-confort-0c74b66c",
+    "category": "school office",
+    "title": {
+      "en": "Chaise confort",
+      "fr": "Chaise confort",
+      "ar": "Chaise confort"
+    },
+    "description": {
+      "en": "Cette chaise est un modèle de chaise visiteur de type luge, largement commercialisée sous le nom de Chaise Magix. \n\nCaractéristiques du modèle\n\nDesign : Structure en porte-à-faux (luge) sans pieds arrière, offrant une légère souplesse.\nMatériaux : Structure en métal chromé avec une assise et un dossier rembourrés, généralement revêtus de similicuir ou de tissu.\nUsage : Idéale pour les bureaux, les salles de réunion ou les salles d'attente.\nPersonnalisation : Disponible dans une large gamme de couleurs pour s'adapter à différents intérieurs.",
+      "fr": "Cette chaise est un modèle de chaise visiteur de type luge, largement commercialisée sous le nom de Chaise Magix. \n\nCaractéristiques du modèle\n\nDesign : Structure en porte-à-faux (luge) sans pieds arrière, offrant une légère souplesse.\nMatériaux : Structure en métal chromé avec une assise et un dossier rembourrés, généralement revêtus de similicuir ou de tissu.\nUsage : Idéale pour les bureaux, les salles de réunion ou les salles d'attente.\nPersonnalisation : Disponible dans une large gamme de couleurs pour s'adapter à différents intérieurs.",
+      "ar": "Cette chaise est un modèle de chaise visiteur de type luge, largement commercialisée sous le nom de Chaise Magix. \n\nCaractéristiques du modèle\n\nDesign : Structure en porte-à-faux (luge) sans pieds arrière, offrant une légère souplesse.\nMatériaux : Structure en métal chromé avec une assise et un dossier rembourrés, généralement revêtus de similicuir ou de tissu.\nUsage : Idéale pour les bureaux, les salles de réunion ou les salles d'attente.\nPersonnalisation : Disponible dans une large gamme de couleurs pour s'adapter à différents intérieurs."
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9967291/conversions/69d110294f53f-1775308841-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9967289/conversions/69d11027176bf-1775308839-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9967290/conversions/69d110272e2ee-1775308839-thumbnail-medium.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Série de 4 casserole isotherme 5-16-2",
+    "sourceUrl": "https://app.shipper.market/products/0c78e429-4a56-4cb6-8b5a-a61a313a0962",
+    "sourceProductId": "0c78e429-4a56-4cb6-8b5a-a61a313a0962",
+    "slug": "serie-de-4-casserole-isotherme-5-16-2-0c78e429",
     "category": "accessories",
     "title": {
-      "en": "Protection Anti-Frottement pour Talons",
-      "fr": "Protection Anti-Frottement pour Talons",
-      "ar": "Protection Anti-Frottement pour Talons"
+      "en": "Série de 4 casserole isotherme 5-16-2",
+      "fr": "Série de 4 casserole isotherme 5-16-2",
+      "ar": "Série de 4 casserole isotherme 5-16-2"
     },
     "description": {
-      "en": "Profitez d'un meilleur confort au quotidien grâce à ces protections anti-frottement pour talons, spécialement conçues pour limiter les irritations causées par le contact entre les chaussures et la peau.\n\nFabriqués dans une matière souple et flexible, ces coussinets se placent à l'intérieur des chaussures, au niveau du talon, afin de réduire les frottements et d'améliorer le confort de marche.\n\nDiscrets et faciles à utiliser, ils conviennent à différents types de chaussures, notamment les baskets, les chaussures de ville, les escarpins et les bottines.",
-      "fr": "Profitez d'un meilleur confort au quotidien grâce à ces protections anti-frottement pour talons, spécialement conçues pour limiter les irritations causées par le contact entre les chaussures et la peau.\n\nFabriqués dans une matière souple et flexible, ces coussinets se placent à l'intérieur des chaussures, au niveau du talon, afin de réduire les frottements et d'améliorer le confort de marche.\n\nDiscrets et faciles à utiliser, ils conviennent à différents types de chaussures, notamment les baskets, les chaussures de ville, les escarpins et les bottines.",
-      "ar": "Profitez d'un meilleur confort au quotidien grâce à ces protections anti-frottement pour talons, spécialement conçues pour limiter les irritations causées par le contact entre les chaussures et la peau.\n\nFabriqués dans une matière souple et flexible, ces coussinets se placent à l'intérieur des chaussures, au niveau du talon, afin de réduire les frottements et d'améliorer le confort de marche.\n\nDiscrets et faciles à utiliser, ils conviennent à différents types de chaussures, notamment les baskets, les chaussures de ville, les escarpins et les bottines."
+      "en": "Série de 4 casserole isotherme 5-16-2\nDisponible en trois couleurs :\n• BLEU\n• VERT\n• VIOLET",
+      "fr": "Série de 4 casserole isotherme 5-16-2\nDisponible en trois couleurs :\n• BLEU\n• VERT\n• VIOLET",
+      "ar": "Série de 4 casserole isotherme 5-16-2\nDisponible en trois couleurs :\n• BLEU\n• VERT\n• VIOLET"
     },
     "images": [
-      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/11713118/conversions/6ace491e207e1-1791904030-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/fddwq5ohkuz1b74n/uploads/products/11751441/6ad8818aad3cc-1792573834.png"
+      "https://cdn.shipper.network/storage/3jwsbljhv59blq4h/uploads/products/3173385/681c7644e40b3-1746695748.jpg",
+      "https://cdn.shipper.network/storage/3jwsbljhv59blq4h/uploads/products/3173386/681c7644ea453-1746695748.jpg",
+      "https://cdn.shipper.network/storage/3jwsbljhv59blq4h/uploads/products/3173387/681c7647d6d70-1746695751.jpg",
+      "https://cdn.shipper.network/storage/3jwsbljhv59blq4h/uploads/products/3173388/681c76480bd5e-1746695752.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Bracelet Maille Dorée",
-    "sourceUrl": "https://app.shipper.market/products/5c942eea-74aa-4b11-bf6e-c4c19a20911b",
-    "sourceProductId": "5c942eea-74aa-4b11-bf6e-c4c19a20911b",
-    "slug": "bracelet-maille-doree-5c942eea",
-    "category": "care beauty hair skincare wearables",
-    "title": {
-      "en": "Bracelet Maille Dorée",
-      "fr": "Bracelet Maille Dorée",
-      "ar": "Bracelet Maille Dorée"
-    },
-    "description": {
-      "en": "Ce bracelet doré se distingue par une maille large et généreuse, composée de maillons entrelacés aux formes arrondies et sculpturales. Chaque élément présente une surface parfaitement polie et facettée, conçue pour réfléchir intensément la lumière et souligner les volumes du bijou. La succession régulière des maillons crée une structure dense, souple et visuellement équilibrée autour du poignet. Son design reprend l’esprit des chaînes classiques tout en adoptant une finition plus contemporaine et affirmée. L’alternance des courbes, des reliefs et des surfaces brillantes lui confère une présence remarquable. Porté seul, il devient naturellement la pièce centrale d’une tenue, aussi élégant avec un style habillé qu’avec une silhouette quotidienne minimaliste.",
-      "fr": "Ce bracelet doré se distingue par une maille large et généreuse, composée de maillons entrelacés aux formes arrondies et sculpturales. Chaque élément présente une surface parfaitement polie et facettée, conçue pour réfléchir intensément la lumière et souligner les volumes du bijou. La succession régulière des maillons crée une structure dense, souple et visuellement équilibrée autour du poignet. Son design reprend l’esprit des chaînes classiques tout en adoptant une finition plus contemporaine et affirmée. L’alternance des courbes, des reliefs et des surfaces brillantes lui confère une présence remarquable. Porté seul, il devient naturellement la pièce centrale d’une tenue, aussi élégant avec un style habillé qu’avec une silhouette quotidienne minimaliste.",
-      "ar": "Ce bracelet doré se distingue par une maille large et généreuse, composée de maillons entrelacés aux formes arrondies et sculpturales. Chaque élément présente une surface parfaitement polie et facettée, conçue pour réfléchir intensément la lumière et souligner les volumes du bijou. La succession régulière des maillons crée une structure dense, souple et visuellement équilibrée autour du poignet. Son design reprend l’esprit des chaînes classiques tout en adoptant une finition plus contemporaine et affirmée. L’alternance des courbes, des reliefs et des surfaces brillantes lui confère une présence remarquable. Porté seul, il devient naturellement la pièce centrale d’une tenue, aussi élégant avec un style habillé qu’avec une silhouette quotidienne minimaliste."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/5gzsiasbfceikbpv/uploads/products/11649399/conversions/6ac655dc71c92-1791383004-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/5gzsiasbfceikbpv/uploads/products/11649395/conversions/6ac655c98ab10-1791382985-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/5gzsiasbfceikbpv/uploads/products/11649397/conversions/6ac655d0c591f-1791382992-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Gel apaisant aloe Vera 90 ml",
-    "sourceUrl": "https://app.shipper.market/products/5cd6901e-8644-472b-996c-f56402855b1b",
-    "sourceProductId": "5cd6901e-8644-472b-996c-f56402855b1b",
-    "slug": "gel-apaisant-aloe-vera-90-ml-5cd6901e",
-    "category": "accessories",
-    "title": {
-      "en": "Gel apaisant aloe Vera 90 ml",
-      "fr": "Gel apaisant aloe Vera 90 ml",
-      "ar": "Gel apaisant aloe Vera 90 ml"
-    },
-    "description": {
-      "en": "Gel apaisant aloe Vera 90 ml",
-      "fr": "Gel apaisant aloe Vera 90 ml",
-      "ar": "Gel apaisant aloe Vera 90 ml"
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/mhz5efywoiyclwgs/uploads/products/11568232/conversions/6ab6592beed86-1790335275-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "MYSTICAL Eau de Parfum",
-    "sourceUrl": "https://app.shipper.market/products/5d904ca4-4880-4e4d-8006-f2dfa091a274",
-    "sourceProductId": "5d904ca4-4880-4e4d-8006-f2dfa091a274",
-    "slug": "mystical-eau-de-parfum-5d904ca4",
-    "category": "care beauty hair skincare",
-    "title": {
-      "en": "MYSTICAL Eau de Parfum",
-      "fr": "MYSTICAL Eau de Parfum",
-      "ar": "MYSTICAL Eau de Parfum"
-    },
-    "description": {
-      "en": "Coffret de parfum MYSTICAL Eau de Parfum composé de 4 fragrances de 30 ml chacune. Présenté dans un coffret élégant aux tons bleu, noir, beige et rose, il offre plusieurs senteurs adaptées à différentes occasions. Les flacons au design moderne avec détails dorés et argentés en font également une belle idée cadeau.",
-      "fr": "Coffret de parfum MYSTICAL Eau de Parfum composé de 4 fragrances de 30 ml chacune. Présenté dans un coffret élégant aux tons bleu, noir, beige et rose, il offre plusieurs senteurs adaptées à différentes occasions. Les flacons au design moderne avec détails dorés et argentés en font également une belle idée cadeau.",
-      "ar": "Coffret de parfum MYSTICAL Eau de Parfum composé de 4 fragrances de 30 ml chacune. Présenté dans un coffret élégant aux tons bleu, noir, beige et rose, il offre plusieurs senteurs adaptées à différentes occasions. Les flacons au design moderne avec détails dorés et argentés en font également une belle idée cadeau."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/fxo6y1sh1gsjnzf0/uploads/products/11641698/conversions/6ac511a5a277e-1791300005-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/fxo6y1sh1gsjnzf0/uploads/products/11641020/conversions/6ac4fd579a014-1791294807-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Kit imprimer divers dessin",
-    "sourceUrl": "https://app.shipper.market/products/5e458813-abd6-495e-b62e-0ee4aec4818f",
-    "sourceProductId": "5e458813-abd6-495e-b62e-0ee4aec4818f",
-    "slug": "kit-imprimer-divers-dessin-5e458813",
+    "sourceName": "VERRE A EAU SUM330 190CC LAV PACK/6",
+    "sourceUrl": "https://app.shipper.market/products/0c85dba5-3a10-4c1b-8f1e-6c6eb81430e1",
+    "sourceProductId": "0c85dba5-3a10-4c1b-8f1e-6c6eb81430e1",
+    "slug": "verre-a-eau-sum330-190cc-lav-pack-6-0c85dba5",
     "category": "kitchen dining",
     "title": {
-      "en": "Kit imprimer divers dessin",
-      "fr": "Kit imprimer divers dessin",
-      "ar": "Kit imprimer divers dessin"
+      "en": "VERRE A EAU SUM330 190CC LAV PACK/6",
+      "fr": "VERRE A EAU SUM330 190CC LAV PACK/6",
+      "ar": "VERRE A EAU SUM330 190CC LAV PACK/6"
     },
     "description": {
-      "en": "Ensemble de cuisine assorti comprenant un tablier, un gant de four isotherme et une manique, confectionnés dans un tissu imprimé aux motifs marins et tropicaux (poissons, voiliers et palmiers) avec des bordures vertes. Pratique et complet, cet ensemble protège efficacement contre les éclaboussures et la chaleur tout en apportant une touche de couleur joyeuse à votre cuisine.",
-      "fr": "Ensemble de cuisine assorti comprenant un tablier, un gant de four isotherme et une manique, confectionnés dans un tissu imprimé aux motifs marins et tropicaux (poissons, voiliers et palmiers) avec des bordures vertes. Pratique et complet, cet ensemble protège efficacement contre les éclaboussures et la chaleur tout en apportant une touche de couleur joyeuse à votre cuisine.",
-      "ar": "Ensemble de cuisine assorti comprenant un tablier, un gant de four isotherme et une manique, confectionnés dans un tissu imprimé aux motifs marins et tropicaux (poissons, voiliers et palmiers) avec des bordures vertes. Pratique et complet, cet ensemble protège efficacement contre les éclaboussures et la chaleur tout en apportant une touche de couleur joyeuse à votre cuisine."
+      "en": "Et si nous nous penchions de plus près sur l’un des meilleurs amis de l’eau qui nous accompagne au quotidien ? Découvrons, la gamme des verres de la marque LAV par leur haut qualité, ces verres vous permettent de consommer de nombreuses boissons telles que des jus naturels, de l'eau… Idéal pour un premier équipement, découvrez une collection de verres modernes à prix doux. Spécialement conçus pour les apéritifs ces verres à boissons fortes, vont vous ravir par leur solidité, une base renforcée en verre trempé qui le protège d’éventuels Chocs.\n• Matière: Verre\n• Nombre de Pièces : 6 \n• Capacité : 190ml \n• Haut résistance aux chocs\n• Passent au lave-vaisselle",
+      "fr": "Et si nous nous penchions de plus près sur l’un des meilleurs amis de l’eau qui nous accompagne au quotidien ? Découvrons, la gamme des verres de la marque LAV par leur haut qualité, ces verres vous permettent de consommer de nombreuses boissons telles que des jus naturels, de l'eau… Idéal pour un premier équipement, découvrez une collection de verres modernes à prix doux. Spécialement conçus pour les apéritifs ces verres à boissons fortes, vont vous ravir par leur solidité, une base renforcée en verre trempé qui le protège d’éventuels Chocs.\n• Matière: Verre\n• Nombre de Pièces : 6 \n• Capacité : 190ml \n• Haut résistance aux chocs\n• Passent au lave-vaisselle",
+      "ar": "Et si nous nous penchions de plus près sur l’un des meilleurs amis de l’eau qui nous accompagne au quotidien ? Découvrons, la gamme des verres de la marque LAV par leur haut qualité, ces verres vous permettent de consommer de nombreuses boissons telles que des jus naturels, de l'eau… Idéal pour un premier équipement, découvrez une collection de verres modernes à prix doux. Spécialement conçus pour les apéritifs ces verres à boissons fortes, vont vous ravir par leur solidité, une base renforcée en verre trempé qui le protège d’éventuels Chocs.\n• Matière: Verre\n• Nombre de Pièces : 6 \n• Capacité : 190ml \n• Haut résistance aux chocs\n• Passent au lave-vaisselle"
     },
     "images": [
-      "https://cdn.shipper.network/storage/kqnpfzozbfkiqv2a/uploads/products/11437374/conversions/6a9eb37f5f114-1788785535-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/kqnpfzozbfkiqv2a/uploads/products/11436378/conversions/6a9e9e15ac8b7-1788780053-thumbnail-medium.jpg"
+      "https://cdn.shipper.network/storage/9wln7ehwasjxp0br/uploads/products/1033841/6646716aa823d-1715892586.jpg",
+      "https://cdn.shipper.network/storage/9wln7ehwasjxp0br/uploads/products/1033864/664672381f0ce-1715892792.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Nettoyeur haute pression sans fil portable",
-    "sourceUrl": "https://app.shipper.market/products/5ed3edd5-cf8e-4e38-8df9-4e0677246098",
-    "sourceProductId": "5ed3edd5-cf8e-4e38-8df9-4e0677246098",
-    "slug": "nettoyeur-haute-pression-sans-fil-portable-5ed3edd5",
-    "category": "bathroom play outdoor cleaning laundry",
-    "title": {
-      "en": "Nettoyeur haute pression sans fil portable",
-      "fr": "Nettoyeur haute pression sans fil portable",
-      "ar": "Nettoyeur haute pression sans fil portable"
-    },
-    "description": {
-      "en": "About this item\nThe cordless 48V 2 battery car pressure washer machine car washer delivers powerful and efficient cleaning performance, ensuring thorough dirt and grime removal from your vehicle. The 48V system provides ample power for effective high pressure power washer.\nThis battery operated car washer high pressure pump Equipped with a double rechargeable battery setup, this car washer ensures extended usage time without the need for constant recharging which also can be used as home cleaning machine along with bike washer and car wash machine.\nThis water pressure washer features a versatile multi-function nozzle, providing various spray patterns for different cleaning needs. Whether you need a gentle rinse or a powerful jet for tough stains, the adjustable nozzle offers flexibility to tackle a range of cleaning tasks effectively.\nThis cordless car washer can also be used as bathroom cleaner machine. You can easily move around your vehicle or take it anywhere without the constraints of cords, making it ideal for washing cars in different locations, such as home, garage, or outdoors. Its a great equipments for your car & bike pressure washer.\nIncludes 5 meters outlet hose pipe, 48V (2pcs)Battery, spray gun extension rod, inlet filter, inlet connector, bucket water filter, foam spray bottle.",
-      "fr": "About this item\nThe cordless 48V 2 battery car pressure washer machine car washer delivers powerful and efficient cleaning performance, ensuring thorough dirt and grime removal from your vehicle. The 48V system provides ample power for effective high pressure power washer.\nThis battery operated car washer high pressure pump Equipped with a double rechargeable battery setup, this car washer ensures extended usage time without the need for constant recharging which also can be used as home cleaning machine along with bike washer and car wash machine.\nThis water pressure washer features a versatile multi-function nozzle, providing various spray patterns for different cleaning needs. Whether you need a gentle rinse or a powerful jet for tough stains, the adjustable nozzle offers flexibility to tackle a range of cleaning tasks effectively.\nThis cordless car washer can also be used as bathroom cleaner machine. You can easily move around your vehicle or take it anywhere without the constraints of cords, making it ideal for washing cars in different locations, such as home, garage, or outdoors. Its a great equipments for your car & bike pressure washer.\nIncludes 5 meters outlet hose pipe, 48V (2pcs)Battery, spray gun extension rod, inlet filter, inlet connector, bucket water filter, foam spray bottle.",
-      "ar": "About this item\nThe cordless 48V 2 battery car pressure washer machine car washer delivers powerful and efficient cleaning performance, ensuring thorough dirt and grime removal from your vehicle. The 48V system provides ample power for effective high pressure power washer.\nThis battery operated car washer high pressure pump Equipped with a double rechargeable battery setup, this car washer ensures extended usage time without the need for constant recharging which also can be used as home cleaning machine along with bike washer and car wash machine.\nThis water pressure washer features a versatile multi-function nozzle, providing various spray patterns for different cleaning needs. Whether you need a gentle rinse or a powerful jet for tough stains, the adjustable nozzle offers flexibility to tackle a range of cleaning tasks effectively.\nThis cordless car washer can also be used as bathroom cleaner machine. You can easily move around your vehicle or take it anywhere without the constraints of cords, making it ideal for washing cars in different locations, such as home, garage, or outdoors. Its a great equipments for your car & bike pressure washer.\nIncludes 5 meters outlet hose pipe, 48V (2pcs)Battery, spray gun extension rod, inlet filter, inlet connector, bucket water filter, foam spray bottle."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/11550687/conversions/6ab286412b048-1790084673-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/2tlszabhxbvov2ms/uploads/products/11550511/conversions/6ab282579b196-1790083671-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/2tlszabhxbvov2ms/uploads/products/11550512/conversions/6ab282579b230-1790083671-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/2tlszabhxbvov2ms/uploads/products/11550514/conversions/6ab2825986816-1790083673-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/2tlszabhxbvov2ms/uploads/products/11550515/conversions/6ab282598cc2d-1790083673-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/2tlszabhxbvov2ms/uploads/products/11550516/conversions/6ab2825cab79f-1790083676-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/2tlszabhxbvov2ms/uploads/products/11550517/conversions/6ab2825cad31a-1790083676-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/2tlszabhxbvov2ms/uploads/products/11550518/conversions/6ab282609b916-1790083680-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Mini brumisateur facial rechargeable",
-    "sourceUrl": "https://app.shipper.market/products/5ef17ae0-f2fe-4329-8166-57331b6e76da",
-    "sourceProductId": "5ef17ae0-f2fe-4329-8166-57331b6e76da",
-    "slug": "mini-brumisateur-facial-rechargeable-5ef17ae0",
-    "category": "care beauty hair skincare",
-    "title": {
-      "en": "Mini brumisateur facial rechargeable",
-      "fr": "Mini brumisateur facial rechargeable",
-      "ar": "Mini brumisateur facial rechargeable"
-    },
-    "description": {
-      "en": "Offrez à votre peau une sensation de fraîcheur grâce à ce mini brumisateur facial portable. Conçu pour diffuser une fine brume d'eau, cet appareil permet de rafraîchir et d'humidifier le visage à tout moment de la journée.\n\nGrâce à son format compact et léger, il se glisse facilement dans un sac à main ou une trousse de beauté. Son réservoir transparent permet de surveiller le niveau d'eau, tandis que son bouton de commande facilite son utilisation.\n\nSon design élégant, associant le rose pastel et les détails dorés, en fait un accessoire pratique pour votre routine beauté quotidienne.",
-      "fr": "Offrez à votre peau une sensation de fraîcheur grâce à ce mini brumisateur facial portable. Conçu pour diffuser une fine brume d'eau, cet appareil permet de rafraîchir et d'humidifier le visage à tout moment de la journée.\n\nGrâce à son format compact et léger, il se glisse facilement dans un sac à main ou une trousse de beauté. Son réservoir transparent permet de surveiller le niveau d'eau, tandis que son bouton de commande facilite son utilisation.\n\nSon design élégant, associant le rose pastel et les détails dorés, en fait un accessoire pratique pour votre routine beauté quotidienne.",
-      "ar": "Offrez à votre peau une sensation de fraîcheur grâce à ce mini brumisateur facial portable. Conçu pour diffuser une fine brume d'eau, cet appareil permet de rafraîchir et d'humidifier le visage à tout moment de la journée.\n\nGrâce à son format compact et léger, il se glisse facilement dans un sac à main ou une trousse de beauté. Son réservoir transparent permet de surveiller le niveau d'eau, tandis que son bouton de commande facilite son utilisation.\n\nSon design élégant, associant le rose pastel et les détails dorés, en fait un accessoire pratique pour votre routine beauté quotidienne."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/vxyiitz0nlxzofop/uploads/products/11667040/conversions/6ac9079229084-1791559570-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Rallonge de Robinet Flexible & Economiseur d'Eau",
-    "sourceUrl": "https://app.shipper.market/products/5f062c6c-8704-4aac-ab2e-40c94dac22b2",
-    "sourceProductId": "5f062c6c-8704-4aac-ab2e-40c94dac22b2",
-    "slug": "rallonge-de-robinet-flexible-economiseur-d-eau-5f062c6c",
-    "category": "kitchen dining bathroom play cleaning laundry",
-    "title": {
-      "en": "Rallonge de Robinet Flexible & Economiseur d'Eau",
-      "fr": "Rallonge de Robinet Flexible & Economiseur d'Eau",
-      "ar": "Rallonge de Robinet Flexible & Economiseur d'Eau"
-    },
-    "description": {
-      "en": "Rotation & Flexibilité à 360° : Orientez le jet d'eau dans n'importe quelle direction pour atteindre tous les coins de votre évier sans effort.\n\nDouble / Multi-Modes de Jet : Changez facilement de mode d'aspersion (jet concentré ou effet douchette large) grâce à l'interrupteur ergonomique.\n\nÉconomie d'Eau & Anti-Éclaboussures : Réduit la consommation d'eau jusqu'à 30-50% tout en maintenant une pression optimale et agréable, évitant les projections d'eau sur le plan de travail.\n\nFiltration d'Eau Intégrée : Retient les petites impuretés et résidus présents dans l'eau pour un nettoyage plus sain des aliments et de la vaisselle.\n\nInstallation Facile & Universelle : Livré avec des adaptateurs et colliers de serrage pour s'adapter rapidement à la plupart des robinets standard de cuisine ou de salle de bain, sans outil complexe.",
-      "fr": "Rotation & Flexibilité à 360° : Orientez le jet d'eau dans n'importe quelle direction pour atteindre tous les coins de votre évier sans effort.\n\nDouble / Multi-Modes de Jet : Changez facilement de mode d'aspersion (jet concentré ou effet douchette large) grâce à l'interrupteur ergonomique.\n\nÉconomie d'Eau & Anti-Éclaboussures : Réduit la consommation d'eau jusqu'à 30-50% tout en maintenant une pression optimale et agréable, évitant les projections d'eau sur le plan de travail.\n\nFiltration d'Eau Intégrée : Retient les petites impuretés et résidus présents dans l'eau pour un nettoyage plus sain des aliments et de la vaisselle.\n\nInstallation Facile & Universelle : Livré avec des adaptateurs et colliers de serrage pour s'adapter rapidement à la plupart des robinets standard de cuisine ou de salle de bain, sans outil complexe.",
-      "ar": "Rotation & Flexibilité à 360° : Orientez le jet d'eau dans n'importe quelle direction pour atteindre tous les coins de votre évier sans effort.\n\nDouble / Multi-Modes de Jet : Changez facilement de mode d'aspersion (jet concentré ou effet douchette large) grâce à l'interrupteur ergonomique.\n\nÉconomie d'Eau & Anti-Éclaboussures : Réduit la consommation d'eau jusqu'à 30-50% tout en maintenant une pression optimale et agréable, évitant les projections d'eau sur le plan de travail.\n\nFiltration d'Eau Intégrée : Retient les petites impuretés et résidus présents dans l'eau pour un nettoyage plus sain des aliments et de la vaisselle.\n\nInstallation Facile & Universelle : Livré avec des adaptateurs et colliers de serrage pour s'adapter rapidement à la plupart des robinets standard de cuisine ou de salle de bain, sans outil complexe."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/11441728/conversions/6a9fd4dfd67f6-1788859615-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "lampe d'ambiance à effet flamme",
-    "sourceUrl": "https://app.shipper.market/products/5fbe0acf-73e2-4497-b135-c34500a10aa1",
-    "sourceProductId": "5fbe0acf-73e2-4497-b135-c34500a10aa1",
-    "slug": "lampe-d-ambiance-a-effet-flamme-5fbe0acf",
-    "category": "lighting outdoor audio",
-    "title": {
-      "en": "lampe d'ambiance à effet flamme",
-      "fr": "lampe d'ambiance à effet flamme",
-      "ar": "lampe d'ambiance à effet flamme"
-    },
-    "description": {
-      "en": "Modèle : FA-219A de la marque Feian.\n\nFonctions : Enceinte Bluetooth et lampe d'ambiance à effet flamme (ou lumière chaude).\n\nUtilisation : Idéale pour créer une atmosphère chaleureuse à la maison, sur une terrasse ou en extérieur\n\nEffet visuel : Il simule une flamme vacillante ou diffuse une lumière chaude (warm light).\n\nAudio : Il intègre un haut-parleur sans fil connectable en Bluetooth avec votre smartphone ou tablette.\n\nUsage : Idéal pour poser sur une table ou suspendre grâce à sa poignée lors de vos soirées en terrasse, dans le jardin ou au camping",
-      "fr": "Modèle : FA-219A de la marque Feian.\n\nFonctions : Enceinte Bluetooth et lampe d'ambiance à effet flamme (ou lumière chaude).\n\nUtilisation : Idéale pour créer une atmosphère chaleureuse à la maison, sur une terrasse ou en extérieur\n\nEffet visuel : Il simule une flamme vacillante ou diffuse une lumière chaude (warm light).\n\nAudio : Il intègre un haut-parleur sans fil connectable en Bluetooth avec votre smartphone ou tablette.\n\nUsage : Idéal pour poser sur une table ou suspendre grâce à sa poignée lors de vos soirées en terrasse, dans le jardin ou au camping",
-      "ar": "Modèle : FA-219A de la marque Feian.\n\nFonctions : Enceinte Bluetooth et lampe d'ambiance à effet flamme (ou lumière chaude).\n\nUtilisation : Idéale pour créer une atmosphère chaleureuse à la maison, sur une terrasse ou en extérieur\n\nEffet visuel : Il simule une flamme vacillante ou diffuse une lumière chaude (warm light).\n\nAudio : Il intègre un haut-parleur sans fil connectable en Bluetooth avec votre smartphone ou tablette.\n\nUsage : Idéal pour poser sur une table ou suspendre grâce à sa poignée lors de vos soirées en terrasse, dans le jardin ou au camping"
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/11453470/conversions/6aa16208bfb5a-1788961288-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/11453466/conversions/6aa16204f0c3e-1788961284-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/11453467/conversions/6aa16204f1b9d-1788961284-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/11453468/conversions/6aa16206d4e58-1788961286-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/11453469/conversions/6aa16206d9ab9-1788961286-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "ACM depiwhite advanced",
-    "sourceUrl": "https://app.shipper.market/products/600c3a24-17da-4e4e-afbd-4a0c0a2479c2",
-    "sourceProductId": "600c3a24-17da-4e4e-afbd-4a0c0a2479c2",
-    "slug": "acm-depiwhite-advanced-600c3a24",
-    "category": "care beauty hair skincare",
-    "title": {
-      "en": "ACM depiwhite advanced",
-      "fr": "ACM depiwhite advanced",
-      "ar": "ACM depiwhite advanced"
-    },
-    "description": {
-      "en": "Cette crème visage anti-taches atténue ou réduit les taches brunes liées au vieillissement et au soleil, et unifie le teint.",
-      "fr": "Cette crème visage anti-taches atténue ou réduit les taches brunes liées au vieillissement et au soleil, et unifie le teint.",
-      "ar": "Cette crème visage anti-taches atténue ou réduit les taches brunes liées au vieillissement et au soleil, et unifie le teint."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/11390238/conversions/6a96ab45afd78-1788259141-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "porte-clés pack Gym",
-    "sourceUrl": "https://app.shipper.market/products/6151d3e0-1fc5-4620-826d-e1475b67f435",
-    "sourceProductId": "6151d3e0-1fc5-4620-826d-e1475b67f435",
-    "slug": "porte-cles-pack-gym-6151d3e0",
-    "category": "kitchen dining living decor",
-    "title": {
-      "en": "porte-clés pack Gym",
-      "fr": "porte-clés pack Gym",
-      "ar": "porte-clés pack Gym"
-    },
-    "description": {
-      "en": "Ajoutez une touche sportive et tendance à vos accessoires avec ce magnifique porte-clés fitness rose. Composé d'une mini haltère, d'un disque de musculation et d'une petite gourde, ce porte-clés est parfait pour les passionnés de sport, de fitness et de bien-être.\n\n✨ Caractéristiques :\n\nDesign original inspiré de l'univers du fitness\nCouleur rose pastel élégante et féminine\nLéger, robuste et facile à transporter\nAttache métallique solide pour clés, sacs à main ou sacs de sport\nIdéal comme cadeau pour les amateurs de musculation et de sport\n\n🎁 Parfait pour :\n\nDécorer un sac ou un trousseau de clés\nOffrir à une sportive ou à un coach sportif\nAfficher votre passion pour le fitness au quotidien\n\nUn accessoire à la fois mignon, pratique et inspirant qui vous accompagnera partout ! 💖🏋️‍♀️",
-      "fr": "Ajoutez une touche sportive et tendance à vos accessoires avec ce magnifique porte-clés fitness rose. Composé d'une mini haltère, d'un disque de musculation et d'une petite gourde, ce porte-clés est parfait pour les passionnés de sport, de fitness et de bien-être.\n\n✨ Caractéristiques :\n\nDesign original inspiré de l'univers du fitness\nCouleur rose pastel élégante et féminine\nLéger, robuste et facile à transporter\nAttache métallique solide pour clés, sacs à main ou sacs de sport\nIdéal comme cadeau pour les amateurs de musculation et de sport\n\n🎁 Parfait pour :\n\nDécorer un sac ou un trousseau de clés\nOffrir à une sportive ou à un coach sportif\nAfficher votre passion pour le fitness au quotidien\n\nUn accessoire à la fois mignon, pratique et inspirant qui vous accompagnera partout ! 💖🏋️‍♀️",
-      "ar": "Ajoutez une touche sportive et tendance à vos accessoires avec ce magnifique porte-clés fitness rose. Composé d'une mini haltère, d'un disque de musculation et d'une petite gourde, ce porte-clés est parfait pour les passionnés de sport, de fitness et de bien-être.\n\n✨ Caractéristiques :\n\nDesign original inspiré de l'univers du fitness\nCouleur rose pastel élégante et féminine\nLéger, robuste et facile à transporter\nAttache métallique solide pour clés, sacs à main ou sacs de sport\nIdéal comme cadeau pour les amateurs de musculation et de sport\n\n🎁 Parfait pour :\n\nDécorer un sac ou un trousseau de clés\nOffrir à une sportive ou à un coach sportif\nAfficher votre passion pour le fitness au quotidien\n\nUn accessoire à la fois mignon, pratique et inspirant qui vous accompagnera partout ! 💖🏋️‍♀️"
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/11446100/conversions/6aa024219c933-1788879905-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/iv7wjv0m55qk9jyk/uploads/products/11426708/conversions/6a9c27a727497-1788618663-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/iv7wjv0m55qk9jyk/uploads/products/11426709/conversions/6a9c27b3284c6-1788618675-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "lampe frontale LED USB rechargeable (modèle L-T21)",
-    "sourceUrl": "https://app.shipper.market/products/61fb8a62-7474-4ea8-848c-129c39628016",
-    "sourceProductId": "61fb8a62-7474-4ea8-848c-129c39628016",
-    "slug": "lampe-frontale-led-usb-rechargeable-modele-l-t21-61fb8a62",
-    "category": "care beauty hair skincare lighting",
-    "title": {
-      "en": "lampe frontale LED USB rechargeable (modèle L-T21)",
-      "fr": "lampe frontale LED USB rechargeable (modèle L-T21)",
-      "ar": "lampe frontale LED USB rechargeable (modèle L-T21)"
-    },
-    "description": {
-      "en": "Modèle : L-T21\n\nÉclairage : 5 LED (une grande ampoule centrale et quatre petites ampoules autour).\n\nModes : 4 modes d'éclairage pour ajuster la luminosité selon vos besoins.\n\nRecharge : Batterie rechargeable par câble USB.\n\nModes de fonctionnement : Elle dispose de 4 modes d'éclairage différents (généralement : éclairage principal seul, LED latérales, toutes les LED allumées, et mode stroboscopique / clignotant d'urgence).",
-      "fr": "Modèle : L-T21\n\nÉclairage : 5 LED (une grande ampoule centrale et quatre petites ampoules autour).\n\nModes : 4 modes d'éclairage pour ajuster la luminosité selon vos besoins.\n\nRecharge : Batterie rechargeable par câble USB.\n\nModes de fonctionnement : Elle dispose de 4 modes d'éclairage différents (généralement : éclairage principal seul, LED latérales, toutes les LED allumées, et mode stroboscopique / clignotant d'urgence).",
-      "ar": "Modèle : L-T21\n\nÉclairage : 5 LED (une grande ampoule centrale et quatre petites ampoules autour).\n\nModes : 4 modes d'éclairage pour ajuster la luminosité selon vos besoins.\n\nRecharge : Batterie rechargeable par câble USB.\n\nModes de fonctionnement : Elle dispose de 4 modes d'éclairage différents (généralement : éclairage principal seul, LED latérales, toutes les LED allumées, et mode stroboscopique / clignotant d'urgence)."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/11458252/conversions/6aa271e07f6d0-1789030880-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/11453081/conversions/6aa15728eade3-1788958504-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/11453082/conversions/6aa15729021e7-1788958505-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/11453083/conversions/6aa1572aa83c2-1788958506-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/11453084/conversions/6aa1572aaba51-1788958506-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "silicone suction phone",
-    "sourceUrl": "https://app.shipper.market/products/61ff396f-a796-40a6-8d8e-735c68e03653",
-    "sourceProductId": "61ff396f-a796-40a6-8d8e-735c68e03653",
-    "slug": "silicone-suction-phone-61ff396f",
-    "category": "living decor",
-    "title": {
-      "en": "silicone suction phone",
-      "fr": "silicone suction phone",
-      "ar": "silicone suction phone"
-    },
-    "description": {
-      "en": "Apportez une touche de fantaisie et d'originalité à votre smartphone avec cette coque transparente décorée d'une jolie fraise rouge en relief 3D.\n\nSon design tendance et coloré associe une coque transparente à une fraise rouge et verte équipée de petites bulles en relief, pour un effet ludique et agréable au toucher.\n\nCette coque permet de personnaliser votre téléphone tout en offrant une protection contre les rayures et les petits chocs du quotidien.\n\nIdéale pour les personnes qui aiment les accessoires mignons, originaux et tendance.",
-      "fr": "Apportez une touche de fantaisie et d'originalité à votre smartphone avec cette coque transparente décorée d'une jolie fraise rouge en relief 3D.\n\nSon design tendance et coloré associe une coque transparente à une fraise rouge et verte équipée de petites bulles en relief, pour un effet ludique et agréable au toucher.\n\nCette coque permet de personnaliser votre téléphone tout en offrant une protection contre les rayures et les petits chocs du quotidien.\n\nIdéale pour les personnes qui aiment les accessoires mignons, originaux et tendance.",
-      "ar": "Apportez une touche de fantaisie et d'originalité à votre smartphone avec cette coque transparente décorée d'une jolie fraise rouge en relief 3D.\n\nSon design tendance et coloré associe une coque transparente à une fraise rouge et verte équipée de petites bulles en relief, pour un effet ludique et agréable au toucher.\n\nCette coque permet de personnaliser votre téléphone tout en offrant une protection contre les rayures et les petits chocs du quotidien.\n\nIdéale pour les personnes qui aiment les accessoires mignons, originaux et tendance."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/9bu44r7ysq3zjxdt/uploads/products/11730463/conversions/6ad22133d82ea-1792155955-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true,
-    "retailerProductIds": [
-      "f77d6318-8f06-4be7-aadc-57ef19fd017f"
-    ]
-  },
-  {
-    "sourceName": "Lampe de Camping LED 4 Panneaux",
-    "sourceUrl": "https://app.shipper.market/products/621b7a20-ab29-4f58-a856-4f71012fa2db",
-    "sourceProductId": "621b7a20-ab29-4f58-a856-4f71012fa2db",
-    "slug": "lampe-de-camping-led-4-panneaux-621b7a20",
-    "category": "care beauty hair skincare lighting outdoor",
-    "title": {
-      "en": "Lampe de Camping LED 4 Panneaux",
-      "fr": "Lampe de Camping LED 4 Panneaux",
-      "ar": "Lampe de Camping LED 4 Panneaux"
-    },
-    "description": {
-      "en": "Lampe Suspendue LED Pliable Extérieure – 4 Feuilles\n\nProfitez d’un éclairage puissant et pratique lors de vos activités en plein air avec cette lampe suspendue LED pliable à 4 feuilles. Idéale pour le camping, la randonnée, les voyages, le jardin ou les situations d’urgence, elle offre un éclairage polyvalent tout en étant facile à transporter.\n\nGrâce à sa conception pliable à quatre panneaux, vous pouvez orienter la lumière selon vos besoins et éclairer efficacement une tente, une table, un espace extérieur ou une pièce.\n\nCaractéristiques principales\n💡 4 panneaux LED pliables pour une diffusion de lumière optimale\n🔋 Batterie Li-ion rechargeable via USB\n🔆 3 modes d’éclairage pour adapter la luminosité à vos besoins\n💧 Indice IP65 : résistance à l’eau et adaptée à une utilisation extérieure\n⏱️ Durée de vie jusqu’à 50 000 heures\n🏕️ Design suspendu pratique pour tente, camping et espaces extérieurs\n🎒 Compacte et pliable, facile à transporter\n🔌 Rechargeable par USB\n🌙 Idéale pour le camping, la randonnée, le jardin, la terrasse et les urgences\nPourquoi choisir cette lampe ?\n\n✔️ Éclairage pratique et polyvalent\n\n✔️ Rechargeable et économique\n\n✔️ Résistante pour une utilisation extérieure\n\n✔️ Facile à transporter grâce à son format pliable\n\n✔️ Plusieurs modes d’éclairage\n\n✔️ Parfaite pour les aventures en plein air\n\nUne solution d’éclairage fiable et portable pour profiter de vos activités, même lorsque la nuit tombe.",
-      "fr": "Lampe Suspendue LED Pliable Extérieure – 4 Feuilles\n\nProfitez d’un éclairage puissant et pratique lors de vos activités en plein air avec cette lampe suspendue LED pliable à 4 feuilles. Idéale pour le camping, la randonnée, les voyages, le jardin ou les situations d’urgence, elle offre un éclairage polyvalent tout en étant facile à transporter.\n\nGrâce à sa conception pliable à quatre panneaux, vous pouvez orienter la lumière selon vos besoins et éclairer efficacement une tente, une table, un espace extérieur ou une pièce.\n\nCaractéristiques principales\n💡 4 panneaux LED pliables pour une diffusion de lumière optimale\n🔋 Batterie Li-ion rechargeable via USB\n🔆 3 modes d’éclairage pour adapter la luminosité à vos besoins\n💧 Indice IP65 : résistance à l’eau et adaptée à une utilisation extérieure\n⏱️ Durée de vie jusqu’à 50 000 heures\n🏕️ Design suspendu pratique pour tente, camping et espaces extérieurs\n🎒 Compacte et pliable, facile à transporter\n🔌 Rechargeable par USB\n🌙 Idéale pour le camping, la randonnée, le jardin, la terrasse et les urgences\nPourquoi choisir cette lampe ?\n\n✔️ Éclairage pratique et polyvalent\n\n✔️ Rechargeable et économique\n\n✔️ Résistante pour une utilisation extérieure\n\n✔️ Facile à transporter grâce à son format pliable\n\n✔️ Plusieurs modes d’éclairage\n\n✔️ Parfaite pour les aventures en plein air\n\nUne solution d’éclairage fiable et portable pour profiter de vos activités, même lorsque la nuit tombe.",
-      "ar": "Lampe Suspendue LED Pliable Extérieure – 4 Feuilles\n\nProfitez d’un éclairage puissant et pratique lors de vos activités en plein air avec cette lampe suspendue LED pliable à 4 feuilles. Idéale pour le camping, la randonnée, les voyages, le jardin ou les situations d’urgence, elle offre un éclairage polyvalent tout en étant facile à transporter.\n\nGrâce à sa conception pliable à quatre panneaux, vous pouvez orienter la lumière selon vos besoins et éclairer efficacement une tente, une table, un espace extérieur ou une pièce.\n\nCaractéristiques principales\n💡 4 panneaux LED pliables pour une diffusion de lumière optimale\n🔋 Batterie Li-ion rechargeable via USB\n🔆 3 modes d’éclairage pour adapter la luminosité à vos besoins\n💧 Indice IP65 : résistance à l’eau et adaptée à une utilisation extérieure\n⏱️ Durée de vie jusqu’à 50 000 heures\n🏕️ Design suspendu pratique pour tente, camping et espaces extérieurs\n🎒 Compacte et pliable, facile à transporter\n🔌 Rechargeable par USB\n🌙 Idéale pour le camping, la randonnée, le jardin, la terrasse et les urgences\nPourquoi choisir cette lampe ?\n\n✔️ Éclairage pratique et polyvalent\n\n✔️ Rechargeable et économique\n\n✔️ Résistante pour une utilisation extérieure\n\n✔️ Facile à transporter grâce à son format pliable\n\n✔️ Plusieurs modes d’éclairage\n\n✔️ Parfaite pour les aventures en plein air\n\nUne solution d’éclairage fiable et portable pour profiter de vos activités, même lorsque la nuit tombe."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/11478978/conversions/6aa3f66182451-1789130337-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/11476443/conversions/6aa3c73bca15b-1789118267-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/11476438/conversions/6aa3c7305306c-1789118256-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/11476439/conversions/6aa3c730a43c8-1789118256-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/11476440/conversions/6aa3c732aa4ef-1789118258-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/11476441/conversions/6aa3c73796439-1789118263-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/11476442/conversions/6aa3c739ef34c-1789118265-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "LED de secours rechargeable UXI BL-801",
-    "sourceUrl": "https://app.shipper.market/products/622e08cc-5770-4e3b-9cc6-086c411e228e",
-    "sourceProductId": "622e08cc-5770-4e3b-9cc6-086c411e228e",
-    "slug": "led-de-secours-rechargeable-uxi-bl-801-622e08cc",
-    "category": "care beauty hair skincare lighting outdoor",
-    "title": {
-      "en": "LED de secours rechargeable UXI BL-801",
-      "fr": "LED de secours rechargeable UXI BL-801",
-      "ar": "LED de secours rechargeable UXI BL-801"
-    },
-    "description": {
-      "en": "Bouton et connecteurs visibles\n\nSur le flanc de l'ampoule, on distingue un port de charge USB (Type-C) ainsi qu'un petit bouton orange. Cela permet d'utiliser l'ampoule de manière totalement nomade (par exemple pour le camping ou comme lampe torche) en l'allumant manuellement sans avoir besoin de la visser à un plafonnier\n\nDouble usage : Elle se visse sur un culot standard (type E27) comme une ampoule classique. Elle se recharge automatiquement lorsque l'interrupteur est allumé et que le courant est présent. En cas de coupure d'électricité, elle bascule automatiquement sur ses batteries internes pour continuer à éclairer",
-      "fr": "Bouton et connecteurs visibles\n\nSur le flanc de l'ampoule, on distingue un port de charge USB (Type-C) ainsi qu'un petit bouton orange. Cela permet d'utiliser l'ampoule de manière totalement nomade (par exemple pour le camping ou comme lampe torche) en l'allumant manuellement sans avoir besoin de la visser à un plafonnier\n\nDouble usage : Elle se visse sur un culot standard (type E27) comme une ampoule classique. Elle se recharge automatiquement lorsque l'interrupteur est allumé et que le courant est présent. En cas de coupure d'électricité, elle bascule automatiquement sur ses batteries internes pour continuer à éclairer",
-      "ar": "Bouton et connecteurs visibles\n\nSur le flanc de l'ampoule, on distingue un port de charge USB (Type-C) ainsi qu'un petit bouton orange. Cela permet d'utiliser l'ampoule de manière totalement nomade (par exemple pour le camping ou comme lampe torche) en l'allumant manuellement sans avoir besoin de la visser à un plafonnier\n\nDouble usage : Elle se visse sur un culot standard (type E27) comme une ampoule classique. Elle se recharge automatiquement lorsque l'interrupteur est allumé et que le courant est présent. En cas de coupure d'électricité, elle bascule automatiquement sur ses batteries internes pour continuer à éclairer"
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/vptz9budmij38jr6/uploads/products/11298878/conversions/6a8450022badf-1787056130-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/vptz9budmij38jr6/uploads/products/11298789/conversions/6a844dce6e7cd-1787055566-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/vptz9budmij38jr6/uploads/products/11298790/conversions/6a844dce7d817-1787055566-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/vptz9budmij38jr6/uploads/products/11298791/conversions/6a844dcfc3bfb-1787055567-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/vptz9budmij38jr6/uploads/products/11298792/conversions/6a844dcfc4aa4-1787055567-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/vptz9budmij38jr6/uploads/products/11298793/conversions/6a844dd0262ab-1787055568-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Balle interactive intelligente",
-    "sourceUrl": "https://app.shipper.market/products/623062ac-9753-4416-83a1-35f3bd7b5126",
-    "sourceProductId": "623062ac-9753-4416-83a1-35f3bd7b5126",
-    "slug": "balle-interactive-intelligente-623062ac",
-    "category": "play",
-    "title": {
-      "en": "Balle interactive intelligente",
-      "fr": "Balle interactive intelligente",
-      "ar": "Balle interactive intelligente"
-    },
-    "description": {
-      "en": "Balle interactive intelligente conçue pour divertir les animaux de compagnie, notamment les chats et les petits chiens. Elle se déplace et rebondit automatiquement afin de stimuler l’activité physique, l’instinct de jeu et la curiosité de l’animal. Son format compact permet une utilisation facile à l’intérieur. Rechargeable par USB selon le modèle présenté.",
-      "fr": "Balle interactive intelligente conçue pour divertir les animaux de compagnie, notamment les chats et les petits chiens. Elle se déplace et rebondit automatiquement afin de stimuler l’activité physique, l’instinct de jeu et la curiosité de l’animal. Son format compact permet une utilisation facile à l’intérieur. Rechargeable par USB selon le modèle présenté.",
-      "ar": "Balle interactive intelligente conçue pour divertir les animaux de compagnie, notamment les chats et les petits chiens. Elle se déplace et rebondit automatiquement afin de stimuler l’activité physique, l’instinct de jeu et la curiosité de l’animal. Son format compact permet une utilisation facile à l’intérieur. Rechargeable par USB selon le modèle présenté."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/dfryjwvc2ijcgzex/uploads/products/11591443/conversions/6abbbcce5781e-1790688462-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Bioaqua skin care visage",
-    "sourceUrl": "https://app.shipper.market/products/628cb3b2-b789-4a93-8a5c-512f29ca3faf",
-    "sourceProductId": "628cb3b2-b789-4a93-8a5c-512f29ca3faf",
-    "slug": "bioaqua-skin-care-visage-628cb3b2",
+    "sourceName": "Pack Économique N°2 : Shampoing & Après-Shampoing & Masque",
+    "sourceUrl": "https://app.shipper.market/products/0ca295e8-ba22-43b5-94e0-847ee197e83f",
+    "sourceProductId": "0ca295e8-ba22-43b5-94e0-847ee197e83f",
+    "slug": "pack-economique-n-2-shampoing-apres-shampoing-masque-0ca295e8",
     "category": "care beauty hair skincare play cleaning laundry",
     "title": {
-      "en": "Bioaqua skin care visage",
-      "fr": "Bioaqua skin care visage",
-      "ar": "Bioaqua skin care visage"
+      "en": "Pack Économique N°2 : Shampoing & Après-Shampoing & Masque",
+      "fr": "Pack Économique N°2 : Shampoing & Après-Shampoing & Masque",
+      "ar": "Pack Économique N°2 : Shampoing & Après-Shampoing & Masque"
     },
     "description": {
-      "en": "Bioaqua est une marque de soins de la peau qui propose une large gamme de produits de beauté visant à améliorer la santé globale et l'apparence de la peau. La marque se concentre sur l'utilisation d'ingrédients naturels et de formulations scientifiques avancées pour créer des solutions de soins de la peau efficaces.\n\nBioaqua a été fondée avec la vision de fournir des produits de soins de la peau de haute qualité à des prix abordables.\n\nLa marque a gagné en popularité sur le marché international pour son approche innovante des soins de la peau.\n\nLes produits Bioaqua sont connus pour leur efficacité à répondre à diverses préoccupations cutanées telles que l'acné, l'anti-âge, l'hydratation et l'éclaircissement.\n\nLa marque est fortement présente dans les pays asiatiques, notamment en Chine et en Corée du Sud.\n\nBioaqua a élargi sa gamme de produits pour inclure une sélection diversifiée d'articles de soins de la peau, notamment des nettoyants, des toners, des hydratants, des masques, des sérums, etc.\n\nBioaqua insiste sur l'importance des ingrédients naturels et s'efforce de s'assurer que leurs produits sont doux et adaptés aux différents types de peau.",
-      "fr": "Bioaqua est une marque de soins de la peau qui propose une large gamme de produits de beauté visant à améliorer la santé globale et l'apparence de la peau. La marque se concentre sur l'utilisation d'ingrédients naturels et de formulations scientifiques avancées pour créer des solutions de soins de la peau efficaces.\n\nBioaqua a été fondée avec la vision de fournir des produits de soins de la peau de haute qualité à des prix abordables.\n\nLa marque a gagné en popularité sur le marché international pour son approche innovante des soins de la peau.\n\nLes produits Bioaqua sont connus pour leur efficacité à répondre à diverses préoccupations cutanées telles que l'acné, l'anti-âge, l'hydratation et l'éclaircissement.\n\nLa marque est fortement présente dans les pays asiatiques, notamment en Chine et en Corée du Sud.\n\nBioaqua a élargi sa gamme de produits pour inclure une sélection diversifiée d'articles de soins de la peau, notamment des nettoyants, des toners, des hydratants, des masques, des sérums, etc.\n\nBioaqua insiste sur l'importance des ingrédients naturels et s'efforce de s'assurer que leurs produits sont doux et adaptés aux différents types de peau.",
-      "ar": "Bioaqua est une marque de soins de la peau qui propose une large gamme de produits de beauté visant à améliorer la santé globale et l'apparence de la peau. La marque se concentre sur l'utilisation d'ingrédients naturels et de formulations scientifiques avancées pour créer des solutions de soins de la peau efficaces.\n\nBioaqua a été fondée avec la vision de fournir des produits de soins de la peau de haute qualité à des prix abordables.\n\nLa marque a gagné en popularité sur le marché international pour son approche innovante des soins de la peau.\n\nLes produits Bioaqua sont connus pour leur efficacité à répondre à diverses préoccupations cutanées telles que l'acné, l'anti-âge, l'hydratation et l'éclaircissement.\n\nLa marque est fortement présente dans les pays asiatiques, notamment en Chine et en Corée du Sud.\n\nBioaqua a élargi sa gamme de produits pour inclure une sélection diversifiée d'articles de soins de la peau, notamment des nettoyants, des toners, des hydratants, des masques, des sérums, etc.\n\nBioaqua insiste sur l'importance des ingrédients naturels et s'efforce de s'assurer que leurs produits sont doux et adaptés aux différents types de peau."
+      "en": "Offrez à vos cheveux un soin complet et nourrissant avec le Pack Économique N°2, idéal pour une utilisation prolongée à petit prix. Ce trio réunit un shampoing et un après-shampoing de 1L chacun, accompagnés d’un masque capillaire 1KG, garantissant une chevelure hydratée, brillante et revitalisée en profondeur. Enrichis en ingrédients naturels, ils conviennent particulièrement aux cheveux secs, abîmés ou traités.\nContenu du Pack\n• Shampoing 1L aux Acides de Fruits & Arbre à Thé\n• Après-Shampoing 1L aux Acides de Fruits & Arbre à Thé\n• Masque Capillaire 1KG\nAvantages du Shampoing – 1L 🧴\n• Nettoyage doux : Élimine les impuretés sans dessécher le cuir chevelu.\n• Nourrit en profondeur : Répare et revitalise la fibre capillaire.\n• Contrôle des frisottis : Lisse et assouplit les cheveux.\n• Hydratation intense : Prévient la sécheresse et maintient l’équilibre du cuir chevelu.\nAvantages de l’Après-Shampoing – 1L 🧴\n• Démêle efficacement : Facilite le coiffage en prévenant la casse.\n• Hydratant et nourrissant : Redonne douceur et souplesse.\n• Brillance naturelle : Revitalise les longueurs ternes et fatiguées.\n• Propriétés anti-âge : Protège contre les agressions extérieures.\nAvantages du Masque Capillaire – 1KG 🧴\n• Soin intensif : Répare les cheveux abîmés et fragilisés.\n• Nourrit et restructure : Redonne force et vitalité aux cheveux ternes.\n• Hydratation prolongée : Prévient la déshydratation et maintient l’élasticité.\n• Brillance éclatante : Apporte une finition lumineuse et soyeuse.\nMode d’Utilisation 🚿\n• Shampoing : Appliquez sur cheveux mouillés, massez doucement, puis rincez abondamment.\n• Après-Shampoing : Appliquez sur les longueurs et pointes, laissez poser 2-3 minutes, puis rincez.\n• Masque : Utilisez 1 à 2 fois par semaine. Appliquez sur cheveux essorés, laissez poser 10-15 minutes, puis rincez abondamment.\nCaractéristiques du Pack\n• Format économique : Grande contenance pour un usage prolongé.\n• Convient à tous les types de cheveux, en particulier les cheveux secs, abîmés ou colorés.\n• Durée de consommation : 12 mois après ouverture.",
+      "fr": "Offrez à vos cheveux un soin complet et nourrissant avec le Pack Économique N°2, idéal pour une utilisation prolongée à petit prix. Ce trio réunit un shampoing et un après-shampoing de 1L chacun, accompagnés d’un masque capillaire 1KG, garantissant une chevelure hydratée, brillante et revitalisée en profondeur. Enrichis en ingrédients naturels, ils conviennent particulièrement aux cheveux secs, abîmés ou traités.\nContenu du Pack\n• Shampoing 1L aux Acides de Fruits & Arbre à Thé\n• Après-Shampoing 1L aux Acides de Fruits & Arbre à Thé\n• Masque Capillaire 1KG\nAvantages du Shampoing – 1L 🧴\n• Nettoyage doux : Élimine les impuretés sans dessécher le cuir chevelu.\n• Nourrit en profondeur : Répare et revitalise la fibre capillaire.\n• Contrôle des frisottis : Lisse et assouplit les cheveux.\n• Hydratation intense : Prévient la sécheresse et maintient l’équilibre du cuir chevelu.\nAvantages de l’Après-Shampoing – 1L 🧴\n• Démêle efficacement : Facilite le coiffage en prévenant la casse.\n• Hydratant et nourrissant : Redonne douceur et souplesse.\n• Brillance naturelle : Revitalise les longueurs ternes et fatiguées.\n• Propriétés anti-âge : Protège contre les agressions extérieures.\nAvantages du Masque Capillaire – 1KG 🧴\n• Soin intensif : Répare les cheveux abîmés et fragilisés.\n• Nourrit et restructure : Redonne force et vitalité aux cheveux ternes.\n• Hydratation prolongée : Prévient la déshydratation et maintient l’élasticité.\n• Brillance éclatante : Apporte une finition lumineuse et soyeuse.\nMode d’Utilisation 🚿\n• Shampoing : Appliquez sur cheveux mouillés, massez doucement, puis rincez abondamment.\n• Après-Shampoing : Appliquez sur les longueurs et pointes, laissez poser 2-3 minutes, puis rincez.\n• Masque : Utilisez 1 à 2 fois par semaine. Appliquez sur cheveux essorés, laissez poser 10-15 minutes, puis rincez abondamment.\nCaractéristiques du Pack\n• Format économique : Grande contenance pour un usage prolongé.\n• Convient à tous les types de cheveux, en particulier les cheveux secs, abîmés ou colorés.\n• Durée de consommation : 12 mois après ouverture.",
+      "ar": "Offrez à vos cheveux un soin complet et nourrissant avec le Pack Économique N°2, idéal pour une utilisation prolongée à petit prix. Ce trio réunit un shampoing et un après-shampoing de 1L chacun, accompagnés d’un masque capillaire 1KG, garantissant une chevelure hydratée, brillante et revitalisée en profondeur. Enrichis en ingrédients naturels, ils conviennent particulièrement aux cheveux secs, abîmés ou traités.\nContenu du Pack\n• Shampoing 1L aux Acides de Fruits & Arbre à Thé\n• Après-Shampoing 1L aux Acides de Fruits & Arbre à Thé\n• Masque Capillaire 1KG\nAvantages du Shampoing – 1L 🧴\n• Nettoyage doux : Élimine les impuretés sans dessécher le cuir chevelu.\n• Nourrit en profondeur : Répare et revitalise la fibre capillaire.\n• Contrôle des frisottis : Lisse et assouplit les cheveux.\n• Hydratation intense : Prévient la sécheresse et maintient l’équilibre du cuir chevelu.\nAvantages de l’Après-Shampoing – 1L 🧴\n• Démêle efficacement : Facilite le coiffage en prévenant la casse.\n• Hydratant et nourrissant : Redonne douceur et souplesse.\n• Brillance naturelle : Revitalise les longueurs ternes et fatiguées.\n• Propriétés anti-âge : Protège contre les agressions extérieures.\nAvantages du Masque Capillaire – 1KG 🧴\n• Soin intensif : Répare les cheveux abîmés et fragilisés.\n• Nourrit et restructure : Redonne force et vitalité aux cheveux ternes.\n• Hydratation prolongée : Prévient la déshydratation et maintient l’élasticité.\n• Brillance éclatante : Apporte une finition lumineuse et soyeuse.\nMode d’Utilisation 🚿\n• Shampoing : Appliquez sur cheveux mouillés, massez doucement, puis rincez abondamment.\n• Après-Shampoing : Appliquez sur les longueurs et pointes, laissez poser 2-3 minutes, puis rincez.\n• Masque : Utilisez 1 à 2 fois par semaine. Appliquez sur cheveux essorés, laissez poser 10-15 minutes, puis rincez abondamment.\nCaractéristiques du Pack\n• Format économique : Grande contenance pour un usage prolongé.\n• Convient à tous les types de cheveux, en particulier les cheveux secs, abîmés ou colorés.\n• Durée de consommation : 12 mois après ouverture."
     },
     "images": [
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/11390487/conversions/6a96af7c26ce9-1788260220-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/11390497/conversions/6a96af8199e0d-1788260225-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/11390498/conversions/6a96af87863c3-1788260231-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/11390499/conversions/6a96af948acf0-1788260244-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/11390500/conversions/6a96af9fcd917-1788260255-thumbnail-medium.jpg"
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/2002464/6722384c4d4fb-1730295884.png",
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/2002463/6722384b6f4e3-1730295883.png",
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/2002465/67223850e983d-1730295888.png",
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/2002476/67223856bb61b-1730295894.png",
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/2002477/672238577c271-1730295895.png"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "lot d’ampoules automobiles BLICK P21/5W",
-    "sourceUrl": "https://app.shipper.market/products/6395e2db-198f-4a54-a0b2-f1c8c52f6de7",
-    "sourceProductId": "6395e2db-198f-4a54-a0b2-f1c8c52f6de7",
-    "slug": "lot-d-ampoules-automobiles-blick-p21-5w-6395e2db",
-    "category": "lighting organisation wearables",
+    "sourceName": "Masseur vibrant pour le cou EMS, machin",
+    "sourceUrl": "https://app.shipper.market/products/0caa1492-f548-474c-ab38-a8b96931e3a8",
+    "sourceProductId": "0caa1492-f548-474c-ab38-a8b96931e3a8",
+    "slug": "masseur-vibrant-pour-le-cou-ems-machin-0caa1492",
+    "category": "school office health & beauty",
     "title": {
-      "en": "lot d’ampoules automobiles BLICK P21/5W",
-      "fr": "lot d’ampoules automobiles BLICK P21/5W",
-      "ar": "lot d’ampoules automobiles BLICK P21/5W"
+      "en": "Masseur vibrant pour le cou EMS, machin",
+      "fr": "Masseur vibrant pour le cou EMS, machin",
+      "ar": "Masseur vibrant pour le cou EMS, machin"
     },
     "description": {
-      "en": "Il s’agit d’un lot d’ampoules automobiles BLICK P21/5W, destinées à l’éclairage et à la signalisation des véhicules. La photo montre une boîte BLICK ainsi qu’un conditionnement de 10 ampoules.\n\nCaractéristiques :\n\nMarque : BLICK\nRéférence : P21/5W\nType : ampoule automobile à double filament\nApplication : éclairage et signalisation automobile\nCulot : métallique, avec ergots de fixation\nTechnologie : ampoule halogène/incandescente automobile classique\nConditionnement : 10 pièces par boîte\nConstruction : verre transparent avec filament métallique et culot métallique\nUtilisation : adaptée aux véhicules utilisant le format P21/5W\nAvantages annoncés sur l’emballage : luminosité renforcée, longue durée de vie et standard d’équipement d’origine\nInstallation : remplacement direct si le véhicule utilise une ampoule P21/5W compatible.",
-      "fr": "Il s’agit d’un lot d’ampoules automobiles BLICK P21/5W, destinées à l’éclairage et à la signalisation des véhicules. La photo montre une boîte BLICK ainsi qu’un conditionnement de 10 ampoules.\n\nCaractéristiques :\n\nMarque : BLICK\nRéférence : P21/5W\nType : ampoule automobile à double filament\nApplication : éclairage et signalisation automobile\nCulot : métallique, avec ergots de fixation\nTechnologie : ampoule halogène/incandescente automobile classique\nConditionnement : 10 pièces par boîte\nConstruction : verre transparent avec filament métallique et culot métallique\nUtilisation : adaptée aux véhicules utilisant le format P21/5W\nAvantages annoncés sur l’emballage : luminosité renforcée, longue durée de vie et standard d’équipement d’origine\nInstallation : remplacement direct si le véhicule utilise une ampoule P21/5W compatible.",
-      "ar": "Il s’agit d’un lot d’ampoules automobiles BLICK P21/5W, destinées à l’éclairage et à la signalisation des véhicules. La photo montre une boîte BLICK ainsi qu’un conditionnement de 10 ampoules.\n\nCaractéristiques :\n\nMarque : BLICK\nRéférence : P21/5W\nType : ampoule automobile à double filament\nApplication : éclairage et signalisation automobile\nCulot : métallique, avec ergots de fixation\nTechnologie : ampoule halogène/incandescente automobile classique\nConditionnement : 10 pièces par boîte\nConstruction : verre transparent avec filament métallique et culot métallique\nUtilisation : adaptée aux véhicules utilisant le format P21/5W\nAvantages annoncés sur l’emballage : luminosité renforcée, longue durée de vie et standard d’équipement d’origine\nInstallation : remplacement direct si le véhicule utilise une ampoule P21/5W compatible."
+      "en": "استمتع بتجربة تدليك مريحة مع جهاز مساج الرقبة بتقنية EMS، المصمم للمساعدة على تخفيف توتر العضلات والإحساس بالإجهاد في منطقة الرقبة والكتفين. يجمع بين النبضات الكهربائية الدقيقة والاهتزاز، مع عدة أوضاع ومستويات شدة لتناسب احتياجاتك. يتميز بتصميم خفيف ومريح يلتف حول الرقبة، كما أنه قابل لإعادة الشحن وسهل الاستخدام في المنزل أو المكتب أو أثناء السفر. يساعد على الاسترخاء بعد يوم طويل ويمنحك تجربة تدليك مريحة في أي وقت.",
+      "fr": "استمتع بتجربة تدليك مريحة مع جهاز مساج الرقبة بتقنية EMS، المصمم للمساعدة على تخفيف توتر العضلات والإحساس بالإجهاد في منطقة الرقبة والكتفين. يجمع بين النبضات الكهربائية الدقيقة والاهتزاز، مع عدة أوضاع ومستويات شدة لتناسب احتياجاتك. يتميز بتصميم خفيف ومريح يلتف حول الرقبة، كما أنه قابل لإعادة الشحن وسهل الاستخدام في المنزل أو المكتب أو أثناء السفر. يساعد على الاسترخاء بعد يوم طويل ويمنحك تجربة تدليك مريحة في أي وقت.",
+      "ar": "استمتع بتجربة تدليك مريحة مع جهاز مساج الرقبة بتقنية EMS، المصمم للمساعدة على تخفيف توتر العضلات والإحساس بالإجهاد في منطقة الرقبة والكتفين. يجمع بين النبضات الكهربائية الدقيقة والاهتزاز، مع عدة أوضاع ومستويات شدة لتناسب احتياجاتك. يتميز بتصميم خفيف ومريح يلتف حول الرقبة، كما أنه قابل لإعادة الشحن وسهل الاستخدام في المنزل أو المكتب أو أثناء السفر. يساعد على الاسترخاء بعد يوم طويل ويمنحك تجربة تدليك مريحة في أي وقت."
     },
     "images": [
-      "https://cdn.shipper.network/storage/5rxdbrvl05i9xych/uploads/products/11398867/conversions/6a97e279aaabe-1788338809-thumbnail-medium.jpg"
+      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/10889974/6a4cc58a7b980-1783416202.jpg",
+      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/10889971/6a4cc586cf813-1783416198.png",
+      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/10889972/6a4cc586ec1bb-1783416198.jpg",
+      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/10889973/6a4cc58a77dd4-1783416202.jpg",
+      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/10889975/6a4cc58c9855a-1783416204.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Filtre Purificateur d'Eau",
-    "sourceUrl": "https://app.shipper.market/products/63bff76a-d839-4e7c-9540-20ff44028b35",
-    "sourceProductId": "63bff76a-d839-4e7c-9540-20ff44028b35",
-    "slug": "filtre-purificateur-d-eau-63bff76a",
-    "category": "kitchen dining cleaning laundry",
+    "sourceName": "Protège-Talons en Silicone – Confort & Protection",
+    "sourceUrl": "https://app.shipper.market/products/0cb14089-5cc5-4e0d-91c0-b71dc077f159",
+    "sourceProductId": "0cb14089-5cc5-4e0d-91c0-b71dc077f159",
+    "slug": "protege-talons-en-silicone-confort-protection-0cb14089",
+    "category": "accessories",
     "title": {
-      "en": "Filtre Purificateur d'Eau",
-      "fr": "Filtre Purificateur d'Eau",
-      "ar": "Filtre Purificateur d'Eau"
+      "en": "Protège-Talons en Silicone – Confort & Protection",
+      "fr": "Protège-Talons en Silicone – Confort & Protection",
+      "ar": "Protège-Talons en Silicone – Confort & Protection"
     },
     "description": {
-      "en": "Découvrez le purificateur d'eau pour robinet Water Purifier, un accessoire pratique et compact conçu pour améliorer la filtration de l'eau au quotidien.\n\nFacile à installer directement sur un robinet compatible, ce filtre permet de retenir certaines impuretés et particules présentes dans l'eau, selon les caractéristiques de sa cartouche filtrante.\n\nSon design moderne et compact s'intègre parfaitement dans votre cuisine. Idéal pour laver les fruits et légumes, faire la vaisselle et utiliser l'eau au quotidien.",
-      "fr": "Découvrez le purificateur d'eau pour robinet Water Purifier, un accessoire pratique et compact conçu pour améliorer la filtration de l'eau au quotidien.\n\nFacile à installer directement sur un robinet compatible, ce filtre permet de retenir certaines impuretés et particules présentes dans l'eau, selon les caractéristiques de sa cartouche filtrante.\n\nSon design moderne et compact s'intègre parfaitement dans votre cuisine. Idéal pour laver les fruits et légumes, faire la vaisselle et utiliser l'eau au quotidien.",
-      "ar": "Découvrez le purificateur d'eau pour robinet Water Purifier, un accessoire pratique et compact conçu pour améliorer la filtration de l'eau au quotidien.\n\nFacile à installer directement sur un robinet compatible, ce filtre permet de retenir certaines impuretés et particules présentes dans l'eau, selon les caractéristiques de sa cartouche filtrante.\n\nSon design moderne et compact s'intègre parfaitement dans votre cuisine. Idéal pour laver les fruits et légumes, faire la vaisselle et utiliser l'eau au quotidien."
+      "en": "✅ Nom du produit : Protège-Talons en Silicone Respirants\n\n✅ Type : Protège-talons en gel silicone\n\n✅ Couleur : Beige\n\n✅ Matériau : Silicone souple de haute qualité, sans latex\n\n✅ Taille : Taille unique (One Size)\n\n✅ Contenu : 1 paire (2 pièces)\n\n✅ Dimensions : 10 × 8,3 × 2 cm\n\n✅ Conception : Respirante, souple et confortable",
+      "fr": "✅ Nom du produit : Protège-Talons en Silicone Respirants\n\n✅ Type : Protège-talons en gel silicone\n\n✅ Couleur : Beige\n\n✅ Matériau : Silicone souple de haute qualité, sans latex\n\n✅ Taille : Taille unique (One Size)\n\n✅ Contenu : 1 paire (2 pièces)\n\n✅ Dimensions : 10 × 8,3 × 2 cm\n\n✅ Conception : Respirante, souple et confortable",
+      "ar": "✅ Nom du produit : Protège-Talons en Silicone Respirants\n\n✅ Type : Protège-talons en gel silicone\n\n✅ Couleur : Beige\n\n✅ Matériau : Silicone souple de haute qualité, sans latex\n\n✅ Taille : Taille unique (One Size)\n\n✅ Contenu : 1 paire (2 pièces)\n\n✅ Dimensions : 10 × 8,3 × 2 cm\n\n✅ Conception : Respirante, souple et confortable"
     },
     "images": [
-      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/11759866/conversions/6adb2cc13d86f-1792748737-thumbnail-medium.jpg"
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/11391002/conversions/6a96bbcf216ad-1788263375-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/11390998/conversions/6a96bbc60a438-1788263366-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/11390999/conversions/6a96bbc67cd8f-1788263366-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/11391000/conversions/6a96bbcb609e3-1788263371-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/11391001/conversions/6a96bbcc38b89-1788263372-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/11391003/conversions/6a96bbcf88e47-1788263375-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/11391004/conversions/6a96bbd2346c0-1788263378-thumbnail-medium.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Manette PS4",
-    "sourceUrl": "https://app.shipper.market/products/65453162-70e9-4f81-9105-a4e08774c0ef",
-    "sourceProductId": "65453162-70e9-4f81-9105-a4e08774c0ef",
-    "slug": "manette-ps4-65453162",
-    "category": "play organisation",
+    "sourceName": "broches rotatif automatique",
+    "sourceUrl": "https://app.shipper.market/products/0cc38fb3-4820-4ef5-854e-f333e9f3407a",
+    "sourceProductId": "0cc38fb3-4820-4ef5-854e-f333e9f3407a",
+    "slug": "broches-rotatif-automatique-0cc38fb3",
+    "category": "kitchen dining play outdoor cleaning laundry",
     "title": {
-      "en": "Manette PS4",
-      "fr": "Manette PS4",
-      "ar": "Manette PS4"
+      "en": "broches rotatif automatique",
+      "fr": "broches rotatif automatique",
+      "ar": "broches rotatif automatique"
     },
     "description": {
-      "en": "une manette de jeu sans fil rouge de type DualShock 4 pour PlayStation 4, emballée dans sa boîte d'origine. [1, 2]\n\nModèle compatible : PlayStation 4 (PS4)\nCaractéristiques visibles : Coloris rouge vif, double moteur de vibration indiqué sur l'emballage [1, 2, 3]",
-      "fr": "une manette de jeu sans fil rouge de type DualShock 4 pour PlayStation 4, emballée dans sa boîte d'origine. [1, 2]\n\nModèle compatible : PlayStation 4 (PS4)\nCaractéristiques visibles : Coloris rouge vif, double moteur de vibration indiqué sur l'emballage [1, 2, 3]",
-      "ar": "une manette de jeu sans fil rouge de type DualShock 4 pour PlayStation 4, emballée dans sa boîte d'origine. [1, 2]\n\nModèle compatible : PlayStation 4 (PS4)\nCaractéristiques visibles : Coloris rouge vif, double moteur de vibration indiqué sur l'emballage [1, 2, 3]"
+      "en": "Qu'est-ce que c'est ?\nL'appareil que l'on voit sur la photo est un barbecue vertical électrique ou un gril rotatif pour brochettes. Il est conçu pour une utilisation domestique et permet de cuire des brochettes ou de la viande à la verticale, comme pour un kebab. La rotation assure une cuisson uniforme de la viande et des légumes.\nComment ça marche ?\nAu lieu d'un foyer horizontal, les résistances chauffantes sont placées au centre, et les brochettes tournent autour d'elles. Ce système présente plusieurs avantages :\n• Cuisson plus saine : Les graisses s'écoulent vers le bas dans le plateau de récupération, évitant ainsi de brûler sur une source de chaleur et de créer de la fumée ou des substances cancérigènes.\n• Facilité d'utilisation : La cuisson est automatisée grâce à la rotation, ce qui demande moins de surveillance que la cuisson sur une grille traditionnelle.\n• Moins de fumée : Comme les graisses ne tombent pas directement sur la source de chaleur, la production de fumée est considérablement réduite, ce qui rend l'appareil parfait pour une utilisation en intérieur ou sur un balcon.\n• Nettoyage facile : Le bac de récupération et les brochettes sont souvent amovibles et faciles à nettoyer.\nCe type de gril est idéal pour préparer des plats comme des brochettes de poulet ou de bœuf, des kebabs maison, des gyros ou même des légumes grillés.",
+      "fr": "Qu'est-ce que c'est ?\nL'appareil que l'on voit sur la photo est un barbecue vertical électrique ou un gril rotatif pour brochettes. Il est conçu pour une utilisation domestique et permet de cuire des brochettes ou de la viande à la verticale, comme pour un kebab. La rotation assure une cuisson uniforme de la viande et des légumes.\nComment ça marche ?\nAu lieu d'un foyer horizontal, les résistances chauffantes sont placées au centre, et les brochettes tournent autour d'elles. Ce système présente plusieurs avantages :\n• Cuisson plus saine : Les graisses s'écoulent vers le bas dans le plateau de récupération, évitant ainsi de brûler sur une source de chaleur et de créer de la fumée ou des substances cancérigènes.\n• Facilité d'utilisation : La cuisson est automatisée grâce à la rotation, ce qui demande moins de surveillance que la cuisson sur une grille traditionnelle.\n• Moins de fumée : Comme les graisses ne tombent pas directement sur la source de chaleur, la production de fumée est considérablement réduite, ce qui rend l'appareil parfait pour une utilisation en intérieur ou sur un balcon.\n• Nettoyage facile : Le bac de récupération et les brochettes sont souvent amovibles et faciles à nettoyer.\nCe type de gril est idéal pour préparer des plats comme des brochettes de poulet ou de bœuf, des kebabs maison, des gyros ou même des légumes grillés.",
+      "ar": "Qu'est-ce que c'est ?\nL'appareil que l'on voit sur la photo est un barbecue vertical électrique ou un gril rotatif pour brochettes. Il est conçu pour une utilisation domestique et permet de cuire des brochettes ou de la viande à la verticale, comme pour un kebab. La rotation assure une cuisson uniforme de la viande et des légumes.\nComment ça marche ?\nAu lieu d'un foyer horizontal, les résistances chauffantes sont placées au centre, et les brochettes tournent autour d'elles. Ce système présente plusieurs avantages :\n• Cuisson plus saine : Les graisses s'écoulent vers le bas dans le plateau de récupération, évitant ainsi de brûler sur une source de chaleur et de créer de la fumée ou des substances cancérigènes.\n• Facilité d'utilisation : La cuisson est automatisée grâce à la rotation, ce qui demande moins de surveillance que la cuisson sur une grille traditionnelle.\n• Moins de fumée : Comme les graisses ne tombent pas directement sur la source de chaleur, la production de fumée est considérablement réduite, ce qui rend l'appareil parfait pour une utilisation en intérieur ou sur un balcon.\n• Nettoyage facile : Le bac de récupération et les brochettes sont souvent amovibles et faciles à nettoyer.\nCe type de gril est idéal pour préparer des plats comme des brochettes de poulet ou de bœuf, des kebabs maison, des gyros ou même des légumes grillés."
     },
     "images": [
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/11311634/conversions/6a86c63323846-1787217459-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/11311631/conversions/6a86c62fa6ab1-1787217455-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/11311632/conversions/6a86c6300c2f7-1787217456-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/11311633/conversions/6a86c63294eb4-1787217458-thumbnail-medium.jpg"
+      "https://cdn.shipper.network/storage/hbklcghvraah8tvd/uploads/products/7338217/68ca9b2f43918-1758108463.jpg",
+      "https://cdn.shipper.network/storage/hbklcghvraah8tvd/uploads/products/7338218/68ca9b2f45490-1758108463.jpg",
+      "https://cdn.shipper.network/storage/hbklcghvraah8tvd/uploads/products/7338219/68ca9b320f2fd-1758108466.jpg",
+      "https://cdn.shipper.network/storage/hbklcghvraah8tvd/uploads/products/7338220/68ca9b3214ad9-1758108466.jpg",
+      "https://cdn.shipper.network/storage/hbklcghvraah8tvd/uploads/products/7338221/68ca9b326369e-1758108466.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "COUTEAU ECCO DESOSSAGE 12.5CM NOIR 38117",
+    "sourceUrl": "https://app.shipper.market/products/0cd6ccd2-7a7a-472c-9a91-cddce3854d05",
+    "sourceProductId": "0cd6ccd2-7a7a-472c-9a91-cddce3854d05",
+    "slug": "couteau-ecco-desossage-12-5cm-noir-38117-0cd6ccd2",
+    "category": "kitchen dining care beauty hair skincare outdoor",
+    "title": {
+      "en": "COUTEAU ECCO DESOSSAGE 12.5CM NOIR 38117",
+      "fr": "COUTEAU ECCO DESOSSAGE 12.5CM NOIR 38117",
+      "ar": "COUTEAU ECCO DESOSSAGE 12.5CM NOIR 38117"
+    },
+    "description": {
+      "en": "vous pouvez facilement couper votre viande préparée dans une poêle en fonte ou un barbecue. Il offre une prise en main solide grâce à sa large poignée. Vous pouvez l’utiliser avec une longue durée de vie avec une surface en acier dentée spéciale conçue pour couper la viande.\n• Inoxydable allemand\n• Monobloc à haute teneur en carbone\n• Dureté optimale avec traitement\n• Couleur : noir",
+      "fr": "vous pouvez facilement couper votre viande préparée dans une poêle en fonte ou un barbecue. Il offre une prise en main solide grâce à sa large poignée. Vous pouvez l’utiliser avec une longue durée de vie avec une surface en acier dentée spéciale conçue pour couper la viande.\n• Inoxydable allemand\n• Monobloc à haute teneur en carbone\n• Dureté optimale avec traitement\n• Couleur : noir",
+      "ar": "vous pouvez facilement couper votre viande préparée dans une poêle en fonte ou un barbecue. Il offre une prise en main solide grâce à sa large poignée. Vous pouvez l’utiliser avec une longue durée de vie avec une surface en acier dentée spéciale conçue pour couper la viande.\n• Inoxydable allemand\n• Monobloc à haute teneur en carbone\n• Dureté optimale avec traitement\n• Couleur : noir"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/9wln7ehwasjxp0br/uploads/products/1038215/6647b702795bb-1715975938.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "PROJECTEUR SMD LED 100 W AIDEM",
+    "sourceUrl": "https://app.shipper.market/products/0cdb049d-75a4-46e4-a65f-f3e998dc0843",
+    "sourceProductId": "0cdb049d-75a4-46e4-a65f-f3e998dc0843",
+    "slug": "projecteur-smd-led-100-w-aidem-0cdb049d",
+    "category": "lighting",
+    "title": {
+      "en": "PROJECTEUR SMD LED 100 W AIDEM",
+      "fr": "PROJECTEUR SMD LED 100 W AIDEM",
+      "ar": "PROJECTEUR SMD LED 100 W AIDEM"
+    },
+    "description": {
+      "en": "Projecteur LED SMD2835 6500K en aluminium IP65 100 W Certifié CE RoHS CEM de dimension 215x198x38,5 mm",
+      "fr": "Projecteur LED SMD2835 6500K en aluminium IP65 100 W Certifié CE RoHS CEM de dimension 215x198x38,5 mm",
+      "ar": "Projecteur LED SMD2835 6500K en aluminium IP65 100 W Certifié CE RoHS CEM de dimension 215x198x38,5 mm"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/gz7dhcj1bxqzkzpu/uploads/products/3279599/68286ee7ca6e7-1747480295.png"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Brosse de Nettoyage et Massage pour Animaux",
+    "sourceUrl": "https://app.shipper.market/products/0cf76bb7-e20c-4c0d-abf4-51bed7b754b3",
+    "sourceProductId": "0cf76bb7-e20c-4c0d-abf4-51bed7b754b3",
+    "slug": "brosse-de-nettoyage-et-massage-pour-animaux-0cf76bb7",
+    "category": "bathroom play cleaning laundry",
+    "title": {
+      "en": "Brosse de Nettoyage et Massage pour Animaux",
+      "fr": "Brosse de Nettoyage et Massage pour Animaux",
+      "ar": "Brosse de Nettoyage et Massage pour Animaux"
+    },
+    "description": {
+      "en": "Transformez le Toilettage en Séance de Massage : Brosse à Gants 2en1 pour animaux de compagnie\nRendez le toilettage de votre chien ou de votre chat plus agréable que jamais avec notre Brosse à Gants 2en1 pour animaux de compagnie. Conçue pour combiner un toilettage efficace et un massage relaxant, cette brosse innovante élimine les poils morts, démêle le pelage et stimule la circulation sanguine, le tout en un seul geste de complicité.\nIdéale pour toutes les races et tous les types de poils, cette brosse est l’investissement durable pour un animal heureux et un foyer propre.\nPRINCIPALES CARACTÉRISTIQUES\n• Picots en Silicone Doux 🌿 : Les picots flexibles massent délicatement la peau, offrant une sensation de bien-être à votre animal, tout en capturant efficacement les poils morts et les sous-poils sans irriter l’épiderme.\n• Toilettage 2-en-1 (Brossage & Bain) : Parfait pour l’hygiène quotidienne à sec, ou pour une utilisation pendant le bain. Les picots aident à faire pénétrer le shampoing en profondeur pour un nettoyage optimal.\n• Ergonomie et Simplicité 👌 : La conception en gant assure une prise en main naturelle et confortable. Vous passez la main sur votre animal, transformant l’entretien en un moment de détente et de complicité mutuelle.\n• Stimulation et Bien-être ❤️ : Le massage régulier favorise une meilleure circulation sanguine, contribuant à la santé de la peau et à un pelage plus brillant et plus sain.\nUtilisation et Entretien Sans Effort\n• Adaptée à Tous : Convient parfaitement aux chiens et aux chats, qu’ils aient un poil court, mi-long ou long.\n• Nettoyage Facile : Les poils adhèrent aux picots et sont faciles à retirer. Après usage, rincez simplement le gant à l’eau tiède ; il est réutilisable et durable.",
+      "fr": "Transformez le Toilettage en Séance de Massage : Brosse à Gants 2en1 pour animaux de compagnie\nRendez le toilettage de votre chien ou de votre chat plus agréable que jamais avec notre Brosse à Gants 2en1 pour animaux de compagnie. Conçue pour combiner un toilettage efficace et un massage relaxant, cette brosse innovante élimine les poils morts, démêle le pelage et stimule la circulation sanguine, le tout en un seul geste de complicité.\nIdéale pour toutes les races et tous les types de poils, cette brosse est l’investissement durable pour un animal heureux et un foyer propre.\nPRINCIPALES CARACTÉRISTIQUES\n• Picots en Silicone Doux 🌿 : Les picots flexibles massent délicatement la peau, offrant une sensation de bien-être à votre animal, tout en capturant efficacement les poils morts et les sous-poils sans irriter l’épiderme.\n• Toilettage 2-en-1 (Brossage & Bain) : Parfait pour l’hygiène quotidienne à sec, ou pour une utilisation pendant le bain. Les picots aident à faire pénétrer le shampoing en profondeur pour un nettoyage optimal.\n• Ergonomie et Simplicité 👌 : La conception en gant assure une prise en main naturelle et confortable. Vous passez la main sur votre animal, transformant l’entretien en un moment de détente et de complicité mutuelle.\n• Stimulation et Bien-être ❤️ : Le massage régulier favorise une meilleure circulation sanguine, contribuant à la santé de la peau et à un pelage plus brillant et plus sain.\nUtilisation et Entretien Sans Effort\n• Adaptée à Tous : Convient parfaitement aux chiens et aux chats, qu’ils aient un poil court, mi-long ou long.\n• Nettoyage Facile : Les poils adhèrent aux picots et sont faciles à retirer. Après usage, rincez simplement le gant à l’eau tiède ; il est réutilisable et durable.",
+      "ar": "Transformez le Toilettage en Séance de Massage : Brosse à Gants 2en1 pour animaux de compagnie\nRendez le toilettage de votre chien ou de votre chat plus agréable que jamais avec notre Brosse à Gants 2en1 pour animaux de compagnie. Conçue pour combiner un toilettage efficace et un massage relaxant, cette brosse innovante élimine les poils morts, démêle le pelage et stimule la circulation sanguine, le tout en un seul geste de complicité.\nIdéale pour toutes les races et tous les types de poils, cette brosse est l’investissement durable pour un animal heureux et un foyer propre.\nPRINCIPALES CARACTÉRISTIQUES\n• Picots en Silicone Doux 🌿 : Les picots flexibles massent délicatement la peau, offrant une sensation de bien-être à votre animal, tout en capturant efficacement les poils morts et les sous-poils sans irriter l’épiderme.\n• Toilettage 2-en-1 (Brossage & Bain) : Parfait pour l’hygiène quotidienne à sec, ou pour une utilisation pendant le bain. Les picots aident à faire pénétrer le shampoing en profondeur pour un nettoyage optimal.\n• Ergonomie et Simplicité 👌 : La conception en gant assure une prise en main naturelle et confortable. Vous passez la main sur votre animal, transformant l’entretien en un moment de détente et de complicité mutuelle.\n• Stimulation et Bien-être ❤️ : Le massage régulier favorise une meilleure circulation sanguine, contribuant à la santé de la peau et à un pelage plus brillant et plus sain.\nUtilisation et Entretien Sans Effort\n• Adaptée à Tous : Convient parfaitement aux chiens et aux chats, qu’ils aient un poil court, mi-long ou long.\n• Nettoyage Facile : Les poils adhèrent aux picots et sont faciles à retirer. Après usage, rincez simplement le gant à l’eau tiède ; il est réutilisable et durable."
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10925184/6a53a3f7a3805-1783866359.webp",
+      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10925181/6a53a3f6763b9-1783866358.webp",
+      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10925182/6a53a3f680189-1783866358.webp",
+      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10925183/6a53a3f78e306-1783866359.webp",
+      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10925185/6a53a3f7c960d-1783866359.webp"
     ],
     "originalSupplierCopy": true
   }
