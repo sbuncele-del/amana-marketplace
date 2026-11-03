@@ -24,12 +24,12 @@ import {messages} from '@/lib/messages';
 import {money,type StoreProduct,type Locale} from '@/lib/catalogue';
 type CartLine={id:string;quantity:number};
 const storageKey='plentovo:TN:cart:v1';
-export default function Store({locale,route,products,initialQuery,ordersOpen=false}:{locale:Locale;route:string;products:StoreProduct[];initialQuery:string;maxPrice?:number;ordersOpen?:boolean}){
+export default function Store({locale,route,products,initialQuery,ordersOpen=false,partial=false}:{partial?:boolean;locale:Locale;route:string;products:StoreProduct[];initialQuery:string;maxPrice?:number;ordersOpen?:boolean}){
  const t=messages[locale], url=(path='')=>`/${locale}${path?'/'+path:''}`;
  const [cart,setCart]=useState<CartLine[]>([]),[ready,setReady]=useState(false),[query,setQuery]=useState(initialQuery);
  useEffect(()=>setQuery(initialQuery),[initialQuery]);
  useEffect(()=>{document.documentElement.lang=locale==='ar'?'ar-TN':locale==='fr'?'fr-TN':'en';document.documentElement.dir=locale==='ar'?'rtl':'ltr';document.cookie=`plentovo_tn_language=${locale}; Path=/tunisia; Max-Age=31536000; SameSite=Lax`;},[locale]);
- useEffect(()=>{try{setCart(restoreMarketCart(localStorage.getItem(storageKey)||'[]',products));}catch{}setReady(true)},[products]);
+ useEffect(()=>{try{setCart(restoreMarketCart(localStorage.getItem(storageKey)||'[]',partial?undefined:products));}catch{}setReady(true)},[products,partial]);
  useEffect(()=>{if(ready)try{localStorage.setItem(storageKey,JSON.stringify(cart))}catch{}},[cart,ready]);
  function change(id:string,amount:number){const p=products.find(p=>p.id===id);if(!p)return;setCart(lines=>{const current=lines.find(l=>l.id===id)?.quantity||0;const quantity=Math.max(0,Math.min(p.stock,current+amount));return [...lines.filter(l=>l.id!==id),...(quantity?[{id,quantity}]:[])]})}
  const purchaseButton=useRef<HTMLButtonElement>(null);
