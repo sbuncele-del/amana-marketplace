@@ -43,6 +43,12 @@ else {
   const published=normaliseShipper(rows,content,reason=>heldReasons[reason]=(heldReasons[reason]||0)+1),ids=new Set(published.map(p=>p.id));
   const publishedParents=rows.filter(r=>(Array.isArray(r.variants)&&r.variants.length?r.variants:[r]).some(v=>ids.has(v.uuid))).length;
   console.log(prefix+' reconciliation '+JSON.stringify({ok:true,accountProducts:rows.length,reportedTotal,contentProducts:content.length,publishedProducts:publishedParents,publishedEntries:published.length,heldProducts:rows.length-publishedParents,zeroStockEntries:published.filter(p=>p.stock===0).length,duplicateEntries:published.length-ids.size,heldReasons}));
+  // Catalogue titles only (no prices, costs, stock or customer data) so held products can be named in the build log.
+  let loggedHeld=0;
+  for(const row of rows){
+   let why='';normaliseShipper([row],content,reason=>{why=reason;});
+   if(why&&loggedHeld++<700)console.log(prefix+' held '+JSON.stringify({reason:why,id:String(row.uuid),name:String(row.name||'').slice(0,90)}));
+  }
   if(rows[0]?.uuid && /^[a-zA-Z0-9-]+$/.test(rows[0].uuid)){
    const detail=await read('/products/'+encodeURIComponent(rows[0].uuid));
    console.log(prefix+' product detail '+JSON.stringify({ok:true,fields:Object.keys(detail).sort()}));
