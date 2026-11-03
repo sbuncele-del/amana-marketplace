@@ -2,7 +2,7 @@ import type {CatalogueProduct} from './catalogue';
 import {siteUrl} from './site';
 
 const columns = ['id','title','description','link','image_link','price','availability','item_group_id','condition','product_type','google_product_category'];
-const restricted = /\b(?:vape|vaping|tobacco|nicotine|cigarette|cbd|cannabis|sex|sexual|dildo|vibrator|aphrodisiac|supplement|weight loss|slimming|fat burner|weapon|ammunition|crossbow|slingshot)\b/i;
+export const restricted = /\b(?:vape|vaping|tobacco|nicotine|cigarette|cbd|cannabis|sex|sexual|dildo|vibrator|aphrodisiac|supplement|weight loss|slimming|fat burner|weapon|ammunition|crossbow|slingshot)\b/i;
 const plain = (value:string) => value.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
 const cell = (value:string) => '"'+value.replace(/"/g,'""')+'"';
 
