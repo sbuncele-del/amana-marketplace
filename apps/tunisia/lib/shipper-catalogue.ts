@@ -15,12 +15,19 @@ const readSnapshot=unstable_cache(async()=>{
  for(let page=1;page<=lastPage;page++){
   // Stay below the provider's read budget, including a complete 12k catalogue.
   if(page>1)await new Promise(resolve=>setTimeout(resolve,650));
-  const response=await fetch(`https://server.shipper.network/api/v1/products?per_page=100&page=${page}`,{headers:{Authorization:`Bearer ${token}`,Accept:'application/json'},redirect:'error',signal:AbortSignal.timeout(15000),cache:'no-store'});
-  if(!response.ok){
-   const retry=response.headers.get('retry-after');
-   throw new Error(`Supplier HTTP ${response.status}${response.status===429&&retry?' (retry after '+retry+')':''}`);
+  // The provider rate-limits full-catalogue reads; wait out Retry-After (capped) and retry the same page instead of failing the whole snapshot.
+  let response:Response|undefined;
+  for(let attempt=0;attempt<4;attempt++){
+   response=await fetch(`https://server.shipper.network/api/v1/products?per_page=100&page=${page}`,{headers:{Authorization:`Bearer ${token}`,Accept:'application/json'},redirect:'error',signal:AbortSignal.timeout(15000),cache:'no-store'});
+   if(response.status!==429||attempt===3)break;
+   const wait=Number(response.headers.get('retry-after'));
+   await new Promise(resolve=>setTimeout(resolve,Math.min(Number.isFinite(wait)&&wait>0?wait*1000:3000*(attempt+1),15000)));
   }
-  const data=await response.json();if(!Array.isArray(data.data))throw new Error('Invalid supplier catalogue');
+  if(!response!.ok){
+   const retry=response!.headers.get('retry-after');
+   throw new Error(`Supplier HTTP ${response!.status}${response!.status===429&&retry?' (retry after '+retry+')':''}`);
+  }
+  const data=await response!.json();if(!Array.isArray(data.data))throw new Error('Invalid supplier catalogue');
   for(const row of data.data){
    // Products can shift between pages while the retailer is adding new items.
    if(typeof row.uuid==='string'){if(seen.has(row.uuid))continue;seen.add(row.uuid);}
@@ -36,7 +43,7 @@ const readSnapshot=unstable_cache(async()=>{
  const published=validateCatalogue(normaliseShipper(rows,content as SupplierContent[]));
  if(rows.length&&!published.length)throw new Error('No verified products in supplier snapshot');
  return rows;
-},['tunisia-shipper-complete-snapshot-v4'],{revalidate:300,tags:['tunisia-shipper-catalogue']});
+},['tunisia-shipper-complete-snapshot-v4'],{revalidate:1800,tags:['tunisia-shipper-catalogue']});
 
 // Share a cold public-catalogue load across concurrent requests in this instance.
 // This is one project-wide public catalogue, never request/user-specific state.
