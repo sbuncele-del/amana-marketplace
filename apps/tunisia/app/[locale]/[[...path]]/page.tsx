@@ -13,7 +13,12 @@ export async function generateMetadata({params}:{params:Promise<{locale:string;p
  const {locale,path=[]}=await params;
  const route=path.join('/'),private_=['cart','checkout','track','account'].includes(route);
  const suffix=route?'/'+route:'';
+ const product=path[0]==='product'&&path.length===2?(await getLiveProducts().catch(()=>[])).find(p=>p.slug===path[1]||p.groupSlug===path[1]):undefined;
+ const loc=(locale==='fr'||locale==='ar'?locale:'en') as Locale;
+ const text=product?(product.groupTitle?.[loc]||product.title[loc]):'';
+ const summary=product?.description?.[loc]?.replace(/\s+/g,' ').trim().slice(0,155)||'';
  return {
+  ...(product?{title:`${text} | Plentovo Tunisia`,description:summary||`${text} — delivered in Tunisia, pay on delivery.`,openGraph:{title:text,description:summary||undefined,type:'website',url:`${origin}/${locale}${suffix}`,images:[product.image]},twitter:{card:'summary_large_image' as const,title:text,images:[product.image]}}:{}),
   ...(private_?{robots:{index:false,follow:false}}:{}),
   alternates:{canonical:`${origin}/${locale}${suffix}`,languages:{en:`${origin}/en${suffix}`,fr:`${origin}/fr${suffix}`,ar:`${origin}/ar${suffix}`,'x-default':`${origin}/en${suffix}`}},
  };
@@ -37,5 +42,6 @@ export default async function Page({params,searchParams}:{params:Promise<{locale
   const {description,images,...summary}=product;
   return summary;
  });
- return <Store initialQuery={query} locale={locale as Locale} route={route} products={publicProducts} maxPrice={maxPrice} ordersOpen={codConfig(process.env)!==null}/>;
+ const ld=selected?{'@context':'https://schema.org','@type':'Product',name:selected.groupTitle?.[locale as Locale]||selected.title[locale as Locale],image:[selected.image,...(selected.images||[])].slice(0,6),description:(selected.description?.[locale as Locale]||'').replace(/\s+/g,' ').trim().slice(0,500)||undefined,sku:selected.id,offers:{'@type':'Offer',url:`${origin}/${locale}/product/${selected.groupSlug||selected.slug}`,priceCurrency:'TND',price:(selected.priceMillimes/1000).toFixed(3),availability:selected.stock>0?'https://schema.org/InStock':'https://schema.org/OutOfStock'}}:null;
+ return <>{ld&&<script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(ld).replace(/</g,'\\u003c')}}/>}<Store initialQuery={query} locale={locale as Locale} route={route} products={publicProducts} maxPrice={maxPrice} ordersOpen={codConfig(process.env)!==null}/></>;
 }
