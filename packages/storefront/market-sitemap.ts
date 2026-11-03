@@ -11,3 +11,19 @@ export function marketSitemap(market:'tunisia'|'algeria',pages:string[],products
  if(entries.length>50000)throw new Error('Market sitemap exceeds 50,000 URL limit; split before publishing');
  return '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'+entries.join('')+'</urlset>';
 }
+
+// Split sitemaps: an index that points to one file of static pages and files of products (each stays far below the 50,000-URL limit).
+const xmlEscape=(value:string)=>value.replace(/[<>&"']/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[c]!));
+export const SITEMAP_PRODUCTS_PER_FILE=1500;
+export function marketSitemapUrlset(market:'tunisia'|'algeria',paths:string[]){
+ const origin='https://plentovo.com/'+market,locales=['en','fr','ar'];
+ const entries=paths.flatMap(path=>{
+  const links=locales.map(locale=>({locale,url:origin+'/'+locale+(path?'/'+path:'')}));
+  return links.map(link=>'<url><loc>'+xmlEscape(link.url)+'</loc>'+links.map(other=>'<xhtml:link rel="alternate" hreflang="'+other.locale+'" href="'+xmlEscape(other.url)+'"/>').join('')+'</url>');
+ });
+ if(entries.length>50000)throw new Error('Sitemap file exceeds 50,000 URLs');
+ return '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'+entries.join('')+'</urlset>';
+}
+export function marketSitemapIndex(market:'tunisia'|'algeria',files:string[]){
+ return '<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+files.map(f=>'<sitemap><loc>'+xmlEscape('https://plentovo.com/'+market+'/sitemaps/'+f)+'</loc></sitemap>').join('')+'</sitemapindex>';
+}

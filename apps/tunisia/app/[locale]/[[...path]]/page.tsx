@@ -10,7 +10,7 @@ import {groupProducts} from '@/lib/product-groups';
 import {recommend} from '@/lib/recommendations';
 import {CATEGORY_PAGE_SIZE,categoryGroups,departmentCounts,isDepartment,publishedCategories} from '@/lib/category-pages';
 import {storefrontDepartments} from '../../../../../packages/storefront/departments';
-import {SHOP_PAGE_SIZE,browseGroups,parseShopParams} from '@/lib/catalogue-browse';
+import {SHOP_PAGE_SIZE,browseGroups,parseShopParams,primaryDepartment} from '@/lib/catalogue-browse';
 import {homeGroups} from '@/lib/home-selection';
 import {storefrontTranslator} from '@/lib/storefront-locale';
 import type {Metadata} from 'next';
@@ -80,6 +80,19 @@ export default async function Page({params,searchParams}:{params:Promise<{locale
   const {description,images,...summary}=product;
   return summary;
  });
- const ld=selected?{'@context':'https://schema.org','@type':'Product',name:selected.groupTitle?.[locale as Locale]||selected.title[locale as Locale],image:[selected.image,...(selected.images||[])].slice(0,6),description:(selected.description?.[locale as Locale]||'').replace(/\s+/g,' ').trim().slice(0,500)||undefined,sku:selected.id,offers:{'@type':'Offer',url:`${origin}/${locale}/product/${selected.groupSlug||selected.slug}`,priceCurrency:'TND',price:(selected.priceMillimes/1000).toFixed(3),availability:selected.stock>0?'https://schema.org/InStock':'https://schema.org/OutOfStock'}}:null;
- return <>{ld&&<script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(ld).replace(/</g,'\\u003c')}}/>}<Store shop={shop} category={category} partial={!!selected||!!category||!!shop||(route===''&&!query)||(route==='collections'&&!query)} initialQuery={query} locale={locale as Locale} route={route} products={publicProducts} maxPrice={maxPrice} ordersOpen={codConfig(process.env)!==null}/></>;
+ const productLd=selected?{'@context':'https://schema.org','@type':'Product',name:selected.groupTitle?.[locale as Locale]||selected.title[locale as Locale],image:[selected.image,...(selected.images||[])].slice(0,6),description:(selected.description?.[locale as Locale]||'').replace(/\s+/g,' ').trim().slice(0,500)||undefined,sku:selected.id,offers:{'@type':'Offer',url:`${origin}/${locale}/product/${selected.groupSlug||selected.slug}`,priceCurrency:'TND',price:(selected.priceMillimes/1000).toFixed(3),availability:selected.stock>0?'https://schema.org/InStock':'https://schema.org/OutOfStock'}}:null;
+ // Breadcrumbs for product and category pages; organisation and site search on the home page.
+ const loc=(locale==='fr'||locale==='ar'?locale:'en') as Locale,tr=storefrontTranslator(loc),base=`${origin}/${locale}`;
+ const crumbs=(items:{name:string;url:string}[])=>({'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:items.map((it,i)=>({'@type':'ListItem',position:i+1,name:it.name,item:it.url}))});
+ const home={en:'Home',fr:'Accueil',ar:'الرئيسية'}[loc],allProducts={en:'All products',fr:'Tous les produits',ar:'كل المنتجات'}[loc];
+ const lds:object[]=[];
+ if(selected&&productLd){
+  const dept=primaryDepartment({title:selected.groupTitle||selected.title,category:selected.category}),published=publishedCategories(products).find(c=>c.slug===dept);
+  lds.push(productLd,crumbs([{name:home,url:base},...(published?[{name:tr(published.name),url:`${base}/category/${dept}`}]:[{name:allProducts,url:`${base}/shop`}]),{name:productLd.name,url:`${base}/product/${selected.groupSlug||selected.slug}`}]));
+ }else if(category){
+  lds.push(crumbs([{name:home,url:base},{name:allProducts,url:`${base}/shop`},{name:tr(category.links.find(l=>l.slug===category.slug)?.name||category.slug),url:`${base}/category/${category.slug}`}]));
+ }else if(route===''&&!query){
+  lds.push({'@context':'https://schema.org','@type':'Organization','@id':`${origin}/#organization`,name:'Plentovo Tunisia',url:`${origin}/${locale}`,logo:'https://plentovo.com/brand/plentovo-icon.png'},{'@context':'https://schema.org','@type':'WebSite','@id':`${origin}/#website`,name:'Plentovo Tunisia',url:`${origin}/${locale}`,inLanguage:loc,publisher:{'@id':`${origin}/#organization`},potentialAction:{'@type':'SearchAction',target:`${base}/shop?search={search_term_string}`,'query-input':'required name=search_term_string'}});
+ }
+ return <>{lds.map((item,i)=><script key={i} type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(item).replace(/</g,'\\u003c')}}/>)}<Store shop={shop} category={category} partial={!!selected||!!category||!!shop||(route===''&&!query)||(route==='collections'&&!query)} initialQuery={query} locale={locale as Locale} route={route} products={publicProducts} maxPrice={maxPrice} ordersOpen={codConfig(process.env)!==null}/></>;
 }
