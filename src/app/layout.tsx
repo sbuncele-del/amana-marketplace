@@ -107,7 +107,13 @@ export default function RootLayout({
             {'@type':'WebSite','@id':siteUrl+'/#website',name:'Plentovo',url:siteUrl,inLanguage:'en-ZA',publisher:{'@id':siteUrl+'/#organization'}}
           ]
         })}} />
-
+        {/* Google tag (Merchant Center site claim). Consent starts denied and is granted only once the visitor accepts cookies. */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=GT-M3S2KHR3"></script>
+        <script dangerouslySetInnerHTML={{__html:`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+gtag('js',new Date());gtag('config','GT-M3S2KHR3');
+function plentovoConsent(){try{var v=localStorage.getItem('plentovo_cookie_consent_v1')||localStorage.getItem('amana-cookie-consent');if(v==='accepted')gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}catch(e){}}
+plentovoConsent();window.addEventListener('plentovo:consent-changed',plentovoConsent);`}} />
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased font-sans`}>
         <Providers>
