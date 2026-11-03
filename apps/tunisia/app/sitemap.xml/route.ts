@@ -1,15 +1,12 @@
-import {readCareRetailIndex} from '@/lib/care-retail-index';
-import type {StoreProduct} from '@/lib/catalogue';
-import {publishedCategories} from '@/lib/category-pages';
-import {getLiveProducts} from '@/lib/shipper-catalogue';
-import {marketSitemap} from '../../../../packages/storefront/market-sitemap';
+import {getSitemapEntries} from '@/lib/sitemap-entries';
+import {SITEMAP_PRODUCTS_PER_FILE,marketSitemapIndex} from '../../../../packages/storefront/market-sitemap';
 export const dynamic='force-dynamic';
+// Index of sitemap files: static pages and categories, then products in chunks.
 export async function GET(){
- // The live catalogue is the source of truth; the stored index is only a fallback if the account read fails.
- let products:StoreProduct[]=await getLiveProducts().catch(()=>[]);
- if(!products.length)products=await readCareRetailIndex();
+ const entries=await getSitemapEntries();
  // Never publish/cache a misleading empty sitemap during a database outage.
- if(!products.length)return new Response('Published catalogue temporarily unavailable',{status:503,headers:{'Retry-After':'300','Cache-Control':'no-store'}});
- const xml=marketSitemap('tunisia',['','shop','collections',...publishedCategories(products).map(c=>'category/'+c.slug),'help','company-information','returns','privacy','terms','cookies'],products);
- return new Response(xml,{headers:{'Content-Type':'application/xml; charset=utf-8','Cache-Control':'public, max-age=300, s-maxage=3600, stale-while-revalidate=86400'}});
+ if(!entries?.products.length)return new Response('Published catalogue temporarily unavailable',{status:503,headers:{'Retry-After':'300','Cache-Control':'no-store'}});
+ const chunks=Math.ceil(entries.products.length/SITEMAP_PRODUCTS_PER_FILE);
+ const files=['pages.xml',...Array.from({length:chunks},(_,i)=>`products-${i+1}.xml`)];
+ return new Response(marketSitemapIndex('tunisia',files),{headers:{'Content-Type':'application/xml; charset=utf-8','Cache-Control':'public, max-age=300, s-maxage=3600, stale-while-revalidate=86400'}});
 }
