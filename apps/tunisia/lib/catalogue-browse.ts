@@ -1,4 +1,5 @@
 import type {ProductGroup} from './product-groups';
+import {storefrontDepartments} from '../../../packages/storefront/departments';
 const normal=(s:string)=>s.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 export const departmentAliases:Record<string,string>={kitchen:'kitchen-dining',home:'home-living',living:'furniture',bedroom:'bed-bath',dining:'kitchen-dining',care:'health-beauty',hair:'health-beauty',fragrances:'health-beauty',bathroom:'bed-bath',kids:'toys-kids-baby',play:'toys-kids-baby',baby:'toys-kids-baby',school:'stationery-office-supplies',organisation:'storage-organisation',decor:'home-decor-gifts',outdoor:'garden-outdoor',lighting:'lighting-lamps',audio:'electronics',wearables:'electronics',cleaning:'cleaning-laundry',laundry:'cleaning-laundry',fitness:'fitness-exercise',travel:'clothing-accessories',tools:'tools',automotive:'car-care-tools',fashion:'clothing-accessories'};
 const rules:[string,RegExp][]=[
@@ -38,4 +39,13 @@ export function browseGroups(groups:ProductGroup[],filters:{category:string;sear
  if(filters.sort==='price-low')result.sort((a,b)=>a.priceMillimes-b.priceMillimes||a.id.localeCompare(b.id));
  if(filters.sort==='price-high')result.sort((a,b)=>b.priceMillimes-a.priceMillimes||a.id.localeCompare(b.id));
  return result;
+}
+
+export const SHOP_PAGE_SIZE=25;
+// One parser for the shop's URL, used by the server (to send only one page of products) and by the browser (to render the filters).
+export function parseShopParams(get:(key:string)=>string|null|undefined){
+ const legacy=get('q')||'',legacyCategory=departmentAliases[legacy]||(storefrontDepartments.some(d=>d.slug===legacy)?legacy:'');
+ const activeCategory=get('category')||legacyCategory;
+ const search=get('search')||(!legacyCategory&&legacy!=='available'?legacy:'');
+ return {legacy,legacyCategory,activeCategory,search,available:get('available')==='true'||legacy==='available',min:get('minPrice')||'',max:get('maxPrice')||'',sort:get('sort')||'featured',page:Number(get('page'))};
 }
