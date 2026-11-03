@@ -24,7 +24,8 @@ import {messages} from '@/lib/messages';
 import {money,type StoreProduct,type Locale} from '@/lib/catalogue';
 type CartLine={id:string;quantity:number};
 const storageKey='plentovo:TN:cart:v1';
-export default function Store({locale,route,products,initialQuery,ordersOpen=false,partial=false}:{partial?:boolean;locale:Locale;route:string;products:StoreProduct[];initialQuery:string;maxPrice?:number;ordersOpen?:boolean}){
+import {CategoryPage,type CategoryView} from './category-page';
+export default function Store({locale,route,products,initialQuery,ordersOpen=false,partial=false,category}:{category?:CategoryView;partial?:boolean;locale:Locale;route:string;products:StoreProduct[];initialQuery:string;maxPrice?:number;ordersOpen?:boolean}){
  const t=messages[locale], url=(path='')=>`/${locale}${path?'/'+path:''}`;
  const [cart,setCart]=useState<CartLine[]>([]),[ready,setReady]=useState(false),[query,setQuery]=useState(initialQuery);
  useEffect(()=>setQuery(initialQuery),[initialQuery]);
@@ -40,6 +41,7 @@ export default function Store({locale,route,products,initialQuery,ordersOpen=fal
  const count=cart.reduce((n,l)=>n+l.quantity,0),total=cart.reduce((n,l)=>n+(products.find(p=>p.id===l.id)?.priceMillimes||0)*l.quantity,0);
  const groups=groupProducts(products);
  const isListing=route==='shop'||!!query;
+ const isCategory=!!category&&!query;
  const isHome=(route===''||route==='collections')&&!query;
  const selected=products.find(p=>`product/${p.slug}`===route||`product/${p.groupSlug}`===route);
  const siblings=selected?products.filter(p=>(p.groupId||p.id)===(selected.groupId||selected.id)):[];
@@ -47,8 +49,9 @@ export default function Store({locale,route,products,initialQuery,ordersOpen=fal
  const chosen=chooseVariant(siblings,selectedOption,route.replace(/^product\//,''));
  useEffect(()=>setAdded(false),[route,chosen?.id]);
  return <><StoreHeader locale={locale} route={route} query={query} count={count}/>
- <div className={isHome||isListing?'':'tn-legacy'}>
- <div id={isHome||isListing?undefined:'main-content'} role={isHome||isListing?undefined:'main'}>{(route===''||route==='collections')&&!query?<StorefrontHome locale={locale} groups={groups} onAdd={id=>change(id,1)} collections={route==='collections'}/>:null}
+ <div className={isHome||isListing||isCategory?'':'tn-legacy'}>
+ <div id={isHome||isListing||isCategory?undefined:'main-content'} role={isHome||isListing||isCategory?undefined:'main'}>{(route===''||route==='collections')&&!query?<StorefrontHome locale={locale} groups={groups} onAdd={id=>change(id,1)} collections={route==='collections'}/>:null}
+ {isCategory&&<CategoryPage locale={locale} view={category!} groups={groups}/>}
  {isListing&&<TunisiaCatalogueBrowser groups={groups} locale={locale}/>}
  {route==='cart'&&!query&&<section className="page"><h1>{t.cart}</h1>{!count?<div className="empty"><ShoppingBag size={40}/><h2>{t.cartEmpty}</h2><p>{t.cartEmptyText}</p><Link prefetch={false} className="button" href={url('shop')}>{t.discover}</Link></div>:<div className="checkout-grid"><div>{cart.map(l=>{const p=products.find(p=>p.id===l.id);if(!p)return <article className="cart-row" key={l.id}><div><p>{mobile.savedItem}</p><p>{mobile.unverified}</p><button type="button" onClick={()=>setCart(cart.filter(x=>x.id!==l.id))}>{t.remove}</button></div></article>;return <article className="cart-row" key={l.id}><img src={p.image} alt={p.title[locale]}/><div><Link prefetch={false} href={url('product/'+p.slug)}>{p.title[locale]}</Link><p>{money(p.priceMillimes,locale)}</p><div className="quantity"><button aria-label={`${t.quantity} −`} onClick={()=>change(l.id,-1)}><Minus size={14}/></button><span>{l.quantity}</span><button aria-label={`${t.quantity} +`} onClick={()=>change(l.id,1)} disabled={l.quantity>=p.stock}><Plus size={14}/></button><button aria-label={t.remove} onClick={()=>setCart(cart.filter(x=>x.id!==l.id))}><Trash2 size={14}/></button></div></div></article>})}</div><aside className="summary"><h2>{t.subtotal}</h2><>{cartUnresolved?<p role="status">{mobile.unverified}</p>:<strong>{money(total,locale)}</strong>}</><p>{t.shippingText}</p>{cartUnresolved?<button type="button" className="button" onClick={()=>window.location.reload()}>{mobile.retry}</button>:<Link prefetch={false} className="button" href={url('checkout')}>{t.checkout}</Link>}</aside></div>}</section>}
  {route==='checkout'&&!query&&ordersOpen&&<CodCheckout locale={locale} t={t as unknown as Record<string,string>} cart={cart} total={total} unresolved={cartUnresolved} onPlaced={()=>setCart([])} shopHref={url('shop')}/>}
