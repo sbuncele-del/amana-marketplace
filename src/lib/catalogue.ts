@@ -84,6 +84,10 @@ const collectionSource=unstable_cache(collectionSourceRaw,['perfect-dealz-live-v
 export async function getCatalogueProduct(slug:string,fresh=false,strictRefresh=false,market?:string,timeoutMs=(fresh||strictRefresh?15000:5000),cacheable=false) {
  if(market ? market!=='ZA' : !(await catalogueMarket()))return null;
  const product=(await (cacheable?getCatalogueSnapshotCached:getCatalogueSnapshot)()).find(p=>p.slug===slug);if(!product)return null;
+ return refreshCatalogueProduct(product,fresh,strictRefresh,timeoutMs);
+}
+async function refreshCatalogueProduct(product:CatalogueProduct,fresh=false,strictRefresh=false,timeoutMs=5000){
+ const slug=product.slug;
  if(product.variants.some(v=>v.managedStock!==undefined))return product;
  try {const data=await readSource(`/products/${encodeURIComponent(slug)}.js`,fresh,timeoutMs);return update(product,{handle:slug,variants:data.variants.map((v:SupplierProduct['variants'][number])=>({...v,price:String(Number(v.price)/100),image:v.featured_image?.src}))});}
  catch(error) {if(strictRefresh)throw error;return update(product);}
@@ -109,6 +113,6 @@ export async function getCataloguePage(search='',category='',page=1,limit=25,mar
  if(market ? market!=='ZA' : !(await catalogueMarket()))return {products:[],total:0,page,totalPages:0,hasNextPage:false};
  const term=search.trim().toLowerCase();
  const selected=catalogueSearch((await getCatalogueSnapshot()).filter(p=>!category||p.collections.includes(category)),term);
- const products=await Promise.all(selected.slice((page-1)*limit,page*limit).map(p=>getCatalogueProduct(p.slug,false,false,market)));
+ const products=await Promise.all(selected.slice((page-1)*limit,page*limit).map(p=>refreshCatalogueProduct(p)));
  return {products:products.filter((p):p is CatalogueProduct=>p!==null),total:selected.length,page,totalPages:Math.ceil(selected.length/limit),hasNextPage:page*limit<selected.length};
 }
