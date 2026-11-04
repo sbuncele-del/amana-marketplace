@@ -20,7 +20,7 @@ export function SharedCustomerChat({locale='en',market='South Africa',basePath='
  useEffect(()=>{const openHelp=()=>changeOpen(true);window.addEventListener('plentovo:open-help',openHelp);return()=>window.removeEventListener('plentovo:open-help',openHelp);},[]);
  useEffect(()=>{
   let seen=false;try{seen=sessionStorage.getItem(invitationKey)==='seen';}catch{}
-  if(open||seen)return;
+  if(open||seen||window.matchMedia('(max-width: 639px)').matches)return;
   const started=Date.now(),startY=window.scrollY;let distance=0;
   const check=()=>{distance=Math.max(distance,Math.abs(window.scrollY-startY));
    if(seen||document.visibilityState!=='visible'||document.querySelector('[role="dialog"][data-state="open"]'))return;
