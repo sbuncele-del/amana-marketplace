@@ -39,3 +39,11 @@
 }
 
 @media(max-width:639px){.mobile-header-extras{display:block;margin-inline-start:auto;font-size:11px}.mobile-header-extras a{color:#526074!important}.mobile-header-extras a[aria-current=page]{color:#DA292B!important}.mobile-header-extras+.shopping-header-actions{margin-inline-start:0}}
+
+@media(max-width:639px){
+ .mobile-product-feed>.mobile-feed-item{display:contents}
+ .mobile-feed-promotion{grid-column:1/-1;display:flex;flex-direction:column;gap:4px;padding:16px 18px;margin:3px 0;background:#fff0ef;border:1px solid #f9d9d6;border-radius:10px;text-decoration:none;color:#171b20}
+ .mobile-feed-promotion strong{font-size:18px;line-height:24px}
+ .mobile-feed-promotion span{font-size:12px;color:#526074}
+ .mobile-feed-promotion b{font-size:12px;color:#bc2027;margin-top:4px}
+}

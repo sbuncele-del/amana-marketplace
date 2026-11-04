@@ -19,7 +19,7 @@ const categoryKeys:Record<string,string>={'kitchen-dining':'kitchen','home-livin
 function MobileHome({groups,locale}:{groups:ProductGroup[];locale:Locale}){
  const t=storefrontTranslator(locale);
  const load=useCallback(async(category:string,page:number,signal:AbortSignal)=>{signal.throwIfAborted();let filtered=groups.filter(g=>g.image&&g.priceMillimes>0&&(!category||primaryDepartment(g)===category));if(!category){try{const recent=JSON.parse(sessionStorage.getItem('plentovo:recent-categories:v1:TND')||'[]');if(Array.isArray(recent))filtered=[...filtered].sort((a,b)=>Number(recent.includes(primaryDepartment(b)))-Number(recent.includes(primaryDepartment(a))));}catch{}}return {products:filtered.slice((page-1)*24,page*24),hasNextPage:page*24<filtered.length};},[groups]);
- return <MobileShoppingFeed locale={locale} categories={storefrontDepartments.map(d=>({slug:d.slug,name:t(d.name)}))} load={load} renderProduct={g=><ProductCard group={g} locale={locale}/>}/>;
+ return <MobileShoppingFeed promotions={[{title:locale==='fr'?'De belles trouvailles. Votre budget.':locale==='ar'?'اختيارات جميلة تناسب ميزانيتك.':'Good finds. Your budget.',text:locale==='fr'?'Des trouvailles utiles à moins de 50 DT.':locale==='ar'?'منتجات مفيدة بأقل من 50 د.ت.':'Useful finds under 50 DT.',action:locale==='fr'?'Explorer':locale==='ar'?'تسوق الآن':'Explore',href:`/tunisia/${locale}/shop?maxPrice=50`}]} locale={locale} categories={storefrontDepartments.map(d=>({slug:d.slug,name:t(d.name)}))} load={load} renderProduct={g=><ProductCard group={g} locale={locale}/>}/>;
 }
 export function StorefrontHome({locale,groups,collections=false}:{locale:Locale;groups:ProductGroup[];onAdd?:(id:string)=>void;collections?:boolean}){
  const t=storefrontTranslator(locale),m=messages[locale];
