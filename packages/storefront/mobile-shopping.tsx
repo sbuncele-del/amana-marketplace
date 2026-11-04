@@ -5,6 +5,12 @@ export const mobileShoppingCopy={
  fr:{all:'Pour vous',categories:'Catégories',home:'Accueil',cart:'Panier',account:'Compte',more:'Plus de produits',loading:'Chargement des produits…',retry:'Réessayer',error:'Impossible de charger les produits.',empty:'Aucun produit ici. Essayez une autre catégorie.',assist:'Aide',help:'Assistant shopping'},
  ar:{all:'لك',categories:'الفئات',home:'الرئيسية',cart:'السلة',account:'حسابي',more:'المزيد من المنتجات',loading:'جارٍ تحميل المنتجات…',retry:'حاول مجدداً',error:'تعذر تحميل المنتجات.',empty:'لا توجد منتجات هنا. جرّب فئة أخرى.',assist:'مساعدة',help:'مساعد التسوق'},
 };
+// Repeat gaps of 24, 32, 24 products; pagination batch sizes do not affect placement.
+export function mobilePromotionIndex(productCount:number){
+ const position=((productCount-1)%80)+1;
+ const slot=[24,56,80].indexOf(position);
+ return productCount>0&&slot>=0?Math.floor((productCount-1)/80)*3+slot:-1;
+}
 export type MobilePromotion={title:string;text:string;action:string;href:string};
 export type MobileCategory={slug:string;name:string};
 export function MobileShoppingFeed<P extends {slug:string}>({categories,load,renderProduct,locale='en',promotions=[]}:{categories:MobileCategory[];load:(category:string,page:number,signal:AbortSignal)=>Promise<{products:P[];hasNextPage:boolean}>;renderProduct:(product:P)=>ReactNode;locale?:keyof typeof mobileShoppingCopy;promotions?:MobilePromotion[]}){
@@ -16,7 +22,7 @@ export function MobileShoppingFeed<P extends {slug:string}>({categories,load,ren
  useEffect(()=>{if(!active||!more||busy||error||!page||!sentinel.current||typeof IntersectionObserver==='undefined')return;const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting))void fetchPage(page+1);},{rootMargin:'500px'});observer.observe(sentinel.current);return()=>observer.disconnect();},[active,more,busy,error,page,fetchPage]);
  return <section id="mobile-shopping-content" role="main" tabIndex={-1} className="mobile-shopping" aria-label={c.all}>
   <div className="mobile-category-tabs" role="group" aria-label={c.categories}>{[{slug:'',name:c.all},...categories].map(cat=><button key={cat.slug} type="button" aria-pressed={category===cat.slug} onClick={()=>setCategory(cat.slug)}>{cat.name}</button>)}</div>
-  <div className="mobile-product-feed">{products.map((product,index)=><div key={product.slug} className="mobile-feed-item">{renderProduct(product)}{(index+1)%12===0&&promotions.length>0&&<a className="mobile-feed-promotion" href={promotions[(Math.floor((index+1)/12)-1)%promotions.length].href}><strong>{promotions[(Math.floor((index+1)/12)-1)%promotions.length].title}</strong><span>{promotions[(Math.floor((index+1)/12)-1)%promotions.length].text}</span><b>{promotions[(Math.floor((index+1)/12)-1)%promotions.length].action} →</b></a>}</div>)}{busy&&!products.length&&Array.from({length:6},(_,i)=><div key={i} className="mobile-product-skeleton" aria-hidden="true"/>)}</div>
+  <div className="mobile-product-feed">{products.map((product,index)=>{const slot=mobilePromotionIndex(index+1);const promotion=slot>=0&&promotions.length?promotions[slot%promotions.length]:null;return <div key={product.slug} className="mobile-feed-item">{renderProduct(product)}{promotion&&<a className="mobile-feed-promotion" href={promotion.href}><strong>{promotion.title}</strong><span>{promotion.text}</span><b>{promotion.action} →</b></a>}</div>;})}{busy&&!products.length&&Array.from({length:6},(_,i)=><div key={i} className="mobile-product-skeleton" aria-hidden="true"/>)}</div>
   <div ref={sentinel} className="mobile-feed-status" aria-live="polite">{busy&&<p>{c.loading}</p>}{error?<><p>{c.error}</p><button type="button" onClick={()=>void fetchPage(page+1,page===0)}>{c.retry}</button></>:!busy&&more&&page>0?<button type="button" onClick={()=>void fetchPage(page+1)}>{c.more}</button>:!busy&&!products.length&&<p>{c.empty}</p>}</div>
  </section>;
 }
