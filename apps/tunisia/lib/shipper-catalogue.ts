@@ -1,5 +1,6 @@
 import 'server-only';
 import {cache} from 'react';
+import {gzipSync,gunzipSync} from 'node:zlib';
 import {unstable_cache} from 'next/cache';
 import content from '@/data/shipper-content-index';
 import {normaliseShipper,type SupplierContent} from './shipper-normalise';
@@ -87,15 +88,16 @@ async function fetchSnapshot(){
  if(rows.length&&!published.length)throw new Error('No verified products in supplier snapshot');
  return rows;
 }
+// Next's data cache refuses entries over 2 MB and the full catalogue is ~3 MB as JSON, so it is stored gzipped (a few hundred KB).
 const readSnapshot=unstable_cache(async()=>{
  if(Date.now()<coolDownUntil)throw new Error('Supplier refresh cooling down');
- try{return await fetchSnapshot();}
+ try{return gzipSync(JSON.stringify(await fetchSnapshot())).toString('base64');}
  catch(error){
   const retry=error instanceof Error?Number(/retry after (\d+)/.exec(error.message)?.[1]):NaN;
   coolDownUntil=Date.now()+Math.min(MAX_COOL_DOWN_MS,Math.max(COOL_DOWN_MS,Number.isFinite(retry)?retry*1000:0));
   throw error;
  }
-},['tunisia-shipper-complete-snapshot-v5'],{revalidate:1800,tags:['tunisia-shipper-catalogue']});
+},['tunisia-shipper-complete-snapshot-v6'],{revalidate:1800,tags:['tunisia-shipper-catalogue']});
 // The v4 entry above is kept only as a fallback: its function text is its cache key, so it still holds the last complete snapshot
 // until the v5 entry has filled once. Its result is remembered per instance so it is consulted at most once per COOL_DOWN_MS.
 let legacyRows:{at:number;rows:Awaited<ReturnType<typeof legacySnapshot>>}|undefined;
@@ -107,9 +109,9 @@ async function legacyFallback(){
 
 // Share a cold public-catalogue load across concurrent requests in this instance.
 // This is one project-wide public catalogue, never request/user-specific state.
-let pendingSnapshot:ReturnType<typeof readSnapshot>|undefined;
+let pendingSnapshot:ReturnType<typeof legacyFallback>|undefined;
 function sharedSnapshot(){
- if(!pendingSnapshot)pendingSnapshot=readSnapshot().catch(()=>legacyFallback()).finally(()=>{pendingSnapshot=undefined;});
+ if(!pendingSnapshot)pendingSnapshot=readSnapshot().then(packed=>JSON.parse(gunzipSync(Buffer.from(packed,'base64')).toString()) as Awaited<ReturnType<typeof legacyFallback>>).catch(()=>legacyFallback()).finally(()=>{pendingSnapshot=undefined;});
  return pendingSnapshot;
 }
 
