@@ -1,432 +1,386 @@
 [
   {
-    "sourceName": "🌾 Huile de Sésame – Nourrissante & Protectrice (50ml)",
-    "sourceUrl": "https://app.shipper.market/products/fd8e6f07-1b60-46c9-82ac-268b123aba5b",
-    "sourceProductId": "fd8e6f07-1b60-46c9-82ac-268b123aba5b",
-    "slug": "huile-de-sesame-nourrissante-protectrice-50ml-fd8e6f07",
+    "sourceName": "Pack de 4 Assouplissant 5L + Savon Liquide 5L + Vaisselle 1250 ml + Air fresh Lavande 500 ml",
+    "sourceUrl": "https://app.shipper.market/products/8d4f3e29-c181-40f9-9df7-3b7769466dcf",
+    "sourceProductId": "8d4f3e29-c181-40f9-9df7-3b7769466dcf",
+    "slug": "pack-de-4-assouplissant-5l-savon-liquide-5l-vaisselle-1250-ml-air-8d4f3e29",
+    "category": "kitchen dining care beauty hair skincare cleaning laundry school office",
+    "title": {
+      "en": "Pack de 4 Assouplissant 5L + Savon Liquide 5L + Vaisselle 1250 ml + Air fresh Lavande 500 ml",
+      "fr": "Pack de 4 Assouplissant 5L + Savon Liquide 5L + Vaisselle 1250 ml + Air fresh Lavande 500 ml",
+      "ar": "Pack de 4 Assouplissant 5L + Savon Liquide 5L + Vaisselle 1250 ml + Air fresh Lavande 500 ml"
+    },
+    "description": {
+      "en": "Pack de 4 Assouplissant: 5 L Rose Savon Liquide 5 L Vert Vaisselle 1250 Ml Jaune Air fresh Lavande 500 ml.\nCe Lessive liquide SAVON est super efficace pour le lavage de linge à la main, nettoie et parfume efficacement, vos vêtements et linges de maison tout en maintenant les tissus et les couleurs. \n• Ce produit est économique et super concentré destiné au lavage manuel. \n• Grâce à sa formule concentrée, il permet de laver efficacement vos linges. \n• Il élimine efficacement et sans efforts les graisses et les taches les plus tenaces.\n• L'assouplissant Panthère rose adoucit votre linge, prend soin des fibres, les assouplit et facilite le repassage. \n• Son parfum se diffuse des vêtements après le lavage, le séchage et le repassage grâce à la technologie du parfum en microcapsules . \n• Vaisselle PANTHER ROSE. Ce produit détergent est super efficace pour laver assiettes et tasses au bureau comme à la maison. \n• Ce produit vaisselle mains est un accessoire d’hygiène professionnelle.\n• PANTHERE ROSE Air fresh élime les odeurs et laisse un parfum frais et agréable dans votre maison! Il est efficace jusqu'à une heure.",
+      "fr": "Pack de 4 Assouplissant: 5 L Rose Savon Liquide 5 L Vert Vaisselle 1250 Ml Jaune Air fresh Lavande 500 ml.\nCe Lessive liquide SAVON est super efficace pour le lavage de linge à la main, nettoie et parfume efficacement, vos vêtements et linges de maison tout en maintenant les tissus et les couleurs. \n• Ce produit est économique et super concentré destiné au lavage manuel. \n• Grâce à sa formule concentrée, il permet de laver efficacement vos linges. \n• Il élimine efficacement et sans efforts les graisses et les taches les plus tenaces.\n• L'assouplissant Panthère rose adoucit votre linge, prend soin des fibres, les assouplit et facilite le repassage. \n• Son parfum se diffuse des vêtements après le lavage, le séchage et le repassage grâce à la technologie du parfum en microcapsules . \n• Vaisselle PANTHER ROSE. Ce produit détergent est super efficace pour laver assiettes et tasses au bureau comme à la maison. \n• Ce produit vaisselle mains est un accessoire d’hygiène professionnelle.\n• PANTHERE ROSE Air fresh élime les odeurs et laisse un parfum frais et agréable dans votre maison! Il est efficace jusqu'à une heure.",
+      "ar": "Pack de 4 Assouplissant: 5 L Rose Savon Liquide 5 L Vert Vaisselle 1250 Ml Jaune Air fresh Lavande 500 ml.\nCe Lessive liquide SAVON est super efficace pour le lavage de linge à la main, nettoie et parfume efficacement, vos vêtements et linges de maison tout en maintenant les tissus et les couleurs. \n• Ce produit est économique et super concentré destiné au lavage manuel. \n• Grâce à sa formule concentrée, il permet de laver efficacement vos linges. \n• Il élimine efficacement et sans efforts les graisses et les taches les plus tenaces.\n• L'assouplissant Panthère rose adoucit votre linge, prend soin des fibres, les assouplit et facilite le repassage. \n• Son parfum se diffuse des vêtements après le lavage, le séchage et le repassage grâce à la technologie du parfum en microcapsules . \n• Vaisselle PANTHER ROSE. Ce produit détergent est super efficace pour laver assiettes et tasses au bureau comme à la maison. \n• Ce produit vaisselle mains est un accessoire d’hygiène professionnelle.\n• PANTHERE ROSE Air fresh élime les odeurs et laisse un parfum frais et agréable dans votre maison! Il est efficace jusqu'à une heure."
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/hnqy9pecuupnhgce/uploads/products/2324409/676c28da83f45-1735141594.jpg",
+      "https://cdn.shipper.network/storage/hnqy9pecuupnhgce/uploads/products/2324410/676c28efc8553-1735141615.jpg",
+      "https://cdn.shipper.network/storage/hnqy9pecuupnhgce/uploads/products/2324433/676c290793f06-1735141639.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Mini Vidéo Projecteur Portable USB HDMI HD LED 400 Lumens",
+    "sourceUrl": "https://app.shipper.market/products/8d697c7a-0d88-4e5c-aae8-68ebfdae1231",
+    "sourceProductId": "8d697c7a-0d88-4e5c-aae8-68ebfdae1231",
+    "slug": "mini-video-projecteur-portable-usb-hdmi-hd-led-400-lumens-8d697c7a",
+    "category": "lighting",
+    "title": {
+      "en": "Mini Vidéo Projecteur Portable USB HDMI HD LED 400 Lumens",
+      "fr": "Mini Vidéo Projecteur Portable USB HDMI HD LED 400 Lumens",
+      "ar": "Mini Vidéo Projecteur Portable USB HDMI HD LED 400 Lumens"
+    },
+    "description": {
+      "en": "Quick Overview\n• Type d'article: mini projecteur\n• Matériel: ABS\n• Tension de la prise : 100‑240 V\n• Durée de vie de la source lumineuse de projection : 30 000 h\n• Luminosité : 200 ANSI Lm\n• Résolution : 320 x 240\n• Rapport de contraste: 800 : 1\n• Rapport de projection : 1,6 : 1\n• Résolution de prise en : 1920 x 1080\n• Distance de projection : 1,0‑2,5 m/3,3- 2,4 m\n• Rapport d'aspect de projection : 4 : 3\n• Pile de la télécommande: 2 piles AAA (non incluses)\n• Carte mémoire : prend en charge jusqu'à 32 G (non incluse)\n• Taille : 12x8,5x4,6cm\n• Liste des colis : \n• 1 x projecteur\n• 1 x télécommande\n• 1 x adaptateur secteur\n• 1 x câble1 x manuel d'instructions\nMini Projecteur Portable, 4:3 HD 1080P pour Petit Film USB, HD, AV, Entrée de Carte Mémoire, écran 60 Pouces doit être acheté par multiple de 1",
+      "fr": "Quick Overview\n• Type d'article: mini projecteur\n• Matériel: ABS\n• Tension de la prise : 100‑240 V\n• Durée de vie de la source lumineuse de projection : 30 000 h\n• Luminosité : 200 ANSI Lm\n• Résolution : 320 x 240\n• Rapport de contraste: 800 : 1\n• Rapport de projection : 1,6 : 1\n• Résolution de prise en : 1920 x 1080\n• Distance de projection : 1,0‑2,5 m/3,3- 2,4 m\n• Rapport d'aspect de projection : 4 : 3\n• Pile de la télécommande: 2 piles AAA (non incluses)\n• Carte mémoire : prend en charge jusqu'à 32 G (non incluse)\n• Taille : 12x8,5x4,6cm\n• Liste des colis : \n• 1 x projecteur\n• 1 x télécommande\n• 1 x adaptateur secteur\n• 1 x câble1 x manuel d'instructions\nMini Projecteur Portable, 4:3 HD 1080P pour Petit Film USB, HD, AV, Entrée de Carte Mémoire, écran 60 Pouces doit être acheté par multiple de 1",
+      "ar": "Quick Overview\n• Type d'article: mini projecteur\n• Matériel: ABS\n• Tension de la prise : 100‑240 V\n• Durée de vie de la source lumineuse de projection : 30 000 h\n• Luminosité : 200 ANSI Lm\n• Résolution : 320 x 240\n• Rapport de contraste: 800 : 1\n• Rapport de projection : 1,6 : 1\n• Résolution de prise en : 1920 x 1080\n• Distance de projection : 1,0‑2,5 m/3,3- 2,4 m\n• Rapport d'aspect de projection : 4 : 3\n• Pile de la télécommande: 2 piles AAA (non incluses)\n• Carte mémoire : prend en charge jusqu'à 32 G (non incluse)\n• Taille : 12x8,5x4,6cm\n• Liste des colis : \n• 1 x projecteur\n• 1 x télécommande\n• 1 x adaptateur secteur\n• 1 x câble1 x manuel d'instructions\nMini Projecteur Portable, 4:3 HD 1080P pour Petit Film USB, HD, AV, Entrée de Carte Mémoire, écran 60 Pouces doit être acheté par multiple de 1"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/cf4oc5l6rjcq9xib/uploads/products/9939314/69cd2903a7a3b-1775053059.jpg",
+      "https://cdn.shipper.network/storage/cf4oc5l6rjcq9xib/uploads/products/9939313/69cd29036cec7-1775053059.jpg",
+      "https://cdn.shipper.network/storage/cf4oc5l6rjcq9xib/uploads/products/9939315/69cd29055cfd5-1775053061.jpg",
+      "https://cdn.shipper.network/storage/cf4oc5l6rjcq9xib/uploads/products/9939316/69cd29055e638-1775053061.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "✨ Set tapis + 2 descentes de lit",
+    "sourceUrl": "https://app.shipper.market/products/8d79f6a9-c6b6-4794-af34-633ae9a1edcf",
+    "sourceProductId": "8d79f6a9-c6b6-4794-af34-633ae9a1edcf",
+    "slug": "set-tapis-2-descentes-de-lit-8d79f6a9",
+    "category": "accessories",
+    "title": {
+      "en": "✨ Set tapis + 2 descentes de lit",
+      "fr": "✨ Set tapis + 2 descentes de lit",
+      "ar": "✨ Set tapis + 2 descentes de lit"
+    },
+    "description": {
+      "en": "✨ Set tapis + 2 descentes de lit – 3 pièces pour chambre à coucher\nDescription du produit :\nApportez chaleur et confort à votre chambre avec ce set complet de 3 pièces :\n• 🏡 1 grand tapis (120 x 150 cm)\n• 🛏️ 2 descentes de lit assorties (80 x 110 cm chacune)\nDoux, pratique et élégant, cet ensemble est parfait pour donner une touche cosy et harmonieuse à votre espace nuit.\n• 💰 Prix total : 150 DT seulement pour les 3 pièces",
+      "fr": "✨ Set tapis + 2 descentes de lit – 3 pièces pour chambre à coucher\nDescription du produit :\nApportez chaleur et confort à votre chambre avec ce set complet de 3 pièces :\n• 🏡 1 grand tapis (120 x 150 cm)\n• 🛏️ 2 descentes de lit assorties (80 x 110 cm chacune)\nDoux, pratique et élégant, cet ensemble est parfait pour donner une touche cosy et harmonieuse à votre espace nuit.\n• 💰 Prix total : 150 DT seulement pour les 3 pièces",
+      "ar": "✨ Set tapis + 2 descentes de lit – 3 pièces pour chambre à coucher\nDescription du produit :\nApportez chaleur et confort à votre chambre avec ce set complet de 3 pièces :\n• 🏡 1 grand tapis (120 x 150 cm)\n• 🛏️ 2 descentes de lit assorties (80 x 110 cm chacune)\nDoux, pratique et élégant, cet ensemble est parfait pour donner une touche cosy et harmonieuse à votre espace nuit.\n• 💰 Prix total : 150 DT seulement pour les 3 pièces"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/7325449/68c92f6ec8024-1758015342.jpg",
+      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/7325450/68c92f6ec8f11-1758015342.jpg",
+      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/7325451/68c92f70234cf-1758015344.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "صبغة MM Beauty مع life cream developper",
+    "sourceUrl": "https://app.shipper.market/products/8d7b3751-2917-41b1-a619-3d75398e2a24",
+    "sourceProductId": "8d7b3751-2917-41b1-a619-3d75398e2a24",
+    "slug": "mm-beauty-life-cream-developper-8d7b3751",
+    "category": "care beauty hair skincare play organisation wearables",
+    "title": {
+      "en": "صبغة MM Beauty مع life cream developper",
+      "fr": "صبغة MM Beauty مع life cream developper",
+      "ar": "صبغة MM Beauty مع life cream developper"
+    },
+    "description": {
+      "en": "تتميز صبغة الشعر من إم إم بيوتي كومبليكس بتركيبة مبتكرة تمنح شعرك لونًا غنيًا ومشعًا يدوم طويلًا. تحتوي الصبغة على مكونات مغذية تضمن حماية الشعر خلال عملية الصبغ وتعزز من لمعانه وقوته. تتوفر هذه الصبغة بمجموعة واسعة من الألوان المتنوعة لتناسب كل الأذواق وتتيح لك تجربة تغيير المظهر بأسلوب عصري وجذاب.\nالفوائد والمميزات:\n• تغطية مثالية للشعر لضمان مظهر موحّد ولون طبيعي.\n• تركيبة مغذية تحتوي على مكونات تعزز من صحة الشعر وتقلل من التلف.\n• ألوان متعددة تتنوع بين الدرجات الكلاسيكية والعصرية لتناسب جميع الأذواق.\n• ثبات طويل الأمد يحافظ على حيوية اللون حتى بعد عدة غسلات.\n• سهل الاستخدام في المنزل مع تعليمات واضحة لضمان نتيجة مثالية.\n• لمعان صحي بفضل المكونات التي تحافظ على رطوبة الشعر وتزيد من إشراقه.\n• ملمس ناعم يجعل الشعر يبدو أكثر حيوية ونعومة بعد الصبغ.\nطريقة الاستعمال:\nقومي بخلط المكونات وفقاً للإرشادات المرفقة مع المنتج.\nضعي الصبغة على الشعر الجاف والنظيف بالتساوي من الجذور حتى الأطراف.\nاتركي الصبغة لمدة المدة المحددة على العبوة.\nاشطفي الشعر جيداً بالماء الفاتر واتبعي ذلك باستخدام البلسم المرفق في العبوة لترطيب إضافي.\nاغسلي الشعر مرة أخرى للحصول على نتيجة لامعة ومتساوية.\nالتحذيرات:\nيجب إجراء اختبار حساسية قبل 48 ساعة من استخدام المنتج لتجنب أي تفاعلات غير مرغوبة.\nتجنبي ملامسة المنتج للعينين أو البشرة الحساسة.\nيُحفظ بعيداً عن متناول الأطفال.\nيُستخدم المنتج وفقاً للتعليمات للحصول على أفضل النتائج وضمان الأمان",
+      "fr": "تتميز صبغة الشعر من إم إم بيوتي كومبليكس بتركيبة مبتكرة تمنح شعرك لونًا غنيًا ومشعًا يدوم طويلًا. تحتوي الصبغة على مكونات مغذية تضمن حماية الشعر خلال عملية الصبغ وتعزز من لمعانه وقوته. تتوفر هذه الصبغة بمجموعة واسعة من الألوان المتنوعة لتناسب كل الأذواق وتتيح لك تجربة تغيير المظهر بأسلوب عصري وجذاب.\nالفوائد والمميزات:\n• تغطية مثالية للشعر لضمان مظهر موحّد ولون طبيعي.\n• تركيبة مغذية تحتوي على مكونات تعزز من صحة الشعر وتقلل من التلف.\n• ألوان متعددة تتنوع بين الدرجات الكلاسيكية والعصرية لتناسب جميع الأذواق.\n• ثبات طويل الأمد يحافظ على حيوية اللون حتى بعد عدة غسلات.\n• سهل الاستخدام في المنزل مع تعليمات واضحة لضمان نتيجة مثالية.\n• لمعان صحي بفضل المكونات التي تحافظ على رطوبة الشعر وتزيد من إشراقه.\n• ملمس ناعم يجعل الشعر يبدو أكثر حيوية ونعومة بعد الصبغ.\nطريقة الاستعمال:\nقومي بخلط المكونات وفقاً للإرشادات المرفقة مع المنتج.\nضعي الصبغة على الشعر الجاف والنظيف بالتساوي من الجذور حتى الأطراف.\nاتركي الصبغة لمدة المدة المحددة على العبوة.\nاشطفي الشعر جيداً بالماء الفاتر واتبعي ذلك باستخدام البلسم المرفق في العبوة لترطيب إضافي.\nاغسلي الشعر مرة أخرى للحصول على نتيجة لامعة ومتساوية.\nالتحذيرات:\nيجب إجراء اختبار حساسية قبل 48 ساعة من استخدام المنتج لتجنب أي تفاعلات غير مرغوبة.\nتجنبي ملامسة المنتج للعينين أو البشرة الحساسة.\nيُحفظ بعيداً عن متناول الأطفال.\nيُستخدم المنتج وفقاً للتعليمات للحصول على أفضل النتائج وضمان الأمان",
+      "ar": "تتميز صبغة الشعر من إم إم بيوتي كومبليكس بتركيبة مبتكرة تمنح شعرك لونًا غنيًا ومشعًا يدوم طويلًا. تحتوي الصبغة على مكونات مغذية تضمن حماية الشعر خلال عملية الصبغ وتعزز من لمعانه وقوته. تتوفر هذه الصبغة بمجموعة واسعة من الألوان المتنوعة لتناسب كل الأذواق وتتيح لك تجربة تغيير المظهر بأسلوب عصري وجذاب.\nالفوائد والمميزات:\n• تغطية مثالية للشعر لضمان مظهر موحّد ولون طبيعي.\n• تركيبة مغذية تحتوي على مكونات تعزز من صحة الشعر وتقلل من التلف.\n• ألوان متعددة تتنوع بين الدرجات الكلاسيكية والعصرية لتناسب جميع الأذواق.\n• ثبات طويل الأمد يحافظ على حيوية اللون حتى بعد عدة غسلات.\n• سهل الاستخدام في المنزل مع تعليمات واضحة لضمان نتيجة مثالية.\n• لمعان صحي بفضل المكونات التي تحافظ على رطوبة الشعر وتزيد من إشراقه.\n• ملمس ناعم يجعل الشعر يبدو أكثر حيوية ونعومة بعد الصبغ.\nطريقة الاستعمال:\nقومي بخلط المكونات وفقاً للإرشادات المرفقة مع المنتج.\nضعي الصبغة على الشعر الجاف والنظيف بالتساوي من الجذور حتى الأطراف.\nاتركي الصبغة لمدة المدة المحددة على العبوة.\nاشطفي الشعر جيداً بالماء الفاتر واتبعي ذلك باستخدام البلسم المرفق في العبوة لترطيب إضافي.\nاغسلي الشعر مرة أخرى للحصول على نتيجة لامعة ومتساوية.\nالتحذيرات:\nيجب إجراء اختبار حساسية قبل 48 ساعة من استخدام المنتج لتجنب أي تفاعلات غير مرغوبة.\nتجنبي ملامسة المنتج للعينين أو البشرة الحساسة.\nيُحفظ بعيداً عن متناول الأطفال.\nيُستخدم المنتج وفقاً للتعليمات للحصول على أفضل النتائج وضمان الأمان"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/9512013/698c6ac89ca09-1770810056.png",
+      "https://cdn.shipper.network/storage/crcrdbgf2ux1bogw/uploads/products/9479956/6988eb1c22e20-1770580764.jpg",
+      "https://cdn.shipper.network/storage/crcrdbgf2ux1bogw/uploads/products/9479957/6988eb1e22b21-1770580766.jpg",
+      "https://cdn.shipper.network/storage/crcrdbgf2ux1bogw/uploads/products/9479958/6988eb2098c0e-1770580768.jpg",
+      "https://cdn.shipper.network/storage/crcrdbgf2ux1bogw/uploads/products/9479959/6988eb20ac9ef-1770580768.jpg",
+      "https://cdn.shipper.network/storage/crcrdbgf2ux1bogw/uploads/products/9479960/6988eb22d9785-1770580770.jpg",
+      "https://cdn.shipper.network/storage/crcrdbgf2ux1bogw/uploads/products/9484585/6989b86643a7b-1770633318.jpg",
+      "https://cdn.shipper.network/storage/crcrdbgf2ux1bogw/uploads/products/9484600/6989b986f417c-1770633606.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "KEMEI km 2296 Tondeuse à cheveux professionnelle",
+    "sourceUrl": "https://app.shipper.market/products/8d7b52ff-3d78-4b6d-8569-2946c35ce234",
+    "sourceProductId": "8d7b52ff-3d78-4b6d-8569-2946c35ce234",
+    "slug": "kemei-km-2296-tondeuse-a-cheveux-professionnelle-8d7b52ff",
+    "category": "care beauty hair skincare play cleaning laundry hair care",
+    "title": {
+      "en": "KEMEI km 2296 Tondeuse à cheveux professionnelle",
+      "fr": "KEMEI km 2296 Tondeuse à cheveux professionnelle",
+      "ar": "KEMEI km 2296 Tondeuse à cheveux professionnelle"
+    },
+    "description": {
+      "en": "Ensemble de coupe de cheveux à domicile : tondeuse à cheveux Kemei de conception professionnelle, lisse, tranchante et précise, équipée de la lame la plus précise, auto-affûtant, maintenant le tranchant plus longtemps. Après une coupe de cheveux, la lame peut être rincée directement sans démontage, facile à nettoyer\nBatterie haute capacité : batterie lithium-ion rechargeable intégrée de 2500 mAh de haute qualité et sûre alimente le moteur, fournit jusqu’à 350 minutes d’autonomie après 3,5 heures de charge\nMoteur puissant : équipé de moteurs électromagnétiques puissants et avancés qui offrent beaucoup de puissance et de vitesse sans chaleur ni bruit supplémentaires\nEnsemble de toilettage pour homme : il s’agit d’un ensemble de coiffeur pour les coupes de cheveux, y compris les peignes de limitation (3/6/9/13/16/19/22/25 mm), une brosse de nettoyage, des instructions, une base de charge, un chargeur avec connexion USB et des accessoires de protection en plastique ABS pour différentes longueurs de cheveux",
+      "fr": "Ensemble de coupe de cheveux à domicile : tondeuse à cheveux Kemei de conception professionnelle, lisse, tranchante et précise, équipée de la lame la plus précise, auto-affûtant, maintenant le tranchant plus longtemps. Après une coupe de cheveux, la lame peut être rincée directement sans démontage, facile à nettoyer\nBatterie haute capacité : batterie lithium-ion rechargeable intégrée de 2500 mAh de haute qualité et sûre alimente le moteur, fournit jusqu’à 350 minutes d’autonomie après 3,5 heures de charge\nMoteur puissant : équipé de moteurs électromagnétiques puissants et avancés qui offrent beaucoup de puissance et de vitesse sans chaleur ni bruit supplémentaires\nEnsemble de toilettage pour homme : il s’agit d’un ensemble de coiffeur pour les coupes de cheveux, y compris les peignes de limitation (3/6/9/13/16/19/22/25 mm), une brosse de nettoyage, des instructions, une base de charge, un chargeur avec connexion USB et des accessoires de protection en plastique ABS pour différentes longueurs de cheveux",
+      "ar": "Ensemble de coupe de cheveux à domicile : tondeuse à cheveux Kemei de conception professionnelle, lisse, tranchante et précise, équipée de la lame la plus précise, auto-affûtant, maintenant le tranchant plus longtemps. Après une coupe de cheveux, la lame peut être rincée directement sans démontage, facile à nettoyer\nBatterie haute capacité : batterie lithium-ion rechargeable intégrée de 2500 mAh de haute qualité et sûre alimente le moteur, fournit jusqu’à 350 minutes d’autonomie après 3,5 heures de charge\nMoteur puissant : équipé de moteurs électromagnétiques puissants et avancés qui offrent beaucoup de puissance et de vitesse sans chaleur ni bruit supplémentaires\nEnsemble de toilettage pour homme : il s’agit d’un ensemble de coiffeur pour les coupes de cheveux, y compris les peignes de limitation (3/6/9/13/16/19/22/25 mm), une brosse de nettoyage, des instructions, une base de charge, un chargeur avec connexion USB et des accessoires de protection en plastique ABS pour différentes longueurs de cheveux"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/pfdguj1ymudgxdxp/uploads/products/11136912/6a7dab787a87b-1786620792.jpg",
+      "https://cdn.shipper.network/storage/pfdguj1ymudgxdxp/uploads/products/11136906/6a7dab71b1bbf-1786620785.jpg",
+      "https://cdn.shipper.network/storage/pfdguj1ymudgxdxp/uploads/products/11136907/6a7dab71b1cd8-1786620785.jpg",
+      "https://cdn.shipper.network/storage/pfdguj1ymudgxdxp/uploads/products/11136908/6a7dab73d2821-1786620787.jpg",
+      "https://cdn.shipper.network/storage/pfdguj1ymudgxdxp/uploads/products/11136909/6a7dab73d5f07-1786620787.jpg",
+      "https://cdn.shipper.network/storage/pfdguj1ymudgxdxp/uploads/products/11136910/6a7dab7620f75-1786620790.jpg",
+      "https://cdn.shipper.network/storage/pfdguj1ymudgxdxp/uploads/products/11136911/6a7dab7637e58-1786620790.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "SUPPORT AU VOLANT STANDARD POUR TÉLÉPHONE",
+    "sourceUrl": "https://app.shipper.market/products/8d890f87-fc0f-4275-b558-144d0e926e34",
+    "sourceProductId": "8d890f87-fc0f-4275-b558-144d0e926e34",
+    "slug": "support-au-volant-standard-pour-telephone-8d890f87",
+    "category": "accessories",
+    "title": {
+      "en": "SUPPORT AU VOLANT STANDARD POUR TÉLÉPHONE",
+      "fr": "SUPPORT AU VOLANT STANDARD POUR TÉLÉPHONE",
+      "ar": "SUPPORT AU VOLANT STANDARD POUR TÉLÉPHONE"
+    },
+    "description": {
+      "en": "Support universel se fixant au volant de votre voiture\nGrâce à ce support de téléphone à fixer à votre volant ne craignez plus de faire des écarts ou de ne plus être attentif à la route.\nCe système est devenu un indispensable pour les personnes qui utilise le système de navigation de leur téléphone.\nFacile à fixer sur la partie supérieure du volant, sa position sur l’axe de votre vision vous garanti sécurité et praticité.\nUniversel, ce système de fixation convient à tous les téléphones qui ont une largueur maximum de 8,0 cm (soit 90% des smartphones actuels).\nCaractéristiques\n• Fabriqué en plastique résistant et caoutchouc.\n• Facile à installer.\n• Pour téléphones mobiles de 5,5 cm à 8,0 cm de large.",
+      "fr": "Support universel se fixant au volant de votre voiture\nGrâce à ce support de téléphone à fixer à votre volant ne craignez plus de faire des écarts ou de ne plus être attentif à la route.\nCe système est devenu un indispensable pour les personnes qui utilise le système de navigation de leur téléphone.\nFacile à fixer sur la partie supérieure du volant, sa position sur l’axe de votre vision vous garanti sécurité et praticité.\nUniversel, ce système de fixation convient à tous les téléphones qui ont une largueur maximum de 8,0 cm (soit 90% des smartphones actuels).\nCaractéristiques\n• Fabriqué en plastique résistant et caoutchouc.\n• Facile à installer.\n• Pour téléphones mobiles de 5,5 cm à 8,0 cm de large.",
+      "ar": "Support universel se fixant au volant de votre voiture\nGrâce à ce support de téléphone à fixer à votre volant ne craignez plus de faire des écarts ou de ne plus être attentif à la route.\nCe système est devenu un indispensable pour les personnes qui utilise le système de navigation de leur téléphone.\nFacile à fixer sur la partie supérieure du volant, sa position sur l’axe de votre vision vous garanti sécurité et praticité.\nUniversel, ce système de fixation convient à tous les téléphones qui ont une largueur maximum de 8,0 cm (soit 90% des smartphones actuels).\nCaractéristiques\n• Fabriqué en plastique résistant et caoutchouc.\n• Facile à installer.\n• Pour téléphones mobiles de 5,5 cm à 8,0 cm de large."
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/2kmwcyusheaudsc9/uploads/products/4645991/684aa96c393a6-1749723500.jpg",
+      "https://cdn.shipper.network/storage/2kmwcyusheaudsc9/uploads/products/4645992/684aa96c3a90b-1749723500.jpg",
+      "https://cdn.shipper.network/storage/2kmwcyusheaudsc9/uploads/products/4645993/684aa96e6360a-1749723502.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Debada Masque argile blanche peau sèche à normale",
+    "sourceUrl": "https://app.shipper.market/products/8da845ba-c805-4eef-8a67-0d2b3bfdd28b",
+    "sourceProductId": "8da845ba-c805-4eef-8a67-0d2b3bfdd28b",
+    "slug": "debada-masque-argile-blanche-peau-seche-a-normale-8da845ba",
     "category": "care beauty hair skincare",
     "title": {
-      "en": "🌾 Huile de Sésame – Nourrissante & Protectrice (50ml)",
-      "fr": "🌾 Huile de Sésame – Nourrissante & Protectrice (50ml)",
-      "ar": "🌾 Huile de Sésame – Nourrissante & Protectrice (50ml)"
+      "en": "Debada Masque argile blanche peau sèche à normale",
+      "fr": "Debada Masque argile blanche peau sèche à normale",
+      "ar": "Debada Masque argile blanche peau sèche à normale"
     },
     "description": {
-      "en": "🌾 Huile de Sésame – Nourrissante & Protectrice (50ml)\n💆‍♀️ Peau : \nRiche en antioxydants et vitamine E, elle hydrate en profondeur, régénère la peau et protège des agressions extérieures. Idéale pour les peaux sèches ou matures.\n💇‍♀️ Cheveux : \nFortifie la fibre capillaire, nourrit le cuir chevelu sec et redonne de la brillance aux cheveux ternes.\n🧘‍♀️ Santé : \nAnti-inflammatoire naturelle, elle soutient la santé articulaire et cardiovasculaire. Également utilisée en massage ayurvédique pour détendre le corps.",
-      "fr": "🌾 Huile de Sésame – Nourrissante & Protectrice (50ml)\n💆‍♀️ Peau : \nRiche en antioxydants et vitamine E, elle hydrate en profondeur, régénère la peau et protège des agressions extérieures. Idéale pour les peaux sèches ou matures.\n💇‍♀️ Cheveux : \nFortifie la fibre capillaire, nourrit le cuir chevelu sec et redonne de la brillance aux cheveux ternes.\n🧘‍♀️ Santé : \nAnti-inflammatoire naturelle, elle soutient la santé articulaire et cardiovasculaire. Également utilisée en massage ayurvédique pour détendre le corps.",
-      "ar": "🌾 Huile de Sésame – Nourrissante & Protectrice (50ml)\n💆‍♀️ Peau : \nRiche en antioxydants et vitamine E, elle hydrate en profondeur, régénère la peau et protège des agressions extérieures. Idéale pour les peaux sèches ou matures.\n💇‍♀️ Cheveux : \nFortifie la fibre capillaire, nourrit le cuir chevelu sec et redonne de la brillance aux cheveux ternes.\n🧘‍♀️ Santé : \nAnti-inflammatoire naturelle, elle soutient la santé articulaire et cardiovasculaire. Également utilisée en massage ayurvédique pour détendre le corps."
+      "en": "Le masque argile Debada est un pur révélateur d'éclat.\n Il lutte contre la dilatation des pores.\nGrace à sa texture crémeuse riche en eau de rose, huiles d'amande douce et de ricin, il est purifiant, rajeunissant, nourrissant et régénérant. \nAppliquez notre masque en couche épaisse sur votre visage et cou tout en évitant le contour des yeux. Laissez agir au maximum cinq minutes puis rincez à l’eau tiède.A utiliser une à deux fois par semaine.\nL'effet est ressenti dès la première utilisation.",
+      "fr": "Le masque argile Debada est un pur révélateur d'éclat.\n Il lutte contre la dilatation des pores.\nGrace à sa texture crémeuse riche en eau de rose, huiles d'amande douce et de ricin, il est purifiant, rajeunissant, nourrissant et régénérant. \nAppliquez notre masque en couche épaisse sur votre visage et cou tout en évitant le contour des yeux. Laissez agir au maximum cinq minutes puis rincez à l’eau tiède.A utiliser une à deux fois par semaine.\nL'effet est ressenti dès la première utilisation.",
+      "ar": "Le masque argile Debada est un pur révélateur d'éclat.\n Il lutte contre la dilatation des pores.\nGrace à sa texture crémeuse riche en eau de rose, huiles d'amande douce et de ricin, il est purifiant, rajeunissant, nourrissant et régénérant. \nAppliquez notre masque en couche épaisse sur votre visage et cou tout en évitant le contour des yeux. Laissez agir au maximum cinq minutes puis rincez à l’eau tiède.A utiliser une à deux fois par semaine.\nL'effet est ressenti dès la première utilisation."
     },
     "images": [
-      "https://cdn.shipper.network/storage/qklqxia0re16h87l/uploads/products/9671965/69a2bed972aef-1772273369.webp",
-      "https://cdn.shipper.network/storage/qklqxia0re16h87l/uploads/products/9671967/69a2bee086075-1772273376.webp",
-      "https://cdn.shipper.network/storage/qklqxia0re16h87l/uploads/products/9671968/69a2bee6c0dd4-1772273382.webp"
+      "https://cdn.shipper.network/storage/lnoke5okxnn5coft/uploads/products/8374/651b3ed2a2853-1696284370.png",
+      "https://cdn.shipper.network/storage/lnoke5okxnn5coft/uploads/products/3622/649b22f6c4570-1687888630.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Porte-sac poubelle de voiture suspendu fonctionnel en peluche",
-    "sourceUrl": "https://app.shipper.market/products/fda51cb1-72ef-43d4-84e5-0dfde6365749",
-    "sourceProductId": "fda51cb1-72ef-43d4-84e5-0dfde6365749",
-    "slug": "porte-sac-poubelle-de-voiture-suspendu-fonctionnel-en-peluche-fda51cb1",
-    "category": "living decor bedroom bedding play organisation",
-    "title": {
-      "en": "Porte-sac poubelle de voiture suspendu fonctionnel en peluche",
-      "fr": "Porte-sac poubelle de voiture suspendu fonctionnel en peluche",
-      "ar": "Porte-sac poubelle de voiture suspendu fonctionnel en peluche"
-    },
-    "description": {
-      "en": "À propos de cet article\n• Matériaux : la boîte à mouchoirs de voiture est fabriquée en peluche de qualité, douce et confortable, très adaptée pour les accoudoirs ou les oreillers. Design 2 en 1, peut être utilisé comme poubelle ou boîte à serviettes en papier.\n• Excellent service : pour toute question sur ce papier de dessin animé, veuillez laisser un message directement au vendeur, et nous allons résoudre le problème pour vous dès que possible dans les 24 heures.\n• Décorations de voiture : la boîte de rangement pour mouchoirs de voiture est conçue en forme d'animaux mignons, ce qui est non seulement un organisateur pratique, mais aussi une poupée de décoration pour vos voitures, intéressante et attrayante.\n• Matériaux de haute qualité : la boîte à mouchoirs de voiture est fabriquée en peluche de haute qualité, douce et confortable, durable pour une utilisation à long terme.",
-      "fr": "À propos de cet article\n• Matériaux : la boîte à mouchoirs de voiture est fabriquée en peluche de qualité, douce et confortable, très adaptée pour les accoudoirs ou les oreillers. Design 2 en 1, peut être utilisé comme poubelle ou boîte à serviettes en papier.\n• Excellent service : pour toute question sur ce papier de dessin animé, veuillez laisser un message directement au vendeur, et nous allons résoudre le problème pour vous dès que possible dans les 24 heures.\n• Décorations de voiture : la boîte de rangement pour mouchoirs de voiture est conçue en forme d'animaux mignons, ce qui est non seulement un organisateur pratique, mais aussi une poupée de décoration pour vos voitures, intéressante et attrayante.\n• Matériaux de haute qualité : la boîte à mouchoirs de voiture est fabriquée en peluche de haute qualité, douce et confortable, durable pour une utilisation à long terme.",
-      "ar": "À propos de cet article\n• Matériaux : la boîte à mouchoirs de voiture est fabriquée en peluche de qualité, douce et confortable, très adaptée pour les accoudoirs ou les oreillers. Design 2 en 1, peut être utilisé comme poubelle ou boîte à serviettes en papier.\n• Excellent service : pour toute question sur ce papier de dessin animé, veuillez laisser un message directement au vendeur, et nous allons résoudre le problème pour vous dès que possible dans les 24 heures.\n• Décorations de voiture : la boîte de rangement pour mouchoirs de voiture est conçue en forme d'animaux mignons, ce qui est non seulement un organisateur pratique, mais aussi une poupée de décoration pour vos voitures, intéressante et attrayante.\n• Matériaux de haute qualité : la boîte à mouchoirs de voiture est fabriquée en peluche de haute qualité, douce et confortable, durable pour une utilisation à long terme."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/1afvih0k7ufom0q4/uploads/products/10227768/69edd3c621d0e-1777193926.jpg",
-      "https://cdn.shipper.network/storage/1afvih0k7ufom0q4/uploads/products/10227767/69edd3bf3f5c7-1777193919.jpg",
-      "https://cdn.shipper.network/storage/1afvih0k7ufom0q4/uploads/products/10227769/69edd3ccb2691-1777193932.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "KIT ECO 134",
-    "sourceUrl": "https://app.shipper.market/products/fdb4fdea-3e88-4af3-9e55-5ff3940f5a01",
-    "sourceProductId": "fdb4fdea-3e88-4af3-9e55-5ff3940f5a01",
-    "slug": "kit-eco-134-fdb4fdea",
-    "category": "accessories",
-    "title": {
-      "en": "KIT ECO 134",
-      "fr": "KIT ECO 134",
-      "ar": "KIT ECO 134"
-    },
-    "description": {
-      "en": "ECO-134 est une formule unique à base de deux gaz naturels de haute pureté : le triméthyl-méthane etle diméthyle-méthane :\nApplications:\n Systèmes de climatisation automobile.\nRéfrigérateurs et congélateurs domestiques.\nPetites installations frigorifiques commerciales.\nAvantages: \nAlternative efficace aux R12, R134A et R1234yf.\nOpération a une pression plus basse que R134a,R12 et R1234yf.\nCompatible avec tous matériaux de réfrigération ainsi que les lubrifiants les plus courants.\nLe poids de la charge est considérablement réduit (seulement 40% du poids initial de la charge est requis).\nEffets sur le système :\nEco 134 est compatible avec tout lubrifiant Les pressions inférieures réduisent la charge sur le compresseur.\nMoins de chaleur au compresseur.\nAucune mise à niveau vers l’équipement existant, requise.\nAucun changement aux procédures de réparation lors de l’installation.\nUtiliser la formule :\nMasse de charge d'ECO-FREEZE 134 = Masse de charge de R134a/2.7.\nMasse de charge d'ECO-FREEZE 134 = Masse de charge de R1234yf/2.8.\nMasse de charge d'ECO-FREEZE 134 = Masse de charge du R12 /3.",
-      "fr": "ECO-134 est une formule unique à base de deux gaz naturels de haute pureté : le triméthyl-méthane etle diméthyle-méthane :\nApplications:\n Systèmes de climatisation automobile.\nRéfrigérateurs et congélateurs domestiques.\nPetites installations frigorifiques commerciales.\nAvantages: \nAlternative efficace aux R12, R134A et R1234yf.\nOpération a une pression plus basse que R134a,R12 et R1234yf.\nCompatible avec tous matériaux de réfrigération ainsi que les lubrifiants les plus courants.\nLe poids de la charge est considérablement réduit (seulement 40% du poids initial de la charge est requis).\nEffets sur le système :\nEco 134 est compatible avec tout lubrifiant Les pressions inférieures réduisent la charge sur le compresseur.\nMoins de chaleur au compresseur.\nAucune mise à niveau vers l’équipement existant, requise.\nAucun changement aux procédures de réparation lors de l’installation.\nUtiliser la formule :\nMasse de charge d'ECO-FREEZE 134 = Masse de charge de R134a/2.7.\nMasse de charge d'ECO-FREEZE 134 = Masse de charge de R1234yf/2.8.\nMasse de charge d'ECO-FREEZE 134 = Masse de charge du R12 /3.",
-      "ar": "ECO-134 est une formule unique à base de deux gaz naturels de haute pureté : le triméthyl-méthane etle diméthyle-méthane :\nApplications:\n Systèmes de climatisation automobile.\nRéfrigérateurs et congélateurs domestiques.\nPetites installations frigorifiques commerciales.\nAvantages: \nAlternative efficace aux R12, R134A et R1234yf.\nOpération a une pression plus basse que R134a,R12 et R1234yf.\nCompatible avec tous matériaux de réfrigération ainsi que les lubrifiants les plus courants.\nLe poids de la charge est considérablement réduit (seulement 40% du poids initial de la charge est requis).\nEffets sur le système :\nEco 134 est compatible avec tout lubrifiant Les pressions inférieures réduisent la charge sur le compresseur.\nMoins de chaleur au compresseur.\nAucune mise à niveau vers l’équipement existant, requise.\nAucun changement aux procédures de réparation lors de l’installation.\nUtiliser la formule :\nMasse de charge d'ECO-FREEZE 134 = Masse de charge de R134a/2.7.\nMasse de charge d'ECO-FREEZE 134 = Masse de charge de R1234yf/2.8.\nMasse de charge d'ECO-FREEZE 134 = Masse de charge du R12 /3."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/xfycnsw88dzz3ka6/uploads/products/2459/644e6ae7d325d-1682860775.jpg",
-      "https://cdn.shipper.network/storage/xfycnsw88dzz3ka6/uploads/products/2460/644e6bd70f00b-1682861015.jpg",
-      "https://cdn.shipper.network/storage/xfycnsw88dzz3ka6/uploads/products/2461/644e6be088fdb-1682861024.jpg",
-      "https://cdn.shipper.network/storage/xfycnsw88dzz3ka6/uploads/products/2462/644e6c0194de6-1682861057.jpg",
-      "https://cdn.shipper.network/storage/xfycnsw88dzz3ka6/uploads/products/2463/644e6c0c97a92-1682861068.jpg",
-      "https://cdn.shipper.network/storage/xfycnsw88dzz3ka6/uploads/products/2478/644e786f937d3-1682864239.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "RIDEAUX BLACKOUT 100%",
-    "sourceUrl": "https://app.shipper.market/products/fdcd3a03-e41f-44bf-9200-1814a9d38644",
-    "sourceProductId": "fdcd3a03-e41f-44bf-9200-1814a9d38644",
-    "slug": "rideaux-blackout-100-fdcd3a03",
-    "category": "living decor care beauty hair skincare",
-    "title": {
-      "en": "RIDEAUX BLACKOUT 100%",
-      "fr": "RIDEAUX BLACKOUT 100%",
-      "ar": "RIDEAUX BLACKOUT 100%"
-    },
-    "description": {
-      "en": "Développez votre catalogue avec un produit à forte demande et à excellente rentabilité.\nNos panneaux de rideaux Blackout 100 % occultants sont conçus pour répondre aux attentes des clients recherchant un sommeil de qualité, une protection contre la chaleur et une meilleure isolation de leur intérieur.\nCaractéristiques du produit\n* Occultation 100 % de la lumière.\n* Isolation thermique pour limiter la chaleur en été et améliorer le confort intérieur.\n* Disponible en 3 coloris : gris, grège et marron.\n* Anneaux métalliques premium sertis (sans plastique) pour une finition élégante et durable.\n* Tissu de haute qualité avec une excellente tenue dans le temps.\n* Finitions soignées et confection professionnelle.\n* Fabrication 100 % tunisienne.\nUne offre adaptée à votre stratégie de vente\n* Possibilité de commercialiser 1 panneau ou 2 panneaux selon votre positionnement.\n* Les rideaux Blackout restent une catégorie avec une concurrence encore limitée, offrant une belle opportunité de développement.\n* Produit permettant de réaliser une marge attractive pour les e-commerçants.\nFabrication sur mesure\nNous pouvons confectionner les rideaux dans les dimensions souhaitées afin de répondre aux besoins de votre marché et de votre clientèle.\nDéveloppez votre catalogue avec un produit à forte demande et à excellente rentabilité.\nNos panneaux de rideaux Blackout 100 % occultants sont conçus pour répondre aux attentes des clients recherchant un sommeil de qualité, une protection contre la chaleur et une meilleure isolation de leur intérieur.\nCaractéristiques du produit\n* Occultation 100 % de la lumière.\n* Isolation thermique pour limiter la chaleur en été et améliorer le confort intérieur.\n* Disponible en 3 coloris : gris, grège et marron.\n* Anneaux métalliques premium sertis (sans plastique) pour une finition élégante et durable.\n* Tissu de haute qualité avec une excellente tenue dans le temps.\n* Finitions soignées et confection professionnelle.\n* Fabrication 100 % tunisienne.\nUne offre adaptée à votre stratégie de vente\n* Possibilité de commercialiser 1 panneau ou 2 panneaux selon votre positionnement.\n* Les rideaux Blackout restent une catégorie avec une concurrence encore limitée, offrant une belle opportunité de développement.\n* Produit permettant de réaliser une marge attractive pour les e-commerçants.\nFabrication sur mesure\nNous pouvons confectionner les rideaux dans les dimensions souhaitées afin de répondre aux besoins de votre marché et de votre clientèle.",
-      "fr": "Développez votre catalogue avec un produit à forte demande et à excellente rentabilité.\nNos panneaux de rideaux Blackout 100 % occultants sont conçus pour répondre aux attentes des clients recherchant un sommeil de qualité, une protection contre la chaleur et une meilleure isolation de leur intérieur.\nCaractéristiques du produit\n* Occultation 100 % de la lumière.\n* Isolation thermique pour limiter la chaleur en été et améliorer le confort intérieur.\n* Disponible en 3 coloris : gris, grège et marron.\n* Anneaux métalliques premium sertis (sans plastique) pour une finition élégante et durable.\n* Tissu de haute qualité avec une excellente tenue dans le temps.\n* Finitions soignées et confection professionnelle.\n* Fabrication 100 % tunisienne.\nUne offre adaptée à votre stratégie de vente\n* Possibilité de commercialiser 1 panneau ou 2 panneaux selon votre positionnement.\n* Les rideaux Blackout restent une catégorie avec une concurrence encore limitée, offrant une belle opportunité de développement.\n* Produit permettant de réaliser une marge attractive pour les e-commerçants.\nFabrication sur mesure\nNous pouvons confectionner les rideaux dans les dimensions souhaitées afin de répondre aux besoins de votre marché et de votre clientèle.\nDéveloppez votre catalogue avec un produit à forte demande et à excellente rentabilité.\nNos panneaux de rideaux Blackout 100 % occultants sont conçus pour répondre aux attentes des clients recherchant un sommeil de qualité, une protection contre la chaleur et une meilleure isolation de leur intérieur.\nCaractéristiques du produit\n* Occultation 100 % de la lumière.\n* Isolation thermique pour limiter la chaleur en été et améliorer le confort intérieur.\n* Disponible en 3 coloris : gris, grège et marron.\n* Anneaux métalliques premium sertis (sans plastique) pour une finition élégante et durable.\n* Tissu de haute qualité avec une excellente tenue dans le temps.\n* Finitions soignées et confection professionnelle.\n* Fabrication 100 % tunisienne.\nUne offre adaptée à votre stratégie de vente\n* Possibilité de commercialiser 1 panneau ou 2 panneaux selon votre positionnement.\n* Les rideaux Blackout restent une catégorie avec une concurrence encore limitée, offrant une belle opportunité de développement.\n* Produit permettant de réaliser une marge attractive pour les e-commerçants.\nFabrication sur mesure\nNous pouvons confectionner les rideaux dans les dimensions souhaitées afin de répondre aux besoins de votre marché et de votre clientèle.",
-      "ar": "Développez votre catalogue avec un produit à forte demande et à excellente rentabilité.\nNos panneaux de rideaux Blackout 100 % occultants sont conçus pour répondre aux attentes des clients recherchant un sommeil de qualité, une protection contre la chaleur et une meilleure isolation de leur intérieur.\nCaractéristiques du produit\n* Occultation 100 % de la lumière.\n* Isolation thermique pour limiter la chaleur en été et améliorer le confort intérieur.\n* Disponible en 3 coloris : gris, grège et marron.\n* Anneaux métalliques premium sertis (sans plastique) pour une finition élégante et durable.\n* Tissu de haute qualité avec une excellente tenue dans le temps.\n* Finitions soignées et confection professionnelle.\n* Fabrication 100 % tunisienne.\nUne offre adaptée à votre stratégie de vente\n* Possibilité de commercialiser 1 panneau ou 2 panneaux selon votre positionnement.\n* Les rideaux Blackout restent une catégorie avec une concurrence encore limitée, offrant une belle opportunité de développement.\n* Produit permettant de réaliser une marge attractive pour les e-commerçants.\nFabrication sur mesure\nNous pouvons confectionner les rideaux dans les dimensions souhaitées afin de répondre aux besoins de votre marché et de votre clientèle.\nDéveloppez votre catalogue avec un produit à forte demande et à excellente rentabilité.\nNos panneaux de rideaux Blackout 100 % occultants sont conçus pour répondre aux attentes des clients recherchant un sommeil de qualité, une protection contre la chaleur et une meilleure isolation de leur intérieur.\nCaractéristiques du produit\n* Occultation 100 % de la lumière.\n* Isolation thermique pour limiter la chaleur en été et améliorer le confort intérieur.\n* Disponible en 3 coloris : gris, grège et marron.\n* Anneaux métalliques premium sertis (sans plastique) pour une finition élégante et durable.\n* Tissu de haute qualité avec une excellente tenue dans le temps.\n* Finitions soignées et confection professionnelle.\n* Fabrication 100 % tunisienne.\nUne offre adaptée à votre stratégie de vente\n* Possibilité de commercialiser 1 panneau ou 2 panneaux selon votre positionnement.\n* Les rideaux Blackout restent une catégorie avec une concurrence encore limitée, offrant une belle opportunité de développement.\n* Produit permettant de réaliser une marge attractive pour les e-commerçants.\nFabrication sur mesure\nNous pouvons confectionner les rideaux dans les dimensions souhaitées afin de répondre aux besoins de votre marché et de votre clientèle."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/lggsqctevvzg0zd2/uploads/products/10956722/6a5a12be7600f-1784287934.webp",
-      "https://cdn.shipper.network/storage/lggsqctevvzg0zd2/uploads/products/10956723/6a5a12be9fb60-1784287934.webp",
-      "https://cdn.shipper.network/storage/lggsqctevvzg0zd2/uploads/products/10956724/6a5a12bec4b31-1784287934.webp",
-      "https://cdn.shipper.network/storage/lggsqctevvzg0zd2/uploads/products/10956725/6a5a12bee84f5-1784287934.webp"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "horloge d'apprentissage POUR ENFANT",
-    "sourceUrl": "https://app.shipper.market/products/fddea5a7-446c-452b-baa1-6f0a3f1231ad",
-    "sourceProductId": "fddea5a7-446c-452b-baa1-6f0a3f1231ad",
-    "slug": "horloge-d-apprentissage-pour-enfant-fddea5a7",
-    "category": "school office",
-    "title": {
-      "en": "horloge d'apprentissage POUR ENFANT",
-      "fr": "horloge d'apprentissage POUR ENFANT",
-      "ar": "horloge d'apprentissage POUR ENFANT"
-    },
-    "description": {
-      "en": "Une horloge colorée pour les enfants afin de les aider à apprendre à utiliser une horloge. Le produit a 3 aiguilles, grâce auxquelles les enfants sauront où regarder les heures sur l’horloge et où regarder les minutes et les secondes. L’horloge aidera également les enfants à apprendre les chiffres. De plus, à l’arrière, l’horloge dispose d’un tableau magnétique avec un stylo qui peut être utilisé pour écrire et dessiner sur le tableau.\nLe produit est disponible en plusieurs versions de couleurs, sélectionnées au hasard. Le prix est pour une pièce.\nLe produit est emballé dans un sachet transparent.\nParamètres\n• Âge : 3-4 ans, 5-7 ans, 8-11 ans\n• Hauteur du colis : 240mm\n• Largeur de l’emballage : 230 mm\n• Profondeur du colis : 10mm",
-      "fr": "Une horloge colorée pour les enfants afin de les aider à apprendre à utiliser une horloge. Le produit a 3 aiguilles, grâce auxquelles les enfants sauront où regarder les heures sur l’horloge et où regarder les minutes et les secondes. L’horloge aidera également les enfants à apprendre les chiffres. De plus, à l’arrière, l’horloge dispose d’un tableau magnétique avec un stylo qui peut être utilisé pour écrire et dessiner sur le tableau.\nLe produit est disponible en plusieurs versions de couleurs, sélectionnées au hasard. Le prix est pour une pièce.\nLe produit est emballé dans un sachet transparent.\nParamètres\n• Âge : 3-4 ans, 5-7 ans, 8-11 ans\n• Hauteur du colis : 240mm\n• Largeur de l’emballage : 230 mm\n• Profondeur du colis : 10mm",
-      "ar": "Une horloge colorée pour les enfants afin de les aider à apprendre à utiliser une horloge. Le produit a 3 aiguilles, grâce auxquelles les enfants sauront où regarder les heures sur l’horloge et où regarder les minutes et les secondes. L’horloge aidera également les enfants à apprendre les chiffres. De plus, à l’arrière, l’horloge dispose d’un tableau magnétique avec un stylo qui peut être utilisé pour écrire et dessiner sur le tableau.\nLe produit est disponible en plusieurs versions de couleurs, sélectionnées au hasard. Le prix est pour une pièce.\nLe produit est emballé dans un sachet transparent.\nParamètres\n• Âge : 3-4 ans, 5-7 ans, 8-11 ans\n• Hauteur du colis : 240mm\n• Largeur de l’emballage : 230 mm\n• Profondeur du colis : 10mm"
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/8gv6wmc4s8pnerel/uploads/products/7296725/68c53a8f015e8-1757756047.jpg",
-      "https://cdn.shipper.network/storage/8gv6wmc4s8pnerel/uploads/products/7296723/68c53a8cd7806-1757756044.webp",
-      "https://cdn.shipper.network/storage/8gv6wmc4s8pnerel/uploads/products/7296724/68c53a8cd4c1b-1757756044.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Piano électronique",
-    "sourceUrl": "https://app.shipper.market/products/fdfbb426-d15a-49a1-bb85-6ce7289ab2fd",
-    "sourceProductId": "fdfbb426-d15a-49a1-bb85-6ce7289ab2fd",
-    "slug": "piano-electronique-fdfbb426",
-    "category": "school office",
-    "title": {
-      "en": "Piano électronique",
-      "fr": "Piano électronique",
-      "ar": "Piano électronique"
-    },
-    "description": {
-      "en": "s'agit d'un piano électronique de la marque générique (ou modèle) XT-222, idéal pour les débutants ou les enfants. \n• Clavier : 37 touches.\n• Fonctionnalités : 7 modes de boutons, contrôle du volume et du tempo.\n• Caractéristiques : Comprend un microphone, un connecteur USB et une fonction \"une touche, une note\".\n• Sécurité : Attention, contient de petites pièces, risque d'étouffement pour les enfants de moins de 3 ans",
-      "fr": "s'agit d'un piano électronique de la marque générique (ou modèle) XT-222, idéal pour les débutants ou les enfants. \n• Clavier : 37 touches.\n• Fonctionnalités : 7 modes de boutons, contrôle du volume et du tempo.\n• Caractéristiques : Comprend un microphone, un connecteur USB et une fonction \"une touche, une note\".\n• Sécurité : Attention, contient de petites pièces, risque d'étouffement pour les enfants de moins de 3 ans",
-      "ar": "s'agit d'un piano électronique de la marque générique (ou modèle) XT-222, idéal pour les débutants ou les enfants. \n• Clavier : 37 touches.\n• Fonctionnalités : 7 modes de boutons, contrôle du volume et du tempo.\n• Caractéristiques : Comprend un microphone, un connecteur USB et une fonction \"une touche, une note\".\n• Sécurité : Attention, contient de petites pièces, risque d'étouffement pour les enfants de moins de 3 ans"
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/10099673/69dd717a97787-1776120186.webp",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/10099674/69dd717a994c9-1776120186.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "cuiseur à œufs électrique multifonction",
-    "sourceUrl": "https://app.shipper.market/products/fe1043f3-2df1-489d-9f7c-7890e63af6c3",
-    "sourceProductId": "fe1043f3-2df1-489d-9f7c-7890e63af6c3",
-    "slug": "cuiseur-a-ufs-electrique-multifonction-fe1043f3",
-    "category": "accessories accessories & utensils",
-    "title": {
-      "en": "cuiseur à œufs électrique multifonction",
-      "fr": "cuiseur à œufs électrique multifonction",
-      "ar": "cuiseur à œufs électrique multifonction"
-    },
-    "description": {
-      "en": "Le produit sélectionné est un cuiseur à œufs électrique (Egg Poacher) de la marque Nova, conçu pour cuire ou pocher les œufs rapidement.",
-      "fr": "Le produit sélectionné est un cuiseur à œufs électrique (Egg Poacher) de la marque Nova, conçu pour cuire ou pocher les œufs rapidement.",
-      "ar": "Le produit sélectionné est un cuiseur à œufs électrique (Egg Poacher) de la marque Nova, conçu pour cuire ou pocher les œufs rapidement."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/11471415/6aa2b66e9dc00-1789048430.jpg",
-      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/11471408/6aa2b622ec111-1789048354.png"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "SENA par Laverne",
-    "sourceUrl": "https://app.shipper.market/products/fe104ea6-28a8-4d29-862f-d42ec508cbe7",
-    "sourceProductId": "fe104ea6-28a8-4d29-862f-d42ec508cbe7",
-    "slug": "sena-par-laverne-fe104ea6",
-    "category": "care beauty hair skincare cleaning laundry",
-    "title": {
-      "en": "SENA par Laverne",
-      "fr": "SENA par Laverne",
-      "ar": "SENA par Laverne"
-    },
-    "description": {
-      "en": "Une eau de parfum féminine élégante et envoûtante créée en collaboration avec la maison Laverne. La fragrance offre un départ fruité pétillant (cassis, mandarine), un cœur floral et soyeux (jasmin, iris, fleur d'oranger, cachemire) et un fond musqué doux. Le flacon en verre dépoli aux nuances roses est habillé d'un motif de panthère sculpté et d'un pompon satiné assorti.\n\nPoids : ~ 400 g – 450 g (avec flacon en verre massif)",
-      "fr": "Une eau de parfum féminine élégante et envoûtante créée en collaboration avec la maison Laverne. La fragrance offre un départ fruité pétillant (cassis, mandarine), un cœur floral et soyeux (jasmin, iris, fleur d'oranger, cachemire) et un fond musqué doux. Le flacon en verre dépoli aux nuances roses est habillé d'un motif de panthère sculpté et d'un pompon satiné assorti.\n\nPoids : ~ 400 g – 450 g (avec flacon en verre massif)",
-      "ar": "Une eau de parfum féminine élégante et envoûtante créée en collaboration avec la maison Laverne. La fragrance offre un départ fruité pétillant (cassis, mandarine), un cœur floral et soyeux (jasmin, iris, fleur d'oranger, cachemire) et un fond musqué doux. Le flacon en verre dépoli aux nuances roses est habillé d'un motif de panthère sculpté et d'un pompon satiné assorti.\n\nPoids : ~ 400 g – 450 g (avec flacon en verre massif)"
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/ufqcsdd9kngsc0kx/uploads/products/11444563/conversions/6aa00779bb10e-1788872569-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/ufqcsdd9kngsc0kx/uploads/products/11445707/conversions/6aa020828016d-1788878978-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Montre femme de marque omega",
-    "sourceUrl": "https://app.shipper.market/products/fe25334d-6442-4e81-82e7-6e107a2168f1",
-    "sourceProductId": "fe25334d-6442-4e81-82e7-6e107a2168f1",
-    "slug": "montre-femme-de-marque-omega-fe25334d",
-    "category": "living decor wearables",
-    "title": {
-      "en": "Montre femme de marque omega",
-      "fr": "Montre femme de marque omega",
-      "ar": "Montre femme de marque omega"
-    },
-    "description": {
-      "en": "Cette montre est une OMEGA De Ville Ladymatic, reconnaissable à son boîtier serti de diamants et à son cadran rouge distinctif. \n• Marque : OMEGA.\n• Modèle : De Ville Ladymatic, souvent associée à des mouvements automatiques Co-Axial de haute performance.\n• Caractéristiques : Cadran décoré, lunette en diamants, et bracelet métallique.\n• Référence : Similaire au modèle reference 425",
-      "fr": "Cette montre est une OMEGA De Ville Ladymatic, reconnaissable à son boîtier serti de diamants et à son cadran rouge distinctif. \n• Marque : OMEGA.\n• Modèle : De Ville Ladymatic, souvent associée à des mouvements automatiques Co-Axial de haute performance.\n• Caractéristiques : Cadran décoré, lunette en diamants, et bracelet métallique.\n• Référence : Similaire au modèle reference 425",
-      "ar": "Cette montre est une OMEGA De Ville Ladymatic, reconnaissable à son boîtier serti de diamants et à son cadran rouge distinctif. \n• Marque : OMEGA.\n• Modèle : De Ville Ladymatic, souvent associée à des mouvements automatiques Co-Axial de haute performance.\n• Caractéristiques : Cadran décoré, lunette en diamants, et bracelet métallique.\n• Référence : Similaire au modèle reference 425"
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9863042/69c16a1c8845e-1774283292.png",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9863043/69c16a1f233cf-1774283295.png",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9863044/69c16a2f56d3d-1774283311.png",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9863045/69c16a2fa5fc2-1774283311.png"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Porte matériel",
-    "sourceUrl": "https://app.shipper.market/products/fe41ca9a-9165-4d41-aa68-8779cad60177",
-    "sourceProductId": "fe41ca9a-9165-4d41-aa68-8779cad60177",
-    "slug": "porte-materiel-fe41ca9a",
-    "category": "organisation services",
-    "title": {
-      "en": "Porte matériel",
-      "fr": "Porte matériel",
-      "ar": "Porte matériel"
-    },
-    "description": {
-      "en": "حزام عملي لتنظيم الماتريال للصنايعية\n\nخلّي أدواتك ديما منظّمين مع حوامل \nمخصّصة للمفكات، \nوكل شي تحتاجو \n👌متصمّم باش يركب على أي أداة ولأي خدمة \n\nسواء لبضع دقائق أو طوال اليوم، تصميمنا المريح،\n الخفيف الوزن، والقابل للتعديل\nيجعلك تنسى تمامًا أنه موجود\n\nينقل الوزن من حزام الخصر إلى الساق،\n ليمنحك ثباتًا قويًا على السلالم وفي الأماكن\nالضيّقة، فتستطيع التسلق والركوع والحركة بحرية\n دون الشدّ والتمايل المستمرّين\nاللذين يرهقان ظهرك ويدمّرانه",
-      "fr": "حزام عملي لتنظيم الماتريال للصنايعية\n\nخلّي أدواتك ديما منظّمين مع حوامل \nمخصّصة للمفكات، \nوكل شي تحتاجو \n👌متصمّم باش يركب على أي أداة ولأي خدمة \n\nسواء لبضع دقائق أو طوال اليوم، تصميمنا المريح،\n الخفيف الوزن، والقابل للتعديل\nيجعلك تنسى تمامًا أنه موجود\n\nينقل الوزن من حزام الخصر إلى الساق،\n ليمنحك ثباتًا قويًا على السلالم وفي الأماكن\nالضيّقة، فتستطيع التسلق والركوع والحركة بحرية\n دون الشدّ والتمايل المستمرّين\nاللذين يرهقان ظهرك ويدمّرانه",
-      "ar": "حزام عملي لتنظيم الماتريال للصنايعية\n\nخلّي أدواتك ديما منظّمين مع حوامل \nمخصّصة للمفكات، \nوكل شي تحتاجو \n👌متصمّم باش يركب على أي أداة ولأي خدمة \n\nسواء لبضع دقائق أو طوال اليوم، تصميمنا المريح،\n الخفيف الوزن، والقابل للتعديل\nيجعلك تنسى تمامًا أنه موجود\n\nينقل الوزن من حزام الخصر إلى الساق،\n ليمنحك ثباتًا قويًا على السلالم وفي الأماكن\nالضيّقة، فتستطيع التسلق والركوع والحركة بحرية\n دون الشدّ والتمايل المستمرّين\nاللذين يرهقان ظهرك ويدمّرانه"
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/dhn7lwccu5cdg6bx/uploads/products/10228336/69edeac8b037c-1777199816.webp",
-      "https://cdn.shipper.network/storage/dhn7lwccu5cdg6bx/uploads/products/10228334/69edeac674118-1777199814.webp",
-      "https://cdn.shipper.network/storage/dhn7lwccu5cdg6bx/uploads/products/10228335/69edeac6839bb-1777199814.webp"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Pharmaceris sun protect",
-    "sourceUrl": "https://app.shipper.market/products/fe5fb4de-289e-4695-98e5-5d063b8c21f6",
-    "sourceProductId": "fe5fb4de-289e-4695-98e5-5d063b8c21f6",
-    "slug": "pharmaceris-sun-protect-fe5fb4de",
-    "category": "care beauty hair skincare beauty & personal care",
-    "title": {
-      "en": "Pharmaceris sun protect",
-      "fr": "Pharmaceris sun protect",
-      "ar": "Pharmaceris sun protect"
-    },
-    "description": {
-      "en": "Il s'agit de la Pharmaceris S Sun Protect Hydro-Lipid & Protective Face Cream.\nCe produit offre une très haute protection avec un indice SPF 50+ contre les rayons UVA et UVB.\nSa formule est conçue pour être résistante à l'eau et contient du beurre de karité pour hydrater la peau.\nElle convient aux adultes et enfants et peut être utilisée sur les peaux sensibles.",
-      "fr": "Il s'agit de la Pharmaceris S Sun Protect Hydro-Lipid & Protective Face Cream.\nCe produit offre une très haute protection avec un indice SPF 50+ contre les rayons UVA et UVB.\nSa formule est conçue pour être résistante à l'eau et contient du beurre de karité pour hydrater la peau.\nElle convient aux adultes et enfants et peut être utilisée sur les peaux sensibles.",
-      "ar": "Il s'agit de la Pharmaceris S Sun Protect Hydro-Lipid & Protective Face Cream.\nCe produit offre une très haute protection avec un indice SPF 50+ contre les rayons UVA et UVB.\nSa formule est conçue pour être résistante à l'eau et contient du beurre de karité pour hydrater la peau.\nElle convient aux adultes et enfants et peut être utilisée sur les peaux sensibles."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/crcrdbgf2ux1bogw/uploads/products/10866992/6a47814b9549b-1783071051.png",
-      "https://cdn.shipper.network/storage/crcrdbgf2ux1bogw/uploads/products/10866851/6a477d6f5323d-1783070063.jpg",
-      "https://cdn.shipper.network/storage/crcrdbgf2ux1bogw/uploads/products/10866852/6a477d7102911-1783070065.png",
-      "https://cdn.shipper.network/storage/crcrdbgf2ux1bogw/uploads/products/10866853/6a477d7147737-1783070065.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Disque diamant",
-    "sourceUrl": "https://app.shipper.market/products/fe73a706-dcef-45e9-82eb-c4267738c1d9",
-    "sourceProductId": "fe73a706-dcef-45e9-82eb-c4267738c1d9",
-    "slug": "disque-diamant-fe73a706",
-    "category": "accessories other categories",
-    "title": {
-      "en": "Disque diamant",
-      "fr": "Disque diamant",
-      "ar": "Disque diamant"
-    },
-    "description": {
-      "en": "Disque diamant WELLOO DDT01152 pour meuleuse, conçu pour la découpe rapide et précise de matériaux durs comme le carrelage, la céramique, le marbre, le granit et certaines pierres. Il possède un diamètre de 115 mm, un alésage de 22,2 mm et peut fonctionner jusqu’à 13 300 tr/min. Sa jante diamantée est adaptée aux travaux de coupe sur chantier, en rénovation ou en bricolage.",
-      "fr": "Disque diamant WELLOO DDT01152 pour meuleuse, conçu pour la découpe rapide et précise de matériaux durs comme le carrelage, la céramique, le marbre, le granit et certaines pierres. Il possède un diamètre de 115 mm, un alésage de 22,2 mm et peut fonctionner jusqu’à 13 300 tr/min. Sa jante diamantée est adaptée aux travaux de coupe sur chantier, en rénovation ou en bricolage.",
-      "ar": "Disque diamant WELLOO DDT01152 pour meuleuse, conçu pour la découpe rapide et précise de matériaux durs comme le carrelage, la céramique, le marbre, le granit et certaines pierres. Il possède un diamètre de 115 mm, un alésage de 22,2 mm et peut fonctionner jusqu’à 13 300 tr/min. Sa jante diamantée est adaptée aux travaux de coupe sur chantier, en rénovation ou en bricolage."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/jqhla70z8kfvl2ia/uploads/products/11774923/6adf2be30b523-1793010659.png"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "déguisement de Spider-Man pour enfant",
-    "sourceUrl": "https://app.shipper.market/products/fe744464-d017-4faa-b855-e89074dcb908",
-    "sourceProductId": "fe744464-d017-4faa-b855-e89074dcb908",
-    "slug": "deguisement-de-spider-man-pour-enfant-fe744464",
-    "category": "accessories",
-    "title": {
-      "en": "déguisement de Spider-Man pour enfant",
-      "fr": "déguisement de Spider-Man pour enfant",
-      "ar": "déguisement de Spider-Man pour enfant"
-    },
-    "description": {
-      "en": "Produit principal : Déguisement Spider-Man enfant, costume Spider-Man classique, panoplie super-héros Marvel.\nStyle : Rouge et bleu, imprimé toile d'araignée, logo araignée noire sur le torse.\nComposition habituelle : Combinaison intégrale (souvent en polyester) et cagoule/masque assorti\nS : 100 - 110 cm (environ 3 à 4 ans).\nM : 110 - 120 cm (environ 5 à 6 ans).\nL : 120 - 130 cm (environ 7 à 8 ans).",
-      "fr": "Produit principal : Déguisement Spider-Man enfant, costume Spider-Man classique, panoplie super-héros Marvel.\nStyle : Rouge et bleu, imprimé toile d'araignée, logo araignée noire sur le torse.\nComposition habituelle : Combinaison intégrale (souvent en polyester) et cagoule/masque assorti\nS : 100 - 110 cm (environ 3 à 4 ans).\nM : 110 - 120 cm (environ 5 à 6 ans).\nL : 120 - 130 cm (environ 7 à 8 ans).",
-      "ar": "Produit principal : Déguisement Spider-Man enfant, costume Spider-Man classique, panoplie super-héros Marvel.\nStyle : Rouge et bleu, imprimé toile d'araignée, logo araignée noire sur le torse.\nComposition habituelle : Combinaison intégrale (souvent en polyester) et cagoule/masque assorti\nS : 100 - 110 cm (environ 3 à 4 ans).\nM : 110 - 120 cm (environ 5 à 6 ans).\nL : 120 - 130 cm (environ 7 à 8 ans)."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/10856936/6a44fdce43e1a-1782906318.jpg",
-      "https://cdn.shipper.network/storage/8gv6wmc4s8pnerel/uploads/products/10849187/6a43ae1771adb-1782820375.png",
-      "https://cdn.shipper.network/storage/8gv6wmc4s8pnerel/uploads/products/10848230/6a4391568c45c-1782813014.jpg",
-      "https://cdn.shipper.network/storage/8gv6wmc4s8pnerel/uploads/products/10848231/6a439156a2ff3-1782813014.jpg",
-      "https://cdn.shipper.network/storage/8gv6wmc4s8pnerel/uploads/products/10848232/6a43915862006-1782813016.jpg",
-      "https://cdn.shipper.network/storage/8gv6wmc4s8pnerel/uploads/products/10848233/6a43915b57cff-1782813019.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Coffret pour femme",
-    "sourceUrl": "https://app.shipper.market/products/fe82f503-c081-4e1a-a8c9-3ada3a88d792",
-    "sourceProductId": "fe82f503-c081-4e1a-a8c9-3ada3a88d792",
-    "slug": "coffret-pour-femme-fe82f503",
-    "category": "wearables",
-    "title": {
-      "en": "Coffret pour femme",
-      "fr": "Coffret pour femme",
-      "ar": "Coffret pour femme"
-    },
-    "description": {
-      "en": "Mode IA\nTous\nCorrespondances exactes\nCorrespondances visuelles\n11 sites\nCe coffret de bijoux pour femme présente un ensemble coordonné comprenant une montre, un collier et des boucles d'oreilles, souvent commercialisé comme un ensemble cadeau complet. Jumia Côte d'Ivoire\n +1\nDétails des pièces de l'ensemble\n• Montre-bracelet : Cette montre à quartz arbore un boîtier doré distinctif en forme de cœur bordé de strass étincelants. Le bracelet est orné de maillons en forme de cœur, certains étant de couleur dorée pour créer un contraste élégant. Elle est souvent identifiée sous des appellations telles que \"Crystal Heartbeat\" ou \"Miss Daphne\".\n• Collier avec pendentif : Le collier se compose d'une chaîne dorée fine avec un pendentif ajouré de forme organique, agrémenté d'une perle centrale et de petits cristaux. Ce type de design est parfois associé à des thèmes botaniques ou célestes.\n• Boucles d'oreilles : L'ensemble inclut deux paires de boucles d'oreilles de type puces (ou clous). L'une des paires semble être sertie de cristaux ronds ou de diamants de taille ancienne sur une monture en métal clair (or blanc ou argent).",
-      "fr": "Mode IA\nTous\nCorrespondances exactes\nCorrespondances visuelles\n11 sites\nCe coffret de bijoux pour femme présente un ensemble coordonné comprenant une montre, un collier et des boucles d'oreilles, souvent commercialisé comme un ensemble cadeau complet. Jumia Côte d'Ivoire\n +1\nDétails des pièces de l'ensemble\n• Montre-bracelet : Cette montre à quartz arbore un boîtier doré distinctif en forme de cœur bordé de strass étincelants. Le bracelet est orné de maillons en forme de cœur, certains étant de couleur dorée pour créer un contraste élégant. Elle est souvent identifiée sous des appellations telles que \"Crystal Heartbeat\" ou \"Miss Daphne\".\n• Collier avec pendentif : Le collier se compose d'une chaîne dorée fine avec un pendentif ajouré de forme organique, agrémenté d'une perle centrale et de petits cristaux. Ce type de design est parfois associé à des thèmes botaniques ou célestes.\n• Boucles d'oreilles : L'ensemble inclut deux paires de boucles d'oreilles de type puces (ou clous). L'une des paires semble être sertie de cristaux ronds ou de diamants de taille ancienne sur une monture en métal clair (or blanc ou argent).",
-      "ar": "Mode IA\nTous\nCorrespondances exactes\nCorrespondances visuelles\n11 sites\nCe coffret de bijoux pour femme présente un ensemble coordonné comprenant une montre, un collier et des boucles d'oreilles, souvent commercialisé comme un ensemble cadeau complet. Jumia Côte d'Ivoire\n +1\nDétails des pièces de l'ensemble\n• Montre-bracelet : Cette montre à quartz arbore un boîtier doré distinctif en forme de cœur bordé de strass étincelants. Le bracelet est orné de maillons en forme de cœur, certains étant de couleur dorée pour créer un contraste élégant. Elle est souvent identifiée sous des appellations telles que \"Crystal Heartbeat\" ou \"Miss Daphne\".\n• Collier avec pendentif : Le collier se compose d'une chaîne dorée fine avec un pendentif ajouré de forme organique, agrémenté d'une perle centrale et de petits cristaux. Ce type de design est parfois associé à des thèmes botaniques ou célestes.\n• Boucles d'oreilles : L'ensemble inclut deux paires de boucles d'oreilles de type puces (ou clous). L'une des paires semble être sertie de cristaux ronds ou de diamants de taille ancienne sur une monture en métal clair (or blanc ou argent)."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9824113/69ba65e6abdf4-1773823462.png",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9821820/69b9d8fac4764-1773787386.png",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9821821/69b9d9042f8e0-1773787396.png",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9821835/69b9d920000b8-1773787424.png",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9821845/69b9d9252948b-1773787429.jpg",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9821928/69b9d9cd24b8a-1773787597.png"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Thermos en acier inoxydable d'ior",
-    "sourceUrl": "https://app.shipper.market/products/fea1d665-85d6-43fb-8bf8-fb00258d3aa3",
-    "sourceProductId": "fea1d665-85d6-43fb-8bf8-fb00258d3aa3",
-    "slug": "thermos-en-acier-inoxydable-d-ior-fea1d665",
+    "sourceName": "3 Boites a outils - Caisse de bricolage Plastique",
+    "sourceUrl": "https://app.shipper.market/products/8dd26cec-b3b8-4358-9840-767c8e0169c3",
+    "sourceProductId": "8dd26cec-b3b8-4358-9840-767c8e0169c3",
+    "slug": "3-boites-a-outils-caisse-de-bricolage-plastique-8dd26cec",
     "category": "organisation",
     "title": {
-      "en": "Thermos en acier inoxydable d'ior",
-      "fr": "Thermos en acier inoxydable d'ior",
-      "ar": "Thermos en acier inoxydable d'ior"
+      "en": "3 Boites a outils - Caisse de bricolage Plastique",
+      "fr": "3 Boites a outils - Caisse de bricolage Plastique",
+      "ar": "3 Boites a outils - Caisse de bricolage Plastique"
     },
     "description": {
-      "en": "✨ للي يعرفوا يختاروا الزين، ويحبوا التفاصيل اللي تعمل کيف في نهارهم.. جبنالكم الحاجة اللي تحكي على روحها! ☕️🌿\nقطعة مزيانيّة وعصرية، ديزاين ينطق بالوحدة بالوحدة، وتصاميم تاخذ العقل.. حاجة نظيفة برشة وتليق بناس الذوق الراقي في كل بلاصة تقعد فيها (في البيرو، في الخروج، ولا حتى في الدار).",
-      "fr": "✨ للي يعرفوا يختاروا الزين، ويحبوا التفاصيل اللي تعمل کيف في نهارهم.. جبنالكم الحاجة اللي تحكي على روحها! ☕️🌿\nقطعة مزيانيّة وعصرية، ديزاين ينطق بالوحدة بالوحدة، وتصاميم تاخذ العقل.. حاجة نظيفة برشة وتليق بناس الذوق الراقي في كل بلاصة تقعد فيها (في البيرو، في الخروج، ولا حتى في الدار).",
-      "ar": "✨ للي يعرفوا يختاروا الزين، ويحبوا التفاصيل اللي تعمل کيف في نهارهم.. جبنالكم الحاجة اللي تحكي على روحها! ☕️🌿\nقطعة مزيانيّة وعصرية، ديزاين ينطق بالوحدة بالوحدة، وتصاميم تاخذ العقل.. حاجة نظيفة برشة وتليق بناس الذوق الراقي في كل بلاصة تقعد فيها (في البيرو، في الخروج، ولا حتى في الدار)."
+      "en": "Le pack Acem inclut 3 boîtes à outils en plastique durable, idéales pour tout type de bricolage.\nElles sont légères, portatives et dotées de compartiments multiples pour un rangement organisé.\nUn indispensable pour tous les bricoleurs.\n• Résistance aux chocs.\n• Résistance aux produits chimiques courants.\n• Charnières métalliques.\n• Grande Solidité.\n• Plateau amovible « baladeur ».\n• Dimensions : 50cm . 40.5cm et 32cm",
+      "fr": "Le pack Acem inclut 3 boîtes à outils en plastique durable, idéales pour tout type de bricolage.\nElles sont légères, portatives et dotées de compartiments multiples pour un rangement organisé.\nUn indispensable pour tous les bricoleurs.\n• Résistance aux chocs.\n• Résistance aux produits chimiques courants.\n• Charnières métalliques.\n• Grande Solidité.\n• Plateau amovible « baladeur ».\n• Dimensions : 50cm . 40.5cm et 32cm",
+      "ar": "Le pack Acem inclut 3 boîtes à outils en plastique durable, idéales pour tout type de bricolage.\nElles sont légères, portatives et dotées de compartiments multiples pour un rangement organisé.\nUn indispensable pour tous les bricoleurs.\n• Résistance aux chocs.\n• Résistance aux produits chimiques courants.\n• Charnières métalliques.\n• Grande Solidité.\n• Plateau amovible « baladeur ».\n• Dimensions : 50cm . 40.5cm et 32cm"
     },
     "images": [
-      "https://cdn.shipper.network/storage/izcstixplhn6zrtk/uploads/products/11510376/6aa94d5076c21-1789480272.jpg",
-      "https://cdn.shipper.network/storage/izcstixplhn6zrtk/uploads/products/11510379/6aa94d541b129-1789480276.jpg",
-      "https://cdn.shipper.network/storage/izcstixplhn6zrtk/uploads/products/11510380/6aa94d541e3cb-1789480276.jpg"
+      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/7558393/68dfae92ca0fb-1759489682.png",
+      "https://cdn.shipper.network/storage/v7rbqqnzkesdcl3y/uploads/products/2297950/6763628fdf725-1734566543.jpg",
+      "https://cdn.shipper.network/storage/v7rbqqnzkesdcl3y/uploads/products/2297952/6763629063877-1734566544.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "جهاز تجفيف طلاء الأظافر الذكي (LED/UV Nail Lamp).",
-    "sourceUrl": "https://app.shipper.market/products/fea89335-da74-4f06-856c-6c2c562acbbd",
-    "sourceProductId": "fea89335-da74-4f06-856c-6c2c562acbbd",
-    "slug": "led-uv-nail-lamp-fea89335",
-    "category": "care beauty hair skincare lighting organisation other beauty products",
+    "sourceName": "Power honey",
+    "sourceUrl": "https://app.shipper.market/products/8de0ed3a-e416-4e58-a754-7dd4e395e110",
+    "sourceProductId": "8de0ed3a-e416-4e58-a754-7dd4e395e110",
+    "slug": "power-honey-8de0ed3a",
+    "category": "organisation health & beauty",
     "title": {
-      "en": "جهاز تجفيف طلاء الأظافر الذكي (LED/UV Nail Lamp).",
-      "fr": "جهاز تجفيف طلاء الأظافر الذكي (LED/UV Nail Lamp).",
-      "ar": "جهاز تجفيف طلاء الأظافر الذكي (LED/UV Nail Lamp)."
+      "en": "Power honey",
+      "fr": "Power honey",
+      "ar": "Power honey"
     },
     "description": {
-      "en": "دلّلي نفسكِ واجعلي صالون التجميل الاحترافي بين يديكِ مع جهاز تجفيف الأظافر الذكي بقوة 54 واط! هل سئمتِ من الانتظار الطويل ليجف طلاء أظافركِ، أو تقلقين من تلفه عند أدنى حركة؟ هذا الجهاز المصمم باحترافية هو الحل المثالي والنهائي لكِ. بفضل تكنولوجيا الإضاءة المزدوجة المتطورة (LED/UV)، يضمن لكِ هذا المجفف الفعال تجفيفاً فائق السرعة وفائق القوة لجميع أنواع طلاء الجل (Gel) في ثوانٍ معدودة، مما يمنح أظافركِ لمعاناً ساحراً وثباتاً يدوم لأسابيع طويلة كالمحترفين تماماً. يتميز الجهاز بذكاء استثنائي بفضل ثلاثة مستويات توقيت مرنة (30، 60، و99 ثانية) تتيح لكِ التحكم الكامل بجلستكِ حسب نوع الطلاء. ولأن سلامتكِ هي أولويتنا، فقد صُمم هذا الجهاز بذكاء فائق ليحمي عينيكِ من الإضاءة المباشرة، ويحافظ على نضارة ونعومة بشرة يديكِ دون أي خوف من الاسمرار أو الجفاف الناتج عن المصابيح التقليدية. يتميز الجهاز بتصميم انسيابي، عصري، وأنيق باللون الوردي الجذاب ليضيف لمسة جمالية على طاولة زينتكِ، كما أنه خفيف الوزن وسهل الاستخدام والعمل في المنزل أو أثناء السفر. لا تساومي على جمال يديكِ بعد اليوم؛ اختصري الوقت، واستمتعي بأظافر مثالية، قوية، وخالية من العيوب بكل ثقة وأمان من أول استخدام!",
-      "fr": "دلّلي نفسكِ واجعلي صالون التجميل الاحترافي بين يديكِ مع جهاز تجفيف الأظافر الذكي بقوة 54 واط! هل سئمتِ من الانتظار الطويل ليجف طلاء أظافركِ، أو تقلقين من تلفه عند أدنى حركة؟ هذا الجهاز المصمم باحترافية هو الحل المثالي والنهائي لكِ. بفضل تكنولوجيا الإضاءة المزدوجة المتطورة (LED/UV)، يضمن لكِ هذا المجفف الفعال تجفيفاً فائق السرعة وفائق القوة لجميع أنواع طلاء الجل (Gel) في ثوانٍ معدودة، مما يمنح أظافركِ لمعاناً ساحراً وثباتاً يدوم لأسابيع طويلة كالمحترفين تماماً. يتميز الجهاز بذكاء استثنائي بفضل ثلاثة مستويات توقيت مرنة (30، 60، و99 ثانية) تتيح لكِ التحكم الكامل بجلستكِ حسب نوع الطلاء. ولأن سلامتكِ هي أولويتنا، فقد صُمم هذا الجهاز بذكاء فائق ليحمي عينيكِ من الإضاءة المباشرة، ويحافظ على نضارة ونعومة بشرة يديكِ دون أي خوف من الاسمرار أو الجفاف الناتج عن المصابيح التقليدية. يتميز الجهاز بتصميم انسيابي، عصري، وأنيق باللون الوردي الجذاب ليضيف لمسة جمالية على طاولة زينتكِ، كما أنه خفيف الوزن وسهل الاستخدام والعمل في المنزل أو أثناء السفر. لا تساومي على جمال يديكِ بعد اليوم؛ اختصري الوقت، واستمتعي بأظافر مثالية، قوية، وخالية من العيوب بكل ثقة وأمان من أول استخدام!",
-      "ar": "دلّلي نفسكِ واجعلي صالون التجميل الاحترافي بين يديكِ مع جهاز تجفيف الأظافر الذكي بقوة 54 واط! هل سئمتِ من الانتظار الطويل ليجف طلاء أظافركِ، أو تقلقين من تلفه عند أدنى حركة؟ هذا الجهاز المصمم باحترافية هو الحل المثالي والنهائي لكِ. بفضل تكنولوجيا الإضاءة المزدوجة المتطورة (LED/UV)، يضمن لكِ هذا المجفف الفعال تجفيفاً فائق السرعة وفائق القوة لجميع أنواع طلاء الجل (Gel) في ثوانٍ معدودة، مما يمنح أظافركِ لمعاناً ساحراً وثباتاً يدوم لأسابيع طويلة كالمحترفين تماماً. يتميز الجهاز بذكاء استثنائي بفضل ثلاثة مستويات توقيت مرنة (30، 60، و99 ثانية) تتيح لكِ التحكم الكامل بجلستكِ حسب نوع الطلاء. ولأن سلامتكِ هي أولويتنا، فقد صُمم هذا الجهاز بذكاء فائق ليحمي عينيكِ من الإضاءة المباشرة، ويحافظ على نضارة ونعومة بشرة يديكِ دون أي خوف من الاسمرار أو الجفاف الناتج عن المصابيح التقليدية. يتميز الجهاز بتصميم انسيابي، عصري، وأنيق باللون الوردي الجذاب ليضيف لمسة جمالية على طاولة زينتكِ، كما أنه خفيف الوزن وسهل الاستخدام والعمل في المنزل أو أثناء السفر. لا تساومي على جمال يديكِ بعد اليوم؛ اختصري الوقت، واستمتعي بأظافر مثالية، قوية، وخالية من العيوب بكل ثقة وأمان من أول استخدام!"
+      "en": "Ce produit, identifié comme Power Honey Special for Men ou des variantes similaires comme \"VIP R.K. Royal Honey\", est commercialisé comme un complément alimentaire naturel destiné à améliorer les performances sexuelles et la vitalité masculine. [1, 2, 3]\nComposition présumée : Il est généralement présenté comme un mélange de miel pur, de gelée royale, de pollen d'abeille et d'extraits d'herbes, notamment du ginseng. .\nUtilisation : Le produit est vendu en sachets individuels, souvent en boîtes de 12, et les vendeurs suggèrent de prendre un sachet environ une heure avant l'activité physique ou sexuelle",
+      "fr": "Ce produit, identifié comme Power Honey Special for Men ou des variantes similaires comme \"VIP R.K. Royal Honey\", est commercialisé comme un complément alimentaire naturel destiné à améliorer les performances sexuelles et la vitalité masculine. [1, 2, 3]\nComposition présumée : Il est généralement présenté comme un mélange de miel pur, de gelée royale, de pollen d'abeille et d'extraits d'herbes, notamment du ginseng. .\nUtilisation : Le produit est vendu en sachets individuels, souvent en boîtes de 12, et les vendeurs suggèrent de prendre un sachet environ une heure avant l'activité physique ou sexuelle",
+      "ar": "Ce produit, identifié comme Power Honey Special for Men ou des variantes similaires comme \"VIP R.K. Royal Honey\", est commercialisé comme un complément alimentaire naturel destiné à améliorer les performances sexuelles et la vitalité masculine. [1, 2, 3]\nComposition présumée : Il est généralement présenté comme un mélange de miel pur, de gelée royale, de pollen d'abeille et d'extraits d'herbes, notamment du ginseng. .\nUtilisation : Le produit est vendu en sachets individuels, souvent en boîtes de 12, et les vendeurs suggèrent de prendre un sachet environ une heure avant l'activité physique ou sexuelle"
     },
     "images": [
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10405707/6a0daf0d3069e-1779281677.png",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10405706/6a0daf08f0be9-1779281672.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10405708/6a0daf0d3165e-1779281677.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10405709/6a0daf0e994c8-1779281678.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10405710/6a0daf0e9a8ee-1779281678.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10405711/6a0daf1184ea3-1779281681.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10405712/6a0daf1184e20-1779281681.jpg"
+      "https://cdn.shipper.network/storage/crcrdbgf2ux1bogw/uploads/products/10297275/69f88f58d69b1-1777897304.png"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Débardeur minceur",
-    "sourceUrl": "https://app.shipper.market/products/feab17d5-3f73-4224-bbe8-756a08318f20",
-    "sourceProductId": "feab17d5-3f73-4224-bbe8-756a08318f20",
-    "slug": "debardeur-minceur-feab17d5",
-    "category": "accessories",
+    "sourceName": "Planche à découper en bambou pour la cuisine 26Cm x 36Cm",
+    "sourceUrl": "https://app.shipper.market/products/8de39d17-9346-4196-9462-bc58b3b657f1",
+    "sourceProductId": "8de39d17-9346-4196-9462-bc58b3b657f1",
+    "slug": "planche-a-decouper-en-bambou-pour-la-cuisine-26cm-x-36cm-8de39d17",
+    "category": "kitchen dining care beauty hair skincare play cleaning laundry",
     "title": {
-      "en": "Débardeur minceur",
-      "fr": "Débardeur minceur",
-      "ar": "Débardeur minceur"
+      "en": "Planche à découper en bambou pour la cuisine 26Cm x 36Cm",
+      "fr": "Planche à découper en bambou pour la cuisine 26Cm x 36Cm",
+      "ar": "Planche à découper en bambou pour la cuisine 26Cm x 36Cm"
     },
     "description": {
-      "en": "produit est le gilet de sudation minceur Hot Shapers Cami Hot. \n• Conçu pour augmenter la température corporelle et favoriser la transpiration. \n• Fabriqué en tissu Neotex pour absorber l'humidité et maintenir le corps au sec. \n• Fournit une compression abdominale pour affiner la taille et soutenir le dos. \n• Utilisable pendant l'exercice physique ou au quotidien pour sculpter la silhouette",
-      "fr": "produit est le gilet de sudation minceur Hot Shapers Cami Hot. \n• Conçu pour augmenter la température corporelle et favoriser la transpiration. \n• Fabriqué en tissu Neotex pour absorber l'humidité et maintenir le corps au sec. \n• Fournit une compression abdominale pour affiner la taille et soutenir le dos. \n• Utilisable pendant l'exercice physique ou au quotidien pour sculpter la silhouette",
-      "ar": "produit est le gilet de sudation minceur Hot Shapers Cami Hot. \n• Conçu pour augmenter la température corporelle et favoriser la transpiration. \n• Fabriqué en tissu Neotex pour absorber l'humidité et maintenir le corps au sec. \n• Fournit une compression abdominale pour affiner la taille et soutenir le dos. \n• Utilisable pendant l'exercice physique ou au quotidien pour sculpter la silhouette"
+      "en": "Type de Produit : Planches à Découper en Bambou.\nMatériau : Bambou 100% naturel, robuste et respectueux de l'environnement\nCaractéristiques principales :\n• Écologique : Réalisée en bambou durable, cette planche à découper est une alternative écologique aux produits en plastique.\n• Polyvalence : Parfaite pour diverses utilisations : découper des légumes, préparer des sandwichs, ou encore servir du fromage lors de vos apéritifs.\n• Conception Personnalisable : Disponible en différentes tailles et avec possibilité de personnalisation de la couleur pour répondre à vos besoins spécifiques.\n• Facile à nettoyer : Ne retient pas les odeurs ni les taches, ce qui garantit une hygiène optimale dans la cuisine.\nDimensions Disponibles :\n• 22 x 32 cm\n• 24 x 34 cm\n• 26 x 36 cm\nPoids : Environ 950 g par planche (selon la taille)\nAvantages :\n• Solide et résistant aux rayures, idéal pour une utilisation quotidienne.\n• Design élégant et naturel qui s'intègre à tous les styles de cuisine.\n• Polyvalente : peut être utilisée comme planche à découper, plateau de service ou planche à fromage.\n• Durable et facile à entretenir, idéale pour les professionnels et les particuliers.",
+      "fr": "Type de Produit : Planches à Découper en Bambou.\nMatériau : Bambou 100% naturel, robuste et respectueux de l'environnement\nCaractéristiques principales :\n• Écologique : Réalisée en bambou durable, cette planche à découper est une alternative écologique aux produits en plastique.\n• Polyvalence : Parfaite pour diverses utilisations : découper des légumes, préparer des sandwichs, ou encore servir du fromage lors de vos apéritifs.\n• Conception Personnalisable : Disponible en différentes tailles et avec possibilité de personnalisation de la couleur pour répondre à vos besoins spécifiques.\n• Facile à nettoyer : Ne retient pas les odeurs ni les taches, ce qui garantit une hygiène optimale dans la cuisine.\nDimensions Disponibles :\n• 22 x 32 cm\n• 24 x 34 cm\n• 26 x 36 cm\nPoids : Environ 950 g par planche (selon la taille)\nAvantages :\n• Solide et résistant aux rayures, idéal pour une utilisation quotidienne.\n• Design élégant et naturel qui s'intègre à tous les styles de cuisine.\n• Polyvalente : peut être utilisée comme planche à découper, plateau de service ou planche à fromage.\n• Durable et facile à entretenir, idéale pour les professionnels et les particuliers.",
+      "ar": "Type de Produit : Planches à Découper en Bambou.\nMatériau : Bambou 100% naturel, robuste et respectueux de l'environnement\nCaractéristiques principales :\n• Écologique : Réalisée en bambou durable, cette planche à découper est une alternative écologique aux produits en plastique.\n• Polyvalence : Parfaite pour diverses utilisations : découper des légumes, préparer des sandwichs, ou encore servir du fromage lors de vos apéritifs.\n• Conception Personnalisable : Disponible en différentes tailles et avec possibilité de personnalisation de la couleur pour répondre à vos besoins spécifiques.\n• Facile à nettoyer : Ne retient pas les odeurs ni les taches, ce qui garantit une hygiène optimale dans la cuisine.\nDimensions Disponibles :\n• 22 x 32 cm\n• 24 x 34 cm\n• 26 x 36 cm\nPoids : Environ 950 g par planche (selon la taille)\nAvantages :\n• Solide et résistant aux rayures, idéal pour une utilisation quotidienne.\n• Design élégant et naturel qui s'intègre à tous les styles de cuisine.\n• Polyvalente : peut être utilisée comme planche à découper, plateau de service ou planche à fromage.\n• Durable et facile à entretenir, idéale pour les professionnels et les particuliers."
     },
     "images": [
-      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10143458/69e279b19481e-1776449969.jpg",
-      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10143459/69e279b194803-1776449969.jpg",
-      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10143460/69e279b4b51fd-1776449972.jpg",
-      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10143461/69e279b4bad3c-1776449972.jpg",
-      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10143462/69e279b6bb12e-1776449974.jpg",
-      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10143463/69e279b6bb31c-1776449974.jpg",
-      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10143464/69e279b89b529-1776449976.webp"
+      "https://cdn.shipper.network/storage/pncfngvn18ymryj6/uploads/products/2432836/678d37a2d476f-1737308066.png",
+      "https://cdn.shipper.network/storage/pncfngvn18ymryj6/uploads/products/2432837/678d3798b03de-1737308056.png",
+      "https://cdn.shipper.network/storage/pncfngvn18ymryj6/uploads/products/2432838/678d37a335623-1737308067.png",
+      "https://cdn.shipper.network/storage/pncfngvn18ymryj6/uploads/products/2432839/678d37b63177d-1737308086.png",
+      "https://cdn.shipper.network/storage/pncfngvn18ymryj6/uploads/products/2432840/678d37b7d87a3-1737308087.png"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "porte stylo château",
-    "sourceUrl": "https://app.shipper.market/products/feaec3d5-516b-4e12-8ddb-dbaadd61e732",
-    "sourceProductId": "feaec3d5-516b-4e12-8ddb-dbaadd61e732",
-    "slug": "porte-stylo-chateau-feaec3d5",
-    "category": "school office",
+    "sourceName": "Aquarium Lamp, Multicolour, Rocket",
+    "sourceUrl": "https://app.shipper.market/products/8de4b569-881f-4d17-8d6e-4ee07f9da8de",
+    "sourceProductId": "8de4b569-881f-4d17-8d6e-4ee07f9da8de",
+    "slug": "aquarium-lamp-multicolour-rocket-8de4b569",
+    "category": "living decor lighting school office",
     "title": {
-      "en": "porte stylo château",
-      "fr": "porte stylo château",
-      "ar": "porte stylo château"
+      "en": "Aquarium Lamp, Multicolour, Rocket",
+      "fr": "Aquarium Lamp, Multicolour, Rocket",
+      "ar": "Aquarium Lamp, Multicolour, Rocket"
     },
     "description": {
-      "en": "porte stylo château",
-      "fr": "porte stylo château",
-      "ar": "porte stylo château"
+      "en": "Cette lampe Magma Fish Rocket est une lampe décorative unique en forme de fusée qui crée un effet d'aquarium relaxant\nElle a un design rétro avec une base et un capuchon en aluminium argenté et un tube en verre transparent.\nUne ampoule halogène ou LED à la base chauffe le liquide et les faux poissons se déplacent grâce aux bulles créées par la chaleur, simulant un aquarium.\n Elle dispose généralement d'un éclairage LED multicolore qui change de couleur automatiquement pour créer une ambiance apaisante.\nElle est conçue pour la décoration intérieure et peut être utilisée dans les salons, les chambres ou les bureaux pour ajouter une touche d'originalité et de sérénité.",
+      "fr": "Cette lampe Magma Fish Rocket est une lampe décorative unique en forme de fusée qui crée un effet d'aquarium relaxant\nElle a un design rétro avec une base et un capuchon en aluminium argenté et un tube en verre transparent.\nUne ampoule halogène ou LED à la base chauffe le liquide et les faux poissons se déplacent grâce aux bulles créées par la chaleur, simulant un aquarium.\n Elle dispose généralement d'un éclairage LED multicolore qui change de couleur automatiquement pour créer une ambiance apaisante.\nElle est conçue pour la décoration intérieure et peut être utilisée dans les salons, les chambres ou les bureaux pour ajouter une touche d'originalité et de sérénité.",
+      "ar": "Cette lampe Magma Fish Rocket est une lampe décorative unique en forme de fusée qui crée un effet d'aquarium relaxant\nElle a un design rétro avec une base et un capuchon en aluminium argenté et un tube en verre transparent.\nUne ampoule halogène ou LED à la base chauffe le liquide et les faux poissons se déplacent grâce aux bulles créées par la chaleur, simulant un aquarium.\n Elle dispose généralement d'un éclairage LED multicolore qui change de couleur automatiquement pour créer une ambiance apaisante.\nElle est conçue pour la décoration intérieure et peut être utilisée dans les salons, les chambres ou les bureaux pour ajouter une touche d'originalité et de sérénité."
     },
     "images": [
-      "https://cdn.shipper.network/storage/21sprzqg1x7k1sp3/uploads/products/8979220/695d57fa320a2-1767725050.jpg",
-      "https://cdn.shipper.network/storage/21sprzqg1x7k1sp3/uploads/products/8979222/695d57fcb41fb-1767725052.jpg",
-      "https://cdn.shipper.network/storage/21sprzqg1x7k1sp3/uploads/products/8979219/695d57fa28437-1767725050.jpg",
-      "https://cdn.shipper.network/storage/21sprzqg1x7k1sp3/uploads/products/8979221/695d57fca0966-1767725052.jpg",
-      "https://cdn.shipper.network/storage/21sprzqg1x7k1sp3/uploads/products/8979223/695d57fecb0d0-1767725054.jpg"
+      "https://cdn.shipper.network/storage/sqyoet6wknskxidu/uploads/products/9332101/6979de5a87186-1769594458.jpg",
+      "https://cdn.shipper.network/storage/sqyoet6wknskxidu/uploads/products/9332102/6979de5a8ebd6-1769594458.jpg",
+      "https://cdn.shipper.network/storage/sqyoet6wknskxidu/uploads/products/9332103/6979de5bcfde8-1769594459.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Montre Sportive Moderne",
+    "sourceUrl": "https://app.shipper.market/products/8e02499d-b8df-423c-b90c-9ec1b8de42e2",
+    "sourceProductId": "8e02499d-b8df-423c-b90c-9ec1b8de42e2",
+    "slug": "montre-sportive-moderne-8e02499d",
+    "category": "wearables",
+    "title": {
+      "en": "Montre Sportive Moderne",
+      "fr": "Montre Sportive Moderne",
+      "ar": "Montre Sportive Moderne"
+    },
+    "description": {
+      "en": "Cool Design – Simple et Classique\nUne montre au design moderne, parfaite pour un usage quotidien ou sportif.\n✔️ Design moderne et confortable\n ✔️ Écran digital clair\n ✔️ Résistante à l’eau (WR30M)\n ✔️ Idéale pour le sport et le quotidien\n ✔️ Légère et agréable à porter",
+      "fr": "Cool Design – Simple et Classique\nUne montre au design moderne, parfaite pour un usage quotidien ou sportif.\n✔️ Design moderne et confortable\n ✔️ Écran digital clair\n ✔️ Résistante à l’eau (WR30M)\n ✔️ Idéale pour le sport et le quotidien\n ✔️ Légère et agréable à porter",
+      "ar": "Cool Design – Simple et Classique\nUne montre au design moderne, parfaite pour un usage quotidien ou sportif.\n✔️ Design moderne et confortable\n ✔️ Écran digital clair\n ✔️ Résistante à l’eau (WR30M)\n ✔️ Idéale pour le sport et le quotidien\n ✔️ Légère et agréable à porter"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/jztvhbuerrpdmx55/uploads/products/9767082/69b13cec6bd15-1773223148.jpg",
+      "https://cdn.shipper.network/storage/jztvhbuerrpdmx55/uploads/products/9767079/69b13ce953bfc-1773223145.jpg",
+      "https://cdn.shipper.network/storage/jztvhbuerrpdmx55/uploads/products/9767080/69b13ce95d96e-1773223145.jpg",
+      "https://cdn.shipper.network/storage/jztvhbuerrpdmx55/uploads/products/9767081/69b13cec6a8d4-1773223148.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Huile Dabur Amla Gold 200ml : Force & Brillance Naturelle",
+    "sourceUrl": "https://app.shipper.market/products/8e069adc-19ce-4fd9-8226-7035a985c4e6",
+    "sourceProductId": "8e069adc-19ce-4fd9-8226-7035a985c4e6",
+    "slug": "huile-dabur-amla-gold-200ml-force-brillance-naturelle-8e069adc",
+    "category": "care beauty hair skincare",
+    "title": {
+      "en": "Huile Dabur Amla Gold 200ml : Force & Brillance Naturelle",
+      "fr": "Huile Dabur Amla Gold 200ml : Force & Brillance Naturelle",
+      "ar": "Huile Dabur Amla Gold 200ml : Force & Brillance Naturelle"
+    },
+    "description": {
+      "en": "​Dabur Amla Gold: سرّ شعرك القوي واللّامع! ✨\n​تحب شعرك يولي حرير وقوي من الجذور؟ زيت دابر أملا الذهبي (200 مل) هو الحل الأمثل لشعر صحي ومزيان. بتركيبتو الفريدة والغنية، يغذي شعرك بعمق من غير ما يخليه مدهون برشا.\n​علاش تختار دابر أملا الذهبي؟ 🤔\n• ​تغذية مضاعفة: غني بالأملا، اللوز، والحناء اللي يقويو الشعرة ويمنعوا التقصف 🌿.\n• ​لمعان طبيعي: يعطي لمعة وضوية للشعر الباهت والمتعب من أول استعمال.\n• ​نعومة فائقة: يسهّل التمشيط ويخلي شعرك مرخوف وناعم كي الحرير 💆‍♀️.\n• ​ريحة خفيفة: ريحتو طيبة وخفيفة، موش كيما الزيوت التقليدية القوية.\n​طريقة الاستعمال:\n​حط كمية صغيرة على شعرك وفروة الراس، اعمل مساج خفيف بصباعك، وخليه شوية قبل ما تغسل، وإلا استعملو كـ \"Lotion\" يومي باش تحافظ على رطوبة شعرك.\n​📦 التوصيل متوفر لجميع ولايات تونس!",
+      "fr": "​Dabur Amla Gold: سرّ شعرك القوي واللّامع! ✨\n​تحب شعرك يولي حرير وقوي من الجذور؟ زيت دابر أملا الذهبي (200 مل) هو الحل الأمثل لشعر صحي ومزيان. بتركيبتو الفريدة والغنية، يغذي شعرك بعمق من غير ما يخليه مدهون برشا.\n​علاش تختار دابر أملا الذهبي؟ 🤔\n• ​تغذية مضاعفة: غني بالأملا، اللوز، والحناء اللي يقويو الشعرة ويمنعوا التقصف 🌿.\n• ​لمعان طبيعي: يعطي لمعة وضوية للشعر الباهت والمتعب من أول استعمال.\n• ​نعومة فائقة: يسهّل التمشيط ويخلي شعرك مرخوف وناعم كي الحرير 💆‍♀️.\n• ​ريحة خفيفة: ريحتو طيبة وخفيفة، موش كيما الزيوت التقليدية القوية.\n​طريقة الاستعمال:\n​حط كمية صغيرة على شعرك وفروة الراس، اعمل مساج خفيف بصباعك، وخليه شوية قبل ما تغسل، وإلا استعملو كـ \"Lotion\" يومي باش تحافظ على رطوبة شعرك.\n​📦 التوصيل متوفر لجميع ولايات تونس!",
+      "ar": "​Dabur Amla Gold: سرّ شعرك القوي واللّامع! ✨\n​تحب شعرك يولي حرير وقوي من الجذور؟ زيت دابر أملا الذهبي (200 مل) هو الحل الأمثل لشعر صحي ومزيان. بتركيبتو الفريدة والغنية، يغذي شعرك بعمق من غير ما يخليه مدهون برشا.\n​علاش تختار دابر أملا الذهبي؟ 🤔\n• ​تغذية مضاعفة: غني بالأملا، اللوز، والحناء اللي يقويو الشعرة ويمنعوا التقصف 🌿.\n• ​لمعان طبيعي: يعطي لمعة وضوية للشعر الباهت والمتعب من أول استعمال.\n• ​نعومة فائقة: يسهّل التمشيط ويخلي شعرك مرخوف وناعم كي الحرير 💆‍♀️.\n• ​ريحة خفيفة: ريحتو طيبة وخفيفة، موش كيما الزيوت التقليدية القوية.\n​طريقة الاستعمال:\n​حط كمية صغيرة على شعرك وفروة الراس، اعمل مساج خفيف بصباعك، وخليه شوية قبل ما تغسل، وإلا استعملو كـ \"Lotion\" يومي باش تحافظ على رطوبة شعرك.\n​📦 التوصيل متوفر لجميع ولايات تونس!"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/5xvun1xrwzrkzo93/uploads/products/9939133/69cd26c51224e-1775052485.png",
+      "https://cdn.shipper.network/storage/5xvun1xrwzrkzo93/uploads/products/9939136/69cd26c7c5128-1775052487.png",
+      "https://cdn.shipper.network/storage/5xvun1xrwzrkzo93/uploads/products/9939142/69cd26cd80068-1775052493.png",
+      "https://cdn.shipper.network/storage/5xvun1xrwzrkzo93/uploads/products/9939143/69cd26d0bc0b2-1775052496.png",
+      "https://cdn.shipper.network/storage/5xvun1xrwzrkzo93/uploads/products/9939152/69cd26d7438fb-1775052503.png",
+      "https://cdn.shipper.network/storage/5xvun1xrwzrkzo93/uploads/products/9939153/69cd26da8c86d-1775052506.png",
+      "https://cdn.shipper.network/storage/5xvun1xrwzrkzo93/uploads/products/9939154/69cd26de8e432-1775052510.png",
+      "https://cdn.shipper.network/storage/5xvun1xrwzrkzo93/uploads/products/9939155/69cd26e132490-1775052513.png"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Mixeur et hachoir SOKANY multifonction 2L 300W LB- 7002A",
+    "sourceUrl": "https://app.shipper.market/products/8e1dd413-48c9-4708-9fc0-de5069b16694",
+    "sourceProductId": "8e1dd413-48c9-4708-9fc0-de5069b16694",
+    "slug": "mixeur-et-hachoir-sokany-multifonction-2l-300w-lb-7002a-8e1dd413",
+    "category": "kitchen dining care beauty hair skincare",
+    "title": {
+      "en": "Mixeur et hachoir SOKANY multifonction 2L 300W LB- 7002A",
+      "fr": "Mixeur et hachoir SOKANY multifonction 2L 300W LB- 7002A",
+      "ar": "Mixeur et hachoir SOKANY multifonction 2L 300W LB- 7002A"
+    },
+    "description": {
+      "en": "Hachoir multifonctionnel, hache les légumes et les légumes, traite la viande, mélange les aliments, grâce à sa puissance de 700w il est puissant et très pratique pour votre cuisine, prise de courant 220v qui vous permet de l'utiliser avec le courant sans avoir besoin d'adaptateur, inox lames en acier pour vous offrir une meilleure durabilité dans le temps. - Matériau de la tasse : Acier inoxydable - Couvercle supérieur : Plastique - Base du moteur : Acier inoxydable - Puissance : 700 W - Nombre de vitesses : 2 - Tension de fonctionnement : 220 V-240 V - Fréquence : 50/60 Hz - Capacité : 2 litres - Modèle : LB- 7002A",
+      "fr": "Hachoir multifonctionnel, hache les légumes et les légumes, traite la viande, mélange les aliments, grâce à sa puissance de 700w il est puissant et très pratique pour votre cuisine, prise de courant 220v qui vous permet de l'utiliser avec le courant sans avoir besoin d'adaptateur, inox lames en acier pour vous offrir une meilleure durabilité dans le temps. - Matériau de la tasse : Acier inoxydable - Couvercle supérieur : Plastique - Base du moteur : Acier inoxydable - Puissance : 700 W - Nombre de vitesses : 2 - Tension de fonctionnement : 220 V-240 V - Fréquence : 50/60 Hz - Capacité : 2 litres - Modèle : LB- 7002A",
+      "ar": "Hachoir multifonctionnel, hache les légumes et les légumes, traite la viande, mélange les aliments, grâce à sa puissance de 700w il est puissant et très pratique pour votre cuisine, prise de courant 220v qui vous permet de l'utiliser avec le courant sans avoir besoin d'adaptateur, inox lames en acier pour vous offrir une meilleure durabilité dans le temps. - Matériau de la tasse : Acier inoxydable - Couvercle supérieur : Plastique - Base du moteur : Acier inoxydable - Puissance : 700 W - Nombre de vitesses : 2 - Tension de fonctionnement : 220 V-240 V - Fréquence : 50/60 Hz - Capacité : 2 litres - Modèle : LB- 7002A"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/6450280/6878e11a88b4b-1752752410.webp",
+      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/6450279/6878e11a865a0-1752752410.webp",
+      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/6450281/6878e11c35405-1752752412.webp"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Mefred Rond Avec Pied En Métal 20 CM",
+    "sourceUrl": "https://app.shipper.market/products/8e4159c5-784e-450a-8c18-c6356c384fa2",
+    "sourceProductId": "8e4159c5-784e-450a-8c18-c6356c384fa2",
+    "slug": "mefred-rond-avec-pied-en-metal-20-cm-8e4159c5",
+    "category": "living decor",
+    "title": {
+      "en": "Mefred Rond Avec Pied En Métal 20 CM",
+      "fr": "Mefred Rond Avec Pied En Métal 20 CM",
+      "ar": "Mefred Rond Avec Pied En Métal 20 CM"
+    },
+    "description": {
+      "en": "Mefred Rond avec Pied en Métal Argenté et DoréCe magnifique centre de table allie modernité et raffinement. Conçu en métal de haute qualité avec une finition effet miroir, il se distingue par ses deux élégantes poignées en forme de sphères dorées qui créent un contraste luxueux.Sa coupe circulaire repose sur un pied évasé stable, offrant une silhouette élancée et aérienne. Idéal comme objet de décoration pur ou comme corbeille de présentation, ce mefred apporte une touche de brillance et d'élégance contemporaine à tout intérieur.Points clés :\n• Métal chromé haute brillance.\n• Détails boules dorées pour un style chic.\n• Design polyvalent pour salon ou table à manger.",
+      "fr": "Mefred Rond avec Pied en Métal Argenté et DoréCe magnifique centre de table allie modernité et raffinement. Conçu en métal de haute qualité avec une finition effet miroir, il se distingue par ses deux élégantes poignées en forme de sphères dorées qui créent un contraste luxueux.Sa coupe circulaire repose sur un pied évasé stable, offrant une silhouette élancée et aérienne. Idéal comme objet de décoration pur ou comme corbeille de présentation, ce mefred apporte une touche de brillance et d'élégance contemporaine à tout intérieur.Points clés :\n• Métal chromé haute brillance.\n• Détails boules dorées pour un style chic.\n• Design polyvalent pour salon ou table à manger.",
+      "ar": "Mefred Rond avec Pied en Métal Argenté et DoréCe magnifique centre de table allie modernité et raffinement. Conçu en métal de haute qualité avec une finition effet miroir, il se distingue par ses deux élégantes poignées en forme de sphères dorées qui créent un contraste luxueux.Sa coupe circulaire repose sur un pied évasé stable, offrant une silhouette élancée et aérienne. Idéal comme objet de décoration pur ou comme corbeille de présentation, ce mefred apporte une touche de brillance et d'élégance contemporaine à tout intérieur.Points clés :\n• Métal chromé haute brillance.\n• Détails boules dorées pour un style chic.\n• Design polyvalent pour salon ou table à manger."
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/9484061/6989ab12bc556-1770629906.jpg",
+      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/9484069/6989ab1b7225a-1770629915.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "TONULAX Lot de 2 lampes solaires de jardin",
+    "sourceUrl": "https://app.shipper.market/products/8e4bbba6-95c4-4286-8acb-fb17eae17290",
+    "sourceProductId": "8e4bbba6-95c4-4286-8acb-fb17eae17290",
+    "slug": "tonulax-lot-de-2-lampes-solaires-de-jardin-8e4bbba6",
+    "category": "living decor lighting outdoor",
+    "title": {
+      "en": "TONULAX Lot de 2 lampes solaires de jardin",
+      "fr": "TONULAX Lot de 2 lampes solaires de jardin",
+      "ar": "TONULAX Lot de 2 lampes solaires de jardin"
+    },
+    "description": {
+      "en": "• 【Balancement lorsque le vent souffle】Les lampes solaires décoratives les plus uniques sur le marché, nos lampes solaires à bascule sont soutenues par des fils très doux et flexibles, de sorte que la lumière se balance lorsque le vent souffle, vous serez ravi de voir à quel point elles sont jolies\n• Unique et invisible partout ailleurs : lampes solaires super uniques et invisibles ailleurs, et les images ne leur rendent pas justice, vous devez vérifier la vidéo sur la page du produit pour voir comment la lumière solaire « danse » lorsque le vent souffle\n• 7 lumières décoratives à changement de couleur : les lumières décoratives solaires changent lentement 7 couleurs différentes pour promouvoir l'ambiance désirée en toutes occasions, que ce soit pour une fête ou simplement la touche finale de votre chef-d'œuvre en plein air\n• Lampe solaire brevetée et conçue par TONULAX – Lampe solaire brevetée, structure interne spécialement conçue pour faire bouger la lumière lorsqu'elle est soufflée par le vent, conçue et produite par la marque TONULAX\n• Achetez sans soucis : retour sans tracas sous 30 jours, 6 mois de garantie de remplacement est appliquée, achetez en toute confiance et faites danser notre lumière oscillante Starburst dans votre jardin",
+      "fr": "• 【Balancement lorsque le vent souffle】Les lampes solaires décoratives les plus uniques sur le marché, nos lampes solaires à bascule sont soutenues par des fils très doux et flexibles, de sorte que la lumière se balance lorsque le vent souffle, vous serez ravi de voir à quel point elles sont jolies\n• Unique et invisible partout ailleurs : lampes solaires super uniques et invisibles ailleurs, et les images ne leur rendent pas justice, vous devez vérifier la vidéo sur la page du produit pour voir comment la lumière solaire « danse » lorsque le vent souffle\n• 7 lumières décoratives à changement de couleur : les lumières décoratives solaires changent lentement 7 couleurs différentes pour promouvoir l'ambiance désirée en toutes occasions, que ce soit pour une fête ou simplement la touche finale de votre chef-d'œuvre en plein air\n• Lampe solaire brevetée et conçue par TONULAX – Lampe solaire brevetée, structure interne spécialement conçue pour faire bouger la lumière lorsqu'elle est soufflée par le vent, conçue et produite par la marque TONULAX\n• Achetez sans soucis : retour sans tracas sous 30 jours, 6 mois de garantie de remplacement est appliquée, achetez en toute confiance et faites danser notre lumière oscillante Starburst dans votre jardin",
+      "ar": "• 【Balancement lorsque le vent souffle】Les lampes solaires décoratives les plus uniques sur le marché, nos lampes solaires à bascule sont soutenues par des fils très doux et flexibles, de sorte que la lumière se balance lorsque le vent souffle, vous serez ravi de voir à quel point elles sont jolies\n• Unique et invisible partout ailleurs : lampes solaires super uniques et invisibles ailleurs, et les images ne leur rendent pas justice, vous devez vérifier la vidéo sur la page du produit pour voir comment la lumière solaire « danse » lorsque le vent souffle\n• 7 lumières décoratives à changement de couleur : les lumières décoratives solaires changent lentement 7 couleurs différentes pour promouvoir l'ambiance désirée en toutes occasions, que ce soit pour une fête ou simplement la touche finale de votre chef-d'œuvre en plein air\n• Lampe solaire brevetée et conçue par TONULAX – Lampe solaire brevetée, structure interne spécialement conçue pour faire bouger la lumière lorsqu'elle est soufflée par le vent, conçue et produite par la marque TONULAX\n• Achetez sans soucis : retour sans tracas sous 30 jours, 6 mois de garantie de remplacement est appliquée, achetez en toute confiance et faites danser notre lumière oscillante Starburst dans votre jardin"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/9373745/697de08b3b140-1769857163.jpg",
+      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/9373742/697de088d682f-1769857160.jpg",
+      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/9373743/697de088d684e-1769857160.jpg",
+      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/9373744/697de08b349f1-1769857163.jpg",
+      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/9373746/697de08d40e3e-1769857165.jpg",
+      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/9373747/697de08d445bb-1769857165.jpg"
     ],
     "originalSupplierCopy": true
   }

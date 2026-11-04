@@ -1,267 +1,366 @@
 [
   {
-    "sourceName": "Lunette RAY-BAN homme",
-    "sourceUrl": "https://app.shipper.market/products/12d6f105-be6b-47d2-bc42-e13a26faa1d5",
-    "sourceProductId": "12d6f105-be6b-47d2-bc42-e13a26faa1d5",
-    "slug": "lunette-ray-ban-homme-12d6f105",
+    "sourceName": "Pare-Soleil pour Voiture – Confort et Protection",
+    "sourceUrl": "https://app.shipper.market/products/0a42e2f8-041d-41be-b0ca-4f11bcc90106",
+    "sourceProductId": "0a42e2f8-041d-41be-b0ca-4f11bcc90106",
+    "slug": "pare-soleil-pour-voiture-confort-et-protection-0a42e2f8",
+    "category": "outdoor",
+    "title": {
+      "en": "Pare-Soleil pour Voiture – Confort et Protection",
+      "fr": "Pare-Soleil pour Voiture – Confort et Protection",
+      "ar": "Pare-Soleil pour Voiture – Confort et Protection"
+    },
+    "description": {
+      "en": "🚗 Pare-Soleil pour Voiture – Confort et Protection Contre les Rayons UV 🚗\nNom : Pare-soleil pour voiture / Parapluie pour pare-brise\nMatériau : UPE + alliage + tissu\nDimensions : Environ 140 x 78 cm\nContenu de l'emballage : 1 pare-soleil pour pare-brise de voiture\nConvient pour : Véhicules multifonctions, berlines, SUV, et hatchbacks (avant de pare-brise). Veuillez choisir la taille en fonction de la taille réelle de votre pare-brise.\n🌟 Caractéristiques :\n• 100% neuf et de haute qualité\n• Fabriqué avec des matériaux de qualité supérieure pour garantir durabilité et performance.\n• Matériaux haute performance\n• Résistant à l'usure, au vieillissement et aux chocs. Conçu pour durer dans des conditions exigeantes.\n• Facile à utiliser\n• Se déplie et se replie en quelques secondes grâce à son design de style parapluie. Compact et facile à transporter, parfait pour un usage quotidien.\n• Protection contre les rayons UV\n• Fabriqué à partir de polyester métallique réfléchissant qui bloque efficacement les rayons UV, gardant l'intérieur de votre voiture plus frais en été et protégeant vos sièges et tableau de bord de la décoloration. ☀️❄️",
+      "fr": "🚗 Pare-Soleil pour Voiture – Confort et Protection Contre les Rayons UV 🚗\nNom : Pare-soleil pour voiture / Parapluie pour pare-brise\nMatériau : UPE + alliage + tissu\nDimensions : Environ 140 x 78 cm\nContenu de l'emballage : 1 pare-soleil pour pare-brise de voiture\nConvient pour : Véhicules multifonctions, berlines, SUV, et hatchbacks (avant de pare-brise). Veuillez choisir la taille en fonction de la taille réelle de votre pare-brise.\n🌟 Caractéristiques :\n• 100% neuf et de haute qualité\n• Fabriqué avec des matériaux de qualité supérieure pour garantir durabilité et performance.\n• Matériaux haute performance\n• Résistant à l'usure, au vieillissement et aux chocs. Conçu pour durer dans des conditions exigeantes.\n• Facile à utiliser\n• Se déplie et se replie en quelques secondes grâce à son design de style parapluie. Compact et facile à transporter, parfait pour un usage quotidien.\n• Protection contre les rayons UV\n• Fabriqué à partir de polyester métallique réfléchissant qui bloque efficacement les rayons UV, gardant l'intérieur de votre voiture plus frais en été et protégeant vos sièges et tableau de bord de la décoloration. ☀️❄️",
+      "ar": "🚗 Pare-Soleil pour Voiture – Confort et Protection Contre les Rayons UV 🚗\nNom : Pare-soleil pour voiture / Parapluie pour pare-brise\nMatériau : UPE + alliage + tissu\nDimensions : Environ 140 x 78 cm\nContenu de l'emballage : 1 pare-soleil pour pare-brise de voiture\nConvient pour : Véhicules multifonctions, berlines, SUV, et hatchbacks (avant de pare-brise). Veuillez choisir la taille en fonction de la taille réelle de votre pare-brise.\n🌟 Caractéristiques :\n• 100% neuf et de haute qualité\n• Fabriqué avec des matériaux de qualité supérieure pour garantir durabilité et performance.\n• Matériaux haute performance\n• Résistant à l'usure, au vieillissement et aux chocs. Conçu pour durer dans des conditions exigeantes.\n• Facile à utiliser\n• Se déplie et se replie en quelques secondes grâce à son design de style parapluie. Compact et facile à transporter, parfait pour un usage quotidien.\n• Protection contre les rayons UV\n• Fabriqué à partir de polyester métallique réfléchissant qui bloque efficacement les rayons UV, gardant l'intérieur de votre voiture plus frais en été et protégeant vos sièges et tableau de bord de la décoloration. ☀️❄️"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/7471957/654012ec6a15b-1698697964.png",
+      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/7471958/654012ce97daf-1698697934.png",
+      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/7471959/654012b5a4518-1698697909.png",
+      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/7471960/654012dd173d9-1698697949.png",
+      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/7471961/65401303721dd-1698697987.png"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Rouleau Massage du Visage",
+    "sourceUrl": "https://app.shipper.market/products/0a53c0c5-412c-48eb-a207-2b023c0f18fe",
+    "sourceProductId": "0a53c0c5-412c-48eb-a207-2b023c0f18fe",
+    "slug": "rouleau-massage-du-visage-0a53c0c5",
+    "category": "care beauty hair skincare massage & relaxation",
+    "title": {
+      "en": "Rouleau Massage du Visage",
+      "fr": "Rouleau Massage du Visage",
+      "ar": "Rouleau Massage du Visage"
+    },
+    "description": {
+      "en": "Un excellent produit qui pousse les ions cicatrisants en profondeur dans les cellules pour stimuler la circulation\nLisser les ridules et améliorer l'absorption de l'écran\n3 OUTILS EN 1\nUtilisez votre rouleau facial en jade pour faire Pénétrer en douceur les produits dans votre peau",
+      "fr": "Un excellent produit qui pousse les ions cicatrisants en profondeur dans les cellules pour stimuler la circulation\nLisser les ridules et améliorer l'absorption de l'écran\n3 OUTILS EN 1\nUtilisez votre rouleau facial en jade pour faire Pénétrer en douceur les produits dans votre peau",
+      "ar": "Un excellent produit qui pousse les ions cicatrisants en profondeur dans les cellules pour stimuler la circulation\nLisser les ridules et améliorer l'absorption de l'écran\n3 OUTILS EN 1\nUtilisez votre rouleau facial en jade pour faire Pénétrer en douceur les produits dans votre peau"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10216163/69ebdcfd542bb-1777065213.jpg",
+      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10216161/69ebdcf94deac-1777065209.jpg",
+      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10216162/69ebdcf986289-1777065209.jpg",
+      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10216164/69ebdcfd87e8d-1777065213.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Bananes Séchées vrac 100 g",
+    "sourceUrl": "https://app.shipper.market/products/0a5cc489-5170-4beb-9264-66d05d0d0d5b",
+    "sourceProductId": "0a5cc489-5170-4beb-9264-66d05d0d0d5b",
+    "slug": "bananes-sechees-vrac-100-g-0a5cc489",
     "category": "accessories",
     "title": {
-      "en": "Lunette RAY-BAN homme",
-      "fr": "Lunette RAY-BAN homme",
-      "ar": "Lunette RAY-BAN homme"
+      "en": "Bananes Séchées vrac 100 g",
+      "fr": "Bananes Séchées vrac 100 g",
+      "ar": "Bananes Séchées vrac 100 g"
     },
     "description": {
-      "en": "نظارات شمسية Ray-Ban مستطيلة كلاسيكية - التوازن المثالي بين الأناقة والحماية\nاستمتع بأعلى معايير الأناقة والوظائف مع نظارات Ray-Ban الشمسية الأيقونية هذه. يتميز هذا الموديل بتصميم مستطيل عصري وأنيق، مصنوع من مواد عالية الجودة، ويأتي في زوجين متميزين كما هو موضح في image_0.png، ليوفر لك الخيارات المثالية لأي إطلالة.\nالميزات الرئيسية:\n تصميم مستطيل أنيق: إطار أسود غير لامع أو لامع، مصمم ليناسب مجموعة واسعة من أشكال الوجوه، مما يوفر مظهرًا جريئًا وعصريًا.\n عدسات فاخرة:\n خيار العدسات المتدرجة (Gradient): واضحة في الزوج الأيسر في image_0.png، توفر هذه العدسات انتقالًا ناعماً من اللون الداكن إلى الأفتح، مما يضفي لمسة من التطور ويوفر حماية متغيرة بناءً على زاوية الضوء.\n خيار العدسات الصلبة (Solid): واضحة في الزوج الأيمن، توفر هذه العدسات حماية متسقة ومظهرًا أكثر كلاسيكية وجرأة.\n جودة Ray-Ban الأصلية: تأتي كل نظارة مزينة بشعار Ray-Ban المحفور بدقة على العدسة العلوية اليمنى، بالإضافة إلى ملصقات Ray-Ban الأصلية على كلا العدستين كما تظهر في image_0.png.\n تفاصيل أصيلة: تشتمل هذه المجموعة على علامة تعليق (Hang tag) كلاسيكية من الورق المقوى باللون الذهبي والأسود، تحمل شعار Ray-Ban الشهير، مما يؤكد على أصالة وجودة المنتج.\n راحة طوال اليوم: إطارات خيفة الوزن ومتينة، مصممة لتوفير ملاءمة مريحة لارتداء طويل.\n حماية كاملة: توفر العدسات حماية 100٪ من الأشعة فوق البنفسجية الضارة (UV400)، مما يضمن سلامة عينيك في جميع الأوقات.",
-      "fr": "نظارات شمسية Ray-Ban مستطيلة كلاسيكية - التوازن المثالي بين الأناقة والحماية\nاستمتع بأعلى معايير الأناقة والوظائف مع نظارات Ray-Ban الشمسية الأيقونية هذه. يتميز هذا الموديل بتصميم مستطيل عصري وأنيق، مصنوع من مواد عالية الجودة، ويأتي في زوجين متميزين كما هو موضح في image_0.png، ليوفر لك الخيارات المثالية لأي إطلالة.\nالميزات الرئيسية:\n تصميم مستطيل أنيق: إطار أسود غير لامع أو لامع، مصمم ليناسب مجموعة واسعة من أشكال الوجوه، مما يوفر مظهرًا جريئًا وعصريًا.\n عدسات فاخرة:\n خيار العدسات المتدرجة (Gradient): واضحة في الزوج الأيسر في image_0.png، توفر هذه العدسات انتقالًا ناعماً من اللون الداكن إلى الأفتح، مما يضفي لمسة من التطور ويوفر حماية متغيرة بناءً على زاوية الضوء.\n خيار العدسات الصلبة (Solid): واضحة في الزوج الأيمن، توفر هذه العدسات حماية متسقة ومظهرًا أكثر كلاسيكية وجرأة.\n جودة Ray-Ban الأصلية: تأتي كل نظارة مزينة بشعار Ray-Ban المحفور بدقة على العدسة العلوية اليمنى، بالإضافة إلى ملصقات Ray-Ban الأصلية على كلا العدستين كما تظهر في image_0.png.\n تفاصيل أصيلة: تشتمل هذه المجموعة على علامة تعليق (Hang tag) كلاسيكية من الورق المقوى باللون الذهبي والأسود، تحمل شعار Ray-Ban الشهير، مما يؤكد على أصالة وجودة المنتج.\n راحة طوال اليوم: إطارات خيفة الوزن ومتينة، مصممة لتوفير ملاءمة مريحة لارتداء طويل.\n حماية كاملة: توفر العدسات حماية 100٪ من الأشعة فوق البنفسجية الضارة (UV400)، مما يضمن سلامة عينيك في جميع الأوقات.",
-      "ar": "نظارات شمسية Ray-Ban مستطيلة كلاسيكية - التوازن المثالي بين الأناقة والحماية\nاستمتع بأعلى معايير الأناقة والوظائف مع نظارات Ray-Ban الشمسية الأيقونية هذه. يتميز هذا الموديل بتصميم مستطيل عصري وأنيق، مصنوع من مواد عالية الجودة، ويأتي في زوجين متميزين كما هو موضح في image_0.png، ليوفر لك الخيارات المثالية لأي إطلالة.\nالميزات الرئيسية:\n تصميم مستطيل أنيق: إطار أسود غير لامع أو لامع، مصمم ليناسب مجموعة واسعة من أشكال الوجوه، مما يوفر مظهرًا جريئًا وعصريًا.\n عدسات فاخرة:\n خيار العدسات المتدرجة (Gradient): واضحة في الزوج الأيسر في image_0.png، توفر هذه العدسات انتقالًا ناعماً من اللون الداكن إلى الأفتح، مما يضفي لمسة من التطور ويوفر حماية متغيرة بناءً على زاوية الضوء.\n خيار العدسات الصلبة (Solid): واضحة في الزوج الأيمن، توفر هذه العدسات حماية متسقة ومظهرًا أكثر كلاسيكية وجرأة.\n جودة Ray-Ban الأصلية: تأتي كل نظارة مزينة بشعار Ray-Ban المحفور بدقة على العدسة العلوية اليمنى، بالإضافة إلى ملصقات Ray-Ban الأصلية على كلا العدستين كما تظهر في image_0.png.\n تفاصيل أصيلة: تشتمل هذه المجموعة على علامة تعليق (Hang tag) كلاسيكية من الورق المقوى باللون الذهبي والأسود، تحمل شعار Ray-Ban الشهير، مما يؤكد على أصالة وجودة المنتج.\n راحة طوال اليوم: إطارات خيفة الوزن ومتينة، مصممة لتوفير ملاءمة مريحة لارتداء طويل.\n حماية كاملة: توفر العدسات حماية 100٪ من الأشعة فوق البنفسجية الضارة (UV400)، مما يضمن سلامة عينيك في جميع الأوقات."
+      "en": "Retrouvez toute la douceur et l’énergie de la banane dans une version séchée, sans sucre ajouté, sans additifs et sans conservateurs.\nRiches en fibres, potassium et vitamines, nos bananes séchées sont un encas sain et savoureux à emporter partout.",
+      "fr": "Retrouvez toute la douceur et l’énergie de la banane dans une version séchée, sans sucre ajouté, sans additifs et sans conservateurs.\nRiches en fibres, potassium et vitamines, nos bananes séchées sont un encas sain et savoureux à emporter partout.",
+      "ar": "Retrouvez toute la douceur et l’énergie de la banane dans une version séchée, sans sucre ajouté, sans additifs et sans conservateurs.\nRiches en fibres, potassium et vitamines, nos bananes séchées sont un encas sain et savoureux à emporter partout."
     },
     "images": [
-      "https://cdn.shipper.network/storage/amryfpsa84pi7x3u/uploads/products/10470372/6a1aba8019b5d-1780136576.png",
-      "https://cdn.shipper.network/storage/amryfpsa84pi7x3u/uploads/products/10470370/6a1aba7c30e37-1780136572.png",
-      "https://cdn.shipper.network/storage/amryfpsa84pi7x3u/uploads/products/10470371/6a1aba7f8f6d4-1780136575.jpg",
-      "https://cdn.shipper.network/storage/amryfpsa84pi7x3u/uploads/products/10470373/6a1aba82da5ac-1780136578.png",
-      "https://cdn.shipper.network/storage/amryfpsa84pi7x3u/uploads/products/10470374/6a1aba82e5b5e-1780136578.png"
+      "https://cdn.shipper.network/storage/qrerezkmdmkltvws/uploads/products/7904500/68fcbbb7df6f4-1761393591.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Serviette de toilette",
-    "sourceUrl": "https://app.shipper.market/products/12eca429-525d-4324-954a-988610264058",
-    "sourceProductId": "12eca429-525d-4324-954a-988610264058",
-    "slug": "serviette-de-toilette-12eca429",
-    "category": "bathroom",
+    "sourceName": "IG-005 Mini sorbetière maison",
+    "sourceUrl": "https://app.shipper.market/products/0a5f118f-b31f-46a2-aedb-edd4427760c5",
+    "sourceProductId": "0a5f118f-b31f-46a2-aedb-edd4427760c5",
+    "slug": "ig-005-mini-sorbetiere-maison-0a5f118f",
+    "category": "kitchen dining other categories",
     "title": {
-      "en": "Serviette de toilette",
-      "fr": "Serviette de toilette",
-      "ar": "Serviette de toilette"
+      "en": "IG-005 Mini sorbetière maison",
+      "fr": "IG-005 Mini sorbetière maison",
+      "ar": "IG-005 Mini sorbetière maison"
     },
     "description": {
-      "en": "Serviette de toilette\n50x80 CM Panda",
-      "fr": "Serviette de toilette\n50x80 CM Panda",
-      "ar": "Serviette de toilette\n50x80 CM Panda"
+      "en": "Préparez facilement de délicieuses glaces, sorbets et yaourts glacés faits maison avec la mini sorbetière IG-005. Compacte et simple d'utilisation, elle est idéale pour réaliser des desserts rafraîchissants en quelques minutes. Son format pratique convient parfaitement aux petites cuisines et à une utilisation en famille ou entre amis. Certains modèles de mini sorbetières fonctionnent sans alimentation électrique et permettent de préparer rapidement des desserts glacés après refroidissement du bol ou de la plaque.",
+      "fr": "Préparez facilement de délicieuses glaces, sorbets et yaourts glacés faits maison avec la mini sorbetière IG-005. Compacte et simple d'utilisation, elle est idéale pour réaliser des desserts rafraîchissants en quelques minutes. Son format pratique convient parfaitement aux petites cuisines et à une utilisation en famille ou entre amis. Certains modèles de mini sorbetières fonctionnent sans alimentation électrique et permettent de préparer rapidement des desserts glacés après refroidissement du bol ou de la plaque.",
+      "ar": "Préparez facilement de délicieuses glaces, sorbets et yaourts glacés faits maison avec la mini sorbetière IG-005. Compacte et simple d'utilisation, elle est idéale pour réaliser des desserts rafraîchissants en quelques minutes. Son format pratique convient parfaitement aux petites cuisines et à une utilisation en famille ou entre amis. Certains modèles de mini sorbetières fonctionnent sans alimentation électrique et permettent de préparer rapidement des desserts glacés après refroidissement du bol ou de la plaque."
     },
     "images": [
-      "https://cdn.shipper.network/storage/vis533kftaq0utvc/uploads/products/6267849/68682c27a4fa0-1751657511.webp",
-      "https://cdn.shipper.network/storage/vis533kftaq0utvc/uploads/products/6267850/68682c27a82f0-1751657511.webp",
-      "https://cdn.shipper.network/storage/vis533kftaq0utvc/uploads/products/6267851/68682c29effc0-1751657513.webp",
-      "https://cdn.shipper.network/storage/vis533kftaq0utvc/uploads/products/6267852/68682c29f1ee5-1751657513.webp"
+      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/10809477/6a3e53f9c8a7a-1782469625.png",
+      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/10809476/6a3e53e27e3bd-1782469602.png",
+      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/10808945/6a3e456bb89f4-1782465899.jpg",
+      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/10808946/6a3e456bc3d8d-1782465899.jpg",
+      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/10808947/6a3e456dd57af-1782465901.jpg",
+      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/10808948/6a3e456dde8ad-1782465901.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Casio ovale femme",
-    "sourceUrl": "https://app.shipper.market/products/12ff3230-dc52-492a-92de-2f0e64aa5061",
-    "sourceProductId": "12ff3230-dc52-492a-92de-2f0e64aa5061",
-    "slug": "casio-ovale-femme-12ff3230",
-    "category": "organisation wearables",
+    "sourceName": "Ventilateur De Bureau Rechargeable Avec Lumière",
+    "sourceUrl": "https://app.shipper.market/products/0a5fe29a-cca6-4de5-b86e-a8abc6c697da",
+    "sourceProductId": "0a5fe29a-cca6-4de5-b86e-a8abc6c697da",
+    "slug": "ventilateur-de-bureau-rechargeable-avec-lumiere-0a5fe29a",
+    "category": "lighting outdoor organisation school office",
     "title": {
-      "en": "Casio ovale femme",
-      "fr": "Casio ovale femme",
-      "ar": "Casio ovale femme"
+      "en": "Ventilateur De Bureau Rechargeable Avec Lumière",
+      "fr": "Ventilateur De Bureau Rechargeable Avec Lumière",
+      "ar": "Ventilateur De Bureau Rechargeable Avec Lumière"
     },
     "description": {
-      "en": "ساعة كاسيو النسائية الأنيقة – فخامة التصميم وانسيابية العصر\nتألقي بإطلالة تأسر القلوب مع تشكيلة ساعات كاسيو (Casio) النسائية الجديدة، المصممة خصيصاً للمرأة التي تبحث عن التميز والجرأة في تفاصيل أناقتها. يجمع هذا التصميم الفريد المستوحى من شكل \"الحية/القطرة\" الانسيابي بين الكلاسيكية الفاخرة والعصرية المبتكرة، ليكون قطعة المجوهرات الأجمل في معصمك.\n✨ أبرز ما يميز هذه الساعة:\n تصميم هندسي فريد: إطار ذهبي لافت بشكل انسيابي مبتكر يمنح معصمك لمسة من النعومة والفخامة غير التقليدية.\n ميناء بتفاصيل ساحرة: يتميز الميناء بنقوش شعاعية بارزة تضفي عمقاً وبُعداً جمالياً مع كل حركة، مع أرقام رومانية كلاسيكية (XII و VI) تزيدها عراقة.\n سوار معدني فاخر: مزيج متناغم يجمع بين الفضي اللامع والذهبي المطفي (Two-Tone) في سوار مرن ومتين يناسب كافة المناسبات.\n تنوع يناسب شخصيتك: تتوفر بألوان ميناء متعددة وجذابة كما يظهر في \"image.png\" (الوردي الهادئ، الأحمر العنابي الجريء، والأبيض الصدفي الكلاسيكي) لتختاري منها ما يعكس ذوقك الخاص.\n💡 لماذا تقتنين هذه الساعة؟\nسواء كنتِ تبحثين عن الإطلالة المثالية ليوم عمل رسمي، أو ترغبين في إضافة لمسة بريق خاصة لسهراتك ومناسباتك، فإن هذه الساعة من كاسيو هي رفيقتكِ المثالية التي تدمج بين جودة التصنيع والجمال الأخّاذ",
-      "fr": "ساعة كاسيو النسائية الأنيقة – فخامة التصميم وانسيابية العصر\nتألقي بإطلالة تأسر القلوب مع تشكيلة ساعات كاسيو (Casio) النسائية الجديدة، المصممة خصيصاً للمرأة التي تبحث عن التميز والجرأة في تفاصيل أناقتها. يجمع هذا التصميم الفريد المستوحى من شكل \"الحية/القطرة\" الانسيابي بين الكلاسيكية الفاخرة والعصرية المبتكرة، ليكون قطعة المجوهرات الأجمل في معصمك.\n✨ أبرز ما يميز هذه الساعة:\n تصميم هندسي فريد: إطار ذهبي لافت بشكل انسيابي مبتكر يمنح معصمك لمسة من النعومة والفخامة غير التقليدية.\n ميناء بتفاصيل ساحرة: يتميز الميناء بنقوش شعاعية بارزة تضفي عمقاً وبُعداً جمالياً مع كل حركة، مع أرقام رومانية كلاسيكية (XII و VI) تزيدها عراقة.\n سوار معدني فاخر: مزيج متناغم يجمع بين الفضي اللامع والذهبي المطفي (Two-Tone) في سوار مرن ومتين يناسب كافة المناسبات.\n تنوع يناسب شخصيتك: تتوفر بألوان ميناء متعددة وجذابة كما يظهر في \"image.png\" (الوردي الهادئ، الأحمر العنابي الجريء، والأبيض الصدفي الكلاسيكي) لتختاري منها ما يعكس ذوقك الخاص.\n💡 لماذا تقتنين هذه الساعة؟\nسواء كنتِ تبحثين عن الإطلالة المثالية ليوم عمل رسمي، أو ترغبين في إضافة لمسة بريق خاصة لسهراتك ومناسباتك، فإن هذه الساعة من كاسيو هي رفيقتكِ المثالية التي تدمج بين جودة التصنيع والجمال الأخّاذ",
-      "ar": "ساعة كاسيو النسائية الأنيقة – فخامة التصميم وانسيابية العصر\nتألقي بإطلالة تأسر القلوب مع تشكيلة ساعات كاسيو (Casio) النسائية الجديدة، المصممة خصيصاً للمرأة التي تبحث عن التميز والجرأة في تفاصيل أناقتها. يجمع هذا التصميم الفريد المستوحى من شكل \"الحية/القطرة\" الانسيابي بين الكلاسيكية الفاخرة والعصرية المبتكرة، ليكون قطعة المجوهرات الأجمل في معصمك.\n✨ أبرز ما يميز هذه الساعة:\n تصميم هندسي فريد: إطار ذهبي لافت بشكل انسيابي مبتكر يمنح معصمك لمسة من النعومة والفخامة غير التقليدية.\n ميناء بتفاصيل ساحرة: يتميز الميناء بنقوش شعاعية بارزة تضفي عمقاً وبُعداً جمالياً مع كل حركة، مع أرقام رومانية كلاسيكية (XII و VI) تزيدها عراقة.\n سوار معدني فاخر: مزيج متناغم يجمع بين الفضي اللامع والذهبي المطفي (Two-Tone) في سوار مرن ومتين يناسب كافة المناسبات.\n تنوع يناسب شخصيتك: تتوفر بألوان ميناء متعددة وجذابة كما يظهر في \"image.png\" (الوردي الهادئ، الأحمر العنابي الجريء، والأبيض الصدفي الكلاسيكي) لتختاري منها ما يعكس ذوقك الخاص.\n💡 لماذا تقتنين هذه الساعة؟\nسواء كنتِ تبحثين عن الإطلالة المثالية ليوم عمل رسمي، أو ترغبين في إضافة لمسة بريق خاصة لسهراتك ومناسباتك، فإن هذه الساعة من كاسيو هي رفيقتكِ المثالية التي تدمج بين جودة التصنيع والجمال الأخّاذ"
+      "en": "un ventilateur à clip rechargeable (modèle YT-M2034) qui fait également office de lampe d'appoint\n• Type de produit : Ventilateur à pince (clip fan), mini ventilateur de bureau, ventilateur portable.\n• Fonctions clés :\n• Rechargeable : Fonctionne sur batterie, généralement via un port USB (Type-C dans certains cas).\n• Éclairage : Dispose d'une fonction \"Bright lighting\" ou veilleuse intégrée.\n• Silencieux : Mentionné comme \"Mute\" pour une utilisation discrète.\n• Design : Sa grille de protection a un aspect géométrique rappelant parfois un ballon de football.\n : Sa grille de protection a un aspect géométrique rappelant parfois un ballon de football.\n﻿Ces termes décrivent les principales caractéristiques et fonctions du ventilateur présenté sur la boîte, telles que son type (clip, table, portable), sa source d'alimentation (rechargeable, USB), ses fonctionnalités (éclairage LED, silencieux, plusieurs vitesses) et son identifiant de modèle.",
+      "fr": "un ventilateur à clip rechargeable (modèle YT-M2034) qui fait également office de lampe d'appoint\n• Type de produit : Ventilateur à pince (clip fan), mini ventilateur de bureau, ventilateur portable.\n• Fonctions clés :\n• Rechargeable : Fonctionne sur batterie, généralement via un port USB (Type-C dans certains cas).\n• Éclairage : Dispose d'une fonction \"Bright lighting\" ou veilleuse intégrée.\n• Silencieux : Mentionné comme \"Mute\" pour une utilisation discrète.\n• Design : Sa grille de protection a un aspect géométrique rappelant parfois un ballon de football.\n : Sa grille de protection a un aspect géométrique rappelant parfois un ballon de football.\n﻿Ces termes décrivent les principales caractéristiques et fonctions du ventilateur présenté sur la boîte, telles que son type (clip, table, portable), sa source d'alimentation (rechargeable, USB), ses fonctionnalités (éclairage LED, silencieux, plusieurs vitesses) et son identifiant de modèle.",
+      "ar": "un ventilateur à clip rechargeable (modèle YT-M2034) qui fait également office de lampe d'appoint\n• Type de produit : Ventilateur à pince (clip fan), mini ventilateur de bureau, ventilateur portable.\n• Fonctions clés :\n• Rechargeable : Fonctionne sur batterie, généralement via un port USB (Type-C dans certains cas).\n• Éclairage : Dispose d'une fonction \"Bright lighting\" ou veilleuse intégrée.\n• Silencieux : Mentionné comme \"Mute\" pour une utilisation discrète.\n• Design : Sa grille de protection a un aspect géométrique rappelant parfois un ballon de football.\n : Sa grille de protection a un aspect géométrique rappelant parfois un ballon de football.\n﻿Ces termes décrivent les principales caractéristiques et fonctions du ventilateur présenté sur la boîte, telles que son type (clip, table, portable), sa source d'alimentation (rechargeable, USB), ses fonctionnalités (éclairage LED, silencieux, plusieurs vitesses) et son identifiant de modèle."
     },
     "images": [
-      "https://cdn.shipper.network/storage/amryfpsa84pi7x3u/uploads/products/10698617/6a326894d5622-1781688468.png",
-      "https://cdn.shipper.network/storage/amryfpsa84pi7x3u/uploads/products/10655532/6a302ec65bcfd-1781542598.png",
-      "https://cdn.shipper.network/storage/amryfpsa84pi7x3u/uploads/products/10655533/6a302ec66ece3-1781542598.png",
-      "https://cdn.shipper.network/storage/amryfpsa84pi7x3u/uploads/products/10655534/6a302ec8781d7-1781542600.png",
-      "https://cdn.shipper.network/storage/amryfpsa84pi7x3u/uploads/products/10655535/6a302ec8a2bf4-1781542600.jpg",
-      "https://cdn.shipper.network/storage/amryfpsa84pi7x3u/uploads/products/10655536/6a302ec91c31b-1781542601.jpg"
+      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/9674221/69a2fb47138b0-1772288839.jpg",
+      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/9674222/69a2fb47a2154-1772288839.jpg",
+      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/9674223/69a2fb47d459f-1772288839.jpg",
+      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/9674224/69a2fb480b19c-1772288840.jpg",
+      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/9674225/69a2fb486326d-1772288840.jpg",
+      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/9674226/69a2fb51c68a6-1772288849.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Huile de Nectar de Rose",
-    "sourceUrl": "https://app.shipper.market/products/13070ca8-1fd1-4c51-8453-6179f17e7a8f",
-    "sourceProductId": "13070ca8-1fd1-4c51-8453-6179f17e7a8f",
-    "slug": "huile-de-nectar-de-rose-13070ca8",
+    "sourceName": "ceinture de soutien lombaire",
+    "sourceUrl": "https://app.shipper.market/products/0a6fdf33-6690-4a66-b92a-7047a37ee4e2",
+    "sourceProductId": "0a6fdf33-6690-4a66-b92a-7047a37ee4e2",
+    "slug": "ceinture-de-soutien-lombaire-0a6fdf33",
     "category": "care beauty hair skincare",
     "title": {
-      "en": "Huile de Nectar de Rose",
-      "fr": "Huile de Nectar de Rose",
-      "ar": "Huile de Nectar de Rose"
+      "en": "ceinture de soutien lombaire",
+      "fr": "ceinture de soutien lombaire",
+      "ar": "ceinture de soutien lombaire"
     },
     "description": {
-      "en": "💟HUILE DE NECTAR DE ROSE Voir 30ml Plus \n🍀Prévention et soin de vergetures.\n🍀Soin des peaux matures : Rides, Vieillissement prématuré, Tâches de Vieillissement.\n🍀Rougeurs diffusés.\n🍀Soin des peaux à tendance atypique.\n🍀Peaux dévitalisées.\n💟 زيت رحيق الورد 30ml\n 🍀الوقاية والعناية من علامات التمدد. \n🍀العناية بالبشرة الناضجة: التجاعيد، الشيخوخة المبكرة، البقع العمرية. \n🍀احمرار منتشر. \n🍀العناية بالبشرة ذات الميول غير النمطية. \n🍀الجلد الميت.",
-      "fr": "💟HUILE DE NECTAR DE ROSE Voir 30ml Plus \n🍀Prévention et soin de vergetures.\n🍀Soin des peaux matures : Rides, Vieillissement prématuré, Tâches de Vieillissement.\n🍀Rougeurs diffusés.\n🍀Soin des peaux à tendance atypique.\n🍀Peaux dévitalisées.\n💟 زيت رحيق الورد 30ml\n 🍀الوقاية والعناية من علامات التمدد. \n🍀العناية بالبشرة الناضجة: التجاعيد، الشيخوخة المبكرة، البقع العمرية. \n🍀احمرار منتشر. \n🍀العناية بالبشرة ذات الميول غير النمطية. \n🍀الجلد الميت.",
-      "ar": "💟HUILE DE NECTAR DE ROSE Voir 30ml Plus \n🍀Prévention et soin de vergetures.\n🍀Soin des peaux matures : Rides, Vieillissement prématuré, Tâches de Vieillissement.\n🍀Rougeurs diffusés.\n🍀Soin des peaux à tendance atypique.\n🍀Peaux dévitalisées.\n💟 زيت رحيق الورد 30ml\n 🍀الوقاية والعناية من علامات التمدد. \n🍀العناية بالبشرة الناضجة: التجاعيد، الشيخوخة المبكرة، البقع العمرية. \n🍀احمرار منتشر. \n🍀العناية بالبشرة ذات الميول غير النمطية. \n🍀الجلد الميت."
+      "en": "Matériau respirant : Le tissu est entièrement élastique et poreux (aéré), ce qui permet d'évacuer la transpiration et d'offrir un confort optimal lors d'un port prolongé\n\nDouble serrage : Elle intègre généralement des sangles de compression ajustables à l'avant pour réguler le niveau de maintien et de pression selon vos besoins\n\nIndications classiques : Ce type de ceinture est couramment utilisé pour soulager les douleurs du bas du dos (lombalgies), stabiliser la zone lombaire, corriger la posture ou soutenir les muscles pendant l'effort physique et le levage de charges",
+      "fr": "Matériau respirant : Le tissu est entièrement élastique et poreux (aéré), ce qui permet d'évacuer la transpiration et d'offrir un confort optimal lors d'un port prolongé\n\nDouble serrage : Elle intègre généralement des sangles de compression ajustables à l'avant pour réguler le niveau de maintien et de pression selon vos besoins\n\nIndications classiques : Ce type de ceinture est couramment utilisé pour soulager les douleurs du bas du dos (lombalgies), stabiliser la zone lombaire, corriger la posture ou soutenir les muscles pendant l'effort physique et le levage de charges",
+      "ar": "Matériau respirant : Le tissu est entièrement élastique et poreux (aéré), ce qui permet d'évacuer la transpiration et d'offrir un confort optimal lors d'un port prolongé\n\nDouble serrage : Elle intègre généralement des sangles de compression ajustables à l'avant pour réguler le niveau de maintien et de pression selon vos besoins\n\nIndications classiques : Ce type de ceinture est couramment utilisé pour soulager les douleurs du bas du dos (lombalgies), stabiliser la zone lombaire, corriger la posture ou soutenir les muscles pendant l'effort physique et le levage de charges"
     },
     "images": [
-      "https://cdn.shipper.network/storage/pp8elf77x5rjwoxe/uploads/products/149559/658b07746177d-1703610228.jpg"
+      "https://cdn.shipper.network/storage/vptz9budmij38jr6/uploads/products/11320257/conversions/6a88225026927-1787306576-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/vptz9budmij38jr6/uploads/products/11320256/conversions/6a88225023ce9-1787306576-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/vptz9budmij38jr6/uploads/products/11320258/conversions/6a88225181c06-1787306577-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/vptz9budmij38jr6/uploads/products/11320259/conversions/6a8822518bf94-1787306577-thumbnail-medium.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Brosse à vapeur pour chien et chat",
-    "sourceUrl": "https://app.shipper.market/products/1316c751-a6e9-45f4-9a7e-793aef5af02f",
-    "sourceProductId": "1316c751-a6e9-45f4-9a7e-793aef5af02f",
-    "slug": "brosse-a-vapeur-pour-chien-et-chat-1316c751",
-    "category": "care beauty hair skincare play cleaning laundry",
-    "title": {
-      "en": "Brosse à vapeur pour chien et chat",
-      "fr": "Brosse à vapeur pour chien et chat",
-      "ar": "Brosse à vapeur pour chien et chat"
-    },
-    "description": {
-      "en": "À propos de cet article\n• Brosse à vapeur multifonction pour chat : la brosse à vapeur LUPAPA pour chat est une brosse pour chat qui combine peignage, massage et nettoyage en un, ce qui peut résoudre efficacement les problèmes de poils du chat, augmenter le temps intime entre le propriétaire et l'animal de compagnie, et est un outil indispensable pour le soin quotidien des animaux de compagnie.\n• Design vapeur : nos brosses à vapeur pour chat utilisent une technologie unique de vapeur chaude, qui non seulement résout efficacement le problème des poils emmêlés et tombés, mais elle peut également enlever la saleté du corps du chat.\n• Sûr et sans dommage : les dents douces de cette brosse à vapeur pour chat et l'extrémité arrondie garantissent qu'elle ne blessera pas la peau de votre chat pendant le toilettage, donnant à votre chat une expérience de toilettage confortable.\n• Facile à nettoyer : design compact, poignée confortable et facile à saisir, équipée d'un design à vapeur, de sorte que les chats qui détestent se baigner peuvent profiter de cette façon de nettoyer, pour éviter les rayures ou les morsures par les chats.\n• Convient pour plusieurs animaux de compagnie à poils : convient à tous les types d'animaux poilus, y compris les chiens, chats, cochons et autres animaux de compagnie avec beaucoup de fourrure, et convient également à de nombreux types de poils, qu'ils soient longs ou courts, raides ou bouclés, vous pouvez utiliser cette brosse à vapeur pour fournir un soin parfait pour tous les types d'animaux et de types de poils.",
-      "fr": "À propos de cet article\n• Brosse à vapeur multifonction pour chat : la brosse à vapeur LUPAPA pour chat est une brosse pour chat qui combine peignage, massage et nettoyage en un, ce qui peut résoudre efficacement les problèmes de poils du chat, augmenter le temps intime entre le propriétaire et l'animal de compagnie, et est un outil indispensable pour le soin quotidien des animaux de compagnie.\n• Design vapeur : nos brosses à vapeur pour chat utilisent une technologie unique de vapeur chaude, qui non seulement résout efficacement le problème des poils emmêlés et tombés, mais elle peut également enlever la saleté du corps du chat.\n• Sûr et sans dommage : les dents douces de cette brosse à vapeur pour chat et l'extrémité arrondie garantissent qu'elle ne blessera pas la peau de votre chat pendant le toilettage, donnant à votre chat une expérience de toilettage confortable.\n• Facile à nettoyer : design compact, poignée confortable et facile à saisir, équipée d'un design à vapeur, de sorte que les chats qui détestent se baigner peuvent profiter de cette façon de nettoyer, pour éviter les rayures ou les morsures par les chats.\n• Convient pour plusieurs animaux de compagnie à poils : convient à tous les types d'animaux poilus, y compris les chiens, chats, cochons et autres animaux de compagnie avec beaucoup de fourrure, et convient également à de nombreux types de poils, qu'ils soient longs ou courts, raides ou bouclés, vous pouvez utiliser cette brosse à vapeur pour fournir un soin parfait pour tous les types d'animaux et de types de poils.",
-      "ar": "À propos de cet article\n• Brosse à vapeur multifonction pour chat : la brosse à vapeur LUPAPA pour chat est une brosse pour chat qui combine peignage, massage et nettoyage en un, ce qui peut résoudre efficacement les problèmes de poils du chat, augmenter le temps intime entre le propriétaire et l'animal de compagnie, et est un outil indispensable pour le soin quotidien des animaux de compagnie.\n• Design vapeur : nos brosses à vapeur pour chat utilisent une technologie unique de vapeur chaude, qui non seulement résout efficacement le problème des poils emmêlés et tombés, mais elle peut également enlever la saleté du corps du chat.\n• Sûr et sans dommage : les dents douces de cette brosse à vapeur pour chat et l'extrémité arrondie garantissent qu'elle ne blessera pas la peau de votre chat pendant le toilettage, donnant à votre chat une expérience de toilettage confortable.\n• Facile à nettoyer : design compact, poignée confortable et facile à saisir, équipée d'un design à vapeur, de sorte que les chats qui détestent se baigner peuvent profiter de cette façon de nettoyer, pour éviter les rayures ou les morsures par les chats.\n• Convient pour plusieurs animaux de compagnie à poils : convient à tous les types d'animaux poilus, y compris les chiens, chats, cochons et autres animaux de compagnie avec beaucoup de fourrure, et convient également à de nombreux types de poils, qu'ils soient longs ou courts, raides ou bouclés, vous pouvez utiliser cette brosse à vapeur pour fournir un soin parfait pour tous les types d'animaux et de types de poils."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/7725922/68ecdf8a9123f-1760354186.jpg",
-      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/7725918/68ecdf884b6e1-1760354184.jpg",
-      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/7725919/68ecdf8860749-1760354184.jpg",
-      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/7725921/68ecdf8a85ecf-1760354186.jpg",
-      "https://cdn.shipper.network/storage/arcg1xmh7ic38zwz/uploads/products/7725923/68ecdf8c55bda-1760354188.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "DÉGRIPPANT MULTIFONCTION WD-40 – 100 ML",
-    "sourceUrl": "https://app.shipper.market/products/1320129a-9c7b-4044-92c2-ee2af1bf7d37",
-    "sourceProductId": "1320129a-9c7b-4044-92c2-ee2af1bf7d37",
-    "slug": "degrippant-multifonction-wd-40-100-ml-1320129a",
-    "category": "play organisation cleaning laundry car maintenance",
-    "title": {
-      "en": "DÉGRIPPANT MULTIFONCTION WD-40 – 100 ML",
-      "fr": "DÉGRIPPANT MULTIFONCTION WD-40 – 100 ML",
-      "ar": "DÉGRIPPANT MULTIFONCTION WD-40 – 100 ML"
-    },
-    "description": {
-      "en": "Le WD-40 Multifonction 100 ml est un produit d’entretien polyvalent conçu pour dégripper, lubrifier, protéger, nettoyer et repousser l’humidité. Son petit format est pratique à transporter et à conserver dans le véhicule ou la boîte à outils.\nLes 5 fonctions principales :\nDégrippe : libère les pièces et mécanismes rouillés ou coincés.\nLubrifie : facilite le fonctionnement des petits mécanismes.\nProtège : forme un film contre l’eau, la rouille et la corrosion.\nNettoie : élimine les traces de graisse, goudron et adhésif.\nChasse l’humidité : aide à rétablir les contacts électriques humides.\nMarque : WD-40\n Type : Produit multifonction en aérosol\n Contenance : 100 ml\n Référence : WD100\n⚠️ Aérosol inflammable : utiliser dans un endroit ventilé, loin des flammes et des sources de chaleur. Ne pas pulvériser sur un équipement électrique sous tension.",
-      "fr": "Le WD-40 Multifonction 100 ml est un produit d’entretien polyvalent conçu pour dégripper, lubrifier, protéger, nettoyer et repousser l’humidité. Son petit format est pratique à transporter et à conserver dans le véhicule ou la boîte à outils.\nLes 5 fonctions principales :\nDégrippe : libère les pièces et mécanismes rouillés ou coincés.\nLubrifie : facilite le fonctionnement des petits mécanismes.\nProtège : forme un film contre l’eau, la rouille et la corrosion.\nNettoie : élimine les traces de graisse, goudron et adhésif.\nChasse l’humidité : aide à rétablir les contacts électriques humides.\nMarque : WD-40\n Type : Produit multifonction en aérosol\n Contenance : 100 ml\n Référence : WD100\n⚠️ Aérosol inflammable : utiliser dans un endroit ventilé, loin des flammes et des sources de chaleur. Ne pas pulvériser sur un équipement électrique sous tension.",
-      "ar": "Le WD-40 Multifonction 100 ml est un produit d’entretien polyvalent conçu pour dégripper, lubrifier, protéger, nettoyer et repousser l’humidité. Son petit format est pratique à transporter et à conserver dans le véhicule ou la boîte à outils.\nLes 5 fonctions principales :\nDégrippe : libère les pièces et mécanismes rouillés ou coincés.\nLubrifie : facilite le fonctionnement des petits mécanismes.\nProtège : forme un film contre l’eau, la rouille et la corrosion.\nNettoie : élimine les traces de graisse, goudron et adhésif.\nChasse l’humidité : aide à rétablir les contacts électriques humides.\nMarque : WD-40\n Type : Produit multifonction en aérosol\n Contenance : 100 ml\n Référence : WD100\n⚠️ Aérosol inflammable : utiliser dans un endroit ventilé, loin des flammes et des sources de chaleur. Ne pas pulvériser sur un équipement électrique sous tension."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/iv7km1bbcrf8ozjr/uploads/products/11018510/6a672ac9d28b6-1785146057.png",
-      "https://cdn.shipper.network/storage/iv7km1bbcrf8ozjr/uploads/products/11012779/6a65de63ce1a8-1785060963.webp",
-      "https://cdn.shipper.network/storage/iv7km1bbcrf8ozjr/uploads/products/11012780/6a65de6e12533-1785060974.webp",
-      "https://cdn.shipper.network/storage/iv7km1bbcrf8ozjr/uploads/products/11012781/6a65de7620ee7-1785060982.webp",
-      "https://cdn.shipper.network/storage/iv7km1bbcrf8ozjr/uploads/products/11012783/6a65de7d9c059-1785060989.webp",
-      "https://cdn.shipper.network/storage/iv7km1bbcrf8ozjr/uploads/products/11012784/6a65de875963c-1785060999.webp"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Câble USB Electrum 5A pour IPhone",
-    "sourceUrl": "https://app.shipper.market/products/132ead17-a4eb-46f7-a314-f9c51843e2fa",
-    "sourceProductId": "132ead17-a4eb-46f7-a314-f9c51843e2fa",
-    "slug": "cable-usb-electrum-5a-pour-iphone-132ead17",
+    "sourceName": "TESTESTORONE BOOSTER",
+    "sourceUrl": "https://app.shipper.market/products/0a830cb5-c08e-4ea8-9c38-52d6331e1d9c",
+    "sourceProductId": "0a830cb5-c08e-4ea8-9c38-52d6331e1d9c",
+    "slug": "testestorone-booster-0a830cb5",
     "category": "accessories",
     "title": {
-      "en": "Câble USB Electrum 5A pour IPhone",
-      "fr": "Câble USB Electrum 5A pour IPhone",
-      "ar": "Câble USB Electrum 5A pour IPhone"
+      "en": "TESTESTORONE BOOSTER",
+      "fr": "TESTESTORONE BOOSTER",
+      "ar": "TESTESTORONE BOOSTER"
     },
     "description": {
-      "en": "• Câble USB Élektrum TB-A001\n• Longueur : 100 cm \n• Connecteur : Lightning - Sortie : 5A\n• Compatible Qualcomm Quick Charge 3.0\n• Port USB 2.0 - Synchronisation de données\n• Charge rapide et stable\n• Protection de sécurité intégrée\n• Matériau : nylon tressé haute densité + conducteur cuivre pur\n• Résistant à la pression et à l’usure \n• Compatible avec tous les appareils USB",
-      "fr": "• Câble USB Élektrum TB-A001\n• Longueur : 100 cm \n• Connecteur : Lightning - Sortie : 5A\n• Compatible Qualcomm Quick Charge 3.0\n• Port USB 2.0 - Synchronisation de données\n• Charge rapide et stable\n• Protection de sécurité intégrée\n• Matériau : nylon tressé haute densité + conducteur cuivre pur\n• Résistant à la pression et à l’usure \n• Compatible avec tous les appareils USB",
-      "ar": "• Câble USB Élektrum TB-A001\n• Longueur : 100 cm \n• Connecteur : Lightning - Sortie : 5A\n• Compatible Qualcomm Quick Charge 3.0\n• Port USB 2.0 - Synchronisation de données\n• Charge rapide et stable\n• Protection de sécurité intégrée\n• Matériau : nylon tressé haute densité + conducteur cuivre pur\n• Résistant à la pression et à l’usure \n• Compatible avec tous les appareils USB"
+      "en": "Avantages du Produit Testestorone Booster🌟🌟🌟🌟🌟 \n- Augmentation de l'énergie ⚡\n- Amélioration des performances sportives 🏋‍♂\n- Soutien à la santé sexuelle 💘\n- Ingrédients naturels 🌿\n- Augmentation de la masse musculaire 💪\n- Amélioration de l'humeur 😊\nDécouvrez le booster de testostérone le plus puissant pour hommes 🌟, \nformulé avec un mélange avancé d'ingrédients naturels scientifiquement prouvés comme le Ginseng, la Moringa, la Vitamine C et le Magnésium 🌿. \nNotre supplément de testostérone aide à :\n- Augmenter l'énergie et l'endurance ⚡\n- Améliorer la force et la croissance musculaire 💪\n- Stimuler la libido et la performance sexuelle 💘\n- Améliorer la circulation sanguine et les pompes musculaires 🔥\n\"LE SECRET POUR RETROUVER VOTRE VIRILITÉ \nET BOOSTER VOTRE ÉNERGIE !\nDITES ADIEU AUX TROUBLES DE L'ÉRECTION\"\nAvantages 🌟\n- Ginseng pour Hommes : notre supplément de testostérone naturel aide à améliorer les performances au gymnase, au travail, pendant les voyages, pour les sports et dans la chambre à coucher 💪\n- Meilleure Circulation Sanguine : notre supplément de testostérone avec ginseng aide à soutenir une circulation sanguine saine en agissant comme un vasodilatateur, élargissant les vaisseaux sanguins pour une meilleure fonction circulatoire 🩸\n- Supplément de Testostérone pour Hommes : à mesure que les hommes vieillissent, leurs niveaux de testostérone diminuent. \nNotre Testosterone booster formulé avec des boosters de santé masculine essentiels comme le ginseng aide à rétablir ces niveaux pour vous sentir à nouveau dans votre prime 😊\nCOMPOSITIONS PUREMENT NATURELLES & EFFICACE",
+      "fr": "Avantages du Produit Testestorone Booster🌟🌟🌟🌟🌟 \n- Augmentation de l'énergie ⚡\n- Amélioration des performances sportives 🏋‍♂\n- Soutien à la santé sexuelle 💘\n- Ingrédients naturels 🌿\n- Augmentation de la masse musculaire 💪\n- Amélioration de l'humeur 😊\nDécouvrez le booster de testostérone le plus puissant pour hommes 🌟, \nformulé avec un mélange avancé d'ingrédients naturels scientifiquement prouvés comme le Ginseng, la Moringa, la Vitamine C et le Magnésium 🌿. \nNotre supplément de testostérone aide à :\n- Augmenter l'énergie et l'endurance ⚡\n- Améliorer la force et la croissance musculaire 💪\n- Stimuler la libido et la performance sexuelle 💘\n- Améliorer la circulation sanguine et les pompes musculaires 🔥\n\"LE SECRET POUR RETROUVER VOTRE VIRILITÉ \nET BOOSTER VOTRE ÉNERGIE !\nDITES ADIEU AUX TROUBLES DE L'ÉRECTION\"\nAvantages 🌟\n- Ginseng pour Hommes : notre supplément de testostérone naturel aide à améliorer les performances au gymnase, au travail, pendant les voyages, pour les sports et dans la chambre à coucher 💪\n- Meilleure Circulation Sanguine : notre supplément de testostérone avec ginseng aide à soutenir une circulation sanguine saine en agissant comme un vasodilatateur, élargissant les vaisseaux sanguins pour une meilleure fonction circulatoire 🩸\n- Supplément de Testostérone pour Hommes : à mesure que les hommes vieillissent, leurs niveaux de testostérone diminuent. \nNotre Testosterone booster formulé avec des boosters de santé masculine essentiels comme le ginseng aide à rétablir ces niveaux pour vous sentir à nouveau dans votre prime 😊\nCOMPOSITIONS PUREMENT NATURELLES & EFFICACE",
+      "ar": "Avantages du Produit Testestorone Booster🌟🌟🌟🌟🌟 \n- Augmentation de l'énergie ⚡\n- Amélioration des performances sportives 🏋‍♂\n- Soutien à la santé sexuelle 💘\n- Ingrédients naturels 🌿\n- Augmentation de la masse musculaire 💪\n- Amélioration de l'humeur 😊\nDécouvrez le booster de testostérone le plus puissant pour hommes 🌟, \nformulé avec un mélange avancé d'ingrédients naturels scientifiquement prouvés comme le Ginseng, la Moringa, la Vitamine C et le Magnésium 🌿. \nNotre supplément de testostérone aide à :\n- Augmenter l'énergie et l'endurance ⚡\n- Améliorer la force et la croissance musculaire 💪\n- Stimuler la libido et la performance sexuelle 💘\n- Améliorer la circulation sanguine et les pompes musculaires 🔥\n\"LE SECRET POUR RETROUVER VOTRE VIRILITÉ \nET BOOSTER VOTRE ÉNERGIE !\nDITES ADIEU AUX TROUBLES DE L'ÉRECTION\"\nAvantages 🌟\n- Ginseng pour Hommes : notre supplément de testostérone naturel aide à améliorer les performances au gymnase, au travail, pendant les voyages, pour les sports et dans la chambre à coucher 💪\n- Meilleure Circulation Sanguine : notre supplément de testostérone avec ginseng aide à soutenir une circulation sanguine saine en agissant comme un vasodilatateur, élargissant les vaisseaux sanguins pour une meilleure fonction circulatoire 🩸\n- Supplément de Testostérone pour Hommes : à mesure que les hommes vieillissent, leurs niveaux de testostérone diminuent. \nNotre Testosterone booster formulé avec des boosters de santé masculine essentiels comme le ginseng aide à rétablir ces niveaux pour vous sentir à nouveau dans votre prime 😊\nCOMPOSITIONS PUREMENT NATURELLES & EFFICACE"
     },
     "images": [
-      "https://cdn.shipper.network/storage/bkpsnnjfr9ghksf6/uploads/products/7983387/69039faf23e23-1761845167.png"
+      "https://cdn.shipper.network/storage/b3k2bmb0gcoblhcc/uploads/products/8602721/69383dde6d2bd-1765293534.jpg",
+      "https://cdn.shipper.network/storage/b3k2bmb0gcoblhcc/uploads/products/8602722/69383dde79e06-1765293534.jpg",
+      "https://cdn.shipper.network/storage/b3k2bmb0gcoblhcc/uploads/products/8602723/69383de0bb617-1765293536.jpg",
+      "https://cdn.shipper.network/storage/b3k2bmb0gcoblhcc/uploads/products/8602724/69383de0bc5ba-1765293536.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Machine à pop-corn Portable",
-    "sourceUrl": "https://app.shipper.market/products/13346c28-b9a8-4526-adaf-63d61bdbd73e",
-    "sourceProductId": "13346c28-b9a8-4526-adaf-63d61bdbd73e",
-    "slug": "machine-a-pop-corn-portable-13346c28",
-    "category": "kitchen dining care beauty hair skincare play cleaning laundry",
+    "sourceName": "Montre Connectée Xiaomi Smart Band 8 Pro",
+    "sourceUrl": "https://app.shipper.market/products/0a90d104-9be4-4d25-83fb-c32d95c00af9",
+    "sourceProductId": "0a90d104-9be4-4d25-83fb-c32d95c00af9",
+    "slug": "montre-connectee-xiaomi-smart-band-8-pro-0a90d104",
+    "category": "audio wearables",
     "title": {
-      "en": "Machine à pop-corn Portable",
-      "fr": "Machine à pop-corn Portable",
-      "ar": "Machine à pop-corn Portable"
+      "en": "Montre Connectée Xiaomi Smart Band 8 Pro",
+      "fr": "Montre Connectée Xiaomi Smart Band 8 Pro",
+      "ar": "Montre Connectée Xiaomi Smart Band 8 Pro"
     },
     "description": {
-      "en": "Préparez du pop-corn délicieux et sain en un clin d'œil avec la machine à pop-corn ! Cet appareil est un incontournable pour les soirées cinéma à la maison, les fêtes ou les collations de l'après-midi.\n• Puissance et rapidité : Avec 1200 W de puissance, cette machine prépare votre pop-corn en seulement 3 minutes.\n• Cuisson à l'air chaud : Elle utilise la technologie de l'air chaud, ce qui signifie que vous n'avez pas besoin d'huile. Votre pop-corn est croustillant et sans matière grasse ajoutée.\n• Facile à utiliser et à nettoyer : Il suffit d'ajouter les grains, d'appuyer sur le bouton et de savourer. Son design simple facilite grandement le nettoyage.\n• Design compact et moderne : Son look rouge et blanc s'intègre parfaitement à n'importe quelle cuisine.",
-      "fr": "Préparez du pop-corn délicieux et sain en un clin d'œil avec la machine à pop-corn ! Cet appareil est un incontournable pour les soirées cinéma à la maison, les fêtes ou les collations de l'après-midi.\n• Puissance et rapidité : Avec 1200 W de puissance, cette machine prépare votre pop-corn en seulement 3 minutes.\n• Cuisson à l'air chaud : Elle utilise la technologie de l'air chaud, ce qui signifie que vous n'avez pas besoin d'huile. Votre pop-corn est croustillant et sans matière grasse ajoutée.\n• Facile à utiliser et à nettoyer : Il suffit d'ajouter les grains, d'appuyer sur le bouton et de savourer. Son design simple facilite grandement le nettoyage.\n• Design compact et moderne : Son look rouge et blanc s'intègre parfaitement à n'importe quelle cuisine.",
-      "ar": "Préparez du pop-corn délicieux et sain en un clin d'œil avec la machine à pop-corn ! Cet appareil est un incontournable pour les soirées cinéma à la maison, les fêtes ou les collations de l'après-midi.\n• Puissance et rapidité : Avec 1200 W de puissance, cette machine prépare votre pop-corn en seulement 3 minutes.\n• Cuisson à l'air chaud : Elle utilise la technologie de l'air chaud, ce qui signifie que vous n'avez pas besoin d'huile. Votre pop-corn est croustillant et sans matière grasse ajoutée.\n• Facile à utiliser et à nettoyer : Il suffit d'ajouter les grains, d'appuyer sur le bouton et de savourer. Son design simple facilite grandement le nettoyage.\n• Design compact et moderne : Son look rouge et blanc s'intègre parfaitement à n'importe quelle cuisine."
+      "en": "• Taille et type d’écran : Écran carré AMOLED 1,74″\n• 14 jours Utilisation normale\n• Indice de résistance à l’eau : 5 ATM\n• Connexion de données : Bluetooth® 5.3 / Prend en charge les systèmes satellites BeiDou, GPS, GLONASS, Galileo et QZSS\n• Capacité de la batterie : 289 mAh / Batterie lithium-ion polymère\n• Temps de charge : Environ 80 min\n• Poids net : Environ 22,5 g (poids sans le bracelet)\n• Applications compatibles : Application Mi Fitness\n• Garantie d'un an",
+      "fr": "• Taille et type d’écran : Écran carré AMOLED 1,74″\n• 14 jours Utilisation normale\n• Indice de résistance à l’eau : 5 ATM\n• Connexion de données : Bluetooth® 5.3 / Prend en charge les systèmes satellites BeiDou, GPS, GLONASS, Galileo et QZSS\n• Capacité de la batterie : 289 mAh / Batterie lithium-ion polymère\n• Temps de charge : Environ 80 min\n• Poids net : Environ 22,5 g (poids sans le bracelet)\n• Applications compatibles : Application Mi Fitness\n• Garantie d'un an",
+      "ar": "• Taille et type d’écran : Écran carré AMOLED 1,74″\n• 14 jours Utilisation normale\n• Indice de résistance à l’eau : 5 ATM\n• Connexion de données : Bluetooth® 5.3 / Prend en charge les systèmes satellites BeiDou, GPS, GLONASS, Galileo et QZSS\n• Capacité de la batterie : 289 mAh / Batterie lithium-ion polymère\n• Temps de charge : Environ 80 min\n• Poids net : Environ 22,5 g (poids sans le bracelet)\n• Applications compatibles : Application Mi Fitness\n• Garantie d'un an"
     },
     "images": [
-      "https://cdn.shipper.network/storage/hbklcghvraah8tvd/uploads/products/7338307/68ca9dc5871e4-1758109125.jpg",
-      "https://cdn.shipper.network/storage/hbklcghvraah8tvd/uploads/products/7338305/68ca9dc36de7c-1758109123.jpg",
-      "https://cdn.shipper.network/storage/hbklcghvraah8tvd/uploads/products/7338306/68ca9dc36f70d-1758109123.jpg",
-      "https://cdn.shipper.network/storage/hbklcghvraah8tvd/uploads/products/7338308/68ca9dc590629-1758109125.jpg",
-      "https://cdn.shipper.network/storage/hbklcghvraah8tvd/uploads/products/7338309/68ca9dc77f4cf-1758109127.webp"
+      "https://cdn.shipper.network/storage/bkpsnnjfr9ghksf6/uploads/products/7982250/69038bb6bb1c3-1761840054.png",
+      "https://cdn.shipper.network/storage/bkpsnnjfr9ghksf6/uploads/products/7982336/69038cec90b75-1761840364.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Pack d'huile vegetale pure 5* 30ml",
-    "sourceUrl": "https://app.shipper.market/products/1338abb8-494d-45da-a709-949846a307ae",
-    "sourceProductId": "1338abb8-494d-45da-a709-949846a307ae",
-    "slug": "pack-d-huile-vegetale-pure-5-30ml-1338abb8",
-    "category": "care beauty hair skincare organisation health & beauty",
+    "sourceName": "Stylo testeur de pierres précieuses – Noir",
+    "sourceUrl": "https://app.shipper.market/products/0a99b897-147b-44bc-99d5-8375a81aa734",
+    "sourceProductId": "0a99b897-147b-44bc-99d5-8375a81aa734",
+    "slug": "stylo-testeur-de-pierres-precieuses-noir-0a99b897",
+    "category": "care beauty hair skincare school office",
     "title": {
-      "en": "Pack d'huile vegetale pure 5* 30ml",
-      "fr": "Pack d'huile vegetale pure 5* 30ml",
-      "ar": "Pack d'huile vegetale pure 5* 30ml"
+      "en": "Stylo testeur de pierres précieuses – Noir",
+      "fr": "Stylo testeur de pierres précieuses – Noir",
+      "ar": "Stylo testeur de pierres précieuses – Noir"
     },
     "description": {
-      "en": "وصف المنتج: باقة الزيوت النباتية السحرية – إكسير الطبيعة للعناية المتكاملةاكتشفوا القوة النقية للطبيعة مع باقة الزيوت النباتية من BIOVALL. تشكيلة فريدة وحصرية تضم 5 زيوت طبيعية ونقية 100%، مستخلصة بعناية فائقة وعصر بارد لحفظ كامل منافعها التجميلية والعلاجية.\nهذه الباقة هي رفيقكم المثالي لروتين يومي متكامل يعتني بالشعر، البشرة، الأظافر، واللحية.\n🧪 محتويات الباقة وفوائد كل زيت (5 قوارير سعة 30 مل):1. زيت اللوز الحلو (Huile d'Amande Douce):\nالفوائد: ملك الترطيب للبشرة. يعمل على تهدئة البشرة الحساسة والجافة، ويساعد على توحيد لون الجلد وتخفيف الهالات السوداء تحت العين، كما يمنح الشعر نعومة ولمعاناً فائقاً.\n2. زيت الفندق / النوازيت (Huile de Noisette):\nالفوائد: الزيت المثالي للبشرة المختلطة والدهنية. يتميز بقوام خفيف سريع الامتصاص، يساعد على تنظيم إفراز الدهون، شد المسام، ومكافحة الشوائب والبثور دون ترك أثر دهني.\n3. زيت الخروع (Huile de Ricin):\nالفوائد: إكسير الكثافة والنمو. يعمل على تحفيز نمو الشعر وتكثيفه، وتعبئة فراغات اللحية والحواجب، بالإضافة إلى تقوية الرموش والأظافر الهشة.\n4. زيت الذرو / العدس المائي (Huile de Lentisque Pistachier):\nالفوائد: الزيت العلاجي بامتياز. معروف بخصائصه الفعالة في تنشيط الدورة الدموية الدموية (تخفيف الساقين الثقيلتين والدوالي)، وتهدئة احمرار البشرة، وتسريع التئام الحروق الطفيفة والندوب.\n5. زيت نواة المشمش (Huile d'Abricot):\nالفوائد: سر الإشراقة والنضارة. غني بالفيتامينات التي تعيد الحيوية للبشرة المتعبة والباهتة، ويحارب علامات الشيخوخة المبكرة ليترك بشرتكم ناعمة ومشرقة كالحرير.\n✨ مميزات باقة BIOVALL:زيوت بكر ونقية 100%: طبيعية تماماً، معصورة على البارد وخالية من أي إضافات كيميائية أو عطور اصطناعية.\nعناية شاملة (راس-إلى-قدم): تمنحكم حلاً طبيعياً لكل مشاكل الجفاف، التلف، والتعب في الجسم والشعر والوجه.\nقوارير قطّارة (Dropper) دقيقة: تصميم محكم يحمي الزيت من الأكسدة ويسمح باستخدام قطرات دقيقة دون هدر.\nإنتاج محلي عالي الجودة: فخر الصناعة التونسية التقليدية بمعايير احترافية حديثة.\n💡 نصيحة الخبراء للاستخدام:يمكنكم استخدام كل زيت على حدة حسب الحاجة، أو مزج بضع قطرات من الزيوت الخفيفة (مثل المشمش أو اللوز) مع الزيوت الكثيفة (مثل الخروع) للحصول على سيروم مغذٍ وسهل الامتصاص للشعر والبشرة.\nBIOVALL: ثقوا بنقاء الطبيعة، لتشرقوا كل يوم.",
-      "fr": "وصف المنتج: باقة الزيوت النباتية السحرية – إكسير الطبيعة للعناية المتكاملةاكتشفوا القوة النقية للطبيعة مع باقة الزيوت النباتية من BIOVALL. تشكيلة فريدة وحصرية تضم 5 زيوت طبيعية ونقية 100%، مستخلصة بعناية فائقة وعصر بارد لحفظ كامل منافعها التجميلية والعلاجية.\nهذه الباقة هي رفيقكم المثالي لروتين يومي متكامل يعتني بالشعر، البشرة، الأظافر، واللحية.\n🧪 محتويات الباقة وفوائد كل زيت (5 قوارير سعة 30 مل):1. زيت اللوز الحلو (Huile d'Amande Douce):\nالفوائد: ملك الترطيب للبشرة. يعمل على تهدئة البشرة الحساسة والجافة، ويساعد على توحيد لون الجلد وتخفيف الهالات السوداء تحت العين، كما يمنح الشعر نعومة ولمعاناً فائقاً.\n2. زيت الفندق / النوازيت (Huile de Noisette):\nالفوائد: الزيت المثالي للبشرة المختلطة والدهنية. يتميز بقوام خفيف سريع الامتصاص، يساعد على تنظيم إفراز الدهون، شد المسام، ومكافحة الشوائب والبثور دون ترك أثر دهني.\n3. زيت الخروع (Huile de Ricin):\nالفوائد: إكسير الكثافة والنمو. يعمل على تحفيز نمو الشعر وتكثيفه، وتعبئة فراغات اللحية والحواجب، بالإضافة إلى تقوية الرموش والأظافر الهشة.\n4. زيت الذرو / العدس المائي (Huile de Lentisque Pistachier):\nالفوائد: الزيت العلاجي بامتياز. معروف بخصائصه الفعالة في تنشيط الدورة الدموية الدموية (تخفيف الساقين الثقيلتين والدوالي)، وتهدئة احمرار البشرة، وتسريع التئام الحروق الطفيفة والندوب.\n5. زيت نواة المشمش (Huile d'Abricot):\nالفوائد: سر الإشراقة والنضارة. غني بالفيتامينات التي تعيد الحيوية للبشرة المتعبة والباهتة، ويحارب علامات الشيخوخة المبكرة ليترك بشرتكم ناعمة ومشرقة كالحرير.\n✨ مميزات باقة BIOVALL:زيوت بكر ونقية 100%: طبيعية تماماً، معصورة على البارد وخالية من أي إضافات كيميائية أو عطور اصطناعية.\nعناية شاملة (راس-إلى-قدم): تمنحكم حلاً طبيعياً لكل مشاكل الجفاف، التلف، والتعب في الجسم والشعر والوجه.\nقوارير قطّارة (Dropper) دقيقة: تصميم محكم يحمي الزيت من الأكسدة ويسمح باستخدام قطرات دقيقة دون هدر.\nإنتاج محلي عالي الجودة: فخر الصناعة التونسية التقليدية بمعايير احترافية حديثة.\n💡 نصيحة الخبراء للاستخدام:يمكنكم استخدام كل زيت على حدة حسب الحاجة، أو مزج بضع قطرات من الزيوت الخفيفة (مثل المشمش أو اللوز) مع الزيوت الكثيفة (مثل الخروع) للحصول على سيروم مغذٍ وسهل الامتصاص للشعر والبشرة.\nBIOVALL: ثقوا بنقاء الطبيعة، لتشرقوا كل يوم.",
-      "ar": "وصف المنتج: باقة الزيوت النباتية السحرية – إكسير الطبيعة للعناية المتكاملةاكتشفوا القوة النقية للطبيعة مع باقة الزيوت النباتية من BIOVALL. تشكيلة فريدة وحصرية تضم 5 زيوت طبيعية ونقية 100%، مستخلصة بعناية فائقة وعصر بارد لحفظ كامل منافعها التجميلية والعلاجية.\nهذه الباقة هي رفيقكم المثالي لروتين يومي متكامل يعتني بالشعر، البشرة، الأظافر، واللحية.\n🧪 محتويات الباقة وفوائد كل زيت (5 قوارير سعة 30 مل):1. زيت اللوز الحلو (Huile d'Amande Douce):\nالفوائد: ملك الترطيب للبشرة. يعمل على تهدئة البشرة الحساسة والجافة، ويساعد على توحيد لون الجلد وتخفيف الهالات السوداء تحت العين، كما يمنح الشعر نعومة ولمعاناً فائقاً.\n2. زيت الفندق / النوازيت (Huile de Noisette):\nالفوائد: الزيت المثالي للبشرة المختلطة والدهنية. يتميز بقوام خفيف سريع الامتصاص، يساعد على تنظيم إفراز الدهون، شد المسام، ومكافحة الشوائب والبثور دون ترك أثر دهني.\n3. زيت الخروع (Huile de Ricin):\nالفوائد: إكسير الكثافة والنمو. يعمل على تحفيز نمو الشعر وتكثيفه، وتعبئة فراغات اللحية والحواجب، بالإضافة إلى تقوية الرموش والأظافر الهشة.\n4. زيت الذرو / العدس المائي (Huile de Lentisque Pistachier):\nالفوائد: الزيت العلاجي بامتياز. معروف بخصائصه الفعالة في تنشيط الدورة الدموية الدموية (تخفيف الساقين الثقيلتين والدوالي)، وتهدئة احمرار البشرة، وتسريع التئام الحروق الطفيفة والندوب.\n5. زيت نواة المشمش (Huile d'Abricot):\nالفوائد: سر الإشراقة والنضارة. غني بالفيتامينات التي تعيد الحيوية للبشرة المتعبة والباهتة، ويحارب علامات الشيخوخة المبكرة ليترك بشرتكم ناعمة ومشرقة كالحرير.\n✨ مميزات باقة BIOVALL:زيوت بكر ونقية 100%: طبيعية تماماً، معصورة على البارد وخالية من أي إضافات كيميائية أو عطور اصطناعية.\nعناية شاملة (راس-إلى-قدم): تمنحكم حلاً طبيعياً لكل مشاكل الجفاف، التلف، والتعب في الجسم والشعر والوجه.\nقوارير قطّارة (Dropper) دقيقة: تصميم محكم يحمي الزيت من الأكسدة ويسمح باستخدام قطرات دقيقة دون هدر.\nإنتاج محلي عالي الجودة: فخر الصناعة التونسية التقليدية بمعايير احترافية حديثة.\n💡 نصيحة الخبراء للاستخدام:يمكنكم استخدام كل زيت على حدة حسب الحاجة، أو مزج بضع قطرات من الزيوت الخفيفة (مثل المشمش أو اللوز) مع الزيوت الكثيفة (مثل الخروع) للحصول على سيروم مغذٍ وسهل الامتصاص للشعر والبشرة.\nBIOVALL: ثقوا بنقاء الطبيعة، لتشرقوا كل يوم."
+      "en": "Type d’article : Testeur de diamant\nMatériau : Métal, plastique\nCouleur : Noir\nTaille : 13.5x4x2 cm / 5.31x1.57x0.79 pouces\nAlimentation : Batterie CC 9V x 1\nCaractéristiques :\n• Facile à utiliser même pour un nouveau débutant\n• Émet des sons audibles pour donner une lecture précise\n• L’indicateur de diamant s’allume (lumière verte) si la pierre est un vrai diamant\n• Alerte métal (bourdonnement continu en cas de contact accidentel avec du métal)\n• Commutateur grand/petit pour tester les diamants +/- 8 points\n• ÉCRAN LCD et INDICATEUR LED pour une lecture claire\n• Aucune réaction pour les faux cristaux ou simulant (ex. zirconium cubique - CZ)\nModes de fonctionnement :\n• Mise en marche : Allumez l’appareil, le voyant d’alimentation s’allume. L’instrument commence à préchauffer. Après quelques secondes, il est prêt à être utilisé.\n• Positionnement de la pierre : Placez le diamant nu dans le trou creux du plateau de support, avec la surface vers le haut. Pour les pierres incrustées, tenez lès directement avec la main.\n• Utilisation de la sonde :\n• Retirez la gaine de l’aiguille.\n• Tenez l’instrument en main, avec l’index droit touchant la plaque conductrice située à l’arrière.\n• Positionnez la sonde verticalement pour entrer doucement en contact avec la surface du diamant.\n• Lecture des résultats :\n• Si les lumières LED atteignent la neuvième diode avec un bip sonore, il s’agit d’un vrai diamant.\n• Si les lumières restent inférieures à la neuvième diode sans bip, il s’agit d’un faux diamant ou autre cristal.",
+      "fr": "Type d’article : Testeur de diamant\nMatériau : Métal, plastique\nCouleur : Noir\nTaille : 13.5x4x2 cm / 5.31x1.57x0.79 pouces\nAlimentation : Batterie CC 9V x 1\nCaractéristiques :\n• Facile à utiliser même pour un nouveau débutant\n• Émet des sons audibles pour donner une lecture précise\n• L’indicateur de diamant s’allume (lumière verte) si la pierre est un vrai diamant\n• Alerte métal (bourdonnement continu en cas de contact accidentel avec du métal)\n• Commutateur grand/petit pour tester les diamants +/- 8 points\n• ÉCRAN LCD et INDICATEUR LED pour une lecture claire\n• Aucune réaction pour les faux cristaux ou simulant (ex. zirconium cubique - CZ)\nModes de fonctionnement :\n• Mise en marche : Allumez l’appareil, le voyant d’alimentation s’allume. L’instrument commence à préchauffer. Après quelques secondes, il est prêt à être utilisé.\n• Positionnement de la pierre : Placez le diamant nu dans le trou creux du plateau de support, avec la surface vers le haut. Pour les pierres incrustées, tenez lès directement avec la main.\n• Utilisation de la sonde :\n• Retirez la gaine de l’aiguille.\n• Tenez l’instrument en main, avec l’index droit touchant la plaque conductrice située à l’arrière.\n• Positionnez la sonde verticalement pour entrer doucement en contact avec la surface du diamant.\n• Lecture des résultats :\n• Si les lumières LED atteignent la neuvième diode avec un bip sonore, il s’agit d’un vrai diamant.\n• Si les lumières restent inférieures à la neuvième diode sans bip, il s’agit d’un faux diamant ou autre cristal.",
+      "ar": "Type d’article : Testeur de diamant\nMatériau : Métal, plastique\nCouleur : Noir\nTaille : 13.5x4x2 cm / 5.31x1.57x0.79 pouces\nAlimentation : Batterie CC 9V x 1\nCaractéristiques :\n• Facile à utiliser même pour un nouveau débutant\n• Émet des sons audibles pour donner une lecture précise\n• L’indicateur de diamant s’allume (lumière verte) si la pierre est un vrai diamant\n• Alerte métal (bourdonnement continu en cas de contact accidentel avec du métal)\n• Commutateur grand/petit pour tester les diamants +/- 8 points\n• ÉCRAN LCD et INDICATEUR LED pour une lecture claire\n• Aucune réaction pour les faux cristaux ou simulant (ex. zirconium cubique - CZ)\nModes de fonctionnement :\n• Mise en marche : Allumez l’appareil, le voyant d’alimentation s’allume. L’instrument commence à préchauffer. Après quelques secondes, il est prêt à être utilisé.\n• Positionnement de la pierre : Placez le diamant nu dans le trou creux du plateau de support, avec la surface vers le haut. Pour les pierres incrustées, tenez lès directement avec la main.\n• Utilisation de la sonde :\n• Retirez la gaine de l’aiguille.\n• Tenez l’instrument en main, avec l’index droit touchant la plaque conductrice située à l’arrière.\n• Positionnez la sonde verticalement pour entrer doucement en contact avec la surface du diamant.\n• Lecture des résultats :\n• Si les lumières LED atteignent la neuvième diode avec un bip sonore, il s’agit d’un vrai diamant.\n• Si les lumières restent inférieures à la neuvième diode sans bip, il s’agit d’un faux diamant ou autre cristal."
     },
     "images": [
-      "https://cdn.shipper.network/storage/mf0gqd3ui5f33cgz/uploads/products/10457011/6a18341c6fa59-1779971100.png",
-      "https://cdn.shipper.network/storage/mf0gqd3ui5f33cgz/uploads/products/10457008/6a1833d23845d-1779971026.png",
-      "https://cdn.shipper.network/storage/mf0gqd3ui5f33cgz/uploads/products/10457010/6a1833f711fc5-1779971063.png",
-      "https://cdn.shipper.network/storage/mf0gqd3ui5f33cgz/uploads/products/10457017/6a183544a90a7-1779971396.png",
-      "https://cdn.shipper.network/storage/mf0gqd3ui5f33cgz/uploads/products/10457018/6a1835fb3a593-1779971579.png",
-      "https://cdn.shipper.network/storage/mf0gqd3ui5f33cgz/uploads/products/10457019/6a1836030cc24-1779971587.png"
+      "https://cdn.shipper.network/storage/fyphuez7egpgmit2/uploads/products/2340196/67701d8b7c658-1735400843.jpg",
+      "https://cdn.shipper.network/storage/fyphuez7egpgmit2/uploads/products/2340197/67701d916854e-1735400849.jpg",
+      "https://cdn.shipper.network/storage/fyphuez7egpgmit2/uploads/products/2340198/67701d9475de1-1735400852.jpg",
+      "https://cdn.shipper.network/storage/fyphuez7egpgmit2/uploads/products/2340199/67701d978a62b-1735400855.jpg",
+      "https://cdn.shipper.network/storage/fyphuez7egpgmit2/uploads/products/2340200/67701e3f9df7e-1735401023.webp",
+      "https://cdn.shipper.network/storage/fyphuez7egpgmit2/uploads/products/2340201/67701e3fdae6a-1735401023.webp"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Sac bandoulière pour homme",
-    "sourceUrl": "https://app.shipper.market/products/133cada5-7a44-4e46-929e-2bb18ec0f933",
-    "sourceProductId": "133cada5-7a44-4e46-929e-2bb18ec0f933",
-    "slug": "sac-bandouliere-pour-homme-133cada5",
-    "category": "living decor bedroom bedding",
+    "sourceName": "radio Bluetooth Pronly (modèle PR-1042)",
+    "sourceUrl": "https://app.shipper.market/products/0aa03aaf-bd97-46c6-ae05-3f55e79dfa82",
+    "sourceProductId": "0aa03aaf-bd97-46c6-ae05-3f55e79dfa82",
+    "slug": "radio-bluetooth-pronly-modele-pr-1042-0aa03aaf",
+    "category": "living decor audio other categories",
     "title": {
-      "en": "Sac bandoulière pour homme",
-      "fr": "Sac bandoulière pour homme",
-      "ar": "Sac bandoulière pour homme"
+      "en": "radio Bluetooth Pronly (modèle PR-1042)",
+      "fr": "radio Bluetooth Pronly (modèle PR-1042)",
+      "ar": "radio Bluetooth Pronly (modèle PR-1042)"
     },
     "description": {
-      "en": "Matériau\nmembrane dermique\nCaractéristique\nDurable\nGenre\nUnisexe\nStyle\nMode\nType de fermeture\nFermeture à glissière\nForme\nOreiller\nType de motif\nSolide\nApplication\nDécoration, Extérieur, stockage, Randonnée, Transport",
-      "fr": "Matériau\nmembrane dermique\nCaractéristique\nDurable\nGenre\nUnisexe\nStyle\nMode\nType de fermeture\nFermeture à glissière\nForme\nOreiller\nType de motif\nSolide\nApplication\nDécoration, Extérieur, stockage, Randonnée, Transport",
-      "ar": "Matériau\nmembrane dermique\nCaractéristique\nDurable\nGenre\nUnisexe\nStyle\nMode\nType de fermeture\nFermeture à glissière\nForme\nOreiller\nType de motif\nSolide\nApplication\nDécoration, Extérieur, stockage, Randonnée, Transport"
+      "en": "Technologie & Connectivité : Radio Bluetooth, sans fil, haut-parleur portable, rechargeable, port USB, lecteur carte TF / Micro SD.\nStyle & Design : Radio rétro, look vintage, style gramophone, enceinte nostalgique, imitation bois.\nFonctions Audio : Récepteur AM / FM / SW (ondes courtes), sintonisation analogique, cadran rétro, antenne télescopique\nGénériques : Radio rétro, enceinte Bluetooth vintage, gramophone décoratif, haut-parleur nostalgique, style classique.\nTechniques : Radio 3 bandes, récepteur AM/FM/SW, lecteur MP3, ports USB et carte TF (Micro SD), batterie rechargeable portable.\nSpécifiques au modèle : Radio PRONLY PR-1042, design similaire aux modèles Meier MD-1318BT / MD-1319BT",
+      "fr": "Technologie & Connectivité : Radio Bluetooth, sans fil, haut-parleur portable, rechargeable, port USB, lecteur carte TF / Micro SD.\nStyle & Design : Radio rétro, look vintage, style gramophone, enceinte nostalgique, imitation bois.\nFonctions Audio : Récepteur AM / FM / SW (ondes courtes), sintonisation analogique, cadran rétro, antenne télescopique\nGénériques : Radio rétro, enceinte Bluetooth vintage, gramophone décoratif, haut-parleur nostalgique, style classique.\nTechniques : Radio 3 bandes, récepteur AM/FM/SW, lecteur MP3, ports USB et carte TF (Micro SD), batterie rechargeable portable.\nSpécifiques au modèle : Radio PRONLY PR-1042, design similaire aux modèles Meier MD-1318BT / MD-1319BT",
+      "ar": "Technologie & Connectivité : Radio Bluetooth, sans fil, haut-parleur portable, rechargeable, port USB, lecteur carte TF / Micro SD.\nStyle & Design : Radio rétro, look vintage, style gramophone, enceinte nostalgique, imitation bois.\nFonctions Audio : Récepteur AM / FM / SW (ondes courtes), sintonisation analogique, cadran rétro, antenne télescopique\nGénériques : Radio rétro, enceinte Bluetooth vintage, gramophone décoratif, haut-parleur nostalgique, style classique.\nTechniques : Radio 3 bandes, récepteur AM/FM/SW, lecteur MP3, ports USB et carte TF (Micro SD), batterie rechargeable portable.\nSpécifiques au modèle : Radio PRONLY PR-1042, design similaire aux modèles Meier MD-1318BT / MD-1319BT"
     },
     "images": [
-      "https://cdn.shipper.network/storage/1afvih0k7ufom0q4/uploads/products/10231814/69ee27c062766-1777215424.jpg",
-      "https://cdn.shipper.network/storage/1afvih0k7ufom0q4/uploads/products/10231806/69ee27ad4e1a3-1777215405.jpg",
-      "https://cdn.shipper.network/storage/1afvih0k7ufom0q4/uploads/products/10231807/69ee27b32142c-1777215411.jpg",
-      "https://cdn.shipper.network/storage/1afvih0k7ufom0q4/uploads/products/10231812/69ee27b942b56-1777215417.jpg",
-      "https://cdn.shipper.network/storage/1afvih0k7ufom0q4/uploads/products/10231816/69ee27cad6e6f-1777215434.jpg"
+      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/11025896/6a6899a2bb30b-1785239970.jpg",
+      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/11025899/6a6899a45f71b-1785239972.jpg",
+      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/11025895/6a6899a2bb3f6-1785239970.jpg",
+      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/11025897/6a6899a3e0574-1785239971.jpg",
+      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/11025898/6a6899a3e90da-1785239971.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "BOSS TAPE Carreau PVC Indigo 30cmx30cm",
-    "sourceUrl": "https://app.shipper.market/products/13503e90-2be8-441d-a5d4-bd13843f2fb9",
-    "sourceProductId": "13503e90-2be8-441d-a5d4-bd13843f2fb9",
-    "slug": "boss-tape-carreau-pvc-indigo-30cmx30cm-13503e90",
-    "category": "living decor care beauty hair skincare",
+    "sourceName": "Debada Crème de jour peau mixte à grasse",
+    "sourceUrl": "https://app.shipper.market/products/0ab30ac6-e851-4372-9c5c-513175659763",
+    "sourceProductId": "0ab30ac6-e851-4372-9c5c-513175659763",
+    "slug": "debada-creme-de-jour-peau-mixte-a-grasse-0ab30ac6",
+    "category": "care beauty hair skincare play outdoor cleaning laundry",
     "title": {
-      "en": "BOSS TAPE Carreau PVC Indigo 30cmx30cm",
-      "fr": "BOSS TAPE Carreau PVC Indigo 30cmx30cm",
-      "ar": "BOSS TAPE Carreau PVC Indigo 30cmx30cm"
+      "en": "Debada Crème de jour peau mixte à grasse",
+      "fr": "Debada Crème de jour peau mixte à grasse",
+      "ar": "Debada Crème de jour peau mixte à grasse"
     },
     "description": {
-      "en": "Donnez une nouvelle vie à vos espaces avec les carreaux PVC autocollants Boss tape. \nRenouvelez votre décoration intérieure sans besoin d'expertise grâce à ces dalles adaptées à toutes les surfaces (céramique, carrelage, MDF, etc)...\nAux produits d'entretien, leur épaisseur de 0,45 mm résistant garantit une longue durée de vie.",
-      "fr": "Donnez une nouvelle vie à vos espaces avec les carreaux PVC autocollants Boss tape. \nRenouvelez votre décoration intérieure sans besoin d'expertise grâce à ces dalles adaptées à toutes les surfaces (céramique, carrelage, MDF, etc)...\nAux produits d'entretien, leur épaisseur de 0,45 mm résistant garantit une longue durée de vie.",
-      "ar": "Donnez une nouvelle vie à vos espaces avec les carreaux PVC autocollants Boss tape. \nRenouvelez votre décoration intérieure sans besoin d'expertise grâce à ces dalles adaptées à toutes les surfaces (céramique, carrelage, MDF, etc)...\nAux produits d'entretien, leur épaisseur de 0,45 mm résistant garantit une longue durée de vie."
+      "en": "La crème de jour Debada peau mixte à grasse est caractérisée par une texture légère et une pénétration facile.\nElle assure une protection contre les rayons solaires « SPF15 », la pollution et l'effet du maquillage. \nElle est à la fois nourrissante, anti-imperfection, protectrice et équilibre le sébum. \nAppliquez une noisette de notre crème de jour en mouvement circulaire sur l’ensemble du visage et du cou le soir sur une peau nettoyée et séchée.\n Massez délicatement jusqu’à pénétration totale du produit. \nA utiliser une à deux fois par jour.\n L'effet est ressenti suite à une utilisation quotidienne.",
+      "fr": "La crème de jour Debada peau mixte à grasse est caractérisée par une texture légère et une pénétration facile.\nElle assure une protection contre les rayons solaires « SPF15 », la pollution et l'effet du maquillage. \nElle est à la fois nourrissante, anti-imperfection, protectrice et équilibre le sébum. \nAppliquez une noisette de notre crème de jour en mouvement circulaire sur l’ensemble du visage et du cou le soir sur une peau nettoyée et séchée.\n Massez délicatement jusqu’à pénétration totale du produit. \nA utiliser une à deux fois par jour.\n L'effet est ressenti suite à une utilisation quotidienne.",
+      "ar": "La crème de jour Debada peau mixte à grasse est caractérisée par une texture légère et une pénétration facile.\nElle assure une protection contre les rayons solaires « SPF15 », la pollution et l'effet du maquillage. \nElle est à la fois nourrissante, anti-imperfection, protectrice et équilibre le sébum. \nAppliquez une noisette de notre crème de jour en mouvement circulaire sur l’ensemble du visage et du cou le soir sur une peau nettoyée et séchée.\n Massez délicatement jusqu’à pénétration totale du produit. \nA utiliser une à deux fois par jour.\n L'effet est ressenti suite à une utilisation quotidienne."
     },
     "images": [
-      "https://cdn.shipper.network/storage/v7rbqqnzkesdcl3y/uploads/products/2297449/6763621dcca19-1734566429.jpg",
-      "https://cdn.shipper.network/storage/v7rbqqnzkesdcl3y/uploads/products/2297468/6763621eb0751-1734566430.jpg"
+      "https://cdn.shipper.network/storage/lnoke5okxnn5coft/uploads/products/8324/651b2be03a778-1696279520.png",
+      "https://cdn.shipper.network/storage/lnoke5okxnn5coft/uploads/products/3813/64a6d72c98198-1688655660.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Auto Tracking Trépied Smartphone, Extensible Support avec Fonction 360°",
+    "sourceUrl": "https://app.shipper.market/products/0ab40e38-fb2c-44a0-93d7-5f79e1cb11e8",
+    "sourceProductId": "0ab40e38-fb2c-44a0-93d7-5f79e1cb11e8",
+    "slug": "auto-tracking-trepied-smartphone-extensible-support-avec-fonction-0ab40e38",
+    "category": "organisation",
+    "title": {
+      "en": "Auto Tracking Trépied Smartphone, Extensible Support avec Fonction 360°",
+      "fr": "Auto Tracking Trépied Smartphone, Extensible Support avec Fonction 360°",
+      "ar": "Auto Tracking Trépied Smartphone, Extensible Support avec Fonction 360°"
+    },
+    "description": {
+      "en": "Cette dash cam couvre un champ de vision plus large, fournissant plus de détails pour la vidéo, fournissant des preuves importantes et fiables.\nDash Cam Caméras 1080P Avant et Intérieur avec GPS Véhicule Boîte Noire Enregistreur Conducteur pour Taxi CAR DVR 720P Caméra Arrière\nQualité d'image exceptionnelle avec une haute résolution de 1920*1080, capturant les plaques d'immatriculation, les panneaux de signalisation et d'autres détails critiques sur la route.\nLes nouveaux enregistrements écrasent automatiquement les séquences plus anciennes lorsque la carte mémoire atteint sa pleine capacité.\nL'enregistreur de conduite peut capturer clairement chaque détail, vous offrant des vidéos plus claires et récupérant des preuves solides à tout moment",
+      "fr": "Cette dash cam couvre un champ de vision plus large, fournissant plus de détails pour la vidéo, fournissant des preuves importantes et fiables.\nDash Cam Caméras 1080P Avant et Intérieur avec GPS Véhicule Boîte Noire Enregistreur Conducteur pour Taxi CAR DVR 720P Caméra Arrière\nQualité d'image exceptionnelle avec une haute résolution de 1920*1080, capturant les plaques d'immatriculation, les panneaux de signalisation et d'autres détails critiques sur la route.\nLes nouveaux enregistrements écrasent automatiquement les séquences plus anciennes lorsque la carte mémoire atteint sa pleine capacité.\nL'enregistreur de conduite peut capturer clairement chaque détail, vous offrant des vidéos plus claires et récupérant des preuves solides à tout moment",
+      "ar": "Cette dash cam couvre un champ de vision plus large, fournissant plus de détails pour la vidéo, fournissant des preuves importantes et fiables.\nDash Cam Caméras 1080P Avant et Intérieur avec GPS Véhicule Boîte Noire Enregistreur Conducteur pour Taxi CAR DVR 720P Caméra Arrière\nQualité d'image exceptionnelle avec une haute résolution de 1920*1080, capturant les plaques d'immatriculation, les panneaux de signalisation et d'autres détails critiques sur la route.\nLes nouveaux enregistrements écrasent automatiquement les séquences plus anciennes lorsque la carte mémoire atteint sa pleine capacité.\nL'enregistreur de conduite peut capturer clairement chaque détail, vous offrant des vidéos plus claires et récupérant des preuves solides à tout moment"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/nppla4knfnj0l5zd/uploads/products/8665609/693edcc2eba4a-1765727426.jpg",
+      "https://cdn.shipper.network/storage/nppla4knfnj0l5zd/uploads/products/8665608/693edcc2ec23c-1765727426.jpg",
+      "https://cdn.shipper.network/storage/nppla4knfnj0l5zd/uploads/products/8665610/693edcc9b39e1-1765727433.jpg",
+      "https://cdn.shipper.network/storage/nppla4knfnj0l5zd/uploads/products/8665611/693edcc9cfe88-1765727433.jpg",
+      "https://cdn.shipper.network/storage/nppla4knfnj0l5zd/uploads/products/8665612/693edccb73768-1765727435.jpg",
+      "https://cdn.shipper.network/storage/nppla4knfnj0l5zd/uploads/products/8665613/693edccbc49d2-1765727435.jpg",
+      "https://cdn.shipper.network/storage/nppla4knfnj0l5zd/uploads/products/8665614/693edccc73293-1765727436.jpg",
+      "https://cdn.shipper.network/storage/nppla4knfnj0l5zd/uploads/products/8665615/693edccc9eb15-1765727436.webp",
+      "https://cdn.shipper.network/storage/nppla4knfnj0l5zd/uploads/products/8665616/693edccceb3f7-1765727436.webp"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Machine à découper les légumes manuelle",
+    "sourceUrl": "https://app.shipper.market/products/0ab55f6c-39df-4ddf-8e91-e83ce511b1e8",
+    "sourceProductId": "0ab55f6c-39df-4ddf-8e91-e83ce511b1e8",
+    "slug": "machine-a-decouper-les-legumes-manuelle-0ab55f6c",
+    "category": "kitchen dining play cleaning laundry",
+    "title": {
+      "en": "Machine à découper les légumes manuelle",
+      "fr": "Machine à découper les légumes manuelle",
+      "ar": "Machine à découper les légumes manuelle"
+    },
+    "description": {
+      "en": "• Polyvalence : Cet ustensile de cuisine permet de trancher, de râper (gros et fin) et de déchiqueter divers aliments tels que les pommes de terre, les concombres, les carottes, le fromage, les noix, etc., grâce à ses trois lames cylindriques interchangeables en acier inoxydable. \n• Fonctionnement manuel et sécurité : Il fonctionne via un mécanisme simple à manivelle qui fait tourner le tambour. Une base d'aspiration robuste se fixe solidement au comptoir pour une utilisation sans effort, et un poussoir alimentaire assure la sécurité des mains en les éloignant des lames. \n• Conception et entretien : Fabriqué en acier inoxydable et en plastique ABS de haute qualité, il est conçu pour être durable et facile à nettoyer. Les accessoires sont généralement détachables et peuvent être rincés sous l'eau ou placés au lave-vaisselle (panier supérieur). \n• Efficacité : Cet outil est conçu pour réduire le temps de préparation des aliments, un tour de poignée équivalant à plusieurs coupes manuelles manuelles.",
+      "fr": "• Polyvalence : Cet ustensile de cuisine permet de trancher, de râper (gros et fin) et de déchiqueter divers aliments tels que les pommes de terre, les concombres, les carottes, le fromage, les noix, etc., grâce à ses trois lames cylindriques interchangeables en acier inoxydable. \n• Fonctionnement manuel et sécurité : Il fonctionne via un mécanisme simple à manivelle qui fait tourner le tambour. Une base d'aspiration robuste se fixe solidement au comptoir pour une utilisation sans effort, et un poussoir alimentaire assure la sécurité des mains en les éloignant des lames. \n• Conception et entretien : Fabriqué en acier inoxydable et en plastique ABS de haute qualité, il est conçu pour être durable et facile à nettoyer. Les accessoires sont généralement détachables et peuvent être rincés sous l'eau ou placés au lave-vaisselle (panier supérieur). \n• Efficacité : Cet outil est conçu pour réduire le temps de préparation des aliments, un tour de poignée équivalant à plusieurs coupes manuelles manuelles.",
+      "ar": "• Polyvalence : Cet ustensile de cuisine permet de trancher, de râper (gros et fin) et de déchiqueter divers aliments tels que les pommes de terre, les concombres, les carottes, le fromage, les noix, etc., grâce à ses trois lames cylindriques interchangeables en acier inoxydable. \n• Fonctionnement manuel et sécurité : Il fonctionne via un mécanisme simple à manivelle qui fait tourner le tambour. Une base d'aspiration robuste se fixe solidement au comptoir pour une utilisation sans effort, et un poussoir alimentaire assure la sécurité des mains en les éloignant des lames. \n• Conception et entretien : Fabriqué en acier inoxydable et en plastique ABS de haute qualité, il est conçu pour être durable et facile à nettoyer. Les accessoires sont généralement détachables et peuvent être rincés sous l'eau ou placés au lave-vaisselle (panier supérieur). \n• Efficacité : Cet outil est conçu pour réduire le temps de préparation des aliments, un tour de poignée équivalant à plusieurs coupes manuelles manuelles."
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/2tlszabhxbvov2ms/uploads/products/8928464/6957ac5144c74-1767353425.jpg",
+      "https://cdn.shipper.network/storage/2tlszabhxbvov2ms/uploads/products/8928465/6957ac5146492-1767353425.jpg",
+      "https://cdn.shipper.network/storage/2tlszabhxbvov2ms/uploads/products/8928466/6957ac5345b16-1767353427.jpg",
+      "https://cdn.shipper.network/storage/2tlszabhxbvov2ms/uploads/products/8928467/6957ac5345b1c-1767353427.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "porte clef forme arbre",
+    "sourceUrl": "https://app.shipper.market/products/0ab6402d-b3ba-425b-91c1-21255016264c",
+    "sourceProductId": "0ab6402d-b3ba-425b-91c1-21255016264c",
+    "slug": "porte-clef-forme-arbre-0ab6402d",
+    "category": "accessories",
+    "title": {
+      "en": "porte clef forme arbre",
+      "fr": "porte clef forme arbre",
+      "ar": "porte clef forme arbre"
+    },
+    "description": {
+      "en": "porte clef forme arbre",
+      "fr": "porte clef forme arbre",
+      "ar": "porte clef forme arbre"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/21sprzqg1x7k1sp3/uploads/products/9025490/69615c858e86d-1767988357.jpg",
+      "https://cdn.shipper.network/storage/21sprzqg1x7k1sp3/uploads/products/9025491/69615c858e145-1767988357.jpg",
+      "https://cdn.shipper.network/storage/21sprzqg1x7k1sp3/uploads/products/9025492/69615c885374c-1767988360.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Jouet Gonflable Dauphin pour Enfants",
+    "sourceUrl": "https://app.shipper.market/products/0ac32428-e8c1-4faf-91c9-2ddfaaa7adb4",
+    "sourceProductId": "0ac32428-e8c1-4faf-91c9-2ddfaaa7adb4",
+    "slug": "jouet-gonflable-dauphin-pour-enfants-0ac32428",
+    "category": "play outdoor other video games & consoles products",
+    "title": {
+      "en": "Jouet Gonflable Dauphin pour Enfants",
+      "fr": "Jouet Gonflable Dauphin pour Enfants",
+      "ar": "Jouet Gonflable Dauphin pour Enfants"
+    },
+    "description": {
+      "en": "Jouet Gonflable Dauphin pour Enfants – Bouée Flottante en PVC 175 × 66 cmFaites vivre à votre enfant des aventures aquatiques inoubliables avec ce magnifique jouet gonflable en forme de dauphin. Conçu en PVC de haute qualité, il offre une excellente flottabilité et un grand confort pour profiter pleinement des journées à la piscine, à la plage ou au lac.\nAvec son design réaliste et ses grandes dimensions, ce dauphin gonflable est parfait pour les jeux d'eau, les moments de détente et les activités estivales en plein air. Léger, résistant et facile à gonfler, il accompagne les enfants partout pendant les vacances.\nCaractéristiques🐬 Design amusant en forme de dauphin.\n💙 PVC robuste, durable et résistant à l'eau.\n🌊 Excellente flottabilité pour les jeux aquatiques.\n☀️ Idéal pour la piscine, la plage, le lac et les vacances.\n🎈 Gonflage et dégonflage rapides.\n📦 Facile à transporter et à ranger après utilisation.\nSpécificationsType : Jouet flottant gonflable.\nMatériau : PVC.\nDimensions : 175 × 66 cm.\nModèle : 58535.\nUtilisation : Jeux d'eau et loisirs en plein air.\nGonflable : Oui.\nOrigine : Chine.\nTransformez chaque baignade en une aventure amusante avec ce dauphin gonflable, le compagnon idéal des enfants pour profiter pleinement de l'été.\nRemarque : Ce produit est un jouet aquatique et ne remplace pas un équipement de sécurité. Il doit être utilisé uniquement sous la surveillance d'un adulte.",
+      "fr": "Jouet Gonflable Dauphin pour Enfants – Bouée Flottante en PVC 175 × 66 cmFaites vivre à votre enfant des aventures aquatiques inoubliables avec ce magnifique jouet gonflable en forme de dauphin. Conçu en PVC de haute qualité, il offre une excellente flottabilité et un grand confort pour profiter pleinement des journées à la piscine, à la plage ou au lac.\nAvec son design réaliste et ses grandes dimensions, ce dauphin gonflable est parfait pour les jeux d'eau, les moments de détente et les activités estivales en plein air. Léger, résistant et facile à gonfler, il accompagne les enfants partout pendant les vacances.\nCaractéristiques🐬 Design amusant en forme de dauphin.\n💙 PVC robuste, durable et résistant à l'eau.\n🌊 Excellente flottabilité pour les jeux aquatiques.\n☀️ Idéal pour la piscine, la plage, le lac et les vacances.\n🎈 Gonflage et dégonflage rapides.\n📦 Facile à transporter et à ranger après utilisation.\nSpécificationsType : Jouet flottant gonflable.\nMatériau : PVC.\nDimensions : 175 × 66 cm.\nModèle : 58535.\nUtilisation : Jeux d'eau et loisirs en plein air.\nGonflable : Oui.\nOrigine : Chine.\nTransformez chaque baignade en une aventure amusante avec ce dauphin gonflable, le compagnon idéal des enfants pour profiter pleinement de l'été.\nRemarque : Ce produit est un jouet aquatique et ne remplace pas un équipement de sécurité. Il doit être utilisé uniquement sous la surveillance d'un adulte.",
+      "ar": "Jouet Gonflable Dauphin pour Enfants – Bouée Flottante en PVC 175 × 66 cmFaites vivre à votre enfant des aventures aquatiques inoubliables avec ce magnifique jouet gonflable en forme de dauphin. Conçu en PVC de haute qualité, il offre une excellente flottabilité et un grand confort pour profiter pleinement des journées à la piscine, à la plage ou au lac.\nAvec son design réaliste et ses grandes dimensions, ce dauphin gonflable est parfait pour les jeux d'eau, les moments de détente et les activités estivales en plein air. Léger, résistant et facile à gonfler, il accompagne les enfants partout pendant les vacances.\nCaractéristiques🐬 Design amusant en forme de dauphin.\n💙 PVC robuste, durable et résistant à l'eau.\n🌊 Excellente flottabilité pour les jeux aquatiques.\n☀️ Idéal pour la piscine, la plage, le lac et les vacances.\n🎈 Gonflage et dégonflage rapides.\n📦 Facile à transporter et à ranger après utilisation.\nSpécificationsType : Jouet flottant gonflable.\nMatériau : PVC.\nDimensions : 175 × 66 cm.\nModèle : 58535.\nUtilisation : Jeux d'eau et loisirs en plein air.\nGonflable : Oui.\nOrigine : Chine.\nTransformez chaque baignade en une aventure amusante avec ce dauphin gonflable, le compagnon idéal des enfants pour profiter pleinement de l'été.\nRemarque : Ce produit est un jouet aquatique et ne remplace pas un équipement de sécurité. Il doit être utilisé uniquement sous la surveillance d'un adulte."
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/10900161/6a4e5fabb2313-1783521195.jpg",
+      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/10900158/6a4e5fa937303-1783521193.jpg",
+      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/10900159/6a4e5faa586ff-1783521194.png",
+      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/10900162/6a4e5faf09d03-1783521199.jpg"
     ],
     "originalSupplierCopy": true
   }
