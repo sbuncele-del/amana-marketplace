@@ -56,7 +56,7 @@ async function fetchSnapshot(){
  const rows=[];const seen=new Set<string>();let lastPage=1;
  for(let page=1;page<=lastPage;page++){
   // Stay below the provider's read budget, including a complete 12k catalogue.
-  if(page>1)await new Promise(resolve=>setTimeout(resolve,650));
+  if(page>1)await new Promise(resolve=>setTimeout(resolve,1500));
   // The provider rate-limits full-catalogue reads; wait out Retry-After (capped) and retry the same page instead of failing the whole snapshot.
   let response:Response|undefined;
   for(let attempt=0;attempt<4;attempt++){
