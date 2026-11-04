@@ -11,9 +11,10 @@ const STORAGE_KEY = "ps_email_popup_dismissed";
 const DELAY_MS = 45000; // Only offer after time and meaningful browsing.
 
 export function EmailCapturePopup() {
+  const [mobile,setMobile]=useState(true);useEffect(()=>{setMobile(window.matchMedia('(max-width: 639px)').matches);},[]);
   const {status} = useSession();
   const pathname = usePathname();
-  const eligible = status === "unauthenticated" && !["/account", "/admin", "/dashboard", "/operations", "/partner", "/checkout", "/newsletter", "/feedback"].some(path => pathname.startsWith(path));
+  const eligible = !mobile && status === "unauthenticated" && !["/account", "/admin", "/dashboard", "/operations", "/partner", "/checkout", "/newsletter", "/feedback"].some(path => pathname.startsWith(path));
   const [markets, setMarkets] = useState<{code:string;name:string}[]>([]);
   const [market, setMarket] = useState('');
   const [countryError, setCountryError] = useState('');

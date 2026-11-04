@@ -1,9 +1,10 @@
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export type CatalogueCardData = {id:string;slug:string;name:string;images:string[];price:number;currency:string;supplierAvailable:boolean;priceOnRequest?:boolean;category:{name:string;slug:string}};
 export function SharedCatalogueCard({product,list=false,href,price,stockText}:{product:CatalogueCardData;list?:boolean;href:string;price:string;stockText:string}) {
- return <Link href={href} className={`group overflow-hidden rounded-xl border border-gray-200 bg-white transition hover:border-red-600/40 hover:shadow-md focus-visible:outline-2 focus-visible:outline-red-700 ${list?'flex':'flex flex-col'}`}>
+ return <Link href={href} onClick={()=>{try{const key='plentovo:recent-categories:v1:'+product.currency;const old=JSON.parse(sessionStorage.getItem(key)||'[]');sessionStorage.setItem(key,JSON.stringify([product.category.slug,...(Array.isArray(old)?old:[]).filter(c=>typeof c==='string'&&c!==product.category.slug)].slice(0,5)));}catch{}}} className={`catalogue-product-card group overflow-hidden rounded-xl border border-gray-200 bg-white transition hover:border-red-600/40 hover:shadow-md focus-visible:outline-2 focus-visible:outline-red-700 ${list?'flex':'flex flex-col'}`}>
   <div className={`relative bg-white ${list?'w-28 shrink-0 sm:w-44':'aspect-square'}`}>
    {product.images[0] && <Image unoptimized src={product.images[0]} alt={product.name} fill sizes={list?'176px':'(max-width:640px) 50vw, (max-width:1024px) 33vw, 20vw'} className="object-contain p-3 transition duration-300 group-hover:scale-105"/>}
   </div>

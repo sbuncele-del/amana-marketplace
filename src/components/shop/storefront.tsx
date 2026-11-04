@@ -1,3 +1,4 @@
+import {MobileShoppingHome} from './mobile-shopping-home';
 import {selectHomepageRows} from '@/lib/homepage-selection';
 import {Suspense} from 'react';
 import {defaultStore} from '@/lib/cms/defaults';
@@ -101,5 +102,5 @@ async function LoadedStorefront({ config }: { config?: StoreConfig }) {
 export default function Storefront({config}:{config?:StoreConfig}){
  const store=config||defaultStore;
  const shell=<StorefrontLayout store={store} theme={themes[store.theme]} slideshow={<ShoppingSlideshow slides={store.slides}/>} missions={<ShoppingMissions slugs={store.missionSlugs}/>} more={<MoreDepartments/>} activeMerchandising={null} demandProducts={[]} valueProducts={[]} featuredProducts={[]} collections={[]} renderProduct={product=><CatalogueCard product={product}/>}/>;
- return <Suspense fallback={shell}><LoadedStorefront config={config}/></Suspense>;
+ return <><MobileShoppingHome/><div className="desktop-storefront"><Suspense fallback={shell}><LoadedStorefront config={config}/></Suspense></div></>;
 }
