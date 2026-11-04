@@ -1,299 +1,418 @@
 [
   {
-    "sourceName": "لوحة متعة التعلم",
-    "sourceUrl": "https://app.shipper.market/products/c3f19aac-e8b0-490b-8fbe-cbbfb94c679d",
-    "sourceProductId": "c3f19aac-e8b0-490b-8fbe-cbbfb94c679d",
-    "slug": "product-c3f19aac",
-    "category": "play organisation",
+    "sourceName": "Jouet Musical Pédagogique",
+    "sourceUrl": "https://app.shipper.market/products/6d363a94-fff0-4bec-a57c-61b5bcb92330",
+    "sourceProductId": "6d363a94-fff0-4bec-a57c-61b5bcb92330",
+    "slug": "jouet-musical-pedagogique-6d363a94",
+    "category": "play school office",
     "title": {
-      "en": "لوحة متعة التعلم",
-      "fr": "لوحة متعة التعلم",
-      "ar": "لوحة متعة التعلم"
+      "en": "Jouet Musical Pédagogique",
+      "fr": "Jouet Musical Pédagogique",
+      "ar": "Jouet Musical Pédagogique"
     },
     "description": {
-      "en": "لوحة \"متعة التعلم\" هي وسيلة تعليمية تفاعلية جذابة، تستهدف الأطفال (غالباً من عمر 3 سنوات فما فوق) لتعليم الحروف، الأرقام، والآيات القرآنية بأسلوب ممتع. تأتي بتصاميم ملوّنة تدمج بين اللعب والتعليم، وتعمل أحياناً عبر تقنيات صوتية أو مغناطيسية لتطوير المهارات المعرفية والحركية الدقيقة. \nوصف تفصيلي للوحة متعة التعلم:\n• الهدف: تطوير المهارات الذهنية والحركية (تنسيق اليد والعين) بطريقة تفاعلية لا تعتمد على التلقين.\n• المميزات التفاعلية: تحتوي على أزرار صوتية، أو كرات مغناطيسية، أو شاشات LCD للكتابة والمسح بسهولة.\n• المحتوى التعليمي: تُركز على الأرقام، الحروف، والأدعية والأذكار، وأحياناً أركان الإيمان.\n• التصميم: خفيفة الوزن، آمنة، ومحمولة مما يجعلها مثالية للسفر، وتأتي بحواف ناعمة للأطفال.\n• الفوائد: تشجع على الإبداع، التركيز، والتعلم الذاتي دون فوضى الأوراق والأقلام التقليدية.\nتعتبر هذه اللوحات أداة ممتازة لغرس القيم والمبادئ الأساسية بأسلوب بصري ومسموع شيق للأطفال",
-      "fr": "لوحة \"متعة التعلم\" هي وسيلة تعليمية تفاعلية جذابة، تستهدف الأطفال (غالباً من عمر 3 سنوات فما فوق) لتعليم الحروف، الأرقام، والآيات القرآنية بأسلوب ممتع. تأتي بتصاميم ملوّنة تدمج بين اللعب والتعليم، وتعمل أحياناً عبر تقنيات صوتية أو مغناطيسية لتطوير المهارات المعرفية والحركية الدقيقة. \nوصف تفصيلي للوحة متعة التعلم:\n• الهدف: تطوير المهارات الذهنية والحركية (تنسيق اليد والعين) بطريقة تفاعلية لا تعتمد على التلقين.\n• المميزات التفاعلية: تحتوي على أزرار صوتية، أو كرات مغناطيسية، أو شاشات LCD للكتابة والمسح بسهولة.\n• المحتوى التعليمي: تُركز على الأرقام، الحروف، والأدعية والأذكار، وأحياناً أركان الإيمان.\n• التصميم: خفيفة الوزن، آمنة، ومحمولة مما يجعلها مثالية للسفر، وتأتي بحواف ناعمة للأطفال.\n• الفوائد: تشجع على الإبداع، التركيز، والتعلم الذاتي دون فوضى الأوراق والأقلام التقليدية.\nتعتبر هذه اللوحات أداة ممتازة لغرس القيم والمبادئ الأساسية بأسلوب بصري ومسموع شيق للأطفال",
-      "ar": "لوحة \"متعة التعلم\" هي وسيلة تعليمية تفاعلية جذابة، تستهدف الأطفال (غالباً من عمر 3 سنوات فما فوق) لتعليم الحروف، الأرقام، والآيات القرآنية بأسلوب ممتع. تأتي بتصاميم ملوّنة تدمج بين اللعب والتعليم، وتعمل أحياناً عبر تقنيات صوتية أو مغناطيسية لتطوير المهارات المعرفية والحركية الدقيقة. \nوصف تفصيلي للوحة متعة التعلم:\n• الهدف: تطوير المهارات الذهنية والحركية (تنسيق اليد والعين) بطريقة تفاعلية لا تعتمد على التلقين.\n• المميزات التفاعلية: تحتوي على أزرار صوتية، أو كرات مغناطيسية، أو شاشات LCD للكتابة والمسح بسهولة.\n• المحتوى التعليمي: تُركز على الأرقام، الحروف، والأدعية والأذكار، وأحياناً أركان الإيمان.\n• التصميم: خفيفة الوزن، آمنة، ومحمولة مما يجعلها مثالية للسفر، وتأتي بحواف ناعمة للأطفال.\n• الفوائد: تشجع على الإبداع، التركيز، والتعلم الذاتي دون فوضى الأوراق والأقلام التقليدية.\nتعتبر هذه اللوحات أداة ممتازة لغرس القيم والمبادئ الأساسية بأسلوب بصري ومسموع شيق للأطفال"
+      "en": "لعبة موسيقية إلكترونية للأطفال – متعة وتعلّم في آنٍ واحد! 🎶🎵\nإذا تحب تعلّم صغيرك الموسيقى بطريقة سهلة وممتعة، هاللعبة الموسيقية الإلكترونية هي الخيار المثالي! مصممة خصّيصًا باش تعاون الصغار على اكتشاف الأصوات والإيقاعات بطريقة تفاعلية.\nالمواصفات:\n✅ النوع: لعبة إلكترونية – لعبة موسيقية\n✅ الآلة: كيبورد (Clavier)\n✅ المادة: بلاستيك متين وخفيف\n✅ الوظيفة: تعليمية، تساعد الأطفال على تطوير مهاراتهم الموسيقية\n✅ مناسبة للجنسين: للبنات والصبيان\n✅ الكمية: 1 قطعة\n✅ بلد المنشأ: قوانغدونغ، الصين\nالتغليف والأبعاد:\n📦 وحدة البيع: قطعة فردية\n📏 الأبعاد: 15.2 × 11.2 × 3.2 سم\n⚖ الوزن: 0.250 كغ\nاللعبة هذي باش تخلي صغيرك يستمتع بالموسيقى وينمّي حسه الإيقاعي بطريقة مسلية وتفاعلية! 🎼✨\nClavier Électronique pour Enfants – Jouet Musical Pédagogique\nOffrez à votre enfant une expérience musicale ludique avec ce clavier électronique éducatif ! Conçu pour stimuler l'éveil musical des plus jeunes, ce jouet combine amusement et apprentissage.\nCaractéristiques du produit :\n✅ Type : Jouet électronique, Jouet musical\n✅ Instrument : Clavier\n✅ Matériau : Plastique résistant\n✅ Fonction : Pédagogique – idéal pour initier les enfants à la musique\n✅ Sexe : Unisexe, adapté aux filles et aux garçons\n✅ Quantité : 1 pièce\n✅ Origine : Guangdong, Chine\nEmballage et dimensions :\n📦 Unité de vente : Article unique\n📏 Dimensions du produit : 15.2 x 11.2 x 3.2 cm\n⚖ Poids brut : 0.250 kg\nCe clavier éducatif est parfait pour éveiller la curiosité musicale des enfants tout en développant leur coordination et leur créativité ! 🎶✨",
+      "fr": "لعبة موسيقية إلكترونية للأطفال – متعة وتعلّم في آنٍ واحد! 🎶🎵\nإذا تحب تعلّم صغيرك الموسيقى بطريقة سهلة وممتعة، هاللعبة الموسيقية الإلكترونية هي الخيار المثالي! مصممة خصّيصًا باش تعاون الصغار على اكتشاف الأصوات والإيقاعات بطريقة تفاعلية.\nالمواصفات:\n✅ النوع: لعبة إلكترونية – لعبة موسيقية\n✅ الآلة: كيبورد (Clavier)\n✅ المادة: بلاستيك متين وخفيف\n✅ الوظيفة: تعليمية، تساعد الأطفال على تطوير مهاراتهم الموسيقية\n✅ مناسبة للجنسين: للبنات والصبيان\n✅ الكمية: 1 قطعة\n✅ بلد المنشأ: قوانغدونغ، الصين\nالتغليف والأبعاد:\n📦 وحدة البيع: قطعة فردية\n📏 الأبعاد: 15.2 × 11.2 × 3.2 سم\n⚖ الوزن: 0.250 كغ\nاللعبة هذي باش تخلي صغيرك يستمتع بالموسيقى وينمّي حسه الإيقاعي بطريقة مسلية وتفاعلية! 🎼✨\nClavier Électronique pour Enfants – Jouet Musical Pédagogique\nOffrez à votre enfant une expérience musicale ludique avec ce clavier électronique éducatif ! Conçu pour stimuler l'éveil musical des plus jeunes, ce jouet combine amusement et apprentissage.\nCaractéristiques du produit :\n✅ Type : Jouet électronique, Jouet musical\n✅ Instrument : Clavier\n✅ Matériau : Plastique résistant\n✅ Fonction : Pédagogique – idéal pour initier les enfants à la musique\n✅ Sexe : Unisexe, adapté aux filles et aux garçons\n✅ Quantité : 1 pièce\n✅ Origine : Guangdong, Chine\nEmballage et dimensions :\n📦 Unité de vente : Article unique\n📏 Dimensions du produit : 15.2 x 11.2 x 3.2 cm\n⚖ Poids brut : 0.250 kg\nCe clavier éducatif est parfait pour éveiller la curiosité musicale des enfants tout en développant leur coordination et leur créativité ! 🎶✨",
+      "ar": "لعبة موسيقية إلكترونية للأطفال – متعة وتعلّم في آنٍ واحد! 🎶🎵\nإذا تحب تعلّم صغيرك الموسيقى بطريقة سهلة وممتعة، هاللعبة الموسيقية الإلكترونية هي الخيار المثالي! مصممة خصّيصًا باش تعاون الصغار على اكتشاف الأصوات والإيقاعات بطريقة تفاعلية.\nالمواصفات:\n✅ النوع: لعبة إلكترونية – لعبة موسيقية\n✅ الآلة: كيبورد (Clavier)\n✅ المادة: بلاستيك متين وخفيف\n✅ الوظيفة: تعليمية، تساعد الأطفال على تطوير مهاراتهم الموسيقية\n✅ مناسبة للجنسين: للبنات والصبيان\n✅ الكمية: 1 قطعة\n✅ بلد المنشأ: قوانغدونغ، الصين\nالتغليف والأبعاد:\n📦 وحدة البيع: قطعة فردية\n📏 الأبعاد: 15.2 × 11.2 × 3.2 سم\n⚖ الوزن: 0.250 كغ\nاللعبة هذي باش تخلي صغيرك يستمتع بالموسيقى وينمّي حسه الإيقاعي بطريقة مسلية وتفاعلية! 🎼✨\nClavier Électronique pour Enfants – Jouet Musical Pédagogique\nOffrez à votre enfant une expérience musicale ludique avec ce clavier électronique éducatif ! Conçu pour stimuler l'éveil musical des plus jeunes, ce jouet combine amusement et apprentissage.\nCaractéristiques du produit :\n✅ Type : Jouet électronique, Jouet musical\n✅ Instrument : Clavier\n✅ Matériau : Plastique résistant\n✅ Fonction : Pédagogique – idéal pour initier les enfants à la musique\n✅ Sexe : Unisexe, adapté aux filles et aux garçons\n✅ Quantité : 1 pièce\n✅ Origine : Guangdong, Chine\nEmballage et dimensions :\n📦 Unité de vente : Article unique\n📏 Dimensions du produit : 15.2 x 11.2 x 3.2 cm\n⚖ Poids brut : 0.250 kg\nCe clavier éducatif est parfait pour éveiller la curiosité musicale des enfants tout en développant leur coordination et leur créativité ! 🎶✨"
     },
     "images": [
-      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/9717207/69a94d3e1ac47-1772703038.png",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9618409/699a10db30dc2-1771704539.jpg",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9712725/69a85b021c7a8-1772641026.jpg",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9712726/69a85b02ac78a-1772641026.jpg",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/9712727/69a85b04bab6f-1772641028.jpg"
+      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/2803075/67e3f64d61042-1742992973.jpg",
+      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/2803074/67e3f64d5f8d5-1742992973.jpg",
+      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/2803062/67e3f573a532a-1742992755.jpg",
+      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/2803072/67e3f5ce9063f-1742992846.jpg",
+      "https://cdn.shipper.network/storage/k0j31fbbc44rfgbn/uploads/products/2801086/67e343eec572f-1742947310.jpg",
+      "https://cdn.shipper.network/storage/k0j31fbbc44rfgbn/uploads/products/2801087/67e343eecc05c-1742947310.webp",
+      "https://cdn.shipper.network/storage/k0j31fbbc44rfgbn/uploads/products/2801088/67e343f11f74e-1742947313.webp",
+      "https://cdn.shipper.network/storage/k0j31fbbc44rfgbn/uploads/products/2801089/67e343f134b6f-1742947313.webp",
+      "https://cdn.shipper.network/storage/k0j31fbbc44rfgbn/uploads/products/2801090/67e343f476312-1742947316.webp",
+      "https://cdn.shipper.network/storage/k0j31fbbc44rfgbn/uploads/products/2801091/67e343f47ee68-1742947316.webp",
+      "https://cdn.shipper.network/storage/k0j31fbbc44rfgbn/uploads/products/2801092/67e343f73ae58-1742947319.webp",
+      "https://cdn.shipper.network/storage/k0j31fbbc44rfgbn/uploads/products/2801093/67e343f748651-1742947319.webp",
+      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/2803061/67e3f573a147f-1742992755.jpg",
+      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/2803063/67e3f5761136e-1742992758.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "TOTAL JEU DE 06 TOURNEVIS",
-    "sourceUrl": "https://app.shipper.market/products/c3f44218-a411-4e0e-a469-20b08fed0791",
-    "sourceProductId": "c3f44218-a411-4e0e-a469-20b08fed0791",
-    "slug": "total-jeu-de-06-tournevis-c3f44218",
+    "sourceName": "Bade'e Al Oud Honor & Glory",
+    "sourceUrl": "https://app.shipper.market/products/6d4436ff-e7f6-4ea7-9120-3727622c48cf",
+    "sourceProductId": "6d4436ff-e7f6-4ea7-9120-3727622c48cf",
+    "slug": "bade-e-al-oud-honor-glory-6d4436ff",
+    "category": "care beauty hair skincare",
+    "title": {
+      "en": "Bade'e Al Oud Honor & Glory",
+      "fr": "Bade'e Al Oud Honor & Glory",
+      "ar": "Bade'e Al Oud Honor & Glory"
+    },
+    "description": {
+      "en": "Il s'agit de l'eau de parfum mixte Bade'e Al Oud Honor & Glory de la marque Lattafa. \n• Notes principales : Ananas, crème brûlée, cannelle, curcuma et vanille. \n• Caractère : Parfum oriental doux, épicé et crémeux. \n• Format : Bouteille de 100 ml",
+      "fr": "Il s'agit de l'eau de parfum mixte Bade'e Al Oud Honor & Glory de la marque Lattafa. \n• Notes principales : Ananas, crème brûlée, cannelle, curcuma et vanille. \n• Caractère : Parfum oriental doux, épicé et crémeux. \n• Format : Bouteille de 100 ml",
+      "ar": "Il s'agit de l'eau de parfum mixte Bade'e Al Oud Honor & Glory de la marque Lattafa. \n• Notes principales : Ananas, crème brûlée, cannelle, curcuma et vanille. \n• Caractère : Parfum oriental doux, épicé et crémeux. \n• Format : Bouteille de 100 ml"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/9965612/69d0d4c9be510-1775293641.jpg",
+      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/9965613/69d0d4ca76dfc-1775293642.png",
+      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/9965614/69d0d4cd8095b-1775293645.webp"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "jeu éducatif de rapidité et de logique Ring Games",
+    "sourceUrl": "https://app.shipper.market/products/6d4cb2c4-e01d-419d-9963-8a3e7574abcb",
+    "sourceProductId": "6d4cb2c4-e01d-419d-9963-8a3e7574abcb",
+    "slug": "jeu-educatif-de-rapidite-et-de-logique-ring-games-6d4cb2c4",
     "category": "play",
     "title": {
-      "en": "TOTAL JEU DE 06 TOURNEVIS",
-      "fr": "TOTAL JEU DE 06 TOURNEVIS",
-      "ar": "TOTAL JEU DE 06 TOURNEVIS"
+      "en": "jeu éducatif de rapidité et de logique Ring Games",
+      "fr": "jeu éducatif de rapidité et de logique Ring Games",
+      "ar": "jeu éducatif de rapidité et de logique Ring Games"
     },
     "description": {
-      "en": "Jeu de 6 tournevisNouvelle poignée designMatériel:Cr-VLame ronde1 pièces SL5X75mm1 pièces SL5X100mm1 pièces SL6X150mm1 pièces PH1X75mm1 pièces PH1X100mm1 pièces PH2X150mmavec 1 cadre en plastiqueEmballé par double blister",
-      "fr": "Jeu de 6 tournevisNouvelle poignée designMatériel:Cr-VLame ronde1 pièces SL5X75mm1 pièces SL5X100mm1 pièces SL6X150mm1 pièces PH1X75mm1 pièces PH1X100mm1 pièces PH2X150mmavec 1 cadre en plastiqueEmballé par double blister",
-      "ar": "Jeu de 6 tournevisNouvelle poignée designMatériel:Cr-VLame ronde1 pièces SL5X75mm1 pièces SL5X100mm1 pièces SL6X150mm1 pièces PH1X75mm1 pièces PH1X100mm1 pièces PH2X150mmavec 1 cadre en plastiqueEmballé par double blister"
+      "en": "Âge recommandé : À partir de 4 ans.\n\nNombre de joueurs : 2 à 4 participants.\n\nObjectif : Reproduire le motif géométrique de la carte défi avec des anneaux colorés le plus vite possible.\n\nRègle de victoire : Le premier joueur qui réussit l'assemblage doit appuyer sur la sonnette pour remporter la carte.\n\nCompétences ciblées : Amélioration de la coordination œil-main, de la concentration et de la vitesse de réaction.",
+      "fr": "Âge recommandé : À partir de 4 ans.\n\nNombre de joueurs : 2 à 4 participants.\n\nObjectif : Reproduire le motif géométrique de la carte défi avec des anneaux colorés le plus vite possible.\n\nRègle de victoire : Le premier joueur qui réussit l'assemblage doit appuyer sur la sonnette pour remporter la carte.\n\nCompétences ciblées : Amélioration de la coordination œil-main, de la concentration et de la vitesse de réaction.",
+      "ar": "Âge recommandé : À partir de 4 ans.\n\nNombre de joueurs : 2 à 4 participants.\n\nObjectif : Reproduire le motif géométrique de la carte défi avec des anneaux colorés le plus vite possible.\n\nRègle de victoire : Le premier joueur qui réussit l'assemblage doit appuyer sur la sonnette pour remporter la carte.\n\nCompétences ciblées : Amélioration de la coordination œil-main, de la concentration et de la vitesse de réaction."
     },
     "images": [
-      "https://cdn.shipper.network/storage/rcrzkf18sbtvo4ha/uploads/products/3085/647c6d5827566-1685876056.jpg"
+      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/11550099/conversions/6ab278ee6649c-1790081262-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/11550100/conversions/6ab278ee6ef55-1790081262-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/11550101/conversions/6ab278f079dba-1790081264-thumbnail-medium.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Lampe Solaire LED Applique 2W - Détecteur",
-    "sourceUrl": "https://app.shipper.market/products/c40750c0-8fef-4827-ac41-0a2e8eaef20c",
-    "sourceProductId": "c40750c0-8fef-4827-ac41-0a2e8eaef20c",
-    "slug": "lampe-solaire-led-applique-2w-detecteur-c40750c0",
-    "category": "care beauty hair skincare lighting outdoor outdoor lamps",
+    "sourceName": "BLOCK EN SILICONE",
+    "sourceUrl": "https://app.shipper.market/products/6d4ed104-9923-4337-bba6-0fe990ea01f2",
+    "sourceProductId": "6d4ed104-9923-4337-bba6-0fe990ea01f2",
+    "slug": "block-en-silicone-6d4ed104",
+    "category": "bathroom care beauty hair skincare play baby",
     "title": {
-      "en": "Lampe Solaire LED Applique 2W - Détecteur",
-      "fr": "Lampe Solaire LED Applique 2W - Détecteur",
-      "ar": "Lampe Solaire LED Applique 2W - Détecteur"
+      "en": "BLOCK EN SILICONE",
+      "fr": "BLOCK EN SILICONE",
+      "ar": "BLOCK EN SILICONE"
     },
     "description": {
-      "en": "Découvrez la Lampe Solaire LED Applique Murale 2W avec Détecteur de Mouvement, une solution d’éclairage extérieur intelligente conçue pour améliorer la visibilité et la sécurité autour de votre habitation. Grâce à son alimentation solaire autonome, son capteur de mouvement intégré et sa technologie LED basse consommation, cette applique murale offre un éclairage pratique sans nécessiter de raccordement électrique. Compacte, économique et facile à installer, elle convient parfaitement aux jardins, terrasses, entrées, garages et allées.\n• Lampe solaire murale conçue pour éclairer efficacement les espaces extérieurs de la maison\n• Panneau solaire intégré permettant une recharge automatique durant la journée\n• Fonctionnement autonome sans branchement électrique ni câblage complexe\n• Détecteur de mouvement intelligent activant l’éclairage uniquement en cas de présence\n• Technologie LED basse consommation offrant un éclairage performant et économique\n• Installation rapide sur murs, façades, clôtures, portails ou zones de passage\n• Solution écologique utilisant exclusivement l’énergie solaire\n• Éclairage automatique améliorant la sécurité des entrées et des espaces extérieurs\n• Design compact et moderne s’intégrant facilement à différents styles d’aménagement\n• Structure robuste adaptée à une utilisation quotidienne en extérieur\n• Réduction de la consommation énergétique grâce à son fonctionnement intelligent\n• Idéale pour les jardins, balcons, terrasses, cours, garages et escaliers extérieurs\n• Format léger permettant une installation simple à l’emplacement souhaité\n• Faible entretien grâce à son système de recharge solaire automatique\n• Solution pratique pour renforcer le confort et la visibilité autour de votre habitation\n• Utilisation recommandée pour les zones nécessitant un éclairage de sécurité automatique\nLa Lampe Solaire LED Applique Murale 2W avec Détecteur de Mouvement combine autonomie, performance et simplicité d’utilisation pour répondre aux besoins d’éclairage extérieur modernes. Son alimentation solaire, son capteur intelligent et sa technologie LED en font un choix idéal pour les utilisateurs recherchant une solution fiable, économique et respectueuse de l’environnement. Profitez d’un éclairage automatique efficace tout en réduisant votre consommation d’énergie au quotidien.",
-      "fr": "Découvrez la Lampe Solaire LED Applique Murale 2W avec Détecteur de Mouvement, une solution d’éclairage extérieur intelligente conçue pour améliorer la visibilité et la sécurité autour de votre habitation. Grâce à son alimentation solaire autonome, son capteur de mouvement intégré et sa technologie LED basse consommation, cette applique murale offre un éclairage pratique sans nécessiter de raccordement électrique. Compacte, économique et facile à installer, elle convient parfaitement aux jardins, terrasses, entrées, garages et allées.\n• Lampe solaire murale conçue pour éclairer efficacement les espaces extérieurs de la maison\n• Panneau solaire intégré permettant une recharge automatique durant la journée\n• Fonctionnement autonome sans branchement électrique ni câblage complexe\n• Détecteur de mouvement intelligent activant l’éclairage uniquement en cas de présence\n• Technologie LED basse consommation offrant un éclairage performant et économique\n• Installation rapide sur murs, façades, clôtures, portails ou zones de passage\n• Solution écologique utilisant exclusivement l’énergie solaire\n• Éclairage automatique améliorant la sécurité des entrées et des espaces extérieurs\n• Design compact et moderne s’intégrant facilement à différents styles d’aménagement\n• Structure robuste adaptée à une utilisation quotidienne en extérieur\n• Réduction de la consommation énergétique grâce à son fonctionnement intelligent\n• Idéale pour les jardins, balcons, terrasses, cours, garages et escaliers extérieurs\n• Format léger permettant une installation simple à l’emplacement souhaité\n• Faible entretien grâce à son système de recharge solaire automatique\n• Solution pratique pour renforcer le confort et la visibilité autour de votre habitation\n• Utilisation recommandée pour les zones nécessitant un éclairage de sécurité automatique\nLa Lampe Solaire LED Applique Murale 2W avec Détecteur de Mouvement combine autonomie, performance et simplicité d’utilisation pour répondre aux besoins d’éclairage extérieur modernes. Son alimentation solaire, son capteur intelligent et sa technologie LED en font un choix idéal pour les utilisateurs recherchant une solution fiable, économique et respectueuse de l’environnement. Profitez d’un éclairage automatique efficace tout en réduisant votre consommation d’énergie au quotidien.",
-      "ar": "Découvrez la Lampe Solaire LED Applique Murale 2W avec Détecteur de Mouvement, une solution d’éclairage extérieur intelligente conçue pour améliorer la visibilité et la sécurité autour de votre habitation. Grâce à son alimentation solaire autonome, son capteur de mouvement intégré et sa technologie LED basse consommation, cette applique murale offre un éclairage pratique sans nécessiter de raccordement électrique. Compacte, économique et facile à installer, elle convient parfaitement aux jardins, terrasses, entrées, garages et allées.\n• Lampe solaire murale conçue pour éclairer efficacement les espaces extérieurs de la maison\n• Panneau solaire intégré permettant une recharge automatique durant la journée\n• Fonctionnement autonome sans branchement électrique ni câblage complexe\n• Détecteur de mouvement intelligent activant l’éclairage uniquement en cas de présence\n• Technologie LED basse consommation offrant un éclairage performant et économique\n• Installation rapide sur murs, façades, clôtures, portails ou zones de passage\n• Solution écologique utilisant exclusivement l’énergie solaire\n• Éclairage automatique améliorant la sécurité des entrées et des espaces extérieurs\n• Design compact et moderne s’intégrant facilement à différents styles d’aménagement\n• Structure robuste adaptée à une utilisation quotidienne en extérieur\n• Réduction de la consommation énergétique grâce à son fonctionnement intelligent\n• Idéale pour les jardins, balcons, terrasses, cours, garages et escaliers extérieurs\n• Format léger permettant une installation simple à l’emplacement souhaité\n• Faible entretien grâce à son système de recharge solaire automatique\n• Solution pratique pour renforcer le confort et la visibilité autour de votre habitation\n• Utilisation recommandée pour les zones nécessitant un éclairage de sécurité automatique\nLa Lampe Solaire LED Applique Murale 2W avec Détecteur de Mouvement combine autonomie, performance et simplicité d’utilisation pour répondre aux besoins d’éclairage extérieur modernes. Son alimentation solaire, son capteur intelligent et sa technologie LED en font un choix idéal pour les utilisateurs recherchant une solution fiable, économique et respectueuse de l’environnement. Profitez d’un éclairage automatique efficace tout en réduisant votre consommation d’énergie au quotidien."
+      "en": "Ce produit est un ensemble de blocs sensoriels en caoutchouc souple, souvent commercialisés sous la marque Nobo Kids. Ils sont conçus pour le jeu et l'apprentissage précoce des jeunes enfants. \n• Matériau et sécurité : Les blocs sont fabriqués dans un matériau souple et flexible, ce qui les rend compressibles. Ils peuvent également servir d'anneaux de dentition sûrs pour les bébés. \n• Jeu sensoriel et éducatif : Les blocs stimulent le sens du toucher grâce à leurs surfaces texturées et leurs formes en relief. Leurs couleurs vives et leurs formes d'animaux favorisent la cognition des couleurs et le développement de la coordination visuelle et motrice. \n• Polyvalence : Ces jouets sont adaptés au jeu au sec ainsi que pendant le bain, où ils peuvent se transformer en petits gicleurs d'eau. \n• Entretien : Ils sont lavables à l'eau et au savon.",
+      "fr": "Ce produit est un ensemble de blocs sensoriels en caoutchouc souple, souvent commercialisés sous la marque Nobo Kids. Ils sont conçus pour le jeu et l'apprentissage précoce des jeunes enfants. \n• Matériau et sécurité : Les blocs sont fabriqués dans un matériau souple et flexible, ce qui les rend compressibles. Ils peuvent également servir d'anneaux de dentition sûrs pour les bébés. \n• Jeu sensoriel et éducatif : Les blocs stimulent le sens du toucher grâce à leurs surfaces texturées et leurs formes en relief. Leurs couleurs vives et leurs formes d'animaux favorisent la cognition des couleurs et le développement de la coordination visuelle et motrice. \n• Polyvalence : Ces jouets sont adaptés au jeu au sec ainsi que pendant le bain, où ils peuvent se transformer en petits gicleurs d'eau. \n• Entretien : Ils sont lavables à l'eau et au savon.",
+      "ar": "Ce produit est un ensemble de blocs sensoriels en caoutchouc souple, souvent commercialisés sous la marque Nobo Kids. Ils sont conçus pour le jeu et l'apprentissage précoce des jeunes enfants. \n• Matériau et sécurité : Les blocs sont fabriqués dans un matériau souple et flexible, ce qui les rend compressibles. Ils peuvent également servir d'anneaux de dentition sûrs pour les bébés. \n• Jeu sensoriel et éducatif : Les blocs stimulent le sens du toucher grâce à leurs surfaces texturées et leurs formes en relief. Leurs couleurs vives et leurs formes d'animaux favorisent la cognition des couleurs et le développement de la coordination visuelle et motrice. \n• Polyvalence : Ces jouets sont adaptés au jeu au sec ainsi que pendant le bain, où ils peuvent se transformer en petits gicleurs d'eau. \n• Entretien : Ils sont lavables à l'eau et au savon."
     },
     "images": [
-      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/11114062/6a798b5593758-1786350421.jpg",
-      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/11114055/6a798b51a9bda-1786350417.jpg",
-      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/11114056/6a798b51b5d84-1786350417.jpg",
-      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/11114058/6a798b542579d-1786350420.jpg",
-      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/11114059/6a798b542883a-1786350420.jpg",
-      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/11114061/6a798b554085e-1786350421.jpg"
+      "https://cdn.shipper.network/storage/fhwwgjrbpsqblw63/uploads/products/9777958/69b2a2386368e-1773314616.jpg",
+      "https://cdn.shipper.network/storage/fhwwgjrbpsqblw63/uploads/products/9777956/69b2a236f1264-1773314614.jpg",
+      "https://cdn.shipper.network/storage/fhwwgjrbpsqblw63/uploads/products/9777957/69b2a2385d87d-1773314616.jpg",
+      "https://cdn.shipper.network/storage/fhwwgjrbpsqblw63/uploads/products/9777959/69b2a23a41cc6-1773314618.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "tondeuse de finition professionnelle",
-    "sourceUrl": "https://app.shipper.market/products/c409bd93-c07f-4f5d-889a-f10e16b33e5d",
-    "sourceProductId": "c409bd93-c07f-4f5d-889a-f10e16b33e5d",
-    "slug": "tondeuse-de-finition-professionnelle-c409bd93",
+    "sourceName": "Smart Colour Eyepencil Kiko 12 pcs",
+    "sourceUrl": "https://app.shipper.market/products/6d5b2563-5208-40be-a7a3-59c644344b6f",
+    "sourceProductId": "6d5b2563-5208-40be-a7a3-59c644344b6f",
+    "slug": "smart-colour-eyepencil-kiko-12-pcs-6d5b2563",
+    "category": "accessories eye makeup",
+    "title": {
+      "en": "Smart Colour Eyepencil Kiko 12 pcs",
+      "fr": "Smart Colour Eyepencil Kiko 12 pcs",
+      "ar": "Smart Colour Eyepencil Kiko 12 pcs"
+    },
+    "description": {
+      "en": "Crayon coloré à appliquer à lintérieur et à lextérieur des yeux.\nOffre un tracé précis et homogène à la couleur intense. Effet couleur garanti.Sa texture est douce et fluide, pour une application précise au ras des cils supérieurs et inférieurs.Disponible en 16 couleurs déclinées en 3 finis différents : mat, nacré et métallisé. Testé sous contrôle ophtalmologique",
+      "fr": "Crayon coloré à appliquer à lintérieur et à lextérieur des yeux.\nOffre un tracé précis et homogène à la couleur intense. Effet couleur garanti.Sa texture est douce et fluide, pour une application précise au ras des cils supérieurs et inférieurs.Disponible en 16 couleurs déclinées en 3 finis différents : mat, nacré et métallisé. Testé sous contrôle ophtalmologique",
+      "ar": "Crayon coloré à appliquer à lintérieur et à lextérieur des yeux.\nOffre un tracé précis et homogène à la couleur intense. Effet couleur garanti.Sa texture est douce et fluide, pour une application précise au ras des cils supérieurs et inférieurs.Disponible en 16 couleurs déclinées en 3 finis différents : mat, nacré et métallisé. Testé sous contrôle ophtalmologique"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10306048/69f9c5335a397-1777976627.jpg",
+      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10306046/69f9c531c155a-1777976625.jpg",
+      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10306047/69f9c531c3f29-1777976625.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Lampe de table Versace 4-23-3",
+    "sourceUrl": "https://app.shipper.market/products/6d5e03d0-9311-42b9-98bc-7fd87bc99ea1",
+    "sourceProductId": "6d5e03d0-9311-42b9-98bc-7fd87bc99ea1",
+    "slug": "lampe-de-table-versace-4-23-3-6d5e03d0",
+    "category": "living decor lighting",
+    "title": {
+      "en": "Lampe de table Versace 4-23-3",
+      "fr": "Lampe de table Versace 4-23-3",
+      "ar": "Lampe de table Versace 4-23-3"
+    },
+    "description": {
+      "en": "Lampe de Table Versace 4-23-3 :\nCouleurs :\n• Blanc\n• Bleu\n• Noir\nDimensions :\n• Hauteur : 38 CM\n• Largeur : 25 CM\nCette lampe de table miniature avec abat-jour deviendra un accent élégant dans votre intérieur, offrant un éclairage chaleureux. Le design lui confère un look sophistiqué qui convient parfaitement à une variété de styles de décoration.\nLa conception unique crée un sentiment subtil d'harmonie, ce qui est parfait pour la décoration, et il peut également augmenter la sensation haut de gamme et la touche élégante.\nL'abat-jour en tissu diffuse une lumière uniforme, confortable et relaxante, sans éblouissement, et protège la vue. Cette lampe de table est un élément décoratif idéal pour votre intérieur.",
+      "fr": "Lampe de Table Versace 4-23-3 :\nCouleurs :\n• Blanc\n• Bleu\n• Noir\nDimensions :\n• Hauteur : 38 CM\n• Largeur : 25 CM\nCette lampe de table miniature avec abat-jour deviendra un accent élégant dans votre intérieur, offrant un éclairage chaleureux. Le design lui confère un look sophistiqué qui convient parfaitement à une variété de styles de décoration.\nLa conception unique crée un sentiment subtil d'harmonie, ce qui est parfait pour la décoration, et il peut également augmenter la sensation haut de gamme et la touche élégante.\nL'abat-jour en tissu diffuse une lumière uniforme, confortable et relaxante, sans éblouissement, et protège la vue. Cette lampe de table est un élément décoratif idéal pour votre intérieur.",
+      "ar": "Lampe de Table Versace 4-23-3 :\nCouleurs :\n• Blanc\n• Bleu\n• Noir\nDimensions :\n• Hauteur : 38 CM\n• Largeur : 25 CM\nCette lampe de table miniature avec abat-jour deviendra un accent élégant dans votre intérieur, offrant un éclairage chaleureux. Le design lui confère un look sophistiqué qui convient parfaitement à une variété de styles de décoration.\nLa conception unique crée un sentiment subtil d'harmonie, ce qui est parfait pour la décoration, et il peut également augmenter la sensation haut de gamme et la touche élégante.\nL'abat-jour en tissu diffuse une lumière uniforme, confortable et relaxante, sans éblouissement, et protège la vue. Cette lampe de table est un élément décoratif idéal pour votre intérieur."
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/3jwsbljhv59blq4h/uploads/products/3052843/680ba02795428-1745592359.jpg",
+      "https://cdn.shipper.network/storage/3jwsbljhv59blq4h/uploads/products/3052845/680ba0283fe76-1745592360.jpg",
+      "https://cdn.shipper.network/storage/3jwsbljhv59blq4h/uploads/products/3052846/680ba028812d6-1745592360.jpg",
+      "https://cdn.shipper.network/storage/3jwsbljhv59blq4h/uploads/products/3052847/680ba038ccdb5-1745592376.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "ensemble de deux thermos",
+    "sourceUrl": "https://app.shipper.market/products/6d60cb89-d682-4fb4-9c24-dc5868c43acf",
+    "sourceProductId": "6d60cb89-d682-4fb4-9c24-dc5868c43acf",
+    "slug": "ensemble-de-deux-thermos-6d60cb89",
+    "category": "kitchen dining living decor play cleaning laundry",
+    "title": {
+      "en": "ensemble de deux thermos",
+      "fr": "ensemble de deux thermos",
+      "ar": "ensemble de deux thermos"
+    },
+    "description": {
+      "en": "Il s’agit d’un ensemble de deux thermos / carafes isothermes au design luxueux et raffiné, idéal pour servir le thé, le café, le lait ou les boissons chaudes. Leur finition couleur ivoire/blanc crème est associée à des détails dorés, donnant un aspect élégant et haut de gamme.\n\n✨ Caractéristiques\nQuantité : 2 thermos de tailles différentes\nCouleur : blanc crème / ivoire\nDétails : finitions et bordures dorées\nPoignée : poignée décorative composée de perles dorées\nCouvercle : couvercle à visser avec petit bouton décoratif doré\nForme : corps légèrement conique avec base stable\nUtilisation : thé, café, infusion, lait et boissons chaudes\nStyle : élégant, oriental, luxueux et décoratif\nUtilisation : maison, salon, réception, Ramadan, invités, service à thé ou à café\nNettoyage : à nettoyer délicatement afin de préserver les finitions dorées",
+      "fr": "Il s’agit d’un ensemble de deux thermos / carafes isothermes au design luxueux et raffiné, idéal pour servir le thé, le café, le lait ou les boissons chaudes. Leur finition couleur ivoire/blanc crème est associée à des détails dorés, donnant un aspect élégant et haut de gamme.\n\n✨ Caractéristiques\nQuantité : 2 thermos de tailles différentes\nCouleur : blanc crème / ivoire\nDétails : finitions et bordures dorées\nPoignée : poignée décorative composée de perles dorées\nCouvercle : couvercle à visser avec petit bouton décoratif doré\nForme : corps légèrement conique avec base stable\nUtilisation : thé, café, infusion, lait et boissons chaudes\nStyle : élégant, oriental, luxueux et décoratif\nUtilisation : maison, salon, réception, Ramadan, invités, service à thé ou à café\nNettoyage : à nettoyer délicatement afin de préserver les finitions dorées",
+      "ar": "Il s’agit d’un ensemble de deux thermos / carafes isothermes au design luxueux et raffiné, idéal pour servir le thé, le café, le lait ou les boissons chaudes. Leur finition couleur ivoire/blanc crème est associée à des détails dorés, donnant un aspect élégant et haut de gamme.\n\n✨ Caractéristiques\nQuantité : 2 thermos de tailles différentes\nCouleur : blanc crème / ivoire\nDétails : finitions et bordures dorées\nPoignée : poignée décorative composée de perles dorées\nCouvercle : couvercle à visser avec petit bouton décoratif doré\nForme : corps légèrement conique avec base stable\nUtilisation : thé, café, infusion, lait et boissons chaudes\nStyle : élégant, oriental, luxueux et décoratif\nUtilisation : maison, salon, réception, Ramadan, invités, service à thé ou à café\nNettoyage : à nettoyer délicatement afin de préserver les finitions dorées"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/11425966/conversions/6a9c0d3c50af0-1788611900-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/11425960/conversions/6a9c0ca353de0-1788611747-thumbnail-medium.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Kit éducatif pour enfants",
+    "sourceUrl": "https://app.shipper.market/products/6d63bb9f-803e-4588-a523-ff454981a81a",
+    "sourceProductId": "6d63bb9f-803e-4588-a523-ff454981a81a",
+    "slug": "kit-educatif-pour-enfants-6d63bb9f",
+    "category": "kitchen dining care beauty hair skincare play outdoor",
+    "title": {
+      "en": "Kit éducatif pour enfants",
+      "fr": "Kit éducatif pour enfants",
+      "ar": "Kit éducatif pour enfants"
+    },
+    "description": {
+      "en": "Le Musical Fruit Set est une version améliorée des tableaux éducatifs classiques. Convient pour le jardin d’enfants et à la maison.\nLe plateau de jeu est réalisé sous la forme d’un cadre d’insertion avec des fruits colorés. Les fruits en bois peuvent être divisés avec un couteau en bois et jouer au chef. Les produits sont reliés par des aimants, de sorte qu’ils peuvent être divisés et remontés un nombre infini de fois !\nSur la surface du plateau, il y a un métallophone : avec lui, l’enfant complétera le jeu avec des notes sonores et entraînera l’oreille pour la musique.\nLes cours avec une carte mère développent la mémoire, la motricité des doigts, la logique et élargissent les horizons.\nL’ensemble est en bois et en métal, recouvert de peintures sûres.\nRecommandé pour les enfants à partir de 3 ans.",
+      "fr": "Le Musical Fruit Set est une version améliorée des tableaux éducatifs classiques. Convient pour le jardin d’enfants et à la maison.\nLe plateau de jeu est réalisé sous la forme d’un cadre d’insertion avec des fruits colorés. Les fruits en bois peuvent être divisés avec un couteau en bois et jouer au chef. Les produits sont reliés par des aimants, de sorte qu’ils peuvent être divisés et remontés un nombre infini de fois !\nSur la surface du plateau, il y a un métallophone : avec lui, l’enfant complétera le jeu avec des notes sonores et entraînera l’oreille pour la musique.\nLes cours avec une carte mère développent la mémoire, la motricité des doigts, la logique et élargissent les horizons.\nL’ensemble est en bois et en métal, recouvert de peintures sûres.\nRecommandé pour les enfants à partir de 3 ans.",
+      "ar": "Le Musical Fruit Set est une version améliorée des tableaux éducatifs classiques. Convient pour le jardin d’enfants et à la maison.\nLe plateau de jeu est réalisé sous la forme d’un cadre d’insertion avec des fruits colorés. Les fruits en bois peuvent être divisés avec un couteau en bois et jouer au chef. Les produits sont reliés par des aimants, de sorte qu’ils peuvent être divisés et remontés un nombre infini de fois !\nSur la surface du plateau, il y a un métallophone : avec lui, l’enfant complétera le jeu avec des notes sonores et entraînera l’oreille pour la musique.\nLes cours avec une carte mère développent la mémoire, la motricité des doigts, la logique et élargissent les horizons.\nL’ensemble est en bois et en métal, recouvert de peintures sûres.\nRecommandé pour les enfants à partir de 3 ans."
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/3igusei1xwsevtgw/uploads/products/7297228/68c5473770322-1757759287.jpg",
+      "https://cdn.shipper.network/storage/3igusei1xwsevtgw/uploads/products/7297229/68c5473781911-1757759287.jpg",
+      "https://cdn.shipper.network/storage/3igusei1xwsevtgw/uploads/products/7297231/68c54738ca67c-1757759288.jpg",
+      "https://cdn.shipper.network/storage/3igusei1xwsevtgw/uploads/products/7297232/68c5473c462ad-1757759292.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "MANETTE DE JEU PS4",
+    "sourceUrl": "https://app.shipper.market/products/6d766278-a893-4775-8db6-42e195f20a91",
+    "sourceProductId": "6d766278-a893-4775-8db6-42e195f20a91",
+    "slug": "manette-de-jeu-ps4-6d766278",
+    "category": "play audio",
+    "title": {
+      "en": "MANETTE DE JEU PS4",
+      "fr": "MANETTE DE JEU PS4",
+      "ar": "MANETTE DE JEU PS4"
+    },
+    "description": {
+      "en": "Connectivité : Sans fil, Compatibilité : PS4, Capteurs : Accéléromètre, gyroscope, Pavé tactile : Multi-touch, Haut-parleur intégré : Oui, Prise casque stéréo : Oui, Boutons : Personnalisables, Lumière LED : Indicative, Autonomie : Jusqu'à 8 heures, Recharge : USB, Vibration : Retour haptique, Dimensions : Ergonomiques, Poids : Léger, Couleur : Variée, Design : Confortable, Partage : Bouton dédié pour capturer et partager, Compatibilité PC : Avec logiciel approprié, Utilisation : Jeux, navigation, Distance de fonctionnement : Jusqu'à 10 mètres.\nDécouvrez l'élégance et la performance de la MANETTE SANS FIL DUALSHOCK 4 Profitez d'un service premium et d'une expérience d'achat impeccable digne des plus grandes boutiques High-Class.",
+      "fr": "Connectivité : Sans fil, Compatibilité : PS4, Capteurs : Accéléromètre, gyroscope, Pavé tactile : Multi-touch, Haut-parleur intégré : Oui, Prise casque stéréo : Oui, Boutons : Personnalisables, Lumière LED : Indicative, Autonomie : Jusqu'à 8 heures, Recharge : USB, Vibration : Retour haptique, Dimensions : Ergonomiques, Poids : Léger, Couleur : Variée, Design : Confortable, Partage : Bouton dédié pour capturer et partager, Compatibilité PC : Avec logiciel approprié, Utilisation : Jeux, navigation, Distance de fonctionnement : Jusqu'à 10 mètres.\nDécouvrez l'élégance et la performance de la MANETTE SANS FIL DUALSHOCK 4 Profitez d'un service premium et d'une expérience d'achat impeccable digne des plus grandes boutiques High-Class.",
+      "ar": "Connectivité : Sans fil, Compatibilité : PS4, Capteurs : Accéléromètre, gyroscope, Pavé tactile : Multi-touch, Haut-parleur intégré : Oui, Prise casque stéréo : Oui, Boutons : Personnalisables, Lumière LED : Indicative, Autonomie : Jusqu'à 8 heures, Recharge : USB, Vibration : Retour haptique, Dimensions : Ergonomiques, Poids : Léger, Couleur : Variée, Design : Confortable, Partage : Bouton dédié pour capturer et partager, Compatibilité PC : Avec logiciel approprié, Utilisation : Jeux, navigation, Distance de fonctionnement : Jusqu'à 10 mètres.\nDécouvrez l'élégance et la performance de la MANETTE SANS FIL DUALSHOCK 4 Profitez d'un service premium et d'une expérience d'achat impeccable digne des plus grandes boutiques High-Class."
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/htvhxquwv8nfhqwq/uploads/products/8335143/69209ea16bc81-1763745441.jpg",
+      "https://cdn.shipper.network/storage/htvhxquwv8nfhqwq/uploads/products/8335144/69209ea186f26-1763745441.jpg",
+      "https://cdn.shipper.network/storage/htvhxquwv8nfhqwq/uploads/products/8335145/69209ea3050c5-1763745443.jpg",
+      "https://cdn.shipper.network/storage/htvhxquwv8nfhqwq/uploads/products/8335159/69209eac243fb-1763745452.jpg",
+      "https://cdn.shipper.network/storage/htvhxquwv8nfhqwq/uploads/products/8335160/69209eac31771-1763745452.jpg",
+      "https://cdn.shipper.network/storage/htvhxquwv8nfhqwq/uploads/products/8335167/69209eeb4a31e-1763745515.jpg",
+      "https://cdn.shipper.network/storage/htvhxquwv8nfhqwq/uploads/products/8335168/69209eeb4e242-1763745515.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Police masque brésilien",
+    "sourceUrl": "https://app.shipper.market/products/6d834317-73e9-4bb2-8064-49ffa4de0bf8",
+    "sourceProductId": "6d834317-73e9-4bb2-8064-49ffa4de0bf8",
+    "slug": "police-masque-bresilien-6d834317",
+    "category": "care beauty hair skincare men's sunglasses",
+    "title": {
+      "en": "Police masque brésilien",
+      "fr": "Police masque brésilien",
+      "ar": "Police masque brésilien"
+    },
+    "description": {
+      "en": "نظارة شمسية رياضية كلاسيكية من POLICE – الأناقة تلتقي بالأداء\nاجمع بين المظهر العصري الجريء والحماية الفائقة مع النظارة الشمسية الرياضية من العلامة التجارية الشهيرة POLICE. تم تصميم هذه النظارة خصيصاً لأصحاب الأسلوب الديناميكي والنشط، والذين يبحثون عن التميز والراحة في آن واحد.\n🌟 أبرز المميزات:\n تصميم رياضي انسيابي: إطار أسود مطفأ (Matte Black) خفيف الوزن يلتف بنعومة حول الوجه ليوفر ثباتاً ممتازاً أثناء الحركة، والقيادة، والأنشطة الخارجية.\n عدسات نصف إطار (Half-Rim): تمنحك مديات رؤية واسعة وغير حجبة، مع لمسة عصرية جذابة وشعار \"POLICE\" المحفور بدقة على العدسة.\n حماية وراحة بصرية: عدسات رمادية داكنة مثالية لتقليل التوهج الناتج عن أشعة الشمس الساطعة وتوفير رؤية واضحة ومريحة للعين طوال اليوم.\n متانة وجودة عالية: مصنعة من مواد مقاومة للصدمات لضمان استدامتها وتحملها للاستخدام اليومي الشاق.\n📐 المواصفات الفنية:\n العلامة التجارية: POLICE\n النوع: نظارة شمسية (رياضية / كاجوال)\n لون الإطار: أسود\n لون العدسة: رمادي / دخاني\n التصميم: نصف إطار سفلي مكشوف",
+      "fr": "نظارة شمسية رياضية كلاسيكية من POLICE – الأناقة تلتقي بالأداء\nاجمع بين المظهر العصري الجريء والحماية الفائقة مع النظارة الشمسية الرياضية من العلامة التجارية الشهيرة POLICE. تم تصميم هذه النظارة خصيصاً لأصحاب الأسلوب الديناميكي والنشط، والذين يبحثون عن التميز والراحة في آن واحد.\n🌟 أبرز المميزات:\n تصميم رياضي انسيابي: إطار أسود مطفأ (Matte Black) خفيف الوزن يلتف بنعومة حول الوجه ليوفر ثباتاً ممتازاً أثناء الحركة، والقيادة، والأنشطة الخارجية.\n عدسات نصف إطار (Half-Rim): تمنحك مديات رؤية واسعة وغير حجبة، مع لمسة عصرية جذابة وشعار \"POLICE\" المحفور بدقة على العدسة.\n حماية وراحة بصرية: عدسات رمادية داكنة مثالية لتقليل التوهج الناتج عن أشعة الشمس الساطعة وتوفير رؤية واضحة ومريحة للعين طوال اليوم.\n متانة وجودة عالية: مصنعة من مواد مقاومة للصدمات لضمان استدامتها وتحملها للاستخدام اليومي الشاق.\n📐 المواصفات الفنية:\n العلامة التجارية: POLICE\n النوع: نظارة شمسية (رياضية / كاجوال)\n لون الإطار: أسود\n لون العدسة: رمادي / دخاني\n التصميم: نصف إطار سفلي مكشوف",
+      "ar": "نظارة شمسية رياضية كلاسيكية من POLICE – الأناقة تلتقي بالأداء\nاجمع بين المظهر العصري الجريء والحماية الفائقة مع النظارة الشمسية الرياضية من العلامة التجارية الشهيرة POLICE. تم تصميم هذه النظارة خصيصاً لأصحاب الأسلوب الديناميكي والنشط، والذين يبحثون عن التميز والراحة في آن واحد.\n🌟 أبرز المميزات:\n تصميم رياضي انسيابي: إطار أسود مطفأ (Matte Black) خفيف الوزن يلتف بنعومة حول الوجه ليوفر ثباتاً ممتازاً أثناء الحركة، والقيادة، والأنشطة الخارجية.\n عدسات نصف إطار (Half-Rim): تمنحك مديات رؤية واسعة وغير حجبة، مع لمسة عصرية جذابة وشعار \"POLICE\" المحفور بدقة على العدسة.\n حماية وراحة بصرية: عدسات رمادية داكنة مثالية لتقليل التوهج الناتج عن أشعة الشمس الساطعة وتوفير رؤية واضحة ومريحة للعين طوال اليوم.\n متانة وجودة عالية: مصنعة من مواد مقاومة للصدمات لضمان استدامتها وتحملها للاستخدام اليومي الشاق.\n📐 المواصفات الفنية:\n العلامة التجارية: POLICE\n النوع: نظارة شمسية (رياضية / كاجوال)\n لون الإطار: أسود\n لون العدسة: رمادي / دخاني\n التصميم: نصف إطار سفلي مكشوف"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/amryfpsa84pi7x3u/uploads/products/10470537/6a1ac0bc63a5c-1780138172.jpg",
+      "https://cdn.shipper.network/storage/amryfpsa84pi7x3u/uploads/products/10470531/6a1ac0b43b8e9-1780138164.png",
+      "https://cdn.shipper.network/storage/amryfpsa84pi7x3u/uploads/products/10470532/6a1ac0b45eff2-1780138164.png",
+      "https://cdn.shipper.network/storage/amryfpsa84pi7x3u/uploads/products/10470535/6a1ac0b8a0212-1780138168.jpg",
+      "https://cdn.shipper.network/storage/amryfpsa84pi7x3u/uploads/products/10470536/6a1ac0bc1c8ca-1780138172.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "DELICAT 5 LITRES",
+    "sourceUrl": "https://app.shipper.market/products/6d8db7f1-0c24-4342-a934-d5e459f0b55e",
+    "sourceProductId": "6d8db7f1-0c24-4342-a934-d5e459f0b55e",
+    "slug": "delicat-5-litres-6d8db7f1",
+    "category": "care beauty hair skincare cleaning laundry",
+    "title": {
+      "en": "DELICAT 5 LITRES",
+      "fr": "DELICAT 5 LITRES",
+      "ar": "DELICAT 5 LITRES"
+    },
+    "description": {
+      "en": "Ce Lessive liquide DELICAT : est super efficace pour le lavage de linge à la main, nettoie et parfume efficacement, vos vêtements et linges de maison tout en maintenant les tissus et les couleurs. Ce produit est économique et super concentré destiné au lavage manuel. Grâce à sa formule concentrée, il permet de laver efficacement vos linges. Il élimine efficacement et sans efforts les graisses et les taches les plus tenaces\n• Lessive liquide \n• super efficace pour le lavage de linge à la main\n• nettoie et parfume efficacement vos vêtements et linges de maison tout en maintenant les tissus et les couleurs\n• 5L\n• est économique et super concentré destiné au lavage manuel",
+      "fr": "Ce Lessive liquide DELICAT : est super efficace pour le lavage de linge à la main, nettoie et parfume efficacement, vos vêtements et linges de maison tout en maintenant les tissus et les couleurs. Ce produit est économique et super concentré destiné au lavage manuel. Grâce à sa formule concentrée, il permet de laver efficacement vos linges. Il élimine efficacement et sans efforts les graisses et les taches les plus tenaces\n• Lessive liquide \n• super efficace pour le lavage de linge à la main\n• nettoie et parfume efficacement vos vêtements et linges de maison tout en maintenant les tissus et les couleurs\n• 5L\n• est économique et super concentré destiné au lavage manuel",
+      "ar": "Ce Lessive liquide DELICAT : est super efficace pour le lavage de linge à la main, nettoie et parfume efficacement, vos vêtements et linges de maison tout en maintenant les tissus et les couleurs. Ce produit est économique et super concentré destiné au lavage manuel. Grâce à sa formule concentrée, il permet de laver efficacement vos linges. Il élimine efficacement et sans efforts les graisses et les taches les plus tenaces\n• Lessive liquide \n• super efficace pour le lavage de linge à la main\n• nettoie et parfume efficacement vos vêtements et linges de maison tout en maintenant les tissus et les couleurs\n• 5L\n• est économique et super concentré destiné au lavage manuel"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/hnqy9pecuupnhgce/uploads/products/1339405/668faefe81312-1720692478.jpg",
+      "https://cdn.shipper.network/storage/hnqy9pecuupnhgce/uploads/products/1339495/668fafb7324c0-1720692663.jpg",
+      "https://cdn.shipper.network/storage/hnqy9pecuupnhgce/uploads/products/1339496/668fafc143a00-1720692673.jpg",
+      "https://cdn.shipper.network/storage/hnqy9pecuupnhgce/uploads/products/1339529/668fb036afd47-1720692790.jpg",
+      "https://cdn.shipper.network/storage/hnqy9pecuupnhgce/uploads/products/1339530/668fb03a8e99e-1720692794.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Huile de Fenugrec et aux Herbes Naturelles",
+    "sourceUrl": "https://app.shipper.market/products/6d8e82e3-e17f-4ee6-a564-d2b209c9480c",
+    "sourceProductId": "6d8e82e3-e17f-4ee6-a564-d2b209c9480c",
+    "slug": "huile-de-fenugrec-et-aux-herbes-naturelles-6d8e82e3",
     "category": "care beauty hair skincare",
     "title": {
-      "en": "tondeuse de finition professionnelle",
-      "fr": "tondeuse de finition professionnelle",
-      "ar": "tondeuse de finition professionnelle"
+      "en": "Huile de Fenugrec et aux Herbes Naturelles",
+      "fr": "Huile de Fenugrec et aux Herbes Naturelles",
+      "ar": "Huile de Fenugrec et aux Herbes Naturelles"
     },
     "description": {
-      "en": "Modèle : Vintage T9 UP+ (Cut & Shave)\n\nUtilisation : Coupe de cheveux et entretien de la barbe\n\nLame : Équipée d'une lame en T pour les finitions précises\n\nIl s'agit d'un appareil très populaire conçu pour la coupe de précision, le traçage des contours et le rasage de près des cheveux et de la barbe. Le modèle présenté inclut la mention \"UP+ Upgrade\", indiquant généralement une version améliorée (souvent au niveau de l'autonomie de la batterie ou de la puissance du moteur).",
-      "fr": "Modèle : Vintage T9 UP+ (Cut & Shave)\n\nUtilisation : Coupe de cheveux et entretien de la barbe\n\nLame : Équipée d'une lame en T pour les finitions précises\n\nIl s'agit d'un appareil très populaire conçu pour la coupe de précision, le traçage des contours et le rasage de près des cheveux et de la barbe. Le modèle présenté inclut la mention \"UP+ Upgrade\", indiquant généralement une version améliorée (souvent au niveau de l'autonomie de la batterie ou de la puissance du moteur).",
-      "ar": "Modèle : Vintage T9 UP+ (Cut & Shave)\n\nUtilisation : Coupe de cheveux et entretien de la barbe\n\nLame : Équipée d'une lame en T pour les finitions précises\n\nIl s'agit d'un appareil très populaire conçu pour la coupe de précision, le traçage des contours et le rasage de près des cheveux et de la barbe. Le modèle présenté inclut la mention \"UP+ Upgrade\", indiquant généralement une version améliorée (souvent au niveau de l'autonomie de la batterie ou de la puissance du moteur)."
+      "en": "Miss Naturelle – زيت طبيعي للعناية بالشعر والحدّ من تساقطه \n\n اكتشفي قوة 11 مكوّنًا طبيعيًا في تركيبة واحدة للعناية بشعرك!\n\n بذور الكتان\n\n زيت الخروع\n\n زيت اللوز الحلو\n\n زيت جوز الهند\n\n الكركديه\n\n الخردل\n\n الأملا\n\n زيت السمسم\n\n الحبة السوداء\n\n إكليل الجبل\n\n زيت بذور اليقطين\n\n فوائد زيت Miss Naturelle:\n\n يساعد على الحدّ من تساقط الشعر المرتبط بالتكسّر.\n\n يغذّي الشعر ويساعد على ترطيبه.\n\n يساهم في تقوية ألياف الشعر والحدّ من التقصّف.\n\n يمنح شعرك نعومة ولمعانًا ومظهرًا صحيًا.\n\n يساعد على تحسين مظهر الشعر الضعيف والمتعب.\n\n تركيبة طبيعية 100%، عناية غنية لشعر أكثر صحة وجمالًا!",
+      "fr": "Miss Naturelle – زيت طبيعي للعناية بالشعر والحدّ من تساقطه \n\n اكتشفي قوة 11 مكوّنًا طبيعيًا في تركيبة واحدة للعناية بشعرك!\n\n بذور الكتان\n\n زيت الخروع\n\n زيت اللوز الحلو\n\n زيت جوز الهند\n\n الكركديه\n\n الخردل\n\n الأملا\n\n زيت السمسم\n\n الحبة السوداء\n\n إكليل الجبل\n\n زيت بذور اليقطين\n\n فوائد زيت Miss Naturelle:\n\n يساعد على الحدّ من تساقط الشعر المرتبط بالتكسّر.\n\n يغذّي الشعر ويساعد على ترطيبه.\n\n يساهم في تقوية ألياف الشعر والحدّ من التقصّف.\n\n يمنح شعرك نعومة ولمعانًا ومظهرًا صحيًا.\n\n يساعد على تحسين مظهر الشعر الضعيف والمتعب.\n\n تركيبة طبيعية 100%، عناية غنية لشعر أكثر صحة وجمالًا!",
+      "ar": "Miss Naturelle – زيت طبيعي للعناية بالشعر والحدّ من تساقطه \n\n اكتشفي قوة 11 مكوّنًا طبيعيًا في تركيبة واحدة للعناية بشعرك!\n\n بذور الكتان\n\n زيت الخروع\n\n زيت اللوز الحلو\n\n زيت جوز الهند\n\n الكركديه\n\n الخردل\n\n الأملا\n\n زيت السمسم\n\n الحبة السوداء\n\n إكليل الجبل\n\n زيت بذور اليقطين\n\n فوائد زيت Miss Naturelle:\n\n يساعد على الحدّ من تساقط الشعر المرتبط بالتكسّر.\n\n يغذّي الشعر ويساعد على ترطيبه.\n\n يساهم في تقوية ألياف الشعر والحدّ من التقصّف.\n\n يمنح شعرك نعومة ولمعانًا ومظهرًا صحيًا.\n\n يساعد على تحسين مظهر الشعر الضعيف والمتعب.\n\n تركيبة طبيعية 100%، عناية غنية لشعر أكثر صحة وجمالًا!"
     },
     "images": [
-      "https://cdn.shipper.network/storage/tnmjobi3wydelpaq/uploads/products/11548849/conversions/6ab24e7736065-1790070391-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/tnmjobi3wydelpaq/uploads/products/11548846/conversions/6ab24e751502b-1790070389-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/tnmjobi3wydelpaq/uploads/products/11548847/conversions/6ab24e7533819-1790070389-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/tnmjobi3wydelpaq/uploads/products/11548848/conversions/6ab24e772e461-1790070391-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/tnmjobi3wydelpaq/uploads/products/11548850/conversions/6ab24e798c997-1790070393-thumbnail-medium.jpg"
+      "https://cdn.shipper.network/storage/e2vhkisz5eubgvvr/uploads/products/11744428/conversions/6ad631de6c2a8-1792422366-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/e2vhkisz5eubgvvr/uploads/products/11744024/conversions/6ad625e17f082-1792419297-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/e2vhkisz5eubgvvr/uploads/products/11744031/conversions/6ad62608cc4b1-1792419336-thumbnail-medium.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "عطر Giorgio Armani Sì Collection للنساء 100 مل",
-    "sourceUrl": "https://app.shipper.market/products/c40d1abb-655e-495a-bf82-e4a2fd35e390",
-    "sourceProductId": "c40d1abb-655e-495a-bf82-e4a2fd35e390",
-    "slug": "giorgio-armani-si-collection-100-c40d1abb",
-    "category": "care beauty hair skincare",
+    "sourceName": "Fungal Nail Patches to Restore Damaged Nails",
+    "sourceUrl": "https://app.shipper.market/products/6d92efc3-7506-4aa3-886f-3607709c4dab",
+    "sourceProductId": "6d92efc3-7506-4aa3-886f-3607709c4dab",
+    "slug": "fungal-nail-patches-to-restore-damaged-nails-6d92efc3",
+    "category": "care beauty hair skincare health & beauty",
     "title": {
-      "en": "عطر Giorgio Armani Sì Collection للنساء 100 مل",
-      "fr": "عطر Giorgio Armani Sì Collection للنساء 100 مل",
-      "ar": "عطر Giorgio Armani Sì Collection للنساء 100 مل"
+      "en": "Fungal Nail Patches to Restore Damaged Nails",
+      "fr": "Fungal Nail Patches to Restore Damaged Nails",
+      "ar": "Fungal Nail Patches to Restore Damaged Nails"
     },
     "description": {
-      "en": "عطر Giorgio Armani Sì هو عطر نسائي فاخر من نوع Eau de Parfum، صُمّم ليجسد الأنوثة العصرية والأناقة الراقية في كل تفاصيله. يتميز بتركيبة عطرية عالية الجودة تجمع بين النفحات الزهرية والفاكهية مع لمسات دافئة وحسية تمنح إحساسًا بالفخامة والثقة طوال اليوم. تأتي المجموعة بتصميم أنيق يجمع بين اللون الأحمر الجريء في إصدار Sì Passione الذي يرمز إلى الشغف والقوة، واللون البيج الوردي الناعم في إصدار Sì Intense الذي يعكس الرقي والنعومة، مع غطاء أسود فاخر يضيف لمسة من التميز. يتمتع العطر بثبات جيد وفوحان جذاب يجعله مناسبًا للاستعمال اليومي والمناسبات الخاصة والسهرات. كما تأتي الزجاجة بسعة 100 مل، وهي سعة مثالية تدوم لفترة طويلة وتمنحك تجربة عطرية متواصلة. إذا كنتِ تبحثين عن عطر يجمع بين الفخامة والجاذبية واللمسة الأنثوية الراقية، فإن مجموعة Giorgio Armani Sì تعد خيارًا مثاليًا يعكس شخصيتك بكل أناقة وثقة.",
-      "fr": "عطر Giorgio Armani Sì هو عطر نسائي فاخر من نوع Eau de Parfum، صُمّم ليجسد الأنوثة العصرية والأناقة الراقية في كل تفاصيله. يتميز بتركيبة عطرية عالية الجودة تجمع بين النفحات الزهرية والفاكهية مع لمسات دافئة وحسية تمنح إحساسًا بالفخامة والثقة طوال اليوم. تأتي المجموعة بتصميم أنيق يجمع بين اللون الأحمر الجريء في إصدار Sì Passione الذي يرمز إلى الشغف والقوة، واللون البيج الوردي الناعم في إصدار Sì Intense الذي يعكس الرقي والنعومة، مع غطاء أسود فاخر يضيف لمسة من التميز. يتمتع العطر بثبات جيد وفوحان جذاب يجعله مناسبًا للاستعمال اليومي والمناسبات الخاصة والسهرات. كما تأتي الزجاجة بسعة 100 مل، وهي سعة مثالية تدوم لفترة طويلة وتمنحك تجربة عطرية متواصلة. إذا كنتِ تبحثين عن عطر يجمع بين الفخامة والجاذبية واللمسة الأنثوية الراقية، فإن مجموعة Giorgio Armani Sì تعد خيارًا مثاليًا يعكس شخصيتك بكل أناقة وثقة.",
-      "ar": "عطر Giorgio Armani Sì هو عطر نسائي فاخر من نوع Eau de Parfum، صُمّم ليجسد الأنوثة العصرية والأناقة الراقية في كل تفاصيله. يتميز بتركيبة عطرية عالية الجودة تجمع بين النفحات الزهرية والفاكهية مع لمسات دافئة وحسية تمنح إحساسًا بالفخامة والثقة طوال اليوم. تأتي المجموعة بتصميم أنيق يجمع بين اللون الأحمر الجريء في إصدار Sì Passione الذي يرمز إلى الشغف والقوة، واللون البيج الوردي الناعم في إصدار Sì Intense الذي يعكس الرقي والنعومة، مع غطاء أسود فاخر يضيف لمسة من التميز. يتمتع العطر بثبات جيد وفوحان جذاب يجعله مناسبًا للاستعمال اليومي والمناسبات الخاصة والسهرات. كما تأتي الزجاجة بسعة 100 مل، وهي سعة مثالية تدوم لفترة طويلة وتمنحك تجربة عطرية متواصلة. إذا كنتِ تبحثين عن عطر يجمع بين الفخامة والجاذبية واللمسة الأنثوية الراقية، فإن مجموعة Giorgio Armani Sì تعد خيارًا مثاليًا يعكس شخصيتك بكل أناقة وثقة."
+      "en": "About this itemAdvanced Antifungal Formula – Effectively targets and eliminates nail fungus at its root, promoting healthy nail regrowth.\nDeep Penetration Action – Formulated to penetrate deep into the nail bed for fast and visible results.\nEasy Patch Application – Simple, mess-free patch design allows for convenient daily use with no sticky residue.\nGentle Yet Powerful – Suitable for all skin types; safe for both toenails and fingernails without irritation.\nTravel-Friendly & Discreet – Compact, breathable patches can be worn comfortably under socks or shoes anytime, anywhere.\n\nProduct descriptionOur Antifungal Nail Patches offer a cutting-edge solution to eliminate fungal infections quickly and effectively. The advanced formula penetrates deeply to destroy fungus from within while protecting and repairing damaged nail tissue. With a simple patch application, you can treat nail fungus discreetly and effortlessly—no messy creams or liquids needed. Restore nail health and confidence with this safe, non-invasive treatment designed for everyday use.",
+      "fr": "About this itemAdvanced Antifungal Formula – Effectively targets and eliminates nail fungus at its root, promoting healthy nail regrowth.\nDeep Penetration Action – Formulated to penetrate deep into the nail bed for fast and visible results.\nEasy Patch Application – Simple, mess-free patch design allows for convenient daily use with no sticky residue.\nGentle Yet Powerful – Suitable for all skin types; safe for both toenails and fingernails without irritation.\nTravel-Friendly & Discreet – Compact, breathable patches can be worn comfortably under socks or shoes anytime, anywhere.\n\nProduct descriptionOur Antifungal Nail Patches offer a cutting-edge solution to eliminate fungal infections quickly and effectively. The advanced formula penetrates deeply to destroy fungus from within while protecting and repairing damaged nail tissue. With a simple patch application, you can treat nail fungus discreetly and effortlessly—no messy creams or liquids needed. Restore nail health and confidence with this safe, non-invasive treatment designed for everyday use.",
+      "ar": "About this itemAdvanced Antifungal Formula – Effectively targets and eliminates nail fungus at its root, promoting healthy nail regrowth.\nDeep Penetration Action – Formulated to penetrate deep into the nail bed for fast and visible results.\nEasy Patch Application – Simple, mess-free patch design allows for convenient daily use with no sticky residue.\nGentle Yet Powerful – Suitable for all skin types; safe for both toenails and fingernails without irritation.\nTravel-Friendly & Discreet – Compact, breathable patches can be worn comfortably under socks or shoes anytime, anywhere.\n\nProduct descriptionOur Antifungal Nail Patches offer a cutting-edge solution to eliminate fungal infections quickly and effectively. The advanced formula penetrates deeply to destroy fungus from within while protecting and repairing damaged nail tissue. With a simple patch application, you can treat nail fungus discreetly and effortlessly—no messy creams or liquids needed. Restore nail health and confidence with this safe, non-invasive treatment designed for everyday use."
     },
     "images": [
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10477059/6a1c3a963ca59-1780234902.png",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10477052/6a1c3a7fa9355-1780234879.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10477053/6a1c3a8301e64-1780234883.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10477054/6a1c3a85dbb74-1780234885.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10477055/6a1c3a8819afb-1780234888.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10477057/6a1c3a8e4edb7-1780234894.jpg"
+      "https://cdn.shipper.network/storage/t8necmwmlbtaiexq/uploads/products/11076559/6a7310a86044a-1785925800.jpg",
+      "https://cdn.shipper.network/storage/t8necmwmlbtaiexq/uploads/products/11076560/6a7310a861210-1785925800.jpg",
+      "https://cdn.shipper.network/storage/t8necmwmlbtaiexq/uploads/products/11076561/6a7310a9abeca-1785925801.jpg",
+      "https://cdn.shipper.network/storage/t8necmwmlbtaiexq/uploads/products/11076562/6a7310a9ac86c-1785925801.jpg",
+      "https://cdn.shipper.network/storage/t8necmwmlbtaiexq/uploads/products/11076563/6a7310af2938f-1785925807.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "عشان الجنسينخ",
-    "sourceUrl": "https://app.shipper.market/products/c41ff48e-b1bf-43b0-90bb-7ba82ec7b91a",
-    "sourceProductId": "c41ff48e-b1bf-43b0-90bb-7ba82ec7b91a",
-    "slug": "product-c41ff48e",
-    "category": "organisation health & beauty",
-    "title": {
-      "en": "عشان الجنسينخ",
-      "fr": "عشان الجنسينخ",
-      "ar": "عشان الجنسينخ"
-    },
-    "description": {
-      "en": "Ce produit est un complément alimentaire sous forme de sachets de miel au ginseng, commercialisé sous la marque Shabab. [1, 2]\nUsage et Posologie : Ce produit est destiné exclusivement aux adultes et la recommandation d'usage indiquée sur la boîte est d'un sachet par semaine.\nBienfaits Potentiels : Il est commercialisé pour booster l'énergie, la vitalité, et améliorer la performance physique et sexuelle.\nComposition : Le produit est présenté comme une formule naturelle à base de miel et de ginseng",
-      "fr": "Ce produit est un complément alimentaire sous forme de sachets de miel au ginseng, commercialisé sous la marque Shabab. [1, 2]\nUsage et Posologie : Ce produit est destiné exclusivement aux adultes et la recommandation d'usage indiquée sur la boîte est d'un sachet par semaine.\nBienfaits Potentiels : Il est commercialisé pour booster l'énergie, la vitalité, et améliorer la performance physique et sexuelle.\nComposition : Le produit est présenté comme une formule naturelle à base de miel et de ginseng",
-      "ar": "Ce produit est un complément alimentaire sous forme de sachets de miel au ginseng, commercialisé sous la marque Shabab. [1, 2]\nUsage et Posologie : Ce produit est destiné exclusivement aux adultes et la recommandation d'usage indiquée sur la boîte est d'un sachet par semaine.\nBienfaits Potentiels : Il est commercialisé pour booster l'énergie, la vitalité, et améliorer la performance physique et sexuelle.\nComposition : Le produit est présenté comme une formule naturelle à base de miel et de ginseng"
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/10296511/69f8784e77318-1777891406.png"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Pipette marron 50 ml",
-    "sourceUrl": "https://app.shipper.market/products/c440ec6c-9d9c-4be3-a791-d5bf83246efb",
-    "sourceProductId": "c440ec6c-9d9c-4be3-a791-d5bf83246efb",
-    "slug": "pipette-marron-50-ml-c440ec6c",
-    "category": "accessories other categories",
-    "title": {
-      "en": "Pipette marron 50 ml",
-      "fr": "Pipette marron 50 ml",
-      "ar": "Pipette marron 50 ml"
-    },
-    "description": {
-      "en": "bouteilles en verre ambré sont généralement utilisées pour le stockage d'huiles essentielles, de sérums ou d'autres produits cosmétiques artisanaux. \nConception en verre teinté pour protéger le contenu de la lumière. \nBouchon compte-gouttes pour une application précise. \nDesign orné sur la base. \nUtilisation courante dans la cosmétique naturelle.",
-      "fr": "bouteilles en verre ambré sont généralement utilisées pour le stockage d'huiles essentielles, de sérums ou d'autres produits cosmétiques artisanaux. \nConception en verre teinté pour protéger le contenu de la lumière. \nBouchon compte-gouttes pour une application précise. \nDesign orné sur la base. \nUtilisation courante dans la cosmétique naturelle.",
-      "ar": "bouteilles en verre ambré sont généralement utilisées pour le stockage d'huiles essentielles, de sérums ou d'autres produits cosmétiques artisanaux. \nConception en verre teinté pour protéger le contenu de la lumière. \nBouchon compte-gouttes pour une application précise. \nDesign orné sur la base. \nUtilisation courante dans la cosmétique naturelle."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/10258444/69f115a9cc5ae-1777407401.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "طقم يحتوي على عطر  ومزيل عرق بخاخ للصغار",
-    "sourceUrl": "https://app.shipper.market/products/c44130fa-44c9-443f-844b-85013793e346",
-    "sourceProductId": "c44130fa-44c9-443f-844b-85013793e346",
-    "slug": "product-c44130fa",
-    "category": "bathroom care beauty hair skincare baby organisation",
-    "title": {
-      "en": "طقم يحتوي على عطر  ومزيل عرق بخاخ للصغار",
-      "fr": "طقم يحتوي على عطر  ومزيل عرق بخاخ للصغار",
-      "ar": "طقم يحتوي على عطر  ومزيل عرق بخاخ للصغار"
-    },
-    "description": {
-      "en": "تتميز مجموعة عطور ومزيلات عرق \"Miny\" للأطفال بتصميمها المبتكر الذي يجمع بين العناية والترفيه، حيث تأتي كل مجموعة في حقيبة بلاستيكية شفافة سهلة الحمل. تتضمن المجموعة أنواعاً متنوعة مستوحاة من الشخصيات الكرتونية المفضلة، مثل شخصية \"إليزا ملكة الغيوم\" لعشاق الأجواء الثلجية، وشخصية \"سبونج بوب\" المرحة، بالإضافة إلى أبطال \"Minyclous\" مثل الدعسوقة والقط الأسود. كما تشمل التشكيلة شخصيات \"بن 10\" لمحبي المغامرة، و\"لولا\" والقطة اللطيفة \"Miny Kids\" بتصاميم وردية جذابة. تتكون كل مجموعة من قطعتين أساسيتين: عطر (Eau de Toilette) بسعة 100 مل يمنح الطفل رائحة زكية تدوم طويلاً، وبخاخ مزيل للعرق (Deodorant Spray) بسعة 125 مل مصمم بتركيبة لطيفة توفر الانتعاش والحماية اليومية. تعتمد المكونات على تركيبات مخصصة للأطفال لضمان النعومة على البشرة مع توفير روائح منعشة تتناسب مع نشاطهم اليومي.",
-      "fr": "تتميز مجموعة عطور ومزيلات عرق \"Miny\" للأطفال بتصميمها المبتكر الذي يجمع بين العناية والترفيه، حيث تأتي كل مجموعة في حقيبة بلاستيكية شفافة سهلة الحمل. تتضمن المجموعة أنواعاً متنوعة مستوحاة من الشخصيات الكرتونية المفضلة، مثل شخصية \"إليزا ملكة الغيوم\" لعشاق الأجواء الثلجية، وشخصية \"سبونج بوب\" المرحة، بالإضافة إلى أبطال \"Minyclous\" مثل الدعسوقة والقط الأسود. كما تشمل التشكيلة شخصيات \"بن 10\" لمحبي المغامرة، و\"لولا\" والقطة اللطيفة \"Miny Kids\" بتصاميم وردية جذابة. تتكون كل مجموعة من قطعتين أساسيتين: عطر (Eau de Toilette) بسعة 100 مل يمنح الطفل رائحة زكية تدوم طويلاً، وبخاخ مزيل للعرق (Deodorant Spray) بسعة 125 مل مصمم بتركيبة لطيفة توفر الانتعاش والحماية اليومية. تعتمد المكونات على تركيبات مخصصة للأطفال لضمان النعومة على البشرة مع توفير روائح منعشة تتناسب مع نشاطهم اليومي.",
-      "ar": "تتميز مجموعة عطور ومزيلات عرق \"Miny\" للأطفال بتصميمها المبتكر الذي يجمع بين العناية والترفيه، حيث تأتي كل مجموعة في حقيبة بلاستيكية شفافة سهلة الحمل. تتضمن المجموعة أنواعاً متنوعة مستوحاة من الشخصيات الكرتونية المفضلة، مثل شخصية \"إليزا ملكة الغيوم\" لعشاق الأجواء الثلجية، وشخصية \"سبونج بوب\" المرحة، بالإضافة إلى أبطال \"Minyclous\" مثل الدعسوقة والقط الأسود. كما تشمل التشكيلة شخصيات \"بن 10\" لمحبي المغامرة، و\"لولا\" والقطة اللطيفة \"Miny Kids\" بتصاميم وردية جذابة. تتكون كل مجموعة من قطعتين أساسيتين: عطر (Eau de Toilette) بسعة 100 مل يمنح الطفل رائحة زكية تدوم طويلاً، وبخاخ مزيل للعرق (Deodorant Spray) بسعة 125 مل مصمم بتركيبة لطيفة توفر الانتعاش والحماية اليومية. تعتمد المكونات على تركيبات مخصصة للأطفال لضمان النعومة على البشرة مع توفير روائح منعشة تتناسب مع نشاطهم اليومي."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10296177/69f868a3323ab-1777887395.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10296153/69f86859007f7-1777887321.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10296154/69f868590dec4-1777887321.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10296155/69f8685aed54a-1777887322.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10296156/69f8685aed753-1777887322.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10296171/69f86867dea0f-1777887335.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10296172/69f86870eb980-1777887344.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10296174/69f86879b6997-1777887353.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10296178/69f868b3e59ef-1777887411.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "300ml USB Ultrasonic Cool Mist Maker Onion Humidifier",
-    "sourceUrl": "https://app.shipper.market/products/c471b6ca-8d5c-4a14-b42a-eae61d4c3fe7",
-    "sourceProductId": "c471b6ca-8d5c-4a14-b42a-eae61d4c3fe7",
-    "slug": "300ml-usb-ultrasonic-cool-mist-maker-onion-humidifier-c471b6ca",
-    "category": "living decor bedroom bedding outdoor school office",
-    "title": {
-      "en": "300ml USB Ultrasonic Cool Mist Maker Onion Humidifier",
-      "fr": "300ml USB Ultrasonic Cool Mist Maker Onion Humidifier",
-      "ar": "300ml USB Ultrasonic Cool Mist Maker Onion Humidifier"
-    },
-    "description": {
-      "en": "💧 تبخيرة صغيرة بصوت صامت و ضوء مهدّي 😴\nتحب تنعّس في جوّ رطب و هادي؟ عندك مشكل في الجفاف في الجوّ؟ الحلّ هو التبخيرة الذكية هاذي!\n🌀 تشخّ بالخفة وتنقّلها معاك وين ما تمشي\n📌 كاباسيتي 300ml\n📌 مود متواصل يدوم حتى 4 سوايع\n📌 مود متقطّع يوصل لـ8 سوايع\n📌 فيها ضوّ خفيف يريّحك في الليل\n🔌 تخدم بالـUSB، ساهلة تنحط في الدار، الكرهبة، المكتب، ولا حتى في الكامب 🏕️\n🔇 صوتها ما يتعدّاش 40 ديسيبل… معناها ما تفيّقكش حتى في أهدى اللّيالي\n💡 دزاين خفيف و ستيل أنيق شكل بصل، تليق مع ديكورك وين ما تحطّها\n📦 في الباكي: تبخيرة + كابل USB\n💸 سومة معقولة و توصلك وين ما كنت في تونس 🇹🇳\n👇 كتبولنا في الكومنتير \"مهتم\" و نبعتولك التفاصيل 🔥\nDescription:\nSilent: The sound of the humidifier is within 0-40 decibels, which ensures that the air is humid while not affecting your sleep, work or study. It can be used by the elderly and children.\nFeature: This portable air humidifier with 300ml large capacity, has two modes, continuous spray mode approx 4H, the intermittent spray mode approx 8H, convenient to use.\nPortable: The cool mist humidifier for bedroom adopts onion shaped, simple and elegant, lightweight and compact, easy to store and carry. Whether you are indoors or outdoors, this humidifier can help you maintain air humidity.\nMultifunctional: The personal humidifier has a sleep atmosphere light, the light is soft at night, ensuring your sleep well.\nApplicable occasions: Our tabletop humidifier is widely used in homes, schools, cars, bedrooms, offices, hotels, tents, etc.\nSpecification:\nMaterial: PP\nHumidifier : Size: 11.62cmx11.62cmx10.28cm/4.57inchx4.57inchx4.05inch\nFilter Sticks : 12.5x0.8cm/4.92x0.31inch\nColor: White\nVoltage: DC5V\nUse Power: Spray 2.2W\nWorking Current: 300-450mA\nUse Time: Continuous Spray About 4H; Intermittent Spray About 8H\nSpray Amount: 30-50ml/h\nWater Tank Capacity: 300ml\nPackage Includes:\n1 Humidifier\n1 USB Cable",
-      "fr": "💧 تبخيرة صغيرة بصوت صامت و ضوء مهدّي 😴\nتحب تنعّس في جوّ رطب و هادي؟ عندك مشكل في الجفاف في الجوّ؟ الحلّ هو التبخيرة الذكية هاذي!\n🌀 تشخّ بالخفة وتنقّلها معاك وين ما تمشي\n📌 كاباسيتي 300ml\n📌 مود متواصل يدوم حتى 4 سوايع\n📌 مود متقطّع يوصل لـ8 سوايع\n📌 فيها ضوّ خفيف يريّحك في الليل\n🔌 تخدم بالـUSB، ساهلة تنحط في الدار، الكرهبة، المكتب، ولا حتى في الكامب 🏕️\n🔇 صوتها ما يتعدّاش 40 ديسيبل… معناها ما تفيّقكش حتى في أهدى اللّيالي\n💡 دزاين خفيف و ستيل أنيق شكل بصل، تليق مع ديكورك وين ما تحطّها\n📦 في الباكي: تبخيرة + كابل USB\n💸 سومة معقولة و توصلك وين ما كنت في تونس 🇹🇳\n👇 كتبولنا في الكومنتير \"مهتم\" و نبعتولك التفاصيل 🔥\nDescription:\nSilent: The sound of the humidifier is within 0-40 decibels, which ensures that the air is humid while not affecting your sleep, work or study. It can be used by the elderly and children.\nFeature: This portable air humidifier with 300ml large capacity, has two modes, continuous spray mode approx 4H, the intermittent spray mode approx 8H, convenient to use.\nPortable: The cool mist humidifier for bedroom adopts onion shaped, simple and elegant, lightweight and compact, easy to store and carry. Whether you are indoors or outdoors, this humidifier can help you maintain air humidity.\nMultifunctional: The personal humidifier has a sleep atmosphere light, the light is soft at night, ensuring your sleep well.\nApplicable occasions: Our tabletop humidifier is widely used in homes, schools, cars, bedrooms, offices, hotels, tents, etc.\nSpecification:\nMaterial: PP\nHumidifier : Size: 11.62cmx11.62cmx10.28cm/4.57inchx4.57inchx4.05inch\nFilter Sticks : 12.5x0.8cm/4.92x0.31inch\nColor: White\nVoltage: DC5V\nUse Power: Spray 2.2W\nWorking Current: 300-450mA\nUse Time: Continuous Spray About 4H; Intermittent Spray About 8H\nSpray Amount: 30-50ml/h\nWater Tank Capacity: 300ml\nPackage Includes:\n1 Humidifier\n1 USB Cable",
-      "ar": "💧 تبخيرة صغيرة بصوت صامت و ضوء مهدّي 😴\nتحب تنعّس في جوّ رطب و هادي؟ عندك مشكل في الجفاف في الجوّ؟ الحلّ هو التبخيرة الذكية هاذي!\n🌀 تشخّ بالخفة وتنقّلها معاك وين ما تمشي\n📌 كاباسيتي 300ml\n📌 مود متواصل يدوم حتى 4 سوايع\n📌 مود متقطّع يوصل لـ8 سوايع\n📌 فيها ضوّ خفيف يريّحك في الليل\n🔌 تخدم بالـUSB، ساهلة تنحط في الدار، الكرهبة، المكتب، ولا حتى في الكامب 🏕️\n🔇 صوتها ما يتعدّاش 40 ديسيبل… معناها ما تفيّقكش حتى في أهدى اللّيالي\n💡 دزاين خفيف و ستيل أنيق شكل بصل، تليق مع ديكورك وين ما تحطّها\n📦 في الباكي: تبخيرة + كابل USB\n💸 سومة معقولة و توصلك وين ما كنت في تونس 🇹🇳\n👇 كتبولنا في الكومنتير \"مهتم\" و نبعتولك التفاصيل 🔥\nDescription:\nSilent: The sound of the humidifier is within 0-40 decibels, which ensures that the air is humid while not affecting your sleep, work or study. It can be used by the elderly and children.\nFeature: This portable air humidifier with 300ml large capacity, has two modes, continuous spray mode approx 4H, the intermittent spray mode approx 8H, convenient to use.\nPortable: The cool mist humidifier for bedroom adopts onion shaped, simple and elegant, lightweight and compact, easy to store and carry. Whether you are indoors or outdoors, this humidifier can help you maintain air humidity.\nMultifunctional: The personal humidifier has a sleep atmosphere light, the light is soft at night, ensuring your sleep well.\nApplicable occasions: Our tabletop humidifier is widely used in homes, schools, cars, bedrooms, offices, hotels, tents, etc.\nSpecification:\nMaterial: PP\nHumidifier : Size: 11.62cmx11.62cmx10.28cm/4.57inchx4.57inchx4.05inch\nFilter Sticks : 12.5x0.8cm/4.92x0.31inch\nColor: White\nVoltage: DC5V\nUse Power: Spray 2.2W\nWorking Current: 300-450mA\nUse Time: Continuous Spray About 4H; Intermittent Spray About 8H\nSpray Amount: 30-50ml/h\nWater Tank Capacity: 300ml\nPackage Includes:\n1 Humidifier\n1 USB Cable"
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/7442089/6813303356081-1746087987.jpg",
-      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/7442090/65c4fd97ccb99-1707408791.webp",
-      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/7442091/65c4fd9a0c2a7-1707408794.webp",
-      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/7442092/65c4fd939c256-1707408787.webp",
-      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/7442093/65c4fd93a011c-1707408787.webp",
-      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/7442094/65c4fd95b9f3c-1707408789.webp",
-      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/7442095/65c4fd95b8164-1707408789.webp",
-      "https://cdn.shipper.network/storage/1niyxxkxmb51aw9f/uploads/products/7442096/65c4fd97cb9b7-1707408791.webp"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "boîte de rangement pour bijoux portable avec un miroir",
-    "sourceUrl": "https://app.shipper.market/products/c492020d-f76d-4304-9b01-10d6a1e89beb",
-    "sourceProductId": "c492020d-f76d-4304-9b01-10d6a1e89beb",
-    "slug": "boite-de-rangement-pour-bijoux-portable-avec-un-miroir-c492020d",
-    "category": "organisation",
-    "title": {
-      "en": "boîte de rangement pour bijoux portable avec un miroir",
-      "fr": "boîte de rangement pour bijoux portable avec un miroir",
-      "ar": "boîte de rangement pour bijoux portable avec un miroir"
-    },
-    "description": {
-      "en": "Trouver des sites en ligne pour l'acheter\n\nConnaître ses dimensions ou ses caractéristiques techniques\n\nVoir des modèles similaires ou de meilleures qualités\n\n une petite boîte à rangement pour bijoux portable avec miroir (modèle LD-988), conçue en matériau souple pour éviter l'usure des accessoires\n\nOrganisation interne : Elle est équipée de plusieurs compartiments distincts, dont des fentes spécifiques pour maintenir les bagues bien en place et des espaces pour éviter que les chaînes ne s'emmêlent.\n\nMatériau doux : L'intérieur utilise un revêtement en caoutchouc souple pour protéger les bijoux contre les rayures et l'usure.\n\nFormat portatif : Très compacte, elle se glisse facilement dans un sac à main ou une valise pour les déplacements.",
-      "fr": "Trouver des sites en ligne pour l'acheter\n\nConnaître ses dimensions ou ses caractéristiques techniques\n\nVoir des modèles similaires ou de meilleures qualités\n\n une petite boîte à rangement pour bijoux portable avec miroir (modèle LD-988), conçue en matériau souple pour éviter l'usure des accessoires\n\nOrganisation interne : Elle est équipée de plusieurs compartiments distincts, dont des fentes spécifiques pour maintenir les bagues bien en place et des espaces pour éviter que les chaînes ne s'emmêlent.\n\nMatériau doux : L'intérieur utilise un revêtement en caoutchouc souple pour protéger les bijoux contre les rayures et l'usure.\n\nFormat portatif : Très compacte, elle se glisse facilement dans un sac à main ou une valise pour les déplacements.",
-      "ar": "Trouver des sites en ligne pour l'acheter\n\nConnaître ses dimensions ou ses caractéristiques techniques\n\nVoir des modèles similaires ou de meilleures qualités\n\n une petite boîte à rangement pour bijoux portable avec miroir (modèle LD-988), conçue en matériau souple pour éviter l'usure des accessoires\n\nOrganisation interne : Elle est équipée de plusieurs compartiments distincts, dont des fentes spécifiques pour maintenir les bagues bien en place et des espaces pour éviter que les chaînes ne s'emmêlent.\n\nMatériau doux : L'intérieur utilise un revêtement en caoutchouc souple pour protéger les bijoux contre les rayures et l'usure.\n\nFormat portatif : Très compacte, elle se glisse facilement dans un sac à main ou une valise pour les déplacements."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/11458225/conversions/6aa270ae57610-1789030574-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/hbklcghvraah8tvd/uploads/products/11452410/conversions/6aa13f2dc8090-1788952365-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/hbklcghvraah8tvd/uploads/products/11452411/conversions/6aa13f2de1ba2-1788952365-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/hbklcghvraah8tvd/uploads/products/11452412/conversions/6aa13f30a8f77-1788952368-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/hbklcghvraah8tvd/uploads/products/11452413/conversions/6aa13f30ad0c5-1788952368-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/hbklcghvraah8tvd/uploads/products/11452414/conversions/6aa13f3105760-1788952369-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Pince coupante multifonction Universelle",
-    "sourceUrl": "https://app.shipper.market/products/c49e9aa2-94b1-4e4a-bfc4-13000de61851",
-    "sourceProductId": "c49e9aa2-94b1-4e4a-bfc4-13000de61851",
-    "slug": "pince-coupante-multifonction-universelle-c49e9aa2",
+    "sourceName": "Traillerie / شقاقة للاطفال",
+    "sourceUrl": "https://app.shipper.market/products/6d95f1ec-f80d-4810-a4de-b9255804a2f9",
+    "sourceProductId": "6d95f1ec-f80d-4810-a4de-b9255804a2f9",
+    "slug": "traillerie-6d95f1ec",
     "category": "accessories",
     "title": {
-      "en": "Pince coupante multifonction Universelle",
-      "fr": "Pince coupante multifonction Universelle",
-      "ar": "Pince coupante multifonction Universelle"
+      "en": "Traillerie / شقاقة للاطفال",
+      "fr": "Traillerie / شقاقة للاطفال",
+      "ar": "Traillerie / شقاقة للاطفال"
     },
     "description": {
-      "en": "Pince coupante Multifonction Universelle – Universel Électricien\nAvec de l'acier CRV de haute qualité comme matériau principal, cet ensemble de pinces à une forte force de cisaillement pour couper les fils d'acier avec une incision soignée. Multifonctionnel 5 en 1 Cet ensemble d'outils de pince offre des fonctions de dénudage, de sertissage, de coupe, de torsion et de préhension. Prise en main confortable Avec une poignée caoutchoutée ergonomique, cette pince à bec effilé peut être confortable sur votre main même après de longues heures de travail.",
-      "fr": "Pince coupante Multifonction Universelle – Universel Électricien\nAvec de l'acier CRV de haute qualité comme matériau principal, cet ensemble de pinces à une forte force de cisaillement pour couper les fils d'acier avec une incision soignée. Multifonctionnel 5 en 1 Cet ensemble d'outils de pince offre des fonctions de dénudage, de sertissage, de coupe, de torsion et de préhension. Prise en main confortable Avec une poignée caoutchoutée ergonomique, cette pince à bec effilé peut être confortable sur votre main même après de longues heures de travail.",
-      "ar": "Pince coupante Multifonction Universelle – Universel Électricien\nAvec de l'acier CRV de haute qualité comme matériau principal, cet ensemble de pinces à une forte force de cisaillement pour couper les fils d'acier avec une incision soignée. Multifonctionnel 5 en 1 Cet ensemble d'outils de pince offre des fonctions de dénudage, de sertissage, de coupe, de torsion et de préhension. Prise en main confortable Avec une poignée caoutchoutée ergonomique, cette pince à bec effilé peut être confortable sur votre main même après de longues heures de travail."
+      "en": "شقاقة للاطفال",
+      "fr": "شقاقة للاطفال",
+      "ar": "شقاقة للاطفال"
     },
     "images": [
-      "https://cdn.shipper.network/storage/xeavlmcfgl5hjugt/uploads/products/115381/6581ab1d5c133-1702996765.png",
-      "https://cdn.shipper.network/storage/xeavlmcfgl5hjugt/uploads/products/115382/6581ab1d93bfd-1702996765.png",
-      "https://cdn.shipper.network/storage/xeavlmcfgl5hjugt/uploads/products/115383/6581ab1f567e4-1702996767.png",
-      "https://cdn.shipper.network/storage/xeavlmcfgl5hjugt/uploads/products/115391/6581ab40781bb-1702996800.png",
-      "https://cdn.shipper.network/storage/xeavlmcfgl5hjugt/uploads/products/115493/6581acd4b88f3-1702997204.png"
+      "https://cdn.shipper.network/storage/21sprzqg1x7k1sp3/uploads/products/8979194/695d55ebb8f57-1767724523.jpg",
+      "https://cdn.shipper.network/storage/21sprzqg1x7k1sp3/uploads/products/8979195/695d55ebe870e-1767724523.jpg",
+      "https://cdn.shipper.network/storage/21sprzqg1x7k1sp3/uploads/products/8979197/695d55ee7d705-1767724526.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Chevillière De Compression Pour Avec 2 Sangles",
-    "sourceUrl": "https://app.shipper.market/products/c4ba7beb-8366-4d17-953c-7e0710cedc54",
-    "sourceProductId": "c4ba7beb-8366-4d17-953c-7e0710cedc54",
-    "slug": "chevilliere-de-compression-pour-avec-2-sangles-c4ba7beb",
-    "category": "care beauty hair skincare various",
+    "sourceName": "Serum vitamine c dr althea",
+    "sourceUrl": "https://app.shipper.market/products/6da52148-026a-4fc4-9516-9aef24b69916",
+    "sourceProductId": "6da52148-026a-4fc4-9516-9aef24b69916",
+    "slug": "serum-vitamine-c-dr-althea-6da52148",
+    "category": "care beauty hair skincare health & beauty",
     "title": {
-      "en": "Chevillière De Compression Pour Avec 2 Sangles",
-      "fr": "Chevillière De Compression Pour Avec 2 Sangles",
-      "ar": "Chevillière De Compression Pour Avec 2 Sangles"
+      "en": "Serum vitamine c dr althea",
+      "fr": "Serum vitamine c dr althea",
+      "ar": "Serum vitamine c dr althea"
     },
     "description": {
-      "en": "Découvrez la Chevillère de Compression Ajustable pour Homme et Femme, un accessoire conçu pour apporter un maintien supplémentaire à la cheville lors des activités quotidiennes ou sportives. Grâce à sa conception ajustable, ses sangles de renfort croisées et son tissu extensible, elle offre une compression personnalisable tout en favorisant une bonne stabilité de la cheville.\n• Chevillère de compression conçue pour soutenir et stabiliser la cheville\n• Compression ajustable permettant d’adapter le maintien selon les besoins\n• Sangles croisées de renfort pour un maintien renforcé de la cheville\n• Matériaux extensibles en nylon, spandex et caoutchouc élastique\n• Fermeture Velcro facilitant l’ajustement et le positionnement\n• Conception enveloppante offrant un maintien confortable\n• Design ergonomique accompagnant les mouvements naturels de la cheville\n• Adaptée à la marche, à la course et aux activités sportives\n• Maintien pratique pour les déplacements et les activités quotidiennes\n• Structure légère et flexible pour une utilisation régulière\n• Format discret pouvant être porté avec différentes chaussures\n• Ajustement personnalisé grâce aux sangles réglables\n• Convient aux hommes et aux femmes selon la taille choisie\n• Facile à installer et à retirer\n• Entretien simple pour une utilisation durable\n• Accessoire idéal pour les personnes recherchant davantage de maintien et de confort au niveau de la cheville\nLa Chevillère de Compression Ajustable combine confort, flexibilité et maintien dans un format pratique adapté à différentes utilisations. Sa conception avec sangles croisées et compression réglable permet d’obtenir un ajustement personnalisé tout en conservant une bonne liberté de mouvement.",
-      "fr": "Découvrez la Chevillère de Compression Ajustable pour Homme et Femme, un accessoire conçu pour apporter un maintien supplémentaire à la cheville lors des activités quotidiennes ou sportives. Grâce à sa conception ajustable, ses sangles de renfort croisées et son tissu extensible, elle offre une compression personnalisable tout en favorisant une bonne stabilité de la cheville.\n• Chevillère de compression conçue pour soutenir et stabiliser la cheville\n• Compression ajustable permettant d’adapter le maintien selon les besoins\n• Sangles croisées de renfort pour un maintien renforcé de la cheville\n• Matériaux extensibles en nylon, spandex et caoutchouc élastique\n• Fermeture Velcro facilitant l’ajustement et le positionnement\n• Conception enveloppante offrant un maintien confortable\n• Design ergonomique accompagnant les mouvements naturels de la cheville\n• Adaptée à la marche, à la course et aux activités sportives\n• Maintien pratique pour les déplacements et les activités quotidiennes\n• Structure légère et flexible pour une utilisation régulière\n• Format discret pouvant être porté avec différentes chaussures\n• Ajustement personnalisé grâce aux sangles réglables\n• Convient aux hommes et aux femmes selon la taille choisie\n• Facile à installer et à retirer\n• Entretien simple pour une utilisation durable\n• Accessoire idéal pour les personnes recherchant davantage de maintien et de confort au niveau de la cheville\nLa Chevillère de Compression Ajustable combine confort, flexibilité et maintien dans un format pratique adapté à différentes utilisations. Sa conception avec sangles croisées et compression réglable permet d’obtenir un ajustement personnalisé tout en conservant une bonne liberté de mouvement.",
-      "ar": "Découvrez la Chevillère de Compression Ajustable pour Homme et Femme, un accessoire conçu pour apporter un maintien supplémentaire à la cheville lors des activités quotidiennes ou sportives. Grâce à sa conception ajustable, ses sangles de renfort croisées et son tissu extensible, elle offre une compression personnalisable tout en favorisant une bonne stabilité de la cheville.\n• Chevillère de compression conçue pour soutenir et stabiliser la cheville\n• Compression ajustable permettant d’adapter le maintien selon les besoins\n• Sangles croisées de renfort pour un maintien renforcé de la cheville\n• Matériaux extensibles en nylon, spandex et caoutchouc élastique\n• Fermeture Velcro facilitant l’ajustement et le positionnement\n• Conception enveloppante offrant un maintien confortable\n• Design ergonomique accompagnant les mouvements naturels de la cheville\n• Adaptée à la marche, à la course et aux activités sportives\n• Maintien pratique pour les déplacements et les activités quotidiennes\n• Structure légère et flexible pour une utilisation régulière\n• Format discret pouvant être porté avec différentes chaussures\n• Ajustement personnalisé grâce aux sangles réglables\n• Convient aux hommes et aux femmes selon la taille choisie\n• Facile à installer et à retirer\n• Entretien simple pour une utilisation durable\n• Accessoire idéal pour les personnes recherchant davantage de maintien et de confort au niveau de la cheville\nLa Chevillère de Compression Ajustable combine confort, flexibilité et maintien dans un format pratique adapté à différentes utilisations. Sa conception avec sangles croisées et compression réglable permet d’obtenir un ajustement personnalisé tout en conservant une bonne liberté de mouvement."
+      "en": "Type de produit : Sérum visage illuminateur et hydratant.\nIngrédient clé : 63 % d'eau d'argousier riche en vitamines.\nBienfaits : Aide à raviver l'éclat de la peau, à atténuer l'apparence des taches brunes et des marques d'acné, et convient aux peaux sensibles.\nFormat : Flacon en verre ambré avec compte-gouttes de 30 ml. [1, 2, 3, 4, 5, 6]",
+      "fr": "Type de produit : Sérum visage illuminateur et hydratant.\nIngrédient clé : 63 % d'eau d'argousier riche en vitamines.\nBienfaits : Aide à raviver l'éclat de la peau, à atténuer l'apparence des taches brunes et des marques d'acné, et convient aux peaux sensibles.\nFormat : Flacon en verre ambré avec compte-gouttes de 30 ml. [1, 2, 3, 4, 5, 6]",
+      "ar": "Type de produit : Sérum visage illuminateur et hydratant.\nIngrédient clé : 63 % d'eau d'argousier riche en vitamines.\nBienfaits : Aide à raviver l'éclat de la peau, à atténuer l'apparence des taches brunes et des marques d'acné, et convient aux peaux sensibles.\nFormat : Flacon en verre ambré avec compte-gouttes de 30 ml. [1, 2, 3, 4, 5, 6]"
     },
     "images": [
-      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/11551215/6ab29102e1198-1790087426.png",
-      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/11550773/6ab288b6a77e4-1790085302.jpg",
-      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/11550774/6ab288b6aa280-1790085302.jpg",
-      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/11550775/6ab288b92439f-1790085305.jpg",
-      "https://cdn.shipper.network/storage/xm5v1jtzspffiwg7/uploads/products/11550776/6ab288b931faa-1790085305.jpg"
+      "https://cdn.shipper.network/storage/crcrdbgf2ux1bogw/uploads/products/11790394/6ae235dde3d49-1793209821.jpg",
+      "https://cdn.shipper.network/storage/crcrdbgf2ux1bogw/uploads/products/11790393/6ae235dde3d49-1793209821.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "Épilateur Visage Electrique- Sans douleur & Précis",
+    "sourceUrl": "https://app.shipper.market/products/6da63778-9863-47fa-ab74-93b08f7e92ba",
+    "sourceProductId": "6da63778-9863-47fa-ab74-93b08f7e92ba",
+    "slug": "epilateur-visage-electrique-sans-douleur-precis-6da63778",
+    "category": "care beauty hair skincare",
+    "title": {
+      "en": "Épilateur Visage Electrique- Sans douleur & Précis",
+      "fr": "Épilateur Visage Electrique- Sans douleur & Précis",
+      "ar": "Épilateur Visage Electrique- Sans douleur & Précis"
+    },
+    "description": {
+      "en": "✨ Épilateur Visage Électrique – Épilation Douce, Rapide et Sans Douleur\nDécouvrez l'efficacité de notre épilateur visage électrique, conçu pour offrir une épilation précise et indolore, même sur les zones les plus sensibles du visage. Doté d'une technologie de micro-rasage et d'une tête rotative hypoallergénique, cet épilateur visage élimine efficacement les poils fins et le duvet pour une peau lisse, nette et sans irritation.\n💖 Idéal pour :\n• Lèvre supérieure\n• Menton\n• Pommettes\n• Ligne de sourcils\n• Contour du visage\nCompact, léger et discret, cet épilateur s’utilise facilement à tout moment de la journée. Sa batterie rechargeable ou son fonctionnement à piles (selon le modèle) permet une utilisation sans fil, pratique à la maison comme en déplacement.\n✅ Avantages clés :\n• ✔️ Épilation sans douleur\n• ✔️ Convient à tous les types de peau\n• ✔️ Tête de rasage douce et précise\n• ✔️ Résultats immédiats et sans irritation\n• ✔️ Format de poche ultra pratique",
+      "fr": "✨ Épilateur Visage Électrique – Épilation Douce, Rapide et Sans Douleur\nDécouvrez l'efficacité de notre épilateur visage électrique, conçu pour offrir une épilation précise et indolore, même sur les zones les plus sensibles du visage. Doté d'une technologie de micro-rasage et d'une tête rotative hypoallergénique, cet épilateur visage élimine efficacement les poils fins et le duvet pour une peau lisse, nette et sans irritation.\n💖 Idéal pour :\n• Lèvre supérieure\n• Menton\n• Pommettes\n• Ligne de sourcils\n• Contour du visage\nCompact, léger et discret, cet épilateur s’utilise facilement à tout moment de la journée. Sa batterie rechargeable ou son fonctionnement à piles (selon le modèle) permet une utilisation sans fil, pratique à la maison comme en déplacement.\n✅ Avantages clés :\n• ✔️ Épilation sans douleur\n• ✔️ Convient à tous les types de peau\n• ✔️ Tête de rasage douce et précise\n• ✔️ Résultats immédiats et sans irritation\n• ✔️ Format de poche ultra pratique",
+      "ar": "✨ Épilateur Visage Électrique – Épilation Douce, Rapide et Sans Douleur\nDécouvrez l'efficacité de notre épilateur visage électrique, conçu pour offrir une épilation précise et indolore, même sur les zones les plus sensibles du visage. Doté d'une technologie de micro-rasage et d'une tête rotative hypoallergénique, cet épilateur visage élimine efficacement les poils fins et le duvet pour une peau lisse, nette et sans irritation.\n💖 Idéal pour :\n• Lèvre supérieure\n• Menton\n• Pommettes\n• Ligne de sourcils\n• Contour du visage\nCompact, léger et discret, cet épilateur s’utilise facilement à tout moment de la journée. Sa batterie rechargeable ou son fonctionnement à piles (selon le modèle) permet une utilisation sans fil, pratique à la maison comme en déplacement.\n✅ Avantages clés :\n• ✔️ Épilation sans douleur\n• ✔️ Convient à tous les types de peau\n• ✔️ Tête de rasage douce et précise\n• ✔️ Résultats immédiats et sans irritation\n• ✔️ Format de poche ultra pratique"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/3303662/682b096775459-1747650919.jpg",
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/3273660/6827b71273536-1747433234.jpg",
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/3273661/6827b7128587f-1747433234.jpg",
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/3273662/6827b71683ce3-1747433238.jpg",
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/3273663/6827b7168d946-1747433238.jpg",
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/3273664/6827b71a17d00-1747433242.jpg",
+      "https://cdn.shipper.network/storage/bbdna2q84rowy6uq/uploads/products/3273665/6827b71a34278-1747433242.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "plumeaux pour grille d'aération de voiture",
+    "sourceUrl": "https://app.shipper.market/products/6daf5991-0ab4-4fe6-ae37-d85d8ebab88f",
+    "sourceProductId": "6daf5991-0ab4-4fe6-ae37-d85d8ebab88f",
+    "slug": "plumeaux-pour-grille-d-aeration-de-voiture-6daf5991",
+    "category": "play cleaning laundry school office",
+    "title": {
+      "en": "plumeaux pour grille d'aération de voiture",
+      "fr": "plumeaux pour grille d'aération de voiture",
+      "ar": "plumeaux pour grille d'aération de voiture"
+    },
+    "description": {
+      "en": "• plumeaux pour grille d'aération de voiture\n• ★ Facile à enlever : la housse en tissu peut être facilement retirée du gadget, par rapport au chiffon ordinaire, il peut mieux nettoyer la poussière car le manchon est en microfibre qui a une forte capacité d'absorption d'eau, facile à laver, forte détergence.\n• Multifonction : ce nettoyant est adapté à la grille d'aération de toute taille, aide à nettoyer la poussière et la saleté. Peut être utilisé non seulement pour la grille d'aération, mais également pour le clavier, les stores, les volets, etc",
+      "fr": "• plumeaux pour grille d'aération de voiture\n• ★ Facile à enlever : la housse en tissu peut être facilement retirée du gadget, par rapport au chiffon ordinaire, il peut mieux nettoyer la poussière car le manchon est en microfibre qui a une forte capacité d'absorption d'eau, facile à laver, forte détergence.\n• Multifonction : ce nettoyant est adapté à la grille d'aération de toute taille, aide à nettoyer la poussière et la saleté. Peut être utilisé non seulement pour la grille d'aération, mais également pour le clavier, les stores, les volets, etc",
+      "ar": "• plumeaux pour grille d'aération de voiture\n• ★ Facile à enlever : la housse en tissu peut être facilement retirée du gadget, par rapport au chiffon ordinaire, il peut mieux nettoyer la poussière car le manchon est en microfibre qui a une forte capacité d'absorption d'eau, facile à laver, forte détergence.\n• Multifonction : ce nettoyant est adapté à la grille d'aération de toute taille, aide à nettoyer la poussière et la saleté. Peut être utilisé non seulement pour la grille d'aération, mais également pour le clavier, les stores, les volets, etc"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/2kmwcyusheaudsc9/uploads/products/4673169/684d4a24a365d-1749895716.jpg",
+      "https://cdn.shipper.network/storage/2kmwcyusheaudsc9/uploads/products/4673170/684d4a24a37a1-1749895716.jpg",
+      "https://cdn.shipper.network/storage/2kmwcyusheaudsc9/uploads/products/4673171/684d4a28522d7-1749895720.jpg"
     ],
     "originalSupplierCopy": true
   }

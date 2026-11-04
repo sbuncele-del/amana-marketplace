@@ -1,392 +1,303 @@
 [
   {
-    "sourceName": "Eau de Parfum Beverly Hills Polo Club",
-    "sourceUrl": "https://app.shipper.market/products/a986f30b-e4a2-4b03-9eb6-ba697b234ee8",
-    "sourceProductId": "a986f30b-e4a2-4b03-9eb6-ba697b234ee8",
-    "slug": "eau-de-parfum-beverly-hills-polo-club-a986f30b",
+    "sourceName": "سروال قمرايا للنساء",
+    "sourceUrl": "https://app.shipper.market/products/5dc5f20e-0f2f-45e8-8fdd-91247233b00a",
+    "sourceProductId": "5dc5f20e-0f2f-45e8-8fdd-91247233b00a",
+    "slug": "product-5dc5f20e",
+    "category": "outdoor",
+    "title": {
+      "en": "سروال قمرايا للنساء",
+      "fr": "سروال قمرايا للنساء",
+      "ar": "سروال قمرايا للنساء"
+    },
+    "description": {
+      "en": "Ce pantalon à rayures verticales combine parfaitement confort et élégance pour un style décontracté au quotidien. Doté d'une coupe palazzo ultra-fluide et de fentes latérales audacieuses au bas des jambes, il offre une liberté de mouvement maximale et une silhouette aérienne. Sa taille haute élastique assure un ajustement parfait et confortable. Confectionné dans un tissu léger idéal pour les journées ensoleillées, il se porte aussi bien en ville qu'à la plage.\nيتميز هذا البنطلون المخطط عمودياً بمزيج مثالي من الراحة والأناقة ليمكّنكِ من الحصول على إطلالة يومية كاجوال وعصرية. يأتي بتصميم بالازو ذو أرجل واسعة وفضفاضة مع فتحات جانبية جريئة وجذابة عند الحواف، مما يمنحكِ حرية حركة فائقة وقواماً انسيابياً. كما يتميز بخصر مرتفع ومطاطي لضمان مقاس مريح ومثالي طوال اليوم. صُنع من قماش خفيف الوزن ومثالي للأيام المشمسة، مما يجعله اختياراً ممتازاً للنزهات الصيفية أو كملابس مريحة للبحر.",
+      "fr": "Ce pantalon à rayures verticales combine parfaitement confort et élégance pour un style décontracté au quotidien. Doté d'une coupe palazzo ultra-fluide et de fentes latérales audacieuses au bas des jambes, il offre une liberté de mouvement maximale et une silhouette aérienne. Sa taille haute élastique assure un ajustement parfait et confortable. Confectionné dans un tissu léger idéal pour les journées ensoleillées, il se porte aussi bien en ville qu'à la plage.\nيتميز هذا البنطلون المخطط عمودياً بمزيج مثالي من الراحة والأناقة ليمكّنكِ من الحصول على إطلالة يومية كاجوال وعصرية. يأتي بتصميم بالازو ذو أرجل واسعة وفضفاضة مع فتحات جانبية جريئة وجذابة عند الحواف، مما يمنحكِ حرية حركة فائقة وقواماً انسيابياً. كما يتميز بخصر مرتفع ومطاطي لضمان مقاس مريح ومثالي طوال اليوم. صُنع من قماش خفيف الوزن ومثالي للأيام المشمسة، مما يجعله اختياراً ممتازاً للنزهات الصيفية أو كملابس مريحة للبحر.",
+      "ar": "Ce pantalon à rayures verticales combine parfaitement confort et élégance pour un style décontracté au quotidien. Doté d'une coupe palazzo ultra-fluide et de fentes latérales audacieuses au bas des jambes, il offre une liberté de mouvement maximale et une silhouette aérienne. Sa taille haute élastique assure un ajustement parfait et confortable. Confectionné dans un tissu léger idéal pour les journées ensoleillées, il se porte aussi bien en ville qu'à la plage.\nيتميز هذا البنطلون المخطط عمودياً بمزيج مثالي من الراحة والأناقة ليمكّنكِ من الحصول على إطلالة يومية كاجوال وعصرية. يأتي بتصميم بالازو ذو أرجل واسعة وفضفاضة مع فتحات جانبية جريئة وجذابة عند الحواف، مما يمنحكِ حرية حركة فائقة وقواماً انسيابياً. كما يتميز بخصر مرتفع ومطاطي لضمان مقاس مريح ومثالي طوال اليوم. صُنع من قماش خفيف الوزن ومثالي للأيام المشمسة، مما يجعله اختياراً ممتازاً للنزهات الصيفية أو كملابس مريحة للبحر."
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/s5bwgdp2brbmtiu7/uploads/products/10839699/6a423046cf502-1782722630.png",
+      "https://cdn.shipper.network/storage/s5bwgdp2brbmtiu7/uploads/products/10837354/6a417919aae7d-1782675737.png",
+      "https://cdn.shipper.network/storage/s5bwgdp2brbmtiu7/uploads/products/10837355/6a417919af13f-1782675737.png",
+      "https://cdn.shipper.network/storage/s5bwgdp2brbmtiu7/uploads/products/10837356/6a41791bcf6d4-1782675739.png",
+      "https://cdn.shipper.network/storage/s5bwgdp2brbmtiu7/uploads/products/10837357/6a41791bcf73c-1782675739.png"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "L'Alliance Parfaite Montre et collier Swan – Collection 2026",
+    "sourceUrl": "https://app.shipper.market/products/5dd26dd7-1262-4cc0-b273-60cec1304980",
+    "sourceProductId": "5dd26dd7-1262-4cc0-b273-60cec1304980",
+    "slug": "l-alliance-parfaite-montre-et-collier-swan-collection-2026-5dd26dd7",
+    "category": "wearables",
+    "title": {
+      "en": "L'Alliance Parfaite Montre et collier Swan – Collection 2026",
+      "fr": "L'Alliance Parfaite Montre et collier Swan – Collection 2026",
+      "ar": "L'Alliance Parfaite Montre et collier Swan – Collection 2026"
+    },
+    "description": {
+      "en": "أضيفي لمسة من الفخامة والأنوثة إلى إطلالتك اليومية مع هذا العرض الخاص. سواء كنتِ تبحثين عن التميز في مناسباتك الخاصة أو ترغبين في هدية لا تُنسى، فإن هذا الطقم هو الخيار الأمثل.\n​ماذا يتضمن العرض؟\n​Menqala أنيقة: ساعة يد بتصميم راقٍ مزينة بإطار متلألئ، تتوفر بخيارين من الألوان لتناسب ذوقك.\n​Collier Swan: قلادة بتصميم \"البجعة\" الرقيق الذي يضفي لمسة من النعومة والجمال على عنقك.\n​لماذا ستحبين هذا الطقم؟\n​تصميم عصري: ساعة بلمسة كلاسيكية عصرية تناسب جميع إطلالاتك.\n​تنوع في الألوان: الـ Menqala متوفرة بلونين لتختاري ما يتماشى مع أسلوبك الخاص.\n​إطلالة متكاملة: تنسيق مثالي بين الساعة والقلادة يضمن لكِ مظهراً متناسقاً وجذاباً.\n​عرض لفترة محدودة! 🛍️\n​احصلي على هذا الطقم المميز بسعر حصري:\n59 د.ت فقط بدلاً من 89 د.ت.\n​لا تفوتي الفرصة، اطلبي مجموعتك الآن وتألقي بأناقة لا مثيل لها!",
+      "fr": "أضيفي لمسة من الفخامة والأنوثة إلى إطلالتك اليومية مع هذا العرض الخاص. سواء كنتِ تبحثين عن التميز في مناسباتك الخاصة أو ترغبين في هدية لا تُنسى، فإن هذا الطقم هو الخيار الأمثل.\n​ماذا يتضمن العرض؟\n​Menqala أنيقة: ساعة يد بتصميم راقٍ مزينة بإطار متلألئ، تتوفر بخيارين من الألوان لتناسب ذوقك.\n​Collier Swan: قلادة بتصميم \"البجعة\" الرقيق الذي يضفي لمسة من النعومة والجمال على عنقك.\n​لماذا ستحبين هذا الطقم؟\n​تصميم عصري: ساعة بلمسة كلاسيكية عصرية تناسب جميع إطلالاتك.\n​تنوع في الألوان: الـ Menqala متوفرة بلونين لتختاري ما يتماشى مع أسلوبك الخاص.\n​إطلالة متكاملة: تنسيق مثالي بين الساعة والقلادة يضمن لكِ مظهراً متناسقاً وجذاباً.\n​عرض لفترة محدودة! 🛍️\n​احصلي على هذا الطقم المميز بسعر حصري:\n59 د.ت فقط بدلاً من 89 د.ت.\n​لا تفوتي الفرصة، اطلبي مجموعتك الآن وتألقي بأناقة لا مثيل لها!",
+      "ar": "أضيفي لمسة من الفخامة والأنوثة إلى إطلالتك اليومية مع هذا العرض الخاص. سواء كنتِ تبحثين عن التميز في مناسباتك الخاصة أو ترغبين في هدية لا تُنسى، فإن هذا الطقم هو الخيار الأمثل.\n​ماذا يتضمن العرض؟\n​Menqala أنيقة: ساعة يد بتصميم راقٍ مزينة بإطار متلألئ، تتوفر بخيارين من الألوان لتناسب ذوقك.\n​Collier Swan: قلادة بتصميم \"البجعة\" الرقيق الذي يضفي لمسة من النعومة والجمال على عنقك.\n​لماذا ستحبين هذا الطقم؟\n​تصميم عصري: ساعة بلمسة كلاسيكية عصرية تناسب جميع إطلالاتك.\n​تنوع في الألوان: الـ Menqala متوفرة بلونين لتختاري ما يتماشى مع أسلوبك الخاص.\n​إطلالة متكاملة: تنسيق مثالي بين الساعة والقلادة يضمن لكِ مظهراً متناسقاً وجذاباً.\n​عرض لفترة محدودة! 🛍️\n​احصلي على هذا الطقم المميز بسعر حصري:\n59 د.ت فقط بدلاً من 89 د.ت.\n​لا تفوتي الفرصة، اطلبي مجموعتك الآن وتألقي بأناقة لا مثيل لها!"
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/11382022/6a953d85bfb32-1788165509.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "tapis antidérapants pour douche ou baignoir  38x70 cm",
+    "sourceUrl": "https://app.shipper.market/products/5dde0da1-f34d-4fc2-8884-376c462d0032",
+    "sourceProductId": "5dde0da1-f34d-4fc2-8884-376c462d0032",
+    "slug": "tapis-antiderapants-pour-douche-ou-baignoir-38x70-cm-5dde0da1",
+    "category": "bathroom",
+    "title": {
+      "en": "tapis antidérapants pour douche ou baignoir  38x70 cm",
+      "fr": "tapis antidérapants pour douche ou baignoir  38x70 cm",
+      "ar": "tapis antidérapants pour douche ou baignoir  38x70 cm"
+    },
+    "description": {
+      "en": "• Matériau : Généralement en PVC ou caoutchouc naturel. \n• Fixation : Équipés de ventouses puissantes pour adhérer aux surfaces lisses. \n• Fonctionnalité : Comportent des trous de drainage pour l'évacuation de l'eau. \n• Usage : Idéal pour les enfants et les personnes âgées afin d'éviter les chutes.",
+      "fr": "• Matériau : Généralement en PVC ou caoutchouc naturel. \n• Fixation : Équipés de ventouses puissantes pour adhérer aux surfaces lisses. \n• Fonctionnalité : Comportent des trous de drainage pour l'évacuation de l'eau. \n• Usage : Idéal pour les enfants et les personnes âgées afin d'éviter les chutes.",
+      "ar": "• Matériau : Généralement en PVC ou caoutchouc naturel. \n• Fixation : Équipés de ventouses puissantes pour adhérer aux surfaces lisses. \n• Fonctionnalité : Comportent des trous de drainage pour l'évacuation de l'eau. \n• Usage : Idéal pour les enfants et les personnes âgées afin d'éviter les chutes."
+    },
+    "images": [
+      "https://cdn.shipper.network/storage/1afvih0k7ufom0q4/uploads/products/9939825/69cd39a8244fa-1775057320.jpg",
+      "https://cdn.shipper.network/storage/1afvih0k7ufom0q4/uploads/products/9939824/69cd39a6642f9-1775057318.jpg"
+    ],
+    "originalSupplierCopy": true
+  },
+  {
+    "sourceName": "DYOL ANTISEPTIQUE SURFACE",
+    "sourceUrl": "https://app.shipper.market/products/5df2498d-2057-40da-a436-6455ff9d886c",
+    "sourceProductId": "5df2498d-2057-40da-a436-6455ff9d886c",
+    "slug": "dyol-antiseptique-surface-5df2498d",
     "category": "care beauty hair skincare",
     "title": {
-      "en": "Eau de Parfum Beverly Hills Polo Club",
-      "fr": "Eau de Parfum Beverly Hills Polo Club",
-      "ar": "Eau de Parfum Beverly Hills Polo Club"
+      "en": "DYOL ANTISEPTIQUE SURFACE",
+      "fr": "DYOL ANTISEPTIQUE SURFACE",
+      "ar": "DYOL ANTISEPTIQUE SURFACE"
     },
     "description": {
-      "en": "Découvrez Beverly Hills Polo Club N°1 Pour Femme, une eau de parfum féminine qui associe élégance, raffinement et modernité.\n\nPrésenté dans un emballage doré avec le célèbre logo du joueur de polo, ce parfum apporte une touche de sophistication à votre collection de beauté.\n\nSon format pratique de 50 ml est idéal pour une utilisation quotidienne ou pour les occasions spéciales. Grâce à son vaporisateur, il permet une application simple et agréable.\n\nCe parfum constitue également une belle idée de cadeau pour les femmes qui apprécient les fragrances élégantes.\n\nCaractéristiques principales :\n\nEau de parfum pour femme.\nContenance de 50 ml.\nVaporisateur pratique.\nPrésentation élégante et raffinée.\nAdapté à une utilisation quotidienne.\nIdéal comme cadeau pour femme.\nMarque Beverly Hills Polo Club.",
-      "fr": "Découvrez Beverly Hills Polo Club N°1 Pour Femme, une eau de parfum féminine qui associe élégance, raffinement et modernité.\n\nPrésenté dans un emballage doré avec le célèbre logo du joueur de polo, ce parfum apporte une touche de sophistication à votre collection de beauté.\n\nSon format pratique de 50 ml est idéal pour une utilisation quotidienne ou pour les occasions spéciales. Grâce à son vaporisateur, il permet une application simple et agréable.\n\nCe parfum constitue également une belle idée de cadeau pour les femmes qui apprécient les fragrances élégantes.\n\nCaractéristiques principales :\n\nEau de parfum pour femme.\nContenance de 50 ml.\nVaporisateur pratique.\nPrésentation élégante et raffinée.\nAdapté à une utilisation quotidienne.\nIdéal comme cadeau pour femme.\nMarque Beverly Hills Polo Club.",
-      "ar": "Découvrez Beverly Hills Polo Club N°1 Pour Femme, une eau de parfum féminine qui associe élégance, raffinement et modernité.\n\nPrésenté dans un emballage doré avec le célèbre logo du joueur de polo, ce parfum apporte une touche de sophistication à votre collection de beauté.\n\nSon format pratique de 50 ml est idéal pour une utilisation quotidienne ou pour les occasions spéciales. Grâce à son vaporisateur, il permet une application simple et agréable.\n\nCe parfum constitue également une belle idée de cadeau pour les femmes qui apprécient les fragrances élégantes.\n\nCaractéristiques principales :\n\nEau de parfum pour femme.\nContenance de 50 ml.\nVaporisateur pratique.\nPrésentation élégante et raffinée.\nAdapté à une utilisation quotidienne.\nIdéal comme cadeau pour femme.\nMarque Beverly Hills Polo Club."
+      "en": "نقدم لكم Dyol Surface ، المنظف المثالي للأرضيات والأسطح!\n- تستخدم تركيبتنا الفريدة مكونات عالية الجودة لإزالة الشحوم والأوساخ من أسطحك ، مما يجعلها متألقة نظيفة ورائحة منعشة. \n-التركيبة الخاصة هي أيضًا متوازنة ولطيفة على بشرتك. \n-إنه سهل الاستخدام وقابل للتحلل ، لذا يمكنك الوثوق بأنه لن يضر بأرضياتك أو أسطحك. \nمع Dyol Surface ، يمكنك الوثوق في أن أسطحك ستكون نظيفة ومتألقة في كل مرة. \nجرب Dyol Surface اليوم وشاهد الفرق!",
+      "fr": "نقدم لكم Dyol Surface ، المنظف المثالي للأرضيات والأسطح!\n- تستخدم تركيبتنا الفريدة مكونات عالية الجودة لإزالة الشحوم والأوساخ من أسطحك ، مما يجعلها متألقة نظيفة ورائحة منعشة. \n-التركيبة الخاصة هي أيضًا متوازنة ولطيفة على بشرتك. \n-إنه سهل الاستخدام وقابل للتحلل ، لذا يمكنك الوثوق بأنه لن يضر بأرضياتك أو أسطحك. \nمع Dyol Surface ، يمكنك الوثوق في أن أسطحك ستكون نظيفة ومتألقة في كل مرة. \nجرب Dyol Surface اليوم وشاهد الفرق!",
+      "ar": "نقدم لكم Dyol Surface ، المنظف المثالي للأرضيات والأسطح!\n- تستخدم تركيبتنا الفريدة مكونات عالية الجودة لإزالة الشحوم والأوساخ من أسطحك ، مما يجعلها متألقة نظيفة ورائحة منعشة. \n-التركيبة الخاصة هي أيضًا متوازنة ولطيفة على بشرتك. \n-إنه سهل الاستخدام وقابل للتحلل ، لذا يمكنك الوثوق بأنه لن يضر بأرضياتك أو أسطحك. \nمع Dyol Surface ، يمكنك الوثوق في أن أسطحك ستكون نظيفة ومتألقة في كل مرة. \nجرب Dyol Surface اليوم وشاهد الفرق!"
     },
     "images": [
-      "https://cdn.shipper.network/storage/z0amfvma8xjvnjbg/uploads/products/11759913/conversions/6adb30771f762-1792749687-thumbnail-medium.jpg"
+      "https://cdn.shipper.network/storage/ac1vpsudjdrhdspe/uploads/products/8427/651b551ae3713-1696290074.png",
+      "https://cdn.shipper.network/storage/ac1vpsudjdrhdspe/uploads/products/2639/645a11168cc94-1683624214.png",
+      "https://cdn.shipper.network/storage/ac1vpsudjdrhdspe/uploads/products/2640/645a18d9b21f1-1683626201.png",
+      "https://cdn.shipper.network/storage/ac1vpsudjdrhdspe/uploads/products/2641/645a18e255020-1683626210.png"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Parfum Parada",
-    "sourceUrl": "https://app.shipper.market/products/a999dc37-30f3-4672-b657-11e73d194a7f",
-    "sourceProductId": "a999dc37-30f3-4672-b657-11e73d194a7f",
-    "slug": "parfum-parada-a999dc37",
-    "category": "care beauty hair skincare",
+    "sourceName": "(30ml) زيت اللوز الحلو",
+    "sourceUrl": "https://app.shipper.market/products/5e012c95-3063-4546-9e8b-7b84cc6cf610",
+    "sourceProductId": "5e012c95-3063-4546-9e8b-7b84cc6cf610",
+    "slug": "30ml-5e012c95",
+    "category": "bathroom care beauty hair skincare organisation",
     "title": {
-      "en": "Parfum Parada",
-      "fr": "Parfum Parada",
-      "ar": "Parfum Parada"
+      "en": "(30ml) زيت اللوز الحلو",
+      "fr": "(30ml) زيت اللوز الحلو",
+      "ar": "(30ml) زيت اللوز الحلو"
     },
     "description": {
-      "en": "Une fragrance florale et ambrée emblématique, présentée dans le flacon réinventé en forme du triangle iconique de la maison Prada. Le parfum allie des notes de néroli, de jasmin, de réconfortantes nuances d'ambre et une base de musc blanc raffiné.\n\n90ML",
-      "fr": "Une fragrance florale et ambrée emblématique, présentée dans le flacon réinventé en forme du triangle iconique de la maison Prada. Le parfum allie des notes de néroli, de jasmin, de réconfortantes nuances d'ambre et une base de musc blanc raffiné.\n\n90ML",
-      "ar": "Une fragrance florale et ambrée emblématique, présentée dans le flacon réinventé en forme du triangle iconique de la maison Prada. Le parfum allie des notes de néroli, de jasmin, de réconfortantes nuances d'ambre et une base de musc blanc raffiné.\n\n90ML"
+      "en": "اشتق اسم ثمرة اللوز (بالإنجليزية: Almond) من الكلمة الفرنسية (ألماندي) والكلمة اليونانية (أميدالا) ويعتقد أنها سميت بذلك نسبة إلى اللوزات الدماغية وهو الجزء من الدماغ الذي يتحكم في القدرة على اتخاذ القرارات وتطوير الذكريات ومعالجة المشاعر لأن ثمرة اللوز وزيت اللوز يحسنان هذا الجزء من الدماغ.\nويوجد نوعين من زيت اللوز إحداهما هو المفيد للبشرة والذي يسمح بتناوله واستخدامه بأمان وهو زيت اللوز الحلو (بالإنجليزية: Sweet Almond Oil) ويستخلص زيت اللوز الحلو من بذور ثمار شجرة اللوز الحلو (بالإنجليزية: Prunus Dulcis var. Dulcis) بينما النوع الآخر هو زيت اللوز المر (بالإنجليزية: Bitter Almond Oil).\nتمت زراعة اللوز في الأصل في الشرق الأوسط حيث انتشر على طول شواطئ البحر الأبيض المتوسط إلى شمال أفريقيا وجنوب أوروبا وامتدت زراعته أيضاً إلى وسط وجنوب غرب آسيا حتى نهر يامونا في الهند وكذلك إلى كاليفورنيا في أربعينيات القرن التاسع عشر ولكن تعد دولة كاليفورنيا اليوم أكبر منتج لثمار اللوز في العالم حيث تضاعف إنتاج اللوز في كاليفورنيا خلال العشرين عامًا الماضية، وذلك لأن المزيد والمزيد من الناس أصبحوا على دراية بالفوائد الصحية له.\nينتمي اللوز إلى عائلة الخوخ، والكرز، والخوخ، والنكتارين، والمشمش. فقد كان يستعمل عادة في الحلويات كالحلوى، المخبوزات، وغيرها من الحلويات، وفي الأطباق الرئيسية كالكاري، وفي العلاجات لمعالجة الأمراض الجسدية. وقد أوصت جمعية القلب الأمريكية (بالإنجليزية: The American Heart Association ) بتناول ثمار وزيت اللوز لاحتوائه على الدهون الصحية المفيدة لصحة القلب.\nوقد استخدم اللوز لتكوين بدائل خالية من اللاكتوز أو من الخضراوات لمنتجات الألبان، ولإنتاج دقيق خال من الغلوتين يضمن ملاءمة المنتجات لمن لديهم أنظمة غذائية متميزة. وأحد الاستخدامات الأكثر شيوعاً للوز هو زيت اللوز الذي لا يزال يستخدم لأغراض صحية وأيضاً لأغراض تجميلية. حيث قد استخدمت الحضارة الصينية القديمة والطب الأيورفيدا زيت اللوز الحلو لعدة قرون للمساعدة في تهدئة وتنعيم الجلد وعلاج الجروح والجروح الطفيفة. أما في يومنا هذا، فمن المألوف العثور على زيت اللوز في مجموعة واسعة من مستحضرات التجميل.\nفيما يلي نتناول الحديث عن فوائد زيت اللوز:\nفوائد زيت اللوز الحلو للشعر\nإن فوائد الزيت اللوز الحلو لا تقتصر فقط على البشرة، إذ يمكن لهذا الزيت المغذي أن يساهم في نمو الشعر الصحي والناعم والقوي، فهو غني بالفيتامين ب7، أو ما يعرف أيضاً بالبيوتين، الذي يعد أحد الفيتامينات المهمة في الحفاظ على صحة وقوة الشعر والأظافر. فيما يلي بعض الفوائد المحتملة لزيت اللوز الحلو للشعر:\nتنعيم الشعر وتغذيته مما يجعله ينمو بشكل صحي ولامع، فهو مفيد لجميع أنواع الشعر.\nحماية الشعر من أضرار أشعة الشمس، بعامل حماية طبيعي من الشمس (SPF 5).\nالمحافظة على صحة فروة الرأس\nحيث يمكن استخدام زيت اللوز كعلاج لمشاكل فروة الرأس نظراً لخصائصه المضادة للبكتيريا والفطريات والتي تجعله فعال في موازنة الفطريات التي تسبب القشرة. كذلك يعمل زيت اللوز بشكل جيد في ترطيب فروة الرأس وتطهير بصيلات الشعر نظراً لسهولة امتصاصه من الجلد.\nالمحافظة على رطوبة الشعر \nمن الخطوات الأساسية للحفاظ على ترطيب الشعر الطبيعي استخدام الزيت بعد وضع مرطب مائي أو تركه في الشعر ويفضل بعد غسل الشعر أو الاستحمام. ومن خلال القيام بذلك، تقوم طبقة من الزيت بتثبيت المرطب داخل الشعر، بحيث يجف الشعر ببطء أكثر بمرور الوقت محافظا بذلك على ترطيبه ولمعانه وتعتبر هذه الخطوة خطوة هامة في ترطيب الشعر خاصة الشعر الجاف.\nتحفيز نمو الشعر والتقليل من تساقطه\nيعد تدليك فروة الرأس باستخدام زيت اللوز الحلو طريقة ممتازة لتحفيز النمو وتقليل تساقط الشعر والحفاظ على صحة الشعر وفروة الرأس بوجه عام. حقيقة أن زيت اللوز الحلو خفيف الوزن يجعله قاعدة ممتازة يمكن إضافة الزيوت الأساسية إليها. وبالرغم من أن إضافة الزيوت العطرية إلى زيت اللوز الحلو لتدليك فروة الرأس سيزيد بالتأكيد من فوائد تدليك فروة رأسك، لكنها ليست ضرورية بأي حال من الأحوال للعملية. سيوفر تدليك فروة الرأس بزيت اللوز الحلو التغذية لفروة الشعر موضعيًا وداخليًا.\nالمساهمة في تقوية الشعر والتقليل من تقصف الشعر\nيعد زيت اللوز العطري زيت مقوي للشعر إذ تساعد البروتينات والدهون الصحية وفيتامينات زيت اللوز الحلو على تقوية الشعر والحفاظ عليه قويًا وصحياً وأكثر مقاومة للكسر كما أنه أقل عرضة للتقصف.\nحيث تساعد خصائص منع الرطوبة لزيت اللوز الحلو على مقاومة الكسر وتقصف الأطراف، لأن الشعر الجاف أكثر عرضة لكليهما عن الشعر الدهني.\nالتقليل من تجعد الشعر والمساهمة في زيادة نعومته\nيمكن أن يساعد زيت اللوز الحلو أيضًا في فك تشاب الشعر، مما قد يمثل مهمة صعبة أثناء تمشيطه أو تصفيفه، خاصة إذا كان الشعر مجعدًا. حيث يقوم الزيت بتزييت كل خصلة من الشعر على حدة، مما يقلل من الاحتكاك ويسهل انزلاق بعضها البعض لفك تشابك الشعر ويضفي على الشعر ملمسا أكثر نعومة مع مرور الوقت.\nزيادة مرونة الشعر\nفيحتوي زيت اللوز الحلو على حمض الأوليك (بالإنجليزية: Oleic Acid) وحمض اللينوليك (بالإنجليزية: Linoleic Acid) ويعمل كلاكما على تحسين مرونة الشعر عند معالجته بكميات صغيرة من مكونات الزيت.\nأيضاً في حال ارتداء الشعر المستعار، أو استخدام تمديدات للشعر من أي نوع، فإن وضع كمية صغيرة من زيت اللوز الحلو على فروة الرأس سيساعد في الحفاظ على الفروة الرأس في حالة جيدة طوال فترة وضع الشعر المستعار أو تمديدات الشعر.\nوالجدير بالذكر أن زيت اللوز الحلو زيت خفيف على الشعر لذا فإنه لا يتسبب في جعل الشعر دهنياً.",
+      "fr": "اشتق اسم ثمرة اللوز (بالإنجليزية: Almond) من الكلمة الفرنسية (ألماندي) والكلمة اليونانية (أميدالا) ويعتقد أنها سميت بذلك نسبة إلى اللوزات الدماغية وهو الجزء من الدماغ الذي يتحكم في القدرة على اتخاذ القرارات وتطوير الذكريات ومعالجة المشاعر لأن ثمرة اللوز وزيت اللوز يحسنان هذا الجزء من الدماغ.\nويوجد نوعين من زيت اللوز إحداهما هو المفيد للبشرة والذي يسمح بتناوله واستخدامه بأمان وهو زيت اللوز الحلو (بالإنجليزية: Sweet Almond Oil) ويستخلص زيت اللوز الحلو من بذور ثمار شجرة اللوز الحلو (بالإنجليزية: Prunus Dulcis var. Dulcis) بينما النوع الآخر هو زيت اللوز المر (بالإنجليزية: Bitter Almond Oil).\nتمت زراعة اللوز في الأصل في الشرق الأوسط حيث انتشر على طول شواطئ البحر الأبيض المتوسط إلى شمال أفريقيا وجنوب أوروبا وامتدت زراعته أيضاً إلى وسط وجنوب غرب آسيا حتى نهر يامونا في الهند وكذلك إلى كاليفورنيا في أربعينيات القرن التاسع عشر ولكن تعد دولة كاليفورنيا اليوم أكبر منتج لثمار اللوز في العالم حيث تضاعف إنتاج اللوز في كاليفورنيا خلال العشرين عامًا الماضية، وذلك لأن المزيد والمزيد من الناس أصبحوا على دراية بالفوائد الصحية له.\nينتمي اللوز إلى عائلة الخوخ، والكرز، والخوخ، والنكتارين، والمشمش. فقد كان يستعمل عادة في الحلويات كالحلوى، المخبوزات، وغيرها من الحلويات، وفي الأطباق الرئيسية كالكاري، وفي العلاجات لمعالجة الأمراض الجسدية. وقد أوصت جمعية القلب الأمريكية (بالإنجليزية: The American Heart Association ) بتناول ثمار وزيت اللوز لاحتوائه على الدهون الصحية المفيدة لصحة القلب.\nوقد استخدم اللوز لتكوين بدائل خالية من اللاكتوز أو من الخضراوات لمنتجات الألبان، ولإنتاج دقيق خال من الغلوتين يضمن ملاءمة المنتجات لمن لديهم أنظمة غذائية متميزة. وأحد الاستخدامات الأكثر شيوعاً للوز هو زيت اللوز الذي لا يزال يستخدم لأغراض صحية وأيضاً لأغراض تجميلية. حيث قد استخدمت الحضارة الصينية القديمة والطب الأيورفيدا زيت اللوز الحلو لعدة قرون للمساعدة في تهدئة وتنعيم الجلد وعلاج الجروح والجروح الطفيفة. أما في يومنا هذا، فمن المألوف العثور على زيت اللوز في مجموعة واسعة من مستحضرات التجميل.\nفيما يلي نتناول الحديث عن فوائد زيت اللوز:\nفوائد زيت اللوز الحلو للشعر\nإن فوائد الزيت اللوز الحلو لا تقتصر فقط على البشرة، إذ يمكن لهذا الزيت المغذي أن يساهم في نمو الشعر الصحي والناعم والقوي، فهو غني بالفيتامين ب7، أو ما يعرف أيضاً بالبيوتين، الذي يعد أحد الفيتامينات المهمة في الحفاظ على صحة وقوة الشعر والأظافر. فيما يلي بعض الفوائد المحتملة لزيت اللوز الحلو للشعر:\nتنعيم الشعر وتغذيته مما يجعله ينمو بشكل صحي ولامع، فهو مفيد لجميع أنواع الشعر.\nحماية الشعر من أضرار أشعة الشمس، بعامل حماية طبيعي من الشمس (SPF 5).\nالمحافظة على صحة فروة الرأس\nحيث يمكن استخدام زيت اللوز كعلاج لمشاكل فروة الرأس نظراً لخصائصه المضادة للبكتيريا والفطريات والتي تجعله فعال في موازنة الفطريات التي تسبب القشرة. كذلك يعمل زيت اللوز بشكل جيد في ترطيب فروة الرأس وتطهير بصيلات الشعر نظراً لسهولة امتصاصه من الجلد.\nالمحافظة على رطوبة الشعر \nمن الخطوات الأساسية للحفاظ على ترطيب الشعر الطبيعي استخدام الزيت بعد وضع مرطب مائي أو تركه في الشعر ويفضل بعد غسل الشعر أو الاستحمام. ومن خلال القيام بذلك، تقوم طبقة من الزيت بتثبيت المرطب داخل الشعر، بحيث يجف الشعر ببطء أكثر بمرور الوقت محافظا بذلك على ترطيبه ولمعانه وتعتبر هذه الخطوة خطوة هامة في ترطيب الشعر خاصة الشعر الجاف.\nتحفيز نمو الشعر والتقليل من تساقطه\nيعد تدليك فروة الرأس باستخدام زيت اللوز الحلو طريقة ممتازة لتحفيز النمو وتقليل تساقط الشعر والحفاظ على صحة الشعر وفروة الرأس بوجه عام. حقيقة أن زيت اللوز الحلو خفيف الوزن يجعله قاعدة ممتازة يمكن إضافة الزيوت الأساسية إليها. وبالرغم من أن إضافة الزيوت العطرية إلى زيت اللوز الحلو لتدليك فروة الرأس سيزيد بالتأكيد من فوائد تدليك فروة رأسك، لكنها ليست ضرورية بأي حال من الأحوال للعملية. سيوفر تدليك فروة الرأس بزيت اللوز الحلو التغذية لفروة الشعر موضعيًا وداخليًا.\nالمساهمة في تقوية الشعر والتقليل من تقصف الشعر\nيعد زيت اللوز العطري زيت مقوي للشعر إذ تساعد البروتينات والدهون الصحية وفيتامينات زيت اللوز الحلو على تقوية الشعر والحفاظ عليه قويًا وصحياً وأكثر مقاومة للكسر كما أنه أقل عرضة للتقصف.\nحيث تساعد خصائص منع الرطوبة لزيت اللوز الحلو على مقاومة الكسر وتقصف الأطراف، لأن الشعر الجاف أكثر عرضة لكليهما عن الشعر الدهني.\nالتقليل من تجعد الشعر والمساهمة في زيادة نعومته\nيمكن أن يساعد زيت اللوز الحلو أيضًا في فك تشاب الشعر، مما قد يمثل مهمة صعبة أثناء تمشيطه أو تصفيفه، خاصة إذا كان الشعر مجعدًا. حيث يقوم الزيت بتزييت كل خصلة من الشعر على حدة، مما يقلل من الاحتكاك ويسهل انزلاق بعضها البعض لفك تشابك الشعر ويضفي على الشعر ملمسا أكثر نعومة مع مرور الوقت.\nزيادة مرونة الشعر\nفيحتوي زيت اللوز الحلو على حمض الأوليك (بالإنجليزية: Oleic Acid) وحمض اللينوليك (بالإنجليزية: Linoleic Acid) ويعمل كلاكما على تحسين مرونة الشعر عند معالجته بكميات صغيرة من مكونات الزيت.\nأيضاً في حال ارتداء الشعر المستعار، أو استخدام تمديدات للشعر من أي نوع، فإن وضع كمية صغيرة من زيت اللوز الحلو على فروة الرأس سيساعد في الحفاظ على الفروة الرأس في حالة جيدة طوال فترة وضع الشعر المستعار أو تمديدات الشعر.\nوالجدير بالذكر أن زيت اللوز الحلو زيت خفيف على الشعر لذا فإنه لا يتسبب في جعل الشعر دهنياً.",
+      "ar": "اشتق اسم ثمرة اللوز (بالإنجليزية: Almond) من الكلمة الفرنسية (ألماندي) والكلمة اليونانية (أميدالا) ويعتقد أنها سميت بذلك نسبة إلى اللوزات الدماغية وهو الجزء من الدماغ الذي يتحكم في القدرة على اتخاذ القرارات وتطوير الذكريات ومعالجة المشاعر لأن ثمرة اللوز وزيت اللوز يحسنان هذا الجزء من الدماغ.\nويوجد نوعين من زيت اللوز إحداهما هو المفيد للبشرة والذي يسمح بتناوله واستخدامه بأمان وهو زيت اللوز الحلو (بالإنجليزية: Sweet Almond Oil) ويستخلص زيت اللوز الحلو من بذور ثمار شجرة اللوز الحلو (بالإنجليزية: Prunus Dulcis var. Dulcis) بينما النوع الآخر هو زيت اللوز المر (بالإنجليزية: Bitter Almond Oil).\nتمت زراعة اللوز في الأصل في الشرق الأوسط حيث انتشر على طول شواطئ البحر الأبيض المتوسط إلى شمال أفريقيا وجنوب أوروبا وامتدت زراعته أيضاً إلى وسط وجنوب غرب آسيا حتى نهر يامونا في الهند وكذلك إلى كاليفورنيا في أربعينيات القرن التاسع عشر ولكن تعد دولة كاليفورنيا اليوم أكبر منتج لثمار اللوز في العالم حيث تضاعف إنتاج اللوز في كاليفورنيا خلال العشرين عامًا الماضية، وذلك لأن المزيد والمزيد من الناس أصبحوا على دراية بالفوائد الصحية له.\nينتمي اللوز إلى عائلة الخوخ، والكرز، والخوخ، والنكتارين، والمشمش. فقد كان يستعمل عادة في الحلويات كالحلوى، المخبوزات، وغيرها من الحلويات، وفي الأطباق الرئيسية كالكاري، وفي العلاجات لمعالجة الأمراض الجسدية. وقد أوصت جمعية القلب الأمريكية (بالإنجليزية: The American Heart Association ) بتناول ثمار وزيت اللوز لاحتوائه على الدهون الصحية المفيدة لصحة القلب.\nوقد استخدم اللوز لتكوين بدائل خالية من اللاكتوز أو من الخضراوات لمنتجات الألبان، ولإنتاج دقيق خال من الغلوتين يضمن ملاءمة المنتجات لمن لديهم أنظمة غذائية متميزة. وأحد الاستخدامات الأكثر شيوعاً للوز هو زيت اللوز الذي لا يزال يستخدم لأغراض صحية وأيضاً لأغراض تجميلية. حيث قد استخدمت الحضارة الصينية القديمة والطب الأيورفيدا زيت اللوز الحلو لعدة قرون للمساعدة في تهدئة وتنعيم الجلد وعلاج الجروح والجروح الطفيفة. أما في يومنا هذا، فمن المألوف العثور على زيت اللوز في مجموعة واسعة من مستحضرات التجميل.\nفيما يلي نتناول الحديث عن فوائد زيت اللوز:\nفوائد زيت اللوز الحلو للشعر\nإن فوائد الزيت اللوز الحلو لا تقتصر فقط على البشرة، إذ يمكن لهذا الزيت المغذي أن يساهم في نمو الشعر الصحي والناعم والقوي، فهو غني بالفيتامين ب7، أو ما يعرف أيضاً بالبيوتين، الذي يعد أحد الفيتامينات المهمة في الحفاظ على صحة وقوة الشعر والأظافر. فيما يلي بعض الفوائد المحتملة لزيت اللوز الحلو للشعر:\nتنعيم الشعر وتغذيته مما يجعله ينمو بشكل صحي ولامع، فهو مفيد لجميع أنواع الشعر.\nحماية الشعر من أضرار أشعة الشمس، بعامل حماية طبيعي من الشمس (SPF 5).\nالمحافظة على صحة فروة الرأس\nحيث يمكن استخدام زيت اللوز كعلاج لمشاكل فروة الرأس نظراً لخصائصه المضادة للبكتيريا والفطريات والتي تجعله فعال في موازنة الفطريات التي تسبب القشرة. كذلك يعمل زيت اللوز بشكل جيد في ترطيب فروة الرأس وتطهير بصيلات الشعر نظراً لسهولة امتصاصه من الجلد.\nالمحافظة على رطوبة الشعر \nمن الخطوات الأساسية للحفاظ على ترطيب الشعر الطبيعي استخدام الزيت بعد وضع مرطب مائي أو تركه في الشعر ويفضل بعد غسل الشعر أو الاستحمام. ومن خلال القيام بذلك، تقوم طبقة من الزيت بتثبيت المرطب داخل الشعر، بحيث يجف الشعر ببطء أكثر بمرور الوقت محافظا بذلك على ترطيبه ولمعانه وتعتبر هذه الخطوة خطوة هامة في ترطيب الشعر خاصة الشعر الجاف.\nتحفيز نمو الشعر والتقليل من تساقطه\nيعد تدليك فروة الرأس باستخدام زيت اللوز الحلو طريقة ممتازة لتحفيز النمو وتقليل تساقط الشعر والحفاظ على صحة الشعر وفروة الرأس بوجه عام. حقيقة أن زيت اللوز الحلو خفيف الوزن يجعله قاعدة ممتازة يمكن إضافة الزيوت الأساسية إليها. وبالرغم من أن إضافة الزيوت العطرية إلى زيت اللوز الحلو لتدليك فروة الرأس سيزيد بالتأكيد من فوائد تدليك فروة رأسك، لكنها ليست ضرورية بأي حال من الأحوال للعملية. سيوفر تدليك فروة الرأس بزيت اللوز الحلو التغذية لفروة الشعر موضعيًا وداخليًا.\nالمساهمة في تقوية الشعر والتقليل من تقصف الشعر\nيعد زيت اللوز العطري زيت مقوي للشعر إذ تساعد البروتينات والدهون الصحية وفيتامينات زيت اللوز الحلو على تقوية الشعر والحفاظ عليه قويًا وصحياً وأكثر مقاومة للكسر كما أنه أقل عرضة للتقصف.\nحيث تساعد خصائص منع الرطوبة لزيت اللوز الحلو على مقاومة الكسر وتقصف الأطراف، لأن الشعر الجاف أكثر عرضة لكليهما عن الشعر الدهني.\nالتقليل من تجعد الشعر والمساهمة في زيادة نعومته\nيمكن أن يساعد زيت اللوز الحلو أيضًا في فك تشاب الشعر، مما قد يمثل مهمة صعبة أثناء تمشيطه أو تصفيفه، خاصة إذا كان الشعر مجعدًا. حيث يقوم الزيت بتزييت كل خصلة من الشعر على حدة، مما يقلل من الاحتكاك ويسهل انزلاق بعضها البعض لفك تشابك الشعر ويضفي على الشعر ملمسا أكثر نعومة مع مرور الوقت.\nزيادة مرونة الشعر\nفيحتوي زيت اللوز الحلو على حمض الأوليك (بالإنجليزية: Oleic Acid) وحمض اللينوليك (بالإنجليزية: Linoleic Acid) ويعمل كلاكما على تحسين مرونة الشعر عند معالجته بكميات صغيرة من مكونات الزيت.\nأيضاً في حال ارتداء الشعر المستعار، أو استخدام تمديدات للشعر من أي نوع، فإن وضع كمية صغيرة من زيت اللوز الحلو على فروة الرأس سيساعد في الحفاظ على الفروة الرأس في حالة جيدة طوال فترة وضع الشعر المستعار أو تمديدات الشعر.\nوالجدير بالذكر أن زيت اللوز الحلو زيت خفيف على الشعر لذا فإنه لا يتسبب في جعل الشعر دهنياً."
     },
     "images": [
-      "https://cdn.shipper.network/storage/ufqcsdd9kngsc0kx/uploads/products/11444191/conversions/6a9ffbb071ded-1788869552-thumbnail-medium.jpg"
+      "https://cdn.shipper.network/storage/dhn7lwccu5cdg6bx/uploads/products/8082691/690cbbd061bc2-1762442192.webp",
+      "https://cdn.shipper.network/storage/dhn7lwccu5cdg6bx/uploads/products/8082690/690cbbcb663a9-1762442187.webp",
+      "https://cdn.shipper.network/storage/dhn7lwccu5cdg6bx/uploads/products/8082689/690cbbc129391-1762442177.webp"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Micropipette Variable 200uL Biosan",
-    "sourceUrl": "https://app.shipper.market/products/a9b32ca0-2f34-43a6-b1da-476a44b48e6a",
-    "sourceProductId": "a9b32ca0-2f34-43a6-b1da-476a44b48e6a",
-    "slug": "micropipette-variable-200ul-biosan-a9b32ca0",
-    "category": "accessories health & beauty industrial & scientific",
+    "sourceName": "Trousse de maquillage",
+    "sourceUrl": "https://app.shipper.market/products/5e2d0e58-c3b1-4e83-b624-b72acfd222dd",
+    "sourceProductId": "5e2d0e58-c3b1-4e83-b624-b72acfd222dd",
+    "slug": "trousse-de-maquillage-5e2d0e58",
+    "category": "care beauty hair skincare lighting organisation other beauty products",
     "title": {
-      "en": "Micropipette Variable 200uL Biosan",
-      "fr": "Micropipette Variable 200uL Biosan",
-      "ar": "Micropipette Variable 200uL Biosan"
+      "en": "Trousse de maquillage",
+      "fr": "Trousse de maquillage",
+      "ar": "Trousse de maquillage"
     },
     "description": {
-      "en": "Micropipette de la marque BIOSAN variable APL 200 (20–200 µL), adaptée aux applications nécessitant une haute précision pour les faibles volumes.\nMade in Poland.\nDescription: \nPrécision : ±0.8 % à volume maximal (200 µL).\nRépétabilité : ≤0.3 % à 200 µL.\nCompatible avec cônes standards 200 µL.\nConception ergonomique avec réglage précis du volume.\nÉjecteur de cônes intégré pour une utilisation facile.\nPartie inférieure autoclavable.\nHaute résistance aux produits chimiques et aux UV.",
-      "fr": "Micropipette de la marque BIOSAN variable APL 200 (20–200 µL), adaptée aux applications nécessitant une haute précision pour les faibles volumes.\nMade in Poland.\nDescription: \nPrécision : ±0.8 % à volume maximal (200 µL).\nRépétabilité : ≤0.3 % à 200 µL.\nCompatible avec cônes standards 200 µL.\nConception ergonomique avec réglage précis du volume.\nÉjecteur de cônes intégré pour une utilisation facile.\nPartie inférieure autoclavable.\nHaute résistance aux produits chimiques et aux UV.",
-      "ar": "Micropipette de la marque BIOSAN variable APL 200 (20–200 µL), adaptée aux applications nécessitant une haute précision pour les faibles volumes.\nMade in Poland.\nDescription: \nPrécision : ±0.8 % à volume maximal (200 µL).\nRépétabilité : ≤0.3 % à 200 µL.\nCompatible avec cônes standards 200 µL.\nConception ergonomique avec réglage précis du volume.\nÉjecteur de cônes intégré pour une utilisation facile.\nPartie inférieure autoclavable.\nHaute résistance aux produits chimiques et aux UV."
+      "en": "Trousse de maquillage et de beauté avec miroir LED intégré, conçue pour ranger et transporter facilement les produits cosmétiques et accessoires. Elle possède plusieurs compartiments de rangement, une fermeture zippée et une alimentation du miroir par câble USB-C. Le miroir propose 3 modes d’éclairage.",
+      "fr": "Trousse de maquillage et de beauté avec miroir LED intégré, conçue pour ranger et transporter facilement les produits cosmétiques et accessoires. Elle possède plusieurs compartiments de rangement, une fermeture zippée et une alimentation du miroir par câble USB-C. Le miroir propose 3 modes d’éclairage.",
+      "ar": "Trousse de maquillage et de beauté avec miroir LED intégré, conçue pour ranger et transporter facilement les produits cosmétiques et accessoires. Elle possède plusieurs compartiments de rangement, une fermeture zippée et une alimentation du miroir par câble USB-C. Le miroir propose 3 modes d’éclairage."
     },
     "images": [
-      "https://cdn.shipper.network/storage/celn6z8xrf4lxfid/uploads/products/10421432/6a105cc138603-1779457217.jpg",
-      "https://cdn.shipper.network/storage/celn6z8xrf4lxfid/uploads/products/10421437/6a105cf8a7b63-1779457272.jpg",
-      "https://cdn.shipper.network/storage/celn6z8xrf4lxfid/uploads/products/10421438/6a105cf8a7b64-1779457272.jpg"
+      "https://cdn.shipper.network/storage/vsdzm4qdhhgrn1wf/uploads/products/11151497/6a8037f05d8af-1786787824.png"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Hot Air Brush - 1200W - One Step",
-    "sourceUrl": "https://app.shipper.market/products/a9ddbc12-61b1-420b-9dc9-bf20193e65d5",
-    "sourceProductId": "a9ddbc12-61b1-420b-9dc9-bf20193e65d5",
-    "slug": "hot-air-brush-1200w-one-step-a9ddbc12",
-    "category": "care beauty hair skincare cleaning laundry school office hair straighteners, hair dryers & brushes",
+    "sourceName": "ensemble d'accessoires de salle de bain",
+    "sourceUrl": "https://app.shipper.market/products/5e2fb253-d545-4da2-ae47-9e4425c4c833",
+    "sourceProductId": "5e2fb253-d545-4da2-ae47-9e4425c4c833",
+    "slug": "ensemble-d-accessoires-de-salle-de-bain-5e2fb253",
+    "category": "bathroom care beauty hair skincare organisation bathroom",
     "title": {
-      "en": "Hot Air Brush - 1200W - One Step",
-      "fr": "Hot Air Brush - 1200W - One Step",
-      "ar": "Hot Air Brush - 1200W - One Step"
+      "en": "ensemble d'accessoires de salle de bain",
+      "fr": "ensemble d'accessoires de salle de bain",
+      "ar": "ensemble d'accessoires de salle de bain"
     },
     "description": {
-      "en": "Comment utiliser?\nÉtape 1 : Retirez l'excès d'eau de vos cheveux avec une serviette après le lavage pour des résultats plus rapides et meilleurs.\nÉtape 2 : Séparez les cheveux en plusieurs sections et testez la bonne température pour votre cuir chevelu.\nÉtape 3 : Pour des éruptions volumineuses, placez la brosse sous les cheveux, près des racines, et roulez-la vers les pointes. Pour un effet liftant supplémentaire au niveau des racines, maintenez la brosse pendant 2 à 3 secondes sous les racines.\nÉtape 4 : Pour les boucles vers l'intérieur, placez la brosse sous les pointes des cheveux et maintenez-la pendant 2 à 3 secondes avant de la faire pivoter vers l'intérieur.\nÉtape 5 : Pour les boucles vers l'extérieur, placez la brosse sur les pointes des cheveux et maintenez-la pendant 2 à 3 secondes avant de la faire pivoter vers l'extérieur.\nREMARQUE : Cette brosse pour sèche-cheveux peut ne pas être recommandée pour les cheveux courts qui n'atteignent PAS les épaules.\nÀ propos de cet article\nSèche-cheveux et styler volumateur en une étape – Combinez parfaitement un sèche-cheveux avec un peigne coiffant. Vous pouvez sécher vos cheveux au sèche-cheveux et les rendre bouclés ou lisses en même temps ! Frizz Free Salon Plus Séchez jusqu'à la moitié du temps.\nConception unique - La conception ovale de notre coiffeur vous permet de vous déplacer librement sans que le cordon ou les poils ne s'emmêlent. Grâce à ses billes massantes, il aide à sécher, lisser et coiffer tous les types de cheveux en deux fois moins de temps.\nRéglage autonome : le bas est un commutateur de vitesse de réglage rotatif, qui peut être ajusté à l'état de fonctionnement actuel par rotation, et quatre positions de vitesse sont définies : haute, moyenne, basse, désactivée. Lumière LED pour identifier facilement la position actuelle de la vitesse. « ÉLEVÉE » pour les cheveux épais, « FAIBLE » pour les cheveux fins/abîmés.\nTechnologie ionique : la brosse sèche-cheveux avec des ions négatifs sature le flux d'air, aide à revitaliser vos cheveux et à nourrir les cheveux abîmés, rend vos cheveux élégants, brillants et lisses, réduisant ainsi l'électricité statique.\nPlusieurs réglages de chaleur et multifonction : la brosse à air chaud est disponible en 3 niveaux de chaleur réglables pour différents types de cheveux, chaleur élevée pour les cheveux épais, chaleur faible pour les cheveux fins, réglage flexible pour verrouiller votre belle coiffure. Ce volumateur peut être placé plus près du cuir chevelu pour le soulever. Utilisez-le également comme sèche-cheveux, styler, volumateur, pour boucler, onduler ou lisser vos cheveux. Parfait pour les cheveux secs, mouillés et tous types de cheveux. Idéal pour un usage domestique, en voyage et même au bureau",
-      "fr": "Comment utiliser?\nÉtape 1 : Retirez l'excès d'eau de vos cheveux avec une serviette après le lavage pour des résultats plus rapides et meilleurs.\nÉtape 2 : Séparez les cheveux en plusieurs sections et testez la bonne température pour votre cuir chevelu.\nÉtape 3 : Pour des éruptions volumineuses, placez la brosse sous les cheveux, près des racines, et roulez-la vers les pointes. Pour un effet liftant supplémentaire au niveau des racines, maintenez la brosse pendant 2 à 3 secondes sous les racines.\nÉtape 4 : Pour les boucles vers l'intérieur, placez la brosse sous les pointes des cheveux et maintenez-la pendant 2 à 3 secondes avant de la faire pivoter vers l'intérieur.\nÉtape 5 : Pour les boucles vers l'extérieur, placez la brosse sur les pointes des cheveux et maintenez-la pendant 2 à 3 secondes avant de la faire pivoter vers l'extérieur.\nREMARQUE : Cette brosse pour sèche-cheveux peut ne pas être recommandée pour les cheveux courts qui n'atteignent PAS les épaules.\nÀ propos de cet article\nSèche-cheveux et styler volumateur en une étape – Combinez parfaitement un sèche-cheveux avec un peigne coiffant. Vous pouvez sécher vos cheveux au sèche-cheveux et les rendre bouclés ou lisses en même temps ! Frizz Free Salon Plus Séchez jusqu'à la moitié du temps.\nConception unique - La conception ovale de notre coiffeur vous permet de vous déplacer librement sans que le cordon ou les poils ne s'emmêlent. Grâce à ses billes massantes, il aide à sécher, lisser et coiffer tous les types de cheveux en deux fois moins de temps.\nRéglage autonome : le bas est un commutateur de vitesse de réglage rotatif, qui peut être ajusté à l'état de fonctionnement actuel par rotation, et quatre positions de vitesse sont définies : haute, moyenne, basse, désactivée. Lumière LED pour identifier facilement la position actuelle de la vitesse. « ÉLEVÉE » pour les cheveux épais, « FAIBLE » pour les cheveux fins/abîmés.\nTechnologie ionique : la brosse sèche-cheveux avec des ions négatifs sature le flux d'air, aide à revitaliser vos cheveux et à nourrir les cheveux abîmés, rend vos cheveux élégants, brillants et lisses, réduisant ainsi l'électricité statique.\nPlusieurs réglages de chaleur et multifonction : la brosse à air chaud est disponible en 3 niveaux de chaleur réglables pour différents types de cheveux, chaleur élevée pour les cheveux épais, chaleur faible pour les cheveux fins, réglage flexible pour verrouiller votre belle coiffure. Ce volumateur peut être placé plus près du cuir chevelu pour le soulever. Utilisez-le également comme sèche-cheveux, styler, volumateur, pour boucler, onduler ou lisser vos cheveux. Parfait pour les cheveux secs, mouillés et tous types de cheveux. Idéal pour un usage domestique, en voyage et même au bureau",
-      "ar": "Comment utiliser?\nÉtape 1 : Retirez l'excès d'eau de vos cheveux avec une serviette après le lavage pour des résultats plus rapides et meilleurs.\nÉtape 2 : Séparez les cheveux en plusieurs sections et testez la bonne température pour votre cuir chevelu.\nÉtape 3 : Pour des éruptions volumineuses, placez la brosse sous les cheveux, près des racines, et roulez-la vers les pointes. Pour un effet liftant supplémentaire au niveau des racines, maintenez la brosse pendant 2 à 3 secondes sous les racines.\nÉtape 4 : Pour les boucles vers l'intérieur, placez la brosse sous les pointes des cheveux et maintenez-la pendant 2 à 3 secondes avant de la faire pivoter vers l'intérieur.\nÉtape 5 : Pour les boucles vers l'extérieur, placez la brosse sur les pointes des cheveux et maintenez-la pendant 2 à 3 secondes avant de la faire pivoter vers l'extérieur.\nREMARQUE : Cette brosse pour sèche-cheveux peut ne pas être recommandée pour les cheveux courts qui n'atteignent PAS les épaules.\nÀ propos de cet article\nSèche-cheveux et styler volumateur en une étape – Combinez parfaitement un sèche-cheveux avec un peigne coiffant. Vous pouvez sécher vos cheveux au sèche-cheveux et les rendre bouclés ou lisses en même temps ! Frizz Free Salon Plus Séchez jusqu'à la moitié du temps.\nConception unique - La conception ovale de notre coiffeur vous permet de vous déplacer librement sans que le cordon ou les poils ne s'emmêlent. Grâce à ses billes massantes, il aide à sécher, lisser et coiffer tous les types de cheveux en deux fois moins de temps.\nRéglage autonome : le bas est un commutateur de vitesse de réglage rotatif, qui peut être ajusté à l'état de fonctionnement actuel par rotation, et quatre positions de vitesse sont définies : haute, moyenne, basse, désactivée. Lumière LED pour identifier facilement la position actuelle de la vitesse. « ÉLEVÉE » pour les cheveux épais, « FAIBLE » pour les cheveux fins/abîmés.\nTechnologie ionique : la brosse sèche-cheveux avec des ions négatifs sature le flux d'air, aide à revitaliser vos cheveux et à nourrir les cheveux abîmés, rend vos cheveux élégants, brillants et lisses, réduisant ainsi l'électricité statique.\nPlusieurs réglages de chaleur et multifonction : la brosse à air chaud est disponible en 3 niveaux de chaleur réglables pour différents types de cheveux, chaleur élevée pour les cheveux épais, chaleur faible pour les cheveux fins, réglage flexible pour verrouiller votre belle coiffure. Ce volumateur peut être placé plus près du cuir chevelu pour le soulever. Utilisez-le également comme sèche-cheveux, styler, volumateur, pour boucler, onduler ou lisser vos cheveux. Parfait pour les cheveux secs, mouillés et tous types de cheveux. Idéal pour un usage domestique, en voyage et même au bureau"
+      "en": "L'élément sélectionné est une boîte d'emballage rectangulaire verte et transparente de la marque YUFEI HOME. Elle est conçue pour contenir et présenter un ensemble d'accessoires de salle de bain assortis.\nSi vous le souhaitez, je peux vous aider à en savoir plus. Dites-moi si vous voulez :\nIdentifier les matériaux des accessoires (gobelet, distributeur de savon).",
+      "fr": "L'élément sélectionné est une boîte d'emballage rectangulaire verte et transparente de la marque YUFEI HOME. Elle est conçue pour contenir et présenter un ensemble d'accessoires de salle de bain assortis.\nSi vous le souhaitez, je peux vous aider à en savoir plus. Dites-moi si vous voulez :\nIdentifier les matériaux des accessoires (gobelet, distributeur de savon).",
+      "ar": "L'élément sélectionné est une boîte d'emballage rectangulaire verte et transparente de la marque YUFEI HOME. Elle est conçue pour contenir et présenter un ensemble d'accessoires de salle de bain assortis.\nSi vous le souhaitez, je peux vous aider à en savoir plus. Dites-moi si vous voulez :\nIdentifier les matériaux des accessoires (gobelet, distributeur de savon)."
     },
     "images": [
-      "https://cdn.shipper.network/storage/jmrsbomi7ingnbmh/uploads/products/10279345/69f47d1548873-1777630485.webp",
-      "https://cdn.shipper.network/storage/jmrsbomi7ingnbmh/uploads/products/10279342/69f47cfbce4a9-1777630459.jpg",
-      "https://cdn.shipper.network/storage/jmrsbomi7ingnbmh/uploads/products/10279343/69f47d048c7e1-1777630468.jpg",
-      "https://cdn.shipper.network/storage/jmrsbomi7ingnbmh/uploads/products/10279346/69f47d1dbe608-1777630493.jpg",
-      "https://cdn.shipper.network/storage/jmrsbomi7ingnbmh/uploads/products/10279347/69f47d257029d-1777630501.jpg"
+      "https://cdn.shipper.network/storage/rxlqgkxeigejrs6k/uploads/products/11019432/6a6748c330c70-1785153731.jpg",
+      "https://cdn.shipper.network/storage/rxlqgkxeigejrs6k/uploads/products/11019428/6a6748c0b5c54-1785153728.jpg",
+      "https://cdn.shipper.network/storage/rxlqgkxeigejrs6k/uploads/products/11019429/6a6748c0bb2af-1785153728.jpg",
+      "https://cdn.shipper.network/storage/rxlqgkxeigejrs6k/uploads/products/11019430/6a6748c2213e2-1785153730.jpg",
+      "https://cdn.shipper.network/storage/rxlqgkxeigejrs6k/uploads/products/11019431/6a6748c223ae9-1785153730.jpg",
+      "https://cdn.shipper.network/storage/rxlqgkxeigejrs6k/uploads/products/11019433/6a6748c331b7f-1785153731.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Lampe LED Décorative Cristal",
-    "sourceUrl": "https://app.shipper.market/products/a9e0926c-890d-411d-aed7-2b684484473e",
-    "sourceProductId": "a9e0926c-890d-411d-aed7-2b684484473e",
-    "slug": "lampe-led-decorative-cristal-a9e0926c",
-    "category": "living decor lighting school office other categories",
+    "sourceName": "Gel Nettoyant Clavier , Évents de Voiture, Calculatrices",
+    "sourceUrl": "https://app.shipper.market/products/5e343db7-9eb1-4b74-ac40-f56fe16f6b55",
+    "sourceProductId": "5e343db7-9eb1-4b74-ac40-f56fe16f6b55",
+    "slug": "gel-nettoyant-clavier-events-de-voiture-calculatrices-5e343db7",
+    "category": "care beauty hair skincare play organisation cleaning laundry school office",
     "title": {
-      "en": "Lampe LED Décorative Cristal",
-      "fr": "Lampe LED Décorative Cristal",
-      "ar": "Lampe LED Décorative Cristal"
+      "en": "Gel Nettoyant Clavier , Évents de Voiture, Calculatrices",
+      "fr": "Gel Nettoyant Clavier , Évents de Voiture, Calculatrices",
+      "ar": "Gel Nettoyant Clavier , Évents de Voiture, Calculatrices"
     },
     "description": {
-      "en": "Apportez une touche de luxe et d'élégance à votre intérieur avec cette magnifique lampe LED décorative en forme ovale. Son design moderne, sa finition dorée et son effet cristal facetté diffusent une lumière chaleureuse et raffinée. Idéale pour décorer un salon, une chambre, un bureau ou une table de chevet.",
-      "fr": "Apportez une touche de luxe et d'élégance à votre intérieur avec cette magnifique lampe LED décorative en forme ovale. Son design moderne, sa finition dorée et son effet cristal facetté diffusent une lumière chaleureuse et raffinée. Idéale pour décorer un salon, une chambre, un bureau ou une table de chevet.",
-      "ar": "Apportez une touche de luxe et d'élégance à votre intérieur avec cette magnifique lampe LED décorative en forme ovale. Son design moderne, sa finition dorée et son effet cristal facetté diffusent une lumière chaleureuse et raffinée. Idéale pour décorer un salon, une chambre, un bureau ou une table de chevet."
+      "en": "• Veuillez conserver le gel de nettoyage dans un endroit frais et sec, éviter la lumière directe du soleil. Ne l'exposez pas sous un soleil intense.\n• Veuillez garder vos mains au sec lorsque vous utilisez le gel nettoyant.\n• S'il vous plaît ne pas laver le gel de nettoyage avec de l'eau.\n• Gardez le gel nettoyant hors de la portée des enfants et des animaux domestiques pour éviter de manger par erreur\n• Comment utiliser:\n• Gardez vos mains sèches avant d'utiliser le gel nettoyant.\n• Prenez un morceau de gel nettoyant et pétrissez-le doucement plusieurs fois.\n• Placez-le sur la surface à nettoyer. Appuyez dessus et roulez-le légèrement environ 4-5 fois, puis tirez-le lentement. (Veuillez ne pas le placer longtemps sur le clavier).\n• Après utilisation, scellez le gel nettoyant dans la petite boîte en temps voulu.",
+      "fr": "• Veuillez conserver le gel de nettoyage dans un endroit frais et sec, éviter la lumière directe du soleil. Ne l'exposez pas sous un soleil intense.\n• Veuillez garder vos mains au sec lorsque vous utilisez le gel nettoyant.\n• S'il vous plaît ne pas laver le gel de nettoyage avec de l'eau.\n• Gardez le gel nettoyant hors de la portée des enfants et des animaux domestiques pour éviter de manger par erreur\n• Comment utiliser:\n• Gardez vos mains sèches avant d'utiliser le gel nettoyant.\n• Prenez un morceau de gel nettoyant et pétrissez-le doucement plusieurs fois.\n• Placez-le sur la surface à nettoyer. Appuyez dessus et roulez-le légèrement environ 4-5 fois, puis tirez-le lentement. (Veuillez ne pas le placer longtemps sur le clavier).\n• Après utilisation, scellez le gel nettoyant dans la petite boîte en temps voulu.",
+      "ar": "• Veuillez conserver le gel de nettoyage dans un endroit frais et sec, éviter la lumière directe du soleil. Ne l'exposez pas sous un soleil intense.\n• Veuillez garder vos mains au sec lorsque vous utilisez le gel nettoyant.\n• S'il vous plaît ne pas laver le gel de nettoyage avec de l'eau.\n• Gardez le gel nettoyant hors de la portée des enfants et des animaux domestiques pour éviter de manger par erreur\n• Comment utiliser:\n• Gardez vos mains sèches avant d'utiliser le gel nettoyant.\n• Prenez un morceau de gel nettoyant et pétrissez-le doucement plusieurs fois.\n• Placez-le sur la surface à nettoyer. Appuyez dessus et roulez-le légèrement environ 4-5 fois, puis tirez-le lentement. (Veuillez ne pas le placer longtemps sur le clavier).\n• Après utilisation, scellez le gel nettoyant dans la petite boîte en temps voulu."
     },
     "images": [
-      "https://cdn.shipper.network/storage/tnmjobi3wydelpaq/uploads/products/11822000/6ae8900fc15d8-1793626127.png"
+      "https://cdn.shipper.network/storage/nppla4knfnj0l5zd/uploads/products/119399/658302c940911-1703084745.jpg",
+      "https://cdn.shipper.network/storage/nppla4knfnj0l5zd/uploads/products/119401/658302cd29818-1703084749.jpg",
+      "https://cdn.shipper.network/storage/nppla4knfnj0l5zd/uploads/products/119429/65830314d552b-1703084820.png",
+      "https://cdn.shipper.network/storage/nppla4knfnj0l5zd/uploads/products/119430/65830314ed164-1703084820.png",
+      "https://cdn.shipper.network/storage/nppla4knfnj0l5zd/uploads/products/119431/6583031a5f4c5-1703084826.png"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Air outlet car",
-    "sourceUrl": "https://app.shipper.market/products/aa014810-af31-4796-a178-8680d65a60c8",
-    "sourceProductId": "aa014810-af31-4796-a178-8680d65a60c8",
-    "slug": "air-outlet-car-aa014810",
-    "category": "accessories",
+    "sourceName": "montre de style serpent",
+    "sourceUrl": "https://app.shipper.market/products/5e38e755-ef5e-4859-82be-5421f4307717",
+    "sourceProductId": "5e38e755-ef5e-4859-82be-5421f4307717",
+    "slug": "montre-de-style-serpent-5e38e755",
+    "category": "wearables",
     "title": {
-      "en": "Air outlet car",
-      "fr": "Air outlet car",
-      "ar": "Air outlet car"
+      "en": "montre de style serpent",
+      "fr": "montre de style serpent",
+      "ar": "montre de style serpent"
     },
     "description": {
-      "en": "Il s'agit du support de téléphone pour voiture Ezra modèle RT-601, un accessoire conçu pour se fixer aux grilles de ventilation.",
-      "fr": "Il s'agit du support de téléphone pour voiture Ezra modèle RT-601, un accessoire conçu pour se fixer aux grilles de ventilation.",
-      "ar": "Il s'agit du support de téléphone pour voiture Ezra modèle RT-601, un accessoire conçu pour se fixer aux grilles de ventilation."
+      "en": "Cette montre de style serpent, de marque BIFANXI, présente un design inspiré de modèles de luxe emblématiques",
+      "fr": "Cette montre de style serpent, de marque BIFANXI, présente un design inspiré de modèles de luxe emblématiques",
+      "ar": "Cette montre de style serpent, de marque BIFANXI, présente un design inspiré de modèles de luxe emblématiques"
     },
     "images": [
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/10098146/69dd5550eaa44-1776112976.webp",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/10098147/69dd5550ed2fb-1776112976.jpg",
-      "https://cdn.shipper.network/storage/tgtdd4i3y43vwybb/uploads/products/10098148/69dd5552d4d22-1776112978.jpg"
+      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10153098/69e3d1f136414-1776538097.jpg",
+      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10153099/69e3d1f1488d5-1776538097.webp",
+      "https://cdn.shipper.network/storage/3ufbxfwas72ugkom/uploads/products/10153100/69e3d1f52719f-1776538101.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "collecteur de poussière pour perceuse",
-    "sourceUrl": "https://app.shipper.market/products/aa190e6a-a8f2-4447-b68b-2237fd77bf6f",
-    "sourceProductId": "aa190e6a-a8f2-4447-b68b-2237fd77bf6f",
-    "slug": "collecteur-de-poussiere-pour-perceuse-aa190e6a",
-    "category": "organisation cleaning laundry other categories",
+    "sourceName": "parfum Choco Overdose de la collection Give Me Gourmand",
+    "sourceUrl": "https://app.shipper.market/products/5e3f6121-61fd-478d-8569-fb65037044e0",
+    "sourceProductId": "5e3f6121-61fd-478d-8569-fb65037044e0",
+    "slug": "parfum-choco-overdose-de-la-collection-give-me-gourmand-5e3f6121",
+    "category": "care beauty hair skincare other fashion products",
     "title": {
-      "en": "collecteur de poussière pour perceuse",
-      "fr": "collecteur de poussière pour perceuse",
-      "ar": "collecteur de poussière pour perceuse"
+      "en": "parfum Choco Overdose de la collection Give Me Gourmand",
+      "fr": "parfum Choco Overdose de la collection Give Me Gourmand",
+      "ar": "parfum Choco Overdose de la collection Give Me Gourmand"
     },
     "description": {
-      "en": "Dust Containment: It prevents drill dust from scattering on floors or work surfaces, ensuring a cleaner workspace.\nUniversal Compatibility: The tool is compatible with most standard electric drill bits and additions.\nDesign: These devices often feature an ergonomic, compact, and portable design with a dedicated collection box that can be easily emptied.\n3D Printed Versions: Some versions of this specific red and white model are noted as being 3D printed from durable materials.\nVersatile Use: It can be used on various materials including wood, stone, metal, and concrete\nConception Universelle : Il possède une ouverture centrale compatible avec la plupart des mèches de perceuse standards.\nSystème de Collecte : La partie rouge inférieure sert de boîte de récupération amovible, permettant de vider facilement la poussière accumulée sans en répandre au sol.\nUtilisation Sans Énergie : Contrairement aux systèmes reliés à un aspirateur, ce modèle fonctionne de manière autonome par simple confinement de la zone de perçage.\nMatériaux : Il est généralement fabriqué en plastique durable (comme le PLA ou l'ABS via l'impression 3D), ce qui le rend léger et portable pour les chantiers",
-      "fr": "Dust Containment: It prevents drill dust from scattering on floors or work surfaces, ensuring a cleaner workspace.\nUniversal Compatibility: The tool is compatible with most standard electric drill bits and additions.\nDesign: These devices often feature an ergonomic, compact, and portable design with a dedicated collection box that can be easily emptied.\n3D Printed Versions: Some versions of this specific red and white model are noted as being 3D printed from durable materials.\nVersatile Use: It can be used on various materials including wood, stone, metal, and concrete\nConception Universelle : Il possède une ouverture centrale compatible avec la plupart des mèches de perceuse standards.\nSystème de Collecte : La partie rouge inférieure sert de boîte de récupération amovible, permettant de vider facilement la poussière accumulée sans en répandre au sol.\nUtilisation Sans Énergie : Contrairement aux systèmes reliés à un aspirateur, ce modèle fonctionne de manière autonome par simple confinement de la zone de perçage.\nMatériaux : Il est généralement fabriqué en plastique durable (comme le PLA ou l'ABS via l'impression 3D), ce qui le rend léger et portable pour les chantiers",
-      "ar": "Dust Containment: It prevents drill dust from scattering on floors or work surfaces, ensuring a cleaner workspace.\nUniversal Compatibility: The tool is compatible with most standard electric drill bits and additions.\nDesign: These devices often feature an ergonomic, compact, and portable design with a dedicated collection box that can be easily emptied.\n3D Printed Versions: Some versions of this specific red and white model are noted as being 3D printed from durable materials.\nVersatile Use: It can be used on various materials including wood, stone, metal, and concrete\nConception Universelle : Il possède une ouverture centrale compatible avec la plupart des mèches de perceuse standards.\nSystème de Collecte : La partie rouge inférieure sert de boîte de récupération amovible, permettant de vider facilement la poussière accumulée sans en répandre au sol.\nUtilisation Sans Énergie : Contrairement aux systèmes reliés à un aspirateur, ce modèle fonctionne de manière autonome par simple confinement de la zone de perçage.\nMatériaux : Il est généralement fabriqué en plastique durable (comme le PLA ou l'ABS via l'impression 3D), ce qui le rend léger et portable pour les chantiers"
+      "en": "Ce parfum est le Choco Overdose de la marque Lattafa, faisant partie de leur collection \"Give Me Gourmand\".\nLe flacon de 75 ml présente un design unique en forme de cupcake surmonté d'un morceau de chocolat.\nC'est une eau de parfum mixte aux notes gourmandes, mêlant chocolat noir, cacao, vanille et caramel",
+      "fr": "Ce parfum est le Choco Overdose de la marque Lattafa, faisant partie de leur collection \"Give Me Gourmand\".\nLe flacon de 75 ml présente un design unique en forme de cupcake surmonté d'un morceau de chocolat.\nC'est une eau de parfum mixte aux notes gourmandes, mêlant chocolat noir, cacao, vanille et caramel",
+      "ar": "Ce parfum est le Choco Overdose de la marque Lattafa, faisant partie de leur collection \"Give Me Gourmand\".\nLe flacon de 75 ml présente un design unique en forme de cupcake surmonté d'un morceau de chocolat.\nC'est une eau de parfum mixte aux notes gourmandes, mêlant chocolat noir, cacao, vanille et caramel"
     },
     "images": [
-      "https://cdn.shipper.network/storage/ag93cblrvlbkihi8/uploads/products/10241518/69ef41f98eedd-1777287673.jpg",
-      "https://cdn.shipper.network/storage/ag93cblrvlbkihi8/uploads/products/10241515/69ef41f879c89-1777287672.jpg",
-      "https://cdn.shipper.network/storage/ag93cblrvlbkihi8/uploads/products/10241516/69ef41f879de3-1777287672.jpg",
-      "https://cdn.shipper.network/storage/ag93cblrvlbkihi8/uploads/products/10241517/69ef41f980d2a-1777287673.jpg",
-      "https://cdn.shipper.network/storage/ag93cblrvlbkihi8/uploads/products/10241519/69ef41f9b967d-1777287673.jpg",
-      "https://cdn.shipper.network/storage/ag93cblrvlbkihi8/uploads/products/10241520/69ef41f9c4f21-1777287673.jpg"
+      "https://cdn.shipper.network/storage/fxo6y1sh1gsjnzf0/uploads/products/11025512/6a688b4cb795a-1785236300.webp",
+      "https://cdn.shipper.network/storage/fxo6y1sh1gsjnzf0/uploads/products/11025513/6a688b4cbe324-1785236300.webp",
+      "https://cdn.shipper.network/storage/fxo6y1sh1gsjnzf0/uploads/products/11025514/6a688b4fe47ef-1785236303.webp",
+      "https://cdn.shipper.network/storage/fxo6y1sh1gsjnzf0/uploads/products/11025515/6a688b4fe740d-1785236303.webp"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "شواء يدوية بمقبض خشبي (أو شواية السلكية المزدوجة).",
-    "sourceUrl": "https://app.shipper.market/products/aa213aa4-8bcd-4da2-89c5-a176caa1ce54",
-    "sourceProductId": "aa213aa4-8bcd-4da2-89c5-a176caa1ce54",
-    "slug": "product-aa213aa4",
-    "category": "outdoor organisation cleaning laundry kitchen tools",
+    "sourceName": "Kit imprimer divers dessin",
+    "sourceUrl": "https://app.shipper.market/products/5e458813-abd6-495e-b62e-0ee4aec4818f",
+    "sourceProductId": "5e458813-abd6-495e-b62e-0ee4aec4818f",
+    "slug": "kit-imprimer-divers-dessin-5e458813",
+    "category": "kitchen dining",
     "title": {
-      "en": "شواء يدوية بمقبض خشبي (أو شواية السلكية المزدوجة).",
-      "fr": "شواء يدوية بمقبض خشبي (أو شواية السلكية المزدوجة).",
-      "ar": "شواء يدوية بمقبض خشبي (أو شواية السلكية المزدوجة)."
+      "en": "Kit imprimer divers dessin",
+      "fr": "Kit imprimer divers dessin",
+      "ar": "Kit imprimer divers dessin"
     },
     "description": {
-      "en": "تتميز هذه الشواية السلكية المزدوجة بتصميمها العملي والمتين الذي يجعلها الأداة المثالية لعشاق الشواء والرحلات الخارجية. تم تصنيع الهيكل الشبكي للشواية من الفولاذ عالي الجودة المقاوم للصدأ (الستانلس ستيل)، وهي مادة ممتازة تضمن استدامة المنتج لفترات طويلة، وتحميه من التآكل بفعل الحرارة العالية أو الرطوبة، فضلاً عن كونها آمنة تماماً لإعداد الطعام وسهلة التنظيف بعد الاستخدام. تأتي الشواية بمقبض حديدي طويل ينتهي بقطعة من الخشب الطبيعي المصقول والمعزول حرارياً والمصبوغ باللون الأحمر المميز، مما يوفر قبضة مريحة وآمنة تماماً تحمي اليدين من حرارة الجمر المشتعل أثناء تقليب الطعام. بفضل تصميمها المزدوج المزود بحلقة قفل محكمة، تتيح لك الشواية تثبيت مختلف أنواع الأطعمة—مثل شرائح اللحم، الدجاج، الأسماك، والكباب، بالإضافة إلى خضروات الشواء المتنوعة—وقلبها دفعة واحدة على الفحم بكل سلاسة ودون خوف من سقوطها. إنها تجمع بين خفة الوزن والمتانة العالية، مما يجعلها رفيقاً لا غنى عنه في حديقة المنزل، المخيمات، والنزهات البرية لتقديم تجربة شواء احترافية ونكهة مثالية في كل مرة.",
-      "fr": "تتميز هذه الشواية السلكية المزدوجة بتصميمها العملي والمتين الذي يجعلها الأداة المثالية لعشاق الشواء والرحلات الخارجية. تم تصنيع الهيكل الشبكي للشواية من الفولاذ عالي الجودة المقاوم للصدأ (الستانلس ستيل)، وهي مادة ممتازة تضمن استدامة المنتج لفترات طويلة، وتحميه من التآكل بفعل الحرارة العالية أو الرطوبة، فضلاً عن كونها آمنة تماماً لإعداد الطعام وسهلة التنظيف بعد الاستخدام. تأتي الشواية بمقبض حديدي طويل ينتهي بقطعة من الخشب الطبيعي المصقول والمعزول حرارياً والمصبوغ باللون الأحمر المميز، مما يوفر قبضة مريحة وآمنة تماماً تحمي اليدين من حرارة الجمر المشتعل أثناء تقليب الطعام. بفضل تصميمها المزدوج المزود بحلقة قفل محكمة، تتيح لك الشواية تثبيت مختلف أنواع الأطعمة—مثل شرائح اللحم، الدجاج، الأسماك، والكباب، بالإضافة إلى خضروات الشواء المتنوعة—وقلبها دفعة واحدة على الفحم بكل سلاسة ودون خوف من سقوطها. إنها تجمع بين خفة الوزن والمتانة العالية، مما يجعلها رفيقاً لا غنى عنه في حديقة المنزل، المخيمات، والنزهات البرية لتقديم تجربة شواء احترافية ونكهة مثالية في كل مرة.",
-      "ar": "تتميز هذه الشواية السلكية المزدوجة بتصميمها العملي والمتين الذي يجعلها الأداة المثالية لعشاق الشواء والرحلات الخارجية. تم تصنيع الهيكل الشبكي للشواية من الفولاذ عالي الجودة المقاوم للصدأ (الستانلس ستيل)، وهي مادة ممتازة تضمن استدامة المنتج لفترات طويلة، وتحميه من التآكل بفعل الحرارة العالية أو الرطوبة، فضلاً عن كونها آمنة تماماً لإعداد الطعام وسهلة التنظيف بعد الاستخدام. تأتي الشواية بمقبض حديدي طويل ينتهي بقطعة من الخشب الطبيعي المصقول والمعزول حرارياً والمصبوغ باللون الأحمر المميز، مما يوفر قبضة مريحة وآمنة تماماً تحمي اليدين من حرارة الجمر المشتعل أثناء تقليب الطعام. بفضل تصميمها المزدوج المزود بحلقة قفل محكمة، تتيح لك الشواية تثبيت مختلف أنواع الأطعمة—مثل شرائح اللحم، الدجاج، الأسماك، والكباب، بالإضافة إلى خضروات الشواء المتنوعة—وقلبها دفعة واحدة على الفحم بكل سلاسة ودون خوف من سقوطها. إنها تجمع بين خفة الوزن والمتانة العالية، مما يجعلها رفيقاً لا غنى عنه في حديقة المنزل، المخيمات، والنزهات البرية لتقديم تجربة شواء احترافية ونكهة مثالية في كل مرة."
+      "en": "Ensemble de cuisine assorti comprenant un tablier, un gant de four isotherme et une manique, confectionnés dans un tissu imprimé aux motifs marins et tropicaux (poissons, voiliers et palmiers) avec des bordures vertes. Pratique et complet, cet ensemble protège efficacement contre les éclaboussures et la chaleur tout en apportant une touche de couleur joyeuse à votre cuisine.",
+      "fr": "Ensemble de cuisine assorti comprenant un tablier, un gant de four isotherme et une manique, confectionnés dans un tissu imprimé aux motifs marins et tropicaux (poissons, voiliers et palmiers) avec des bordures vertes. Pratique et complet, cet ensemble protège efficacement contre les éclaboussures et la chaleur tout en apportant une touche de couleur joyeuse à votre cuisine.",
+      "ar": "Ensemble de cuisine assorti comprenant un tablier, un gant de four isotherme et une manique, confectionnés dans un tissu imprimé aux motifs marins et tropicaux (poissons, voiliers et palmiers) avec des bordures vertes. Pratique et complet, cet ensemble protège efficacement contre les éclaboussures et la chaleur tout en apportant une touche de couleur joyeuse à votre cuisine."
     },
     "images": [
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10384003/6a099342cb712-1779012418.png",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10384002/6a09933f41f25-1779012415.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10384004/6a09934b218ca-1779012427.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10384005/6a09934c7f7a6-1779012428.jpg",
-      "https://cdn.shipper.network/storage/rypjb3vrkeml4b8t/uploads/products/10384006/6a09934ddc4f5-1779012429.jpg"
+      "https://cdn.shipper.network/storage/kqnpfzozbfkiqv2a/uploads/products/11437374/conversions/6a9eb37f5f114-1788785535-thumbnail-medium.jpg",
+      "https://cdn.shipper.network/storage/kqnpfzozbfkiqv2a/uploads/products/11436378/conversions/6a9e9e15ac8b7-1788780053-thumbnail-medium.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "Debada Coffret brume/lait de corps séduction éternelle",
-    "sourceUrl": "https://app.shipper.market/products/aa3606df-b2e6-4c91-bc1a-38dc786583b6",
-    "sourceProductId": "aa3606df-b2e6-4c91-bc1a-38dc786583b6",
-    "slug": "debada-coffret-brume-lait-de-corps-seduction-eternelle-aa3606df",
-    "category": "care beauty hair skincare",
+    "sourceName": "Mini compresseur d'air portable 12V",
+    "sourceUrl": "https://app.shipper.market/products/5e492b05-c58b-4965-b743-c8e221f8f21d",
+    "sourceProductId": "5e492b05-c58b-4965-b743-c8e221f8f21d",
+    "slug": "mini-compresseur-d-air-portable-12v-5e492b05",
+    "category": "bedroom bedding outdoor",
     "title": {
-      "en": "Debada Coffret brume/lait de corps séduction éternelle",
-      "fr": "Debada Coffret brume/lait de corps séduction éternelle",
-      "ar": "Debada Coffret brume/lait de corps séduction éternelle"
+      "en": "Mini compresseur d'air portable 12V",
+      "fr": "Mini compresseur d'air portable 12V",
+      "ar": "Mini compresseur d'air portable 12V"
     },
     "description": {
-      "en": "Laissez-vous tenter par notre coffret séduction éternelle :\nSpray corps et cheveux : Une brume corporelle rafraîchissante et vivifiante, infusée d'essences naturelles sucrées. \nCe spray frais parfume délicatement la peau tout en l'hydratant. Votre corps est délicatement parfumé et hydraté grâce à la présence de glycérine.\nLotion corporelle : Ce lait corporel hydratant infusé d'une fragrance revitalisante laisse votre peau profondément nourrie et lisse, sans aucun résidu gras . Enrichi en vitamine E, notre solution hydratante tonifie la peau grâce à sa texture légère.",
-      "fr": "Laissez-vous tenter par notre coffret séduction éternelle :\nSpray corps et cheveux : Une brume corporelle rafraîchissante et vivifiante, infusée d'essences naturelles sucrées. \nCe spray frais parfume délicatement la peau tout en l'hydratant. Votre corps est délicatement parfumé et hydraté grâce à la présence de glycérine.\nLotion corporelle : Ce lait corporel hydratant infusé d'une fragrance revitalisante laisse votre peau profondément nourrie et lisse, sans aucun résidu gras . Enrichi en vitamine E, notre solution hydratante tonifie la peau grâce à sa texture légère.",
-      "ar": "Laissez-vous tenter par notre coffret séduction éternelle :\nSpray corps et cheveux : Une brume corporelle rafraîchissante et vivifiante, infusée d'essences naturelles sucrées. \nCe spray frais parfume délicatement la peau tout en l'hydratant. Votre corps est délicatement parfumé et hydraté grâce à la présence de glycérine.\nLotion corporelle : Ce lait corporel hydratant infusé d'une fragrance revitalisante laisse votre peau profondément nourrie et lisse, sans aucun résidu gras . Enrichi en vitamine E, notre solution hydratante tonifie la peau grâce à sa texture légère."
+      "en": "Il s'agit d'un mini compresseur d'air portable 12V conçu pour le gonflage de divers objets, notamment les pneus de voiture. \n• Pression maximale : Indiquée comme 250 PSI (environ 17 bars) sur l'appareil, avec une jauge affichant jusqu'à 300 PSI. \n• Alimentation : Fonctionne sur une prise allume-cigare de voiture 12 Volts. \n• Accessoires : Livré avec des embouts interchangeables pour gonfler des ballons, des pneus de vélo ou des matelas pneumatiques. \n• Utilisation : Idéal pour le dépannage rapide ou l'ajustement de la pression des pneus avant un voyage.",
+      "fr": "Il s'agit d'un mini compresseur d'air portable 12V conçu pour le gonflage de divers objets, notamment les pneus de voiture. \n• Pression maximale : Indiquée comme 250 PSI (environ 17 bars) sur l'appareil, avec une jauge affichant jusqu'à 300 PSI. \n• Alimentation : Fonctionne sur une prise allume-cigare de voiture 12 Volts. \n• Accessoires : Livré avec des embouts interchangeables pour gonfler des ballons, des pneus de vélo ou des matelas pneumatiques. \n• Utilisation : Idéal pour le dépannage rapide ou l'ajustement de la pression des pneus avant un voyage.",
+      "ar": "Il s'agit d'un mini compresseur d'air portable 12V conçu pour le gonflage de divers objets, notamment les pneus de voiture. \n• Pression maximale : Indiquée comme 250 PSI (environ 17 bars) sur l'appareil, avec une jauge affichant jusqu'à 300 PSI. \n• Alimentation : Fonctionne sur une prise allume-cigare de voiture 12 Volts. \n• Accessoires : Livré avec des embouts interchangeables pour gonfler des ballons, des pneus de vélo ou des matelas pneumatiques. \n• Utilisation : Idéal pour le dépannage rapide ou l'ajustement de la pression des pneus avant un voyage."
     },
     "images": [
-      "https://cdn.shipper.network/storage/lnoke5okxnn5coft/uploads/products/9373254/697dcf66f146a-1769852774.jpg",
-      "https://cdn.shipper.network/storage/lnoke5okxnn5coft/uploads/products/9373255/697dcf6c25467-1769852780.jpg"
+      "https://cdn.shipper.network/storage/0pon5upprlnmc2vv/uploads/products/10092066/69dcf4c9d8eab-1776088265.jpg",
+      "https://cdn.shipper.network/storage/0pon5upprlnmc2vv/uploads/products/10092067/69dcf4ced478e-1776088270.jpg",
+      "https://cdn.shipper.network/storage/0pon5upprlnmc2vv/uploads/products/10092068/69dcf4d4cefb6-1776088276.jpg",
+      "https://cdn.shipper.network/storage/0pon5upprlnmc2vv/uploads/products/10092069/69dcf4dce6cc7-1776088284.jpg",
+      "https://cdn.shipper.network/storage/0pon5upprlnmc2vv/uploads/products/10092070/69dcf4e48524b-1776088292.jpg"
     ],
     "originalSupplierCopy": true
   },
   {
-    "sourceName": "jeu de bowling lumineux pour enfants",
-    "sourceUrl": "https://app.shipper.market/products/aa4b93f5-6931-45e5-92b8-bcd177d47928",
-    "sourceProductId": "aa4b93f5-6931-45e5-92b8-bcd177d47928",
-    "slug": "jeu-de-bowling-lumineux-pour-enfants-aa4b93f5",
-    "category": "play outdoor toys & games",
+    "sourceName": "Liquide Vaisselle 1.25L",
+    "sourceUrl": "https://app.shipper.market/products/5e4c8ea6-eca7-4079-adbd-5f6d43386fc8",
+    "sourceProductId": "5e4c8ea6-eca7-4079-adbd-5f6d43386fc8",
+    "slug": "liquide-vaisselle-1-25l-5e4c8ea6",
+    "category": "kitchen dining care beauty hair skincare",
     "title": {
-      "en": "jeu de bowling lumineux pour enfants",
-      "fr": "jeu de bowling lumineux pour enfants",
-      "ar": "jeu de bowling lumineux pour enfants"
+      "en": "Liquide Vaisselle 1.25L",
+      "fr": "Liquide Vaisselle 1.25L",
+      "ar": "Liquide Vaisselle 1.25L"
     },
     "description": {
-      "en": "Principe du jeu : Il s'agit d'un jeu de tir ou de lancer d'intérieur et d'extérieur (\"Indoor & Outdoor Play\"). Le but est de lancer des projectiles pour faire basculer des cibles en forme de quilles ou de bouteilles suspendues sur un support.\nFonctionnalité \"Flash\" : Les bouteilles s'allument grâce à un système lumineux (\"Flash\") activé par l'impact et la gravité lorsqu'elles basculent.\nDimensions de la structure :\nLargeur : 49 cm\nHauteur totale : 74 cm (39 cm pour la base + 35 cm pour la partie supérieure)\nBénéfices de développement : Entraînement physique, habileté manuelle, acuité visuelle et interaction parents-enfants.",
-      "fr": "Principe du jeu : Il s'agit d'un jeu de tir ou de lancer d'intérieur et d'extérieur (\"Indoor & Outdoor Play\"). Le but est de lancer des projectiles pour faire basculer des cibles en forme de quilles ou de bouteilles suspendues sur un support.\nFonctionnalité \"Flash\" : Les bouteilles s'allument grâce à un système lumineux (\"Flash\") activé par l'impact et la gravité lorsqu'elles basculent.\nDimensions de la structure :\nLargeur : 49 cm\nHauteur totale : 74 cm (39 cm pour la base + 35 cm pour la partie supérieure)\nBénéfices de développement : Entraînement physique, habileté manuelle, acuité visuelle et interaction parents-enfants.",
-      "ar": "Principe du jeu : Il s'agit d'un jeu de tir ou de lancer d'intérieur et d'extérieur (\"Indoor & Outdoor Play\"). Le but est de lancer des projectiles pour faire basculer des cibles en forme de quilles ou de bouteilles suspendues sur un support.\nFonctionnalité \"Flash\" : Les bouteilles s'allument grâce à un système lumineux (\"Flash\") activé par l'impact et la gravité lorsqu'elles basculent.\nDimensions de la structure :\nLargeur : 49 cm\nHauteur totale : 74 cm (39 cm pour la base + 35 cm pour la partie supérieure)\nBénéfices de développement : Entraînement physique, habileté manuelle, acuité visuelle et interaction parents-enfants."
+      "en": "Grace à sa formule à la fois ultra concentrée et super dégraissante, le liquide vaisselle MOBI élimine facilement les graisses les plus résistantes, assure une quantité généreuse de mousse, une brillance parfaite et un parfum frais et agréable",
+      "fr": "Grace à sa formule à la fois ultra concentrée et super dégraissante, le liquide vaisselle MOBI élimine facilement les graisses les plus résistantes, assure une quantité généreuse de mousse, une brillance parfaite et un parfum frais et agréable",
+      "ar": "Grace à sa formule à la fois ultra concentrée et super dégraissante, le liquide vaisselle MOBI élimine facilement les graisses les plus résistantes, assure une quantité généreuse de mousse, une brillance parfaite et un parfum frais et agréable"
     },
     "images": [
-      "https://cdn.shipper.network/storage/rxlqgkxeigejrs6k/uploads/products/11019504/6a674a6b6cadc-1785154155.jpg",
-      "https://cdn.shipper.network/storage/rxlqgkxeigejrs6k/uploads/products/11019509/6a674a92db67f-1785154194.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Acti Digest complément alimentaire",
-    "sourceUrl": "https://app.shipper.market/products/aa54662b-4197-4774-8213-f5ab7fc71c1b",
-    "sourceProductId": "aa54662b-4197-4774-8213-f5ab7fc71c1b",
-    "slug": "acti-digest-complement-alimentaire-aa54662b",
-    "category": "outdoor organisation",
-    "title": {
-      "en": "Acti Digest complément alimentaire",
-      "fr": "Acti Digest complément alimentaire",
-      "ar": "Acti Digest complément alimentaire"
-    },
-    "description": {
-      "en": "Caractéristiques Principales\n• Marque et Produit : Acti Digest, un complément alimentaire 100% naturel.\n• Format : Gélules (60 gélules par boîte/pot).\n• Objectif Principal :\n• Faciliter la digestion.\n• Limiter les fermentations intestinales.\n• Réduire les ballonnements et la constipation.\n• Détoxifier l'organisme.\n• Ingrédients : Contient des composants naturels, y compris des extraits de plantes comme la racine de gingembre, la papaye, l'ananas, l'anis vert, le fenouil et du charbon végétal.\n• Mode d'emploi (générique pour produits similaires) : Il est généralement recommandé de prendre ces gélules avant ou après les repas, avec un grand verre d'eau.",
-      "fr": "Caractéristiques Principales\n• Marque et Produit : Acti Digest, un complément alimentaire 100% naturel.\n• Format : Gélules (60 gélules par boîte/pot).\n• Objectif Principal :\n• Faciliter la digestion.\n• Limiter les fermentations intestinales.\n• Réduire les ballonnements et la constipation.\n• Détoxifier l'organisme.\n• Ingrédients : Contient des composants naturels, y compris des extraits de plantes comme la racine de gingembre, la papaye, l'ananas, l'anis vert, le fenouil et du charbon végétal.\n• Mode d'emploi (générique pour produits similaires) : Il est généralement recommandé de prendre ces gélules avant ou après les repas, avec un grand verre d'eau.",
-      "ar": "Caractéristiques Principales\n• Marque et Produit : Acti Digest, un complément alimentaire 100% naturel.\n• Format : Gélules (60 gélules par boîte/pot).\n• Objectif Principal :\n• Faciliter la digestion.\n• Limiter les fermentations intestinales.\n• Réduire les ballonnements et la constipation.\n• Détoxifier l'organisme.\n• Ingrédients : Contient des composants naturels, y compris des extraits de plantes comme la racine de gingembre, la papaye, l'ananas, l'anis vert, le fenouil et du charbon végétal.\n• Mode d'emploi (générique pour produits similaires) : Il est généralement recommandé de prendre ces gélules avant ou après les repas, avec un grand verre d'eau."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/shipper-network-service-tunisia/uploads/products/8400263/6926d578afd55-1764152696.jpg",
-      "https://cdn.shipper.network/storage/4bm9eyvtshc1ksai/uploads/products/8370710/692448cec8ad2-1763985614.png",
-      "https://cdn.shipper.network/storage/4bm9eyvtshc1ksai/uploads/products/8370718/692448d0b8d0b-1763985616.png"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Ballon de boxe à ventouse puissante en cuir",
-    "sourceUrl": "https://app.shipper.market/products/aa687637-7cbb-49f3-88e8-fb4f0314f303",
-    "sourceProductId": "aa687637-7cbb-49f3-88e8-fb4f0314f303",
-    "slug": "ballon-de-boxe-a-ventouse-puissante-en-cuir-aa687637",
-    "category": "outdoor other categories home & office",
-    "title": {
-      "en": "Ballon de boxe à ventouse puissante en cuir",
-      "fr": "Ballon de boxe à ventouse puissante en cuir",
-      "ar": "Ballon de boxe à ventouse puissante en cuir"
-    },
-    "description": {
-      "en": "High Quality Leather Boxing Speed Bag\nImprove your speed, accuracy, timing, and hand-eye coordination with this High Quality Leather Boxing Speed Bag. Made from premium genuine leather, it is built to withstand intense training sessions while maintaining its shape and durability. The reinforced stitching and balanced design provide consistent rebounds for smooth, fast performance. Ideal for boxing, MMA, kickboxing, and fitness training, this speed bag is suitable for both beginners and professional athletes. Easy to install and compatible with most speed bag platforms, it's the perfect addition to any home or commercial gym.",
-      "fr": "High Quality Leather Boxing Speed Bag\nImprove your speed, accuracy, timing, and hand-eye coordination with this High Quality Leather Boxing Speed Bag. Made from premium genuine leather, it is built to withstand intense training sessions while maintaining its shape and durability. The reinforced stitching and balanced design provide consistent rebounds for smooth, fast performance. Ideal for boxing, MMA, kickboxing, and fitness training, this speed bag is suitable for both beginners and professional athletes. Easy to install and compatible with most speed bag platforms, it's the perfect addition to any home or commercial gym.",
-      "ar": "High Quality Leather Boxing Speed Bag\nImprove your speed, accuracy, timing, and hand-eye coordination with this High Quality Leather Boxing Speed Bag. Made from premium genuine leather, it is built to withstand intense training sessions while maintaining its shape and durability. The reinforced stitching and balanced design provide consistent rebounds for smooth, fast performance. Ideal for boxing, MMA, kickboxing, and fitness training, this speed bag is suitable for both beginners and professional athletes. Easy to install and compatible with most speed bag platforms, it's the perfect addition to any home or commercial gym."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/11088694/6a75a02f88bf0-1786093615.jpg",
-      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/11088680/6a75a020c1745-1786093600.jpg",
-      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/11088696/6a75a03716226-1786093623.jpg",
-      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/11088697/6a75a03813231-1786093624.jpg",
-      "https://cdn.shipper.network/storage/s6jchr9thlitutss/uploads/products/11088835/6a75a15fcc812-1786093919.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Lampe solaire étanche",
-    "sourceUrl": "https://app.shipper.market/products/aa79e556-e43b-4bca-be19-f72b17ddf2e7",
-    "sourceProductId": "aa79e556-e43b-4bca-be19-f72b17ddf2e7",
-    "slug": "lampe-solaire-etanche-aa79e556",
-    "category": "care beauty hair skincare lighting outdoor",
-    "title": {
-      "en": "Lampe solaire étanche",
-      "fr": "Lampe solaire étanche",
-      "ar": "Lampe solaire étanche"
-    },
-    "description": {
-      "en": "1. Panneau solaire performant : Cette applique murale solaire d'extérieur est équipée d'un panneau solaire en silicium polycristallin, reconnu pour sa capacité d'absorption d'énergie rapide. Une fois chargée, elle offre une autonomie d'environ 8 heures.\n2. Installation facile : Conçue pour une installation simplifiée, cette lampe solaire se fixe simplement au mur à l'aide de vis. Elle est alors prête à illuminer vos espaces extérieurs.\n3. Éclairage intelligent : Dotée d'un capteur de mouvement, cette lampe à induction intelligente active la lumière à haute intensité uniquement lorsqu'un mouvement est détecté la nuit, optimisant ainsi la consommation d'énergie et fournissant un éclairage adapté à vos besoins.\n4. Résistance aux intempéries : Grâce à son indice de protection IP65, cette applique murale de jardin résistante à la chaleur est conçue pour résister aux intempéries et aux conditions climatiques les plus extrêmes, garantissant sa durabilité et sa fiabilité en extérieur.\n5. Alimentation solaire : Cette lampe à filament de tungstène solaire exploite l'énergie solaire pour illuminer vos espaces. Idéale pour éclairer votre jardin, votre cour, un parc ou une allée, elle transforme l'énergie solaire en un éclairage puissant et efficace pour vos espaces extérieurs.",
-      "fr": "1. Panneau solaire performant : Cette applique murale solaire d'extérieur est équipée d'un panneau solaire en silicium polycristallin, reconnu pour sa capacité d'absorption d'énergie rapide. Une fois chargée, elle offre une autonomie d'environ 8 heures.\n2. Installation facile : Conçue pour une installation simplifiée, cette lampe solaire se fixe simplement au mur à l'aide de vis. Elle est alors prête à illuminer vos espaces extérieurs.\n3. Éclairage intelligent : Dotée d'un capteur de mouvement, cette lampe à induction intelligente active la lumière à haute intensité uniquement lorsqu'un mouvement est détecté la nuit, optimisant ainsi la consommation d'énergie et fournissant un éclairage adapté à vos besoins.\n4. Résistance aux intempéries : Grâce à son indice de protection IP65, cette applique murale de jardin résistante à la chaleur est conçue pour résister aux intempéries et aux conditions climatiques les plus extrêmes, garantissant sa durabilité et sa fiabilité en extérieur.\n5. Alimentation solaire : Cette lampe à filament de tungstène solaire exploite l'énergie solaire pour illuminer vos espaces. Idéale pour éclairer votre jardin, votre cour, un parc ou une allée, elle transforme l'énergie solaire en un éclairage puissant et efficace pour vos espaces extérieurs.",
-      "ar": "1. Panneau solaire performant : Cette applique murale solaire d'extérieur est équipée d'un panneau solaire en silicium polycristallin, reconnu pour sa capacité d'absorption d'énergie rapide. Une fois chargée, elle offre une autonomie d'environ 8 heures.\n2. Installation facile : Conçue pour une installation simplifiée, cette lampe solaire se fixe simplement au mur à l'aide de vis. Elle est alors prête à illuminer vos espaces extérieurs.\n3. Éclairage intelligent : Dotée d'un capteur de mouvement, cette lampe à induction intelligente active la lumière à haute intensité uniquement lorsqu'un mouvement est détecté la nuit, optimisant ainsi la consommation d'énergie et fournissant un éclairage adapté à vos besoins.\n4. Résistance aux intempéries : Grâce à son indice de protection IP65, cette applique murale de jardin résistante à la chaleur est conçue pour résister aux intempéries et aux conditions climatiques les plus extrêmes, garantissant sa durabilité et sa fiabilité en extérieur.\n5. Alimentation solaire : Cette lampe à filament de tungstène solaire exploite l'énergie solaire pour illuminer vos espaces. Idéale pour éclairer votre jardin, votre cour, un parc ou une allée, elle transforme l'énergie solaire en un éclairage puissant et efficace pour vos espaces extérieurs."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10088433/69dcab730bf27-1776069491.webp",
-      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10088431/69dcab7041a8b-1776069488.webp",
-      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10088432/69dcab7047438-1776069488.webp",
-      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10088434/69dcab7310c82-1776069491.webp",
-      "https://cdn.shipper.network/storage/dvf7sxj3b0eh2sr4/uploads/products/10088435/69dcab737e55b-1776069491.webp"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Gourde avec Paille Motif Lapin",
-    "sourceUrl": "https://app.shipper.market/products/aa9242f9-a293-4213-b1c1-aaf62526c7bb",
-    "sourceProductId": "aa9242f9-a293-4213-b1c1-aaf62526c7bb",
-    "slug": "gourde-avec-paille-motif-lapin-aa9242f9",
-    "category": "kitchen dining living decor",
-    "title": {
-      "en": "Gourde avec Paille Motif Lapin",
-      "fr": "Gourde avec Paille Motif Lapin",
-      "ar": "Gourde avec Paille Motif Lapin"
-    },
-    "description": {
-      "en": "Apportez une touche de douceur et d'originalité à vos pauses boissons avec cette adorable gourde avec paille Rabbit Straw Cup. Son design en forme de petit lapin, agrémenté de jolies oreilles dorées, associe praticité et élégance.\n\nDotée d'un corps transparent, d'un couvercle décoratif et d'un manchon de protection antidérapant, cette gourde est idéale pour savourer vos boissons préférées au quotidien.\n\nSon format compact et son style mignon en font également une excellente idée cadeau pour les enfants, les adolescents et les amateurs d'accessoires originaux.",
-      "fr": "Apportez une touche de douceur et d'originalité à vos pauses boissons avec cette adorable gourde avec paille Rabbit Straw Cup. Son design en forme de petit lapin, agrémenté de jolies oreilles dorées, associe praticité et élégance.\n\nDotée d'un corps transparent, d'un couvercle décoratif et d'un manchon de protection antidérapant, cette gourde est idéale pour savourer vos boissons préférées au quotidien.\n\nSon format compact et son style mignon en font également une excellente idée cadeau pour les enfants, les adolescents et les amateurs d'accessoires originaux.",
-      "ar": "Apportez une touche de douceur et d'originalité à vos pauses boissons avec cette adorable gourde avec paille Rabbit Straw Cup. Son design en forme de petit lapin, agrémenté de jolies oreilles dorées, associe praticité et élégance.\n\nDotée d'un corps transparent, d'un couvercle décoratif et d'un manchon de protection antidérapant, cette gourde est idéale pour savourer vos boissons préférées au quotidien.\n\nSon format compact et son style mignon en font également une excellente idée cadeau pour les enfants, les adolescents et les amateurs d'accessoires originaux."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/tnmjobi3wydelpaq/uploads/products/11752962/conversions/6ad8c995c0904-1792592277-thumbnail-medium.jpg",
-      "https://cdn.shipper.network/storage/tnmjobi3wydelpaq/uploads/products/11752961/conversions/6ad8c991ab039-1792592273-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "voiture télécommandée bugatti",
-    "sourceUrl": "https://app.shipper.market/products/aaa9c41e-f2ff-4618-a16e-d11fefd0573b",
-    "sourceProductId": "aaa9c41e-f2ff-4618-a16e-d11fefd0573b",
-    "slug": "voiture-telecommandee-bugatti-aaa9c41e",
-    "category": "play",
-    "title": {
-      "en": "voiture télécommandée bugatti",
-      "fr": "voiture télécommandée bugatti",
-      "ar": "voiture télécommandée bugatti"
-    },
-    "description": {
-      "en": "Caractéristiques principales\n• Modèle : Voiture de sport type Bugatti (souvent identifiée comme une Veyron ou Chiron dans les variantes de jouets).\n• Échelle : 1:16 (ce qui signifie que le modèle est 16 fois plus petit que le véhicule réel).\n• Type : Véhicule radiocommandé (R/C) avec fonctions complètes (avant, arrière, gauche, droite).\n• Public cible : Recommandé généralement pour les enfants de 3 ans et plus.\n• Matériau : Fabriqué en plastique ABS brillant.",
-      "fr": "Caractéristiques principales\n• Modèle : Voiture de sport type Bugatti (souvent identifiée comme une Veyron ou Chiron dans les variantes de jouets).\n• Échelle : 1:16 (ce qui signifie que le modèle est 16 fois plus petit que le véhicule réel).\n• Type : Véhicule radiocommandé (R/C) avec fonctions complètes (avant, arrière, gauche, droite).\n• Public cible : Recommandé généralement pour les enfants de 3 ans et plus.\n• Matériau : Fabriqué en plastique ABS brillant.",
-      "ar": "Caractéristiques principales\n• Modèle : Voiture de sport type Bugatti (souvent identifiée comme une Veyron ou Chiron dans les variantes de jouets).\n• Échelle : 1:16 (ce qui signifie que le modèle est 16 fois plus petit que le véhicule réel).\n• Type : Véhicule radiocommandé (R/C) avec fonctions complètes (avant, arrière, gauche, droite).\n• Public cible : Recommandé généralement pour les enfants de 3 ans et plus.\n• Matériau : Fabriqué en plastique ABS brillant."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/fxo6y1sh1gsjnzf0/uploads/products/9724914/69aaa93785bcb-1772792119.webp",
-      "https://cdn.shipper.network/storage/fxo6y1sh1gsjnzf0/uploads/products/9724913/69aaa9377a1b4-1772792119.webp"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "Polissoir et lime à ongles électrique portable et rechargeable",
-    "sourceUrl": "https://app.shipper.market/products/aab345f4-601d-4a6a-a9dd-f07c54ac7fa9",
-    "sourceProductId": "aab345f4-601d-4a6a-a9dd-f07c54ac7fa9",
-    "slug": "polissoir-et-lime-a-ongles-electrique-portable-et-rechargeable-aab345f4",
-    "category": "care beauty hair skincare",
-    "title": {
-      "en": "Polissoir et lime à ongles électrique portable et rechargeable",
-      "fr": "Polissoir et lime à ongles électrique portable et rechargeable",
-      "ar": "Polissoir et lime à ongles électrique portable et rechargeable"
-    },
-    "description": {
-      "en": "Polissoir et lime à ongles électrique portable et rechargeable, conçu pour réaliser une manucure rapide et impeccable à domicile. Ergonomique et simple d'utilisation, il offre une rotation à 360° pour limer, lisser, polir et faire briller naturellement les ongles des mains et des pieds. Compact et discret, cet appareil dispose d'un capot de protection transparent et convient aussi bien aux ongles naturels qu'artificiels.",
-      "fr": "Polissoir et lime à ongles électrique portable et rechargeable, conçu pour réaliser une manucure rapide et impeccable à domicile. Ergonomique et simple d'utilisation, il offre une rotation à 360° pour limer, lisser, polir et faire briller naturellement les ongles des mains et des pieds. Compact et discret, cet appareil dispose d'un capot de protection transparent et convient aussi bien aux ongles naturels qu'artificiels.",
-      "ar": "Polissoir et lime à ongles électrique portable et rechargeable, conçu pour réaliser une manucure rapide et impeccable à domicile. Ergonomique et simple d'utilisation, il offre une rotation à 360° pour limer, lisser, polir et faire briller naturellement les ongles des mains et des pieds. Compact et discret, cet appareil dispose d'un capot de protection transparent et convient aussi bien aux ongles naturels qu'artificiels."
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/1afvih0k7ufom0q4/uploads/products/11472502/conversions/6aa2c32ee02c9-1789051694-thumbnail-medium.jpg"
-    ],
-    "originalSupplierCopy": true
-  },
-  {
-    "sourceName": "montre Vikec pour homme",
-    "sourceUrl": "https://app.shipper.market/products/aab4b623-18bc-41ea-9244-ca3699834cf5",
-    "sourceProductId": "aab4b623-18bc-41ea-9244-ca3699834cf5",
-    "slug": "montre-vikec-pour-homme-aab4b623",
-    "category": "living decor wearables men's fashion",
-    "title": {
-      "en": "montre Vikec pour homme",
-      "fr": "montre Vikec pour homme",
-      "ar": "montre Vikec pour homme"
-    },
-    "description": {
-      "en": "Marque : VIKEC\nDesign : Cadran noir sportif équipé de trois sous-cadrans décoratifs (style chronographe) et de grands index chiffrés pour le 12, le 3, le 6 et le 9.\nAiguilles : Aiguilles principales ajourées avec une trotteuse rouge contrastante.\nBracelet : Bracelet souple en silicone de couleur grise.\nPackaging : Présentée sur un coussinet blanc à l'intérieur d'un écrin orange vif",
-      "fr": "Marque : VIKEC\nDesign : Cadran noir sportif équipé de trois sous-cadrans décoratifs (style chronographe) et de grands index chiffrés pour le 12, le 3, le 6 et le 9.\nAiguilles : Aiguilles principales ajourées avec une trotteuse rouge contrastante.\nBracelet : Bracelet souple en silicone de couleur grise.\nPackaging : Présentée sur un coussinet blanc à l'intérieur d'un écrin orange vif",
-      "ar": "Marque : VIKEC\nDesign : Cadran noir sportif équipé de trois sous-cadrans décoratifs (style chronographe) et de grands index chiffrés pour le 12, le 3, le 6 et le 9.\nAiguilles : Aiguilles principales ajourées avec une trotteuse rouge contrastante.\nBracelet : Bracelet souple en silicone de couleur grise.\nPackaging : Présentée sur un coussinet blanc à l'intérieur d'un écrin orange vif"
-    },
-    "images": [
-      "https://cdn.shipper.network/storage/fxo6y1sh1gsjnzf0/uploads/products/11116290/6a79aefb74375-1786359547.jpg",
-      "https://cdn.shipper.network/storage/fxo6y1sh1gsjnzf0/uploads/products/11116291/6a79aefbf127e-1786359547.jpg",
-      "https://cdn.shipper.network/storage/fxo6y1sh1gsjnzf0/uploads/products/11116292/6a79aefd69e47-1786359549.jpg",
-      "https://cdn.shipper.network/storage/fxo6y1sh1gsjnzf0/uploads/products/11116293/6a79aefd69e4d-1786359549.jpg"
+      "https://cdn.shipper.network/storage/rjbi7i8xj8b6fr9y/uploads/products/2919/646b8e35b2264-1684770357.jpg"
     ],
     "originalSupplierCopy": true
   }
