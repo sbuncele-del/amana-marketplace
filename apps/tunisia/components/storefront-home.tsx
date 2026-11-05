@@ -1,7 +1,7 @@
 'use client';
 import {useCallback} from 'react';
 import {mobileOpeningPicks} from '../../../packages/storefront/mobile-opening-picks';
-import {mobileCampaigns} from '../../../packages/storefront/mobile-campaigns';
+import {mobileCampaigns,mobileFeedCampaigns} from '../../../packages/storefront/mobile-campaigns';
 import {MobileShoppingFeed} from '../../../packages/storefront/mobile-shopping';
 import {primaryDepartment} from '@/lib/catalogue-browse';
 import {storefrontDepartments} from '../../../packages/storefront/departments';
@@ -18,13 +18,6 @@ import {money,type Locale} from '@/lib/catalogue';
 import type {ProductGroup} from '@/lib/product-groups';
 import {ProductCard} from './product-cards';
 const categoryKeys:Record<string,string>={'kitchen-dining':'kitchen','home-living':'home','toys-kids-baby':'kids','health-beauty':'care','storage-organisation':'organisation','garden-outdoor':'outdoor','home-decor-gifts':'decor','furniture':'furniture'};
-const mobileBanners=[
- {title:{en:'Good finds. Your budget.',fr:'De belles trouvailles. Votre budget.',ar:'اختيارات جميلة تناسب ميزانيتك.'},text:{en:'Useful finds under 50 DT.',fr:'Des trouvailles utiles à moins de 50 DT.',ar:'منتجات مفيدة بأقل من 50 د.ت.'},path:'shop?maxPrice=50'},
- {title:{en:'Make everyday cooking easier',fr:'Simplifiez la cuisine au quotidien',ar:'اجعل الطبخ اليومي أسهل'},text:{en:'Tools for prepping, cooking and serving.',fr:'Des ustensiles pour préparer, cuisiner et servir.',ar:'أدوات للتحضير والطبخ والتقديم.'},path:'category/kitchen-dining'},
- {title:{en:'Small tech. More possibilities.',fr:'Des accessoires qui simplifient la vie',ar:'تقنيات صغيرة بإمكانات أكبر'},text:{en:'Discover everyday electronics.',fr:'Découvrez les accessoires électroniques du quotidien.',ar:'اكتشف إلكترونيات الاستخدام اليومي.'},path:'category/electronics'},
- {title:{en:'Make room for play',fr:'Place au jeu',ar:'وقت للعب'},text:{en:'Find their next favourite toy or game.',fr:'Trouvez leur prochain jouet préféré.',ar:'اكتشف لعبتهم المفضلة القادمة.'},path:'category/toys-kids-baby'},
- {title:{en:'A little everyday care',fr:'Prenez soin de vous au quotidien',ar:'عناية كل يوم'},text:{en:'Essentials for your daily routine.',fr:'Les essentiels de votre routine.',ar:'أساسيات روتينك اليومي.'},path:'category/health-beauty'},
-] as const;
 function MobileHome({locale}:{locale:Locale}){
  const t=storefrontTranslator(locale);
  const load=useCallback(async(category:string,page:number,signal:AbortSignal)=>{
@@ -39,9 +32,8 @@ function MobileHome({locale}:{locale:Locale}){
   return data;
  },[]);
  return <MobileShoppingFeed market="TN" campaigns={products=>mobileCampaigns(locale,'TN',{
-  kitchen:products.find(p=>primaryDepartment(p)==='kitchen-dining'&&p.image)?.image,
   tech:products.find(p=>primaryDepartment(p)==='electronics'&&p.image)?.image,
- })} promotions={mobileBanners.map(b=>({title:b.title[locale],text:b.text[locale],action:locale==='fr'?'Achetez maintenant':locale==='ar'?'تسوق الآن':'Shop now',href:`/tunisia/${locale}/${b.path}`}))} locale={locale} categories={storefrontDepartments.map(d=>({slug:d.slug,name:t(d.name)}))} load={load} renderProduct={g=><ProductCard group={g} locale={locale}/>}/>;
+ })} promotions={mobileFeedCampaigns(locale,'TN')} locale={locale} categories={storefrontDepartments.map(d=>({slug:d.slug,name:t(d.name)}))} load={load} renderProduct={g=><ProductCard group={g} locale={locale}/>}/>;
 }
 export function StorefrontHome({locale,groups,collections=false}:{locale:Locale;groups:ProductGroup[];onAdd?:(id:string)=>void;collections?:boolean}){
  const t=storefrontTranslator(locale),m=messages[locale];
