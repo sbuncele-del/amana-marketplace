@@ -42,10 +42,6 @@
 
 @media(max-width:639px){
  .mobile-product-feed>.mobile-feed-item{display:contents}
- .mobile-feed-promotion{grid-column:1/-1;display:flex;flex-direction:column;gap:4px;padding:16px 18px;margin:3px 0;background:#fff0ef;border:1px solid #f9d9d6;border-radius:10px;text-decoration:none;color:#171b20}
- .mobile-feed-promotion strong{font-size:18px;line-height:24px}
- .mobile-feed-promotion span{font-size:12px;color:#526074}
- .mobile-feed-promotion b{font-size:12px;color:#bc2027;margin-top:4px}
 }
 
 @media(max-width:639px){
@@ -104,8 +100,8 @@
  .mobile-campaign{margin:10px -2px 0;border-radius:7px;background:#6f080c}
  .mobile-campaign-slide{aspect-ratio:2.4;min-height:0;background:#79080c}
  .mobile-campaign-slide img{object-position:center}
- .mobile-campaign-budget::before,.mobile-campaign[dir=rtl] .mobile-campaign-budget::before{background:linear-gradient(0deg,#28000042,transparent 21%)}
- .mobile-campaign[dir=rtl] .mobile-campaign-budget img{transform:scaleX(-1)}
+ .mobile-campaign-art::before,.mobile-campaign[dir=rtl] .mobile-campaign-art::before{background:linear-gradient(0deg,#28000042,transparent 21%)}
+ .mobile-campaign[dir=rtl] .mobile-campaign-art img{transform:scaleX(-1)}
  .mobile-campaign-slide>div{width:58%;padding:10px 0 25px;padding-inline-start:6%;gap:clamp(6px,2vw,12px)}
  .mobile-campaign-slide strong{font-size:clamp(16px,6.65vw,38px);line-height:1.06;letter-spacing:-.035em;text-transform:uppercase}
  .mobile-campaign[dir=rtl] .mobile-campaign-slide strong{letter-spacing:normal}
@@ -120,4 +116,10 @@
  body:has(.mobile-shopping) .mobile-bottom-nav{background:#fbf7f2}
  body:has(.mobile-shopping) .mobile-bottom-nav>a,body:has(.mobile-shopping) .mobile-bottom-nav>button{background:transparent!important;color:#171b20!important;font-size:11px!important}
  body:has(.mobile-shopping) .mobile-bottom-nav [aria-current=page]{color:#d51b23!important}
+}
+
+@media(max-width:639px){
+ .mobile-feed-campaign{margin-block:10px}
+ .mobile-feed-campaign .mobile-campaign-slide>div{padding-bottom:10px}
+ .mobile-feed-campaign .mobile-campaign-slide strong{font-size:clamp(16px,5.7vw,32px)}
 }
