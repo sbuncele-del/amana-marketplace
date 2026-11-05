@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import {Package,Tag} from 'lucide-react';
 import {useCallback,useEffect,useRef,useState} from 'react';
 
 export type MobileCampaign={title:string;action:string;href:string;image:string;tone:'budget'|'kitchen'|'tech'};
@@ -10,7 +11,7 @@ export function mobileCampaigns(locale:CampaignLocale,market:'ZA'|'TN',images:Pa
  const action={en:'Shop now',fr:'Achetez maintenant',ar:'تسوق الآن'}[locale];
  const route=(slug:string)=>tn?`${base}/category/${slug}`:`/department/${slug}`;
  return [
-  {tone:'budget',title:{en:`Shop finds under ${budget}`,fr:`Craquez à moins de ${budget}`,ar:'اختيارات جميلة بأقل من 50 د.ت.'}[locale],action,href:tn?`${base}/shop?maxPrice=50`:'/browse?maxPrice=300',image:images.budget||`${base.startsWith('/tunisia')?'/tunisia':''}/brand/categories/organisation-v1.webp`},
+  {tone:'budget',title:{en:`Good finds under ${budget}`,fr:`Craquez à moins de ${budget}`,ar:'اختيارات جميلة بأقل من 50 د.ت.'}[locale],action,href:tn?`${base}/shop?maxPrice=50`:'/browse?maxPrice=300',image:`${tn?'/tunisia':''}/brand/campaigns/mobile-budget.webp`},
   {tone:'kitchen',title:{en:'Upgrade your kitchen today',fr:'Équipez votre cuisine dès aujourd’hui',ar:'جدّد مطبخك اليوم'}[locale],action,href:route('kitchen-dining'),image:images.kitchen||`${tn?'/tunisia':''}/brand/categories/cookware-v1.webp`},
   {tone:'tech',title:{en:'Grab your next tech upgrade',fr:'Trouvez votre prochain accessoire tech',ar:'اختر جهازك التقني الجديد'}[locale],action,href:route('electronics'),image:images.tech||`${tn?'/tunisia':''}/brand/categories/audio-v1.webp`},
  ];
@@ -76,7 +77,7 @@ export function MobileCampaignShortcuts({market,locale}:{market:'ZA'|'TN';locale
  const budget=tn?(locale==='ar'?'50 د.ت.':'50 DT'):'R300';
  return <nav className="mobile-campaign-shortcuts" aria-label={c.label} dir={locale==='ar'?'rtl':'ltr'}>
   <span aria-current="page">{c.all}</span>
-  <a href={`${browse}?maxPrice=${tn?50:300}`}><span aria-hidden="true">◇</span> {c.budget} {budget}</a>
-  <a href={`${browse}?available=true`}><span aria-hidden="true">✓</span> {c.stock}</a>
+  <a href={`${browse}?maxPrice=${tn?50:300}`}><Tag size={17} aria-hidden="true"/> {c.budget} {budget}</a>
+  <a href={`${browse}?available=true`}><Package size={18} aria-hidden="true"/> {c.stock}</a>
  </nav>;
 }
