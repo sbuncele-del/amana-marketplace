@@ -1,3 +1,4 @@
+import {mobileCataloguePage} from '@/lib/mobile-catalogue-page';
 import {notFound} from 'next/navigation';
 import Store from '@/components/store';
 import {locales,type Locale,type StoreProduct} from '@/lib/catalogue';
@@ -91,5 +92,5 @@ export default async function Page({params,searchParams}:{params:Promise<{locale
  }else if(route===''&&!query){
   lds.push({'@context':'https://schema.org','@type':'Organization','@id':`${origin}/#organization`,name:'Plentovo Tunisia',url:`${origin}/${locale}`,logo:'https://plentovo.com/brand/plentovo-icon.png'},{'@context':'https://schema.org','@type':'WebSite','@id':`${origin}/#website`,name:'Plentovo Tunisia',url:`${origin}/${locale}`,inLanguage:loc,publisher:{'@id':`${origin}/#organization`},potentialAction:{'@type':'SearchAction',target:`${base}/shop?search={search_term_string}`,'query-input':'required name=search_term_string'}});
  }
- return <>{lds.map((item,i)=><script key={i} type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(item).replace(/</g,'\\u003c')}}/>)}<Store shop={shop} category={category} partial={!!selected||!!category||!!shop||(route===''&&!query)||(route==='collections'&&!query)} initialQuery={query} locale={locale as Locale} route={route} products={publicProducts} maxPrice={maxPrice} ordersOpen={codConfig(process.env)!==null}/></>;
+ return <>{lds.map((item,i)=><script key={i} type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(item).replace(/</g,'\\u003c')}}/>)}<Store initialMobilePage={route===''&&!query&&products.length?mobileCataloguePage(products):undefined} shop={shop} category={category} partial={!!selected||!!category||!!shop||(route===''&&!query)||(route==='collections'&&!query)} initialQuery={query} locale={locale as Locale} route={route} products={publicProducts} maxPrice={maxPrice} ordersOpen={codConfig(process.env)!==null}/></>;
 }

@@ -1,3 +1,4 @@
+import {after} from 'next/server';
 import 'server-only';
 import {cache} from 'react';
 import {gzipSync,gunzipSync} from 'node:zlib';
@@ -115,8 +116,32 @@ function sharedSnapshot(){
  return pendingSnapshot;
 }
 
+let prepared:{products:ReturnType<typeof validateCatalogue>;at:number}|undefined;
+let preparing:Promise<ReturnType<typeof validateCatalogue>>|undefined;
+
+function refreshPrepared(){
+ if(!preparing){
+  preparing=Promise.all([sharedSnapshot(),supplierContent(content as SupplierContent[])])
+   .then(([rows,metadata])=>{
+    const products=validateCatalogue(normaliseShipper(rows,metadata));
+    if(products.length)prepared={products,at:Date.now()};
+    return products;
+   }).finally(()=>{preparing=undefined;});
+ }
+ return preparing;
+}
+
 export const getLiveProducts=cache(async()=>{
  if(!(process.env.SHIPPER_NETWORK_API_KEY||process.env.TUNISIA_SHIPPER_API_KEY))return [];
- try{const [rows,metadata]=await Promise.all([sharedSnapshot(),supplierContent(content as SupplierContent[])]);return validateCatalogue(normaliseShipper(rows,metadata));}
+ try{
+  if(prepared&&Date.now()-prepared.at<120000){
+   if(Date.now()-prepared.at>=30000&&!preparing)after(async()=>{
+    if(prepared&&Date.now()-prepared.at<30000)return;
+    try{await refreshPrepared();}catch(error){console.warn('[Tunisia Shipper] background refresh failed',error instanceof Error?error.message:'unknown error');}
+   });
+   return prepared.products;
+  }
+  return await refreshPrepared();
+ }
  catch(error){console.warn('[Tunisia Shipper] snapshot unavailable: '+(error instanceof Error?error.message:'unknown error'));return [];}
 });
