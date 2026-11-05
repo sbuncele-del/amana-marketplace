@@ -1,0 +1,28 @@
+workflows:
+  plentovo-huawei-debug:
+    name: Plentovo Huawei test APK
+    instance_type: mac_mini_m2
+    max_build_duration: 30
+    environment:
+      java: 17
+    scripts:
+      - name: Install Gradle and Android SDK packages
+        script: |
+          set -eu
+          gradle_version=8.13
+          archive="gradle-${gradle_version}-bin.zip"
+          tool_dir="$(mktemp -d)"
+          url="https://services.gradle.org/distributions/$archive"
+          curl -fsSL --retry 3 "$url" -o "$tool_dir/$archive"
+          checksum="$(curl -fsSL --retry 3 "$url.sha256")"
+          (cd "$tool_dir" && printf '%s  %s\n' "$checksum" "$archive" | shasum -a 256 -c)
+          unzip -q "$tool_dir/$archive" -d "$tool_dir"
+          echo "PLENTOVO_GRADLE=$tool_dir/gradle-$gradle_version/bin/gradle" >> "$CM_ENV"
+          sdkmanager 'platforms;android-36' 'build-tools;35.0.0'
+      - name: Build Huawei test APK
+        script: |
+          set -eu
+          cd "$CM_BUILD_DIR/apps/android"
+          "$PLENTOVO_GRADLE" --no-daemon :app:assembleDebug
+    artifacts:
+      - apps/android/app/build/outputs/apk/debug/app-debug.apk
