@@ -82,3 +82,29 @@ workflows:
           cp app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/plentovo-tunisia-test.apk
     artifacts:
       - apps/android/app/build/outputs/apk/debug/plentovo-tunisia-test.apk
+
+  plentovo-tunisia-huawei-release:
+    name: Plentovo Tunisia Huawei signed release APK
+    instance_type: mac_mini_m2
+    max_build_duration: 30
+    environment:
+      java: 17
+      android_signing:
+        - plentovo_tunisia_huawei_release
+    scripts:
+      - *android_setup
+      - name: Build and verify signed Huawei release APK
+        script: |
+          set -eu
+          cd "$CM_BUILD_DIR/apps/android"
+          "$PLENTOVO_GRADLE" --no-daemon -PplentovoMarket=tn :app:assembleRelease
+          sdk_root="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-/usr/local/share/android-sdk}}"
+          tools="$sdk_root/build-tools/35.0.0"
+          output="app/build/outputs/apk/release"
+          aligned="$output/app-release-aligned.apk"
+          signed="$output/plentovo-tunisia-huawei-release.apk"
+          "$tools/zipalign" -f -p 4 "$output/app-release-unsigned.apk" "$aligned"
+          "$tools/apksigner" sign --ks "$CM_KEYSTORE_PATH" --ks-key-alias "$CM_KEY_ALIAS" --ks-pass env:CM_KEYSTORE_PASSWORD --key-pass env:CM_KEY_PASSWORD --out "$signed" "$aligned"
+          "$tools/apksigner" verify --verbose "$signed"
+    artifacts:
+      - apps/android/app/build/outputs/apk/release/plentovo-tunisia-huawei-release.apk
