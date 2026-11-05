@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import {useRef,useState} from 'react';
+import {useCallback,useEffect,useRef,useState} from 'react';
 
 export type MobileCampaign={title:string;action:string;href:string;image:string;tone:'budget'|'kitchen'|'tech'};
 export type CampaignLocale='en'|'fr'|'ar';
@@ -19,8 +19,35 @@ export function mobileCampaigns(locale:CampaignLocale,market:'ZA'|'TN',images:Pa
 export function MobileCampaignCarousel({slides,locale}:{slides:MobileCampaign[];locale:CampaignLocale}){
  const track=useRef<HTMLDivElement>(null);
  const [active,setActive]=useState(0);
- return <section className="mobile-campaign" aria-label={labels[locale]} dir={locale==='ar'?'rtl':'ltr'}>
-  <div className="mobile-campaign-track" ref={track} onScroll={event=>{
+ const [paused,setPaused]=useState(false);
+ const [interacting,setInteracting]=useState(false);
+ const [visible,setVisible]=useState(false);
+ const [reducedMotion,setReducedMotion]=useState(true);
+ const [pageVisible,setPageVisible]=useState(true);
+ const controls={en:['Pause slides','Play slides'],fr:['Mettre en pause','Relancer le défilement'],ar:['إيقاف الشرائح مؤقتًا','تشغيل الشرائح']}[locale];
+ useEffect(()=>{
+  const media=window.matchMedia('(prefers-reduced-motion: reduce)');
+  const motion=()=>setReducedMotion(media.matches);
+  const visibility=()=>setPageVisible(!document.hidden);
+  motion();visibility();
+  media.addEventListener('change',motion);document.addEventListener('visibilitychange',visibility);
+  const observer=typeof IntersectionObserver==='undefined'?null:new IntersectionObserver(([entry])=>setVisible(entry.intersectionRatio>=0.5),{threshold:0.5});
+  if(track.current&&observer)observer.observe(track.current);
+  return()=>{observer?.disconnect();media.removeEventListener('change',motion);document.removeEventListener('visibilitychange',visibility);};
+ },[]);
+ const goTo=useCallback((index:number,behavior:ScrollBehavior)=>{
+  const container=track.current,slide=container?.children[index];
+  if(!container||!slide)return;
+  container.scrollBy({left:slide.getBoundingClientRect().left-container.getBoundingClientRect().left,behavior});
+ },[]);
+ useEffect(()=>{
+  if(!visible||!pageVisible||paused||interacting||reducedMotion||slides.length<2)return;
+  const timer=window.setTimeout(()=>goTo((active+1)%slides.length,active===slides.length-1?'instant':'smooth'),4500);
+  return()=>window.clearTimeout(timer);
+ },[active,goTo,interacting,pageVisible,paused,reducedMotion,slides.length,visible]);
+ return <section className="mobile-campaign" aria-label={labels[locale]} dir={locale==='ar'?'rtl':'ltr'}
+  onFocusCapture={e=>setInteracting(e.target.matches(':focus-visible'))} onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget))setInteracting(false);}}>
+  <div className="mobile-campaign-track" ref={track} onPointerDown={()=>setPaused(true)} onScroll={event=>{
    const container=event.currentTarget;
    const start=container.getBoundingClientRect().left;
    let closest=0,distance=Infinity;
@@ -28,12 +55,13 @@ export function MobileCampaignCarousel({slides,locale}:{slides:MobileCampaign[];
    setActive(closest);
   }}>
    {slides.map(slide=><a className={`mobile-campaign-slide mobile-campaign-${slide.tone}`} href={slide.href} key={slide.tone}>
+    <Image src={slide.image} alt="" fill sizes="(max-width: 639px) 100vw, 639px" unoptimized/>
     <div><strong>{slide.title}</strong><span>{slide.action} <span aria-hidden="true">{locale==='ar'?'←':'→'}</span></span></div>
-    <Image src={slide.image} alt="" width={320} height={240} sizes="45vw" unoptimized/>
    </a>)}
   </div>
   <div className="mobile-campaign-dots" role="group" aria-label={labels[locale]}>
-   {slides.map((slide,i)=><button key={slide.tone} type="button" aria-label={slide.title} aria-current={i===active?'true':undefined} onClick={()=>track.current?.children[i]?.scrollIntoView({block:'nearest',inline:'start',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})}/>)}
+   {slides.map((slide,i)=><button key={slide.tone} type="button" aria-label={slide.title} aria-current={i===active?'true':undefined} onClick={()=>{setPaused(true);goTo(i,reducedMotion?'instant':'smooth');}}/>)}
+   {!reducedMotion&&<button type="button" className="mobile-campaign-play" aria-label={controls[paused?1:0]} onClick={()=>setPaused(!paused)}>{paused?'▶':'Ⅱ'}</button>}
   </div>
  </section>;
 }
