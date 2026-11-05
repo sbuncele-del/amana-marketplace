@@ -1,0 +1,1 @@
+{"crons":[{"path":"/tunisia/api/cron/catalogue","schedule":"*/30 * * * *"}]}

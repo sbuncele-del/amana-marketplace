@@ -1,5 +1,3 @@
-import {after} from 'next/server';
-import {publishCareRetailIndex} from '@/lib/care-retail-index';
 import {notFound} from 'next/navigation';
 import Store from '@/components/store';
 import {locales,type Locale,type StoreProduct} from '@/lib/catalogue';
@@ -41,7 +39,6 @@ export default async function Page({params,searchParams}:{params:Promise<{locale
  const previewOnly=process.env.VERCEL_ENV==='preview'&&!process.env.SHIPPER_NETWORK_API_KEY&&!process.env.TUNISIA_SHIPPER_API_KEY;
  const informationOnly=['company-information','returns'].includes(path.join('/'));
  const products=informationOnly?[]:previewOnly?await getStorefrontPreviewProducts():await getLiveProducts();
- if(!previewOnly&&products.length)after(()=>publishCareRetailIndex(products));
  const route=path.join('/');
  if(!['','shop','cart','checkout','track','account','help','collections','privacy','terms','cookies','company-information','returns'].includes(route)&&!(path[0]==='product'&&path.length===2&&products.some(p=>p.slug===path[1]||p.groupSlug===path[1]))&&!(path[0]==='category'&&path.length===2&&isDepartment(path[1])))notFound();
  const search=await searchParams;

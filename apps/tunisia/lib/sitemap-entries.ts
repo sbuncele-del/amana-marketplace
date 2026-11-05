@@ -1,6 +1,5 @@
 import {unstable_cache} from 'next/cache';
 import {getLiveProducts} from './shipper-catalogue';
-import {readCareRetailIndex} from './care-retail-index';
 import {publishedCategories} from './category-pages';
 import type {StoreProduct} from './catalogue';
 export const STATIC_PAGES=['','shop','collections','help','company-information','returns','privacy','terms','cookies'];
@@ -18,7 +17,6 @@ const fromLive=unstable_cache(async()=>{
 },['tunisia-sitemap-entries-v1'],{revalidate:3600,tags:['tunisia-shipper-catalogue']});
 export async function getSitemapEntries():Promise<SitemapEntries|null>{
  try{return await fromLive();}catch{
-  const stored=await readCareRetailIndex();
-  return stored.length?entriesFrom(stored):null;
+  return null;
  }
 }

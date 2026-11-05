@@ -1,10 +1,10 @@
-import {readCareRetailIndex} from '@/lib/care-retail-index';
+import {getLiveProducts} from '@/lib/shipper-catalogue';
 import {buildTunisiaPinterestFeed} from '@/lib/pinterest-feed';
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
 export async function GET(){
  try{
-  const {csv,count}=buildTunisiaPinterestFeed(await readCareRetailIndex());
+  const {csv,count}=buildTunisiaPinterestFeed(await getLiveProducts());
   if(!count)throw new Error('Published catalogue unavailable');
   return new Response(csv,{headers:{'Content-Type':'text/csv; charset=utf-8','Content-Disposition':'inline; filename="plentovo-tunisia-fr.csv"','Cache-Control':'public, max-age=0, s-maxage=300','X-Robots-Tag':'noindex','X-Product-Count':String(count)}});
  }catch{
