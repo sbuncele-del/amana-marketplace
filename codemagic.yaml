@@ -65,3 +65,20 @@ workflows:
           "$tools/apksigner" verify --verbose "$signed"
     artifacts:
       - apps/android/app/build/outputs/apk/release/plentovo-huawei-release.apk
+
+  plentovo-tunisia-huawei-debug:
+    name: Plentovo Tunisia Huawei test APK
+    instance_type: mac_mini_m2
+    max_build_duration: 30
+    environment:
+      java: 17
+    scripts:
+      - *android_setup
+      - name: Build Tunisia test APK
+        script: |
+          set -eu
+          cd "$CM_BUILD_DIR/apps/android"
+          "$PLENTOVO_GRADLE" --no-daemon -PplentovoMarket=tn :app:assembleDebug
+          cp app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/plentovo-tunisia-test.apk
+    artifacts:
+      - apps/android/app/build/outputs/apk/debug/plentovo-tunisia-test.apk

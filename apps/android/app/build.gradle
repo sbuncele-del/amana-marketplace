@@ -2,12 +2,19 @@ plugins {
     id 'com.android.application' version '8.13.2'
 }
 
+def tunisia = providers.gradleProperty('plentovoMarket').orElse('za').get() == 'tn'
+
 android {
+    buildFeatures {
+        buildConfig true
+    }
     namespace 'com.plentovo.shop'
     compileSdk 36
 
     defaultConfig {
-        applicationId 'com.plentovo.shop'
+        applicationId (tunisia ? 'com.plentovo.shop.tunisia' : 'com.plentovo.shop')
+        manifestPlaceholders = [plentovoAppName: tunisia ? 'Plentovo Tunisia' : 'Plentovo']
+        buildConfigField 'String', 'STOREFRONT_URL', tunisia ? '"https://plentovo.com/tunisia/"' : '"https://plentovo.com/"'
         minSdk 23
         targetSdk 36
         versionCode 1

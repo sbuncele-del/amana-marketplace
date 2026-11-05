@@ -22,7 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public final class MainActivity extends Activity {
-    private static final String SHOP = "https://plentovo.com/";
+    private static final String SHOP = BuildConfig.STOREFRONT_URL;
     private WebView shop;
     private LinearLayout recovery;
     private String retryUrl = SHOP;
