@@ -31,3 +31,33 @@ footer .social-links{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0;paddin
 }
 @theme inline { --font-sans:var(--font-inter),system-ui,sans-serif; }
 body{font-family:var(--font-inter),system-ui,sans-serif;}
+
+/* Reserve enough space beside the logo for the three language buttons. */
+@media (max-width:639px){
+ body:has(.mobile-shopping) .shopping-header-main:has(.tunisia-language-selector){
+  grid-template-columns:minmax(0,1fr) auto;
+ }
+ body:has(.mobile-shopping) .shopping-header-main:has(.tunisia-language-selector)>a:first-child{
+  grid-area:1/1;
+ }
+ body:has(.mobile-shopping) .shopping-header-main:has(.tunisia-language-selector)>a:first-child :is(img,svg){
+  width:clamp(108px,36vw,180px);
+  max-width:100%;
+ }
+ body:has(.mobile-shopping) .shopping-header-main>.mobile-header-extras:has(>.tunisia-language-selector){
+  grid-area:1/2;
+ }
+ body:has(.mobile-shopping) .mobile-header-extras>.tunisia-language-selector{
+  flex-wrap:nowrap;
+  gap:2px;
+ }
+ .tunisia-language-selector>a{
+  position:relative;
+  padding-inline:4px;
+ }
+ .tunisia-language-selector>a>span[aria-hidden=true]{
+  position:absolute;
+  inset-block-start:2px;
+  inset-inline-end:2px;
+ }
+}
