@@ -31,9 +31,8 @@ function MobileHome({locale}:{locale:Locale}){
   if(!category&&page===1)data.products=mobileOpeningPicks(data.products,p=>({title:Object.values(p.title).join(' '),category:primaryDepartment(p),available:p.stock>0,image:p.image,price:p.priceMillimes}),50000);
   return data;
  },[]);
- return <MobileShoppingFeed market="TN" campaigns={products=>mobileCampaigns(locale,'TN',{
-  tech:products.find(p=>primaryDepartment(p)==='electronics'&&p.image)?.image,
- })} promotions={mobileFeedCampaigns(locale,'TN')} locale={locale} categories={storefrontDepartments.map(d=>({slug:d.slug,name:t(d.name)}))} load={load} renderProduct={g=><ProductCard group={g} locale={locale}/>}/>;
+ const favoriteTitle=useCallback((g:ProductGroup)=>g.title[locale],[locale]);
+ return <MobileShoppingFeed market="TN" campaigns={()=>mobileCampaigns(locale,'TN')} promotions={mobileFeedCampaigns(locale,'TN')} locale={locale} categories={storefrontDepartments.map(d=>({slug:d.slug,name:t(d.name)}))} load={load} favoriteTitle={favoriteTitle} renderProduct={(g,favorite)=><ProductCard group={g} locale={locale} favorite={favorite}/>}/>;
 }
 export function StorefrontHome({locale,groups,collections=false}:{locale:Locale;groups:ProductGroup[];onAdd?:(id:string)=>void;collections?:boolean}){
  const t=storefrontTranslator(locale),m=messages[locale];

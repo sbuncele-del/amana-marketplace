@@ -3,17 +3,17 @@ import Image from 'next/image';
 import {Package,Tag} from 'lucide-react';
 import {useCallback,useEffect,useRef,useState} from 'react';
 
-export type MobileCampaign={title:string;action:string;href:string;image:string;tone:'budget'|'kitchen'|'tech'};
+export type MobileCampaign={title:string;action:string;href:string;image:string;tone:'budget'|'kitchen'|'style'};
 export type CampaignLocale='en'|'fr'|'ar';
 const labels={en:'Explore collections',fr:'Explorer les collections',ar:'استكشف المجموعات'};
-export function mobileCampaigns(locale:CampaignLocale,market:'ZA'|'TN',images:Partial<Record<'tech',string>>={}):MobileCampaign[]{
+export function mobileCampaigns(locale:CampaignLocale,market:'ZA'|'TN'):MobileCampaign[]{
  const tn=market==='TN',base=tn?`/tunisia/${locale}`:'',budget=tn?'50 DT':'R300';
  const action={en:'Shop now',fr:'Achetez maintenant',ar:'تسوق الآن'}[locale];
  const route=(slug:string)=>tn?`${base}/category/${slug}`:`/department/${slug}`;
  return [
   {tone:'budget',title:{en:`Good finds under ${budget}`,fr:`Craquez à moins de ${budget}`,ar:'اختيارات جميلة بأقل من 50 د.ت.'}[locale],action,href:tn?`${base}/shop?maxPrice=50`:'/browse?maxPrice=300',image:`${tn?'/tunisia':''}/brand/campaigns/mobile-budget.webp`},
   {tone:'kitchen',title:{en:'Dinner, sorted',fr:'À table, sans effort',ar:'عشاؤك أسهل'}[locale],action,href:route('kitchen-dining'),image:`${tn?'/tunisia':''}/brand/campaigns/mobile-dinner.webp`},
-  {tone:'tech',title:{en:'Grab your next tech upgrade',fr:'Trouvez votre prochain accessoire tech',ar:'اختر جهازك التقني الجديد'}[locale],action,href:route('electronics'),image:images.tech||`${tn?'/tunisia':''}/brand/categories/audio-v1.webp`},
+  {tone:'style',title:{en:'The finishing touches',fr:'La touche finale',ar:'لمسات تكمل إطلالتك'}[locale],action:{en:'Shop accessories',fr:'Voir les accessoires',ar:'تسوق الإكسسوارات'}[locale],href:route('clothing-accessories'),image:`${tn?'/tunisia':''}/brand/campaigns/mobile-style.webp`},
  ];
 }
 
@@ -55,7 +55,7 @@ export function MobileCampaignCarousel({slides,locale}:{slides:MobileCampaign[];
    Array.from(container.children).forEach((slide,i)=>{const offset=Math.abs(slide.getBoundingClientRect().left-start);if(offset<distance){closest=i;distance=offset;}});
    setActive(closest);
   }}>
-   {slides.map(slide=><a className={`mobile-campaign-slide mobile-campaign-${slide.tone}${slide.tone==='tech'?'':' mobile-campaign-art'}`} href={slide.href} key={slide.tone}>
+   {slides.map(slide=><a className={`mobile-campaign-slide mobile-campaign-${slide.tone} mobile-campaign-art`} href={slide.href} key={slide.tone}>
     <Image src={slide.image} alt="" fill sizes="(max-width: 639px) 100vw, 639px" unoptimized/>
     <div><strong>{slide.title}</strong><span>{slide.action} <span aria-hidden="true">{locale==='ar'?'←':'→'}</span></span></div>
    </a>)}
