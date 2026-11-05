@@ -67,3 +67,11 @@
  .mobile-campaign-dots button[aria-current=true]::after{width:16px;background:#fff}
  .mobile-campaign-play{position:absolute;inset-inline-end:4px}
 }
+
+@media(max-width:639px){
+ .mobile-campaign-shortcuts{grid-column:1/-1;display:flex;align-items:stretch;gap:clamp(8px,4vw,22px);overflow-x:auto;white-space:nowrap;padding:0 10px;background:#fff;border-block:1px solid #ece8e7;color:#171b20}
+ .mobile-campaign-shortcuts>a,.mobile-campaign-shortcuts>span{display:inline-flex;align-items:center;gap:4px;min-height:44px;font-size:clamp(12px,3.6vw,15px);font-weight:700;text-decoration:none;color:inherit}
+ .mobile-campaign-shortcuts>span{border-bottom:3px solid #da292b}
+ .mobile-campaign-shortcuts>a span{color:#b81e25}
+ .mobile-campaign-shortcuts>a:focus-visible{outline:2px solid #a91b22;outline-offset:-2px}
+}
