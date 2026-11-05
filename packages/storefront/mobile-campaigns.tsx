@@ -7,12 +7,12 @@ export type CampaignLocale='en'|'fr'|'ar';
 const labels={en:'Explore collections',fr:'Explorer les collections',ar:'استكشف المجموعات'};
 export function mobileCampaigns(locale:CampaignLocale,market:'ZA'|'TN',images:Partial<Record<MobileCampaign['tone'],string>>={}):MobileCampaign[]{
  const tn=market==='TN',base=tn?`/tunisia/${locale}`:'',budget=tn?'50 DT':'R300';
- const action={en:'Shop collection',fr:'Voir la sélection',ar:'تسوق المجموعة'}[locale];
+ const action={en:'Shop now',fr:'Achetez maintenant',ar:'تسوق الآن'}[locale];
  const route=(slug:string)=>tn?`${base}/category/${slug}`:`/department/${slug}`;
  return [
-  {tone:'budget',title:{en:`Good finds under ${budget}`,fr:`De belles trouvailles à moins de ${budget}`,ar:'اختيارات جميلة بأقل من 50 د.ت.'}[locale],action,href:tn?`${base}/shop?maxPrice=50`:'/browse?maxPrice=300',image:images.budget||`${base.startsWith('/tunisia')?'/tunisia':''}/brand/categories/organisation-v1.webp`},
-  {tone:'kitchen',title:{en:'Make everyday cooking easier',fr:'Simplifiez la cuisine au quotidien',ar:'اجعل الطبخ اليومي أسهل'}[locale],action,href:route('kitchen-dining'),image:images.kitchen||`${tn?'/tunisia':''}/brand/categories/cookware-v1.webp`},
-  {tone:'tech',title:{en:'Small tech. More possibilities.',fr:'Des accessoires qui simplifient la vie',ar:'تقنيات صغيرة بإمكانات أكبر'}[locale],action,href:route('electronics'),image:images.tech||`${tn?'/tunisia':''}/brand/categories/audio-v1.webp`},
+  {tone:'budget',title:{en:`Shop finds under ${budget}`,fr:`Craquez à moins de ${budget}`,ar:'اختيارات جميلة بأقل من 50 د.ت.'}[locale],action,href:tn?`${base}/shop?maxPrice=50`:'/browse?maxPrice=300',image:images.budget||`${base.startsWith('/tunisia')?'/tunisia':''}/brand/categories/organisation-v1.webp`},
+  {tone:'kitchen',title:{en:'Upgrade your kitchen today',fr:'Équipez votre cuisine dès aujourd’hui',ar:'جدّد مطبخك اليوم'}[locale],action,href:route('kitchen-dining'),image:images.kitchen||`${tn?'/tunisia':''}/brand/categories/cookware-v1.webp`},
+  {tone:'tech',title:{en:'Grab your next tech upgrade',fr:'Trouvez votre prochain accessoire tech',ar:'اختر جهازك التقني الجديد'}[locale],action,href:route('electronics'),image:images.tech||`${tn?'/tunisia':''}/brand/categories/audio-v1.webp`},
  ];
 }
 
@@ -64,4 +64,19 @@ export function MobileCampaignCarousel({slides,locale}:{slides:MobileCampaign[];
    {!reducedMotion&&<button type="button" className="mobile-campaign-play" aria-label={controls[paused?1:0]} onClick={()=>setPaused(!paused)}>{paused?'▶':'Ⅱ'}</button>}
   </div>
  </section>;
+}
+
+const shortcutCopy={
+ en:{all:'All',budget:'Under',stock:'In stock',label:'Shop by price or availability'},
+ fr:{all:'Tout',budget:'Moins de',stock:'En stock',label:'Par prix ou disponibilité'},
+ ar:{all:'الكل',budget:'أقل من',stock:'متوفر',label:'تسوق حسب السعر أو التوفر'},
+};
+export function MobileCampaignShortcuts({market,locale}:{market:'ZA'|'TN';locale:CampaignLocale}){
+ const c=shortcutCopy[locale],tn=market==='TN',browse=tn?`/tunisia/${locale}/shop`:'/browse';
+ const budget=tn?(locale==='ar'?'50 د.ت.':'50 DT'):'R300';
+ return <nav className="mobile-campaign-shortcuts" aria-label={c.label} dir={locale==='ar'?'rtl':'ltr'}>
+  <span aria-current="page">{c.all}</span>
+  <a href={`${browse}?maxPrice=${tn?50:300}`}><span aria-hidden="true">◇</span> {c.budget} {budget}</a>
+  <a href={`${browse}?available=true`}><span aria-hidden="true">✓</span> {c.stock}</a>
+ </nav>;
 }
