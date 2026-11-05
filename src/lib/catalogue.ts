@@ -9,6 +9,7 @@ import {catalogueMarket} from './commerce/selection';
 import {unstable_cache} from 'next/cache';
 import {isRetailProduct} from './catalogue-eligibility';
 import additional from '@/data/additional-catalogue';
+import gadgetgyz from '@/data/gadgetgyz-catalogue';
 import supplierRefresh from '@/data/supplier-refresh-catalogue';
 import type snapshot from '@/data/catalogue.json';
 import packed0 from '@/data/catalogue-packed-0.json';
@@ -27,7 +28,7 @@ import kidsPacked2 from '@/data/kids-packed-2.json';
 import kidsPacked3 from '@/data/kids-packed-3.json';
 const baseCatalogue=JSON.parse(gunzipSync(Buffer.from([packed0,packed1,packed2,packed3,packed4,packed5,packed6,packed7].join(''),'base64')).toString('utf8')) as typeof snapshot;
 const kids=JSON.parse(gunzipSync(Buffer.from([kidsPacked0,kidsPacked1,kidsPacked2,kidsPacked3].join(''),'base64')).toString('utf8')) as typeof snapshot;
-const catalogue=[...new Map([...baseCatalogue,...safety,...kids,...additional,...supplierRefresh].filter(p=>isRetailProduct(p.name)).map(p=>[p.slug,p])).values()] as typeof snapshot;
+const catalogue=[...new Map([...baseCatalogue,...safety,...kids,...additional,...gadgetgyz,...supplierRefresh].filter(p=>isRetailProduct(p.name)).map(p=>[p.slug,p])).values()] as typeof snapshot;
 export function getSupplierSnapshot(){return catalogue;}
 const buildSnapshot=async(cms:typeof liveCms):Promise<CatalogueProduct[]>=>{
  const {products}=await cms();
