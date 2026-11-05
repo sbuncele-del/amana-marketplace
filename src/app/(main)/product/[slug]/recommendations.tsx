@@ -1,3 +1,5 @@
+import type {ReactNode} from 'react';
+import RelatedCatalogueFeed from './related-feed';
 import {getCatalogueProduct,getCatalogueSnapshotCached,type CatalogueProduct} from '@/lib/catalogue';
 import {rankRecommendations} from '@/lib/product-recommendations';
 import {CatalogueCard,type CatalogueCardData} from '@/components/shop/catalogue-card';
@@ -17,14 +19,14 @@ async function availableCards(candidates:CatalogueProduct[],excluded:Set<string>
  }
  return cards;
 }
-export default async function ProductRecommendations({product}:{product:CatalogueProduct}){
+export default async function ProductRecommendations({product,children}:{product:CatalogueProduct;children:ReactNode}){
  const ranked=rankRecommendations(product,(await getCatalogueSnapshotCached()));
  const excluded=new Set([product.slug]);
  const similar=await availableCards(ranked.similar,excluded);
  const complements=await availableCards(ranked.complements,excluded);
  const rows=[{title:'You may also like',products:similar},{title:'Explore complementary finds',products:complements}];
- return <div className="mx-auto max-w-[1400px] space-y-10 px-4 pb-12">{rows.filter(r=>r.products.length>0).map(row=><section key={row.title} aria-label={row.title}>
+ return <><div className="mx-auto max-w-[1400px] space-y-10 px-4 pb-12">{rows.filter(r=>r.products.length>0).map(row=><section key={row.title} aria-label={row.title}>
  <h2 className="mb-5 text-2xl font-bold tracking-tight">{row.title}</h2>
  <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">{row.products.map(p=><CatalogueCard key={p.slug} product={p}/>)}</div>
- </section>)}</div>;
+ </section>)}</div>{children}<RelatedCatalogueFeed key={product.slug} department={product.category.slug} excluded={[...excluded]}/></>;
 }

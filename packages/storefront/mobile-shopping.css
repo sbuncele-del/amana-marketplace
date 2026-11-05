@@ -86,7 +86,7 @@
  body:has(.mobile-shopping) .shopping-header-main>form input{padding-inline:2px 14px}
  body:has(.mobile-shopping) .shopping-header-main>form button{padding-inline:13px 8px;color:#171b20;background:transparent}
  .mobile-shopping{background:#fbf7f2}
- .mobile-category-tabs{position:static;gap:18px;padding:0 13px 5px;background:transparent;border:0}
+ .mobile-category-tabs{position:sticky;top:var(--shopping-header-height,0px);gap:18px;padding:0 13px 5px;background:#fbf2e8;border-bottom:1px solid #e9dacb;overscroll-behavior-x:contain}
  .mobile-category-tabs button{position:relative;padding:0 6px!important;min-height:42px;border:0!important;border-radius:0!important;background:transparent!important;color:#171b20!important;font-size:14px!important;font-weight:500}
  .mobile-category-tabs button[aria-pressed=true]{font-weight:800;background:transparent!important;color:#171b20!important}
  .mobile-category-tabs button[aria-pressed=true]::after{content:'';position:absolute;inset-inline:0;bottom:0;height:4px;background:#d51b23;border-radius:10px}
