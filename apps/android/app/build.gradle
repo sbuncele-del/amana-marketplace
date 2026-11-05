@@ -1,0 +1,26 @@
+plugins {
+    id 'com.android.application' version '8.13.2'
+}
+
+android {
+    namespace 'com.plentovo.shop'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'com.plentovo.shop'
+        minSdk 23
+        targetSdk 36
+        versionCode 1
+        versionName '0.1.0'
+    }
+}
+
+def iconResources = layout.buildDirectory.dir('generated/plentovo-icon')
+def copyBrandIcon = tasks.register('copyBrandIcon', Sync) {
+    from(rootProject.file('../../public/icons/plentovo-512.png')) {
+        rename { 'ic_launcher.png' }
+    }
+    into(iconResources.map { it.dir('mipmap-nodpi') })
+}
+android.sourceSets.main.res.srcDir(iconResources)
+tasks.named('preBuild') { dependsOn(copyBrandIcon) }
