@@ -28,6 +28,7 @@ function MobileHome({locale}:{locale:Locale}){
   if(!category&&page===1){
    try{const recent=JSON.parse(sessionStorage.getItem('plentovo:recent-categories:v1:TND')||'[]');if(Array.isArray(recent))data.products.sort((a,b)=>Number(recent.includes(primaryDepartment(b)))-Number(recent.includes(primaryDepartment(a))));}catch{}
   }
+  data.products=data.products.filter(product=>product.stock>0);
   if(!category&&page===1)data.products=mobileOpeningPicks(data.products,p=>({title:Object.values(p.title).join(' '),category:primaryDepartment(p),available:p.stock>0,image:p.image,price:p.priceMillimes}),50000);
   return data;
  },[]);
