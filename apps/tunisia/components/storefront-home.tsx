@@ -1,5 +1,6 @@
 'use client';
-import {useCallback} from 'react';
+import type {MobileCataloguePage} from '@/lib/mobile-catalogue-page';
+import {useCallback,useMemo} from 'react';
 import {mobileOpeningPicks} from '../../../packages/storefront/mobile-opening-picks';
 import {mobileCampaigns,mobileFeedCampaigns} from '../../../packages/storefront/mobile-campaigns';
 import {MobileShoppingFeed} from '../../../packages/storefront/mobile-shopping';
@@ -18,7 +19,7 @@ import {money,type Locale} from '@/lib/catalogue';
 import type {ProductGroup} from '@/lib/product-groups';
 import {ProductCard} from './product-cards';
 const categoryKeys:Record<string,string>={'kitchen-dining':'kitchen','home-living':'home','toys-kids-baby':'kids','health-beauty':'care','storage-organisation':'organisation','garden-outdoor':'outdoor','home-decor-gifts':'decor','furniture':'furniture'};
-function MobileHome({locale}:{locale:Locale}){
+function MobileHome({locale,initialMobilePage}:{locale:Locale;initialMobilePage?:MobileCataloguePage}){
  const t=storefrontTranslator(locale);
  const load=useCallback(async(category:string,page:number,signal:AbortSignal)=>{
   const query=new URLSearchParams({category,page:String(page)});
@@ -32,10 +33,14 @@ function MobileHome({locale}:{locale:Locale}){
   if(!category&&page===1)data.products=mobileOpeningPicks(data.products,p=>({title:Object.values(p.title).join(' '),category:primaryDepartment(p),available:p.stock>0,image:p.image,price:p.priceMillimes}),50000);
   return data;
  },[]);
+ const initialPage=useMemo(()=>initialMobilePage&&({
+  ...initialMobilePage,
+  products:mobileOpeningPicks(initialMobilePage.products,p=>({title:Object.values(p.title).join(' '),category:primaryDepartment(p),available:p.stock>0,image:p.image,price:p.priceMillimes}),50000),
+ }),[initialMobilePage]);
  const favoriteTitle=useCallback((g:ProductGroup)=>g.title[locale],[locale]);
- return <MobileShoppingFeed market="TN" campaigns={()=>mobileCampaigns(locale,'TN')} promotions={mobileFeedCampaigns(locale,'TN')} locale={locale} categories={storefrontDepartments.map(d=>({slug:d.slug,name:t(d.name)}))} load={load} favoriteTitle={favoriteTitle} renderProduct={(g,favorite)=><ProductCard group={g} locale={locale} favorite={favorite}/>}/>;
+ return <MobileShoppingFeed initialPage={initialPage} market="TN" campaigns={()=>mobileCampaigns(locale,'TN')} promotions={mobileFeedCampaigns(locale,'TN')} locale={locale} categories={storefrontDepartments.map(d=>({slug:d.slug,name:t(d.name)}))} load={load} favoriteTitle={favoriteTitle} renderProduct={(g,favorite)=><ProductCard group={g} locale={locale} favorite={favorite}/>}/>;
 }
-export function StorefrontHome({locale,groups,collections=false}:{locale:Locale;groups:ProductGroup[];onAdd?:(id:string)=>void;collections?:boolean}){
+export function StorefrontHome({locale,groups,collections=false,initialMobilePage}:{initialMobilePage?:MobileCataloguePage;locale:Locale;groups:ProductGroup[];onAdd?:(id:string)=>void;collections?:boolean}){
  const t=storefrontTranslator(locale),m=messages[locale];
  const shop=(key:string)=>`/${locale}/shop?q=${encodeURIComponent(categoryKeys[key]||key)}`;
  const route=(href:string)=>href.startsWith('/department/')?(slug=>categoryKeys[slug]?`/${locale}/category/${slug}`:shop(slug))(href.split('/').pop()!):href.startsWith('/collections/')?shop(homeMissions.find(m=>href.endsWith(m.slug))?.key||'home'):`/${locale}/help`;
@@ -48,5 +53,5 @@ export function StorefrontHome({locale,groups,collections=false}:{locale:Locale;
  const discovery=rsaDiscovery.map(g=>({...g,title:t(g.title),subtitle:t(g.subtitle),action:t(g.action),href:route(g.href),items:g.items.map(i=>({...i,label:t(i.label),image:asset(i.image),href:route('/department/'+i.department)}))}));
  const budgets=defaultBudgets.map((b,i)=>({...b,amount:[25,50,100][i],label:money([25,50,100][i]*1000,locale),href:`/${locale}/shop?maxPrice=${[25,50,100][i]}`,text:t(b.text)}));
  // Country data fills the approved RSA positions. Do not invent a featured row or a demand claim.
- return <><MobileHome locale={locale}/><div className="desktop-storefront"><StorefrontLayout store={{sectionOrder:[...storefrontSectionOrder],hiddenSections:[],featuredTitle:copy.featured[locale]}} theme={{background:'#FAF8F5',accent:'#DA292B'}} title={'Plentovo — '+m.footer} slideshow={<SharedSlideshow t={t} slides={homeSlides.map(s=>({title:s.title[locale],text:s.text[locale],action:s.action[locale],image:asset('/brand/'+s.image),href:shop(s.category)}))}/>} missions={missionSection} more={<SharedMoreDepartments groups={more} t={t} allHref={`/${locale}/shop`}/>} discovery={discovery} demandProducts={[]} featuredProducts={[]} valueProducts={stocked.filter(g=>g.priceMillimes<50000).slice(0,6)} valueTitle={locale==='fr'?'De belles trouvailles à moins de 50 DT':locale==='ar'?'اختيارات جميلة بأقل من 50 د.ت':'Good finds under 50 DT'} valueHref={`/${locale}/shop?maxPrice=50`} collections={productRows.map(s=>({slug:s.key,title:s.title[locale],text:s.text[locale],href:shop(s.key),products:stocked.filter(g=>matchesCategory(g,s.key)).slice(0,6)}))} renderProduct={g=><ProductCard group={g} locale={locale}/>} budgets={budgets} help={defaultHelp.map((h,i)=>({...h,title:t(h.title),text:i===1?m.confirmationText:t(h.text),href:`/${locale}/help#${['delivery','confirmation','contact'][i]}`}))} t={t}/></div></>;
+ return <><MobileHome locale={locale} initialMobilePage={initialMobilePage}/><div className="desktop-storefront"><StorefrontLayout store={{sectionOrder:[...storefrontSectionOrder],hiddenSections:[],featuredTitle:copy.featured[locale]}} theme={{background:'#FAF8F5',accent:'#DA292B'}} title={'Plentovo — '+m.footer} slideshow={<SharedSlideshow t={t} slides={homeSlides.map(s=>({title:s.title[locale],text:s.text[locale],action:s.action[locale],image:asset('/brand/'+s.image),href:shop(s.category)}))}/>} missions={missionSection} more={<SharedMoreDepartments groups={more} t={t} allHref={`/${locale}/shop`}/>} discovery={discovery} demandProducts={[]} featuredProducts={[]} valueProducts={stocked.filter(g=>g.priceMillimes<50000).slice(0,6)} valueTitle={locale==='fr'?'De belles trouvailles à moins de 50 DT':locale==='ar'?'اختيارات جميلة بأقل من 50 د.ت':'Good finds under 50 DT'} valueHref={`/${locale}/shop?maxPrice=50`} collections={productRows.map(s=>({slug:s.key,title:s.title[locale],text:s.text[locale],href:shop(s.key),products:stocked.filter(g=>matchesCategory(g,s.key)).slice(0,6)}))} renderProduct={g=><ProductCard group={g} locale={locale}/>} budgets={budgets} help={defaultHelp.map((h,i)=>({...h,title:t(h.title),text:i===1?m.confirmationText:t(h.text),href:`/${locale}/help#${['delivery','confirmation','contact'][i]}`}))} t={t}/></div></>;
 }
