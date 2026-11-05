@@ -1,7 +1,7 @@
 'use client';
 import {Heart} from 'lucide-react';
 import Link from 'next/link';
-import {useCallback,useEffect,useRef,useState,type ReactNode} from 'react';
+import {useCallback,useEffect,useRef,useState,type CSSProperties,type ReactNode} from 'react';
 import {MobileCampaignCarousel,MobileCampaignShortcuts,MobileFeedCampaign,type MobilePromotion,type MobileCampaign} from './mobile-campaigns';
 export const mobileShoppingCopy={
  en:{all:'For you',categories:'Categories',home:'Home',cart:'Cart',account:'Account',more:'More products',loading:'Loading products…',retry:'Try again',error:'Products could not load.',empty:'No products here yet. Try another category.',assist:'Help',help:'Shopping assistant'},
@@ -23,6 +23,19 @@ type SavedFind={slug:string;title:string};
 export type MobileCategory={slug:string;name:string};
 export function MobileShoppingFeed<P extends {slug:string}>({categories,load,renderProduct,locale='en',promotions=[],campaigns,market='ZA',favoriteTitle}:{categories:MobileCategory[];load:(category:string,page:number,signal:AbortSignal)=>Promise<{products:P[];hasNextPage:boolean}>;renderProduct:(product:P,favorite?:ReactNode)=>ReactNode;favoriteTitle?:(product:P)=>string;locale?:keyof typeof mobileShoppingCopy;promotions?:MobilePromotion[];campaigns?:(products:P[])=>MobileCampaign[];market?:'ZA'|'TN'}){
  const c=mobileShoppingCopy[locale],[category,setCategory]=useState(''),[products,setProducts]=useState<P[]>([]),[page,setPage]=useState(0),[more,setMore]=useState(true),[busy,setBusy]=useState(true),[error,setError]=useState(false),[active,setActive]=useState(false);
+ const feed=useRef<HTMLElement>(null);
+ const [headerHeight,setHeaderHeight]=useState(0);
+ useEffect(()=>{
+  if(!active)return;
+  const header=document.querySelector('.shopping-app-header');
+  if(!header)return;
+  const measure=()=>setHeaderHeight(header.getBoundingClientRect().height);
+  measure();
+  if(typeof ResizeObserver==='undefined')return;
+  const observer=new ResizeObserver(measure);
+  observer.observe(header);
+  return()=>observer.disconnect();
+ },[active]);
  const f=favoritesCopy[locale],storageKey='plentovo:mobile-favorites:v1:'+market;
  const [saved,setSaved]=useState<SavedFind[]>([]),[showSaved,setShowSaved]=useState(false),[saveError,setSaveError]=useState(false);
  useEffect(()=>{
@@ -43,8 +56,8 @@ export function MobileShoppingFeed<P extends {slug:string}>({categories,load,ren
  const fetchPage=useCallback(async(next:number,replace=false)=>{if(loading.current)return;loading.current=true;setBusy(true);setError(false);const controller=new AbortController();request.current=controller;try{const result=await load(category,next,controller.signal);if(controller.signal.aborted)return;setProducts(old=>[...new Map([...(replace?[]:old),...result.products].map(p=>[p.slug,p])).values()]);setMore(result.hasNextPage);setPage(next);}catch{if(!controller.signal.aborted){setError(true);}}finally{if(request.current===controller){loading.current=false;setBusy(false);}}},[category,load]);
  useEffect(()=>{if(!active)return;request.current?.abort();loading.current=false;setProducts([]);setPage(0);setMore(true);void fetchPage(1,true);return()=>{request.current?.abort();loading.current=false;};},[active,fetchPage]);
  useEffect(()=>{if(!active||showSaved||!more||busy||error||!page||!sentinel.current||typeof IntersectionObserver==='undefined')return;const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting))void fetchPage(page+1);},{rootMargin:'500px'});observer.observe(sentinel.current);return()=>observer.disconnect();},[active,showSaved,more,busy,error,page,fetchPage]);
- return <section id="mobile-shopping-content" role="main" tabIndex={-1} className="mobile-shopping" aria-label={c.all}>
-  <div className="mobile-category-tabs" role="group" aria-label={c.categories}>{[{slug:'',name:locale==='ar'?'الكل':locale==='fr'?'Tout':'All'},...categories].map(cat=><button key={cat.slug} type="button" aria-pressed={!showSaved&&category===cat.slug} onClick={()=>{setShowSaved(false);setCategory(cat.slug);}}>{cat.name}</button>)}</div>
+ return <section id="mobile-shopping-content" role="main" tabIndex={-1} ref={feed} style={{'--shopping-header-height':`${headerHeight}px`} as CSSProperties} className="mobile-shopping" aria-label={c.all}>
+  <div className="mobile-category-tabs" role="group" aria-label={c.categories}>{[{slug:'',name:locale==='ar'?'الكل':locale==='fr'?'Tout':'All'},...categories].map(cat=><button key={cat.slug} type="button" aria-pressed={!showSaved&&category===cat.slug} onClick={()=>{setShowSaved(false);setCategory(cat.slug);const top=feed.current?.getBoundingClientRect().top;if(top!==undefined&&top<headerHeight)window.scrollBy(0,top-headerHeight);}}>{cat.name}</button>)}</div>
   {favoriteTitle&&<div className="mobile-favorites-bar"><button className="text-button" type="button" aria-pressed={showSaved} onClick={()=>setShowSaved(!showSaved)}><Heart size={15} aria-hidden="true"/>{f.saved}{saved.length>0&&` (${saved.length})`}</button>{saveError&&<span role="status">{f.unavailable}</span>}</div>}
   {showSaved?<div className="mobile-saved-list">{saved.length?saved.map(p=><div key={p.slug}><Link href={`${market==='TN'?`/${locale}`:''}/product/${encodeURIComponent(p.slug)}`}>{p.title}</Link>{heart(p.slug,p.title)}</div>):<p>{f.empty}</p>}</div>:<>
   <div className="mobile-product-feed">{products.map((product,index)=>{const slot=mobilePromotionIndex(index+1);const promotion=category===''&&slot>=0?promotions[slot]:undefined;return <div key={product.slug} className="mobile-feed-item">{renderProduct(product,favoriteTitle?heart(product.slug,favoriteTitle(product)):undefined)}{category===''&&index===1&&campaigns?<><MobileCampaignCarousel slides={campaigns(products.slice(0,24))} locale={locale}/><MobileCampaignShortcuts market={market} locale={locale}/></>:null}{promotion&&<MobileFeedCampaign promotion={promotion} locale={locale}/>}</div>;})}{busy&&!products.length&&Array.from({length:6},(_,i)=><div key={i} className="mobile-product-skeleton" aria-hidden="true"/>)}</div>
