@@ -1,0 +1,67 @@
+workflows:
+  plentovo-huawei-debug:
+    name: Plentovo Huawei test APK
+    instance_type: mac_mini_m2
+    max_build_duration: 30
+    environment:
+      java: 17
+    scripts:
+      - &android_setup
+        name: Install Gradle and Android SDK packages
+        script: |
+          set -eu
+          gradle_version=8.13
+          archive="gradle-${gradle_version}-bin.zip"
+          tool_dir="$(mktemp -d)"
+          url="https://services.gradle.org/distributions/$archive"
+          curl -fsSL --retry 3 "$url" -o "$tool_dir/$archive"
+          checksum="$(curl -fsSL --retry 3 "$url.sha256")"
+          (cd "$tool_dir" && printf '%s  %s\n' "$checksum" "$archive" | shasum -a 256 -c)
+          unzip -q "$tool_dir/$archive" -d "$tool_dir"
+          echo "PLENTOVO_GRADLE=$tool_dir/gradle-$gradle_version/bin/gradle" >> "$CM_ENV"
+          sdk_root="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-/usr/local/share/android-sdk}}"
+          if [ ! -f "$sdk_root/platforms/android-36/android.jar" ] || [ ! -x "$sdk_root/build-tools/35.0.0/aapt2" ]; then
+            sdk_manager="$sdk_root/cmdline-tools/latest/bin/sdkmanager"
+            if [ ! -x "$sdk_manager" ]; then
+              sdk_manager="$(command -v sdkmanager || true)"
+            fi
+            if [ -z "$sdk_manager" ]; then
+              echo "Android SDK Manager not found under $sdk_root or on PATH." >&2
+              exit 1
+            fi
+            "$sdk_manager" --sdk_root="$sdk_root" 'platforms;android-36' 'build-tools;35.0.0'
+          fi
+          printf 'sdk.dir=%s\n' "$sdk_root" > "$CM_BUILD_DIR/apps/android/local.properties"
+      - name: Build Huawei test APK
+        script: |
+          set -eu
+          cd "$CM_BUILD_DIR/apps/android"
+          "$PLENTOVO_GRADLE" --no-daemon :app:assembleDebug
+    artifacts:
+      - apps/android/app/build/outputs/apk/debug/app-debug.apk
+
+  plentovo-huawei-release:
+    name: Plentovo Huawei signed release APK
+    instance_type: mac_mini_m2
+    max_build_duration: 30
+    environment:
+      java: 17
+      android_signing:
+        - plentovo_huawei_release
+    scripts:
+      - *android_setup
+      - name: Build and verify signed Huawei release APK
+        script: |
+          set -eu
+          cd "$CM_BUILD_DIR/apps/android"
+          "$PLENTOVO_GRADLE" --no-daemon :app:assembleRelease
+          sdk_root="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-/usr/local/share/android-sdk}}"
+          tools="$sdk_root/build-tools/35.0.0"
+          output="app/build/outputs/apk/release"
+          aligned="$output/app-release-aligned.apk"
+          signed="$output/plentovo-huawei-release.apk"
+          "$tools/zipalign" -f -p 4 "$output/app-release-unsigned.apk" "$aligned"
+          "$tools/apksigner" sign --ks "$CM_KEYSTORE_PATH" --ks-key-alias "$CM_KEY_ALIAS" --ks-pass env:CM_KEYSTORE_PASSWORD --key-pass env:CM_KEY_PASSWORD --out "$signed" "$aligned"
+          "$tools/apksigner" verify --verbose "$signed"
+    artifacts:
+      - apps/android/app/build/outputs/apk/release/plentovo-huawei-release.apk
