@@ -1,5 +1,6 @@
 'use client';
 import {useCallback} from 'react';
+import {mobileCampaigns} from '../../../packages/storefront/mobile-campaigns';
 import {MobileShoppingFeed} from '../../../packages/storefront/mobile-shopping';
 import {primaryDepartment} from '@/lib/catalogue-browse';
 import {storefrontDepartments} from '../../../packages/storefront/departments';
@@ -35,7 +36,11 @@ function MobileHome({locale}:{locale:Locale}){
   }
   return data;
  },[]);
- return <MobileShoppingFeed promotions={mobileBanners.map(b=>({title:b.title[locale],text:b.text[locale],action:locale==='fr'?'Explorer':locale==='ar'?'تسوق الآن':'Explore',href:`/tunisia/${locale}/${b.path}`}))} locale={locale} categories={storefrontDepartments.map(d=>({slug:d.slug,name:t(d.name)}))} load={load} renderProduct={g=><ProductCard group={g} locale={locale}/>}/>;
+ return <MobileShoppingFeed campaigns={products=>mobileCampaigns(locale,'TN',{
+  budget:products.find(p=>p.stock>0&&p.priceMillimes<50000&&p.image)?.image,
+  kitchen:products.find(p=>primaryDepartment(p)==='kitchen-dining'&&p.image)?.image,
+  tech:products.find(p=>primaryDepartment(p)==='electronics'&&p.image)?.image,
+ })} promotions={mobileBanners.map(b=>({title:b.title[locale],text:b.text[locale],action:locale==='fr'?'Explorer':locale==='ar'?'تسوق الآن':'Explore',href:`/tunisia/${locale}/${b.path}`}))} locale={locale} categories={storefrontDepartments.map(d=>({slug:d.slug,name:t(d.name)}))} load={load} renderProduct={g=><ProductCard group={g} locale={locale}/>}/>;
 }
 export function StorefrontHome({locale,groups,collections=false}:{locale:Locale;groups:ProductGroup[];onAdd?:(id:string)=>void;collections?:boolean}){
  const t=storefrontTranslator(locale),m=messages[locale];
