@@ -10,13 +10,17 @@ workflows:
         name: Generate Plentovo Xcode project and app icon
         script: |
           set -eu
+          export HOMEBREW_NO_AUTO_UPDATE=1
+          export HOMEBREW_NO_INSTALL_CLEANUP=1
           command -v xcodegen >/dev/null || brew install xcodegen
           cd "$CM_BUILD_DIR/apps/ios"
           mkdir -p Assets.xcassets/AppIcon.appiconset
           printf '%s\n' '{"info":{"author":"xcode","version":1}}' > Assets.xcassets/Contents.json
           printf '%s\n' '{"images":[{"filename":"AppIcon.png","idiom":"universal","platform":"ios","size":"1024x1024"}],"info":{"author":"xcode","version":1}}' > Assets.xcassets/AppIcon.appiconset/Contents.json
-          sips -z 1024 1024 "$CM_BUILD_DIR/public/icons/plentovo-512.png" --out "$TMPDIR/plentovo-icon.png"
-          swift make-icon.swift "$TMPDIR/plentovo-icon.png" Assets.xcassets/AppIcon.appiconset/AppIcon.png
+          echo "Generating app icon"
+          xcrun swift make-icon.swift "$CM_BUILD_DIR/public/icons/plentovo-512.png" Assets.xcassets/AppIcon.appiconset/AppIcon.png
+          sips -g pixelWidth -g pixelHeight -g hasAlpha Assets.xcassets/AppIcon.appiconset/AppIcon.png
+          echo "Generating Xcode project"
           xcodegen generate
       - name: Compile for iPhone Simulator
         script: |
