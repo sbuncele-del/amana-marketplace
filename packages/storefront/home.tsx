@@ -1,3 +1,4 @@
+import {alignedStorefrontOrder} from './config';
 import {Fragment,type ReactNode,type CSSProperties} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -26,7 +27,7 @@ store:{sectionOrder:string[];hiddenSections:string[];featuredTitle:string};theme
               : "xl:grid-cols-1";
 
   const sections: Record<string, ReactNode> = {
-    demand: activeMerchandising && (
+    demand: activeMerchandising && demandProducts.length > 0 && (
       <section
         aria-labelledby="demand-title"
         className="mx-auto max-w-[1800px] px-4 pt-7"
@@ -209,6 +210,6 @@ store:{sectionOrder:string[];hiddenSections:string[];featuredTitle:string};theme
     ),
   };
   return <main id="main-content" className="store-theme pb-14" style={{background:theme.background,'--store-accent':theme.accent} as CSSProperties}>
-<h1 className="sr-only">{title}</h1>{slideshow}{store.sectionOrder.filter(id=>!store.hiddenSections.includes(id)).map(id=><div data-storefront-section={id} key={id}>{sections[id]}</div>)}
+<h1 className="sr-only">{title}</h1>{slideshow}{alignedStorefrontOrder(store.sectionOrder).filter(id=>id==='demand'||!store.hiddenSections.includes(id)).map(id=><div data-storefront-section={id} key={id}>{sections[id]}</div>)}
 </main>;
 }
