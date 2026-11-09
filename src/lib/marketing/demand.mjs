@@ -1,3 +1,4 @@
+import { createHash, timingSafeEqual } from 'node:crypto';
 // Each batch has one shared anchor. Compare levels only inside the same response.
 export const batches = {
   outdoor: ['air fryer', 'portable fan', 'cooler box', 'picnic blanket', 'camping chair'],
@@ -30,4 +31,11 @@ export function evidence(payload, terms) {
     return { term, status: vals.every(v => v === 0) ? 'insufficient_data' : 'observed', points: vals.length, earlierMean: previous, recentMean: recent, changePercent: previous > 0 ? Math.round((recent / previous - 1) * 100) : null, note: 'Within-window movement only. Check other windows and seasonality before calling demand sustained.' };
   });
   return { status: 'retrieved', series, summaries };
+}
+
+export function validResearchToken(header, expected, expiresAt, now = Date.now()) {
+  if (!expected || expected.length < 32 || !expiresAt || !Number.isFinite(Date.parse(expiresAt)) || Date.parse(expiresAt) <= now) return false;
+  if (typeof header !== 'string' || !header.startsWith('Bearer ')) return false;
+  const digest = s => createHash('sha256').update(s).digest();
+  return timingSafeEqual(digest(header.slice(7)), digest(expected));
 }
