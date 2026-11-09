@@ -3,11 +3,16 @@ import { createHash } from 'node:crypto';
 import { commerceActor, requireAdmin, CommerceError } from '@/lib/commerce/access';
 import { requireOrigin, privateHeaders } from '@/lib/commerce/http';
 import { experiencePool } from '@/lib/experience/store';
-import { batches, windows, searchTypes, parameters, evidence } from '@/lib/marketing/demand.mjs';
+import { batches, windows, searchTypes, parameters, evidence, validResearchToken } from '@/lib/marketing/demand.mjs';
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 const schema = `CREATE TABLE IF NOT EXISTS marketing_demand_cache (request_key text PRIMARY KEY, observed_at timestamptz NOT NULL DEFAULT now(), payload jsonb NOT NULL);
 CREATE TABLE IF NOT EXISTS marketing_demand_usage (id bigserial PRIMARY KEY, requested_at timestamptz NOT NULL DEFAULT now(), actor_id text NOT NULL, request_key text NOT NULL);`;
+async function researchActor(request: NextRequest) {
+  if (validResearchToken(request.headers.get('authorization'), process.env.MARKETING_RESEARCH_TOKEN, process.env.MARKETING_RESEARCH_TOKEN_EXPIRES_AT)) return {id:'marketing-research-service'};
+  requireOrigin(request);
+  const actor = await commerceActor(); requireAdmin(actor); return actor;
+}
 export async function GET() {
   try {
     requireAdmin(await commerceActor());
@@ -21,8 +26,7 @@ function failure(e: unknown) {
 export async function POST(request: NextRequest) {
   let client;
   try {
-    requireOrigin(request);
-    const actor = await commerceActor(); requireAdmin(actor);
+    const actor = await researchActor(request);
     const body = await request.json();
     let params;
     try { params = parameters(body.batch, body.window, body.searchType); }
