@@ -1,3 +1,5 @@
+import {tunisiaPriority} from '@/lib/demand-priority';
+import {applyPriority} from '../../../../../src/lib/marketing/demand-priority.mjs';
 import {mobileCataloguePage} from '@/lib/mobile-catalogue-page';
 import {notFound} from 'next/navigation';
 import Store from '@/components/store';
@@ -62,16 +64,17 @@ export default async function Page({params,searchParams}:{params:Promise<{locale
   scope=products.filter(p=>keep.has(p.groupId||p.id));
   category={slug,page,pages,total:all.length,ids:slice.map(g=>g.id),links};
  }
+ const prioritySlugs=(route===''&&!query||route==='shop'&&(!one('sort')||one('sort')==='featured'))?(await tunisiaPriority(groupProducts(products))).entries.map(p=>p.slug):[];
  // The shop sends one filtered page of 25 products (the browser used to filter all ~6,000 itself); the home page sends only the ~40 it displays.
  let shop;
  if(route==='shop'||(query&&!selected&&!category)){
-  const f=parseShopParams(one),all=browseGroups(groupProducts(products),{category:f.activeCategory,search:f.search,available:f.available,min:f.min,max:f.max,sort:f.sort});
+  const f=parseShopParams(one),all=browseGroups(applyPriority(groupProducts(products),prioritySlugs),{category:f.activeCategory,search:f.search,available:f.available,min:f.min,max:f.max,sort:f.sort});
   const totalPages=Math.max(1,Math.ceil(all.length/SHOP_PAGE_SIZE)),page=Math.min(totalPages,Number.isSafeInteger(f.page)&&f.page>0?f.page:1);
   const slice=all.slice((page-1)*SHOP_PAGE_SIZE,page*SHOP_PAGE_SIZE);
   scope=slice.flatMap(g=>g.variants);
   shop={total:all.length,totalPages,page,counts:departmentCounts(products)};
  }else if(route===''&&!query){
-  const keep=new Set(homeGroups(groupProducts(products)).map(g=>g.id));scope=products.filter(p=>keep.has(p.groupId||p.id));
+  const keep=new Set(homeGroups(groupProducts(products),prioritySlugs).map(g=>g.id));scope=products.filter(p=>keep.has(p.groupId||p.id));
  }else if(route==='collections'&&!query)scope=[];
  const publicProducts=scope.map(product=>{
   if(selected&&(product.groupId||product.id)===(selected.groupId||selected.id))return product;
@@ -92,5 +95,5 @@ export default async function Page({params,searchParams}:{params:Promise<{locale
  }else if(route===''&&!query){
   lds.push({'@context':'https://schema.org','@type':'Organization','@id':`${origin}/#organization`,name:'Plentovo Tunisia',url:`${origin}/${locale}`,logo:'https://plentovo.com/brand/plentovo-icon.png'},{'@context':'https://schema.org','@type':'WebSite','@id':`${origin}/#website`,name:'Plentovo Tunisia',url:`${origin}/${locale}`,inLanguage:loc,publisher:{'@id':`${origin}/#organization`},potentialAction:{'@type':'SearchAction',target:`${base}/shop?search={search_term_string}`,'query-input':'required name=search_term_string'}});
  }
- return <>{lds.map((item,i)=><script key={i} type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(item).replace(/</g,'\\u003c')}}/>)}<Store initialMobilePage={route===''&&!query&&products.length?mobileCataloguePage(products):undefined} shop={shop} category={category} partial={!!selected||!!category||!!shop||(route===''&&!query)||(route==='collections'&&!query)} initialQuery={query} locale={locale as Locale} route={route} products={publicProducts} maxPrice={maxPrice} ordersOpen={codConfig(process.env)!==null}/></>;
+ return <>{lds.map((item,i)=><script key={i} type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(item).replace(/</g,'\\u003c')}}/>)}<Store prioritySlugs={prioritySlugs} initialMobilePage={route===''&&!query&&products.length?mobileCataloguePage(products):undefined} shop={shop} category={category} partial={!!selected||!!category||!!shop||(route===''&&!query)||(route==='collections'&&!query)} initialQuery={query} locale={locale as Locale} route={route} products={publicProducts} maxPrice={maxPrice} ordersOpen={codConfig(process.env)!==null}/></>;
 }

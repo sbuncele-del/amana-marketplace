@@ -5,11 +5,11 @@ import {experiencePool} from '@/lib/experience/store';
 import {parameters,evidence} from './demand.mjs';
 const schema = `CREATE TABLE IF NOT EXISTS marketing_demand_cache (request_key text PRIMARY KEY, observed_at timestamptz NOT NULL DEFAULT now(), payload jsonb NOT NULL);
 CREATE TABLE IF NOT EXISTS marketing_demand_usage (id bigserial PRIMARY KEY, requested_at timestamptz NOT NULL DEFAULT now(), actor_id text NOT NULL, request_key text NOT NULL);`;
-export async function runDemandComparison(body:{batch:string;window:string;searchType:string},actorId:string){
+export async function runDemandComparison(body:{batch:string;window:string;searchType:string;market?:string},actorId:string){
  let client;
  try {
     let params;
-    try { params = parameters(body.batch, body.window, body.searchType); }
+    try { params = parameters(body.batch, body.window, body.searchType,body.market); }
     catch { throw new CommerceError(400, 'Select a listed batch, window and search type.'); }
     if (!process.env.SERPAPI_API_KEY) throw new CommerceError(503, 'SERPAPI_API_KEY is missing from this deployment.');
     const key = createHash('sha256').update(JSON.stringify(params)).digest('hex');
@@ -40,8 +40,8 @@ export async function runDemandComparison(body:{batch:string;window:string;searc
     const payload = await response.json();
     if (payload.error) throw new CommerceError(502, 'SerpApi returned no usable result. No trend has been verified.');
     const explore = new URL('https://trends.google.com/trends/explore');
-    explore.searchParams.set('geo','ZA'); explore.searchParams.set('q',params.q); explore.searchParams.set('date',params.date); explore.searchParams.set('gprop',params.gprop);
-    const result = { observedAt: new Date().toISOString(), source: 'Google Trends via SerpApi', sourceUrl: explore.toString(), geography: 'ZA', batch: body.batch, window: body.window, searchType: body.searchType, terms: params.q.split(','), ...evidence(payload, params.q.split(',')), caveat: 'Relative search interest, not sales or absolute volume. Category interest is not exact-SKU demand. No publishing or ad spending is triggered.' };
+    explore.searchParams.set('geo',params.geo); explore.searchParams.set('q',params.q); explore.searchParams.set('date',params.date); explore.searchParams.set('gprop',params.gprop);
+    const result = { observedAt: new Date().toISOString(), source: 'Google Trends via SerpApi', sourceUrl: explore.toString(), geography: params.geo, batch: body.batch, window: body.window, searchType: body.searchType, terms: params.q.split(','), ...evidence(payload, params.q.split(',')), caveat: 'Relative search interest, not sales or absolute volume. Category interest is not exact-SKU demand. No publishing or ad spending is triggered.' };
     if (result.status === 'retrieved') await client.query('INSERT INTO marketing_demand_cache(request_key,payload) VALUES($1,$2) ON CONFLICT(request_key) DO UPDATE SET observed_at=now(),payload=excluded.payload', [key,JSON.stringify(result)]);
     return { ...result, cached: false };
   }catch(e){if(client)await client.query('ROLLBACK').catch(()=>{});throw e;}finally{client?.release();}

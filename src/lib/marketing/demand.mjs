@@ -1,3 +1,4 @@
+import {tunisiaBatches} from '../../../packages/storefront/tunisia-demand-config.mjs';
 import { createHash, timingSafeEqual } from 'node:crypto';
 // Each batch has one shared anchor. Compare levels only inside the same response.
 export const batches = {
@@ -10,9 +11,11 @@ export const batches = {
 };
 export const windows = { '7d': 'now 7-d', '30d': 'today 1-m', '90d': 'today 3-m', '12m': 'today 12-m' };
 export const searchTypes = { web: '', shopping: 'froogle' };
-export function parameters(batch, window, searchType) {
-  if (!Object.hasOwn(batches, batch) || !Object.hasOwn(windows, window) || !Object.hasOwn(searchTypes, searchType)) throw new Error('INVALID_REQUEST');
-  return { engine: 'google_trends', q: batches[batch].join(','), geo: 'ZA', date: windows[window], gprop: searchTypes[searchType], data_type: 'TIMESERIES', hl: 'en' };
+export function parameters(batch, window, searchType, market='ZA') {
+  if(!['ZA','TN'].includes(market))throw new Error('INVALID_REQUEST');
+  const selected=market==='TN'?tunisiaBatches:batches;
+  if (!Object.hasOwn(selected, batch) || !Object.hasOwn(windows, window) || !Object.hasOwn(searchTypes, searchType)) throw new Error('INVALID_REQUEST');
+  return { engine: 'google_trends', q: selected[batch].join(','), geo: market, date: windows[window], gprop: searchTypes[searchType], data_type: 'TIMESERIES', hl: market==='TN'?'fr':'en' };
 }
 export function evidence(payload, terms) {
   const timeline = payload?.interest_over_time?.timeline_data;
