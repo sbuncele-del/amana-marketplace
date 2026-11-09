@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parameters, evidence, batches } from '../../src/lib/marketing/demand.mjs';
+import { parameters, evidence, batches, validResearchToken } from '../../src/lib/marketing/demand.mjs';
 test('fixed ZA requests distinguish Web and Shopping and reject arbitrary input', () => {
   assert.equal(parameters('outdoor','30d','shopping').gprop,'froogle');
   assert.equal(parameters('outdoor','7d','web').geo,'ZA');
@@ -20,4 +20,14 @@ test('indexes are matched by query and partial periods excluded from movement', 
   assert.equal(result.summaries[0].points,6);
   assert.equal(result.series.length,7);
   assert.equal(result.series[0].values[0].index,1);
+});
+
+test('research token requires exact match and a valid future expiry', () => {
+ const key='a'.repeat(64), expiry='2026-11-10T00:00:00Z', now=Date.parse('2026-11-09T00:00:00Z');
+ assert.equal(validResearchToken('Bearer '+key,key,expiry,now),true);
+ assert.equal(validResearchToken('Bearer '+key+'x',key,expiry,now),false);
+ assert.equal(validResearchToken('Bearer '+key,key,'bad-date',now),false);
+ assert.equal(validResearchToken('Bearer '+key,key,expiry,Date.parse(expiry)),false);
+ assert.equal(validResearchToken(null,key,expiry,now),false);
+ assert.equal(validResearchToken('Bearer '+key,undefined,expiry,now),false);
 });
