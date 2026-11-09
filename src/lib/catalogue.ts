@@ -123,8 +123,8 @@ export const getDemandOpening=unstable_cache(async()=>{
   }));
   for(const p of batch)if(p?.supplierAvailable&&p.price>0&&p.images.length&&!p.priceOnRequest)checked.set(p.slug,p);
  }
- const entries=report.entries.filter(p=>checked.has(p.slug)).slice(0,50).map((p,i)=>({...p,rank:i+1,price:checked.get(p.slug)!.price,subscores:{...p.subscores,supply:18},knownScore:p.knownScore+18,knownMaximum:80,availabilityCheckedAt:new Date().toISOString()}));
- return {...report,entries,qualifiedCount:entries.length,requestedCount:50,products:entries.map(p=>checked.get(p.slug)!)};
+ const entries=report.entries.filter(p=>checked.has(p.slug)).slice(0,54).map((p,i)=>({...p,rank:i+1,price:checked.get(p.slug)!.price,subscores:{...p.subscores,supply:18},knownScore:p.knownScore+18,knownMaximum:80,availabilityCheckedAt:new Date().toISOString()}));
+ return {...report,entries,qualifiedCount:entries.length,requestedCount:54,products:entries.map(p=>checked.get(p.slug)!)};
 },['za-demand-opening-v1'],{revalidate:300});
 
 // Normal browsing validates only the visible page instead of refreshing every department.

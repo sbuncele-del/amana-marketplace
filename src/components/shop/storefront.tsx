@@ -85,7 +85,7 @@ async function LoadedStorefront({ config }: { config?: StoreConfig }) {
     return {key:collection.slug,handles:[...pool.filter(p=>collection.match.test(p.name)),...pool.filter(p=>!collection.match.test(p.name))].map(p=>p.slug)};
   });
   const rows=await selectHomepageRows([
-    {key:'demand',handles:merchandising?.products.map(p=>p.slug)||[],limit:50},
+    {key:'demand',handles:merchandising?.products.map(p=>p.slug)||[],limit:54},
     {key:'featured',handles:store.featuredSlugs},
     {key:'value',handles:[...valueHandles,...valuePool.map(p=>p.slug)],maxPrice:300},
     ...collectionPlans,

@@ -12,6 +12,6 @@ const research=unstable_cache(async()=>{
 export async function tunisiaPriority(groups:ProductGroup[]){
  const products=groups.filter(p=>p.stock>0&&p.image&&p.priceMillimes>0).map(p=>({slug:p.slug,name:Object.values(p.title).join(' '),price:p.priceMillimes/1000,images:[p.image]}));
  let records=[];try{records=await research();}catch{}
- const report=rankDemand(products,records,Date.now(),50,{geography:'TN',definitions:tunisiaIntents});
+ const report=rankDemand(products,records,Date.now(),54,{geography:'TN',definitions:tunisiaIntents});
  return {...report,entries:report.entries.map(p=>({...p,subscores:{...p.subscores,supply:18},knownScore:p.knownScore+18,knownMaximum:80,availabilityBasis:'Current Tunisian storefront supplier snapshot; delivery and landed margin unverified.'}))};
 }
