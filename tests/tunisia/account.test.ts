@@ -71,7 +71,7 @@ test('deleting the account removes it and its sessions, and unlinks orders and r
   const c = await signInCustomer(db, 'amine@example.com', 'fr', t0); const {token} = await createSession(db, c.id, t0);
   await deleteCustomer(db, c.id, c.email);
   assert.equal(await customerFromToken(db, token, plus(1000)), null);
-  assert.equal((await pg.query('SELECT count(*)::int n FROM public.plentovo_tn_customers')).rows[0].n, 0);
+  assert.equal((await pg.query<{n:number}>('SELECT count(*)::int n FROM public.plentovo_tn_customers')).rows[0].n, 0);
   const row = (await pg.query('SELECT customer_id, customer FROM public.plentovo_tn_orders WHERE reference=$1', [ref])).rows[0] as any;
   assert.equal(row.customer_id, null); assert.equal(row.customer.email, undefined); assert.equal(row.customer.name, 'Amine');
 });
