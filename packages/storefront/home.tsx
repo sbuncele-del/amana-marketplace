@@ -1,5 +1,5 @@
 import {alignedStorefrontOrder} from './config';
-import {Fragment,type ReactNode,type CSSProperties} from 'react';
+import {type ReactNode,type CSSProperties} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {ArrowRight,PackageCheck,MapPin,HeartHandshake} from 'lucide-react';
@@ -12,19 +12,11 @@ export const identity = (s:string)=>s;
 export function StorefrontLayout<P extends DisplayProduct>({store,theme,slideshow,missions,more,discovery=discoveryGroups,activeMerchandising,demandProducts,valueProducts,featuredProducts,collections,renderProduct,t=identity,valueTitle='Good finds under R300',valueHref='/browse?maxPrice=300&available=true',budgets=defaultBudgets,help=defaultHelp,title='Plentovo — Good things. Plenty of choice.'}:{
 store:{sectionOrder:string[];hiddenSections:string[];featuredTitle:string};theme:{background:string;accent:string};slideshow:ReactNode;missions:ReactNode;more:ReactNode;discovery?:DiscoveryGroup[];activeMerchandising?:{headline:string;description:string}|null;demandProducts:P[];valueProducts:P[];featuredProducts:P[];collections:{slug:string;title:string;text:string;href?:string;products:P[]}[];renderProduct:(product:P)=>ReactNode;t?:(s:string)=>string;valueTitle?:string;valueHref?:string;budgets?:typeof defaultBudgets;help?:typeof defaultHelp;title?:string;
 }) {
-  // If a department genuinely has fewer than six available items, fit the grid to the actual count.
-  const rowColumns = (count: number) =>
-    count >= 6
-      ? "xl:grid-cols-6"
-      : count === 5
-        ? "xl:grid-cols-5"
-        : count === 4
-          ? "xl:grid-cols-4"
-          : count === 3
-            ? "xl:grid-cols-3"
-            : count === 2
-              ? "xl:grid-cols-2"
-              : "xl:grid-cols-1";
+  // Full rows keep six cards at desktop width; any incomplete final row stretches
+  // its actual available cards instead of leaving empty slots or inventing products.
+  const productGrid=(products:P[])=><div className="flex flex-wrap gap-3">
+    {products.map(product=><div key={product.slug} className="min-w-0 flex-[1_1_calc((100%-0.75rem)/2)] md:flex-[1_1_calc((100%-1.5rem)/3)] xl:flex-[1_1_calc((100%-3.75rem)/6)] [&>*]:h-full">{renderProduct(product)}</div>)}
+  </div>;
 
   const sections: Record<string, ReactNode> = {
     demand: activeMerchandising && demandProducts.length > 0 && (
@@ -38,13 +30,7 @@ store:{sectionOrder:string[];hiddenSections:string[];featuredTitle:string};theme
         <p className="mb-5 mt-2 text-sm text-gray-600">
           {activeMerchandising.description}
         </p>
-        <div
-          className={`grid grid-cols-2 gap-3 md:grid-cols-3 ${rowColumns(demandProducts.length)}`}
-        >
-          {demandProducts.map((product) => (
-            <Fragment key={product.slug}>{renderProduct(product)}</Fragment>
-          ))}
-        </div>
+        {productGrid(demandProducts)}
       </section>
     ),
     discovery: (
@@ -110,13 +96,7 @@ store:{sectionOrder:string[];hiddenSections:string[];featuredTitle:string};theme
             {t("View all")} →
           </Link>
         </div>
-        <div
-          className={`grid grid-cols-2 gap-3 md:grid-cols-3 ${rowColumns(valueProducts.length)}`}
-        >
-          {valueProducts.map((product) => (
-            <Fragment key={product.id}>{renderProduct(product)}</Fragment>
-          ))}
-        </div>
+        {productGrid(valueProducts)}
       </section>
     ),
     departments: collections
@@ -135,13 +115,7 @@ store:{sectionOrder:string[];hiddenSections:string[];featuredTitle:string};theme
               {t("Explore more")} →
             </Link>
           </div>
-          <div
-            className={`grid grid-cols-2 gap-3 md:grid-cols-3 ${rowColumns(c.products.length)}`}
-          >
-            {c.products.map((product) => (
-              <Fragment key={product.id}>{renderProduct(product)}</Fragment>
-            ))}
-          </div>
+          {productGrid(c.products)}
         </section>
       )),
     more: more,
@@ -199,13 +173,7 @@ store:{sectionOrder:string[];hiddenSections:string[];featuredTitle:string};theme
     featured: featuredProducts.length > 0 && (
       <section className="mx-auto max-w-[1800px] px-4 pt-7">
         <h2 className="mb-5 text-2xl font-bold">{store.featuredTitle}</h2>
-        <div
-          className={`grid grid-cols-2 gap-3 md:grid-cols-3 ${rowColumns(featuredProducts.length)}`}
-        >
-          {featuredProducts.map((product) => (
-            <Fragment key={product.slug}>{renderProduct(product)}</Fragment>
-          ))}
-        </div>
+        {productGrid(featuredProducts)}
       </section>
     ),
   };
