@@ -1,11 +1,11 @@
 type Item={slug:string;price:number;supplierAvailable:boolean};
-export type HomepagePlan={key:string;handles:string[];maxPrice?:number};
+export type HomepagePlan={key:string;handles:string[];maxPrice?:number;limit?:number};
 // Parallel reads with deterministic merchandising priority and no repeated supplier request.
 export async function selectHomepageRows<T extends Item>(plans:HomepagePlan[],read:(slug:string,timeoutMs:number)=>Promise<T|null>,{budgetMs=6500,rowLimit=6}={}){
  const deadline=Date.now()+budgetMs,checked=new Map<string,Promise<T|null>>();
  const rows=await Promise.all(plans.map(async plan=>{
-  const candidates=[...new Set(plan.handles)].slice(0,60),products:T[]=[];
-  for(let offset=0;offset<candidates.length&&products.length<rowLimit*2&&Date.now()<deadline;offset+=6){
+  const target=plan.limit??rowLimit;const candidates=[...new Set(plan.handles)].slice(0,Math.max(60,target+10)),products:T[]=[];
+  for(let offset=0;offset<candidates.length&&products.length<target*2&&Date.now()<deadline;offset+=6){
    const batch=await Promise.all(candidates.slice(offset,offset+6).map(slug=>{
     let pending=checked.get(slug);
     if(!pending){pending=read(slug,Math.max(1,Math.min(4500,deadline-Date.now())));checked.set(slug,pending);}
@@ -16,5 +16,5 @@ export async function selectHomepageRows<T extends Item>(plans:HomepagePlan[],re
   return products;
  }));
  const used=new Set<string>();
- return Object.fromEntries(plans.map((plan,i)=>[plan.key,rows[i].filter(p=>!used.has(p.slug)).slice(0,rowLimit).map(p=>{used.add(p.slug);return p;})])) as Record<string,T[]>;
+ return Object.fromEntries(plans.map((plan,i)=>[plan.key,rows[i].filter(p=>!used.has(p.slug)).slice(0,plan.limit??rowLimit).map(p=>{used.add(p.slug);return p;})])) as Record<string,T[]>;
 }

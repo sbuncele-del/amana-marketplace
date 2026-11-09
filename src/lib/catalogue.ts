@@ -1,4 +1,6 @@
 import 'server-only';
+import {demandPriority} from './marketing/demand-priority-store';
+import {applyPriority} from './marketing/demand-priority.mjs';
 import {cache} from 'react';
 import {cleanSupplierText,cleanImages} from './catalogue-quality';
 import {applyEditorial} from '@/lib/cms/editorial';
@@ -109,11 +111,30 @@ export async function getCatalogueProducts(search='',category='',sort='newest',a
  return products.filter(p=>!availableOnly||p.supplierAvailable).sort((a,b)=>sort==='price-low'?a.price-b.price:sort==='price-high'?b.price-a.price:0);
 }
 
+// Shared, short-lived selection. A supplier failure removes a candidate from promotion.
+export const getDemandOpening=unstable_cache(async()=>{
+ const snapshot=await getCatalogueSnapshotCached();
+ const report=await demandPriority(snapshot);
+ const candidates=report.entries.slice(0,100);
+ const checked=new Map<string,CatalogueProduct>();
+ for(let offset=0;offset<candidates.length&&checked.size<60;offset+=12){
+  const batch=await Promise.all(candidates.slice(offset,offset+12).map(async(entry)=>{
+   const p=snapshot.find(p=>p.slug===entry.slug);return p?refreshCatalogueProduct(p,false,false,2500):null;
+  }));
+  for(const p of batch)if(p?.supplierAvailable&&p.price>0&&p.images.length&&!p.priceOnRequest)checked.set(p.slug,p);
+ }
+ const entries=report.entries.filter(p=>checked.has(p.slug)).slice(0,50).map((p,i)=>({...p,rank:i+1,price:checked.get(p.slug)!.price,subscores:{...p.subscores,supply:18},knownScore:p.knownScore+18,knownMaximum:80,availabilityCheckedAt:new Date().toISOString()}));
+ return {...report,entries,qualifiedCount:entries.length,requestedCount:50,products:entries.map(p=>checked.get(p.slug)!)};
+},['za-demand-opening-v1'],{revalidate:300});
+
 // Normal browsing validates only the visible page instead of refreshing every department.
-export async function getCataloguePage(search='',category='',page=1,limit=25,market?:string) {
+export async function getCataloguePage(search='',category='',page=1,limit=25,market?:string,sort='featured') {
  if(market ? market!=='ZA' : !(await catalogueMarket()))return {products:[],total:0,page,totalPages:0,hasNextPage:false};
  const term=search.trim().toLowerCase();
- const selected=catalogueSearch((await getCatalogueSnapshot()).filter(p=>!category||p.collections.includes(category)),term);
- const products=await Promise.all(selected.slice((page-1)*limit,page*limit).map(p=>refreshCatalogueProduct(p)));
- return {products:products.filter((p):p is CatalogueProduct=>p!==null),total:selected.length,page,totalPages:Math.ceil(selected.length/limit),hasNextPage:page*limit<selected.length};
+ const opening=sort==='featured'?await getDemandOpening():null;
+ const pool=catalogueSearch((await getCatalogueSnapshot()).filter(p=>!category||p.collections.includes(category)),term);
+ const selected:CatalogueProduct[]=opening?.entries.length?applyPriority(pool,opening.entries.map(p=>p.slug)):pool;
+ const validated=new Map<string,CatalogueProduct>(opening?.products.map((p:CatalogueProduct)=>[p.slug,p] as [string,CatalogueProduct])||[]);
+ const products=await Promise.all(selected.slice((page-1)*limit,page*limit).map(p=>validated.get(p.slug)||refreshCatalogueProduct(p))); 
+ return {products:products.filter((p):p is CatalogueProduct=>p!==null),ordering:opening?.entries.length?'demand-priority':'catalogue',demandQualifiedCount:opening?.qualifiedCount||0,total:selected.length,page,totalPages:Math.ceil(selected.length/limit),hasNextPage:page*limit<selected.length};
 }

@@ -53,7 +53,11 @@ const collectionSpecs = [
 ];
 
 async function LoadedStorefront({ config }: { config?: StoreConfig }) {
-  const store = config || (await liveCms()).store;
+  const original = config || (await liveCms()).store;
+  const order:StoreConfig['sectionOrder']=original.sectionOrder.filter(id=>id!=='demand');
+  const firstProducts=order.findIndex(id=>['featured','value','departments'].includes(id));
+  order.splice(firstProducts<0?0:firstProducts,0,'demand');
+  const store={...original,sectionOrder:order,hiddenSections:original.hiddenSections.filter(id=>id!=='demand')};
   const snapshot = await getCatalogueSnapshot();
   const valuePool = snapshot.filter(
     (p) => p.price > 0 && p.price < 300 && p.images.length,
@@ -85,7 +89,7 @@ async function LoadedStorefront({ config }: { config?: StoreConfig }) {
     return {key:collection.slug,handles:[...pool.filter(p=>collection.match.test(p.name)),...pool.filter(p=>!collection.match.test(p.name))].map(p=>p.slug)};
   });
   const rows=await selectHomepageRows([
-    {key:'demand',handles:merchandising?.products.map(p=>p.slug)||[]},
+    {key:'demand',handles:merchandising?.products.map(p=>p.slug)||[],limit:50},
     {key:'featured',handles:store.featuredSlugs},
     {key:'value',handles:[...valueHandles,...valuePool.map(p=>p.slug)],maxPrice:300},
     ...collectionPlans,
