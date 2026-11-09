@@ -28,22 +28,22 @@ export const intents=[
 ];
 function termSummary(record,term){return record?.summaries?.find(s=>s.term===term);}
 function observedPoints(record,term){return (record?.series||[]).filter(p=>!p.partial&&p.values?.some(v=>v.term===term&&typeof v.index==='number'&&v.index>0)).length;}
-export function rankDemand(products,records,now=Date.now(),limit=50){
- const fresh=records.filter(r=>r.geography==='ZA'&&r.status==='retrieved'&&Date.parse(r.observedAt)<=now&&now-Date.parse(r.observedAt)<=7*DAY);
+export function rankDemand(products,records,now=Date.now(),limit=50,{geography='ZA',definitions=intents,anchorTerm='air fryer',maxAgeDays=7}={}){
+ const fresh=records.filter(r=>r.geography===geography&&r.status==='retrieved'&&Date.parse(r.observedAt)<=now&&now-Date.parse(r.observedAt)<=maxAgeDays*DAY);
  const signals=[];
- for(const [term,include,exclude,lane,angle,season] of intents){
+ for(const [term,include,exclude,lane,angle,season] of definitions){
   const pick=(window,type='web')=>fresh.filter(r=>r.window===window&&r.searchType===type&&termSummary(r,term)?.status==='observed').sort((a,b)=>Date.parse(b.observedAt)-Date.parse(a.observedAt)||String(a.batch).localeCompare(String(b.batch)))[0];
   const month=pick('30d'),quarter=pick('90d'),year=pick('12m'),week=pick('7d'),shopping=pick('30d','shopping');
   if(!month||!quarter||!year||observedPoints(month,term)<5||observedPoints(quarter,term)<8||observedPoints(year,term)<8)continue;
   const m=termSummary(month,term),q=termSummary(quarter,term),w=termSummary(week,term);
   // A recent reversal, broad decline or a sparse single spike cannot lead the opening selection.
   if((w&&(w.changePercent??0)<-15)||(m.changePercent??0)<-15||(q.changePercent??0)<-15)continue;
-  const anchor=termSummary(month,'air fryer')?.recentMean||0;
+  const anchor=termSummary(month,anchorTerm)?.recentMean||0;
   const ratio=anchor>0?m.recentMean/anchor:0;
   const shoppingSupported=observedPoints(shopping,term)>=5;
   const demand=Math.min(30,Math.round(8+Math.min(8,ratio*16)+((m.changePercent??0)>10?5:2)+((q.changePercent??0)>10?4:2)+(shoppingSupported?5:0)));
   const creative=12,seasonalFit=season;
-  const evidence=[month,quarter,year,...(week?[week]:[]),...(shopping?[shopping]:[])].slice(0,5).map(r=>({url:r.sourceUrl,observedAt:r.observedAt,signal:'search-trend',note:`ZA ${r.searchType}, ${r.window}, shopper term '${term}'. Category-interest evidence, not exact-SKU sales. Half-window change ${termSummary(r,term)?.changePercent??'not calculable'}%.`}));
+  const evidence=[month,quarter,year,...(week?[week]:[]),...(shopping?[shopping]:[])].slice(0,5).map(r=>({url:r.sourceUrl,observedAt:r.observedAt,signal:'search-trend',note:`${geography} ${r.searchType}, ${r.window}, shopper term '${term}'. Category-interest evidence, not exact-SKU sales. Half-window change ${termSummary(r,term)?.changePercent??'not calculable'}%.`}));
   signals.push({term,include,exclude,lane,angle,demand,creative,seasonalFit,evidence,confidence:shoppingSupported?'moderate':'limited',knownScore:demand+creative+seasonalFit,monthChange:m.changePercent,quarterChange:q.changePercent});
  }
  const candidates=products.flatMap(p=>{
@@ -56,6 +56,6 @@ export function rankDemand(products,records,now=Date.now(),limit=50){
  // Interleave researched intents, with a maximum of ten models per intent.
  const buckets=new Map();for(const p of candidates){const list=buckets.get(p.term)||[];if(list.length<10)list.push(p);buckets.set(p.term,list);}
  const selected=[];for(let i=0;i<10&&selected.length<limit;i++)for(const list of buckets.values()){if(list[i]&&selected.length<limit)selected.push(list[i]);}
- return {entries:selected.map((p,i)=>({...p,rank:i+1})),qualifiedCount:selected.length,matchedCandidates:candidates.length,requestedCount:limit,coverage:[...new Set(fresh.map(r=>r.batch))],qualifiedTerms:[...new Set(selected.map(p=>p.term))],observedAt:fresh.length?fresh.map(r=>r.observedAt).sort().at(-1):null,scope:'ZA category search evidence. Scores provisional. Margin unverified. Social publishing requires approval.'};
+ return {entries:selected.map((p,i)=>({...p,rank:i+1})),qualifiedCount:selected.length,matchedCandidates:candidates.length,requestedCount:limit,coverage:[...new Set(fresh.map(r=>r.batch))],qualifiedTerms:[...new Set(selected.map(p=>p.term))],observedAt:fresh.length?fresh.map(r=>r.observedAt).sort().at(-1):null,scope:`${geography} category search evidence. Scores provisional. Margin unverified. Social publishing requires approval.`};
 }
 export function applyPriority(products,slugs){const order=new Map(slugs.map((s,i)=>[s,i]));return products.map((p,i)=>({p,i})).sort((a,b)=>(order.get(a.p.slug)??Infinity)-(order.get(b.p.slug)??Infinity)||a.i-b.i).map(x=>x.p);}
