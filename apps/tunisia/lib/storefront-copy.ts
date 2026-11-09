@@ -1,5 +1,6 @@
 import {defaultSlides} from '../../../packages/storefront/slides';
-import approved from '@/data/approved-storefront.json';
+import {shoppingMissions} from '../../../packages/storefront/shopping-missions';
+import {storefrontMissionSlugs,storefrontFeaturedTitle} from '../../../packages/storefront/config';
 import {ideas as categories,slides as translatedSlides} from './merchandising';
 import type {Locale,Translation} from './catalogue';
 const tr=(en:string,fr:string,ar:string):Translation=>({en,fr,ar});
@@ -9,7 +10,7 @@ export const copy={
  allIdeas:tr('Explore all 15 shopping ideas','Découvrez nos 15 idées shopping','اكتشف 15 فكرة للتسوق'),
  all:tr('View all','Tout voir','عرض الكل'),
  explore:tr('Explore more','Découvrir davantage','اكتشف المزيد'),
- featured:tr(approved.featuredTitle,'Choisis pour votre quotidien','مختارات لحياتك اليومية'),
+ featured:tr(storefrontFeaturedTitle,'Choisis pour votre quotidien','مختارات لحياتك اليومية'),
  budgetTitle:tr('Good finds. Your budget.','De belles trouvailles. À votre budget.','اختيارات جميلة تناسب ميزانيتك.'),
  under:tr('Shop finds under','Des trouvailles à moins de','تسوّق بأقل من'),
  options:tr('Choose options','Choisir les options','اختر الخيارات'),
@@ -70,8 +71,8 @@ const missionTranslations:Record<string,[string,string,string,string]>={
  'bedroom':['Une chambre qui vous ressemble','اجعل غرفة نومك على ذوقك','Du linge de lit, du mobilier de chevet et du rangement pour une chambre adaptée à vous.','مفروشات وأثاث بجانب السرير وتنظيم لغرفة نوم تناسبك.'],
  'dining-room':['Réunissez tout le monde à table','اجمع الجميع حول المائدة','Mobilier, vaisselle et essentiels de service pour les repas quotidiens et les moments partagés.','أثاث وأوانٍ وأساسيات تقديم للوجبات اليومية والمناسبات المشتركة.']
 };
-export const homeMissions=approved.missions.map(m=>{const t=missionTranslations[m.slug];const category=categories.find(c=>c.key===missionKeys[m.slug]);return {...m,key:missionKeys[m.slug],image:m.image.startsWith('/brand/')?'/tunisia'+m.image:m.image,title:tr(m.title,t?.[0]||category?.title.fr||m.title,t?.[1]||category?.title.ar||m.title),description:tr(m.description,t?.[2]||'Des idées utiles pour votre quotidien.',t?.[3]||'أفكار مفيدة لحياتك اليومية.')};});
-export const featuredMissions=approved.featuredMissions;
+export const homeMissions=shoppingMissions.map(source=>({...source,title:source.shortTitle})).map(m=>{const t=missionTranslations[m.slug];const category=categories.find(c=>c.key===missionKeys[m.slug]);return {...m,key:missionKeys[m.slug],image:m.image.startsWith('/brand/')?'/tunisia'+m.image:m.image,title:tr(m.title,t?.[0]||category?.title.fr||m.title,t?.[1]||category?.title.ar||m.title),description:tr(m.description,t?.[2]||'Des idées utiles pour votre quotidien.',t?.[3]||'أفكار مفيدة لحياتك اليومية.')};});
+export const featuredMissions=storefrontMissionSlugs;
 export const discoveryGroups=[
  {title:tr('Make yourself at home','Faites comme chez vous','اشعر بأنك في بيتك'),text:tr('Stylish living for everyday life.','Du style pour la vie de tous les jours.','أناقة للحياة اليومية.'),action:tr('Shop home & kitchen','Maison et cuisine','تسوّق المنزل والمطبخ'),key:'home',items:['living','kitchen','bedroom','dining']},
  {title:tr('A little everyday care','Un peu de soin au quotidien','قليل من العناية كل يوم'),text:tr('Feel good, every day.','Se sentir bien, chaque jour.','اشعر بالراحة كل يوم.'),action:tr('Shop beauty','Beauté et soins','تسوّق الجمال'),key:'care',items:['care','hair','fragrances','bathroom']},
