@@ -6,7 +6,7 @@ export async function GET(request:NextRequest){
  const search=q.get('search')||'';const category=q.get('collection')||q.get('category')||'';const sort=q.get('sort')||'featured';
  let result;
  if(!q.has('minPrice')&&!q.has('maxPrice')&&q.get('available')!=='true'&&!['price-low','price-high'].includes(sort)){
-  result=await getCataloguePage(search,category,page,limit);
+  result=await getCataloguePage(search,category,page,limit,undefined,sort);
  }else{
   let all=await getCatalogueProducts(search,category,sort,q.get('available')==='true');
   const min=Number(q.get('minPrice'));const max=q.has('maxPrice')?Number(q.get('maxPrice')):Infinity;
