@@ -9,7 +9,7 @@ import { getHomepageMerchandising } from "@/lib/homepage-merchandising-store";
 import { ShoppingMissions } from "@/components/shop/shopping-missions";
 import { liveCms } from "@/lib/cms/store";
 import { themes, type StoreConfig } from "@/lib/cms/domain";
-import { getCatalogueSnapshot, getCatalogueProduct } from "@/lib/catalogue";
+import { getCatalogueSnapshot, getCatalogueProduct, getDemandOpening } from "@/lib/catalogue";
 import { CatalogueCard } from "@/components/shop/catalogue-card";
 
 const collectionSpecs = [
@@ -75,6 +75,8 @@ async function LoadedStorefront({ config }: { config?: StoreConfig }) {
     ),
   ];
   const merchandising=await getHomepageMerchandising();
+  const opening=await getDemandOpening();
+  const validated=new Map(opening.products.map(product=>[product.slug,product]));
   const orderedSpecs=[...collectionSpecs].sort((a,b)=>{
     const order=merchandising?.departmentOrder||[];
     const rank=(slug:string)=>{const i=order.indexOf(slug);return i<0?order.length:i;};
@@ -89,7 +91,7 @@ async function LoadedStorefront({ config }: { config?: StoreConfig }) {
     {key:'featured',handles:store.featuredSlugs},
     {key:'value',handles:[...valueHandles,...valuePool.map(p=>p.slug)],maxPrice:300},
     ...collectionPlans,
-  ],(slug,timeout)=>getCatalogueProduct(slug,false,false,'ZA',timeout));
+  ],(slug,timeout)=>validated.has(slug)?Promise.resolve(validated.get(slug)!):getCatalogueProduct(slug,false,false,'ZA',timeout));
   const demandProducts=rows.demand,featuredProducts=rows.featured,valueProducts=rows.value;
   const activeMerchandising=demandProducts.length?merchandising:null;
   const collections=orderedSpecs.map(collection=>({...collection,products:rows[collection.slug]}));
