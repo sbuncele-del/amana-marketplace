@@ -6,7 +6,8 @@ import { experiencePool } from "@/lib/experience/store";
 import { bobGoTopics } from "@/lib/delivery/bobgo-webhook";
 import { ensureBobGoWebhooks } from "@/lib/delivery/bobgo-webhook-store";
 
-const deliveryURL = "https://www.plentovo.com/api/webhooks/bobgo";
+const deliveryURL = "https://plentovo.com/api/webhooks/bobgo";
+const legacyURL = "https://www.plentovo.com/api/webhooks/bobgo";
 const key = () => process.env.BOBGO_API_KEY || process.env.BOB_GO_SALES_CHANNEL_API_KEY;
 type Subscription = { id: number; topic: string; delivery_url: string; status: string };
 async function subscriptions(method = "GET", body?: unknown): Promise<Subscription[]> {
@@ -49,9 +50,9 @@ export async function POST(request: NextRequest) {
     await client.query("SELECT pg_advisory_xact_lock(792046330)");
     const existing = await subscriptions();
     const changes = bobGoTopics.flatMap(topic => {
-      const matches = existing.filter(row => row.topic === topic && row.delivery_url === deliveryURL);
-      if (matches.some(row => row.status === "active")) return [];
-      const row = matches[0];
+      const matches = existing.filter(row => row.topic === topic && [deliveryURL, legacyURL].includes(row.delivery_url));
+      if (matches.some(row => row.status === "active" && row.delivery_url === deliveryURL)) return [];
+      const row = matches.find(row => row.delivery_url === deliveryURL) ?? matches[0];
       return [{ ...(row ? { id: row.id } : {}), topic, delivery_url: deliveryURL, status: "active" }];
     });
     return changes.length ? await subscriptions("POST", { webhook_subscriptions: changes }) : existing;
