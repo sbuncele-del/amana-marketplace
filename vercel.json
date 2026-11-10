@@ -11,6 +11,10 @@
     {
       "path": "/api/cron/tunisia-demand",
       "schedule": "30 6 * * *"
+    },
+    {
+      "path": "/api/cron/bobgo",
+      "schedule": "*/5 * * * *"
     }
   ]
 }
