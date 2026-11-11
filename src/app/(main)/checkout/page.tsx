@@ -12,8 +12,8 @@ import {MapPin,Truck,CreditCard} from 'lucide-react';
 export default function CheckoutPage(){const {data:session,status}=useSession();const {lines,totalAmount,loading,deliveryMethod,clearCart}=useCart();const shipping=deliveryFee(lines,deliveryMethod);const {address,open,addAddress}=useDelivery();const total=formatCurrency(Number(totalAmount?.amount||0),'ZAR');
  const router=useRouter();
  const needsAddress=deliveryMethod==='DELIVERY'&&!address;
- const actionHint=busy?'We’re checking availability and saving your order.':!session?.user?'Sign in so we can save your order and send your payment instructions.':needsAddress?'Add your delivery address or choose free collection to continue.':'Your bank details and payment reference will appear after you place the order.';
  const [busy,setBusy]=useState(false);
+ const actionHint=busy?'We’re checking availability and saving your order.':!session?.user?'Sign in so we can save your order and send your payment instructions.':needsAddress?'Add your delivery address or choose free collection to continue.':'Your bank details and payment reference will appear after you place the order.';
  const [error,setError]=useState('');
  const submitting=useRef(false);
  async function placeOrder(){
