@@ -2,7 +2,8 @@ import {Geist} from 'next/font/google';
 import {redirect} from 'next/navigation';
 import {commerceActor, CommerceError} from '@/lib/commerce/access';
 import {permits} from '@/lib/commerce/domain';
-import {operator, ExperienceError} from '@/lib/experience/access';
+import {operator, canAccess, ExperienceError} from '@/lib/experience/access';
+import {quoteTeam} from '@/lib/back-office-quote';
 import type {Market} from '@/lib/back-office';
 import {LiveBackOffice} from './live-back-office';
 
@@ -26,5 +27,5 @@ export default async function BackOfficePage({searchParams}: {searchParams: Prom
       <p className="mt-3">{unavailable ? 'Back office access could not be checked. Refresh to try again.' : 'Your account needs access to an operations market.'}</p></main>;
   }
   const {view} = await searchParams;
-  return <div className={geist.className}><LiveBackOffice key={view} markets={markets} view={view} /></div>;
+  return <div className={geist.className}><LiveBackOffice key={view} markets={markets} view={view} canCreateQuote={operations.status === 'fulfilled' && canAccess(operations.value, quoteTeam)} /></div>;
 }

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import {Check, FileText, Landmark, Package, Search, ShoppingCart, Truck, X} from 'lucide-react';
 import {marketNames, queues, type BackOfficeOrder, type BackOfficeReport, type Market} from '@/lib/back-office';
 import {STATUS_LABEL, type DeskStatus} from '@/lib/orders-desk/domain';
+import {NewEnquiry, QuotePaymentInstructions, QuoteWorkspace} from './quote-workspace';
 import {BackOfficeNavigation} from './navigation';
 import styles from '../../experience-preview/preview.module.css';
 
@@ -27,7 +28,8 @@ async function read<T>(url: string, signal: AbortSignal): Promise<T> {
   return body;
 }
 
-export function LiveBackOffice({markets, view}: {markets: Market[]; view?: string}) {
+export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market[]; view?: string; canCreateQuote: boolean}) {
+  const [newEnquiry, setNewEnquiry] = useState(false);
   const [market, setMarket] = useState(markets[0]);
   const tab = view === 'orders' ? 'Orders' : view === 'payments' ? 'Payments' : view === 'quotes' ? 'Quotes' : view === 'delivery' ? 'Delivery' : 'Today';
   const [queue, setQueue] = useState<Queue>(tab === 'Payments' ? 'payment' : tab === 'Quotes' ? 'quote' : tab === 'Delivery' ? 'delivery' : 'all');
@@ -154,7 +156,7 @@ export function LiveBackOffice({markets, view}: {markets: Market[]; view?: strin
     <BackOfficeNavigation active={tab} />
     <header className={styles.header}>
       <select className={styles.market} aria-label="Market" value={market} disabled={saving} onChange={event => {
-        setMarket(event.target.value as Market); changeQueue(tab === 'Payments' ? 'payment' : tab === 'Quotes' ? 'quote' : tab === 'Delivery' ? 'delivery' : 'all');
+        setNewEnquiry(false); setMarket(event.target.value as Market); changeQueue(tab === 'Payments' ? 'payment' : tab === 'Quotes' ? 'quote' : tab === 'Delivery' ? 'delivery' : 'all');
         setReport(null); setLoadedAt(null); setSearch(''); setSubmittedSearch('');
       }}>{markets.map(code => <option key={code} value={code}>{code === 'ZA' ? '🇿🇦' : '🇹🇳'} {marketNames[code]}</option>)}</select>
       <form className={styles.search} onSubmit={event => {event.preventDefault(); resetDetail(); setPage(1); setSubmittedSearch(search.trim());}}>
@@ -177,7 +179,16 @@ export function LiveBackOffice({markets, view}: {markets: Market[]; view?: strin
       })}</div>}
       {error && <p role="alert" className="my-3 text-sm text-red-800">{error}{report && ' Showing the last successful results.'}</p>}
       {notice && <p role="status" className={styles.notice}>{notice}</p>}
-      <h2>{queue === 'all' ? 'Order queue' : definitions.find(item => item.key === queue)?.title}</h2>
+      <div className="flex flex-wrap items-center justify-between gap-x-4">
+        <h2>{queue === 'all' ? 'Order queue' : definitions.find(item => item.key === queue)?.title}</h2>
+        {tab === 'Quotes' && market === 'ZA' && canCreateQuote && !newEnquiry &&
+          <button type="button" className="rounded-lg bg-[#d4252d] px-4 py-2 text-sm font-semibold text-white"
+            onClick={() => {resetDetail(); setNotice(''); setNewEnquiry(true);}}>New enquiry</button>}
+      </div>
+      {newEnquiry && <NewEnquiry onCancel={() => setNewEnquiry(false)} onSaved={result => {
+        setNewEnquiry(false); setSelectedId(result.id); setHistory(null); setSearch(''); setSubmittedSearch(''); setPage(1);
+        setNotice(`Enquiry ${result.reference} saved.`); setSync(value => value + 1);
+      }} />}
       <div className={styles.tableWrap} aria-busy={loading}>
         <table className={styles.table}>
           <thead><tr><th scope="col">Order / quote</th><th scope="col">Status</th><th scope="col">Next action</th><th scope="col">{market === 'TN' ? 'Last called by' : 'Owner'}</th></tr></thead>
@@ -186,13 +197,13 @@ export function LiveBackOffice({markets, view}: {markets: Market[]; view?: strin
               trigger.current = event.currentTarget; resetDetail(); setHistory(null); setSelectedId(order.id);
               requestAnimationFrame(() => closeButton.current?.focus());
             }}><span className={styles.tile} data-stage="order"><ShoppingCart size={22} aria-hidden="true" /></span>
-              <span><strong>{order.reference}</strong><small>{order.customer || 'Customer'}</small></span></button></td>
+              <span><strong>{order.reference}</strong><small>{order.customer || 'Customer'}</small>{market === 'ZA' && order.bucket === 'quote' && order.items[0] && <small>{order.items[0].quantity} × {order.items[0].name}</small>}</span></button></td>
             <td><span className={styles.chip} data-stage={order.bucket}>{label(order)}</span></td>
-            <td>{definitions.find(item => item.key === order.bucket)?.action ?? 'View order'}</td>
+            <td>{market === 'ZA' && order.status === 'ENQUIRY' ? 'Price quote' : definitions.find(item => item.key === order.bucket)?.action ?? 'View order'}</td>
             <td>{order.owner || '–'}</td>
           </tr>)}</tbody>
         </table>
-        {!report?.orders.length && <p className={styles.empty}>{loading ? 'Loading orders…' : error ? 'Refresh to retry.' : 'No orders match this view.'}</p>}
+        {!report?.orders.length && <p className={styles.empty}>{loading ? 'Loading orders…' : error ? 'Refresh to retry.' : tab === 'Quotes' && market === 'ZA' ? 'No enquiries or quotes match this view.' : 'No orders match this view.'}</p>}
       </div>
       {(page > 1 || (report?.total ?? 0) > 25) && <div className="mt-5 flex items-center gap-4 text-sm">
         <button disabled={page <= 1 || saving || loading} className="underline disabled:opacity-40" onClick={() => {resetDetail(); setPage(value => value - 1);}}>Previous</button>
@@ -213,15 +224,20 @@ export function LiveBackOffice({markets, view}: {markets: Market[]; view?: strin
           {item.unit !== null && <span>{money(item.unit * item.quantity, market)}</span>}
         </div>)}
       </section>
-      <div className={styles.amount}><span>Items</span><span>{money(selected.subtotal, market)}</span></div>
+      <div className={styles.amount}><span>Items</span><span>{selected.items.some(item => item.unit === null) ? 'Awaiting pricing' : money(selected.subtotal, market)}</span></div>
       <div className={styles.amount}><span>Delivery</span><span>{selected.delivery === null ? 'Awaiting confirmation' : money(selected.delivery, market)}</span></div>
       <div className={styles.total}><strong>Total</strong><strong>{selected.delivery === null ? 'Pending' : money(selected.subtotal + selected.delivery, market)}</strong></div>
+      {market === 'ZA' && selected.bucket === 'quote' && <QuoteWorkspace key={selected.id} order={selected} onSaved={message => {
+        setNotice(message); setSync(value => value + 1);
+      }} />}
+      {selected.bucket !== 'quote' && selected.deliveryTerms && <p className="my-3 whitespace-pre-wrap text-sm"><strong>Agreed delivery terms</strong><br />{selected.deliveryTerms}</p>}
       {market === 'TN' && <p className="mb-4 text-sm text-gray-600">COD settlement requires confirmation from your courier records.</p>}
       <section className={styles.history}><h3>Order history</h3>
         {historyError ? <p role="alert">{historyError}</p> : history === null ? <p>Loading history…</p> : history.length ? <ol>{history.map((event, index) =>
           <li key={index}><Check size={18} /><span><strong>{event.label}</strong><small>{date(event.at, market)}{event.actor && ` · ${event.actor}`}</small>{event.note && <small>{event.note}</small>}</span></li>
         )}</ol> : <p className="mt-2 text-sm text-gray-600">No history has been recorded.</p>}
       </section>
+      {selected.canVerify && selected.quotePricing && <QuotePaymentInstructions key={selected.id} id={selected.id} />}
       {selected.canVerify && selected.delivery !== null ? review ? <form className={styles.review} onSubmit={event => {event.preventDefault(); void saveMilestone(selected, 'PAID', 'Cleared EFT matched to the order reference and total in Back Office.');}}>
         <p className="text-sm">Match the cleared deposit’s beneficiary reference to <strong>{selected.reference}</strong> and check the amount in your bank statement. Record the bank’s transaction ID below. If the bank shows only the beneficiary reference, record that reference.</p>
         <label>Bank statement transaction ID or reference<input required maxLength={100} autoFocus disabled={saving} value={reference} onChange={event => setReference(event.target.value)} /></label>

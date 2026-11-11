@@ -33,6 +33,7 @@ export async function POST(request:NextRequest){try{
   if(a.action==='note'){note=a.note;type='NOTE';}
   if(a.action==='assign'){if(!canManage(op,r.teamId))throw new ExperienceError(403,'A team lead must assign this record.');if(!op.admin&&a.teamId!==r.teamId)throw new ExperienceError(403,'Only an administrator can transfer between teams.');if(a.ownerId){const membership=(await client.query('SELECT m.user_id FROM experience_members m JOIN "User" u ON u.id=m.user_id WHERE m.team_id=$1 AND m.user_id=$2 AND m.active=true AND u."isActive"=true',[a.teamId,a.ownerId])).rows[0];if(!membership&&a.ownerId!==op.id)throw new ExperienceError(400,'Choose an active member of the receiving team.');}teamId=a.teamId;ownerId=a.ownerId;type='OWNERSHIP_CHANGED';note='Responsibility assigned to the selected team and owner.';}
   if(a.action==='transition'){
+   if((data.source==='BACK_OFFICE_QUOTE'||data.quotePricing)&&['QUOTED','CONFIRMED'].includes(a.status))throw new ExperienceError(400,'Use the Back Office Quotes screen to price or accept this quote.');
    if(!checkTransition(r,a.status))throw new ExperienceError(400,'This change does not follow the order or care workflow.');
    if(r.kind==='ORDER'&&!canManage(op,r.teamId))throw new ExperienceError(403,'A team lead must confirm order milestones.');
    if(a.status==='QUOTED'&&a.shippingCents===undefined)throw new ExperienceError(400,'Confirm delivery cost, including zero for free delivery.');
