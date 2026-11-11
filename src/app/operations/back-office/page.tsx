@@ -9,7 +9,7 @@ import {LiveBackOffice} from './live-back-office';
 const geist = Geist({subsets: ['latin']});
 export const metadata = {title: 'Back Office | Plentovo', robots: {index: false, follow: false}};
 
-export default async function BackOfficePage() {
+export default async function BackOfficePage({searchParams}: {searchParams: Promise<{view?: string}>}) {
   const results = await Promise.allSettled([operator(), commerceActor()]);
   const [operations, commerce] = results;
   const markets: Market[] = [];
@@ -25,5 +25,6 @@ export default async function BackOfficePage() {
     return <main className="mx-auto max-w-xl p-10"><h1 className="text-2xl font-bold">Plentovo Back Office</h1>
       <p className="mt-3">{unavailable ? 'Back office access could not be checked. Refresh to try again.' : 'Your account needs access to an operations market.'}</p></main>;
   }
-  return <div className={geist.className}><LiveBackOffice markets={markets} /></div>;
+  const {view} = await searchParams;
+  return <div className={geist.className}><LiveBackOffice key={view} markets={markets} view={view} /></div>;
 }

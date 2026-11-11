@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
           html: `<p>We received your order. Use ${reference} as your EFT reference.</p><p><a href="${siteUrl}/checkout/eft/${reference}">View your items, total and payment instructions</a></p>`,
           idempotencyKey: `eft-customer-${reference}`}),
         ...(alerts ? [sendMail({to: alerts, subject: `New EFT order — ${reference}`,
-          html: `<p>Order ${reference} is awaiting EFT. <a href="${siteUrl}/operations">Open Operations</a> to view its items and verify the bank transfer.</p>`,
+          html: `<p>Order ${reference} is awaiting EFT. <a href="${siteUrl}/operations/back-office?view=payments">Open Back Office</a> to view its items and verify the bank transfer.</p>`,
           idempotencyKey: `eft-staff-${reference}`})] : []),
       ]);
       if (results.some(result => result.status === 'rejected')) console.warn('EFT order email failed', reference);
