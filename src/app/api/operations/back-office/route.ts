@@ -1,3 +1,4 @@
+import {savedOrderPhoto} from '@/lib/order-item-image';
 import {NextRequest, NextResponse} from 'next/server';
 import {z} from 'zod';
 import {commerceActor, CommerceError, requireMarket} from '@/lib/commerce/access';
@@ -84,6 +85,8 @@ export async function GET(request: NextRequest) {
       items: (row.items ?? []).map(item => ({
         name: String(item.name ?? item.title ?? 'Item'), quantity: Number(item.quantity),
         unit: typeof (item.unitPriceCents ?? item.unitMillimes) === 'number' ? Number(item.unitPriceCents ?? item.unitMillimes) : null,
+        photo: savedOrderPhoto(item),
+        hasCartId: typeof item.id === 'string' && item.id.includes(':'),
         option: typeof item.option === 'string' ? item.option : undefined,
         sku: typeof item.sku === 'string' ? item.sku : undefined,
       })),
