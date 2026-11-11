@@ -4,6 +4,7 @@ import {commerceActor, CommerceError, requireMarket} from '@/lib/commerce/access
 import {operator, ExperienceError, canManage} from '@/lib/experience/access';
 import {experiencePool} from '@/lib/experience/store';
 import {deskPool} from '@/lib/orders-desk/pool';
+import type {QuotePricing} from '@/lib/back-office-quote';
 import type {BackOfficeOrder, Market} from '@/lib/back-office';
 
 const query = z.object({
@@ -18,6 +19,10 @@ const zaSource = `
     coalesce(r.data->>'customerName','') AS customer,coalesce(r.data->>'city','') AS location,
     r.data->>'deliveryMethod' AS delivery_method, r.data->>'trackingNumber' AS tracking_number, r.data->'items' AS items, (r.data->>'subtotalCents')::numeric AS subtotal,
     (r.data->>'shippingCents')::numeric AS delivery,
+    r.data->'quotePricing' AS quote_pricing, r.data->>'deliveryTerms' AS delivery_terms,
+    r.data->>'enquiryNote' AS enquiry_note,
+    CASE WHEN r.status IN ('ENQUIRY','QUOTED') THEN r.data->>'email' END AS quote_email,
+    CASE WHEN r.status IN ('ENQUIRY','QUOTED') THEN r.data->>'phone' END AS quote_phone,
     CASE WHEN r.status='CONFIRMED' AND r.data->>'paymentMethod'='EFT' THEN 'payment'
       WHEN r.status IN ('PAID','FULFILMENT') THEN 'dispatch'
       WHEN r.status='SHIPPED' THEN 'delivery'
@@ -70,6 +75,7 @@ export async function GET(request: NextRequest) {
     const orders = report.orders.map((row: {
       id: string; reference: string; status: string; bucket: string | null; customer: string;
       location: string; owner: string | null; created_at: string; subtotal: number; delivery: number | null;
+      quote_pricing?: QuotePricing; delivery_terms?: string; enquiry_note?: string; quote_email?: string; quote_phone?: string;
       version?: number; team_id?: string; delivery_method?: string; carrier_status?: string; tracking_number?: string; items: Record<string, unknown>[] | null;
     }): BackOfficeOrder => ({
       id: row.id, reference: row.reference, status: row.status, bucket: row.bucket,
@@ -82,6 +88,8 @@ export async function GET(request: NextRequest) {
         sku: typeof item.sku === 'string' ? item.sku : undefined,
       })),
       version: row.version, carrierStatus: row.carrier_status || undefined, trackingNumber: row.tracking_number || undefined,
+      quotePricing: row.quote_pricing || undefined, deliveryTerms: row.delivery_terms || undefined,
+      enquiryNote: row.enquiry_note || undefined, quoteEmail: row.quote_email || undefined, quotePhone: row.quote_phone || undefined,
       collection: row.delivery_method === 'COLLECTION',
       canManage: !!op && canManage(op, row.team_id ?? null),
       canVerify: !!op && row.bucket === 'payment' && canManage(op, row.team_id ?? null),

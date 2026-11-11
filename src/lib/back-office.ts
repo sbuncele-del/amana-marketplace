@@ -1,3 +1,5 @@
+import type {QuotePricing} from './back-office-quote';
+
 export type Market = 'ZA' | 'TN';
 
 export const marketNames = {ZA: 'South Africa', TN: 'Tunisia'} as const;
@@ -34,6 +36,11 @@ export type BackOfficeOrder = {
   collection: boolean;
   carrierStatus?: string;
   trackingNumber?: string;
+  quotePricing?: QuotePricing;
+  deliveryTerms?: string;
+  enquiryNote?: string;
+  quoteEmail?: string;
+  quotePhone?: string;
 };
 export type BackOfficeReport = {
   market: Market;
