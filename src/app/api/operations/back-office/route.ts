@@ -16,7 +16,7 @@ const query = z.object({
 const zaSource = `
   SELECT r.id,r.reference,r.status,r.created_at,r.team_id,r.version,u.name AS owner,
     coalesce(r.data->>'customerName','') AS customer,coalesce(r.data->>'city','') AS location,
-    r.data->>'trackingNumber' AS tracking_number, r.data->'items' AS items, (r.data->>'subtotalCents')::numeric AS subtotal,
+    r.data->>'deliveryMethod' AS delivery_method, r.data->>'trackingNumber' AS tracking_number, r.data->'items' AS items, (r.data->>'subtotalCents')::numeric AS subtotal,
     (r.data->>'shippingCents')::numeric AS delivery,
     CASE WHEN r.status='CONFIRMED' AND r.data->>'paymentMethod'='EFT' THEN 'payment'
       WHEN r.status IN ('PAID','FULFILMENT') THEN 'dispatch'
@@ -70,7 +70,7 @@ export async function GET(request: NextRequest) {
     const orders = report.orders.map((row: {
       id: string; reference: string; status: string; bucket: string | null; customer: string;
       location: string; owner: string | null; created_at: string; subtotal: number; delivery: number | null;
-      version?: number; team_id?: string; carrier_status?: string; tracking_number?: string; items: Record<string, unknown>[] | null;
+      version?: number; team_id?: string; delivery_method?: string; carrier_status?: string; tracking_number?: string; items: Record<string, unknown>[] | null;
     }): BackOfficeOrder => ({
       id: row.id, reference: row.reference, status: row.status, bucket: row.bucket,
       customer: row.customer, location: row.location, owner: row.owner, createdAt: row.created_at,
@@ -82,6 +82,8 @@ export async function GET(request: NextRequest) {
         sku: typeof item.sku === 'string' ? item.sku : undefined,
       })),
       version: row.version, carrierStatus: row.carrier_status || undefined, trackingNumber: row.tracking_number || undefined,
+      collection: row.delivery_method === 'COLLECTION',
+      canManage: !!op && canManage(op, row.team_id ?? null),
       canVerify: !!op && row.bucket === 'payment' && canManage(op, row.team_id ?? null),
     }));
     return NextResponse.json({market: market satisfies Market, counts: report.counts, total: report.total, orders}, {headers});

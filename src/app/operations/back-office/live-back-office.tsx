@@ -2,9 +2,10 @@
 
 import {useEffect, useRef, useState} from 'react';
 import Link from 'next/link';
-import {Check, CreditCard, FileText, House, Landmark, Package, Search, ShoppingCart, Truck, X} from 'lucide-react';
+import {Check, FileText, Landmark, Package, Search, ShoppingCart, Truck, X} from 'lucide-react';
 import {marketNames, queues, type BackOfficeOrder, type BackOfficeReport, type Market} from '@/lib/back-office';
 import {STATUS_LABEL, type DeskStatus} from '@/lib/orders-desk/domain';
+import {BackOfficeNavigation} from './navigation';
 import styles from '../../experience-preview/preview.module.css';
 
 const icons = {payment: Landmark, dispatch: Package, delivery: Truck, quote: FileText};
@@ -26,10 +27,10 @@ async function read<T>(url: string, signal: AbortSignal): Promise<T> {
   return body;
 }
 
-export function LiveBackOffice({markets}: {markets: Market[]}) {
+export function LiveBackOffice({markets, view}: {markets: Market[]; view?: string}) {
   const [market, setMarket] = useState(markets[0]);
-  const [tab, setTab] = useState('Today');
-  const [queue, setQueue] = useState<Queue>('all');
+  const tab = view === 'orders' ? 'Orders' : view === 'payments' ? 'Payments' : view === 'quotes' ? 'Quotes' : view === 'delivery' ? 'Delivery' : 'Today';
+  const [queue, setQueue] = useState<Queue>(tab === 'Payments' ? 'payment' : tab === 'Quotes' ? 'quote' : tab === 'Delivery' ? 'delivery' : 'all');
   const [search, setSearch] = useState('');
   const [submittedSearch, setSubmittedSearch] = useState('');
   const [page, setPage] = useState(1);
@@ -113,25 +114,26 @@ export function LiveBackOffice({markets}: {markets: Market[]}) {
     trigger.current?.focus();
   }
 
-  async function verifyPayment(order: BackOfficeOrder) {
-    if (!reference.trim() || !cleared || saving) return;
+  async function saveMilestone(order: BackOfficeOrder, status: string, note: string) {
+    if (saving || !cleared || (['PAID', 'SHIPPED'].includes(status) && !reference.trim())) return;
     setSaving(true);
     setPaymentError('');
     try {
       const response = await fetch('/api/experience/command', {
         method: 'POST', headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({action: 'transition', id: order.id, version: order.version, status: 'PAID',
-          note: 'Cleared EFT matched to the order reference and total in Back Office.', paymentReference: reference.trim()}),
+        body: JSON.stringify({action: 'transition', id: order.id, version: order.version, status, note,
+          ...(status === 'PAID' ? {paymentReference: reference.trim()} : {}),
+          ...(status === 'SHIPPED' ? {trackingNumber: reference.trim()} : {})}),
       });
       const body = await response.json();
-      if (!response.ok) throw new Error(body.error || 'Payment could not be recorded.');
+      if (!response.ok) throw new Error(body.error || 'The order update could not be recorded.');
       setReview(false);
       setReference('');
       setCleared(false);
-      setNotice(`Order ${order.reference} marked paid and ready for fulfilment.`);
+      setNotice(`Order ${order.reference} updated. ${note}`);
       setSync(previous => previous + 1);
     } catch (error) {
-      setPaymentError(error instanceof Error ? error.message : 'Payment could not be recorded.');
+      setPaymentError(error instanceof Error ? error.message : 'The order update could not be recorded.');
     } finally {
       setSaving(false);
     }
@@ -140,26 +142,19 @@ export function LiveBackOffice({markets}: {markets: Market[]}) {
   const label = (order: BackOfficeOrder) => market === 'TN'
     ? STATUS_LABEL[order.status as DeskStatus] || statusText(order.status)
     : order.bucket === 'payment' ? 'Awaiting EFT' : statusText(order.status);
-  const destination = market === 'ZA' ? '/operations' : '/operations/orders';
+  const milestone = !selected?.canManage ? null
+    : selected.status === 'PAID' ? {status: 'FULFILMENT', title: 'Start fulfilment', note: 'Fulfilment started.'}
+    : selected.status === 'FULFILMENT' ? selected.collection
+      ? {status: 'DELIVERED', title: 'Record customer collection', note: 'Customer collection confirmed.'}
+      : {status: 'SHIPPED', title: 'Mark as shipped', note: 'Handed over to the courier.'}
+    : selected.status === 'SHIPPED' ? {status: 'DELIVERED', title: 'Mark as delivered', note: 'Courier delivery confirmed.'}
+    : null;
 
   return <div className={styles.shell} data-panel={!!selected}>
-    <aside className={styles.sidebar}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/brand/plentovo-light.svg" alt="Plentovo" className={styles.logo} />
-      <nav aria-label="Back office">
-        {[{title: 'Today', icon: House, queue: 'all'}, {title: 'Orders', icon: ShoppingCart, queue: 'all'},
-          {title: market === 'ZA' ? 'Payments' : 'COD calls', icon: CreditCard, queue: 'payment'},
-          {title: 'Delivery', icon: Truck, queue: 'delivery'},
-          ...(market === 'ZA' ? [{title: 'Quotes', icon: FileText, queue: 'quote'}] : [])].map(({title, icon: Icon, queue: key}) =>
-          <button key={title} disabled={saving} aria-current={tab === title ? 'page' : undefined} onClick={() => {setTab(title); changeQueue(key as Queue);}}>
-            <Icon size={24} aria-hidden="true" />{title}
-          </button>)}
-      </nav>
-      <Link href={destination} className="mx-5 mt-8 block text-sm underline">{market === 'ZA' ? 'Operations centre' : 'Tunisia Orders Desk'}</Link>
-    </aside>
+    <BackOfficeNavigation active={tab} />
     <header className={styles.header}>
       <select className={styles.market} aria-label="Market" value={market} disabled={saving} onChange={event => {
-        setMarket(event.target.value as Market); setTab('Today'); changeQueue('all');
+        setMarket(event.target.value as Market); changeQueue(tab === 'Payments' ? 'payment' : tab === 'Quotes' ? 'quote' : tab === 'Delivery' ? 'delivery' : 'all');
         setReport(null); setLoadedAt(null); setSearch(''); setSubmittedSearch('');
       }}>{markets.map(code => <option key={code} value={code}>{code === 'ZA' ? '🇿🇦' : '🇹🇳'} {marketNames[code]}</option>)}</select>
       <form className={styles.search} onSubmit={event => {event.preventDefault(); resetDetail(); setPage(1); setSubmittedSearch(search.trim());}}>
@@ -227,14 +222,24 @@ export function LiveBackOffice({markets}: {markets: Market[]}) {
           <li key={index}><Check size={18} /><span><strong>{event.label}</strong><small>{date(event.at, market)}{event.actor && ` · ${event.actor}`}</small>{event.note && <small>{event.note}</small>}</span></li>
         )}</ol> : <p className="mt-2 text-sm text-gray-600">No history has been recorded.</p>}
       </section>
-      {selected.canVerify && selected.delivery !== null ? review ? <form className={styles.review} onSubmit={event => {event.preventDefault(); void verifyPayment(selected);}}>
-        <label>Bank transaction reference<input required maxLength={100} autoFocus disabled={saving} value={reference} onChange={event => setReference(event.target.value)} /></label>
+      {selected.canVerify && selected.delivery !== null ? review ? <form className={styles.review} onSubmit={event => {event.preventDefault(); void saveMilestone(selected, 'PAID', 'Cleared EFT matched to the order reference and total in Back Office.');}}>
+        <p className="text-sm">Match the cleared deposit’s beneficiary reference to <strong>{selected.reference}</strong> and check the amount in your bank statement. Record the bank’s transaction ID below. If the bank shows only the beneficiary reference, record that reference.</p>
+        <label>Bank statement transaction ID or reference<input required maxLength={100} autoFocus disabled={saving} value={reference} onChange={event => setReference(event.target.value)} /></label>
         <label className={styles.check}><input type="checkbox" required disabled={saving} checked={cleared} onChange={event => setCleared(event.target.checked)} />The reference matches order {selected.reference} and {money(selected.subtotal + selected.delivery, market)} has cleared.</label>
         {paymentError && <p role="alert" className="text-sm text-red-800">{paymentError}</p>}
         <button className={styles.primary} disabled={saving || loading}>{saving ? 'Recording…' : 'Mark as paid'}</button>
         <button type="button" className={styles.cancel} disabled={saving} onClick={() => {setReview(false); setReference(''); setCleared(false); setPaymentError('');}}>Cancel</button>
       </form> : <button className={styles.primary} disabled={loading} onClick={() => setReview(true)}>Review payment</button>
-        : <Link className="mt-3 text-sm font-semibold text-red-700 underline" href={destination}>{market === 'TN' ? 'Manage COD order in Orders Desk' : 'Open Operations Centre'}</Link>}
+        : milestone ? review ? <form className={styles.review} onSubmit={event => {event.preventDefault(); void saveMilestone(selected, milestone.status, milestone.note);}}>
+          {milestone.status === 'SHIPPED' && <label>Courier tracking reference<input required maxLength={100} disabled={saving} value={reference} onChange={event => setReference(event.target.value)} /></label>}
+          <label className={styles.check}><input type="checkbox" required disabled={saving} checked={cleared} onChange={event => setCleared(event.target.checked)} />
+            {milestone.status === 'FULFILMENT' ? 'This order is ready to prepare.' : milestone.status === 'SHIPPED' ? 'The courier has collected this order.' : selected.collection ? 'The customer has collected this order.' : 'Delivery has been confirmed.'}
+          </label>
+          {paymentError && <p role="alert">{paymentError}</p>}
+          <button className={styles.primary} disabled={saving || loading}>{saving ? 'Recording…' : milestone.title}</button>
+          <button type="button" className={styles.cancel} disabled={saving} onClick={() => {setReview(false); setReference(''); setCleared(false); setPaymentError('');}}>Cancel</button>
+        </form> : <button className={styles.primary} disabled={loading} onClick={() => setReview(true)}>{milestone.title}</button>
+          : market === 'TN' && <Link className="mt-3 text-sm font-semibold text-red-700 underline" href="/operations/back-office/tunisia-orders">Manage COD order</Link>}
     </aside>}
   </div>;
 }

@@ -109,3 +109,9 @@
   .tableWrap { margin-left: 0; }
   .previewNote { left: 12px; }
 }
+
+.navLink { display: flex; align-items: center; gap: 20px; height: 52px; padding: 0 22px; border-radius: 10px; font-size: 19px; font-weight: 550; }
+.navLink:hover { background: #252939; }
+.navLink[aria-current] { background: #d4252d; }
+.embedded { overflow-wrap: anywhere; }
+@media (max-width: 780px) { .navLink { flex: 0 0 auto; gap: 8px; height: 42px; padding: 0 12px; font-size: 14px; } .navLink svg { width: 16px; } }

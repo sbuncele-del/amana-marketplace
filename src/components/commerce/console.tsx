@@ -86,15 +86,17 @@ function values(e: FormEvent<HTMLFormElement>) {
 }
 export function CommerceConsole({
   initialMarket = "ZA",
+  initialTab = "Markets",
 }: {
   initialMarket?: string;
+  initialTab?: "Markets" | "Partners" | "Fulfilment";
 }) {
   const [market, setMarket] = useState(initialMarket);
   const [page, setPage] = useState(1);
   const [data, setData] = useState<Data | null>(null);
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
-  const [tab, setTab] = useState("Markets");
+  const [tab, setTab] = useState<string>(initialTab);
   const refresh = useCallback(async () => {
     try {
       const r = await fetch(

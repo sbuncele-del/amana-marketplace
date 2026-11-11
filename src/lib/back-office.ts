@@ -30,6 +30,8 @@ export type BackOfficeOrder = {
   items: {name: string; quantity: number; unit: number | null; option?: string; sku?: string}[];
   version?: number;
   canVerify: boolean;
+  canManage: boolean;
+  collection: boolean;
   carrierStatus?: string;
   trackingNumber?: string;
 };
