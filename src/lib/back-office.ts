@@ -1,3 +1,4 @@
+import type {OrderItemPhoto} from './order-item-image';
 import type {QuotePricing} from './back-office-quote';
 
 export type Market = 'ZA' | 'TN';
@@ -29,7 +30,7 @@ export type BackOfficeOrder = {
   createdAt: string;
   subtotal: number;
   delivery: number | null;
-  items: {name: string; quantity: number; unit: number | null; option?: string; sku?: string}[];
+  items: {name: string; quantity: number; unit: number | null; option?: string; sku?: string; photo?: OrderItemPhoto; hasCartId?: boolean}[];
   version?: number;
   canVerify: boolean;
   canManage: boolean;

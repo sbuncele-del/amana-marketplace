@@ -1,3 +1,4 @@
+import {catalogueOrderPhoto} from '@/lib/order-item-image';
 import {createHash} from 'node:crypto';
 import {after, NextRequest, NextResponse} from 'next/server';
 import {z} from 'zod';
@@ -73,7 +74,8 @@ export async function POST(request: NextRequest) {
       if (!product || !variant?.supplierAvailable || (variant.managedStock !== undefined && line.quantity > variant.managedStock)) return null;
       const unitPriceCents = Math.round(variant.price * 100);
       if (!Number.isSafeInteger(unitPriceCents) || unitPriceCents <= 0) return null;
-      return {...line, slug, sku: product.sku, name: product.name, option: variant.title, unitPriceCents, weightGrams: variant.weightGrams};
+      const photo = catalogueOrderPhoto(product, variant.id);
+      return {...line, image: photo?.url, variantImage: photo?.variant, slug, sku: product.sku, name: product.name, option: variant.title, unitPriceCents, weightGrams: variant.weightGrams};
     }));
     if (items.some(item => item === null)) return fail('An item’s availability changed. Please refresh your cart.', 409);
     const confirmedItems = items.filter(item => item !== null);

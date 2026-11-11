@@ -6,6 +6,7 @@ import {Check, FileText, Landmark, Package, Search, ShoppingCart, Truck, X} from
 import {marketNames, queues, type BackOfficeOrder, type BackOfficeReport, type Market} from '@/lib/back-office';
 import {STATUS_LABEL, type DeskStatus} from '@/lib/orders-desk/domain';
 import {NewEnquiry, QuotePaymentInstructions, QuoteWorkspace} from './quote-workspace';
+import {OrderItems} from './order-items';
 import {BackOfficeNavigation} from './navigation';
 import styles from '../../experience-preview/preview.module.css';
 
@@ -218,12 +219,7 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
         {selected.trackingNumber && <><dt>Tracking</dt><dd className="break-words">{selected.trackingNumber}</dd></>}
         {selected.carrierStatus && <><dt>Carrier status</dt><dd>{statusText(selected.carrierStatus)}</dd></>}
       </dl>
-      <section className={styles.items}><h3>Order items</h3>
-        {selected.items.map((item, index) => <div className={styles.line} key={index}>
-          <div><strong>{item.name} × {item.quantity}</strong>{(item.option || item.sku) && <small>{[item.option, item.sku].filter(Boolean).join(' · ')}</small>}</div>
-          {item.unit !== null && <span>{money(item.unit * item.quantity, market)}</span>}
-        </div>)}
-      </section>
+      <OrderItems key={`${market}:${selected.id}`} order={selected} market={market} formatAmount={amount => money(amount, market)} />
       <div className={styles.amount}><span>Items</span><span>{selected.items.some(item => item.unit === null) ? 'Awaiting pricing' : money(selected.subtotal, market)}</span></div>
       <div className={styles.amount}><span>Delivery</span><span>{selected.delivery === null ? 'Awaiting confirmation' : money(selected.delivery, market)}</span></div>
       <div className={styles.total}><strong>Total</strong><strong>{selected.delivery === null ? 'Pending' : money(selected.subtotal + selected.delivery, market)}</strong></div>

@@ -130,3 +130,7 @@
 .liveShell .total { font-size: 18px; }
 .liveShell .primary { font-size: 16px; }
 @media (max-width: 780px) { .liveShell .navLink { font-size: 14px; } }
+@media (max-width: 520px) {
+  .liveShell .line { gap: 8px; }
+  .liveShell .thumbnail { flex-basis: 52px; height: 52px; }
+}
