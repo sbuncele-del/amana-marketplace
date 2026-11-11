@@ -1,10 +1,11 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowLeft, Globe, HeartHandshake, ShoppingBag, Store } from "lucide-react";
+import { ArrowLeft, Globe, House, HeartHandshake, ShoppingBag, Store } from "lucide-react";
 import { BrandLogo } from "@/components/brand-logo";
 
 const nav = [
+  { href: "/operations/back-office", label: "Back Office", icon: House },
   { href: "/operations/orders", label: "Orders", icon: ShoppingBag },
   { href: "/operations", label: "Customer service", icon: HeartHandshake },
   { href: "/operations/store", label: "Store management", icon: Store },
