@@ -21,6 +21,8 @@ export default async function EftOrderPage({params}: {params: Promise<{reference
   const cancelled = order.status === 'CANCELLED';
   const bank = pending ? eftBankDetails() : null;
   const amount = formatCurrency((order.data.subtotalCents + order.data.shippingCents) / 100, 'ZAR');
+  const proofEmail = 'accounts@plentovo.com';
+  const proofLink = `mailto:${proofEmail}?subject=${encodeURIComponent('EFT proof of payment — ' + reference)}&body=${encodeURIComponent(`Hi Plentovo,\n\nPlease find attached my proof of payment for order ${reference}.\nAmount: ${amount}\n`)}`;
   const items = order.data.items as {id: string; name: string; option: string; quantity: number}[];
   return <main id="main-content" className="mx-auto max-w-2xl space-y-6 px-4 py-10">
     <h1 className="text-3xl font-bold">{pending ? 'Order received' : cancelled ? 'Order cancelled' : 'Payment confirmed'}</h1>
@@ -32,6 +34,7 @@ export default async function EftOrderPage({params}: {params: Promise<{reference
     {pending && <section className="space-y-3 rounded-xl border bg-white p-6">
       <h2 className="text-xl font-bold">Awaiting EFT payment</h2>
       {bank ? <>
+        <h3 className="font-semibold">1. Make the bank transfer</h3>
         <p className="text-sm">Transfer {amount} using <strong>{reference}</strong> as the beneficiary reference.</p>
         <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-sm">
           <dt>Bank</dt><dd>{bank.bank}</dd>
@@ -40,7 +43,13 @@ export default async function EftOrderPage({params}: {params: Promise<{reference
           <dt>Account number</dt><dd className="font-mono">{bank.accountNumber}</dd>
           <dt>Branch code</dt><dd className="font-mono">{bank.branchCode}</dd>
         </dl>
-        <p className="text-sm">We’ll process your order after we verify that the funds have cleared. If you’ve already transferred the money, allow time for verification.</p>
+        <div className="space-y-3 border-t pt-4">
+          <h3 className="font-semibold">2. Send your proof of payment</h3>
+          <p className="text-sm">Open the email below and attach your bank’s proof of payment. Your order reference is already filled in.</p>
+          <a href={proofLink} className="inline-flex rounded-lg bg-[#DA292B] px-5 py-3 text-sm font-bold text-white">Send proof of payment</a>
+          <p className="text-sm">You can also email <a className="font-semibold text-red-700 underline" href={proofLink}>{proofEmail}</a> and include <strong>{reference}</strong>.</p>
+          <p className="text-sm text-gray-600">We’ll process your order once we verify that the funds have cleared.</p>
+        </div>
       </> : <p>Contact Plentovo for payment instructions and quote your order reference.</p>}
     </section>}
     <Link href="/browse" className="text-sm font-semibold text-red-700 underline">Continue shopping</Link>
