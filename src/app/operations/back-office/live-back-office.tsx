@@ -150,7 +150,7 @@ export function LiveBackOffice({markets, view}: {markets: Market[]; view?: strin
     : selected.status === 'SHIPPED' ? {status: 'DELIVERED', title: 'Mark as delivered', note: 'Courier delivery confirmed.'}
     : null;
 
-  return <div className={styles.shell} data-panel={!!selected}>
+  return <div className={`${styles.shell} ${styles.liveShell}`} data-panel={!!selected}>
     <BackOfficeNavigation active={tab} />
     <header className={styles.header}>
       <select className={styles.market} aria-label="Market" value={market} disabled={saving} onChange={event => {
@@ -201,7 +201,7 @@ export function LiveBackOffice({markets, view}: {markets: Market[]; view?: strin
       </div>}
     </main>
     {selected && <aside className={styles.detail} aria-label={`Order ${selected.reference}`} onKeyDown={event => {if (event.key === 'Escape' && !saving) closeOrder();}}>
-      <div className={styles.detailHeading}><h2 className="min-w-0 break-words">{selected.reference}</h2><button ref={closeButton} disabled={saving} aria-label="Close order details" onClick={closeOrder}><X size={21} /></button></div>
+      <div className={styles.detailHeading}><h2 className={styles.orderReference}>{selected.reference}</h2><button ref={closeButton} disabled={saving} aria-label="Close order details" onClick={closeOrder}><X size={21} /></button></div>
       <span className={styles.chip} data-stage={selected.bucket}>{label(selected)}</span>
       <dl className={styles.meta}><dt>Placed</dt><dd>{date(selected.createdAt, market)}</dd><dt>Customer</dt><dd>{selected.customer || '–'}</dd><dt>Location</dt><dd>{selected.location || '–'}</dd>
         {selected.trackingNumber && <><dt>Tracking</dt><dd className="break-words">{selected.trackingNumber}</dd></>}

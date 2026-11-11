@@ -87,8 +87,12 @@ function values(e: FormEvent<HTMLFormElement>) {
 export function CommerceConsole({
   initialMarket = "ZA",
   initialTab = "Markets",
+  fixedMarket = false,
+  onSaved,
 }: {
   initialMarket?: string;
+  fixedMarket?: boolean;
+  onSaved?: () => void;
   initialTab?: "Markets" | "Partners" | "Fulfilment";
 }) {
   const [market, setMarket] = useState(initialMarket);
@@ -126,6 +130,7 @@ export function CommerceConsole({
       if (!r.ok) throw Error(d.error);
       setMessage("Saved.");
       await refresh();
+      onSaved?.();
       return true;
     } catch (e) {
       setMessage(e instanceof Error ? e.message : "Unable to save.");
@@ -137,7 +142,7 @@ export function CommerceConsole({
   return (
     <div>
       <div>
-        <div className="flex flex-wrap items-end justify-between gap-3">
+        {!fixedMarket && <div className="flex flex-wrap items-end justify-between gap-3">
           <p className="text-slate-600">Markets, partners, catalogue offers and shipments.</p>
           <label className="text-xs font-medium text-slate-600">
             Country
@@ -158,7 +163,7 @@ export function CommerceConsole({
               )}
             </select>
           </label>
-        </div>
+        </div>}
         <p className="mt-3 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900">
           Online ordering is closed in markets that are still in preparation.
         </p>

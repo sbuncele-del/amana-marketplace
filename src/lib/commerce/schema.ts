@@ -15,6 +15,10 @@ CREATE TABLE IF NOT EXISTS commerce_partners (
 );
 CREATE UNIQUE INDEX IF NOT EXISTS commerce_application_once ON commerce_partners(applicant_id) WHERE applicant_id IS NOT NULL;
 CREATE TABLE IF NOT EXISTS commerce_partner_markets (partner_id text REFERENCES commerce_partners(id),market_code text REFERENCES commerce_markets(code),PRIMARY KEY(partner_id,market_code));
+CREATE TABLE IF NOT EXISTS commerce_partner_delivery (
+ partner_id text NOT NULL,market_code text NOT NULL,profile jsonb NOT NULL,version integer NOT NULL DEFAULT 1,
+ PRIMARY KEY(partner_id,market_code),FOREIGN KEY(partner_id,market_code) REFERENCES commerce_partner_markets(partner_id,market_code)
+);
 CREATE TABLE IF NOT EXISTS commerce_partner_members (partner_id text REFERENCES commerce_partners(id),user_id text REFERENCES "User"(id),active boolean NOT NULL DEFAULT true,PRIMARY KEY(partner_id,user_id));
 CREATE TABLE IF NOT EXISTS commerce_products (id text PRIMARY KEY,title text NOT NULL,google_category_id text,updated_at timestamptz NOT NULL DEFAULT now());
 CREATE TABLE IF NOT EXISTS commerce_variants (id text PRIMARY KEY,product_id text NOT NULL REFERENCES commerce_products(id),UNIQUE(id,product_id));

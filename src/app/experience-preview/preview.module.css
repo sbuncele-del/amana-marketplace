@@ -115,3 +115,18 @@
 .navLink[aria-current] { background: #d4252d; }
 .embedded { overflow-wrap: anywhere; }
 @media (max-width: 780px) { .navLink { flex: 0 0 auto; gap: 8px; height: 42px; padding: 0 12px; font-size: 14px; } .navLink svg { width: 16px; } }
+
+.liveShell .main h1 { font-size: clamp(32px, 3vw, 38px); }
+.liveShell .main h2 { font-size: 26px; }
+.liveShell .date { font-size: 17px; }
+.liveShell .navLink { font-size: 16px; }
+.liveShell .cards button { gap: 10px; min-height: 108px; padding: 12px; }
+.liveShell .metric { min-height: 78px; font-size: 15px; }
+.liveShell .metric strong { font-size: 34px; }
+.liveShell .table { font-size: 14px; }
+.liveShell .detail h3 { font-size: 18px; }
+.liveShell .detailHeading .orderReference { min-width: 0; overflow-wrap: anywhere; font-size: 21px; letter-spacing: -.02em; }
+.liveShell :is(.meta, .line, .amount) { font-size: 14px; }
+.liveShell .total { font-size: 18px; }
+.liveShell .primary { font-size: 16px; }
+@media (max-width: 780px) { .liveShell .navLink { font-size: 14px; } }
