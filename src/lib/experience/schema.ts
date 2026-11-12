@@ -37,6 +37,8 @@ CREATE TABLE IF NOT EXISTS experience_order_emails (
  first_attempt_at timestamptz, claimed_at timestamptz, provider_id text,
  UNIQUE(order_id,milestone)
 );
+ALTER TABLE experience_order_emails ADD COLUMN IF NOT EXISTS sender text;
+ALTER TABLE experience_order_emails ADD COLUMN IF NOT EXISTS reply_to text;
 CREATE INDEX IF NOT EXISTS experience_order_emails_due ON experience_order_emails(status,due_at);
 CREATE TABLE IF NOT EXISTS experience_access_events (
  id text PRIMARY KEY, actor_id text NOT NULL, type text NOT NULL, team_id text NOT NULL,

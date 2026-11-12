@@ -9,21 +9,16 @@ export function resend() {
   return (client ??= new Resend(key));
 }
 
-export function mailConfigured() {
-  return Boolean(process.env.RESEND_API_KEY && process.env.FROM_EMAIL);
-}
-
-/** e.g. "Plentovo <hello@plentovo.com>"; replies go to the same mailbox unless REPLY_TO_EMAIL is set. */
-function sender() {
-  const from = process.env.FROM_EMAIL;
-  if (!from) throw new Error('FROM_EMAIL is not configured');
-  return {from, replyTo: process.env.REPLY_TO_EMAIL || 'support@plentovo.com'};
+export function mailConfigured(from = process.env.FROM_EMAIL) {
+  return Boolean(process.env.RESEND_API_KEY && from);
 }
 
 export type Mail = {
   to: string;
   subject: string;
   html: string;
+  from?: string;
+  replyTo?: string;
   tags?: Record<string, string>;
   /** Marketing mail carries RFC 8058 one-click unsubscribe headers. */
   unsubscribeUrl?: string;
@@ -31,7 +26,9 @@ export type Mail = {
 };
 
 function payload(mail: Mail) {
-  const {from, replyTo} = sender();
+  const from = mail.from ?? process.env.FROM_EMAIL;
+  if (!from) throw new Error('FROM_EMAIL is not configured');
+  const replyTo = mail.replyTo ?? (process.env.REPLY_TO_EMAIL || 'support@plentovo.com');
   return {
     from,
     to: mail.to,

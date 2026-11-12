@@ -5,6 +5,7 @@ import {z} from 'zod';
 import {event, experiencePool, transaction} from '@/lib/experience/store';
 import {siteUrl} from '@/lib/site';
 import {button, esc, layout, paragraph} from './layout';
+import {orderMailAddresses} from './order-addresses';
 import {mailConfigured, sendMail} from './send';
 
 const labels = {
@@ -38,8 +39,8 @@ export async function queueOrderEmail(
     button('Get order help', `${siteUrl}/track`),
   });
   const {rowCount} = await client.query(
-    'INSERT INTO experience_order_emails(id,order_id,milestone,recipient,subject,html) VALUES($1,$2,$3,$4,$5,$6) ON CONFLICT(order_id,milestone) DO NOTHING',
-    [id, order.id, milestone, recipient.data, `${label} | Plentovo ${order.reference}`, html],
+    'INSERT INTO experience_order_emails(id,order_id,milestone,recipient,subject,html,sender,reply_to) VALUES($1,$2,$3,$4,$5,$6,$7,$8) ON CONFLICT(order_id,milestone) DO NOTHING',
+    [id, order.id, milestone, recipient.data, `${label} | Plentovo ${order.reference}`, html, orderMailAddresses.from, orderMailAddresses.replyTo],
   );
   if (!rowCount) return null;
   await event(client, order.id, null, 'CUSTOMER_EMAIL_QUEUED', `${label} email queued.`);
@@ -61,10 +62,11 @@ export async function sendOrderEmail(id?: string) {
   let providerId: string | null = null;
   // Stop before the provider's idempotency window can expire after an uncertain send.
   const expired = Date.now() - new Date(job.first_attempt_at).getTime() >= 20 * 3600_000;
-  if (!expired && job.attempts <= 4 && mailConfigured()) {
+  if (!expired && job.attempts <= 4 && mailConfigured(job.sender ?? undefined)) {
     try {
       providerId = await sendMail({
         to: job.recipient, subject: job.subject, html: job.html,
+        from: job.sender ?? undefined, replyTo: job.reply_to ?? undefined,
         idempotencyKey: `order-update-${job.id}`, tags: {type: 'order-update', milestone: job.milestone.toLowerCase()},
       });
     } catch {
