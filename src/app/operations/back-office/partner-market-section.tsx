@@ -5,8 +5,8 @@ import { experiencePool } from "@/lib/experience/store";
 import { BackOfficeSection } from "./section";
 import { PartnerDirectory } from "./partner-directory";
 
-export async function PartnerMarketSection({ delivery = false }: { delivery?: boolean }) {
-  const active = delivery ? "Delivery" : "Suppliers";
+export async function PartnerMarketSection() {
+  const active = "Suppliers";
   let actor: CommerceActor;
   let markets;
   try {
@@ -22,7 +22,6 @@ export async function PartnerMarketSection({ delivery = false }: { delivery?: bo
     return <BackOfficeSection active={active}><p>{error instanceof CommerceError ? error.message : "Commerce is temporarily unavailable."}</p></BackOfficeSection>;
   }
     return <BackOfficeSection active={active}>
-      {delivery && <a className="mt-4 inline-block text-sm font-semibold text-red-700 underline" href="/operations/back-office?view=delivery">View order tracking queue</a>}
-      <PartnerDirectory markets={markets} admin={actor.admin} delivery={delivery} />
+      <PartnerDirectory markets={markets} admin={actor.admin} />
     </BackOfficeSection>;
 }

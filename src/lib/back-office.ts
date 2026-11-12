@@ -37,6 +37,9 @@ export type BackOfficeOrder = {
   collection: boolean;
   carrierStatus?: string;
   trackingNumber?: string;
+  trackingUrl?: string;
+  deliveryStage?: string;
+  deliveryAddress?: string;
   quotePricing?: QuotePricing;
   deliveryTerms?: string;
   enquiryNote?: string;
@@ -46,6 +49,7 @@ export type BackOfficeOrder = {
 export type BackOfficeReport = {
   market: Market;
   counts: Record<string, number>;
+  deliveryCounts: Record<string, number>;
   orders: BackOfficeOrder[];
   total: number;
 };
