@@ -11,7 +11,14 @@ import {BackOfficeNavigation} from './navigation';
 import styles from '../../experience-preview/preview.module.css';
 
 const icons = {payment: Landmark, dispatch: Package, delivery: Truck, quote: FileText};
-type Queue = keyof typeof icons | 'all';
+const deliveryFilters = [
+  {key: 'delivery-active', title: 'Active deliveries'},
+  {key: 'delivery-prepare', title: 'To prepare'},
+  {key: 'delivery-transit', title: 'In transit'},
+  {key: 'delivery-attention', title: 'Needs attention'},
+  {key: 'delivery-complete', title: 'Completed'},
+] as const;
+type Queue = keyof typeof icons | 'all' | typeof deliveryFilters[number]['key'];
 type History = {label: string; note: string; at: string; actor?: string}[];
 
 const statusText = (status: string) => status.toLowerCase().replaceAll('_', ' ').replace(/^./, letter => letter.toUpperCase());
@@ -33,7 +40,7 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
   const [newEnquiry, setNewEnquiry] = useState(false);
   const [market, setMarket] = useState(markets[0]);
   const tab = view === 'orders' ? 'Orders' : view === 'payments' ? 'Payments' : view === 'quotes' ? 'Quotes' : view === 'delivery' ? 'Delivery' : 'Today';
-  const [queue, setQueue] = useState<Queue>(tab === 'Payments' ? 'payment' : tab === 'Quotes' ? 'quote' : tab === 'Delivery' ? 'delivery' : 'all');
+  const [queue, setQueue] = useState<Queue>(tab === 'Payments' ? 'payment' : tab === 'Quotes' ? 'quote' : tab === 'Delivery' ? 'delivery-active' : 'all');
   const [search, setSearch] = useState('');
   const [submittedSearch, setSubmittedSearch] = useState('');
   const [page, setPage] = useState(1);
@@ -56,6 +63,20 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
   const closeButton = useRef<HTMLButtonElement>(null);
   const selected = report?.orders.find(order => order.id === selectedId);
   const definitions = queues[market];
+  const delivery = tab === 'Delivery';
+  const deliveryCounts = report?.deliveryCounts;
+  function deliveryCount(filter: typeof deliveryFilters[number]['key']) {
+    if (!deliveryCounts) return '–';
+    if (filter === 'delivery-active') return (deliveryCounts.prepare ?? 0) + (deliveryCounts.transit ?? 0) + (deliveryCounts.attention ?? 0);
+    return deliveryCounts[filter.slice('delivery-'.length)] ?? 0;
+  }
+  function deliveryAction(order: BackOfficeOrder) {
+    if (order.deliveryStage === 'attention') return 'Review delivery issue';
+    if (order.deliveryStage === 'complete') return 'View delivery history';
+    if (order.deliveryStage === 'transit') return 'Track delivery';
+    if (order.status === 'FULFILMENT') return order.collection ? 'Confirm customer collection' : 'Record courier handover';
+    return 'Prepare order';
+  }
 
   useEffect(() => {
     const controller = new AbortController();
@@ -156,7 +177,11 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
     }
   }
 
-  const label = (order: BackOfficeOrder) => market === 'TN'
+  const label = (order: BackOfficeOrder) => delivery && order.deliveryStage === 'attention' ? 'Needs attention'
+    : delivery && market === 'ZA' && order.status === 'PAID' ? 'Ready to prepare'
+    : delivery && market === 'ZA' && order.status === 'FULFILMENT' ? 'Preparing'
+    : delivery && market === 'ZA' && order.status === 'DELIVERED' && order.collection ? 'Collected'
+    : market === 'TN'
     ? STATUS_LABEL[order.status as DeskStatus] || statusText(order.status)
     : order.bucket === 'payment' ? 'Awaiting EFT' : statusText(order.status);
   const milestone = !selected?.canManage ? null
@@ -171,12 +196,12 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
     <BackOfficeNavigation active={tab} />
     <header className={styles.header}>
       <select className={styles.market} aria-label="Market" value={market} disabled={saving} onChange={event => {
-        setNewEnquiry(false); setMarket(event.target.value as Market); changeQueue(tab === 'Payments' ? 'payment' : tab === 'Quotes' ? 'quote' : tab === 'Delivery' ? 'delivery' : 'all');
+        setNewEnquiry(false); setMarket(event.target.value as Market); changeQueue(tab === 'Payments' ? 'payment' : tab === 'Quotes' ? 'quote' : tab === 'Delivery' ? 'delivery-active' : 'all');
         setReport(null); setLoadedAt(null); setSearch(''); setSubmittedSearch('');
       }}>{markets.map(code => <option key={code} value={code}>{code === 'ZA' ? '🇿🇦' : '🇹🇳'} {marketNames[code]}</option>)}</select>
       <form className={styles.search} onSubmit={event => {event.preventDefault(); resetDetail(); setPage(1); setSubmittedSearch(search.trim());}}>
         <button aria-label="Search" disabled={saving}><Search size={20} /></button>
-        <input aria-label="Search orders, products and customers" placeholder="Search orders, products, customers…" maxLength={100} disabled={saving} value={search} onChange={event => setSearch(event.target.value)} />
+        <input aria-label={delivery ? "Search deliveries" : "Search orders, products and customers"} placeholder={delivery ? "Search order, customer or tracking number…" : "Search orders, products, customers…"} maxLength={100} disabled={saving} value={search} onChange={event => setSearch(event.target.value)} />
       </form>
     </header>
     <main className={styles.main} id="main-content">
@@ -185,6 +210,14 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
       <p className="mt-2 text-sm text-gray-600" role="status">{loadedAt ? `Last synced ${date(loadedAt, market)}` : 'Connecting to order records'}
         <button type="button" className="ml-3 underline" disabled={loading || saving} onClick={() => setSync(value => value + 1)}>Refresh</button>
       </p>
+      {delivery && <>
+        <p className="mt-4 max-w-2xl text-sm text-stone-600">Prepare orders for dispatch or collection, track parcels in transit, and follow up on delivery issues.</p>
+        <div className="mt-6 flex flex-wrap gap-2" aria-label="Delivery filters">
+          {deliveryFilters.map(filter => <button type="button" key={filter.key} aria-pressed={queue === filter.key}
+            className="rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm font-semibold aria-pressed:border-[#d4252d] aria-pressed:bg-red-50"
+            disabled={saving} onClick={() => changeQueue(filter.key)}>{filter.title} <span className="ml-1 text-stone-600">{deliveryCount(filter.key)}</span></button>)}
+        </div>
+      </>}
       {tab === 'Today' && <div className={styles.cards} aria-label="Filter work queue">{definitions.map(({key, title}) => {
         const Icon = icons[key];
         return <button key={key} type="button" disabled={saving} aria-pressed={queue === key} onClick={() => changeQueue(queue === key ? 'all' : key)}>
@@ -195,7 +228,7 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
       {error && <p role="alert" className="my-3 text-sm text-red-800">{error}{report && ' Showing the last successful results.'}</p>}
       {notice && <p role="status" className={styles.notice}>{notice}</p>}
       <div className="flex flex-wrap items-center justify-between gap-x-4">
-        <h2>{queue === 'all' ? 'Order queue' : definitions.find(item => item.key === queue)?.title}</h2>
+        <h2>{delivery ? 'Delivery queue' : queue === 'all' ? 'Order queue' : definitions.find(item => item.key === queue)?.title}</h2>
         {tab === 'Quotes' && market === 'ZA' && canCreateQuote && !newEnquiry &&
           <button type="button" className="rounded-lg bg-[#d4252d] px-4 py-2 text-sm font-semibold text-white"
             onClick={() => {resetDetail(); setNotice(''); setNewEnquiry(true);}}>New enquiry</button>}
@@ -206,19 +239,20 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
       }} />}
       <div className={styles.tableWrap} aria-busy={loading}>
         <table className={styles.table}>
-          <thead><tr><th scope="col">Order / quote</th><th scope="col">Status</th><th scope="col">Next action</th><th scope="col">{market === 'TN' ? 'Last called by' : 'Owner'}</th></tr></thead>
+          <thead><tr><th scope="col">{delivery ? "Order" : "Order / quote"}</th><th scope="col">Status</th><th scope="col">Next action</th><th scope="col">{delivery ? "Destination" : market === 'TN' ? 'Last called by' : 'Owner'}</th></tr></thead>
           <tbody>{report?.orders.map(order => <tr key={order.id} data-selected={order.id === selectedId}>
             <td><button type="button" disabled={saving} className={styles.rowButton} aria-pressed={order.id === selectedId} onClick={event => {
               trigger.current = event.currentTarget; resetDetail(); setHistory(null); setSelectedId(order.id);
               requestAnimationFrame(() => closeButton.current?.focus());
             }}><span className={styles.tile} data-stage="order"><ShoppingCart size={22} aria-hidden="true" /></span>
               <span><strong>{order.reference}</strong><small>{order.customer || 'Customer'}</small>{market === 'ZA' && order.bucket === 'quote' && order.items[0] && <small>{order.items[0].quantity} × {order.items[0].name}</small>}</span></button></td>
-            <td><span className={styles.chip} data-stage={order.bucket}>{label(order)}</span></td>
-            <td>{market === 'ZA' && order.status === 'ENQUIRY' ? 'Price quote' : definitions.find(item => item.key === order.bucket)?.action ?? 'View order'}</td>
-            <td>{order.owner || '–'}</td>
+            <td><span className={styles.chip} data-stage={order.bucket}>{label(order)}</span>
+              {delivery && order.carrierStatus && <small className="mt-1">{statusText(order.carrierStatus.replaceAll('-', '_'))}</small>}</td>
+            <td>{delivery ? deliveryAction(order) : market === 'ZA' && order.status === 'ENQUIRY' ? 'Price quote' : definitions.find(item => item.key === order.bucket)?.action ?? 'View order'}</td>
+            <td>{delivery ? order.collection ? 'Customer collection' : order.location || '–' : order.owner || '–'}</td>
           </tr>)}</tbody>
         </table>
-        {!report?.orders.length && <p className={styles.empty}>{loading ? 'Loading orders…' : error ? 'Refresh to retry.' : tab === 'Quotes' && market === 'ZA' ? 'No enquiries or quotes match this view.' : 'No orders match this view.'}</p>}
+        {!report?.orders.length && <p className={styles.empty}>{loading ? 'Loading orders…' : error ? 'Refresh to retry.' : delivery ? 'No deliveries match this filter.' : tab === 'Quotes' && market === 'ZA' ? 'No enquiries or quotes match this view.' : 'No orders match this view.'}</p>}
       </div>
       {(page > 1 || (report?.total ?? 0) > 25) && <div className="mt-5 flex items-center gap-4 text-sm">
         <button disabled={page <= 1 || saving || loading} className="underline disabled:opacity-40" onClick={() => {resetDetail(); setPage(value => value - 1);}}>Previous</button>
@@ -230,7 +264,10 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
       <div className={styles.detailHeading}><h2 className={styles.orderReference}>{selected.reference}</h2><button ref={closeButton} disabled={saving} aria-label="Close order details" onClick={closeOrder}><X size={21} /></button></div>
       <span className={styles.chip} data-stage={selected.bucket}>{label(selected)}</span>
       <dl className={styles.meta}><dt>Placed</dt><dd>{date(selected.createdAt, market)}</dd><dt>Customer</dt><dd>{selected.customer || '–'}</dd><dt>Location</dt><dd>{selected.location || '–'}</dd>
-        {selected.trackingNumber && <><dt>Tracking</dt><dd className="break-words">{selected.trackingNumber}</dd></>}
+        {delivery && <><dt>Delivery method</dt><dd>{selected.collection ? 'Customer collection' : 'Courier delivery'}</dd></>}
+        {delivery && selected.deliveryAddress && <><dt>Address</dt><dd>{selected.deliveryAddress}</dd></>}
+        {selected.trackingNumber && <><dt>Tracking</dt><dd className="break-words">{selected.trackingNumber}
+          {selected.trackingUrl && <a href={selected.trackingUrl} className="block text-red-700 underline" target="_blank" rel="noreferrer">Open courier tracking</a>}</dd></>}
         {selected.carrierStatus && <><dt>Carrier status</dt><dd>{statusText(selected.carrierStatus)}</dd></>}
       </dl>
       <OrderItems key={`${market}:${selected.id}`} order={selected} market={market} formatAmount={amount => money(amount, market)} />

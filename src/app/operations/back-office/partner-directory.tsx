@@ -13,7 +13,7 @@ const field = "mt-1 block w-full rounded-md border border-stone-300 bg-white px-
 const primary = "rounded-lg bg-[#d4252d] px-4 py-2 font-semibold text-white disabled:opacity-50";
 const secondary = "rounded-lg border border-stone-300 bg-white px-4 py-2 font-semibold";
 
-export function PartnerDirectory({ markets, admin, delivery }: { markets: Market[]; admin: boolean; delivery: boolean }) {
+export function PartnerDirectory({ markets, admin }: { markets: Market[]; admin: boolean }) {
   const [code, setCode] = useState(markets[0]?.code);
   const [partners, setPartners] = useState<Partner[]>([]);
   const [selectedId, setSelectedId] = useState("");
@@ -104,7 +104,7 @@ export function PartnerDirectory({ markets, admin, delivery }: { markets: Market
           setCode(event.target.value);
         }}>{markets.map(item => <option key={item.code} value={item.code}>{item.name}</option>)}</select>
       </label>
-      {admin && !delivery && <button className={primary} disabled={busy} onClick={() => { setAdding(true); setDraft(null); setNotice(""); setError(""); }}>Add partner</button>}
+      {admin && <button className={primary} disabled={busy} onClick={() => { setAdding(true); setDraft(null); setNotice(""); setError(""); }}>Add partner</button>}
     </div>
     {notice && <p className="my-3 text-sm text-green-800" role="status">{notice}</p>}
     {error && <p className="my-3 text-sm text-red-800" role="alert">{error}</p>}
@@ -116,9 +116,9 @@ export function PartnerDirectory({ markets, admin, delivery }: { markets: Market
     </form>}
     <section className="mb-7 grid gap-4 xl:grid-cols-2">
       <div className="min-w-0 overflow-hidden rounded-xl border border-stone-200 bg-white">
-        <p className="border-b border-stone-200 px-4 py-3 font-semibold">{delivery ? "Partner delivery and rates" : "Partner directory"}</p>
+        <p className="border-b border-stone-200 px-4 py-3 font-semibold">Partner directory</p>
         {loading && <p className="p-4 text-sm" role="status">Loading partners…</p>}
-        {!loading && !error && !partners.length && <p className="p-4 text-sm text-stone-600">No partners in this market. {delivery && <a className="text-red-700 underline" href="/operations/back-office/suppliers">Go to Suppliers</a>}</p>}
+        {!loading && !error && !partners.length && <p className="p-4 text-sm text-stone-600">No partners in this market.</p>}
         {partners.map(item => <button key={item.id} aria-pressed={selectedId === item.id} disabled={busy} className="block w-full border-b border-stone-100 px-4 py-3 text-left text-sm last:border-0 hover:bg-stone-50 aria-pressed:bg-red-50" onClick={() => {
           setSelectedId(item.id); setDraft(null); setAdding(false); setNotice(""); setError("");
         }}>
@@ -161,8 +161,8 @@ export function PartnerDirectory({ markets, admin, delivery }: { markets: Market
         </>}
       </div>}
     </section>
-    <h3 className="mb-3 font-bold">{delivery ? "Shipments" : "Partner approvals"}</h3>
-    <CommerceConsole key={`${code}-${consoleRevision}`} initialTab={delivery ? "Fulfilment" : "Partners"} initialMarket={code} fixedMarket
+    <h3 className="mb-3 font-bold">Partner approvals</h3>
+    <CommerceConsole key={`${code}-${consoleRevision}`} initialTab="Partners" initialMarket={code} fixedMarket
       onSaved={() => setDirectoryRevision(value => value + 1)} />
   </>;
 }
