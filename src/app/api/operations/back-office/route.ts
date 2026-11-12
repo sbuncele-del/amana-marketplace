@@ -22,7 +22,11 @@ const zaSource = `
     r.data->>'deliveryMethod' AS delivery_method, r.data->>'trackingUrl' AS tracking_url,
     CASE WHEN $1 LIKE 'delivery-%' THEN r.data->'deliveryAddress' END AS delivery_address,
     carrier.status AS carrier_status,
-    CASE WHEN r.status='DELIVERED' THEN 'complete'
+    CASE WHEN $1 LIKE 'delivery-%' AND r.status IN ('PAID','FULFILMENT','SHIPPED','DELIVERED') AND EXISTS (
+        SELECT 1 FROM experience_records issue WHERE issue.order_id=r.id AND issue.team_id IS NOT DISTINCT FROM r.team_id
+          AND issue.kind='CASE' AND issue.status<>'RESOLVED' AND issue.data->>'category'='DELIVERY'
+      ) THEN 'attention'
+      WHEN r.status='DELIVERED' THEN 'complete'
       WHEN r.status IN ('FULFILMENT','SHIPPED') AND carrier.status IN ('collection-exception','failed-collection','delivery-exception','failed-delivery','returned-to-sender','cancelled','cancelled-by-courier') THEN 'attention'
       WHEN r.status IN ('PAID','FULFILMENT') THEN 'prepare'
       WHEN r.status='SHIPPED' THEN 'transit' END AS delivery_stage, r.data->>'trackingNumber' AS tracking_number, r.data->'items' AS items, (r.data->>'subtotalCents')::numeric AS subtotal,

@@ -93,7 +93,7 @@ export function CommerceConsole({
   initialMarket?: string;
   fixedMarket?: boolean;
   onSaved?: () => void;
-  initialTab?: "Markets" | "Partners" | "Fulfilment";
+  initialTab?: "Markets" | "Partners" | "Fulfilment" | "Catalogue";
 }) {
   const [market, setMarket] = useState(initialMarket);
   const [page, setPage] = useState(1);

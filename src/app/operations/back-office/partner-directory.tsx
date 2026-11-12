@@ -6,7 +6,7 @@ import { CommerceConsole } from "@/components/commerce/console";
 type Market = { code: string; name: string; currency: string };
 type Rate = { service: string; conditions: string; amount: string };
 type Profile = { method: string; coverage: string; leadTime: string; terms: string; rates: Rate[] };
-type Partner = { id: string; name: string; kind: string; status: string; version: number; profile: Profile | null };
+type Partner = { id: string; name: string; kind: string; status: string; version: number; review_version: number; verification_note?: string; website?: string; profile: Profile | null };
 const emptyProfile: Profile = { method: "", coverage: "", leadTime: "", terms: "", rates: [] };
 const endpoint = "/api/commerce/back-office-partners";
 const field = "mt-1 block w-full rounded-md border border-stone-300 bg-white px-3 py-2";
@@ -25,6 +25,7 @@ export function PartnerDirectory({ markets, admin }: { markets: Market[]; admin:
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
   const [directoryRevision, setDirectoryRevision] = useState(0);
+  const [advanced, setAdvanced] = useState(false);
   const [consoleRevision, setConsoleRevision] = useState(0);
   const market = markets.find(item => item.code === code);
   const selected = partners.find(item => item.id === selectedId);
@@ -43,12 +44,12 @@ export function PartnerDirectory({ markets, admin }: { markets: Market[]; admin:
     return () => controller.abort();
   }, [code, directoryRevision]);
 
-  async function submit(body: object) {
+  async function submit(body: object, url = endpoint) {
     setBusy(true);
     setError("");
     setNotice("");
     try {
-      const response = await fetch(endpoint, {
+      const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...body, market: code }),
@@ -75,7 +76,7 @@ export function PartnerDirectory({ markets, admin }: { markets: Market[]; admin:
     setLoading(true);
     setDirectoryRevision(value => value + 1);
     setConsoleRevision(value => value + 1);
-    setNotice("Partner added. Review its approval below.");
+    setNotice("Partner added. Open its profile to review it.");
   }
 
   async function saveProfile(event: FormEvent<HTMLFormElement>) {
@@ -89,8 +90,21 @@ export function PartnerDirectory({ markets, admin }: { markets: Market[]; admin:
     setNotice("Delivery and rates saved.");
   }
 
+  async function reviewPartner(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!selected || busy) return;
+    const values = new FormData(event.currentTarget);
+    const result = await submit({action: "partner-review", id: selected.id, version: selected.review_version,
+      status: values.get("status"), note: values.get("note")}, "/api/commerce/command");
+    if (!result) return;
+    setDirectoryRevision(value => value + 1);
+    setConsoleRevision(value => value + 1);
+    setNotice("Partner review saved.");
+  }
+
   if (!market) return <p>No commerce markets are assigned to your account.</p>;
   return <>
+    <p className="mt-4 max-w-2xl text-sm text-stone-600">Manage who supplies your products and who fulfils deliveries. Open a partner to review approval, coverage, lead times and rates.</p>
     <div className="my-5 flex flex-wrap items-end justify-between gap-3">
       <label className="text-sm font-semibold">Market
         <select className={field} value={code} disabled={busy} onChange={event => {
@@ -118,7 +132,7 @@ export function PartnerDirectory({ markets, admin }: { markets: Market[]; admin:
       <div className="min-w-0 overflow-hidden rounded-xl border border-stone-200 bg-white">
         <p className="border-b border-stone-200 px-4 py-3 font-semibold">Partner directory</p>
         {loading && <p className="p-4 text-sm" role="status">Loading partners…</p>}
-        {!loading && !error && !partners.length && <p className="p-4 text-sm text-stone-600">No partners in this market.</p>}
+        {!loading && !error && !partners.length && <p className="p-4 text-sm text-stone-600">No partners in this market. {admin && "Add a supplier or delivery partner to get started."}</p>}
         {partners.map(item => <button key={item.id} aria-pressed={selectedId === item.id} disabled={busy} className="block w-full border-b border-stone-100 px-4 py-3 text-left text-sm last:border-0 hover:bg-stone-50 aria-pressed:bg-red-50" onClick={() => {
           setSelectedId(item.id); setDraft(null); setAdding(false); setNotice(""); setError("");
         }}>
@@ -128,6 +142,18 @@ export function PartnerDirectory({ markets, admin }: { markets: Market[]; admin:
       </div>
       {selected && <div className="min-w-0 rounded-xl border border-stone-200 bg-white p-4 text-sm">
         <h3 className="text-base font-bold">{selected.name}</h3>
+        <p className="mt-1 text-stone-600">{selected.status.toLowerCase()}{selected.website && <> · <span className="break-all">{selected.website}</span></>}</p>
+        {selected.verification_note && <p className="mt-2 whitespace-pre-wrap text-stone-600">{selected.verification_note}</p>}
+        {admin && !draft && <details className="my-3 rounded-lg border border-stone-200 p-3">
+          <summary className="cursor-pointer font-semibold">{selected.status === "PENDING" ? "Review partner" : "Change approval status"}</summary>
+          <form key={selected.id} className="mt-3 space-y-2" onSubmit={reviewPartner}>
+            <label className="block">Decision<select className={field} name="status" defaultValue={selected.status === "PENDING" ? "APPROVED" : selected.status}>
+              <option value="APPROVED">Approve</option><option value="SUSPENDED">Suspend</option><option value="REJECTED">Reject</option>
+            </select></label>
+            <label className="block">Verification notes<textarea className={field} name="note" required minLength={10} maxLength={2000} /></label>
+            <button className={primary} disabled={busy}>Save decision</button>
+          </form>
+        </details>}
         {draft ? <form onSubmit={saveProfile} className="mt-3 space-y-3">
           <label className="block">How they deliver<input className={field} placeholder="e.g. Supplier dispatches via courier" required maxLength={150} value={draft.method} onChange={event => setDraft({ ...draft, method: event.target.value })} /></label>
           <label className="block">Coverage<input className={field} maxLength={500} value={draft.coverage} onChange={event => setDraft({ ...draft, coverage: event.target.value })} /></label>
@@ -161,8 +187,10 @@ export function PartnerDirectory({ markets, admin }: { markets: Market[]; admin:
         </>}
       </div>}
     </section>
-    <h3 className="mb-3 font-bold">Partner approvals</h3>
-    <CommerceConsole key={`${code}-${consoleRevision}`} initialTab="Partners" initialMarket={code} fixedMarket
-      onSaved={() => setDirectoryRevision(value => value + 1)} />
+    <details className="rounded-xl border border-stone-200 bg-white p-4" onToggle={event => setAdvanced(event.currentTarget.open)}>
+      <summary className="cursor-pointer font-semibold">Catalogue offers and partner assignments</summary>
+      {advanced && <CommerceConsole key={`${code}-${consoleRevision}`} initialTab="Catalogue" initialMarket={code} fixedMarket
+        onSaved={() => setDirectoryRevision(value => value + 1)} />}
+    </details>
   </>;
 }
