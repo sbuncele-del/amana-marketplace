@@ -4,6 +4,7 @@ import {randomUUID} from 'node:crypto';
 import {operator,assertAccess,canManage,ExperienceError} from '@/lib/experience/access';
 import {experiencePool,recordFromRow,transaction,event,insertRecord} from '@/lib/experience/store';
 import {queueOrderEmail,sendOrderEmail} from '@/lib/mail/order-updates';
+import {orderTrackingLink} from '@/lib/order-tracking-link';
 import {actionSchema,checkTransition,followupDecision} from '@/lib/experience/workflows';
 function failure(e:unknown){return e instanceof ExperienceError?NextResponse.json({error:e.message},{status:e.status}):NextResponse.json({error:'The operational service is temporarily unavailable. Please try again.'},{status:503});}
 export async function GET(request:NextRequest){try{
@@ -41,7 +42,7 @@ export async function POST(request:NextRequest){try{
    if(a.status==='PAID'&&!a.paymentReference)throw new ExperienceError(400,'Record the confirmed payment reference.');
    if(a.status==='SHIPPED'&&!a.trackingNumber)throw new ExperienceError(400,'Record the courier tracking reference.');
    if(data.paymentMethod==='EFT'&&a.shippingCents!==undefined)throw new ExperienceError(400,'The delivery amount is fixed for this EFT order.');
-   if(a.shippingCents!==undefined)data.shippingCents=a.shippingCents;if(a.paymentReference)data.paymentReference=a.paymentReference;if(a.trackingNumber)data.trackingNumber=a.trackingNumber;
+   if(a.shippingCents!==undefined)data.shippingCents=a.shippingCents;if(a.paymentReference)data.paymentReference=a.paymentReference;if(a.trackingNumber)data.trackingNumber=a.trackingNumber;if(a.status==='SHIPPED'&&a.trackingUrl)data.trackingUrl=orderTrackingLink(a.trackingUrl);
    status=a.status;note=a.note;type='STATUS_CHANGED';if(r.kind==='CASE'&&r.status==='RESOLVED'){dueAt=new Date(Date.now()+86400000);delete data.resolution;delete data.resolvedAt;delete data.customerConfirmed;}
    if(a.promiseAt){dueAt=new Date(a.promiseAt);data.customerPromiseAt=a.promiseAt;data.customerPromiseNote=a.note;}
    if(['CANCELLED','DELIVERED'].includes(status))dueAt=null;

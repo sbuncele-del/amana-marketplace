@@ -14,6 +14,9 @@ export async function queueOrderEmail(
   if (!Object.hasOwn(orderMilestones, order.status)) return null;
   const milestone = order.status as keyof typeof orderMilestones;
   const {label, subject, html} = orderMilestoneEmail(milestone, order.reference, {
+    name: typeof order.data.notificationName === 'string' ? order.data.notificationName
+      : typeof order.data.customerName === 'string' ? order.data.customerName : undefined,
+    trackingUrl: typeof order.data.trackingUrl === 'string' ? order.data.trackingUrl : undefined,
     collection: order.data.deliveryMethod === 'COLLECTION',
     trackingNumber: typeof order.data.trackingNumber === 'string' ? order.data.trackingNumber : undefined,
   });
