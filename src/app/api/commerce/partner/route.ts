@@ -47,7 +47,12 @@ export async function GET() {
       ),
       // Only assigned partners see recipient information; no other orders or internal prices are exposed.
       experiencePool().query(
-        "SELECT id,order_id,partner_id,market_code,status,lines,delivery_address,tracking_number,version FROM commerce_shipments WHERE partner_id=ANY($1::text[]) ORDER BY created_at DESC LIMIT 100",
+        `SELECT s.id,s.order_id,r.reference AS order_reference,s.partner_id,s.market_code,s.status,s.lines,s.delivery_address,s.tracking_number,s.version,
+          s.seller_cost_cents,s.settled_at,s.settlement_reference,
+          EXISTS(SELECT 1 FROM experience_records c WHERE c.order_id=r.id AND c.kind='CASE'
+            AND c.status<>'RESOLVED' AND c.data->>'category' IN ('DELIVERY','RETURN','PAYMENT')) AS on_hold
+         FROM commerce_shipments s JOIN experience_records r ON r.id=s.order_id
+         WHERE s.partner_id=ANY($1::text[]) ORDER BY s.created_at DESC LIMIT 100`,
         [a.partners],
       ),
       experiencePool().query(

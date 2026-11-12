@@ -8,6 +8,7 @@ import {STATUS_LABEL, type DeskStatus} from '@/lib/orders-desk/domain';
 import {NewEnquiry, QuotePaymentInstructions, QuoteWorkspace} from './quote-workspace';
 import {DeliveryIssues} from './delivery-issues';
 import type {OpsRecord} from '@/lib/experience/culture';
+import {OrderSuppliers} from './order-suppliers';
 import {OrderItems} from './order-items';
 import {BackOfficeNavigation} from './navigation';
 import styles from '../../experience-preview/preview.module.css';
@@ -217,6 +218,7 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
       <p className="mt-2 text-sm text-gray-600" role="status">{loadedAt ? `Last synced ${date(loadedAt, market)}` : 'Connecting to order records'}
         <button type="button" className="ml-3 underline" disabled={loading || saving} onClick={() => setSync(value => value + 1)}>Refresh</button>
       </p>
+      {tab === 'Payments' && market === 'ZA' && <Link href="/operations/back-office/settlements" className="mt-4 inline-block font-semibold text-red-700 underline">Seller settlements</Link>}
       {delivery && <>
         <p className="mt-4 max-w-2xl text-sm text-stone-600">Prepare orders for dispatch or collection, track parcels in transit, and follow up on delivery issues.</p>
         <div className="mt-6 flex flex-wrap gap-2" aria-label="Delivery filters">
@@ -284,6 +286,7 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
       {delivery && market === 'ZA' && <DeliveryIssues key={selected.id} orderId={selected.id} issues={deliveryIssues} onSaved={message => {
         setNotice(message); setSync(value => value + 1);
       }} />}
+      {market === 'ZA' && selected.bucket !== 'quote' && <OrderSuppliers key={selected.id} order={selected} />}
       <OrderItems key={`${market}:${selected.id}`} order={selected} market={market} formatAmount={amount => money(amount, market)} />
       <div className={styles.amount}><span>Items</span><span>{selected.items.some(item => item.unit === null) ? 'Awaiting pricing' : money(selected.subtotal, market)}</span></div>
       <div className={styles.amount}><span>Delivery</span><span>{selected.delivery === null ? 'Awaiting confirmation' : money(selected.delivery, market)}</span></div>
