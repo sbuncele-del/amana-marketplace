@@ -1,8 +1,9 @@
+import {orderTrackingLink} from '@/lib/order-tracking-link';
 import {z} from 'zod';
 import type {OpsRecord} from './culture';
 export const enquirySchema=z.object({name:z.string().trim().min(2).max(100),phone:z.string().trim().regex(/^\+?[0-9 ()-]{8,22}$/).refine(v=>v.replace(/\D/g,'').length>=8&&v.replace(/\D/g,'').length<=15),email:z.union([z.literal(''),z.string().email()]).optional(),city:z.string().trim().min(2).max(100),postcode:z.string().trim().regex(/^\d{4}$/),contactPreference:z.enum(['CALL','WHATSAPP']),followUpConsent:z.boolean(),contactWindow:z.string().trim().max(100).optional(),lines:z.array(z.object({id:z.string().max(250),quantity:z.number().int().min(1).max(10)})).min(1).max(50),requestKey:z.string().uuid()});
 export const actionSchema=z.discriminatedUnion('action',[
- z.object({action:z.literal('transition'),id:z.string(),version:z.number().int(),status:z.string().max(40),note:z.string().trim().min(3).max(2000),trackingNumber:z.string().trim().max(100).optional(),paymentReference:z.string().trim().max(100).optional(),shippingCents:z.number().int().min(0).max(10000000).optional(),promiseAt:z.string().datetime().optional()}),
+ z.object({action:z.literal('transition'),id:z.string(),version:z.number().int(),status:z.string().max(40),note:z.string().trim().min(3).max(2000),trackingNumber:z.string().trim().max(100).optional(),trackingUrl:z.string().trim().max(2000).refine(value=>!!orderTrackingLink(value)).optional(),paymentReference:z.string().trim().max(100).optional(),shippingCents:z.number().int().min(0).max(10000000).optional(),promiseAt:z.string().datetime().optional()}),
  z.object({action:z.literal('assign'),id:z.string(),version:z.number().int(),teamId:z.string().max(100),ownerId:z.string().max(100).nullable()}),
  z.object({action:z.literal('note'),id:z.string(),version:z.number().int(),note:z.string().trim().min(3).max(3000)}),
  z.object({action:z.literal('case'),orderId:z.string(),title:z.string().trim().min(3).max(160),category:z.enum(['DELIVERY','PRODUCT','PAYMENT','RETURN','CARE','OTHER']),priority:z.enum(['NORMAL','HIGH','URGENT']),note:z.string().trim().min(3).max(3000)}),

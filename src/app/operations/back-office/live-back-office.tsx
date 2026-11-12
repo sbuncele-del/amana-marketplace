@@ -46,6 +46,7 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
   const [history, setHistory] = useState<History | null>(null);
   const [historyError, setHistoryError] = useState('');
   const [review, setReview] = useState(false);
+  const [trackingUrl, setTrackingUrl] = useState('');
   const [reference, setReference] = useState('');
   const [cleared, setCleared] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -113,7 +114,7 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
   function resetDetail() {
     setSelectedId(null);
     setReview(false);
-    setReference('');
+    setReference(''); setTrackingUrl('');
     setCleared(false);
     setPaymentError('');
   }
@@ -139,12 +140,12 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
         method: 'POST', headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({action: 'transition', id: order.id, version: order.version, status, note,
           ...(status === 'PAID' ? {paymentReference: reference.trim()} : {}),
-          ...(status === 'SHIPPED' ? {trackingNumber: reference.trim()} : {})}),
+          ...(status === 'SHIPPED' ? {trackingNumber: reference.trim(), ...(trackingUrl.trim() ? {trackingUrl: trackingUrl.trim()} : {})} : {})}),
       });
       const body = await response.json();
       if (!response.ok) throw new Error(body.error || 'The order update could not be recorded.');
       setReview(false);
-      setReference('');
+      setReference(''); setTrackingUrl('');
       setCleared(false);
       setNotice(`Order ${order.reference} updated. ${note}`);
       setSync(previous => previous + 1);
@@ -254,16 +255,20 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
         <label className={styles.check}><input type="checkbox" required disabled={saving} checked={cleared} onChange={event => setCleared(event.target.checked)} />The reference matches order {selected.reference} and {money(selected.subtotal + selected.delivery, market)} has cleared.</label>
         {paymentError && <p role="alert" className="text-sm text-red-800">{paymentError}</p>}
         <button className={styles.primary} disabled={saving || loading}>{saving ? 'Recording…' : 'Mark as paid'}</button>
-        <button type="button" className={styles.cancel} disabled={saving} onClick={() => {setReview(false); setReference(''); setCleared(false); setPaymentError('');}}>Cancel</button>
+        <button type="button" className={styles.cancel} disabled={saving} onClick={() => {setReview(false); setReference(''); setTrackingUrl(''); setCleared(false); setPaymentError('');}}>Cancel</button>
       </form> : <button className={styles.primary} disabled={loading} onClick={() => setReview(true)}>Review payment</button>
         : milestone ? review ? <form className={styles.review} onSubmit={event => {event.preventDefault(); void saveMilestone(selected, milestone.status, milestone.note);}}>
-          {milestone.status === 'SHIPPED' && <label>Courier tracking reference<input required maxLength={100} disabled={saving} value={reference} onChange={event => setReference(event.target.value)} /></label>}
+          {milestone.status === 'SHIPPED' && <>
+            <label>Courier tracking reference<input required maxLength={100} disabled={saving} value={reference} onChange={event => setReference(event.target.value)} /></label>
+            <label>Customer tracking link (optional)<input type="url" maxLength={2000} placeholder="https://" disabled={saving} value={trackingUrl} onChange={event => setTrackingUrl(event.target.value)} />
+              <small>Paste the public link from the supplier or courier to add a Track your parcel button to the customer’s email.</small></label>
+          </>}
           <label className={styles.check}><input type="checkbox" required disabled={saving} checked={cleared} onChange={event => setCleared(event.target.checked)} />
             {milestone.status === 'FULFILMENT' ? 'This order is ready to prepare.' : milestone.status === 'SHIPPED' ? 'The courier has collected this order.' : selected.collection ? 'The customer has collected this order.' : 'Delivery has been confirmed.'}
           </label>
           {paymentError && <p role="alert">{paymentError}</p>}
           <button className={styles.primary} disabled={saving || loading}>{saving ? 'Recording…' : milestone.title}</button>
-          <button type="button" className={styles.cancel} disabled={saving} onClick={() => {setReview(false); setReference(''); setCleared(false); setPaymentError('');}}>Cancel</button>
+          <button type="button" className={styles.cancel} disabled={saving} onClick={() => {setReview(false); setReference(''); setTrackingUrl(''); setCleared(false); setPaymentError('');}}>Cancel</button>
         </form> : <button className={styles.primary} disabled={loading} onClick={() => setReview(true)}>{milestone.title}</button>
           : market === 'TN' && <Link className="mt-3 text-sm font-semibold text-red-700 underline" href="/operations/back-office/tunisia-orders">Manage COD order</Link>}
     </aside>}
