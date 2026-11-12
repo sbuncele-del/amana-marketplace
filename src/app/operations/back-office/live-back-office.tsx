@@ -6,6 +6,8 @@ import {Check, CircleAlert, Clock, FileText, Landmark, Package, Search, Shopping
 import {marketNames, queues, type BackOfficeOrder, type BackOfficeReport, type Market} from '@/lib/back-office';
 import {STATUS_LABEL, type DeskStatus} from '@/lib/orders-desk/domain';
 import {NewEnquiry, QuotePaymentInstructions, QuoteWorkspace} from './quote-workspace';
+import {DeliveryIssues} from './delivery-issues';
+import type {OpsRecord} from '@/lib/experience/culture';
 import {OrderItems} from './order-items';
 import {BackOfficeNavigation} from './navigation';
 import styles from '../../experience-preview/preview.module.css';
@@ -50,6 +52,7 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [deliveryIssues, setDeliveryIssues] = useState<OpsRecord[] | null>(null);
   const [history, setHistory] = useState<History | null>(null);
   const [historyError, setHistoryError] = useState('');
   const [review, setReview] = useState(false);
@@ -108,6 +111,7 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
     const controller = new AbortController();
     const id = encodeURIComponent(historyId);
     setHistory(null);
+    setDeliveryIssues(null);
     setHistoryError('');
     let inFlight = false;
     async function refreshHistory() {
@@ -115,8 +119,11 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
       inFlight = true;
       try {
         const request = market === 'ZA'
-      ? read<{events: {type: string; note: string; createdAt: string; actorName?: string}[]}>(`/api/experience/command?id=${id}`, controller.signal)
-        .then(data => data.events.map(event => ({label: statusText(event.type), note: event.note, at: event.createdAt, actor: event.actorName})))
+      ? read<{linked: OpsRecord[]; events: {type: string; note: string; createdAt: string; actorName?: string}[]}>(`/api/experience/command?id=${id}`, controller.signal)
+        .then(data => {
+          if (delivery && !controller.signal.aborted) setDeliveryIssues(data.linked.filter(item => item.kind === 'CASE' && item.data.category === 'DELIVERY'));
+          return data.events.map(event => ({label: statusText(event.type), note: event.note, at: event.createdAt, actor: event.actorName}));
+        })
       : read<{history: {to: string; note: string; at: string; by: string}[]}>(`/api/orders-desk?history=${id}`, controller.signal)
         .then(data => data.history.map(event => ({label: STATUS_LABEL[event.to as DeskStatus] || statusText(event.to), note: event.note, at: event.at, actor: event.by})));
         const events = await request;
@@ -130,7 +137,7 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
     void refreshHistory();
     const timer = market === 'ZA' ? setInterval(() => {if (!document.hidden) void refreshHistory();}, 10000) : undefined;
     return () => {controller.abort(); clearInterval(timer);};
-  }, [historyId, market, sync]);
+  }, [historyId, market, sync, delivery]);
 
   function resetDetail() {
     setSelectedId(null);
@@ -248,7 +255,11 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
               <span><strong>{order.reference}</strong><small>{order.customer || 'Customer'}</small>{market === 'ZA' && order.bucket === 'quote' && order.items[0] && <small>{order.items[0].quantity} × {order.items[0].name}</small>}</span></button></td>
             <td><span className={styles.chip} data-stage={order.bucket}>{label(order)}</span>
               {delivery && order.carrierStatus && <small className="mt-1">{statusText(order.carrierStatus.replaceAll('-', '_'))}</small>}</td>
-            <td>{delivery ? deliveryAction(order) : market === 'ZA' && order.status === 'ENQUIRY' ? 'Price quote' : definitions.find(item => item.key === order.bucket)?.action ?? 'View order'}</td>
+            <td>{delivery ? <button type="button" className="font-semibold text-red-700 underline" disabled={saving} onClick={event => {
+              trigger.current = event.currentTarget; resetDetail(); setHistory(null); setSelectedId(order.id);
+              if (order.canManage && order.deliveryStage !== 'attention' && ['PAID','FULFILMENT','SHIPPED'].includes(order.status)) setReview(true);
+              requestAnimationFrame(() => closeButton.current?.focus());
+            }}>{deliveryAction(order)}</button> : market === 'ZA' && order.status === 'ENQUIRY' ? 'Price quote' : definitions.find(item => item.key === order.bucket)?.action ?? 'View order'}</td>
             <td>{delivery ? order.collection ? 'Customer collection' : order.location || '–' : order.owner || '–'}</td>
           </tr>)}</tbody>
         </table>
@@ -270,6 +281,9 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
           {selected.trackingUrl && <a href={selected.trackingUrl} className="block text-red-700 underline" target="_blank" rel="noreferrer">Open courier tracking</a>}</dd></>}
         {selected.carrierStatus && <><dt>Carrier status</dt><dd>{statusText(selected.carrierStatus)}</dd></>}
       </dl>
+      {delivery && market === 'ZA' && <DeliveryIssues key={selected.id} orderId={selected.id} issues={deliveryIssues} onSaved={message => {
+        setNotice(message); setSync(value => value + 1);
+      }} />}
       <OrderItems key={`${market}:${selected.id}`} order={selected} market={market} formatAmount={amount => money(amount, market)} />
       <div className={styles.amount}><span>Items</span><span>{selected.items.some(item => item.unit === null) ? 'Awaiting pricing' : money(selected.subtotal, market)}</span></div>
       <div className={styles.amount}><span>Delivery</span><span>{selected.delivery === null ? 'Awaiting confirmation' : money(selected.delivery, market)}</span></div>

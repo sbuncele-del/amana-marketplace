@@ -60,6 +60,10 @@ export async function POST(request:NextRequest){try{
   const updated=(await client.query('UPDATE experience_records SET status=$2,due_at=$3,data=$4,team_id=$5,owner_id=$6,version=version+1,updated_at=now() WHERE id=$1 RETURNING *',[r.id,status,dueAt,JSON.stringify(data),teamId,ownerId])).rows[0];
   if(a.action==='assign'&&r.kind==='ORDER'){await client.query("UPDATE experience_records SET team_id=$2,owner_id=$3,version=version+1,updated_at=now() WHERE order_id=$1 AND status NOT IN ('DONE','DECLINED','RESOLVED')",[r.id,teamId,ownerId]);}
   await event(client,r.id,op.id,type,note,{from:r.status,to:status});
+  if(a.action==='resolve'&&r.orderId&&r.data.category==='DELIVERY'){
+   const parent=await client.query("SELECT id FROM experience_records WHERE id=$1 AND kind='ORDER' AND team_id IS NOT DISTINCT FROM $2",[r.orderId,r.teamId]);
+   if(parent.rowCount)await event(client,r.orderId,op.id,'DELIVERY_ISSUE_RESOLVED',`${r.reference}: ${note}`);
+  }
   const record=recordFromRow(updated);
   const emailJob=a.action==='transition'&&record.kind==='ORDER'?await queueOrderEmail(client,record):null;
   return {record,emailJob};

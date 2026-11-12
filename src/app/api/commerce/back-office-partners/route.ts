@@ -42,7 +42,7 @@ export async function GET(request: NextRequest) {
     if (!market.success) throw new CommerceError(400, "Choose a market.");
     requireMarket(actor, market.data);
     const { rows } = await experiencePool().query(
-      `SELECT p.id,p.name,p.kind,p.status,d.profile,coalesce(d.version,0) AS version
+      `SELECT p.id,p.name,p.kind,p.status,p.version AS review_version,p.verification_note,p.website,d.profile,coalesce(d.version,0) AS version
        FROM commerce_partner_markets pm JOIN commerce_partners p ON p.id=pm.partner_id
        LEFT JOIN commerce_partner_delivery d USING(partner_id,market_code)
        WHERE pm.market_code=$1 ORDER BY p.name,p.id`,
