@@ -10,6 +10,7 @@ import {sameRequestOrigin} from '@/lib/experience/request-origin';
 import {ensureExperienceSchema, experiencePool, transaction, insertRecord, event} from '@/lib/experience/store';
 import {limitPublicRequest} from '@/lib/experience/public-rate-limit';
 import {orderMailAddresses} from '@/lib/mail/order-addresses';
+import {eftOrderReceivedEmail} from '@/lib/mail/order-templates';
 import {sendMail} from '@/lib/mail/send';
 import {siteUrl} from '@/lib/site';
 import {prisma} from '@/lib/prisma';
@@ -35,8 +36,7 @@ export async function POST(request: NextRequest) {
     const alerts = process.env.PLENTOVO_EFT_ORDER_EMAIL;
     after(async () => {
       const results = await Promise.allSettled([
-        sendMail({...orderMailAddresses, to: user!.email!, subject: `Plentovo order received — ${reference}`,
-          html: `<p>We received your order. Use ${reference} as your EFT reference.</p><p><a href="${siteUrl}/checkout/eft/${reference}">View your items, total and payment instructions</a></p>`,
+        sendMail({...orderMailAddresses, to: user!.email!, ...eftOrderReceivedEmail(reference),
           idempotencyKey: `eft-customer-${reference}`}),
         ...(alerts ? [sendMail({to: alerts, subject: `New EFT order — ${reference}`,
           html: `<p>Order ${reference} is awaiting EFT. <a href="${siteUrl}/operations/back-office?view=payments">Open Back Office</a> to view its items and verify the bank transfer.</p>`,
