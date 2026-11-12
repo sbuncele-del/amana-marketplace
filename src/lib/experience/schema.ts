@@ -28,6 +28,16 @@ CREATE TABLE IF NOT EXISTS experience_events (
  type text NOT NULL, note text NOT NULL, data jsonb NOT NULL DEFAULT '{}', created_at timestamptz NOT NULL DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS experience_events_record ON experience_events(record_id,created_at DESC);
+CREATE TABLE IF NOT EXISTS experience_order_emails (
+ id text PRIMARY KEY, order_id text NOT NULL REFERENCES experience_records(id),
+ milestone text NOT NULL CHECK(milestone IN ('PAID','SHIPPED','DELIVERED')),
+ recipient text NOT NULL, subject text NOT NULL, html text NOT NULL,
+ status text NOT NULL DEFAULT 'QUEUED' CHECK(status IN ('QUEUED','SENDING','SENT','FAILED')),
+ attempts integer NOT NULL DEFAULT 0, due_at timestamptz NOT NULL DEFAULT now(),
+ first_attempt_at timestamptz, claimed_at timestamptz, provider_id text,
+ UNIQUE(order_id,milestone)
+);
+CREATE INDEX IF NOT EXISTS experience_order_emails_due ON experience_order_emails(status,due_at);
 CREATE TABLE IF NOT EXISTS experience_access_events (
  id text PRIMARY KEY, actor_id text NOT NULL, type text NOT NULL, team_id text NOT NULL,
  subject_id text, data jsonb NOT NULL DEFAULT '{}', created_at timestamptz NOT NULL DEFAULT now()

@@ -2,7 +2,7 @@
 
 import {useEffect, useRef, useState} from 'react';
 import Link from 'next/link';
-import {Check, FileText, Landmark, Package, Search, ShoppingCart, Truck, X} from 'lucide-react';
+import {Check, CircleAlert, Clock, FileText, Landmark, Package, Search, ShoppingCart, Truck, X} from 'lucide-react';
 import {marketNames, queues, type BackOfficeOrder, type BackOfficeReport, type Market} from '@/lib/back-office';
 import {STATUS_LABEL, type DeskStatus} from '@/lib/orders-desk/domain';
 import {NewEnquiry, QuotePaymentInstructions, QuoteWorkspace} from './quote-workspace';
@@ -87,14 +87,27 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
     const id = encodeURIComponent(historyId);
     setHistory(null);
     setHistoryError('');
-    const request = market === 'ZA'
+    let inFlight = false;
+    async function refreshHistory() {
+      if (inFlight) return;
+      inFlight = true;
+      try {
+        const request = market === 'ZA'
       ? read<{events: {type: string; note: string; createdAt: string; actorName?: string}[]}>(`/api/experience/command?id=${id}`, controller.signal)
         .then(data => data.events.map(event => ({label: statusText(event.type), note: event.note, at: event.createdAt, actor: event.actorName})))
       : read<{history: {to: string; note: string; at: string; by: string}[]}>(`/api/orders-desk?history=${id}`, controller.signal)
         .then(data => data.history.map(event => ({label: STATUS_LABEL[event.to as DeskStatus] || statusText(event.to), note: event.note, at: event.at, actor: event.by})));
-    request.then(events => {if (!controller.signal.aborted) setHistory(events);})
-      .catch(() => {if (!controller.signal.aborted) setHistoryError('Order history could not sync.');});
-    return () => controller.abort();
+        const events = await request;
+        if (!controller.signal.aborted) {setHistory(events); setHistoryError('');}
+      } catch {
+        if (!controller.signal.aborted) setHistoryError('Order history could not sync.');
+      } finally {
+        inFlight = false;
+      }
+    }
+    void refreshHistory();
+    const timer = market === 'ZA' ? setInterval(() => {if (!document.hidden) void refreshHistory();}, 10000) : undefined;
+    return () => {controller.abort(); clearInterval(timer);};
   }, [historyId, market, sync]);
 
   function resetDetail() {
@@ -230,7 +243,8 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
       {market === 'TN' && <p className="mb-4 text-sm text-gray-600">COD settlement requires confirmation from your courier records.</p>}
       <section className={styles.history}><h3>Order history</h3>
         {historyError ? <p role="alert">{historyError}</p> : history === null ? <p>Loading history…</p> : history.length ? <ol>{history.map((event, index) =>
-          <li key={index}><Check size={18} /><span><strong>{event.label}</strong><small>{date(event.at, market)}{event.actor && ` · ${event.actor}`}</small>{event.note && <small>{event.note}</small>}</span></li>
+          <li key={index}>{event.label === 'Customer email queued' ? <Clock size={18} aria-hidden="true" />
+            : ['Customer email failed', 'Customer email skipped'].includes(event.label) ? <CircleAlert size={18} aria-hidden="true" /> : <Check size={18} aria-hidden="true" />}<span><strong>{event.label}</strong><small>{date(event.at, market)}{event.actor && ` · ${event.actor}`}</small>{event.note && <small>{event.note}</small>}</span></li>
         )}</ol> : <p className="mt-2 text-sm text-gray-600">No history has been recorded.</p>}
       </section>
       {selected.canVerify && selected.quotePricing && <QuotePaymentInstructions key={selected.id} id={selected.id} />}
