@@ -1,8 +1,9 @@
-import {NextRequest,NextResponse} from 'next/server';
+import {after,NextRequest,NextResponse} from 'next/server';
 import {sameRequestOrigin} from '@/lib/experience/request-origin';
 import {randomUUID} from 'node:crypto';
 import {operator,assertAccess,canManage,ExperienceError} from '@/lib/experience/access';
 import {experiencePool,recordFromRow,transaction,event,insertRecord} from '@/lib/experience/store';
+import {queueOrderEmail,sendOrderEmail} from '@/lib/mail/order-updates';
 import {actionSchema,checkTransition,followupDecision} from '@/lib/experience/workflows';
 function failure(e:unknown){return e instanceof ExperienceError?NextResponse.json({error:e.message},{status:e.status}):NextResponse.json({error:'The operational service is temporarily unavailable. Please try again.'},{status:503});}
 export async function GET(request:NextRequest){try{
@@ -57,6 +58,15 @@ export async function POST(request:NextRequest){try{
   }
   const updated=(await client.query('UPDATE experience_records SET status=$2,due_at=$3,data=$4,team_id=$5,owner_id=$6,version=version+1,updated_at=now() WHERE id=$1 RETURNING *',[r.id,status,dueAt,JSON.stringify(data),teamId,ownerId])).rows[0];
   if(a.action==='assign'&&r.kind==='ORDER'){await client.query("UPDATE experience_records SET team_id=$2,owner_id=$3,version=version+1,updated_at=now() WHERE order_id=$1 AND status NOT IN ('DONE','DECLINED','RESOLVED')",[r.id,teamId,ownerId]);}
-  await event(client,r.id,op.id,type,note,{from:r.status,to:status});return {record:recordFromRow(updated)};
- });return NextResponse.json(result,{headers:{'Cache-Control':'no-store'}});
+  await event(client,r.id,op.id,type,note,{from:r.status,to:status});
+  const record=recordFromRow(updated);
+  const emailJob=a.action==='transition'&&record.kind==='ORDER'?await queueOrderEmail(client,record):null;
+  return {record,emailJob};
+ });
+ if('emailJob' in result){
+  const {emailJob,record}=result;
+  if(emailJob)after(async()=>{await sendOrderEmail(emailJob).catch(()=>console.error('Order email queued for retry'));});
+  return NextResponse.json({record},{headers:{'Cache-Control':'no-store'}});
+ }
+ return NextResponse.json(result,{headers:{'Cache-Control':'no-store'}});
  }catch(e){return failure(e);}}
