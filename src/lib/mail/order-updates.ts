@@ -3,44 +3,29 @@ import {randomUUID} from 'node:crypto';
 import type {PoolClient} from 'pg';
 import {z} from 'zod';
 import {event, experiencePool, transaction} from '@/lib/experience/store';
-import {siteUrl} from '@/lib/site';
-import {button, esc, layout, paragraph} from './layout';
+import {orderMilestones, orderMilestoneEmail} from './order-templates';
 import {orderMailAddresses} from './order-addresses';
 import {mailConfigured, sendMail} from './send';
-
-const labels = {
-  PAID: 'Payment confirmed',
-  SHIPPED: 'Order shipped',
-  DELIVERED: 'Order delivered',
-} as const;
-type Milestone = keyof typeof labels;
 
 export async function queueOrderEmail(
   client: PoolClient,
   order: {id: string; reference: string; status: string; data: Record<string, unknown>},
 ) {
-  if (!Object.hasOwn(labels, order.status)) return null;
-  const milestone = order.status as Milestone;
-  const collection = order.data.deliveryMethod === 'COLLECTION';
-  const label = milestone === 'DELIVERED' && collection ? 'Order collected' : labels[milestone];
+  if (!Object.hasOwn(orderMilestones, order.status)) return null;
+  const milestone = order.status as keyof typeof orderMilestones;
+  const {label, subject, html} = orderMilestoneEmail(milestone, order.reference, {
+    collection: order.data.deliveryMethod === 'COLLECTION',
+    trackingNumber: typeof order.data.trackingNumber === 'string' ? order.data.trackingNumber : undefined,
+  });
   const recipient = z.string().trim().email().safeParse(order.data.email);
   if (!recipient.success) {
     await event(client, order.id, null, 'CUSTOMER_EMAIL_SKIPPED', `${label}: no valid customer email on the order.`);
     return null;
   }
   const id = randomUUID();
-  const description = milestone === 'PAID' ? 'We’ve confirmed your payment.'
-    : milestone === 'SHIPPED' ? 'Your order has been handed to the courier.'
-    : collection ? 'Your order has been collected.' : 'Your order has been marked as delivered.';
-  const tracking = milestone === 'SHIPPED' ? paragraph(`Courier tracking number: <strong>${esc(order.data.trackingNumber)}</strong>`) : '';
-  const html = layout({preheader: label, content:
-    `<h1 style="font-size:24px">${esc(label)}</h1>` + paragraph(description) +
-    paragraph(`Order reference: <strong>${esc(order.reference)}</strong>`) + tracking +
-    button('Get order help', `${siteUrl}/track`),
-  });
   const {rowCount} = await client.query(
     'INSERT INTO experience_order_emails(id,order_id,milestone,recipient,subject,html,sender,reply_to) VALUES($1,$2,$3,$4,$5,$6,$7,$8) ON CONFLICT(order_id,milestone) DO NOTHING',
-    [id, order.id, milestone, recipient.data, `${label} | Plentovo ${order.reference}`, html, orderMailAddresses.from, orderMailAddresses.replyTo],
+    [id, order.id, milestone, recipient.data, subject, html, orderMailAddresses.from, orderMailAddresses.replyTo],
   );
   if (!rowCount) return null;
   await event(client, order.id, null, 'CUSTOMER_EMAIL_QUEUED', `${label} email queued.`);
