@@ -17,9 +17,15 @@ type Data = {
   shipments: {
     id: string;
     order_id: string;
+    order_reference: string;
+    tracking_number: string | null;
+    seller_cost_cents: string | null;
+    settled_at: string | null;
+    on_hold: boolean;
+    settlement_reference: string | null;
     status: string;
     version: number;
-    lines: { offerId: string; quantity: number }[];
+    lines: { offerId?: string; name?: string; sku?: string; option?: string; quantity: number }[];
     delivery_address: Record<string, string>;
   }[];
 };
@@ -59,6 +65,7 @@ export function PartnerWorkspace() {
       setBusy(false);
     }
   }
+  const settlements = data?.shipments.filter(item => item.seller_cost_cents !== null && item.status !== 'REJECTED') ?? [];
   const approved = Boolean(data?.applications.some(p => p.status === "APPROVED"));
   return (
     <main className="min-h-screen bg-slate-50 p-6 md:p-12">
@@ -138,7 +145,7 @@ export function PartnerWorkspace() {
                 </button>
               </form>
             )}
-            {approved && <><nav className="my-8 flex gap-6 border-b border-slate-200 pb-4 text-sm font-semibold"><a href="#inventory">Inventory ({data.offers.length})</a><a href="#fulfilment">Fulfilment ({data.shipments.length})</a></nav>
+            {approved && <><nav className="my-8 flex gap-6 border-b border-slate-200 pb-4 text-sm font-semibold"><a href="#inventory">Inventory ({data.offers.length})</a><a href="#fulfilment">Fulfilment ({data.shipments.length})</a><a href="#settlements">Settlements</a></nav>
             <h2 id="inventory" className="mt-8 text-xl font-bold">Assigned inventory</h2>
             {!data.offers.length && <p className="my-3">No offers assigned.</p>}
             {data.offers.map((o) => (
@@ -196,16 +203,17 @@ export function PartnerWorkspace() {
             {data.shipments.map((s) => (
               <article key={s.id} className="my-4 rounded border bg-white p-5">
                 <h3 className="font-semibold">
-                  Order {s.order_id} · {s.status}
+                  Order {s.order_reference} · {s.status.toLowerCase()}
                 </h3>
                 <p className="my-3 text-sm">
                   {Object.values(s.delivery_address).join(" · ")}
                 </p>
-                {s.lines.map((l) => (
-                  <p className="text-sm" key={l.offerId}>
-                    {l.offerId} · Quantity {l.quantity}
+                {s.lines.map((l, index) => (
+                  <p className="text-sm" key={l.offerId ?? index}>
+                    {l.name || l.offerId}{l.option && ` · ${l.option}`}{l.sku && ` · ${l.sku}`} · Quantity {l.quantity}
                   </p>
                 ))}
+                {s.tracking_number && <p className="mt-2 text-sm">Tracking {s.tracking_number}</p>}
                 {!["DELIVERED", "REJECTED"].includes(s.status) && (
                   <form
                     className="mt-4 flex flex-wrap gap-3"
@@ -247,7 +255,21 @@ export function PartnerWorkspace() {
                   </form>
                 )}
               </article>
-            ))}</>}
+            ))}
+            <h2 id="settlements" className="mt-8 text-xl font-bold">Settlements</h2>
+            {!settlements.length ? <p className="my-3">No agreed shipment amounts yet.</p> :
+              <div className="my-4 overflow-auto rounded-xl border bg-white">
+                <table className="w-full min-w-[470px] text-left text-sm">
+                  <thead className="bg-slate-50"><tr>{["Order", "Agreed amount", "Payment status"].map(label => <th key={label} scope="col" className="p-3">{label}</th>)}</tr></thead>
+                  <tbody>{settlements.map(shipment => <tr key={shipment.id} className="border-t">
+                    <td className="p-3">{shipment.order_reference}</td>
+                    <td className="p-3">{new Intl.NumberFormat('en-ZA', {style: 'currency', currency: 'ZAR'}).format(Number(shipment.seller_cost_cents) / 100)}</td>
+                    <td className="p-3">{shipment.settled_at ? 'Payment recorded' : shipment.on_hold ? 'On hold' : shipment.status === 'DELIVERED' ? 'Awaiting payment' : 'Awaiting delivery'}
+                      {shipment.settlement_reference && <small className="block">{shipment.settlement_reference}</small>}</td>
+                  </tr>)}</tbody>
+                </table>
+              </div>}
+            </>}
           </>
         )}
       </div>

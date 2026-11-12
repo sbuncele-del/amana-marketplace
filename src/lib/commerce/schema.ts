@@ -34,6 +34,10 @@ CREATE TABLE IF NOT EXISTS commerce_shipments (
  id text PRIMARY KEY,request_key text NOT NULL UNIQUE,order_id text NOT NULL REFERENCES experience_records(id),partner_id text NOT NULL,market_code text NOT NULL,status text NOT NULL DEFAULT 'ASSIGNED' CHECK(status IN ('ASSIGNED','ACCEPTED','REJECTED','DISPATCHED','DELIVERED')),
  lines jsonb NOT NULL,delivery_address jsonb NOT NULL,tracking_number text,version integer NOT NULL DEFAULT 1,created_at timestamptz NOT NULL DEFAULT now(),updated_at timestamptz NOT NULL DEFAULT now(),FOREIGN KEY(partner_id,market_code) REFERENCES commerce_partner_markets(partner_id,market_code)
 );
+ALTER TABLE commerce_shipments ADD COLUMN IF NOT EXISTS seller_cost_cents bigint CHECK(seller_cost_cents >= 0);
+ALTER TABLE commerce_shipments ADD COLUMN IF NOT EXISTS settlement_reference text;
+ALTER TABLE commerce_shipments ADD COLUMN IF NOT EXISTS settled_at timestamptz;
+CREATE INDEX IF NOT EXISTS commerce_shipments_order ON commerce_shipments(order_id);
 CREATE INDEX IF NOT EXISTS commerce_shipments_partner ON commerce_shipments(partner_id,status,created_at DESC);
 CREATE TABLE IF NOT EXISTS commerce_audit (id text PRIMARY KEY,actor_id text REFERENCES "User"(id),action text NOT NULL,entity_id text NOT NULL,market_code text,data jsonb NOT NULL DEFAULT '{}',created_at timestamptz NOT NULL DEFAULT now());
 CREATE INDEX IF NOT EXISTS commerce_audit_entity ON commerce_audit(entity_id,created_at DESC);
