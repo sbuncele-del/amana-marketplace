@@ -16,7 +16,7 @@ export const maxDuration = 60;
 const schema = z.object({
   requestKey: z.string().uuid(),
   addressId: z.string().max(100).nullable(),
-  method: z.enum(['DELIVERY', 'COLLECTION']),
+  method: z.literal('DELIVERY'),
   totalCents: z.number().int().positive(),
   lines: z.array(z.object({id: z.string().max(250).regex(/^[^:]+:[^:]+$/), quantity: z.number().int().min(1).max(10)})).min(1).max(50),
 }).refine(order => new Set(order.lines.map(line => line.id)).size === order.lines.length);
@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
       if (items.some(item => item === null)) return fail('An item’s availability changed. Please refresh your cart.', 409);
       const confirmedItems = items.filter(item => item !== null);
       const shipping = deliveryFee(confirmedItems, order.method);
-      if (shipping === null) return fail('Delivery needs a manual quote for this cart. Please contact Plentovo or choose collection.', 409);
+      if (shipping === null) return fail('Delivery needs a manual quote for this cart. Please contact Plentovo for a delivery quote.', 409);
       const shippingCents = Math.round(shipping * 100);
       const subtotalCents = confirmedItems.reduce((sum, item) => sum + item.unitPriceCents * item.quantity, 0);
       if (subtotalCents + shippingCents !== order.totalCents) return fail('Your order total changed. Please refresh your cart and check the new total.', 409);
