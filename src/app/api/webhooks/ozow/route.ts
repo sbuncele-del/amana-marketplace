@@ -17,15 +17,17 @@ export async function POST(request: NextRequest) {
     console.warn('Ozow webhook rejected: bad signature');
     return ack({error: 'Invalid signature.'}, 401);
   }
-  let envelope: {event_type?: string; data?: Record<string, unknown>};
+  let envelope: {type?: string; data?: Record<string, unknown>};
   try { envelope = JSON.parse(raw); } catch { return ack({error: 'Invalid body.'}, 400); }
-  if (envelope.event_type !== 'transaction.complete') return ack(); // pings, refunds: nothing to do automatically
+  if (envelope.type !== 'transaction.complete') return ack(); // pings, refunds: nothing to do automatically
   const data = envelope.data ?? {};
   const transactionId = String(data.id ?? data.TransactionId ?? '');
 
+  if (!/^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i.test(transactionId)) return ack({error: 'Invalid transaction ID.'}, 400);
+
   try {
     const tx = await getOzowTransaction(config, transactionId);
-    if (!tx || tx.siteCode !== config.siteCode) { console.warn('Ozow webhook: unknown transaction', transactionId); return ack(); }
+    if (!tx || tx.id.toLowerCase() !== transactionId.toLowerCase() || tx.siteCode !== config.siteCode) { console.warn('Ozow webhook: unknown transaction', transactionId); return ack(); }
 
     const emailJob = await transaction(async client => {
       const row = (await client.query(
