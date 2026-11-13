@@ -16,7 +16,7 @@ Order cut-off is 14:00 SAST. Processing is 0–2 business days after confirmed p
 Delivery fees depend on combined shipment weight, not simply item count or price. Published bands in ZAR:
 ${deliveryBands.map((b,i)=>`${i ? deliveryBands[i-1].underGrams/1000 : 0}kg to ${Number.isFinite(b.underGrams)?'below '+b.underGrams/1000+'kg':'and above'}: R${b.fee}`).join('\n')}
 Use exact boundaries: 10kg is R120, 20kg R199, 40kg R299, 60kg R399, 80kg R499, 100kg R599, 200kg R699. For unknown total weight, do not invent a final fee; explain that the cart must confirm it. Never guess dimensional weight or additional courier surcharges.
-Free collection is listed at 77 5th Street, Wynberg, Sandton, 2090, Johannesburg, Monday–Friday 08:30–17:00 SAST. The customer must wait for collection-ready confirmation before travelling. Do not confuse this location with the Centurion business address.
+Customer orders are delivered to a physical address in South Africa.
 After dispatch, tracking information is provided through the fulfilment process. You cannot look it up in this chat. The Your order link opens order support; it does not prove this assistant can fetch tracking.
 If a parcel is marked delivered but missing, suggest checking the address, household/neighbours/security, then contacting customer care with the order reference to investigate. Do not blame the customer or promise a refund before review.
 
