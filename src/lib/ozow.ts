@@ -2,9 +2,10 @@ import 'server-only';
 import {createHmac, timingSafeEqual} from 'node:crypto';
 
 // Ozow One API (https://hub.ozow.com). Pay by Bank, hosted checkout.
-const BASE = 'https://one.ozow.com/v1';
+const PRODUCTION = 'https://one.ozow.com/v1';
+const STAGING = 'https://stagingone.ozow.com/v1';
 
-export type OzowConfig = {clientId: string; clientSecret: string; siteCode: string; webhookSecret: string};
+export type OzowConfig = {clientId: string; clientSecret: string; siteCode: string; webhookSecret: string; base: string};
 
 /** Returns null (feature off) unless explicitly enabled AND fully configured. */
 export function ozowConfig(): OzowConfig | null {
@@ -14,14 +15,16 @@ export function ozowConfig(): OzowConfig | null {
   const siteCode = process.env.OZOW_PAY_SITE_CODE?.trim();
   const webhookSecret = process.env.OZOW_PAY_WEBHOOK_SECRET?.trim();
   if (!clientId || !clientSecret || !siteCode || !webhookSecret) return null;
-  return {clientId, clientSecret, siteCode, webhookSecret};
+  // Staging credentials only work on Ozow's staging host. Only the two documented hosts are allowed.
+  const base = process.env.OZOW_PAY_ENV === 'staging' ? STAGING : PRODUCTION;
+  return {clientId, clientSecret, siteCode, webhookSecret, base};
 }
 
-let cached: {token: string; expiresAt: number} | null = null;
+let cached: {token: string; expiresAt: number; base: string} | null = null;
 
 async function accessToken(config: OzowConfig) {
-  if (cached && cached.expiresAt > Date.now() + 60_000) return cached.token;
-  const response = await fetch(`${BASE}/token`, {
+  if (cached && cached.base === config.base && cached.expiresAt > Date.now() + 60_000) return cached.token;
+  const response = await fetch(`${config.base}/token`, {
     method: 'POST',
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     body: new URLSearchParams({client_id: config.clientId, client_secret: config.clientSecret, scope: 'payments', grant_type: 'client_credentials'}),
@@ -31,12 +34,12 @@ async function accessToken(config: OzowConfig) {
   if (!response.ok) throw new Error(`OZOW_TOKEN_${response.status}`);
   const body = await response.json() as {access_token?: string; expires_in?: number | string};
   if (!body.access_token) throw new Error('OZOW_TOKEN_EMPTY');
-  cached = {token: body.access_token, expiresAt: Date.now() + (Number(body.expires_in) || 3600) * 1000};
+  cached = {token: body.access_token, expiresAt: Date.now() + (Number(body.expires_in) || 3600) * 1000, base: config.base};
   return cached.token;
 }
 
 async function call(config: OzowConfig, path: string, init: {method?: string; body?: unknown; idempotencyKey?: string} = {}) {
-  const response = await fetch(`${BASE}${path}`, {
+  const response = await fetch(`${config.base}${path}`, {
     method: init.method ?? 'GET',
     headers: {
       Authorization: `Bearer ${await accessToken(config)}`,
