@@ -47,15 +47,15 @@ export function welcomeEmail(token: string, products: WelcomeProduct[] = [], mar
   };
 }
 
-export function supportAlertEmail(c: {reference: string; subject: string; name: string; phone: string; preference: string; message: string}) {
+export function supportAlertEmail(c: {reference: string; subject: string; name: string; phone: string; preference: string; message: string; email?: string}) {
   const row = (k: string, v: string) => `<tr><td style="padding:6px 12px 6px 0;color:#6b7280;font-size:14px;vertical-align:top;">${k}</td><td style="padding:6px 0;font-size:14px;color:#171B20;">${v}</td></tr>`;
   return {
-    subject: `New customer enquiry · ${c.subject} · ${c.reference}`,
+    subject: `[Plentovo South Africa] ${c.subject} · ${c.reference}`,
     html: layout({
       preheader: `${c.name} wrote in: ${c.subject}`,
       content:
         heading('New customer enquiry') +
-        `<table role="presentation" cellpadding="0" cellspacing="0" style="margin-bottom:16px;">${row('Reference', esc(c.reference))}${row('Topic', esc(c.subject))}${row('Name', esc(c.name))}${row('Phone', esc(c.phone))}${row('Prefers', c.preference === 'CALL' ? 'A phone call' : 'WhatsApp')}</table>` +
+        `<table role="presentation" cellpadding="0" cellspacing="0" style="margin-bottom:16px;">${row('Reference', esc(c.reference))}${row('Topic', esc(c.subject))}${row('Name', esc(c.name))}${row('Phone', esc(c.phone))}${row('Shop', 'South Africa')}${c.email ? row('Email', esc(c.email)) : ''}${row('Prefers', c.preference === 'EMAIL' ? 'Email' : c.preference === 'CALL' ? 'A phone call' : 'WhatsApp')}</table>` +
         `<div style="padding:16px;background:#f7f7f8;border-radius:10px;font-size:15px;line-height:1.6;color:#3a3f46;white-space:pre-wrap;">${esc(c.message)}</div>` +
         button('Open the operations centre', `${siteUrl}/operations`) +
         paragraph('<span style="font-size:13px;color:#6b7280;">Customer care aims to respond within 24 hours.</span>'),
