@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import {CreditCard, FileText, House, Layers3, Package, ShoppingCart, Truck, Users} from 'lucide-react';
+import {CreditCard, FileText, House, Layers3, LifeBuoy, Package, ShoppingCart, Truck, Users} from 'lucide-react';
 import styles from '../../experience-preview/preview.module.css';
 
 export const backOfficeHome = '/operations/back-office';
 const links = [
   ['Today', '', House], ['Orders', '?view=orders', ShoppingCart], ['Payments', '?view=payments', CreditCard],
   ['Products', '/products', Package], ['Suppliers', '/suppliers', Layers3], ['Quotes', '?view=quotes', FileText],
-  ['Delivery', '?view=delivery', Truck], ['Customers', '/customers', Users],
+  ['Delivery', '?view=delivery', Truck], ['Customers', '/customers', Users], ['Support', '/support', LifeBuoy],
 ] as const;
 
 export function BackOfficeNavigation({active}: {active: string}) {
