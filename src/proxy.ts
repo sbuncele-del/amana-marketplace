@@ -8,6 +8,9 @@ export default auth((req) => {
   const isLoggedIn = !!req.auth;
   const { pathname } = req.nextUrl;
 
+  // Browsers can request the public app manifest without a staff session.
+  if (pathname === "/operations/back-office/manifest.webmanifest") return NextResponse.next();
+
   if (!isLoggedIn) {
     const loginUrl = new URL("/login", req.url);
     loginUrl.searchParams.set("callbackUrl", pathname);
