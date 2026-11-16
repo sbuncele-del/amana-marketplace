@@ -1,3 +1,4 @@
 'use client';
 import {SharedCustomerChat} from '../../../packages/storefront/customer-chat';
-export function CustomerChat(){return <SharedCustomerChat/>;}
+import {SupportForm} from './support-form';
+export function CustomerChat(){return <SharedCustomerChat supportForm={question=><SupportForm initialMessage={question} />} />;}
