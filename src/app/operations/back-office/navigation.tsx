@@ -13,19 +13,25 @@ const links = [
 ] as const;
 
 export function BackOfficeNavigation({active}: {active: string}) {
-  return <aside className={styles.sidebar}>
-    <div className="max-[780px]:mb-3 max-[780px]:flex max-[780px]:items-center max-[780px]:justify-between">
-    <Link href={backOfficeHome} aria-label="Plentovo Back Office">
+  return <aside className={`${styles.sidebar} min-[781px]:sticky min-[781px]:top-0 min-[781px]:flex min-[781px]:h-dvh min-[781px]:flex-col`}>
+    <Link href={backOfficeHome} aria-label="Plentovo Back Office" className="shrink-0">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/brand/plentovo-light.svg" alt="Plentovo" className={styles.logo} />
     </Link>
-    <button type="button" className="mb-2 max-[780px]:mb-0" onClick={() => void signOut({redirectTo: '/login?callbackUrl=%2Foperations%2Fback-office'})}>
-      <LogOut size={20} aria-hidden="true" />Sign out
-    </button>
-    </div>
-    <nav aria-label="Back Office">{links.map(([title, path, Icon]) =>
-      <Link key={title} className={styles.navLink} aria-current={active === title ? 'page' : undefined} href={backOfficeHome + path}>
-        <Icon size={24} aria-hidden="true" />{title}
-      </Link>)}</nav>
+    <nav aria-label="Back Office" className="min-[781px]:min-h-0 min-[781px]:overflow-y-auto">
+      {links.map(([title, path, Icon]) =>
+        <Link key={title} className={styles.navLink} aria-current={active === title ? 'page' : undefined} href={backOfficeHome + path}>
+          <Icon size={24} aria-hidden="true" />{title}
+        </Link>)}
+    </nav>
+    <footer className="mt-3 shrink-0 border-t border-white/15 pt-2 min-[781px]:mt-auto">
+      <button
+        type="button"
+        className="!h-11 !gap-3 !px-4 !text-sm text-white/80 hover:text-white"
+        onClick={() => void signOut({redirectTo: '/login?callbackUrl=%2Foperations%2Fback-office'})}
+      >
+        <LogOut size={17} aria-hidden="true" />Sign out
+      </button>
+    </footer>
   </aside>;
 }
