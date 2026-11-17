@@ -1,5 +1,8 @@
+'use client';
+
+import {signOut} from 'next-auth/react';
 import Link from 'next/link';
-import {CreditCard, FileText, House, Layers3, LifeBuoy, Package, ShoppingCart, Truck, Users} from 'lucide-react';
+import {CreditCard, FileText, House, Layers3, LifeBuoy, LogOut, Package, ShoppingCart, Truck, Users} from 'lucide-react';
 import styles from '../../experience-preview/preview.module.css';
 
 export const backOfficeHome = '/operations/back-office';
@@ -11,10 +14,15 @@ const links = [
 
 export function BackOfficeNavigation({active}: {active: string}) {
   return <aside className={styles.sidebar}>
+    <div className="max-[780px]:mb-3 max-[780px]:flex max-[780px]:items-center max-[780px]:justify-between">
     <Link href={backOfficeHome} aria-label="Plentovo Back Office">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/brand/plentovo-light.svg" alt="Plentovo" className={styles.logo} />
     </Link>
+    <button type="button" className="mb-2 max-[780px]:mb-0" onClick={() => void signOut({redirectTo: '/login?callbackUrl=%2Foperations%2Fback-office'})}>
+      <LogOut size={20} aria-hidden="true" />Sign out
+    </button>
+    </div>
     <nav aria-label="Back Office">{links.map(([title, path, Icon]) =>
       <Link key={title} className={styles.navLink} aria-current={active === title ? 'page' : undefined} href={backOfficeHome + path}>
         <Icon size={24} aria-hidden="true" />{title}
