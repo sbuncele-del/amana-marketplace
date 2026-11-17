@@ -215,7 +215,7 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
     <main className={styles.main} id="main-content">
       <h1>{tab}</h1>
       <p className={styles.date}>{marketNames[market]} · {market === 'ZA' ? 'ZAR' : 'TND · Cash on delivery'}</p>
-      <p className="mt-2 text-sm text-gray-600" role="status">{loadedAt ? `Last synced ${date(loadedAt, market)}` : 'Connecting to order records'}
+      <p className="mt-2 text-sm text-gray-600" role="status">{loadedAt ? `Last synced ${date(loadedAt, market)}` : error ? 'Order records unavailable' : 'Connecting to order records'}
         <button type="button" className="ml-3 underline" disabled={loading || saving} onClick={() => setSync(value => value + 1)}>Refresh</button>
       </p>
       {tab === 'Payments' && market === 'ZA' && <Link href="/operations/back-office/settlements" className="mt-4 inline-block font-semibold text-red-700 underline">Seller settlements</Link>}
@@ -234,7 +234,7 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
           <span className={styles.metric}>{title}<strong>{report ? report.counts[key] ?? 0 : '–'}</strong></span>
         </button>;
       })}</div>}
-      {error && <p role="alert" className="my-3 text-sm text-red-800">{error}{report && ' Showing the last successful results.'}</p>}
+      {error && <p role="alert" className="my-3 text-sm text-red-800">{market === 'TN' && !report ? 'Tunisia orders are temporarily unavailable. Select Refresh to try again.' : error}{report && ' Showing the last successful results.'}</p>}
       {notice && <p role="status" className={styles.notice}>{notice}</p>}
       <div className="flex flex-wrap items-center justify-between gap-x-4">
         <h2>{delivery ? 'Delivery queue' : queue === 'all' ? 'Order queue' : definitions.find(item => item.key === queue)?.title}</h2>
@@ -265,7 +265,7 @@ export function LiveBackOffice({markets, view, canCreateQuote}: {markets: Market
             <td>{delivery ? order.collection ? 'Customer collection' : order.location || '–' : order.owner || '–'}</td>
           </tr>)}</tbody>
         </table>
-        {!report?.orders.length && <p className={styles.empty}>{loading ? 'Loading orders…' : error ? 'Refresh to retry.' : delivery ? 'No deliveries match this filter.' : tab === 'Quotes' && market === 'ZA' ? 'No enquiries or quotes match this view.' : 'No orders match this view.'}</p>}
+        {!report?.orders.length && <p className={styles.empty}>{loading ? 'Loading orders…' : error ? 'Order data could not be loaded.' : delivery ? 'No deliveries match this filter.' : tab === 'Quotes' && market === 'ZA' ? 'No enquiries or quotes match this view.' : 'No orders match this view.'}</p>}
       </div>
       {(page > 1 || (report?.total ?? 0) > 25) && <div className="mt-5 flex items-center gap-4 text-sm">
         <button disabled={page <= 1 || saving || loading} className="underline disabled:opacity-40" onClick={() => {resetDetail(); setPage(value => value - 1);}}>Previous</button>
