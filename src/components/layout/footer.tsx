@@ -8,34 +8,33 @@ import {ozowConfig} from '@/lib/ozow';
 
 export function Footer() {
   return (
-    <>
-      {ozowConfig() && (
-        <section aria-label="Official payment partner" className="border-t border-gray-200 bg-white">
-          <div className="mx-auto flex max-w-[1800px] flex-wrap items-center gap-x-4 gap-y-1 px-4 py-4 text-sm">
-            <h2 className="font-semibold text-[#171B20]">Official payment partner</h2>
-            <a href="https://ozow.com/pay-by-bank" className="font-bold text-[#171B20] underline decoration-gray-400 underline-offset-4 hover:decoration-current">Ozow</a>
-            <span className="text-gray-600">Pay by Bank at checkout</span>
+    <SharedFooter
+      business={business}
+      logo={<BrandLogo light className="h-auto w-44"/>}
+      cookies={<CookiePreferences/>}
+      departments={departments}
+      socialLinks={socialLinks}
+      storefrontLinks={
+        <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5 border-t border-white/10 pt-6 sm:col-span-2 lg:col-span-4">
+          <div>
+            <h2 className="mb-2 text-sm font-semibold">Get the Plentovo app</h2>
+            <a href="https://appgallery.huawei.com/#/app/C119680975" className="inline-flex min-h-11 items-center gap-2.5 rounded-lg border border-white/25 bg-white/5 px-3 text-sm font-medium hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/pdp/business/tablets/matepad-c7/en-img/icon/appgallery-2x.png" alt="" width="26" height="26" className="size-[26px] object-contain"/>
+              Download on HUAWEI AppGallery
+            </a>
           </div>
-        </section>
-      )}
-      <section aria-label="Plentovo app" className="border-b border-white/10 bg-[#171B20] text-white">
-        <div className="mx-auto flex max-w-[1800px] flex-wrap items-center gap-x-5 gap-y-3 px-4 py-5">
-          <h2 className="text-sm font-semibold">Get the Plentovo app</h2>
-          <a
-            href="https://appgallery.huawei.com/#/app/C119680975"
-            className="inline-flex min-h-11 items-center rounded-lg border border-white/30 px-4 text-sm font-semibold hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-          >
-            Download on HUAWEI AppGallery
-          </a>
+          {ozowConfig() && (
+            <div>
+              <h2 className="mb-2 text-sm font-semibold">Official payment partner</h2>
+              <a href="https://ozow.com/pay-by-bank" className="inline-flex min-h-11 items-center rounded-lg bg-white px-3 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://hub.ozow.com/assets/brand/payment-methods/pay-via-ozow-bank.png" alt="Pay by Bank via Ozow" width="1324" height="160" className="h-auto w-48"/>
+              </a>
+            </div>
+          )}
         </div>
-      </section>
-      <SharedFooter
-        business={business}
-        logo={<BrandLogo light className="h-auto w-44"/>}
-        cookies={<CookiePreferences/>}
-        departments={departments}
-        socialLinks={socialLinks}
-      />
-    </>
+      }
+    />
   );
 }
