@@ -29,7 +29,6 @@ export function Footer() {
               <a href="https://ozow.com/pay-by-bank" className="inline-flex min-h-13 items-center gap-3 rounded-lg bg-white px-3 py-2 text-sm font-medium text-[#171B20] hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="https://eu-images.contentstack.com/v3/assets/blt7dacf616844cf077/bltee045a1fbc3608c4/67996de9f9a080222f9e5fd8/Ozow-Logo.jpg?width=240" alt="Ozow" className="h-8 w-auto max-w-24 object-contain"/>
-                <span>Pay by Bank</span>
               </a>
             </div>
           )}
