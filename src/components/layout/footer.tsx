@@ -18,6 +18,17 @@ export function Footer() {
           </div>
         </section>
       )}
+      <section aria-label="Plentovo app" className="border-b border-white/10 bg-[#171B20] text-white">
+        <div className="mx-auto flex max-w-[1800px] flex-wrap items-center gap-x-5 gap-y-3 px-4 py-5">
+          <h2 className="text-sm font-semibold">Get the Plentovo app</h2>
+          <a
+            href="https://appgallery.huawei.com/#/app/C119680975"
+            className="inline-flex min-h-11 items-center rounded-lg border border-white/30 px-4 text-sm font-semibold hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          >
+            Download on HUAWEI AppGallery
+          </a>
+        </div>
+      </section>
       <SharedFooter
         business={business}
         logo={<BrandLogo light className="h-auto w-44"/>}
