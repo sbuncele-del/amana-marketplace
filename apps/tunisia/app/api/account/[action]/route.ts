@@ -1,9 +1,12 @@
+import {createHash, timingSafeEqual} from 'node:crypto';
 import {checkCode, clearedCookie, createSession, deleteCustomer, endSession, issueCode, listOrders, normaliseEmail, orderStage, saveProfile, sessionCookie, signInCustomer} from '@/lib/account/auth';
 import {accountConfig, accountDb, badOrigin, currentCustomer, reply} from '@/lib/account/server';
 import {codeEmail} from '@/lib/account/email';
 import {governorates, tunisianPhone} from '@/lib/orders/cod';
 
 type Ctx = {params: Promise<{action: string}>};
+const reviewerEmail = 'huawei-tn-review-7b46@plentovo.com';
+const digest = (value: string) => createHash('sha256').update(value).digest();
 const closed = () => reply(503, {code: 'ACCOUNTS_NOT_OPEN'});
 const loc = (v: unknown): 'en' | 'fr' | 'ar' => (v === 'en' || v === 'ar' ? v : 'fr');
 const read = async (request: Request): Promise<Record<string, unknown>> => {
@@ -31,9 +34,19 @@ export async function POST(request: Request, {params}: Ctx) {
   const body = await read(request);
   try {
     const db = await accountDb(cfg);
+    if (action === 'reviewer') {
+      const password = process.env.TUNISIA_HUAWEI_REVIEW_PASSWORD;
+      if (!password || normaliseEmail(body.email) !== reviewerEmail || typeof body.password !== 'string'
+        || !timingSafeEqual(digest(body.password), digest(password))) {
+        return reply(401, {code: 'WRONG_CREDENTIALS'});
+      }
+      const customer = await signInCustomer(db, reviewerEmail, loc(body.locale));
+      const {token, expires} = await createSession(db, customer.id);
+      return reply(200, {customer, orders: await listOrders(db, customer.id)}, {'Set-Cookie': sessionCookie(token, expires)});
+    }
     if (action === 'code') {
       const email = normaliseEmail(body.email);
-      if (!email) return reply(422, {code: 'INVALID_EMAIL'});
+      if (!email || email === reviewerEmail) return reply(422, {code: 'INVALID_EMAIL'});
       if (body.consent !== true) return reply(422, {code: 'CONSENT_REQUIRED'});
       const issued = await issueCode(db, email, cfg.secret);
       if (issued.status === 'wait') return reply(429, {code: 'WAIT', seconds: issued.seconds});
