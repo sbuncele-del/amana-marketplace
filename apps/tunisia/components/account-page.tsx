@@ -15,6 +15,13 @@ export function AccountPage({locale, privacyHref, trackOnly = false}: {locale: L
   const [state, setState] = useState<'loading' | 'out' | 'in' | 'closed'>('loading');
   const [customer, setCustomer] = useState<Customer | null>(null), [orders, setOrders] = useState<Order[]>([]);
   const [email, setEmail] = useState(''), [consent, setConsent] = useState(false), [code, setCode] = useState(''), [sent, setSent] = useState(false), [busy, setBusy] = useState(false), [msg, setMsg] = useState('');
+  const [reviewPassword, setReviewPassword] = useState('');
+  const [reviewOpen, setReviewOpen] = useState(false);
+  const reviewLabels = {
+    en: ['Reviewer sign-in', 'Password', 'Reviewer sign-in failed.'],
+    fr: ['Connexion évaluateur', 'Mot de passe', 'Échec de la connexion évaluateur.'],
+    ar: ['تسجيل دخول المراجع', 'كلمة المرور', 'تعذر تسجيل دخول المراجع.'],
+  }[locale];
   const [saved, setSaved] = useState(''), [confirmDelete, setConfirmDelete] = useState(false);
   const [trackRef, setTrackRef] = useState(''), [trackPhone, setTrackPhone] = useState(''), [tracked, setTracked] = useState<string | null>(null);
 
@@ -46,6 +53,16 @@ export function AccountPage({locale, privacyHref, trackOnly = false}: {locale: L
     } catch { setMsg(c.unavailable); }
     setBusy(false);
   }
+  async function signInReviewer(e: React.FormEvent) {
+    e.preventDefault(); setBusy(true); setMsg('');
+    try {
+      const response = await api('reviewer', {email, password: reviewPassword, locale});
+      if (!response.ok) { setMsg(reviewLabels[2]); return; }
+      const data = await response.json();
+      setCustomer(data.customer); setOrders(data.orders); setState('in'); setReviewOpen(false);
+    } catch { setMsg(c.unavailable); }
+    finally { setReviewPassword(''); setBusy(false); }
+  }
   async function saveDetails(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault(); setSaved('');
     const f = new FormData(e.currentTarget), get = (n: string) => String(f.get(n) ?? '');
@@ -70,12 +87,14 @@ export function AccountPage({locale, privacyHref, trackOnly = false}: {locale: L
   if (state === 'loading') return <section className="page"><h1>{c.title}</h1></section>;
   if (state === 'closed') return <section className="page"><h1>{c.title}</h1><p>{c.closed}</p>{trackBox}</section>;
   if (state === 'out') return <section className="page"><h1>{trackOnly ? c.trackTitle : c.title}</h1><p>{c.intro}</p>
-    <form onSubmit={sent ? verify : sendCode} className="address-form" style={{maxWidth: 420}}>
+    <form onSubmit={reviewOpen ? signInReviewer : sent ? verify : sendCode} className="address-form" style={{maxWidth: 420}}>
       <label>{c.email}<input required type="email" dir="ltr" autoComplete="email" inputMode="email" maxLength={120} value={email} onChange={e => setEmail(e.target.value)} disabled={sent}/></label>
-      {!sent && <label style={{display: 'flex', gap: 10, alignItems: 'flex-start', fontWeight: 400}}><input type="checkbox" checked={consent} onChange={e => setConsent(e.target.checked)} style={{width: 'auto', marginTop: 4}}/><span>{c.consent} <Link href={privacyHref}>{c.privacy}</Link></span></label>}
+      {reviewOpen && <label>{reviewLabels[1]}<input required type="password" autoComplete="current-password" maxLength={128} value={reviewPassword} onChange={e => setReviewPassword(e.target.value)}/></label>}
+      {!reviewOpen && !sent && <label style={{display: 'flex', gap: 10, alignItems: 'flex-start', fontWeight: 400}}><input type="checkbox" checked={consent} onChange={e => setConsent(e.target.checked)} style={{width: 'auto', marginTop: 4}}/><span>{c.consent} <Link href={privacyHref}>{c.privacy}</Link></span></label>}
       {sent && <><p role="status">{c.codeSent(email)}</p><label>{c.code}<input required dir="ltr" inputMode="numeric" autoComplete="one-time-code" pattern="\d{6}" maxLength={6} value={code} onChange={e => setCode(e.target.value.replace(/\D/g, ''))}/></label></>}
       {msg && <p role="alert" style={{color: '#b91c1c'}}>{msg}</p>}
-      <button className="button" disabled={busy}>{busy ? (sent ? c.checking : c.sending) : sent ? c.signIn : c.sendCode}</button></form>
+      <button className="button" disabled={busy}>{reviewOpen ? (busy ? c.checking : c.signIn) : busy ? (sent ? c.checking : c.sending) : sent ? c.signIn : c.sendCode}</button></form>
+    {!sent && !trackOnly && <button type="button" disabled={busy} onClick={() => {setReviewOpen(!reviewOpen); setReviewPassword(''); setMsg('');}}>{reviewOpen ? c.sendCode : reviewLabels[0]}</button>}
     {trackBox}</section>;
 
   return <section className="page"><h1>{trackOnly ? c.orders : c.title}</h1><p dir="ltr" style={{textAlign: locale === 'ar' ? 'right' : 'left'}}>{customer?.email}</p>
