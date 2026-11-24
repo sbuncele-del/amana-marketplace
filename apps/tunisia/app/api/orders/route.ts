@@ -4,6 +4,22 @@ import {checkCodOrder, codAlert, codConfirmation} from '@/lib/orders/cod';
 import {markAlerted, ordersSchema, saveOrder} from '@/lib/orders/store';
 import {getLiveProducts} from '@/lib/shipper-catalogue';
 
+const CATALOGUE_TIMEOUT_MS = 8000;
+
+async function checkoutProducts() {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  try {
+    return await Promise.race([
+      getLiveProducts(),
+      new Promise<Awaited<ReturnType<typeof getLiveProducts>>>(resolve => {
+        timer = setTimeout(() => resolve([]), CATALOGUE_TIMEOUT_MS);
+      }),
+    ]);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 const headers = {'Cache-Control': 'no-store'};
 const reply = (status: number, body: Record<string, unknown>) => Response.json(body, {status, headers});
 let pool: Pool | undefined, ready: Promise<unknown> | undefined;
@@ -21,7 +37,7 @@ export async function POST(request: Request) {
   try { body = JSON.parse(raw); } catch { return reply(400, {code: 'INVALID_DETAILS'}); }
   if (body.website) return reply(400, {code: 'INVALID_DETAILS'}); // hidden field only bots fill in
   try {
-    const products = await getLiveProducts();
+    const products = await checkoutProducts();
     if (!products.length) {
       console.error('[tn-orders] catalogue unavailable');
       return reply(503, {code: 'CATALOGUE_UNAVAILABLE'});
