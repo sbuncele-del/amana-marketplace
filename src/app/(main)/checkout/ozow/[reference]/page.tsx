@@ -4,6 +4,7 @@ import {auth} from '@/lib/auth';
 import {ensureExperienceSchema, experiencePool} from '@/lib/experience/store';
 import {formatCurrency} from '@/lib/utils';
 import {AutoRefresh, ClearCartWhenPaid} from './auto-refresh';
+import {PurchaseEvent} from './purchase-event';
 
 export const metadata = {title: 'Payment | Plentovo', robots: {index: false, follow: false}};
 export const dynamic = 'force-dynamic';
@@ -32,7 +33,7 @@ export default async function OzowReturnPage({params}: {params: Promise<{referen
         <p className="text-sm text-gray-600">We’re waiting for your bank to confirm the payment. This usually takes under a minute. If you cancelled or the payment failed, nothing was charged and you can try again from your cart.</p>
         <AutoRefresh />
       </> : cancelled ? <p className="text-sm text-gray-600">This order was cancelled. Contact Plentovo if you were charged.</p>
-      : <><ClearCartWhenPaid /><p className="text-sm text-gray-600">Thank you. We’ll get your order ready and email you when it’s on its way.</p></>}
+      : <><ClearCartWhenPaid /><PurchaseEvent reference={reference} value={(order.data.subtotalCents + (order.data.shippingCents ?? 0)) / 100} /><p className="text-sm text-gray-600">Thank you. We’ll get your order ready and email you when it’s on its way.</p></>}
     </section>
     <Link href="/browse" className="text-sm font-semibold text-red-700">Continue shopping</Link>
   </main>;
