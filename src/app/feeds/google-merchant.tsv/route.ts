@@ -1,4 +1,4 @@
-import {getCatalogueProducts,getCatalogueSnapshotCached} from '@/lib/catalogue';
+import {getVerifiedFeedProducts} from '@/lib/catalogue';
 import {buildMerchantFeed} from '@/lib/merchant-feed';
 
 export const runtime='nodejs';
@@ -7,9 +7,8 @@ export const maxDuration=300;
 
 export async function GET() {
  try {
-  // Live supplier prices first, as on the product pages; the cached snapshot only covers a supplier outage.
-  let source='live';
-  const products=await getCatalogueProducts('','','newest',false,true).catch(async()=>{source='cached';return getCatalogueSnapshotCached();});
+  // Availability comes from a live supplier check only; a collection that cannot be checked is left out, never assumed in stock.
+  const {products,skipped}=await getVerifiedFeedProducts();
   const {tsv,count}=buildMerchantFeed(products);
   if(!count)throw new Error('Empty catalogue');
   return new Response(tsv,{headers:{
@@ -17,7 +16,7 @@ export async function GET() {
    'Cache-Control':'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400',
    'X-Robots-Tag':'noindex',
    'X-Product-Count':String(count),
-   'X-Feed-Source':source,
+   'X-Products-Skipped-Unverified':String(skipped),
   }});
  }catch(error) {
   console.error('Merchant feed generation failed',error instanceof Error?error.message:'Unknown error');
