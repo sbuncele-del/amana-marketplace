@@ -6,8 +6,9 @@ import {siteUrl} from './site';
 const columns=['id','title','description','link','image_link','additional_image_link','availability','price','condition','identifier_exists','product_type','google_product_category'];
 const plain=(value:string)=>value.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
 const cell=(value:string)=>value.replace(/[\t\r\n]+/g,' ').trim();
-export function buildMerchantFeed(products:CatalogueProduct[]){
- const rows:string[][]=[];
+export type FeedRow={id:string;title:string;description:string;link:string;image:string;extra:string[];inStock:boolean;price:string;category:string;googleCategory:string};
+export function feedRows(products:CatalogueProduct[]){
+ const rows:FeedRow[]=[];
  for(const product of products){
   if(restricted.test(product.name))continue;
   const variant=product.variants.find(v=>v.supplierAvailable)||product.variants[0];
@@ -23,7 +24,11 @@ export function buildMerchantFeed(products:CatalogueProduct[]){
   const category=googleProductCategory(product);
   if(!category)continue;
   const extra=product.images.filter(src=>src!==imageSource).map(src=>{try{const u=new URL(src,siteUrl);return u.protocol==='https:'?u.href:'';}catch{return '';}}).filter(Boolean).slice(0,10);
-  rows.push([product.id,title,description,link.href,image.href,extra.join(','),variant.supplierAvailable?'in_stock':'out_of_stock',variant.price.toFixed(2)+' ZAR','new','no',product.category.name,category]);
+  rows.push({id:product.id,title,description,link:link.href,image:image.href,extra,inStock:!!variant.supplierAvailable,price:variant.price.toFixed(2)+' ZAR',category:product.category.name,googleCategory:category});
  }
+ return rows;
+}
+export function buildMerchantFeed(products:CatalogueProduct[]){
+ const rows=feedRows(products).map(r=>[r.id,r.title,r.description,r.link,r.image,r.extra.join(','),r.inStock?'in_stock':'out_of_stock',r.price,'new','no',r.category,r.googleCategory]);
  return {tsv:[columns,...rows].map(row=>row.map(cell).join('\t')).join('\n')+'\n',count:rows.length};
 }

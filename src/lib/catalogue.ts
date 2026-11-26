@@ -111,6 +111,23 @@ export async function getCatalogueProducts(search='',category='',sort='newest',a
  return products.filter(p=>!availableOnly||p.supplierAvailable).sort((a,b)=>sort==='price-low'?a.price-b.price:sort==='price-high'?b.price-a.price:0);
 }
 
+// Product feeds (Google, Meta, Pinterest) must only state availability that was checked against the supplier just now.
+// A collection whose live check fails is left out of the feed, never assumed in stock from the static snapshot.
+export async function getVerifiedFeedProducts(){
+ if(!(await catalogueMarket()))return {products:[] as CatalogueProduct[],skipped:0};
+ const snapshot=await getCatalogueSnapshot();
+ const collections=[...new Set(snapshot.map(p=>p.category.slug))];
+ const live=new Map<string,SupplierProduct>();const failed=new Set<string>();
+ for(let first=0;first<collections.length;first+=3){
+  await Promise.all(collections.slice(first,first+3).map(async c=>{
+   try{for(const p of await collectionSource(c))live.set(p.handle,p);}
+   catch(error){failed.add(c);console.error('Feed collection check failed',c,error instanceof Error?error.message:'Unknown error');}
+  }));
+ }
+ const verified=snapshot.filter(p=>!failed.has(p.category.slug));
+ return {products:verified.map(p=>update(p,live.get(p.slug))),skipped:snapshot.length-verified.length};
+}
+
 // Shared, short-lived selection. A supplier failure removes a candidate from promotion.
 export const getDemandOpening=unstable_cache(async()=>{
  const snapshot=await getCatalogueSnapshotCached();
