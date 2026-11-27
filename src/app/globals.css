@@ -3,3 +3,5 @@
 @source "../../packages/storefront";
 
 @import "../../packages/storefront/mobile-shopping.css";
+
+body { --bg-cream: #fff; }
