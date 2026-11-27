@@ -6,7 +6,8 @@ export const storefrontMissionSlugs = ['small-space-living','kitchen-made-easier
 // Apply the approved priority position even to older saved CMS configurations.
 export function alignedStorefrontOrder(order:readonly string[]){
  const sections=[...new Set(order.filter(id=>id!=='demand'))];
+ const missions=sections.indexOf('missions');
  const firstProducts=sections.findIndex(id=>['featured','value','departments'].includes(id));
- sections.splice(firstProducts<0?sections.length:firstProducts,0,'demand');
+ sections.splice(missions>=0?missions+1:firstProducts<0?sections.length:firstProducts,0,'demand');
  return sections;
 }

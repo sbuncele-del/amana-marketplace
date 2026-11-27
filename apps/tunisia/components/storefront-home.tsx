@@ -16,6 +16,7 @@ import {messages} from '@/lib/messages';
 import {copy,homeSlides,homeMissions,featuredMissions,productRows,matchesCategory} from '@/lib/storefront-copy';
 import {storefrontTranslator} from '@/lib/storefront-locale';
 import {money,type Locale} from '@/lib/catalogue';
+import {openingProducts} from '@/lib/home-selection';
 import type {ProductGroup} from '@/lib/product-groups';
 import {ProductCard} from './product-cards';
 const categoryKeys:Record<string,string>={'kitchen-dining':'kitchen','home-living':'home','toys-kids-baby':'kids','health-beauty':'care','storage-organisation':'organisation','garden-outdoor':'outdoor','home-decor-gifts':'decor','furniture':'furniture'};
@@ -46,7 +47,7 @@ export function StorefrontHome({locale,groups,collections=false,initialMobilePag
  const route=(href:string)=>href.startsWith('/department/')?(slug=>categoryKeys[slug]?`/${locale}/category/${slug}`:shop(slug))(href.split('/').pop()!):href.startsWith('/collections/')?shop(homeMissions.find(m=>href.endsWith(m.slug))?.key||'home'):`/${locale}/help`;
  const asset=(image:string)=>image.startsWith('/brand/')?'/tunisia'+image:image;
  const stocked=groups.filter(g=>g.stock>0);
- const priority=prioritySlugs.map(slug=>stocked.find(g=>g.slug===slug)).filter((g):g is ProductGroup=>Boolean(g));
+ const priority=openingProducts(groups,prioritySlugs);
  const priorities={headline:locale==='fr'?'De belles trouvailles pour le quotidien':locale==='ar'?'اختيارات جميلة لحياتك اليومية':'Good finds for right now',description:locale==='fr'?'Des idées utiles pour votre quotidien.':locale==='ar'?'اختيارات مفيدة لكل يوم.':'Useful picks for your everyday.'};
  const missions=collections?homeMissions:featuredMissions.map(slug=>homeMissions.find(m=>m.slug===slug)!);
  const missionSection=<SharedMissions missions={missions.map(m=>({slug:m.slug,href:shop(m.key),image:m.image,title:m.title[locale],description:m.description[locale]}))} eyebrow={m.ideasEyebrow} title={m.ideasTitle} text={m.ideasText} action={copy.choose[locale]} allHref={`/${locale}/collections`} allAction={copy.allIdeas[locale]}/>;
