@@ -177,7 +177,7 @@ store:{sectionOrder:string[];hiddenSections:string[];featuredTitle:string};theme
       </section>
     ),
   };
-  return <main id="main-content" className="store-theme pb-14" style={{background:theme.background,'--store-accent':theme.accent} as CSSProperties}>
+  return <main id="main-content" className="store-theme bg-white pb-14" style={{'--store-accent':theme.accent} as CSSProperties}>
 <h1 className="sr-only">{title}</h1>{slideshow}{alignedStorefrontOrder(store.sectionOrder).filter(id=>id==='demand'||!store.hiddenSections.includes(id)).map(id=><div data-storefront-section={id} key={id}>{sections[id]}</div>)}
 </main>;
 }
